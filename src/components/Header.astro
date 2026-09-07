@@ -66,12 +66,12 @@ const searchItems = [
       </div>
     </a>
 
-    <!-- Desktop Navigation Links (Tools at last) -->
-    <nav class="hidden lg:flex items-center gap-1">
+    <!-- Desktop / Tablet Navigation Links (Tools at last) -->
+    <nav class="hidden md:flex items-center gap-0.5 lg:gap-1">
       {navItems.map(item => (
         <a 
           href={item.href} 
-          class={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${item.active ? 'bg-slate-100 text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+          class={`px-2 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${item.active ? 'bg-slate-100 text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
         >
           {item.label}
         </a>
@@ -79,7 +79,7 @@ const searchItems = [
     </nav>
 
     <!-- Default Header Live Search Bar (No CTA) -->
-    <div class="relative w-44 sm:w-60 md:w-64" id="header-search-container">
+    <div class="relative w-40 sm:w-56 md:w-60 lg:w-64" id="header-search-container">
       <div class="relative flex items-center bg-slate-50 hover:bg-slate-100/80 focus-within:bg-white border border-slate-200 focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/15 rounded-xl transition-all shadow-2xs">
         <div class="pl-2.5 pr-1.5 pointer-events-none text-slate-400 flex items-center">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,14 +88,14 @@ const searchItems = [
         </div>
         <input 
           type="text" 
-          id="header-search-input"
+          id="header-search-input" 
           placeholder="Search IP, brand, ISP..." 
           class="w-full py-1.5 pr-6 bg-transparent text-slate-900 placeholder-slate-400 outline-none text-xs font-medium"
           autocomplete="off"
         />
         <button 
           id="header-search-clear" 
-          type="button"
+          type="button" 
           class="absolute right-2 text-slate-400 hover:text-slate-600 hidden text-xs font-bold my-auto"
         >
           ✕
@@ -114,7 +114,7 @@ const searchItems = [
   </div>
 
   <!-- Mobile Swipeable Nav Bar (Tools at last) -->
-  <div class="lg:hidden flex items-center gap-1.5 px-4 py-1.5 bg-slate-50/90 border-t border-slate-200/60 overflow-x-auto no-scrollbar">
+  <div class="md:hidden flex items-center gap-1.5 px-4 py-1.5 bg-slate-50/90 border-t border-slate-200/60 overflow-x-auto no-scrollbar">
     {navItems.map(item => (
       <a 
         href={item.href} 
