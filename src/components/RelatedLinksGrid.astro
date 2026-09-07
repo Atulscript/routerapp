@@ -103,7 +103,7 @@ const tools = [
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {otherIps.map(ip => (
             <a 
-              href={`${base}/${ip.slug}`} 
+              href={ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`} 
               class="p-2.5 rounded-m3-md bg-md-surface-container-low hover:bg-md-primary-container/40 border border-md-outline-variant/30 text-xs font-mono font-bold text-md-on-surface hover:text-md-primary transition-all flex flex-col justify-between group"
             >
               <span class="group-hover:translate-x-0.5 transition-transform text-md-primary">{ip.ip}</span>

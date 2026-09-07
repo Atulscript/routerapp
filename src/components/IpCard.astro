@@ -7,6 +7,7 @@ interface Props {
 
 const { data } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pageUrl = (data.slug === '192-168-1-1' || data.ip === '192.168.1.1') ? `${base}/` : `${base}/${data.slug}`;
 ---
 
 <div class="m3-card p-6 flex flex-col justify-between group hover:border-md-primary/60 transition-all">
@@ -20,7 +21,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
 
     <h3 class="text-lg font-bold text-md-on-surface group-hover:text-md-primary transition-colors mb-2">
-      <a href={`${base}/${data.slug}`} class="focus:outline-none">
+      <a href={pageUrl} class="focus:outline-none">
         {data.ip} Admin Login
       </a>
     </h3>
@@ -52,7 +53,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       Open IP ↗
     </a>
     <a 
-      href={`${base}/${data.slug}`} 
+      href={pageUrl} 
       class="m3-btn-outlined text-xs py-1.5 px-3.5 group-hover:bg-md-primary group-hover:text-white group-hover:border-md-primary transition-all"
     >
       Setup Guide →

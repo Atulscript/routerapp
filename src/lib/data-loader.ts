@@ -602,10 +602,12 @@ export const ISPS: Isp[] = [
 ];
 
 export async function getAllSlugs() {
-  const ipSlugs = GATEWAY_IPS.map(item => ({
-    params: { slug: item.slug },
-    props: { type: 'ip' as const, data: item }
-  }));
+  const ipSlugs = GATEWAY_IPS
+    .filter(item => item.slug !== '192-168-1-1')
+    .map(item => ({
+      params: { slug: item.slug },
+      props: { type: 'ip' as const, data: item }
+    }));
 
   const brandSlugs = BRANDS.map(item => ({
     params: { slug: item.slug },
