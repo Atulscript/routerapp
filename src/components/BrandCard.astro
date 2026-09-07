@@ -1,0 +1,38 @@
+---
+import type { Brand } from '../lib/types';
+
+interface Props {
+  data: Brand;
+}
+
+const { data } = Astro.props;
+---
+
+<a 
+  href={`/${data.slug}`}
+  class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group"
+>
+  <div>
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+        {data.name}
+      </h3>
+      <span class="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-full">
+        {data.models.length} Models
+      </span>
+    </div>
+
+    <p class="text-xs text-slate-500 line-clamp-2 mb-3 leading-relaxed">
+      {data.description}
+    </p>
+  </div>
+
+  <div class="mt-2 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+    <span class="font-mono text-slate-500 font-medium truncate max-w-[140px]">
+      {data.defaultIp}
+    </span>
+    <span class="font-bold text-brand-600 group-hover:translate-x-0.5 transition-transform">
+      View Logins →
+    </span>
+  </div>
+</a>

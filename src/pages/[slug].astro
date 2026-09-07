@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PasswordTable from '../components/PasswordTable.astro';
+import { getAllSlugs } from '../lib/data-loader';
+import type { GatewayIp, Brand, Isp } from '../lib/types';
+
+export async function getStaticPaths() {
+  return await getAllSlugs();
+}
+
+type Props = 
+  | { type: 'ip'; data: GatewayIp }
+  | { type: 'brand'; data: Brand }
+  | { type: 'isp'; data: Isp };
+
+const { type, data } = Astro.props as Props;
+
+// Dynamic title and description based on page type
+let pageTitle = "";
+let pageDescription = "";
+let schema: Record<string, any> = {};
+
+if (type === 'ip') {
+  const ipData = data as GatewayIp;
+  pageTitle = `${ipData.ip} Router Login, Admin Password & Setup Guide`;
+  pageDescription = ipData.description;
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": pageTitle,
+    "description": pageDescription,
+    "articleBody": ipData.steps.join(' ')
+  };
+} else if (type === 'brand') {
+  const brandData = data as Brand;
+  pageTitle = `${brandData.name} Router Default Passwords & Login Guide`;
+  pageDescription = brandData.description;
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": pageTitle,
+    "description": pageDescription
+  };
+} else if (type === 'isp') {
+  const ispData = data as Isp;
+  pageTitle = `${ispData.name} Router Admin Login (${ispData.defaultIp}) & Setup`;
+  pageDescription = ispData.description;
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": pageTitle,
+    "description": pageDescription
+  };
+}
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} schema={schema}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
+      <a href="/" class="hover:text-brand-600 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">{pageTitle}</span>
+    </nav>
+
+    <!-- IP View -->
+    {type === 'ip' && (() => {
+      const ip = data as GatewayIp;
+      return (
+        <article class="space-y-10">
+          <header class="border-b border-slate-200 pb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold font-mono uppercase mb-4 border border-brand-200">
+              <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+              Gateway IP: {ip.ip}
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              {ip.title}
+            </h1>
+            <p class="text-base text-slate-600 leading-relaxed">
+              {ip.description}
+            </p>
+          </header>
+
+          <!-- Quick Action Card -->
+          <div class="bg-gradient-to-br from-brand-600 to-sky-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-brand-500/10">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div>
+                <span class="text-xs uppercase font-bold tracking-wider text-brand-200">Direct Gateway Access</span>
+                <div class="text-2xl sm:text-3xl font-mono font-bold mt-1">http://{ip.ip}</div>
+                <div class="mt-3 flex flex-wrap gap-4 text-xs font-mono">
+                  <div class="bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-sm">
+                    Default User: <strong class="text-white">{ip.defaultUser}</strong>
+                  </div>
+                  <div class="bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-sm">
+                    Default Pass: <strong class="text-white">{ip.defaultPass}</strong>
+                  </div>
+                </div>
+              </div>
+              <a 
+                href={`http://${ip.ip}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-6 py-3.5 rounded-xl bg-white text-brand-700 font-bold text-sm shadow-lg hover:bg-brand-50 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              >
+                Open {ip.ip} Portal ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Step by step instructions -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <span>📋</span> How to Login to {ip.ip} (Step-by-Step)
+            </h2>
+            <ol class="space-y-4">
+              {ip.steps.map((step, idx) => (
+                <li class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center font-mono">
+                    {idx + 1}
+                  </span>
+                  <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <!-- Common Brands for this IP -->
+          <section class="bg-slate-100/70 rounded-3xl p-6 sm:p-8 border border-slate-200">
+            <h2 class="text-lg font-bold text-slate-900 mb-4">Routers that commonly use {ip.ip}</h2>
+            <div class="flex flex-wrap gap-2">
+              {ip.commonBrands.map(brand => (
+                <span class="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-800 shadow-sm">
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ Accordion -->
+          {ip.faqs && ip.faqs.length > 0 && (
+            <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+              <h2 class="text-xl font-bold text-slate-900 mb-4">Troubleshooting & Questions for {ip.ip}</h2>
+              {ip.faqs.map(faq => (
+                <div class="border-b border-slate-100 pb-4 last:border-0 last:pb-0">
+                  <h3 class="text-sm font-bold text-slate-900 mb-1.5">Q: {faq.question}</h3>
+                  <p class="text-xs text-slate-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </section>
+          )}
+        </article>
+      );
+    })()}
+
+    <!-- Brand View -->
+    {type === 'brand' && (() => {
+      const brand = data as Brand;
+      return (
+        <article class="space-y-10">
+          <header class="border-b border-slate-200 pb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-bold uppercase mb-4 border border-sky-200">
+              Brand Directory
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              {brand.name} Router Default Passwords & Login Guide
+            </h1>
+            <p class="text-base text-slate-600 leading-relaxed">
+              {brand.description}
+            </p>
+          </header>
+
+          <!-- Summary info -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+              <span class="text-xs text-slate-500 block mb-1">Default Gateway IP</span>
+              <span class="font-mono font-bold text-brand-600 text-sm">{brand.defaultIp}</span>
+            </div>
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+              <span class="text-xs text-slate-500 block mb-1">Default Username</span>
+              <span class="font-mono font-bold text-slate-900 text-sm">{brand.defaultUser}</span>
+            </div>
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+              <span class="text-xs text-slate-500 block mb-1">Default Password</span>
+              <span class="font-mono font-bold text-slate-900 text-sm">{brand.defaultPass}</span>
+            </div>
+          </div>
+
+          <!-- Models Table -->
+          <section>
+            <h2 class="text-xl font-bold text-slate-900 mb-4">
+              {brand.name} Model Credentials Database
+            </h2>
+            <PasswordTable models={brand.models} brandName={brand.name} />
+          </section>
+
+          <!-- Setup Guide -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-900 mb-6">
+              How to configure your {brand.name} Router
+            </h2>
+            <ol class="space-y-4">
+              {brand.guide.map((step, idx) => (
+                <li class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center font-mono">
+                    {idx + 1}
+                  </span>
+                  <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </article>
+      );
+    })()}
+
+    <!-- ISP View -->
+    {type === 'isp' && (() => {
+      const isp = data as Isp;
+      return (
+        <article class="space-y-10">
+          <header class="border-b border-slate-200 pb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase mb-4 border border-emerald-200">
+              Internet Service Provider
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              {isp.name} Router Login & Setup Guide
+            </h1>
+            <p class="text-base text-slate-600 leading-relaxed">
+              {isp.description}
+            </p>
+          </header>
+
+          <!-- Quick Action Card -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div>
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Gateway Address</span>
+                <div class="text-2xl font-mono font-bold text-slate-900 mt-1">{isp.defaultIp}</div>
+                <div class="mt-2 text-xs font-mono text-slate-600">
+                  Default Credentials: <strong>{isp.defaultUser}</strong> / <strong>{isp.defaultPass}</strong>
+                </div>
+              </div>
+              <a 
+                href={`http://${isp.defaultIp}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-sm transition-all"
+              >
+                Open {isp.defaultIp} →
+              </a>
+            </div>
+          </div>
+
+          <!-- Instructions -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-900 mb-6">
+              Step-by-Step {isp.name} ONT Setup
+            </h2>
+            <ol class="space-y-4">
+              {isp.instructions.map((step, idx) => (
+                <li class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center font-mono">
+                    {idx + 1}
+                  </span>
+                  <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
+                    {step}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </article>
+      );
+    })()}
+
+  </div>
+</BaseLayout>

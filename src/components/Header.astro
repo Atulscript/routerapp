@@ -1,0 +1,49 @@
+---
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-sky-400 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+        📡
+      </div>
+      <div>
+        <span class="font-extrabold text-lg sm:text-xl text-slate-900 tracking-tight">Router<span class="text-brand-600">Guide</span></span>
+        <span class="hidden sm:inline-block text-[11px] font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded ml-1.5 border border-slate-200">Directory</span>
+      </div>
+    </a>
+
+    <!-- Nav links -->
+    <nav class="flex items-center gap-1 sm:gap-2">
+      <a 
+        href="/" 
+        class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${currentPath === '/' ? 'text-brand-600 bg-brand-50 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        Home
+      </a>
+      <a 
+        href="/default-passwords" 
+        class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${currentPath === '/default-passwords' ? 'text-brand-600 bg-brand-50 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        Passwords
+      </a>
+      <a 
+        href="/what-is-my-ip" 
+        class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${currentPath === '/what-is-my-ip' ? 'text-brand-600 bg-brand-50 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        My IP
+      </a>
+      <a 
+        href="/192-168-1-1" 
+        class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-all"
+      >
+        192.168.1.1 Login
+      </a>
+    </nav>
+  </div>
+</header>

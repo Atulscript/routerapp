@@ -1,0 +1,38 @@
+---
+import type { Isp } from '../lib/types';
+
+interface Props {
+  data: Isp;
+}
+
+const { data } = Astro.props;
+---
+
+<a 
+  href={`/${data.slug}`}
+  class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group"
+>
+  <div>
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+        {data.name}
+      </h3>
+      <span class="text-[11px] font-bold font-mono text-brand-700 bg-brand-50 px-2 py-0.5 rounded border border-brand-100">
+        {data.defaultIp}
+      </span>
+    </div>
+
+    <p class="text-xs text-slate-500 line-clamp-2 mb-3 leading-relaxed">
+      {data.description}
+    </p>
+  </div>
+
+  <div class="mt-2 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+    <span class="text-slate-700 font-mono">
+      User: <strong class="text-slate-700">{data.defaultUser}</strong>
+    </span>
+    <span class="font-bold text-brand-600 group-hover:translate-x-0.5 transition-transform">
+      Setup Guide →
+    </span>
+  </div>
+</a>
