@@ -2,197 +2,231 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import RouterLookupTable from '../components/RouterLookupTable.astro';
-import IpCard from '../components/IpCard.astro';
 import BrandCard from '../components/BrandCard.astro';
 import IspCard from '../components/IspCard.astro';
 import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Router Default Logins & Gateway IP Directory | RouterGuide";
-const description = "Access your router admin panel. Complete guide for 192.168.1.1, 192.168.0.1, default router passwords, TP-Link, Netgear, Jio, Airtel, and all major brands.";
+const title = "192.168.1.1 Router Admin Login, Default Passwords & Setup Guide";
+const description = "Access your router admin panel at 192.168.1.1. Default username and password list, WiFi setup guide, and troubleshooting for TP-Link, Netgear, ASUS, Jio, Airtel, and all major routers.";
+
+const currentIp = GATEWAY_IPS.find(i => i.ip === '192.168.1.1') || GATEWAY_IPS[0];
+const otherIps = GATEWAY_IPS.filter(i => i.ip !== '192.168.1.1');
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "RouterGuide",
+  "@type": "TechArticle",
+  "headline": title,
+  "description": description,
   "url": "https://atulscript.github.io/routerapp",
-  "description": description
+  "articleBody": currentIp.steps.join(' ')
 };
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-b from-brand-50/70 via-white to-slate-50 py-12 sm:py-20 border-b border-slate-200/60 overflow-hidden">
+  
+  <!-- Dedicated 192.168.1.1 Hero Section -->
+  <section class="relative bg-gradient-to-b from-sky-50 via-white to-slate-50 py-12 sm:py-20 border-b border-slate-200 overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100/70 text-brand-800 text-xs font-bold uppercase tracking-wider mb-6 border border-brand-200">
-        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-        Default Router Gateway & Password Database
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider mb-5 border border-sky-200">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Default Router Gateway & Admin Portal
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
-        Access Your Router <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-sky-500">Admin Panel</span>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
+        192.168.1.1 <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600">Router Login</span>
       </h1>
       
-      <p class="text-base text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-        Find default router IP addresses, factory login credentials, and step-by-step setup guides for 3WARE, TP-Link, Netgear, JioFiber, Airtel, and all major brands.
+      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Access your wireless router and modem settings at <strong>http://192.168.1.1</strong>. Change your WiFi SSID password, configure security, and manage connected devices.
       </p>
 
-      <!-- Instant Search -->
-      <div class="mb-6">
+      <!-- Primary Big 192.168.1.1 Action Box -->
+      <div class="bg-gradient-to-r from-sky-600 via-sky-700 to-blue-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-sky-600/15 max-w-2xl mx-auto mb-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="text-left">
+            <span class="text-xs uppercase font-bold tracking-wider text-sky-200">Direct Gateway Access</span>
+            <div class="text-3xl sm:text-4xl font-mono font-black mt-1 tracking-tight">
+              192.168.1.1
+            </div>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs font-mono">
+              <span class="bg-white/15 px-2.5 py-1 rounded-md">User: <strong>admin</strong></span>
+              <span class="bg-white/15 px-2.5 py-1 rounded-md">Password: <strong>admin / password</strong></span>
+            </div>
+          </div>
+          
+          <a 
+            href="http://192.168.1.1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-6 py-4 rounded-2xl bg-white hover:bg-sky-50 text-sky-700 font-extrabold text-sm shadow-lg transition-all hover:scale-105 active:scale-95 whitespace-nowrap flex items-center gap-2"
+          >
+            <span>🔗 Open 192.168.1.1</span>
+            <span class="text-xs">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Instant Search Bar -->
+      <div class="max-w-2xl mx-auto">
         <SearchBar />
       </div>
 
-      <!-- Quick IP Direct Launch Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
-        <span class="text-slate-500 font-medium">Quick Gateway Links:</span>
-        <a href="http://192.168.1.1" target="_blank" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm text-brand-700 font-mono font-bold hover:bg-brand-50 transition-colors">
-          🔗 192.168.1.1
-        </a>
-        <a href="http://192.168.0.1" target="_blank" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm text-brand-700 font-mono font-bold hover:bg-brand-50 transition-colors">
-          🔗 192.168.0.1
-        </a>
-        <a href="http://192.168.2.1" target="_blank" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm text-brand-700 font-mono font-bold hover:bg-brand-50 transition-colors">
-          🔗 192.168.2.1
-        </a>
-        <a href="http://10.0.0.1" target="_blank" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm text-brand-700 font-mono font-bold hover:bg-brand-50 transition-colors">
-          🔗 10.0.0.1
-        </a>
+      <!-- Quick IP Shortcuts -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs">
+        <span class="text-slate-500 font-medium">Alternative Gateways:</span>
+        {otherIps.map(item => (
+          <a 
+            href={`${base}/${item.slug}`} 
+            class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm text-slate-700 font-mono font-bold hover:text-sky-600 hover:border-sky-300 transition-colors"
+          >
+            {item.ip}
+          </a>
+        ))}
       </div>
+
     </div>
   </section>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-14">
     
-    <!-- Interactive Brand & Model Password Lookup Table (Requested Feature) -->
-    <section class="bg-gradient-to-b from-white to-sky-50/30 rounded-3xl p-6 sm:p-8 border border-sky-200/80 shadow-md shadow-sky-100">
-      <div class="max-w-3xl mb-4">
+    <!-- 1. Interactive Brand & Model Password Finder (User's Screenshot Feature) -->
+    <section class="bg-gradient-to-b from-white to-sky-50/40 rounded-3xl p-6 sm:p-8 border border-sky-200 shadow-sm">
+      <div class="max-w-2xl mb-2">
         <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-100 px-2.5 py-1 rounded-full border border-sky-200">
-          ⚡ Interactive Lookup Tool
+          🔑 Brand Password Lookup
         </span>
         <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight mt-2">
-          Router Brand & Default Password Finder
+          Find Default Passwords by Router Brand
         </h2>
         <p class="text-sm text-slate-600 mt-1">
-          Select a router manufacturer from the dropdown to instantly view default models, protocols, usernames, and passwords.
+          Select your router manufacturer from the dropdown to view default login credentials and protocols.
         </p>
       </div>
 
       <RouterLookupTable />
     </section>
 
-    <!-- Gateway IPs Section -->
-    <section>
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Common Gateway IP Addresses</h2>
-          <p class="text-sm text-slate-500">Most widely used router default login portals</p>
-        </div>
+    <!-- 2. Step-by-Step 192.168.1.1 Login Tutorial -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">
+          How to Login to 192.168.1.1 (Step-by-Step Guide)
+        </h2>
+        <p class="text-sm text-slate-500 mt-1">
+          Follow these 5 simple steps to log into your router's administration interface
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {GATEWAY_IPS.map(item => (
-          <IpCard data={item} />
+      <ol class="space-y-4">
+        {currentIp.steps.map((step, idx) => (
+          <li class="flex items-start gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors">
+            <span class="flex-shrink-0 w-8 h-8 rounded-xl bg-sky-600 text-white font-black text-sm flex items-center justify-center font-mono shadow-sm shadow-sky-600/20">
+              {idx + 1}
+            </span>
+            <div class="pt-0.5">
+              <p class="text-sm text-slate-800 leading-relaxed font-medium">
+                {step}
+              </p>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
 
-    <!-- Popular Brands Section -->
+    <!-- 3. Popular Router Brands that use 192.168.1.1 -->
     <section>
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Popular Router Brands</h2>
-          <p class="text-sm text-slate-500">Default passwords and setup tutorials by manufacturer</p>
+          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Popular 192.168.1.1 Router Brands</h2>
+          <p class="text-sm text-slate-500">Default settings and setup guides by manufacturer</p>
         </div>
-        <a href={`${base}/default-passwords`} class="text-sm font-semibold text-brand-600 hover:text-brand-700">
-          View All Models →
+        <a href={`${base}/default-passwords`} class="text-sm font-bold text-sky-600 hover:text-sky-700">
+          All Models →
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {BRANDS.map(item => (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {BRANDS.slice(0, 9).map(item => (
           <BrandCard data={item} />
         ))}
       </div>
     </section>
 
-    <!-- ISP Providers Section -->
+    <!-- 4. ISP Modem & Fiber ONT Setup (India & Global) -->
     <section>
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h2 class="text-2xl font-bold text-slate-900 tracking-tight">ISP Modem & ONT Setup</h2>
-          <p class="text-sm text-slate-500">Dedicated configuration guides for major fiber providers</p>
+          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Internet Service Provider (ISP) Guides</h2>
+          <p class="text-sm text-slate-500">Dedicated setup for JioFiber, Airtel Xstream, BSNL, and ACT Fibernet</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {ISPS.map(item => (
           <IspCard data={item} />
         ))}
       </div>
     </section>
 
-    <!-- Common Typo Warning Box -->
-    <section class="bg-amber-50/80 rounded-3xl p-6 sm:p-8 border border-amber-200">
+    <!-- 5. Common Typo Warning Box (192.168.l.l, etc.) -->
+    <section class="bg-amber-50/90 rounded-3xl p-6 sm:p-8 border border-amber-200">
       <div class="max-w-3xl">
-        <div class="flex items-center gap-2 text-amber-900 font-bold text-lg mb-2">
-          <span>⚠️</span> Common IP Spelling Mistakes & Typos
+        <div class="flex items-center gap-2 text-amber-900 font-extrabold text-lg mb-2">
+          <span>⚠️</span> Avoid Common IP Typos (192.168.l.l vs 192.168.1.1)
         </div>
         <p class="text-sm text-amber-800 leading-relaxed mb-4">
-          IP addresses consist <strong>only of numerical digits</strong> separated by dots. Typing letters will redirect you to Google search results instead of your router login:
+          IP addresses consist <strong>strictly of numbers</strong> separated by periods. Typing letters like "l" (lowercase L) or "o" (letter O) will trigger a Google search instead of opening your router:
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-          <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono font-bold">
+          <div class="bg-white/90 p-3 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">192.168.l.l</span>
-            <a href={`${base}/192-168-1-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
+            <span class="text-emerald-700 mt-1">✓ 192.168.1.1</span>
           </div>
-          <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
+          <div class="bg-white/90 p-3 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">192.168.o.1</span>
-            <a href={`${base}/192-168-0-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.0.1</a>
+            <span class="text-emerald-700 mt-1">✓ 192.168.0.1</span>
           </div>
-          <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
+          <div class="bg-white/90 p-3 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">19216811</span>
-            <a href={`${base}/192-168-1-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
+            <span class="text-emerald-700 mt-1">✓ 192.168.1.1</span>
           </div>
-          <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
+          <div class="bg-white/90 p-3 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">http 192.168 1.1</span>
-            <a href={`${base}/192-168-1-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
+            <span class="text-emerald-700 mt-1">✓ 192.168.1.1</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
-      <h2 class="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+    <!-- 6. 192.168.1.1 Troubleshooting & FAQ Section -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+      <div>
+        <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">192.168.1.1 Frequently Asked Questions & Troubleshooting</h2>
+        <p class="text-sm text-slate-500 mt-1">Common issues when accessing the 192.168.1.1 admin panel</p>
+      </div>
+
       <div class="space-y-4">
-        <details class="group border border-slate-200 rounded-xl p-4 open:bg-slate-50 transition-colors">
-          <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
-            How do I find my router default IP address on Windows?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
-            Open Command Prompt (press <kbd class="px-1.5 py-0.5 rounded bg-slate-200 font-mono text-xs">Win + R</kbd>, type <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded">cmd</code>, and press Enter). Type <code class="font-mono font-bold text-brand-600">ipconfig</code> and look for the <strong>Default Gateway</strong> line (e.g. 192.168.1.1).
-          </p>
-        </details>
+        {currentIp.faqs.map(faq => (
+          <details class="group border border-slate-200 rounded-2xl p-5 open:bg-sky-50/40 transition-colors">
+            <summary class="font-bold text-slate-900 cursor-pointer list-none flex justify-between items-center text-sm">
+              {faq.question}
+              <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
 
-        <details class="group border border-slate-200 rounded-xl p-4 open:bg-slate-50 transition-colors">
-          <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
-            What are the most common default username and password combinations?
+        <details class="group border border-slate-200 rounded-2xl p-5 open:bg-sky-50/40 transition-colors">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex justify-between items-center text-sm">
+            How to change the WiFi Password at 192.168.1.1?
             <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
           </summary>
-          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
-            The top 3 combinations are: <strong>admin / admin</strong>, <strong>admin / password</strong>, and <strong>admin / (blank)</strong>. You can also look at the physical sticker underneath your router.
-          </p>
-        </details>
-
-        <details class="group border border-slate-200 rounded-xl p-4 open:bg-slate-50 transition-colors">
-          <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
-            How do I reset my router if I forgot the login password?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
-            Locate the small <strong>Reset</strong> pinhole button on the back of your router. While the router is powered on, use a paperclip or pin to press and hold the button for 10–15 seconds until the LED indicators flash. This restores original factory settings.
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+            Once logged into the admin dashboard at 192.168.1.1, go to <strong>Wireless</strong> or <strong>Wi-Fi Settings</strong> &gt; <strong>Wireless Security</strong>. Under <strong>WPA2-PSK / WPA3</strong>, enter your new password and click <strong>Apply / Save</strong>. Your router will restart with the new password.
           </p>
         </details>
       </div>
