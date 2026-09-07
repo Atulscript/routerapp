@@ -9,8 +9,8 @@ import AdBanner from '../components/AdBanner.astro';
 import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "192.168.1.1 Router Login & Admin Setup Guide | Default Passwords";
-const description = "Complete 192.168.1.1 router login portal guide. Factory default usernames and passwords, WiFi SSID setup, IP troubleshooting, and brand directory for TP-Link, Netgear, ASUS, Jio, and Airtel.";
+const title = "192.168.1.1 Router Login, Admin Setup & Passwords | 19216811.page";
+const description = "19216811.page: Access your router admin panel at 192.168.1.1. Default usernames, passwords, WiFi setup guides, and troubleshooting for TP-Link, Netgear, ASUS, JioFiber, and Airtel.";
 
 const currentIp = GATEWAY_IPS.find(i => i.ip === '192.168.1.1') || GATEWAY_IPS[0];
 const otherIps = GATEWAY_IPS.filter(i => i.ip !== '192.168.1.1');
@@ -21,7 +21,7 @@ const schema = {
   "@graph": [
     {
       "@type": "WebSite",
-      "name": "RouterGuide",
+      "name": "19216811.page",
       "url": "https://atulscript.github.io/routerapp",
       "description": description
     },
@@ -32,7 +32,7 @@ const schema = {
       "url": "https://atulscript.github.io/routerapp",
       "author": {
         "@type": "Organization",
-        "name": "RouterGuide Network Research"
+        "name": "19216811.page Network Research"
       },
       "articleBody": currentIp.steps.join(' ')
     },
@@ -60,7 +60,7 @@ const schema = {
       <!-- Tonal Badge Chip -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-xs font-bold uppercase tracking-wider mb-6 shadow-xs border border-md-primary/20">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        Default Router Gateway & Administration Portal
+        19216811.page • Default Router Gateway & Administration Portal
       </div>
 
       <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-md-on-surface tracking-tight mb-5 leading-tight font-sans">
@@ -68,7 +68,7 @@ const schema = {
       </h1>
       
       <p class="text-base sm:text-lg text-md-on-surface-variant max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
-        Access your wireless router and modem administration dashboard at <strong>http://192.168.1.1</strong>. Configure WiFi passwords, DHCP scopes, port forwarding, and security settings.
+        Welcome to <strong>19216811.page</strong>. Access your wireless router and modem administration dashboard at <strong>http://192.168.1.1</strong>. Configure WiFi passwords, DHCP scopes, port forwarding, and security settings.
       </p>
 
       <!-- Primary 192.168.1.1 Elevated Card -->
