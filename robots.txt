@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://router-guide.vercel.app/sitemap-index.xml
+Sitemap: https://atulscript.github.io/routerapp/sitemap-index.xml
