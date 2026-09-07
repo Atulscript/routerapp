@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Terms of Service | 19216811.page";
+const description = "Terms of Service for 19216811.page. Read our conditions of use, intellectual property disclaimers, and guidelines for using our networking reference portal.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 font-sans">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Terms of Service</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="space-y-2 border-b border-slate-200/80 pb-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-brand-700 text-xs font-bold uppercase border border-sky-200 shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+        Legal & Compliance
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Terms of Service
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Last Updated & Effective: <strong>September 7, 2026</strong>
+      </p>
+    </header>
+
+    <!-- Content Box -->
+    <div class="space-y-6 text-xs sm:text-sm text-slate-700 leading-relaxed bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-card">
+      
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">1. Acceptance of Terms</h2>
+        <p>
+          By accessing and using <strong>19216811.page</strong>, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, you must discontinue use of the website immediately.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">2. Educational & Reference Purpose Only</h2>
+        <p>
+          19216811.page is an independent technical resource providing reference guides, default gateway IP documentation, and security best practices for private networking under RFC 1918 standards.
+        </p>
+        <p>
+          All information is provided for educational and diagnostic purposes. We do not provide hardware warranty, firmware flashing services, or direct technical support on behalf of any manufacturer.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">3. Trademark & Brand Disclaimer</h2>
+        <p>
+          All manufacturer names, brand trademarks, logos, and model identifiers (e.g., TP-Link, Netgear, ASUS, D-Link, Cisco, Linksys, JioFiber, Airtel Xstream, etc.) mentioned on this site are the property of their respective trademark holders. Reference to these brands does not imply endorsement, affiliation, sponsorship, or certification by any manufacturer.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">4. Limitation of Liability</h2>
+        <p>
+          In no event shall 19216811.page, its authors, or operators be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use the information, utilities, or external links provided on this website. Users are responsible for safeguarding their own router passwords and network security configurations.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">5. Modifications to Terms</h2>
+        <p>
+          We reserve the right to revise these Terms of Service at any time without prior notice. Continued use of the website after changes are posted constitutes your acceptance of the modified terms.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">6. Governing Law</h2>
+        <p>
+          These terms and conditions are governed by and construed in accordance with applicable global standard internet protocols and regulations.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Related Links -->
+    <RelatedLinksGrid />
+
+  </div>
+</BaseLayout>

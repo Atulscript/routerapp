@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Privacy Policy | 19216811.page";
+const description = "Privacy Policy for 19216811.page. Learn how we collect, use, and protect your information, including disclosures for Google AdSense and third-party advertising cookies.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 font-sans">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Privacy Policy</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="space-y-2 border-b border-slate-200/80 pb-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-brand-700 text-xs font-bold uppercase border border-sky-200 shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+        Legal & Compliance
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Privacy Policy
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Last Updated & Effective: <strong>September 7, 2026</strong>
+      </p>
+    </header>
+
+    <!-- Policy Content Sections -->
+    <div class="space-y-6 text-xs sm:text-sm text-slate-700 leading-relaxed bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-card">
+      
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">1. Introduction</h2>
+        <p>
+          At <strong>19216811.page</strong> ("we," "our," or "us"), we respect your privacy and are committed to protecting any information collected during your visit to our website. This Privacy Policy outlines what information is collected, how it is used, and the choices available to you regarding your data.
+        </p>
+        <p>
+          19216811.page operates as an open, educational networking reference directory designed to assist home and enterprise users in managing their private local area networks, router gateways, and default hardware configurations.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">2. Information We Collect</h2>
+        <p>
+          <strong>A. Log Files:</strong> Like standard web servers, 19216811.page utilizes log files. These files log visitors when they access the site. Information collected includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, referring/exit pages, and number of clicks. This data is not linked to any personally identifiable information and is used strictly for analyzing trends, administering the site, and improving user experience.
+        </p>
+        <p>
+          <strong>B. Local Browser Storage & Utilities:</strong> Our client-side networking utilities (including WiFi QR Code Generator, Password Generator, and IP Lookup) run entirely in your local browser. We do not store, log, transmit, or retain your Wi-Fi credentials or generated passwords on our servers.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">3. Google AdSense & Third-Party Advertising Cookies</h2>
+        <p>
+          We use <strong>Google AdSense</strong> and other third-party advertising partners to serve advertisements when you visit our website.
+        </p>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
+          <p class="font-bold text-slate-900">Important Google Advertising Disclosures:</p>
+          <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
+            <li>Google, as a third-party vendor, uses cookies to serve ads on 19216811.page.</li>
+            <li>Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the Internet.</li>
+            <li>Users may opt out of personalized advertising by visiting the <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-bold underline">Google Ads Settings</a>.</li>
+            <li>Alternatively, users can opt out of third-party vendor cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-bold underline">aboutads.info</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">4. Third-Party Links & Content</h2>
+        <p>
+          Our website contains links to external router admin portals (e.g., <code class="font-mono bg-slate-100 px-1.5 py-0.5 rounded text-xs">http://192.168.1.1</code>), official manufacturer documentation, and diagnostic tools. We do not control or endorse the content, security, or privacy practices of external third-party websites. Users access external links at their own discretion.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">5. GDPR & CCPA Privacy Rights</h2>
+        <p>
+          Depending on your location, you have rights under applicable privacy legislation, including the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA):
+        </p>
+        <ul class="list-disc list-inside space-y-1 text-slate-600 pl-1">
+          <li><strong>Right to Access:</strong> Request copies of any personal data held.</li>
+          <li><strong>Right to Erasure:</strong> Request the deletion of your personal data.</li>
+          <li><strong>Right to Restrict Processing:</strong> Request restrictions on how your data is processed.</li>
+          <li><strong>Right to Opt-Out:</strong> Opt-out of the sale or sharing of personal data with advertising vendors.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">6. Children's Information</h2>
+        <p>
+          We do not knowingly collect any Personal Identifiable Information from children under the age of 13. If you believe your child provided this kind of information on our website, please contact us immediately and we will promptly remove such information.
+        </p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">7. Contact Information</h2>
+        <p>
+          If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <strong class="text-brand-700 font-mono">contact@19216811.page</strong> or via our <a href={`${base}/contact`} class="text-brand-600 font-bold underline">Contact Page</a>.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Related Links -->
+    <RelatedLinksGrid />
+
+  </div>
+</BaseLayout>

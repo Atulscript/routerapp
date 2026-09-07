@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Contact Us & Support | 19216811.page";
+const description = "Get in touch with the 19216811.page editorial team. Send feedback, report inaccurate router credentials, or submit copyright/DMCA inquiries.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 font-sans">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Contact Us</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="space-y-2 border-b border-slate-200/80 pb-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase border border-emerald-200 shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        Get In Touch
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        Contact Us
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
+        Have feedback, questions, or a correction for our router database? We're here to help.
+      </p>
+    </header>
+
+    <!-- Contact Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      
+      <!-- Contact Info (5 cols) -->
+      <div class="md:col-span-5 space-y-4">
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-3 text-xs text-slate-600">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center text-lg font-bold shadow-2xs">
+            ✉️
+          </div>
+          <h2 class="text-base font-bold text-slate-900">Direct Editorial Email</h2>
+          <p class="leading-relaxed">
+            For general questions, database updates, or partnership inquiries:
+          </p>
+          <a href="mailto:contact@19216811.page" class="block font-mono font-bold text-brand-600 text-sm hover:underline">
+            contact@19216811.page
+          </a>
+          <p class="text-[11px] text-slate-400">
+            Average response time: 24 to 48 business hours.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-2.5 text-xs text-slate-600">
+          <h2 class="font-bold text-slate-900 text-xs uppercase tracking-wider">DMCA & Trademark Notices</h2>
+          <p class="leading-relaxed text-[11px]">
+            If you are a copyright owner or brand representative with concerns regarding material on this reference directory, please email us with subject "DMCA / Trademark Inquiry" for prompt handling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Contact Form (7 cols) -->
+      <div class="md:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-card space-y-4 text-xs font-sans">
+        <h2 class="text-base font-bold text-slate-900">Send Us a Message</h2>
+        
+        <form id="contact-form" class="space-y-3.5">
+          <div>
+            <label for="contact-name" class="block font-bold uppercase tracking-wider text-[11px] text-slate-500 mb-1">Your Name</label>
+            <input 
+              type="text" 
+              id="contact-name" 
+              required 
+              placeholder="John Doe" 
+              class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300/80 rounded-xl text-xs font-medium focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/15 outline-none"
+            />
+          </div>
+
+          <div>
+            <label for="contact-email" class="block font-bold uppercase tracking-wider text-[11px] text-slate-500 mb-1">Email Address</label>
+            <input 
+              type="email" 
+              id="contact-email" 
+              required 
+              placeholder="john@example.com" 
+              class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300/80 rounded-xl text-xs font-medium focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/15 outline-none"
+            />
+          </div>
+
+          <div>
+            <label for="contact-subject" class="block font-bold uppercase tracking-wider text-[11px] text-slate-500 mb-1">Inquiry Type</label>
+            <select 
+              id="contact-subject" 
+              class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300/80 rounded-xl text-xs font-medium focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/15 outline-none cursor-pointer"
+            >
+              <option value="database">Report Incorrect Router Password / IP</option>
+              <option value="feedback">General Website Feedback</option>
+              <option value="advertising">Advertising & Sponsorship Inquiry</option>
+              <option value="dmca">DMCA / Trademark Inquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="contact-msg" class="block font-bold uppercase tracking-wider text-[11px] text-slate-500 mb-1">Message</label>
+            <textarea 
+              id="contact-msg" 
+              rows="4" 
+              required 
+              placeholder="Please provide router model name, details, or feedback..." 
+              class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300/80 rounded-xl text-xs font-medium focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/15 outline-none"
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            id="contact-submit-btn"
+            class="w-full py-2.5 bg-slate-900 hover:bg-brand-600 text-white font-bold rounded-xl text-xs shadow-xs hover:shadow-sm transition-all active:scale-95 cursor-pointer"
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div id="contact-success" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium text-center">
+          ✓ Thank you! Your message has been received. Our team will review your inquiry shortly.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Related Links -->
+    <RelatedLinksGrid />
+
+  </div>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successBox = document.getElementById('contact-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('hidden');
+    successBox?.classList.remove('hidden');
+  });
+</script>

@@ -107,30 +107,40 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </ul>
       </div>
 
-      <!-- Col 5: Tools & Directories -->
+      <!-- Col 5: Legal, Tools & Compliance -->
       <div>
         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
-          <span class="text-indigo-600">🛠️</span> Tools
+          <span class="text-indigo-600">⚖️</span> Legal & Policy
         </h4>
         <ul class="space-y-2 text-xs text-slate-600">
-          <li><a href={`${base}/what-is-my-ip`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">What is My IP?</a></li>
-          <li><a href={`${base}/wifi-qr-generator`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">WiFi QR Generator</a></li>
-          <li><a href={`${base}/password-generator`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Password Generator</a></li>
-          <li><a href={`${base}/default-passwords`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Default Passwords</a></li>
-          <li><a href={`${base}/routers`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Hardware Database</a></li>
-          <li><a href={`${base}/brands`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Brands Directory</a></li>
+          <li><a href={`${base}/privacy-policy`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Privacy Policy</a></li>
+          <li><a href={`${base}/terms-of-service`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Terms of Service</a></li>
+          <li><a href={`${base}/about`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">About Us</a></li>
+          <li><a href={`${base}/contact`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Contact & Support</a></li>
+          <li><a href={`${base}/disclaimer`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Disclaimer & DMCA</a></li>
+          <li><a href={`${base}/tools`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all font-semibold text-brand-700">All Network Tools →</a></li>
         </ul>
       </div>
 
     </div>
 
+    <!-- AdSense Non-Affiliation & Trust Disclaimer Strip -->
+    <div class="border-t border-slate-200 mt-10 pt-6 text-[11px] text-slate-500 leading-relaxed text-center sm:text-left space-y-2">
+      <p>
+        <strong>Disclaimer:</strong> 19216811.page is an independent educational networking guide and reference portal. We are not affiliated with, authorized, or endorsed by any router hardware manufacturer or ISP (including TP-Link, Netgear, ASUS, D-Link, Cisco, Linksys, Jio, Airtel, BSNL). All brand names, logos, and trademarks are the property of their respective owners.
+      </p>
+    </div>
+
     <!-- Bottom Bar -->
-    <div class="border-t border-slate-200 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+    <div class="border-t border-slate-200 mt-4 pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
       <p>© {currentYear} 19216811.page · Open Router Reference Portal</p>
-      <div class="flex items-center gap-4 text-xs font-medium">
-        <a href={`${base}/brands`} class="hover:text-slate-900 transition-colors">All Brands</a>
-        <a href={`${base}/ip-addresses`} class="hover:text-slate-900 transition-colors">All Gateways</a>
-        <a href={`${base}/sitemap-index.xml`} class="hover:text-slate-900 transition-colors">XML Sitemap</a>
+      <div class="flex flex-wrap items-center gap-4 text-xs font-medium">
+        <a href={`${base}/privacy-policy`} class="hover:text-slate-900 transition-colors">Privacy Policy</a>
+        <a href={`${base}/terms-of-service`} class="hover:text-slate-900 transition-colors">Terms</a>
+        <a href={`${base}/disclaimer`} class="hover:text-slate-900 transition-colors">Disclaimer</a>
+        <a href={`${base}/about`} class="hover:text-slate-900 transition-colors">About</a>
+        <a href={`${base}/contact`} class="hover:text-slate-900 transition-colors">Contact</a>
+        <a href={`${base}/sitemap-index.xml`} class="hover:text-slate-900 transition-colors">Sitemap</a>
       </div>
     </div>
   </div>
