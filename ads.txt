@@ -1,4 +1,3 @@
 # Google AdSense Authorized Digital Sellers (ads.txt)
-# Replace pub-0000000000000000 with your own 16-digit AdSense Publisher ID from your AdSense Dashboard
-# Format: <Field #1>, <Field #2>, <Field #3>, <Field #4>
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-8700784373117801, DIRECT, f08c47fec0942fa0
+
