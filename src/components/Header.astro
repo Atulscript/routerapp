@@ -6,45 +6,77 @@ const { currentPath = '/' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <!-- Logo -->
     <a href={`${base}/`} class="flex items-center gap-2 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-sky-400 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-blue-500 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
         📡
       </div>
       <div>
-        <span class="font-extrabold text-lg sm:text-xl text-slate-900 tracking-tight">Router<span class="text-brand-600">Guide</span></span>
-        <span class="hidden sm:inline-block text-[11px] font-semibold uppercase tracking-wider text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded ml-1.5 border border-slate-200">Directory</span>
+        <span class="font-extrabold text-lg sm:text-xl text-slate-900 tracking-tight">Router<span class="text-sky-600">Guide</span></span>
+        <span class="hidden sm:inline-block text-[11px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded ml-1.5 border border-sky-200">192.168.1.1</span>
       </div>
     </a>
 
     <!-- Nav links -->
-    <nav class="flex items-center gap-1 sm:gap-2">
+    <nav class="hidden md:flex items-center gap-1">
       <a 
         href={`${base}/`} 
-        class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${currentPath === '/' || currentPath === base || currentPath === `${base}/` ? 'text-brand-600 bg-brand-50 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+        class={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${currentPath === '/' || currentPath === base || currentPath === `${base}/` ? 'text-sky-600 bg-sky-50 font-extrabold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
       >
         Home
       </a>
       <a 
+        href={`${base}/brands`} 
+        class={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${currentPath.includes('brands') ? 'text-sky-600 bg-sky-50 font-extrabold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        Brands
+      </a>
+      <a 
+        href={`${base}/ip-addresses`} 
+        class={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${currentPath.includes('ip-addresses') ? 'text-sky-600 bg-sky-50 font-extrabold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        IP Addresses
+      </a>
+      <a 
+        href={`${base}/routers`} 
+        class={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${currentPath.includes('routers') ? 'text-sky-600 bg-sky-50 font-extrabold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        Models
+      </a>
+      <a 
+        href={`${base}/tools`} 
+        class={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${currentPath.includes('tools') || currentPath.includes('generator') || currentPath.includes('what-is-my-ip') ? 'text-sky-600 bg-sky-50 font-extrabold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+      >
+        Tools
+      </a>
+      <a 
         href={`${base}/default-passwords`} 
-        class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${currentPath.includes('default-passwords') ? 'text-brand-600 bg-brand-50 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+        class={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${currentPath.includes('default-passwords') ? 'text-sky-600 bg-sky-50 font-extrabold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
       >
         Passwords
       </a>
-      <a 
-        href={`${base}/what-is-my-ip`} 
-        class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${currentPath.includes('what-is-my-ip') ? 'text-brand-600 bg-brand-50 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
-      >
-        My IP
-      </a>
+    </nav>
+
+    <!-- Quick Action -->
+    <div class="flex items-center gap-2">
       <a 
         href={`${base}/192-168-1-1`} 
-        class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-all"
+        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-extrabold text-white bg-sky-600 hover:bg-sky-700 shadow-md shadow-sky-500/20 transition-all hover:scale-105 active:scale-95"
       >
-        192.168.1.1 Login
+        <span>🔗 192.168.1.1 Login</span>
       </a>
-    </nav>
+    </div>
+  </div>
+
+  <!-- Mobile Secondary Menu Bar -->
+  <div class="md:hidden flex items-center justify-around border-t border-slate-100 bg-slate-50/90 px-2 py-2 text-[11px] font-bold text-slate-600 overflow-x-auto">
+    <a href={`${base}/`} class="px-2 py-1 rounded hover:text-sky-600">Home</a>
+    <a href={`${base}/brands`} class="px-2 py-1 rounded hover:text-sky-600">Brands</a>
+    <a href={`${base}/ip-addresses`} class="px-2 py-1 rounded hover:text-sky-600">IPs</a>
+    <a href={`${base}/routers`} class="px-2 py-1 rounded hover:text-sky-600">Models</a>
+    <a href={`${base}/tools`} class="px-2 py-1 rounded hover:text-sky-600">Tools</a>
+    <a href={`${base}/default-passwords`} class="px-2 py-1 rounded hover:text-sky-600">Passwords</a>
   </div>
 </header>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import AdBanner from '../components/AdBanner.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Free Networking & Router Tools | IP Lookup, WiFi QR, Password Generator";
+const description = "Suite of free online router and networking utilities. Find your public IP address, generate WiFi QR codes, create strong passwords, and troubleshoot local gateway connections.";
+
+const toolsList = [
+  {
+    title: 'What Is My IP Address?',
+    description: 'Instantly detect your public IPv4/IPv6 address, internet service provider, and local default gateway.',
+    icon: '🌐',
+    url: `${base}/what-is-my-ip`,
+    badge: 'Popular'
+  },
+  {
+    title: 'WiFi QR Code Generator',
+    description: 'Generate a printable QR code so friends and guests can scan with their phone camera to connect without typing passwords.',
+    icon: '📶',
+    url: `${base}/wifi-qr-generator`,
+    badge: 'New'
+  },
+  {
+    title: 'Strong Password Generator',
+    description: 'Generate high-entropy, cryptographically secure passwords for router administration dashboards and WiFi WPA3 networks.',
+    icon: '🛡️',
+    url: `${base}/password-generator`,
+    badge: 'Security'
+  },
+  {
+    title: 'Default Router Passwords List',
+    description: 'Search and copy factory default passwords and usernames for over 20+ major router manufacturers.',
+    icon: '🔑',
+    url: `${base}/default-passwords`,
+    badge: 'Database'
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    
+    <!-- Search Bar -->
+    <div class="mb-8">
+      <SearchBar />
+    </div>
+
+    <!-- Header -->
+    <header class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold uppercase mb-3 border border-sky-200">
+        🛠️ Web Utilities
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+        Networking Tools
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600">
+        Free, browser-based network configuration and diagnostic utilities with zero server data storage.
+      </p>
+    </header>
+
+    <AdBanner format="leaderboard" />
+
+    <!-- Tools Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+      {toolsList.map(tool => (
+        <a 
+          href={tool.url}
+          class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-sky-300 transition-all flex flex-col justify-between group"
+        >
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                {tool.icon}
+              </span>
+              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                {tool.badge}
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
+              {tool.title}
+            </h3>
+
+            <p class="text-xs text-slate-500 leading-relaxed">
+              {tool.description}
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-sky-600">
+            <span>Launch Tool</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <AdBanner format="horizontal" />
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+interface Props {
+  slotId?: string;
+  format?: 'leaderboard' | 'rectangle' | 'horizontal' | 'in-feed';
+  className?: string;
+}
+
+const { format = 'horizontal', className = '' } = Astro.props;
+---
+
+<div class={`my-6 flex flex-col items-center justify-center ${className}`}>
+  <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">
+    Advertisement
+  </div>
+
+  {format === 'leaderboard' && (
+    <div class="w-full max-w-[728px] h-[90px] bg-slate-100/90 border border-dashed border-slate-300 rounded-xl flex items-center justify-center text-slate-400 text-xs font-mono select-none">
+      <span class="flex items-center gap-2">
+        <span>📢</span> Responsive Leaderboard Ad Space (728x90)
+      </span>
+    </div>
+  )}
+
+  {format === 'horizontal' && (
+    <div class="w-full max-w-4xl h-[100px] bg-slate-100/90 border border-dashed border-slate-300 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono select-none">
+      <span class="flex items-center gap-2">
+        <span>📢</span> Responsive Banner Ad Space
+      </span>
+    </div>
+  )}
+
+  {format === 'rectangle' && (
+    <div class="w-full max-w-[336px] h-[280px] bg-slate-100/90 border border-dashed border-slate-300 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono select-none mx-auto">
+      <span class="flex items-center gap-2">
+        <span>📢</span> Medium Rectangle Ad (336x280)
+      </span>
+    </div>
+  )}
+
+  {format === 'in-feed' && (
+    <div class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono select-none my-4">
+      <span class="flex items-center gap-2">
+        <span>📢</span> Native In-Feed Ad Placement
+      </span>
+    </div>
+  )}
+</div>

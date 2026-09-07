@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import RouterLookupTable from '../components/RouterLookupTable.astro';
+import AdBanner from '../components/AdBanner.astro';
+import { BRANDS } from '../lib/data-loader';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Router Hardware & Models Database | Default Logins & Protocols";
+const description = "Search and filter router hardware models across all manufacturers. Find factory default IP addresses, protocols, usernames, and passwords.";
+
+const allModels = BRANDS.flatMap(b => 
+  b.models.map(m => ({
+    brand: b.name,
+    brandSlug: b.slug,
+    model: m.model,
+    protocol: m.protocol || 'HTTP',
+    ip: m.ip,
+    username: m.username,
+    password: m.password
+  }))
+);
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    
+    <!-- Search Bar -->
+    <div class="mb-8">
+      <SearchBar />
+    </div>
+
+    <!-- Header -->
+    <header class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold uppercase mb-3 border border-sky-200">
+        📟 Hardware Catalog
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+        Router Models Database
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600">
+        Lookup default credentials for {allModels.length} router models across {BRANDS.length} manufacturers with protocol specifications.
+      </p>
+    </header>
+
+    <AdBanner format="leaderboard" />
+
+    <!-- Interactive Lookup Component -->
+    <div class="my-8">
+      <RouterLookupTable />
+    </div>
+
+    <AdBanner format="horizontal" />
+
+    <!-- Master Models Table with Instant Filter -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 my-10">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Complete Master Hardware List</h2>
+          <p class="text-xs text-slate-500">Filter by typing any model, brand, or IP address</p>
+        </div>
+        <input 
+          type="text" 
+          id="model-filter-input" 
+          placeholder="Filter models (e.g. Archer, Nighthawk, AX)..." 
+          class="w-full sm:w-72 px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:border-sky-600 focus:bg-white outline-none"
+        />
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200">
+        <table class="w-full text-left text-xs text-slate-700" id="all-models-master-table">
+          <thead class="bg-slate-100 font-bold uppercase tracking-wider text-slate-600 border-b border-slate-200">
+            <tr>
+              <th class="p-3.5">Brand</th>
+              <th class="p-3.5">Model</th>
+              <th class="p-3.5">Default IP</th>
+              <th class="p-3.5">Protocol</th>
+              <th class="p-3.5">Username</th>
+              <th class="p-3.5">Password</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 font-mono" id="master-table-body">
+            {allModels.map(item => (
+              <tr class="hover:bg-slate-50 master-row">
+                <td class="p-3.5 font-bold font-sans text-slate-900">{item.brand}</td>
+                <td class="p-3.5 font-sans font-medium text-slate-800">{item.model}</td>
+                <td class="p-3.5 text-sky-700 font-bold">{item.ip}</td>
+                <td class="p-3.5 text-slate-500">{item.protocol}</td>
+                <td class="p-3.5">{item.username}</td>
+                <td class="p-3.5 font-bold text-slate-900">{item.password}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<script>
+  const filterInput = document.getElementById('model-filter-input');
+  filterInput?.addEventListener('input', (e) => {
+    const q = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    const rows = document.querySelectorAll('.master-row');
+    rows.forEach(row => {
+      const text = (row as HTMLElement).innerText.toLowerCase();
+      (row as HTMLElement).style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+</script>

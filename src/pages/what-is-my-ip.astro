@@ -1,19 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import AdBanner from '../components/AdBanner.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "What is My IP Address & Gateway Checker | RouterGuide";
-const description = "Instantly detect your public IPv4/IPv6 address, internet service provider, browser user agent, and router gateway IP.";
+const title = "What is My IP Address & Local Gateway Checker | RouterGuide";
+const description = "Instantly detect your public IPv4/IPv6 address, internet service provider, browser user agent, and router gateway IP with location details.";
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14 text-center">
     
-    <header class="mb-10 max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase mb-4 border border-emerald-200">
+    <div class="mb-8">
+      <SearchBar />
+    </div>
+
+    <header class="mb-6 max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase mb-3 border border-emerald-200">
         🌐 IP Detection Tool
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
         What is My IP Address?
       </h1>
       <p class="text-sm sm:text-base text-slate-600">
@@ -21,13 +27,15 @@ const description = "Instantly detect your public IPv4/IPv6 address, internet se
       </p>
     </header>
 
+    <AdBanner format="leaderboard" />
+
     <!-- IP Card -->
-    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl shadow-slate-200/50 max-w-lg mx-auto mb-10">
+    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl shadow-slate-200/50 max-w-lg mx-auto my-8">
       <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Your Public IPv4 Address</span>
-      <div id="ip-display" class="text-3xl sm:text-4xl font-mono font-extrabold text-brand-600 my-4 tracking-tight">
+      <div id="ip-display" class="text-3xl sm:text-5xl font-mono font-extrabold text-sky-600 my-4 tracking-tight">
         Checking...
       </div>
-      <p id="ip-location" class="text-xs text-slate-500 mb-6">
+      <p id="ip-location" class="text-xs text-slate-500 mb-6 font-medium">
         Detecting ISP and Location...
       </p>
       <button 
@@ -38,17 +46,19 @@ const description = "Instantly detect your public IPv4/IPv6 address, internet se
       </button>
     </div>
 
+    <AdBanner format="horizontal" />
+
     <!-- Gateway Detection Info -->
-    <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 text-left max-w-2xl mx-auto">
+    <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 text-left max-w-2xl mx-auto my-8">
       <h2 class="text-base font-bold text-slate-900 mb-2">💡 Looking for your Local Router IP instead?</h2>
       <p class="text-xs text-slate-600 leading-relaxed mb-4">
         Your <strong>Public IP</strong> (shown above) is what websites see on the internet. Your <strong>Private Router IP</strong> (Default Gateway) is used to access your router settings at home.
       </p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono font-bold">
-        <a href={`${base}/192-168-1-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.1.1</a>
-        <a href={`${base}/192-168-0-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.0.1</a>
-        <a href={`${base}/192-168-2-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.2.1</a>
-        <a href={`${base}/10-0-0-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">10.0.0.1</a>
+        <a href={`${base}/192-168-1-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-sky-400 text-sky-700">192.168.1.1</a>
+        <a href={`${base}/192-168-0-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-sky-400 text-sky-700">192.168.0.1</a>
+        <a href={`${base}/192-168-2-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-sky-400 text-sky-700">192.168.2.1</a>
+        <a href={`${base}/10-0-0-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-sky-400 text-sky-700">10.0.0.1</a>
       </div>
     </div>
 

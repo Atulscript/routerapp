@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
 import PasswordTable from '../components/PasswordTable.astro';
+import AdBanner from '../components/AdBanner.astro';
 import { getAllSlugs } from '../lib/data-loader';
 import type { GatewayIp, Brand, Isp } from '../lib/types';
 
@@ -58,12 +60,19 @@ if (type === 'ip') {
 <BaseLayout title={pageTitle} description={pageDescription} schema={schema}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
     
+    <!-- Contextual Search -->
+    <div class="mb-8">
+      <SearchBar />
+    </div>
+
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
-      <a href={`${base}/`} class="hover:text-brand-600 transition-colors">Home</a>
+      <a href={`${base}/`} class="hover:text-sky-600 transition-colors">Home</a>
       <span>/</span>
       <span class="text-slate-900 font-semibold">{pageTitle}</span>
     </nav>
+
+    <AdBanner format="leaderboard" />
 
     <!-- IP View -->
     {type === 'ip' && (() => {
@@ -71,8 +80,8 @@ if (type === 'ip') {
       return (
         <article class="space-y-10">
           <header class="border-b border-slate-200 pb-8">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold font-mono uppercase mb-4 border border-brand-200">
-              <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-bold font-mono uppercase mb-4 border border-sky-200">
+              <span class="w-2 h-2 rounded-full bg-sky-500"></span>
               Gateway IP: {ip.ip}
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
@@ -84,10 +93,10 @@ if (type === 'ip') {
           </header>
 
           <!-- Quick Action Card -->
-          <div class="bg-gradient-to-br from-brand-600 to-sky-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-brand-500/10">
+          <div class="bg-gradient-to-br from-sky-600 to-blue-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-sky-500/10">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
-                <span class="text-xs uppercase font-bold tracking-wider text-brand-200">Direct Gateway Access</span>
+                <span class="text-xs uppercase font-bold tracking-wider text-sky-200">Direct Gateway Access</span>
                 <div class="text-2xl sm:text-3xl font-mono font-bold mt-1">http://{ip.ip}</div>
                 <div class="mt-3 flex flex-wrap gap-4 text-xs font-mono">
                   <div class="bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-sm">
@@ -102,7 +111,7 @@ if (type === 'ip') {
                 href={`http://${ip.ip}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="px-6 py-3.5 rounded-xl bg-white text-brand-700 font-bold text-sm shadow-lg hover:bg-brand-50 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+                class="px-6 py-3.5 rounded-xl bg-white text-sky-700 font-bold text-sm shadow-lg hover:bg-sky-50 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
               >
                 Open {ip.ip} Portal ↗
               </a>
@@ -117,7 +126,7 @@ if (type === 'ip') {
             <ol class="space-y-4">
               {ip.steps.map((step, idx) => (
                 <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center font-mono">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center font-mono">
                     {idx + 1}
                   </span>
                   <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
@@ -127,6 +136,8 @@ if (type === 'ip') {
               ))}
             </ol>
           </section>
+
+          <AdBanner format="horizontal" />
 
           <!-- Common Brands for this IP -->
           <section class="bg-slate-100/70 rounded-3xl p-6 sm:p-8 border border-slate-200">
@@ -177,7 +188,7 @@ if (type === 'ip') {
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
               <span class="text-xs text-slate-500 block mb-1">Default Gateway IP</span>
-              <span class="font-mono font-bold text-brand-600 text-sm">{brand.defaultIp}</span>
+              <span class="font-mono font-bold text-sky-600 text-sm">{brand.defaultIp}</span>
             </div>
             <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
               <span class="text-xs text-slate-500 block mb-1">Default Username</span>
@@ -197,6 +208,8 @@ if (type === 'ip') {
             <PasswordTable models={brand.models} brandName={brand.name} />
           </section>
 
+          <AdBanner format="horizontal" />
+
           <!-- Setup Guide -->
           <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
             <h2 class="text-xl font-bold text-slate-900 mb-6">
@@ -205,7 +218,7 @@ if (type === 'ip') {
             <ol class="space-y-4">
               {brand.guide.map((step, idx) => (
                 <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center font-mono">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center font-mono">
                     {idx + 1}
                   </span>
                   <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
@@ -250,7 +263,7 @@ if (type === 'ip') {
                 href={`http://${isp.defaultIp}`}
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-sm transition-all"
+                class="px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-sm transition-all"
               >
                 Open {isp.defaultIp} →
               </a>
@@ -265,7 +278,7 @@ if (type === 'ip') {
             <ol class="space-y-4">
               {isp.instructions.map((step, idx) => (
                 <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold text-xs flex items-center justify-center font-mono">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center font-mono">
                     {idx + 1}
                   </span>
                   <span class="text-sm text-slate-700 leading-relaxed pt-0.5">

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchBar from '../components/SearchBar.astro';
+import BrandCard from '../components/BrandCard.astro';
+import AdBanner from '../components/AdBanner.astro';
+import { BRANDS } from '../lib/data-loader';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "All Router Brands & Manufacturers Directory | Default Login List";
+const description = "Comprehensive list of all major router manufacturers including TP-Link, Netgear, ASUS, Cisco, D-Link, Linksys, Huawei, ZTE, and Tenda. Find default IPs and logins.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+    
+    <!-- Contextual Search -->
+    <div class="mb-8">
+      <SearchBar />
+    </div>
+
+    <!-- Header -->
+    <header class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold uppercase mb-3 border border-sky-200">
+        🏷️ Manufacturer Index
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+        Router Brands Directory
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600">
+        Explore default IP addresses, passwords, firmware guides, and model databases for {BRANDS.length} top router manufacturers.
+      </p>
+    </header>
+
+    <AdBanner format="leaderboard" />
+
+    <!-- Alphabet Filter -->
+    <div class="flex flex-wrap items-center justify-center gap-1.5 my-8 p-3 bg-white rounded-2xl border border-slate-200 shadow-sm text-xs font-bold text-slate-600">
+      <span class="text-slate-400 mr-2 font-mono">Filter:</span>
+      <button class="px-2.5 py-1 rounded-lg bg-sky-600 text-white" onclick="filterBrands('ALL')">ALL</button>
+      {['0-9', 'A', 'B', 'C', 'D', 'H', 'L', 'M', 'N', 'S', 'T', 'U', 'Z'].map(letter => (
+        <button 
+          class="px-2.5 py-1 rounded-lg hover:bg-slate-100 transition-colors"
+          onclick={`filterBrands('${letter}')`}
+        >
+          {letter}
+        </button>
+      ))}
+    </div>
+
+    <!-- Brands Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-8" id="brands-grid">
+      {BRANDS.map(item => (
+        <div class="brand-item" data-name={item.name}>
+          <BrandCard data={item} />
+        </div>
+      ))}
+    </div>
+
+    <AdBanner format="horizontal" />
+
+    <!-- SEO Information -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 mt-10">
+      <h2 class="text-2xl font-bold text-slate-900">How to Find Your Router Manufacturer & Model</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        If you are unsure which router brand you have, look at the physical label located on the underside or rear panel of your hardware device. The label includes the exact manufacturer name, model number, serial number, default IP address (such as 192.168.1.1), and factory default wireless network name (SSID).
+      </p>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<script>
+  function filterBrands(letter: string) {
+    const items = document.querySelectorAll('.brand-item');
+    items.forEach(el => {
+      const name = (el as HTMLElement).getAttribute('data-name') || '';
+      if (letter === 'ALL') {
+        (el as HTMLElement).style.display = 'block';
+      } else if (letter === '0-9') {
+        (el as HTMLElement).style.display = /^[0-9]/.test(name) ? 'block' : 'none';
+      } else {
+        (el as HTMLElement).style.display = name.toUpperCase().startsWith(letter) ? 'block' : 'none';
+      }
+    });
+  }
+  (window as any).filterBrands = filterBrands;
+</script>
