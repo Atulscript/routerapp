@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar.astro';
 import PasswordTable from '../components/PasswordTable.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+import RouterGuideCard from '../components/RouterGuideCard.astro';
 import { getAllSlugs } from '../lib/data-loader';
 import type { GatewayIp, Brand, Isp } from '../lib/types';
 
@@ -119,24 +120,12 @@ if (type === 'ip') {
             </div>
           </div>
 
-          <!-- Step by step instructions -->
-          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-            <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <span>📋</span> How to Login to {ip.ip} (Step-by-Step)
-            </h2>
-            <ol class="space-y-4">
-              {ip.steps.map((step, idx) => (
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-100 text-md-primary font-bold text-xs flex items-center justify-center font-mono">
-                    {idx + 1}
-                  </span>
-                  <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {step}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </section>
+          <!-- Router Login & Support Two-Box Guide (Matching User Design) -->
+          <RouterGuideCard 
+            entityName="Wi-Fi Router" 
+            ipAddress={ip.ip} 
+            brandName={ip.commonBrands.join(', ')} 
+          />
 
           <AdBanner format="horizontal" />
 
@@ -149,42 +138,6 @@ if (type === 'ip') {
                   {brand}
                 </span>
               ))}
-            </div>
-          </section>
-
-          <!-- Human Guide: Troubleshooting {ip.ip} -->
-          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-            <h2 class="text-xl font-bold text-slate-900">
-              Why Can't I Connect to {ip.ip}? (Top 4 Quick Fixes)
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
-                <strong class="text-slate-900 block font-bold text-sm">1. Check Your Physical Connection</strong>
-                <p class="text-slate-600 leading-relaxed">
-                  Make sure your phone or laptop is actively connected to your router's Wi-Fi network or plugged directly into a LAN port with an Ethernet cable. If you are on cellular data (4G/5G), turn off mobile data first.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
-                <strong class="text-slate-900 block font-bold text-sm">2. Disable Active VPNs & Proxies</strong>
-                <p class="text-slate-600 leading-relaxed">
-                  Active VPN tunnels reroute your network traffic to a remote server, making local private IP addresses like <code class="font-mono bg-white px-1 py-0.5 rounded">{ip.ip}</code> unreachable. Temporarily disconnect your VPN.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
-                <strong class="text-slate-900 block font-bold text-sm">3. Avoid Typo Mistakes</strong>
-                <p class="text-slate-600 leading-relaxed">
-                  Double check the URL bar. Do not type letters (like "l" instead of "1") and do not search for it in Google. Type <code class="font-mono bg-white px-1 py-0.5 rounded font-bold text-sky-700">http://{ip.ip}</code> directly in the browser address bar.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
-                <strong class="text-slate-900 block font-bold text-sm">4. Verify Gateway Address</strong>
-                <p class="text-slate-600 leading-relaxed">
-                  Your router might be on a different subnet (e.g. 192.168.0.1 or 10.0.0.1). Open Command Prompt on Windows and type <code class="font-mono bg-white px-1 py-0.5 rounded">ipconfig</code> to confirm your Default Gateway.
-                </p>
-              </div>
             </div>
           </section>
 
@@ -264,48 +217,12 @@ if (type === 'ip') {
 
           <AdBanner format="horizontal" />
 
-          <!-- Setup Guide -->
-          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-            <h2 class="text-xl font-bold text-slate-900 mb-6">
-              How to configure your {brand.name} Router
-            </h2>
-            <ol class="space-y-4">
-              {brand.guide.map((step, idx) => (
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-100 text-md-primary font-bold text-xs flex items-center justify-center font-mono">
-                    {idx + 1}
-                  </span>
-                  <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {step}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <!-- Factory Reset & Troubleshooting Guide for Brand -->
-          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-            <h2 class="text-xl font-bold text-slate-900">
-              Forgot Your {brand.name} Custom Login? How to Factory Reset
-            </h2>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              If the default password ({brand.defaultPass}) has been changed and you can no longer sign in, you can reset the hardware back to original factory defaults:
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-                <strong class="text-slate-900 block font-bold">1. Find the Pinhole</strong>
-                <p class="text-slate-600">Locate the small hole marked <em>RESET</em> on the back or bottom panel of your {brand.name} router.</p>
-              </div>
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-                <strong class="text-slate-900 block font-bold">2. Press for 10 Seconds</strong>
-                <p class="text-slate-600">While the router is powered ON, press and hold the button with a paperclip or pin for 10 to 15 seconds.</p>
-              </div>
-              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-                <strong class="text-slate-900 block font-bold">3. Reconnect with Defaults</strong>
-                <p class="text-slate-600">Release the button when the LEDs flash. The router will reboot and restore default IP <strong>{brand.defaultIp}</strong>.</p>
-              </div>
-            </div>
-          </section>
+          <!-- Router Login & Support Two-Box Guide (Matching User Design) -->
+          <RouterGuideCard 
+            entityName={brand.name} 
+            ipAddress={brand.defaultIp} 
+            brandName={brand.name} 
+          />
         </article>
       );
     })()}
@@ -348,24 +265,12 @@ if (type === 'ip') {
             </div>
           </div>
 
-          <!-- Instructions -->
-          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-            <h2 class="text-xl font-bold text-slate-900 mb-6">
-              Step-by-Step {isp.name} ONT Setup
-            </h2>
-            <ol class="space-y-4">
-              {isp.instructions.map((step, idx) => (
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-100 text-md-primary font-bold text-xs flex items-center justify-center font-mono">
-                    {idx + 1}
-                  </span>
-                  <span class="text-sm text-slate-700 leading-relaxed pt-0.5">
-                    {step}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </section>
+          <!-- Router Login & Support Two-Box Guide (Matching User Design) -->
+          <RouterGuideCard 
+            entityName={isp.name} 
+            ipAddress={isp.defaultIp} 
+            brandName={isp.name} 
+          />
 
           <!-- Fiber ONT Indicator Diagnostics for ISPs -->
           <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">

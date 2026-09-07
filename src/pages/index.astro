@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import RouterLookupTable from '../components/RouterLookupTable.astro';
+import RouterGuideCard from '../components/RouterGuideCard.astro';
 import IpCard from '../components/IpCard.astro';
 import BrandCard from '../components/BrandCard.astro';
 import IspCard from '../components/IspCard.astro';
@@ -145,32 +146,12 @@ const schema = {
     <!-- In-Content Ad Slot -->
     <AdBanner format="horizontal" />
 
-    <!-- 2. Technical Step-by-Step 192.168.1.1 Login Guide -->
-    <section class="m3-card p-6 sm:p-10 space-y-8">
-      <div class="border-b border-md-surface-variant/60 pb-4">
-        <h2 class="text-2xl font-black text-md-on-surface tracking-tight">
-          How to Access 192.168.1.1 (Complete 5-Step Guide)
-        </h2>
-        <p class="text-sm text-md-on-surface-variant mt-1">
-          Follow this standardized engineering procedure to log into any router or ONT gateway.
-        </p>
-      </div>
-
-      <ol class="space-y-4">
-        {currentIp.steps.map((step, idx) => (
-          <li class="flex items-start gap-4 p-4 rounded-m3-lg bg-md-surface-container-low hover:bg-md-surface-container transition-colors border border-md-outline-variant/30">
-            <span class="flex-shrink-0 w-8 h-8 rounded-m3-md bg-md-primary text-md-on-primary font-black text-sm flex items-center justify-center font-mono shadow-m3-1">
-              {idx + 1}
-            </span>
-            <div class="pt-1">
-              <p class="text-sm text-md-on-surface leading-relaxed font-medium">
-                {step}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </section>
+    <!-- 2. Router Login & Support Two-Box Guide (Matching User Design) -->
+    <RouterGuideCard 
+      entityName="Wireless" 
+      ipAddress="192.168.1.1" 
+      brandName="TP-Link, Netgear, ASUS, D-Link" 
+    />
 
     <!-- 3. Popular Router Brands That Use 192.168.1.1 -->
     <section>
