@@ -4,7 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://router-guide.vercel.app',
+  site: 'https://atulscript.github.io',
+  base: '/routerapp',
   integrations: [tailwind(), sitemap()],
   output: 'static'
 });

@@ -6,10 +6,11 @@ interface Props {
 }
 
 const { data } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <a 
-  href={`/${data.slug}`}
+  href={`${base}/${data.slug}`}
   class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group"
 >
   <div>

@@ -1,27 +1,29 @@
 ---
 import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 // Prepare search index data
 const searchItems = [
   ...GATEWAY_IPS.map(ip => ({
     name: ip.ip,
     title: `${ip.ip} Router Login`,
     category: 'Gateway IP',
-    url: `/${ip.slug}`,
+    url: `${base}/${ip.slug}`,
     subtitle: `Default: ${ip.defaultUser} / ${ip.defaultPass}`
   })),
   ...BRANDS.map(b => ({
     name: b.name,
     title: `${b.name} Default Passwords`,
     category: 'Router Brand',
-    url: `/${b.slug}`,
+    url: `${base}/${b.slug}`,
     subtitle: `Default IP: ${b.defaultIp}`
   })),
   ...ISPS.map(isp => ({
     name: isp.name,
     title: `${isp.name} Setup Guide`,
     category: 'ISP Provider',
-    url: `/${isp.slug}`,
+    url: `${base}/${isp.slug}`,
     subtitle: `Gateway IP: ${isp.defaultIp}`
   }))
 ];

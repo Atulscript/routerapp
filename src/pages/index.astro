@@ -6,6 +6,7 @@ import BrandCard from '../components/BrandCard.astro';
 import IspCard from '../components/IspCard.astro';
 import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = "Router Default Logins & Gateway IP Directory | RouterGuide";
 const description = "Access your router admin panel. Complete guide for 192.168.1.1, 192.168.0.1, default router passwords, TP-Link, Netgear, Jio, Airtel, and all major brands.";
 
@@ -13,13 +14,8 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "RouterGuide",
-  "url": "https://router-guide.vercel.app",
-  "description": description,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://router-guide.vercel.app/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "url": "https://atulscript.github.io/routerapp",
+  "description": description
 };
 ---
 
@@ -90,7 +86,7 @@ const schema = {
           <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Popular Router Brands</h2>
           <p class="text-sm text-slate-500">Default passwords and setup tutorials by manufacturer</p>
         </div>
-        <a href="/default-passwords" class="text-sm font-semibold text-brand-600 hover:text-brand-700">
+        <a href={`${base}/default-passwords`} class="text-sm font-semibold text-brand-600 hover:text-brand-700">
           View All Models →
         </a>
       </div>
@@ -130,19 +126,19 @@ const schema = {
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
           <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">192.168.l.l</span>
-            <a href="/192-168-1-1" class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
+            <a href={`${base}/192-168-1-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
           </div>
           <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">192.168.o.1</span>
-            <a href="/192-168-0-1" class="text-emerald-700 font-bold mt-1">→ 192.168.0.1</a>
+            <a href={`${base}/192-168-0-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.0.1</a>
           </div>
           <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">19216811</span>
-            <a href="/192-168-1-1" class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
+            <a href={`${base}/192-168-1-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
           </div>
           <div class="bg-white/80 p-2.5 rounded-xl border border-amber-200 flex flex-col">
             <span class="text-red-600 line-through">http 192.168 1.1</span>
-            <a href="/192-168-1-1" class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
+            <a href={`${base}/192-168-1-1`} class="text-emerald-700 font-bold mt-1">→ 192.168.1.1</a>
           </div>
         </div>
       </div>

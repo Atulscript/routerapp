@@ -14,6 +14,7 @@ type Props =
   | { type: 'isp'; data: Isp };
 
 const { type, data } = Astro.props as Props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Dynamic title and description based on page type
 let pageTitle = "";
@@ -59,7 +60,7 @@ if (type === 'ip') {
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
-      <a href="/" class="hover:text-brand-600 transition-colors">Home</a>
+      <a href={`${base}/`} class="hover:text-brand-600 transition-colors">Home</a>
       <span>/</span>
       <span class="text-slate-900 font-semibold">{pageTitle}</span>
     </nav>

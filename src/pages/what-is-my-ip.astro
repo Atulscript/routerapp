@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = "What is My IP Address & Gateway Checker | RouterGuide";
 const description = "Instantly detect your public IPv4/IPv6 address, internet service provider, browser user agent, and router gateway IP.";
 ---
@@ -44,10 +45,10 @@ const description = "Instantly detect your public IPv4/IPv6 address, internet se
         Your <strong>Public IP</strong> (shown above) is what websites see on the internet. Your <strong>Private Router IP</strong> (Default Gateway) is used to access your router settings at home.
       </p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono font-bold">
-        <a href="/192-168-1-1" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.1.1</a>
-        <a href="/192-168-0-1" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.0.1</a>
-        <a href="/192-168-2-1" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.2.1</a>
-        <a href="/10-0-0-1" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">10.0.0.1</a>
+        <a href={`${base}/192-168-1-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.1.1</a>
+        <a href={`${base}/192-168-0-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.0.1</a>
+        <a href={`${base}/192-168-2-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">192.168.2.1</a>
+        <a href={`${base}/10-0-0-1`} class="p-2.5 bg-white border border-slate-200 rounded-xl hover:border-brand-400 text-brand-700">10.0.0.1</a>
       </div>
     </div>
 
