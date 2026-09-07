@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import BrandCard from '../components/BrandCard.astro';
 import AdBanner from '../components/AdBanner.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { BRANDS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -65,6 +66,11 @@ const description = "Comprehensive list of all major router manufacturers includ
         If you are unsure which router brand you have, look at the physical label located on the underside or rear panel of your hardware device. The label includes the exact manufacturer name, model number, serial number, default IP address (such as 192.168.1.1), and factory default wireless network name (SSID).
       </p>
     </section>
+
+    <!-- Interlinking 2-Column Grid -->
+    <div class="mt-12">
+      <RelatedLinksGrid />
+    </div>
 
   </div>
 </BaseLayout>

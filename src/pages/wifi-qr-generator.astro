@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AdBanner from '../components/AdBanner.astro';
 import SearchBar from '../components/SearchBar.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Free WiFi QR Code Generator | Connect Without Password Typing";
+const title = "Free WiFi QR Code Generator | Connect Without Password Typing | 19216811.page";
 const description = "Generate a customized WiFi QR code to easily share your home or office wireless network. Guests can scan with iPhone or Android camera to connect instantly.";
 ---
 
@@ -136,6 +137,9 @@ const description = "Generate a customized WiFi QR code to easily share your hom
         </div>
       </div>
     </section>
+
+    <!-- 2-Column Cross Linking Grid -->
+    <RelatedLinksGrid currentSlug="wifi-qr-generator" />
 
   </div>
 </BaseLayout>
