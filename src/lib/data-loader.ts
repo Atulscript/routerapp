@@ -142,62 +142,74 @@ export const GATEWAY_IPS: GatewayIp[] = [
 
 export const BRANDS: Brand[] = [
   {
-    name: 'TP-Link',
-    slug: 'tp-link',
-    defaultIp: '192.168.1.1 / 192.168.0.1 / tplinkwifi.net',
+    name: '3WARE',
+    slug: '3ware',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'Administrator',
+    defaultPass: '3ware',
+    description: 'Default login credentials and configurations for 3WARE 3DM network storage controller devices.',
+    models: [
+      { brand: '3WARE', model: '3DM', protocol: 'HTTP', ip: '192.168.1.1', username: 'Administrator', password: '3ware' },
+      { brand: '3WARE', model: '3DM2', protocol: 'HTTPS', ip: '192.168.1.1', username: 'administrator', password: '3ware' }
+    ],
+    guide: [
+      'Connect to your network management interface.',
+      'Open http://192.168.1.1:8080 or https://localhost:888 in browser.',
+      'Log in with username: Administrator and password: 3ware.'
+    ]
+  },
+  {
+    name: '3Com',
+    slug: '3com',
+    defaultIp: '192.168.1.1',
     defaultUser: 'admin',
     defaultPass: 'admin',
-    description: 'Complete default login credentials and setup guides for TP-Link Archer, Deco, and WR series routers.',
+    description: 'Default login passwords and management portals for 3Com OfficeConnect and SuperStack routers.',
     models: [
-      { model: 'Archer AX10 / AX20 / AX50', ip: '192.168.0.1', username: 'admin', password: 'Custom password on setup' },
-      { model: 'Archer C6 / C7 / C80', ip: '192.168.0.1', username: 'admin', password: 'admin' },
-      { model: 'TL-WR841N / TL-WR845N', ip: '192.168.0.1', username: 'admin', password: 'admin' },
-      { model: 'Deco M4 / M5 / X20 (Mesh)', ip: '192.168.68.1', username: 'TP-Link ID', password: 'TP-Link Cloud Password' },
-      { model: 'TD-W8961N (ADSL)', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+      { brand: '3Com', model: 'OfficeConnect Wireless 11g', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: '3Com', model: 'SuperStack II', protocol: 'Telnet', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: '3Com', model: '3CRWER100-75', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
     ],
     guide: [
-      'Connect to the TP-Link WiFi or plug in via LAN cable.',
-      'Open a browser and navigate to http://tplinkwifi.net or http://192.168.0.1.',
-      'Enter the default username and password (admin / admin).',
-      'Go to Wireless -> Wireless Settings to configure your SSID and WPA2/WPA3 password.'
+      'Connect via LAN port to 3Com router.',
+      'Navigate to http://192.168.1.1.',
+      'Enter default username: admin and password: admin.'
     ]
   },
   {
-    name: 'Netgear',
-    slug: 'netgear',
-    defaultIp: '192.168.1.1 / routerlogin.net',
+    name: 'Actiontec',
+    slug: 'actiontec',
+    defaultIp: '192.168.0.1 / 192.168.1.1',
     defaultUser: 'admin',
     defaultPass: 'password',
-    description: 'Default passwords and setup instructions for Netgear Nighthawk, Orbi, and RAX series routers.',
+    description: 'Default login credentials for Actiontec Verizon FiOS and DSL modem routers.',
     models: [
-      { model: 'Nighthawk R7000 / RAX40 / RAX80', ip: '192.168.1.1', username: 'admin', password: 'password' },
-      { model: 'Orbi RBK50 / RBK750 (Mesh)', ip: '192.168.1.1', username: 'admin', password: 'password' },
-      { model: 'WNR2000 / JWNR2010', ip: '192.168.1.1', username: 'admin', password: 'password' }
+      { brand: 'Actiontec', model: 'MI424WR (Verizon FiOS)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Actiontec', model: 'C1000A / C2000A', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'Actiontec', model: 'GT784WN', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' }
     ],
     guide: [
-      'Connect your device to your Netgear router WiFi.',
-      'Open http://routerlogin.net or http://192.168.1.1 in a browser.',
-      'Enter username: admin and password: password.',
-      'Use the Genie or Nighthawk dashboard to manage your network settings.'
+      'Connect to Actiontec modem/router.',
+      'Open http://192.168.1.1 or http://192.168.0.1 in browser.',
+      'Log in with admin / password or check rear sticker.'
     ]
   },
   {
-    name: 'D-Link',
-    slug: 'd-link',
-    defaultIp: '192.168.0.1 / dlinkrouter.local',
+    name: 'Apple',
+    slug: 'apple',
+    defaultIp: '10.0.1.1',
     defaultUser: 'admin',
-    defaultPass: '(blank) / admin',
-    description: 'Find default logins and configuration instructions for D-Link DIR, COVR, and DSL routers.',
+    defaultPass: 'public',
+    description: 'AirPort Extreme, AirPort Express, and Time Capsule setup guides and default logins.',
     models: [
-      { model: 'DIR-615 / DIR-825 / DIR-842', ip: '192.168.0.1', username: 'admin', password: '(blank) / admin' },
-      { model: 'EXO AX1500 / AX1800', ip: '192.168.0.1', username: 'admin', password: 'admin' },
-      { model: 'DSL-2750U / 2877AL', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+      { brand: 'Apple', model: 'AirPort Extreme', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' },
+      { brand: 'Apple', model: 'AirPort Time Capsule', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' },
+      { brand: 'Apple', model: 'AirPort Express', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' }
     ],
     guide: [
-      'Connect to your D-Link router network.',
-      'Visit http://192.168.0.1 or http://dlinkrouter.local in your web browser.',
-      'Enter admin as the username and leave the password empty (or enter admin).',
-      'Configure Internet and WiFi settings via the setup wizard.'
+      'Open AirPort Utility on macOS, iOS, or Windows.',
+      'Select your base station.',
+      'Enter the base station password (default is "public" or custom).'
     ]
   },
   {
@@ -208,9 +220,11 @@ export const BRANDS: Brand[] = [
     defaultPass: 'admin',
     description: 'Default credentials, ASUSWRT configuration, and WiFi setup for ASUS RT and ROG Rapture routers.',
     models: [
-      { model: 'RT-AX55 / RT-AX86U / RT-AX88U', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { model: 'ROG Rapture GT-AX6000 / GT-AX11000', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { model: 'ZenWiFi AX (XT8 / XD4)', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+      { brand: 'ASUS', model: 'RT-AX55 / RT-AX58U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'RT-AX86U / RT-AX88U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'ROG Rapture GT-AX6000', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'ZenWiFi AX (XT8 / XD4)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'RT-AC68U / RT-AC86U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
     ],
     guide: [
       'Connect to your ASUS WiFi network or Ethernet port.',
@@ -220,21 +234,96 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
-    name: 'Tenda',
-    slug: 'tenda',
-    defaultIp: '192.168.0.1 / tendawifi.com',
+    name: 'Belkin',
+    slug: 'belkin',
+    defaultIp: '192.168.2.1',
     defaultUser: 'admin',
-    defaultPass: 'admin / (blank)',
-    description: 'Setup guides and default login passwords for Tenda AC, Nova Mesh, and F-series routers.',
+    defaultPass: '(blank)',
+    description: 'Default passwords and setup steps for Belkin N150, N300, N600, and AC1200 routers.',
     models: [
-      { model: 'AC10 / AC19 / AC23', ip: '192.168.0.1', username: 'admin', password: 'admin' },
-      { model: 'Nova MW3 / MW6 / MW12 (Mesh)', ip: '192.168.5.1', username: 'admin', password: 'admin' },
-      { model: 'Tenda F3 / F9', ip: '192.168.0.1', username: 'admin', password: '(blank)' }
+      { brand: 'Belkin', model: 'N150 / N300 / N450', protocol: 'HTTP', ip: '192.168.2.1', username: 'admin', password: '(blank)' },
+      { brand: 'Belkin', model: 'AC1200 / AC1800 Dual Band', protocol: 'HTTP', ip: '192.168.2.1', username: 'admin', password: '(blank)' },
+      { brand: 'Belkin', model: 'Play Max / Surf N300', protocol: 'HTTP', ip: '192.168.2.1', username: 'admin', password: '(blank)' }
     ],
     guide: [
-      'Connect to your Tenda router WiFi network.',
-      'Open http://tendawifi.com or http://192.168.0.1.',
-      'Enter admin as the password (or leave blank if prompted on first boot).'
+      'Connect to Belkin WiFi network.',
+      'Open http://192.168.2.1 in your browser.',
+      'Leave password field blank and click Submit.'
+    ]
+  },
+  {
+    name: 'Cisco',
+    slug: 'cisco',
+    defaultIp: '192.168.1.1 / 10.0.0.1',
+    defaultUser: 'cisco / admin',
+    defaultPass: 'cisco / password',
+    description: 'Default logins for Cisco Small Business, RV Series, and Catalyst routers.',
+    models: [
+      { brand: 'Cisco', model: 'RV160 / RV260 / RV340', protocol: 'HTTPS', ip: '192.168.1.1', username: 'cisco', password: 'cisco' },
+      { brand: 'Cisco', model: 'DPC3941T (Xfinity Gateway)', protocol: 'HTTP', ip: '10.0.0.1', username: 'admin', password: 'password' },
+      { brand: 'Cisco', model: 'WRVS4400N', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Cisco', model: 'Catalyst 2960 / 3750', protocol: 'Telnet/SSH', ip: '192.168.1.1', username: 'cisco', password: 'cisco' }
+    ],
+    guide: [
+      'Connect via Ethernet cable to Cisco router LAN port 1.',
+      'Open https://192.168.1.1 in browser.',
+      'Login with username: cisco and password: cisco.'
+    ]
+  },
+  {
+    name: 'D-Link',
+    slug: 'd-link',
+    defaultIp: '192.168.0.1 / dlinkrouter.local',
+    defaultUser: 'admin',
+    defaultPass: '(blank) / admin',
+    description: 'Find default logins and configuration instructions for D-Link DIR, COVR, and DSL routers.',
+    models: [
+      { brand: 'D-Link', model: 'DIR-615 / DIR-825 / DIR-842', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: '(blank) / admin' },
+      { brand: 'D-Link', model: 'EXO AX1500 / AX1800', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
+      { brand: 'D-Link', model: 'DSL-2750U / 2877AL', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'D-Link', model: 'COVR-1100 / COVR-2200 (Mesh)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: '(blank)' }
+    ],
+    guide: [
+      'Connect to your D-Link router network.',
+      'Visit http://192.168.0.1 or http://dlinkrouter.local in your web browser.',
+      'Enter admin as the username and leave the password empty (or enter admin).',
+      'Configure Internet and WiFi settings via the setup wizard.'
+    ]
+  },
+  {
+    name: 'DrayTek',
+    slug: 'draytek',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default passwords and setup for DrayTek Vigor 2862, 2927, and 2962 business routers.',
+    models: [
+      { brand: 'DrayTek', model: 'Vigor 2862 / 2865', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'DrayTek', model: 'Vigor 2927 / 2962 Dual-WAN', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'DrayTek', model: 'VigorAP 903 / 960C', protocol: 'HTTP', ip: '192.168.1.2', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to DrayTek LAN.',
+      'Open https://192.168.1.1.',
+      'Log in with admin / admin.'
+    ]
+  },
+  {
+    name: 'Huawei',
+    slug: 'huawei',
+    defaultIp: '192.168.1.1 / 192.168.100.1 / 192.168.8.1',
+    defaultUser: 'admin / telecomadmin',
+    defaultPass: 'admin / admintelecom',
+    description: 'Default credentials for Huawei HG8145V5, EchoLife ONT, and 4G/5G CPE routers.',
+    models: [
+      { brand: 'Huawei', model: 'EchoLife HG8145V5 / HG8245H', protocol: 'HTTP', ip: '192.168.100.1', username: 'telecomadmin', password: 'admintelecom' },
+      { brand: 'Huawei', model: 'WiFi AX3 / AX3 Pro', protocol: 'HTTP', ip: '192.168.3.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Huawei', model: '4G Router B310 / B315 / B535', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to Huawei WiFi or LAN.',
+      'Open http://192.168.100.1 or http://192.168.8.1.',
+      'Log in with admin credentials.'
     ]
   },
   {
@@ -245,14 +334,197 @@ export const BRANDS: Brand[] = [
     defaultPass: 'admin',
     description: 'Default passwords and setup instructions for Linksys Velop, Hydra, and MR series routers.',
     models: [
-      { model: 'Velop WHW0301 / MX4200 (Mesh)', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { model: 'Hydra Pro 6 / MR7350', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { model: 'WRT54G / WRT1900AC', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+      { brand: 'Linksys', model: 'Velop WHW0301 / MX4200 (Mesh)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Linksys', model: 'Hydra Pro 6 / MR7350', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Linksys', model: 'WRT54G / WRT1900AC', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Linksys', model: 'E1200 / E2500 / EA6900', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
     ],
     guide: [
       'Connect to Linksys WiFi or LAN port.',
       'Visit http://192.168.1.1 or http://myrouter.local.',
       'Enter username: admin and password: admin.'
+    ]
+  },
+  {
+    name: 'MikroTik',
+    slug: 'mikrotik',
+    defaultIp: '192.168.88.1',
+    defaultUser: 'admin',
+    defaultPass: '(blank)',
+    description: 'Default credentials and WinBox connection guide for MikroTik RouterBOARD and hAP series.',
+    models: [
+      { brand: 'MikroTik', model: 'hAP ac2 / ac3 / ax2 / ax3', protocol: 'HTTP / WinBox', ip: '192.168.88.1', username: 'admin', password: '(blank)' },
+      { brand: 'MikroTik', model: 'RouterBOARD RB750 / RB3011', protocol: 'WinBox / SSH', ip: '192.168.88.1', username: 'admin', password: '(blank)' },
+      { brand: 'MikroTik', model: 'Cloud Core Router (CCR)', protocol: 'WebFig / SSH', ip: '192.168.88.1', username: 'admin', password: '(blank)' }
+    ],
+    guide: [
+      'Connect PC to Ether2 (LAN) port.',
+      'Open http://192.168.88.1 or connect via WinBox application.',
+      'Login with username: admin, password: (blank).'
+    ]
+  },
+  {
+    name: 'Netgear',
+    slug: 'netgear',
+    defaultIp: '192.168.1.1 / routerlogin.net',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Default passwords and setup instructions for Netgear Nighthawk, Orbi, and RAX series routers.',
+    models: [
+      { brand: 'Netgear', model: 'Nighthawk R7000 / RAX40 / RAX80', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Netgear', model: 'Orbi RBK50 / RBK750 / RBK850', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Netgear', model: 'WNR2000 / JWNR2010', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Netgear', model: 'NightHawk Pro Gaming XR500 / XR1000', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' }
+    ],
+    guide: [
+      'Connect your device to your Netgear router WiFi.',
+      'Open http://routerlogin.net or http://192.168.1.1 in a browser.',
+      'Enter username: admin and password: password.',
+      'Use the Genie or Nighthawk dashboard to manage your network settings.'
+    ]
+  },
+  {
+    name: 'Sagemcom',
+    slug: 'sagemcom',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / printed on sticker',
+    description: 'Default passwords and gateway management for Sagemcom FAST series modems.',
+    models: [
+      { brand: 'Sagemcom', model: 'FAST 5260 / 5370', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Sagemcom', model: 'FAST 5655 / 5670 FTTH', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to Sagemcom gateway.',
+      'Open http://192.168.1.1 in browser.',
+      'Login with credentials from the rear sticker.'
+    ]
+  },
+  {
+    name: 'Synology',
+    slug: 'synology',
+    defaultIp: '192.168.1.1 / router.synology.com',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (setup password)',
+    description: 'Synology Router Manager (SRM) login instructions for RT2600ac, RT6600ax, and WRX560.',
+    models: [
+      { brand: 'Synology', model: 'RT6600ax / RT2600ac', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Synology', model: 'WRX560 (Mesh Router)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'Set during initial setup' }
+    ],
+    guide: [
+      'Connect to Synology router network.',
+      'Visit http://router.synology.com or http://192.168.1.1.',
+      'Follow Synology SRM setup wizard.'
+    ]
+  },
+  {
+    name: 'Technicolor',
+    slug: 'technicolor',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (serial number)',
+    description: 'Default settings and login portals for Technicolor TG and DGA series gateway modems.',
+    models: [
+      { brand: 'Technicolor', model: 'TG588v v2 / TG589vn', protocol: 'HTTP', ip: '192.168.1.254', username: 'admin', password: 'admin' },
+      { brand: 'Technicolor', model: 'DGA0122 / DGA4130', protocol: 'HTTP', ip: '192.168.1.254', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to Technicolor gateway.',
+      'Open http://192.168.1.254 in browser.',
+      'Login with username: admin and password: admin.'
+    ]
+  },
+  {
+    name: 'Tenda',
+    slug: 'tenda',
+    defaultIp: '192.168.0.1 / tendawifi.com',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    description: 'Setup guides and default login passwords for Tenda AC, Nova Mesh, and F-series routers.',
+    models: [
+      { brand: 'Tenda', model: 'AC10 / AC19 / AC23', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
+      { brand: 'Tenda', model: 'Nova MW3 / MW6 / MW12 (Mesh)', protocol: 'HTTP', ip: '192.168.5.1', username: 'admin', password: 'admin' },
+      { brand: 'Tenda', model: 'Tenda F3 / F9', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: '(blank)' },
+      { brand: 'Tenda', model: 'TX3 / TX9 Pro (WiFi 6)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to your Tenda router WiFi network.',
+      'Open http://tendawifi.com or http://192.168.0.1.',
+      'Enter admin as the password (or leave blank if prompted on first boot).'
+    ]
+  },
+  {
+    name: 'TP-Link',
+    slug: 'tp-link',
+    defaultIp: '192.168.1.1 / 192.168.0.1 / tplinkwifi.net',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Complete default login credentials and setup guides for TP-Link Archer, Deco, and WR series routers.',
+    models: [
+      { brand: 'TP-Link', model: 'Archer AX10 / AX20 / AX50 / AX73', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'TP-Link', model: 'Archer C6 / C7 / C80 / A6', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
+      { brand: 'TP-Link', model: 'TL-WR841N / TL-WR845N / TL-WR940N', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
+      { brand: 'TP-Link', model: 'Deco M4 / M5 / X20 / X50 (Mesh)', protocol: 'Tether App', ip: '192.168.68.1', username: 'TP-Link ID', password: 'Cloud Password' },
+      { brand: 'TP-Link', model: 'TD-W8961N / TD-W9970 (ADSL/VDSL)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to the TP-Link WiFi or plug in via LAN cable.',
+      'Open a browser and navigate to http://tplinkwifi.net or http://192.168.0.1.',
+      'Enter the default username and password (admin / admin).',
+      'Go to Wireless -> Wireless Settings to configure your SSID and WPA2/WPA3 password.'
+    ]
+  },
+  {
+    name: 'Ubiquiti',
+    slug: 'ubiquiti',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'ubnt / root',
+    defaultPass: 'ubnt',
+    description: 'Default credentials for UniFi Dream Machine, EdgeRouter, and airMAX devices.',
+    models: [
+      { brand: 'Ubiquiti', model: 'UniFi Dream Machine (UDM / UDM Pro)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root / ui.com account', password: 'ubnt' },
+      { brand: 'Ubiquiti', model: 'EdgeRouter X / Lite / 4', protocol: 'HTTPS', ip: '192.168.1.1', username: 'ubnt', password: 'ubnt' },
+      { brand: 'Ubiquiti', model: 'NanoStation / LiteBeam (airMAX)', protocol: 'HTTPS', ip: '192.168.1.20', username: 'ubnt', password: 'ubnt' }
+    ],
+    guide: [
+      'Connect PC to eth0 or eth1.',
+      'Navigate to https://192.168.1.1 in your browser.',
+      'Log in with username: ubnt and password: ubnt.'
+    ]
+  },
+  {
+    name: 'ZTE',
+    slug: 'zte',
+    defaultIp: '192.168.1.1 / 192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default login credentials for ZTE ZXHN ONT and 4G/5G wireless routers.',
+    models: [
+      { brand: 'ZTE', model: 'ZXHN F660 / F670 / F680 FTTH', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ZTE', model: 'MF283 / MF286 (4G LTE Router)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to ZTE router network.',
+      'Visit http://192.168.1.1 in browser.',
+      'Log in with username: admin and password: admin.'
+    ]
+  },
+  {
+    name: 'ZyXEL',
+    slug: 'zyxel',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: '1234 / admin',
+    description: 'Default logins for ZyXEL prestige, Armor, and USG security routers.',
+    models: [
+      { brand: 'ZyXEL', model: 'Armor G1 / G5 (AX6000)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: '1234' },
+      { brand: 'ZyXEL', model: 'VMG3925 / VMG8825', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: '1234' },
+      { brand: 'ZyXEL', model: 'USG FLEX 100 / 200 (Firewall)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: '1234' }
+    ],
+    guide: [
+      'Connect to ZyXEL router LAN port.',
+      'Open http://192.168.1.1 in your browser.',
+      'Enter username: admin and password: 1234.'
     ]
   }
 ];

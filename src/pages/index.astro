@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
+import RouterLookupTable from '../components/RouterLookupTable.astro';
 import IpCard from '../components/IpCard.astro';
 import BrandCard from '../components/BrandCard.astro';
 import IspCard from '../components/IspCard.astro';
@@ -21,7 +22,7 @@ const schema = {
 
 <BaseLayout title={title} description={description} schema={schema}>
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-b from-brand-50/70 via-white to-slate-50 py-16 sm:py-24 border-b border-slate-200/60 overflow-hidden">
+  <section class="relative bg-gradient-to-b from-brand-50/70 via-white to-slate-50 py-12 sm:py-20 border-b border-slate-200/60 overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100/70 text-brand-800 text-xs font-bold uppercase tracking-wider mb-6 border border-brand-200">
@@ -29,22 +30,22 @@ const schema = {
         Default Router Gateway & Password Database
       </div>
 
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
         Access Your Router <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-sky-500">Admin Panel</span>
       </h1>
       
-      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-        Find default router IP addresses, factory login credentials, and step-by-step setup guides for TP-Link, Netgear, JioFiber, Airtel, and all major brands.
+      <p class="text-base text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Find default router IP addresses, factory login credentials, and step-by-step setup guides for 3WARE, TP-Link, Netgear, JioFiber, Airtel, and all major brands.
       </p>
 
       <!-- Instant Search -->
-      <div class="mb-8">
+      <div class="mb-6">
         <SearchBar />
       </div>
 
       <!-- Quick IP Direct Launch Buttons -->
       <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
-        <span class="text-slate-500 font-medium">Quick Access:</span>
+        <span class="text-slate-500 font-medium">Quick Gateway Links:</span>
         <a href="http://192.168.1.1" target="_blank" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 shadow-sm text-brand-700 font-mono font-bold hover:bg-brand-50 transition-colors">
           🔗 192.168.1.1
         </a>
@@ -61,8 +62,25 @@ const schema = {
     </div>
   </section>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-16">
     
+    <!-- Interactive Brand & Model Password Lookup Table (Requested Feature) -->
+    <section class="bg-gradient-to-b from-white to-sky-50/30 rounded-3xl p-6 sm:p-8 border border-sky-200/80 shadow-md shadow-sky-100">
+      <div class="max-w-3xl mb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-100 px-2.5 py-1 rounded-full border border-sky-200">
+          ⚡ Interactive Lookup Tool
+        </span>
+        <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight mt-2">
+          Router Brand & Default Password Finder
+        </h2>
+        <p class="text-sm text-slate-600 mt-1">
+          Select a router manufacturer from the dropdown to instantly view default models, protocols, usernames, and passwords.
+        </p>
+      </div>
+
+      <RouterLookupTable />
+    </section>
+
     <!-- Gateway IPs Section -->
     <section>
       <div class="flex items-center justify-between mb-6">

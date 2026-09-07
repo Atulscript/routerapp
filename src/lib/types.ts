@@ -11,8 +11,10 @@ export interface GatewayIp {
 }
 
 export interface RouterModel {
+  brand?: string;
   model: string;
   ip: string;
+  protocol?: string;
   username: string;
   password: string;
 }

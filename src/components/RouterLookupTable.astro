@@ -1,0 +1,127 @@
+---
+import { BRANDS } from '../lib/data-loader';
+
+// Collect all models with brand and protocol
+const allModels = BRANDS.flatMap(b => 
+  b.models.map(m => ({
+    brand: b.name,
+    brandSlug: b.slug,
+    model: m.model,
+    protocol: m.protocol || 'HTTP',
+    ip: m.ip,
+    username: m.username,
+    password: m.password
+  }))
+);
+
+const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a.localeCompare(b));
+---
+
+<div class="w-full max-w-4xl mx-auto my-8 font-sans" id="router-lookup-container">
+  
+  <!-- Brand Selector Dropdown -->
+  <div class="mb-4">
+    <label for="brand-select" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+      Select Router Brand / Manufacturer:
+    </label>
+    <div class="relative">
+      <select 
+        id="brand-select" 
+        class="w-full sm:w-80 px-3.5 py-2.5 bg-white border-2 border-slate-300 rounded-lg text-slate-900 text-sm font-semibold shadow-sm focus:border-sky-600 focus:ring-2 focus:ring-sky-500/20 outline-none cursor-pointer appearance-none"
+      >
+        <option value="ALL">-- All Brands ({allModels.length} Models) --</option>
+        {brandNames.map(brand => (
+          <option value={brand} selected={brand === '3WARE'}>
+            {brand}
+          </option>
+        ))}
+      </select>
+      <div class="pointer-events-none absolute inset-y-0 right-0 sm:right-auto sm:left-[300px] flex items-center px-3 text-slate-600 font-bold">
+        ▼
+      </div>
+    </div>
+  </div>
+
+  <!-- Styled Router Table Matching Screenshot -->
+  <div class="overflow-x-auto border-2 border-sky-600 rounded-lg shadow-sm bg-white">
+    <table class="w-full text-left border-collapse" id="models-table">
+      <thead>
+        <tr class="bg-[#0088cc] text-white text-sm font-bold border-b border-sky-700">
+          <th class="py-3 px-4 border-r border-sky-500">Brand</th>
+          <th class="py-3 px-4 border-r border-sky-500">Model</th>
+          <th class="py-3 px-4 border-r border-sky-500">Protocol</th>
+          <th class="py-3 px-4 border-r border-sky-500">Username</th>
+          <th class="py-3 px-4">Password</th>
+        </tr>
+      </thead>
+      <tbody id="table-body" class="divide-y divide-sky-100 text-sm text-slate-800">
+        <!-- Filled dynamically via client-side script -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Row count indicator -->
+  <div class="flex justify-between items-center mt-2 text-xs text-slate-500">
+    <span id="model-count-text">Showing models for 3WARE</span>
+    <span class="text-slate-700">💡 Click any password to copy</span>
+  </div>
+</div>
+
+<script define:vars={{ allModels }}>
+  const select = document.getElementById('brand-select');
+  const tbody = document.getElementById('table-body');
+  const countText = document.getElementById('model-count-text');
+
+  function renderTable(selectedBrand) {
+    let filtered = allModels;
+    if (selectedBrand && selectedBrand !== 'ALL') {
+      filtered = allModels.filter(item => item.brand.toUpperCase() === selectedBrand.toUpperCase());
+    }
+
+    if (countText) {
+      countText.innerText = selectedBrand === 'ALL' 
+        ? `Showing all ${filtered.length} models across all brands` 
+        : `Showing ${filtered.length} model(s) for ${selectedBrand}`;
+    }
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="5" class="py-6 text-center text-slate-500 italic bg-sky-50/40">
+            No models found for this brand.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tbody.innerHTML = filtered.map((item, index) => {
+      const bgClass = index % 2 === 0 ? 'bg-[#eef7fd]' : 'bg-white';
+      return `
+        <tr class="${bgClass} hover:bg-sky-100/70 transition-colors">
+          <td class="py-3 px-4 font-bold text-slate-900 border-r border-sky-200/60">${item.brand}</td>
+          <td class="py-3 px-4 font-medium text-slate-800 border-r border-sky-200/60">${item.model}</td>
+          <td class="py-3 px-4 font-semibold text-slate-700 border-r border-sky-200/60">${item.protocol}</td>
+          <td class="py-3 px-4 font-mono text-slate-900 border-r border-sky-200/60">${item.username}</td>
+          <td class="py-3 px-4 font-mono font-bold text-slate-900 flex items-center justify-between gap-2">
+            <span>${item.password}</span>
+            <button 
+              type="button" 
+              onclick="navigator.clipboard.writeText('${item.password}'); alert('Copied: ${item.password}')"
+              class="text-[11px] px-2 py-0.5 rounded bg-sky-100 hover:bg-sky-200 text-sky-800 font-sans font-medium border border-sky-300 transition-colors"
+            >
+              Copy
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // Initial render (3WARE as shown in screenshot)
+  renderTable(select?.value || '3WARE');
+
+  select?.addEventListener('change', (e) => {
+    renderTable(e.target.value);
+  });
+</script>
