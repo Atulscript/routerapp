@@ -9,7 +9,7 @@ const searchItems = [
     name: ip.ip,
     title: `${ip.ip} Router Login`,
     category: 'Gateway IP',
-    url: `${base}/${ip.slug}`,
+    url: ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`,
     subtitle: `Default: ${ip.defaultUser} / ${ip.defaultPass}`
   })),
   ...BRANDS.map(b => ({
@@ -30,31 +30,31 @@ const searchItems = [
 ---
 
 <div class="relative max-w-2xl mx-auto w-full" id="search-container">
-  <div class="relative flex items-center bg-white rounded-m3-full shadow-m3-2 border border-md-outline-variant/60 hover:shadow-m3-3 focus-within:shadow-m3-3 focus-within:border-md-primary transition-all duration-200">
-    <div class="pl-5 pr-2 pointer-events-none text-md-primary flex items-center">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div class="relative flex items-center bg-white rounded-2xl shadow-xs border border-slate-300 hover:border-md-primary focus-within:border-md-primary focus-within:ring-3 focus-within:ring-sky-500/15 transition-all duration-150">
+    <div class="pl-3.5 pr-2 pointer-events-none text-sky-600 flex items-center">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
     </div>
     <input 
       type="text" 
       id="search-input"
-      placeholder="Search IP (192.168.1.1), Brand (TP-Link), or ISP (JioFiber)..." 
-      class="w-full py-4 pr-12 bg-transparent text-md-on-surface placeholder-md-outline outline-none text-sm sm:text-base font-medium"
+      placeholder="Search IP (192.168.1.1), Brand (TP-Link), or ISP (Jio)..." 
+      class="w-full py-2.5 sm:py-3 pr-10 bg-transparent text-slate-900 placeholder-slate-400 outline-none text-xs sm:text-sm font-medium"
       autocomplete="off"
     />
     <button 
       id="search-clear" 
-      class="absolute right-4 text-md-outline hover:text-md-on-surface hidden text-xs font-bold px-2 py-1 rounded-m3-full hover:bg-md-surface-container transition-colors"
+      class="absolute right-3 text-slate-400 hover:text-slate-700 hidden text-xs font-bold px-2 py-0.5 rounded-md hover:bg-slate-100 transition-colors"
     >
-      ✕ Clear
+      ✕
     </button>
   </div>
 
   <!-- Results Dropdown -->
   <div 
     id="search-results" 
-    class="absolute left-0 right-0 top-full mt-2 bg-white rounded-m3-xl shadow-m3-3 border border-md-outline-variant/60 overflow-hidden hidden z-50 max-h-80 overflow-y-auto divide-y divide-md-surface-variant/40"
+    class="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden hidden z-50 max-h-72 overflow-y-auto divide-y divide-slate-100"
   >
     <div id="results-list"></div>
   </div>

@@ -16,25 +16,26 @@ const {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<div class="space-y-8 my-8 font-sans">
+<div class="space-y-5 my-6 font-sans">
   
   <!-- Box 1: Router Login Guide -->
-  <div class="bg-white rounded-2xl border border-slate-300/80 shadow-md overflow-hidden">
+  <div class="bg-white rounded-xl border border-slate-300 shadow-xs overflow-hidden">
     <!-- Header Bar -->
-    <div class="bg-[#487195] px-6 py-3.5 text-white font-bold text-lg tracking-wide flex items-center gap-2">
+    <div class="bg-[#3e6b89] px-4 sm:px-5 py-2.5 sm:py-3 text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-between">
       <span>{entityName} @ {ipAddress} Router Login</span>
+      <span class="text-[10px] font-mono font-semibold bg-white/20 px-2 py-0.5 rounded text-white">Guide</span>
     </div>
 
     <!-- Content Body -->
-    <div class="p-6 sm:p-8 space-y-5 text-slate-700 leading-relaxed">
-      <h3 class="text-emerald-700 text-lg sm:text-xl font-bold tracking-tight">
+    <div class="p-4 sm:p-5 space-y-3.5 text-slate-700 leading-relaxed text-xs sm:text-sm">
+      <h3 class="text-emerald-700 font-bold text-sm sm:text-base tracking-tight">
         To Login as Admin at <span class="text-rose-600 font-semibold">{entityName}</span> @ <span class="text-rose-600 font-semibold">{ipAddress}</span> Router use the guide below.
       </h3>
 
-      <ol class="space-y-4 text-sm sm:text-base list-decimal list-outside pl-5 marker:font-bold marker:text-slate-600">
+      <ol class="space-y-3 list-decimal list-outside pl-4 marker:font-bold marker:text-slate-600">
         <li class="pl-1">
           <span>Connect your PC or Laptop via cable to your router. Or instead use your wireless network.</span>
-          <div class="mt-2.5 p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-600">
+          <div class="mt-2 p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs text-slate-600">
             <strong class="text-slate-900 font-bold">Suggestion</strong> - {customSuggestion || `It is recommended for the connection to be done by using a cable attached to the ${entityName} @ ${ipAddress} router. That will prevent you from losing connection in the middle of the configuration / setup process.`}
           </div>
         </li>
@@ -51,19 +52,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </div>
 
   <!-- Box 2: Routers Support -->
-  <div class="bg-white rounded-2xl border border-slate-300/80 shadow-md overflow-hidden">
+  <div class="bg-white rounded-xl border border-slate-300 shadow-xs overflow-hidden">
     <!-- Header Bar -->
-    <div class="bg-[#487195] px-6 py-3.5 text-white font-bold text-lg tracking-wide flex items-center gap-2">
+    <div class="bg-[#3e6b89] px-4 sm:px-5 py-2.5 sm:py-3 text-white font-bold text-sm sm:text-base tracking-wide flex items-center justify-between">
       <span>{entityName} @ {ipAddress} Routers Support</span>
+      <span class="text-[10px] font-mono font-semibold bg-white/20 px-2 py-0.5 rounded text-white">Help</span>
     </div>
 
     <!-- Content Body -->
-    <div class="p-6 sm:p-8 space-y-5 text-slate-700 leading-relaxed">
-      <h3 class="text-emerald-700 text-lg sm:text-xl font-bold tracking-tight">
+    <div class="p-4 sm:p-5 space-y-3.5 text-slate-700 leading-relaxed text-xs sm:text-sm">
+      <h3 class="text-emerald-700 font-bold text-sm sm:text-base tracking-tight">
         If you experience problems logging in a {entityName} @ {ipAddress} router, then you are probably using the wrong username or password. Do not forget to store the login details after you have reset them.
       </h3>
 
-      <ul class="space-y-4 text-sm sm:text-base list-disc list-outside pl-5 marker:text-slate-400">
+      <ul class="space-y-2.5 list-disc list-outside pl-4 marker:text-slate-400">
         <li class="pl-1">
           <strong class="text-slate-900 font-bold">Forgot Login Password?</strong> Try the hard reset function. In order to do this, press and hold the small black button usually situated at the back your router case for approximately 10 seconds. Doing so will reset your router to the factory settings.
         </li>

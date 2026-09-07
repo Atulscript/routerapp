@@ -17,69 +17,69 @@ const allModels = BRANDS.flatMap(b =>
 const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a.localeCompare(b));
 ---
 
-<div class="w-full max-w-4xl mx-auto my-6" id="router-lookup-container">
+<div class="w-full max-w-4xl mx-auto my-4 font-sans" id="router-lookup-container">
   
-  <!-- M3 Outlined Select Control -->
-  <div class="mb-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <div>
-      <label for="brand-select" class="block text-xs font-bold uppercase tracking-wider text-md-on-surface-variant mb-1">
-        Select Router Brand / Manufacturer:
+  <!-- Compact Filter Bar -->
+  <div class="mb-3.5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+    <div class="flex-1 sm:max-w-xs">
+      <label for="brand-select" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+        Router Brand:
       </label>
       <div class="relative">
         <select 
           id="brand-select" 
-          class="w-full sm:w-80 pl-4 pr-10 py-3 bg-white border-2 border-md-outline-variant rounded-m3-md text-md-on-surface text-sm font-bold shadow-m3-1 focus:border-md-primary focus:ring-4 focus:ring-md-primary/10 outline-none cursor-pointer appearance-none transition-all"
+          class="w-full pl-3 pr-8 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 text-xs font-bold shadow-xs focus:border-sky-600 focus:ring-2 focus:ring-sky-500/15 outline-none cursor-pointer appearance-none transition-all"
         >
           <option value="ALL">-- All Brands ({allModels.length} Models) --</option>
           {brandNames.map(brand => (
-            <option value={brand} selected={brand === '3WARE'}>
+            <option value={brand} selected={brand === 'TP-LINK' || brand === '3WARE'}>
               {brand}
             </option>
           ))}
         </select>
-        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-md-primary font-bold">
+        <div class="pointer-events-none absolute inset-y-0 right-2.5 flex items-center text-slate-500 text-xs">
           ▼
         </div>
       </div>
     </div>
 
     <!-- Quick filter input -->
-    <div class="w-full sm:w-auto">
-      <label for="table-search-input" class="block text-xs font-bold uppercase tracking-wider text-md-on-surface-variant mb-1">
-        Search Within Table:
+    <div class="flex-1 sm:max-w-xs">
+      <label for="table-search-input" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+        Quick Filter:
       </label>
       <input 
         type="text" 
         id="table-search-input" 
-        placeholder="Filter model, protocol, user..." 
-        class="w-full sm:w-64 px-4 py-2.5 bg-white border-2 border-md-outline-variant rounded-m3-md text-xs font-medium text-md-on-surface focus:border-md-primary outline-none shadow-m3-1"
+        placeholder="Search model, admin, pass..." 
+        class="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs font-medium text-slate-900 focus:border-sky-600 outline-none shadow-xs"
       />
     </div>
   </div>
 
-  <!-- M3 Styled Table Matching Screenshot -->
-  <div class="overflow-x-auto border-2 border-md-primary rounded-m3-lg shadow-m3-2 bg-white">
+  <!-- High-Density Scrollable Table with Sticky Header -->
+  <div class="overflow-x-auto border border-sky-800 rounded-xl shadow-sm bg-white max-h-80 overflow-y-auto">
     <table class="w-full text-left border-collapse" id="models-table">
-      <thead>
-        <tr class="bg-md-primary text-md-on-primary text-sm font-bold border-b border-md-primary">
-          <th class="py-3.5 px-4 border-r border-md-primary/30">Brand</th>
-          <th class="py-3.5 px-4 border-r border-md-primary/30">Model</th>
-          <th class="py-3.5 px-4 border-r border-md-primary/30">Protocol</th>
-          <th class="py-3.5 px-4 border-r border-md-primary/30">Username</th>
-          <th class="py-3.5 px-4">Password</th>
+      <thead class="sticky top-0 z-10 bg-[#3b6584] text-white text-xs font-bold shadow-xs">
+        <tr>
+          <th class="py-2.5 px-3 border-r border-sky-700/50 whitespace-nowrap">Brand</th>
+          <th class="py-2.5 px-3 border-r border-sky-700/50 whitespace-nowrap">Model</th>
+          <th class="py-2.5 px-3 border-r border-sky-700/50 whitespace-nowrap">Protocol</th>
+          <th class="py-2.5 px-3 border-r border-sky-700/50 whitespace-nowrap">Username</th>
+          <th class="py-2.5 px-3 whitespace-nowrap">Password</th>
         </tr>
       </thead>
-      <tbody id="table-body" class="divide-y divide-md-outline-variant/30 text-sm text-md-on-surface font-sans">
+      <tbody id="table-body" class="divide-y divide-slate-100 text-xs text-slate-800 font-sans">
         <!-- Filled dynamically -->
       </tbody>
     </table>
   </div>
 
   <!-- Footer status bar -->
-  <div class="flex flex-col sm:flex-row justify-between items-center mt-3 text-xs text-md-on-surface-variant gap-2">
-    <span id="model-count-text" class="font-medium">Showing models for 3WARE</span>
-    <span class="m3-chip m3-chip-tonal text-[11px] py-0.5 px-2.5">
-      💡 Tip: Click copy button to copy password instantly
+  <div class="flex flex-col sm:flex-row justify-between items-center mt-2.5 text-xs text-slate-500 gap-1.5 px-1">
+    <span id="model-count-text" class="font-medium text-[11px]">Loading models...</span>
+    <span class="text-[11px] text-slate-400">
+      💡 Click copy button next to password to copy
     </span>
   </div>
 </div>
@@ -89,6 +89,18 @@ const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a
   const searchInput = document.getElementById('table-search-input');
   const tbody = document.getElementById('table-body');
   const countText = document.getElementById('model-count-text');
+
+  function copyPassword(pw, btn) {
+    navigator.clipboard.writeText(pw);
+    const origText = btn.innerText;
+    btn.innerText = '✓ Copied';
+    btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+    setTimeout(() => {
+      btn.innerText = origText;
+      btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
+    }, 1500);
+  }
+  window.copyPassword = copyPassword;
 
   function renderTable() {
     const selectedBrand = select?.value || 'ALL';
@@ -118,7 +130,7 @@ const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a
     if (filtered.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="5" class="py-8 text-center text-md-on-surface-variant italic bg-md-surface-container-low">
+          <td colspan="5" class="py-6 text-center text-slate-400 italic bg-slate-50">
             No matching router models found.
           </td>
         </tr>
@@ -127,29 +139,31 @@ const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a
     }
 
     tbody.innerHTML = filtered.map((item, index) => {
-      const bgClass = index % 2 === 0 ? 'bg-[#EBF5FB]' : 'bg-white';
+      const bgClass = index % 2 === 0 ? 'bg-[#f0f6fa]' : 'bg-white';
       return `
-        <tr class="${bgClass} hover:bg-md-primary-container/30 transition-colors">
-          <td class="py-3 px-4 font-bold text-md-on-surface border-r border-md-outline-variant/30">${item.brand}</td>
-          <td class="py-3 px-4 font-medium text-md-on-surface border-r border-md-outline-variant/30">${item.model}</td>
-          <td class="py-3 px-4 font-semibold text-md-on-surface-variant border-r border-md-outline-variant/30">${item.protocol}</td>
-          <td class="py-3 px-4 font-mono font-medium text-md-on-surface border-r border-md-outline-variant/30">${item.username}</td>
-          <td class="py-3 px-4 font-mono font-bold text-md-on-surface flex items-center justify-between gap-3">
-            <span>${item.password}</span>
-            <button 
-              type="button" 
-              onclick="navigator.clipboard.writeText('${item.password}'); alert('Copied password: ${item.password}')"
-              class="text-[11px] px-2.5 py-1 rounded-m3-full bg-white hover:bg-md-primary hover:text-white text-md-primary font-sans font-bold border border-md-primary/40 shadow-xs transition-all active:scale-95"
-            >
-              Copy
-            </button>
+        <tr class="${bgClass} hover:bg-sky-50 transition-colors">
+          <td class="py-2 px-3 font-bold text-slate-900 border-r border-slate-200/60 whitespace-nowrap">${item.brand}</td>
+          <td class="py-2 px-3 font-medium text-slate-800 border-r border-slate-200/60 whitespace-nowrap">${item.model}</td>
+          <td class="py-2 px-3 text-slate-500 border-r border-slate-200/60 whitespace-nowrap">${item.protocol}</td>
+          <td class="py-2 px-3 font-mono text-slate-700 border-r border-slate-200/60 whitespace-nowrap">${item.username}</td>
+          <td class="py-2 px-3 font-mono font-bold text-slate-900 whitespace-nowrap">
+            <div class="flex items-center justify-between gap-2">
+              <span>${item.password}</span>
+              <button 
+                type="button" 
+                onclick="window.copyPassword('${item.password}', this)"
+                class="text-[10px] px-2 py-0.5 rounded-md bg-white hover:bg-sky-600 hover:text-white text-sky-700 font-sans font-bold border border-sky-300 shadow-2xs transition-all active:scale-95 cursor-pointer"
+              >
+                Copy
+              </button>
+            </div>
           </td>
         </tr>
       `;
     }).join('');
   }
 
-  // Initial render (3WARE)
+  // Initial render
   renderTable();
 
   select?.addEventListener('change', renderTable);

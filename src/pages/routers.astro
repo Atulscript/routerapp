@@ -7,7 +7,7 @@ import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { BRANDS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Router Hardware & Models Database | Default Logins & Protocols";
+const title = "Router Hardware & Models Database | Default Logins & Protocols | 19216811.page";
 const description = "Search and filter router hardware models across all manufacturers. Find factory default IP addresses, protocols, usernames, and passwords.";
 
 const allModels = BRANDS.flatMap(b => 
@@ -24,22 +24,22 @@ const allModels = BRANDS.flatMap(b =>
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
     
     <!-- Search Bar -->
-    <div class="mb-8">
+    <div>
       <SearchBar />
     </div>
 
     <!-- Header -->
-    <header class="text-center max-w-2xl mx-auto mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold uppercase mb-3 border border-sky-200">
+    <header class="text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase mb-2 border border-md-primary/20">
         📟 Hardware Catalog
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
         Router Models Database
       </h1>
-      <p class="text-sm sm:text-base text-slate-600">
+      <p class="text-xs sm:text-sm text-md-on-surface-variant">
         Lookup default credentials for {allModels.length} router models across {BRANDS.length} manufacturers with protocol specifications.
       </p>
     </header>
@@ -47,48 +47,48 @@ const allModels = BRANDS.flatMap(b =>
     <AdBanner format="leaderboard" />
 
     <!-- Interactive Lookup Component -->
-    <div class="my-8">
+    <div>
       <RouterLookupTable />
     </div>
 
     <AdBanner format="horizontal" />
 
     <!-- Master Models Table with Instant Filter -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 my-10">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <section class="m3-card-compact space-y-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xl font-bold text-slate-900">Complete Master Hardware List</h2>
-          <p class="text-xs text-slate-500">Filter by typing any model, brand, or IP address</p>
+          <h2 class="text-lg font-bold text-md-on-surface">Complete Master Hardware List</h2>
+          <p class="text-xs text-md-on-surface-variant">Filter by typing any model, brand, or IP address</p>
         </div>
         <input 
           type="text" 
           id="model-filter-input" 
-          placeholder="Filter models (e.g. Archer, Nighthawk, AX)..." 
-          class="w-full sm:w-72 px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:border-sky-600 focus:bg-white outline-none"
+          placeholder="Filter models (e.g. Archer, AX)..." 
+          class="w-full sm:w-64 px-3 py-1.5 bg-md-surface-container-low border border-md-outline-variant/60 rounded-m3-md text-xs font-semibold focus:border-md-primary focus:bg-white outline-none"
         />
       </div>
 
-      <div class="overflow-x-auto rounded-2xl border border-slate-200">
-        <table class="w-full text-left text-xs text-slate-700" id="all-models-master-table">
-          <thead class="bg-slate-100 font-bold uppercase tracking-wider text-slate-600 border-b border-slate-200">
+      <div class="overflow-x-auto rounded-m3-md border border-md-outline-variant/40 max-h-96 overflow-y-auto custom-scrollbar">
+        <table class="w-full text-left text-xs text-md-on-surface" id="all-models-master-table">
+          <thead class="sticky top-0 bg-md-surface-container-high font-bold uppercase tracking-wider text-[11px] text-md-on-surface-variant border-b border-md-outline-variant/40 z-10 shadow-2xs">
             <tr>
-              <th class="p-3.5">Brand</th>
-              <th class="p-3.5">Model</th>
-              <th class="p-3.5">Default IP</th>
-              <th class="p-3.5">Protocol</th>
-              <th class="p-3.5">Username</th>
-              <th class="p-3.5">Password</th>
+              <th class="p-2.5">Brand</th>
+              <th class="p-2.5">Model</th>
+              <th class="p-2.5">Default IP</th>
+              <th class="p-2.5">Protocol</th>
+              <th class="p-2.5">Username</th>
+              <th class="p-2.5">Password</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 font-mono" id="master-table-body">
+          <tbody class="divide-y divide-md-outline-variant/20 font-mono text-xs" id="master-table-body">
             {allModels.map(item => (
-              <tr class="hover:bg-slate-50 master-row">
-                <td class="p-3.5 font-bold font-sans text-slate-900">{item.brand}</td>
-                <td class="p-3.5 font-sans font-medium text-slate-800">{item.model}</td>
-                <td class="p-3.5 text-sky-700 font-bold">{item.ip}</td>
-                <td class="p-3.5 text-slate-500">{item.protocol}</td>
-                <td class="p-3.5">{item.username}</td>
-                <td class="p-3.5 font-bold text-slate-900">{item.password}</td>
+              <tr class="hover:bg-md-surface-container-low master-row">
+                <td class="p-2.5 font-bold font-sans text-md-on-surface">{item.brand}</td>
+                <td class="p-2.5 font-sans font-medium text-md-on-surface">{item.model}</td>
+                <td class="p-2.5 text-md-primary font-bold">{item.ip}</td>
+                <td class="p-2.5 text-md-on-surface-variant text-[11px]">{item.protocol}</td>
+                <td class="p-2.5">{item.username}</td>
+                <td class="p-2.5 font-bold text-md-on-surface">{item.password}</td>
               </tr>
             ))}
           </tbody>
@@ -97,41 +97,15 @@ const allModels = BRANDS.flatMap(b =>
     </section>
 
     <!-- Practical Hardware Guide Section -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 my-10">
-      <h2 class="text-2xl font-bold text-slate-900">Understanding Router Hardware Modes & Maintenance</h2>
-      <p class="text-sm text-slate-600 leading-relaxed">
-        Modern wireless routers can be configured in multiple operating modes depending on your home or office network architecture:
+    <section class="m3-card-compact space-y-3">
+      <h2 class="text-base font-bold text-md-on-surface">How Model Numbers Affect Default Credentials</h2>
+      <p class="text-xs text-md-on-surface-variant leading-relaxed">
+        Manufacturers often update factory credentials across firmware generations. For example, older TP-Link units default to <code>admin/admin</code>, while newer Archer AX WiFi 6 routers require you to establish a secure administrator password upon first connection.
       </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs pt-2">
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-          <span class="text-xl">🌐</span>
-          <strong class="text-slate-900 block font-bold text-sm">Router Mode (Default)</strong>
-          <p class="text-slate-600 leading-relaxed">
-            The router connects directly to your internet modem, creates a private local subnet (e.g. 192.168.1.1), assigns DHCP IP addresses, and handles NAT firewall security.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-          <span class="text-xl">📡</span>
-          <strong class="text-slate-900 block font-bold text-sm">Access Point (AP) Mode</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Disables internal routing and DHCP. Extends Wi-Fi coverage by connecting via Ethernet to an existing main router, preventing double-NAT latency in gaming and VoIP.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-          <span class="text-xl">🔄</span>
-          <strong class="text-slate-900 block font-bold text-sm">Repeater / Range Extender Mode</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Picks up an existing wireless signal over the air and re-broadcasts it to eliminate Wi-Fi dead zones, without requiring physical Ethernet cabling.
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- Interlinking 2-Column Grid -->
-    <div class="mt-12">
+    <div>
       <RelatedLinksGrid />
     </div>
 
@@ -139,13 +113,14 @@ const allModels = BRANDS.flatMap(b =>
 </BaseLayout>
 
 <script>
-  const filterInput = document.getElementById('model-filter-input');
+  const filterInput = document.getElementById('model-filter-input') as HTMLInputElement;
+  const rows = document.querySelectorAll('.master-row');
+
   filterInput?.addEventListener('input', (e) => {
-    const q = (e.target as HTMLInputElement).value.toLowerCase().trim();
-    const rows = document.querySelectorAll('.master-row');
-    rows.forEach(row => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase();
+    rows.forEach((row) => {
       const text = (row as HTMLElement).innerText.toLowerCase();
-      (row as HTMLElement).style.display = text.includes(q) ? '' : 'none';
+      (row as HTMLElement).style.display = text.includes(query) ? '' : 'none';
     });
   });
 </script>

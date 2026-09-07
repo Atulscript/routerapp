@@ -54,35 +54,35 @@ const schema = {
 
 <BaseLayout title={title} description={description} schema={schema}>
   
-  <!-- Material Design 3 Hero Section -->
-  <section class="relative bg-gradient-to-b from-md-primary-container/30 via-white to-md-surface-container-low py-14 sm:py-24 border-b border-md-surface-variant/50 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+  <!-- Material Design 3 Ultra-Compact Hero Section -->
+  <section class="relative bg-gradient-to-b from-md-primary-container/20 via-white to-md-surface-container-low py-6 sm:py-8 border-b border-md-surface-variant/40 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       
       <!-- Tonal Badge Chip -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-xs font-bold uppercase tracking-wider mb-6 shadow-xs border border-md-primary/20">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        19216811.page • Default Router Gateway & Administration Portal
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase tracking-wider mb-3 shadow-2xs border border-md-primary/15">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        19216811.page • Router Gateway Portal
       </div>
 
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-md-on-surface tracking-tight mb-5 leading-tight font-sans">
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-md-on-surface tracking-tight mb-2 leading-tight font-sans">
         192.168.1.1 <span class="text-transparent bg-clip-text bg-gradient-to-r from-md-primary to-sky-600">Router Admin Login</span>
       </h1>
       
-      <p class="text-base sm:text-lg text-md-on-surface-variant max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
-        Welcome to <strong>19216811.page</strong>. Access your wireless router and modem administration dashboard at <strong>http://192.168.1.1</strong>. Configure WiFi passwords, DHCP scopes, port forwarding, and security settings.
+      <p class="text-xs sm:text-sm text-md-on-surface-variant max-w-xl mx-auto mb-5 leading-relaxed">
+        Access your wireless router dashboard at <strong>http://192.168.1.1</strong>. Lookup default admin credentials, configure Wi-Fi security, and resolve connection errors.
       </p>
 
-      <!-- Primary 192.168.1.1 Elevated Card -->
-      <div class="bg-gradient-to-br from-md-primary via-[#00528c] to-[#003e6d] rounded-m3-xl p-6 sm:p-10 text-white shadow-m3-3 max-w-2xl mx-auto mb-8 text-left border border-white/10">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <!-- Primary 192.168.1.1 Compact Command Card -->
+      <div class="bg-gradient-to-br from-md-primary via-[#00528c] to-[#003e6d] rounded-m3-lg p-4 sm:p-5 text-white shadow-m3-2 max-w-xl mx-auto mb-4 text-left border border-white/10">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span class="text-xs uppercase font-bold tracking-wider text-md-primary-container">Direct Gateway IP Portal</span>
-            <div class="text-3xl sm:text-4xl font-mono font-black mt-1 tracking-tight text-white">
+            <span class="text-[10px] uppercase font-bold tracking-wider text-md-primary-container">Default Router IP</span>
+            <div class="text-2xl sm:text-3xl font-mono font-black mt-0.5 tracking-tight text-white">
               192.168.1.1
             </div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono">
-              <span class="bg-white/15 px-3 py-1.5 rounded-m3-md backdrop-blur-sm border border-white/10">User: <strong>admin</strong></span>
-              <span class="bg-white/15 px-3 py-1.5 rounded-m3-md backdrop-blur-sm border border-white/10">Pass: <strong>admin / password</strong></span>
+            <div class="mt-2 flex flex-wrap gap-1.5 text-[11px] font-mono">
+              <span class="bg-white/15 px-2.5 py-1 rounded-m3-sm backdrop-blur-sm border border-white/10">User: <strong>admin</strong></span>
+              <span class="bg-white/15 px-2.5 py-1 rounded-m3-sm backdrop-blur-sm border border-white/10">Pass: <strong>admin / password</strong></span>
             </div>
           </div>
           
@@ -90,26 +90,26 @@ const schema = {
             href="http://192.168.1.1" 
             target="_blank" 
             rel="noopener noreferrer"
-            class="m3-btn-filled bg-white text-md-primary hover:bg-md-surface-container shadow-m3-2 text-sm font-bold whitespace-nowrap flex items-center gap-2 hover:scale-105 transition-all"
+            class="m3-btn-filled bg-white text-md-primary hover:bg-md-surface-container shadow-m3-1 text-xs font-bold whitespace-nowrap flex items-center gap-1.5 py-2.5 px-4 w-full sm:w-auto justify-center"
           >
-            <span>🔗 Open 192.168.1.1</span>
-            <span class="text-xs">↗</span>
+            <span>Open 192.168.1.1</span>
+            <span>↗</span>
           </a>
         </div>
       </div>
 
-      <!-- M3 Search Bar -->
-      <div class="max-w-2xl mx-auto">
+      <!-- Compact Search Bar -->
+      <div class="max-w-xl mx-auto">
         <SearchBar />
       </div>
 
       <!-- Alternative Gateway Chips -->
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs">
-        <span class="text-md-on-surface-variant font-medium">Other Common Gateways:</span>
+      <div class="mt-3 flex flex-wrap items-center justify-center gap-1.5 text-xs">
+        <span class="text-md-on-surface-variant text-[11px] font-medium">Other Gateways:</span>
         {otherIps.map(item => (
           <a 
             href={`${base}/${item.slug}`} 
-            class="m3-chip m3-chip-outlined py-1 px-3 text-xs font-mono font-bold hover:border-md-primary hover:text-md-primary"
+            class="m3-chip m3-chip-outlined py-0.5 px-2.5 text-[11px] font-mono font-bold hover:border-md-primary hover:text-md-primary"
           >
             {item.ip}
           </a>
@@ -120,23 +120,23 @@ const schema = {
   </section>
 
   <!-- Leaderboard Ad Slot -->
-  <div class="max-w-6xl mx-auto px-4 pt-6">
+  <div class="max-w-5xl mx-auto px-4 pt-4">
     <AdBanner format="leaderboard" />
   </div>
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 space-y-8">
     
     <!-- 1. Interactive Brand & Model Password Table (Matching Screenshot Feature) -->
-    <section class="m3-card p-6 sm:p-10 border-md-outline-variant/60 shadow-m3-1">
-      <div class="max-w-2xl mb-2">
-        <span class="m3-chip m3-chip-tonal text-xs font-bold tracking-wider">
+    <section class="m3-card-compact border-md-outline-variant/60 shadow-m3-1">
+      <div class="max-w-2xl mb-1">
+        <span class="m3-chip m3-chip-tonal text-[11px] font-bold tracking-wider">
           🔑 Brand Password Database
         </span>
-        <h2 class="text-2xl font-extrabold text-md-on-surface tracking-tight mt-2.5">
+        <h2 class="text-xl font-extrabold text-md-on-surface tracking-tight mt-1.5">
           Find Default Passwords by Router Brand
         </h2>
-        <p class="text-sm text-md-on-surface-variant mt-1 leading-relaxed">
-          Select your router manufacturer from the dropdown to view default login credentials, protocols, and factory usernames.
+        <p class="text-xs text-md-on-surface-variant mt-0.5 leading-relaxed">
+          Select your manufacturer to view default login credentials, protocols, and factory usernames.
         </p>
       </div>
 
@@ -155,18 +155,18 @@ const schema = {
 
     <!-- 3. Popular Router Brands That Use 192.168.1.1 -->
     <section>
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-4">
         <div>
-          <h2 class="text-2xl font-extrabold text-md-on-surface tracking-tight">Popular 192.168.1.1 Router Brands</h2>
-          <p class="text-sm text-md-on-surface-variant">Default passwords and setup tutorials by manufacturer</p>
+          <h2 class="text-xl font-extrabold text-md-on-surface tracking-tight">Popular Router Brands</h2>
+          <p class="text-xs text-md-on-surface-variant">Default passwords and setup tutorials by manufacturer</p>
         </div>
-        <a href={`${base}/brands`} class="text-sm font-bold text-md-primary hover:underline flex items-center gap-1">
+        <a href={`${base}/brands`} class="text-xs font-bold text-md-primary hover:underline flex items-center gap-1">
           <span>All Brands</span>
           <span>→</span>
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
         {BRANDS.slice(0, 9).map(item => (
           <BrandCard data={item} />
         ))}
@@ -175,162 +175,167 @@ const schema = {
 
     <!-- 4. ISP Fiber ONT Configuration Section -->
     <section>
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-4">
         <div>
-          <h2 class="text-2xl font-extrabold text-md-on-surface tracking-tight">Internet Service Provider (ISP) Guides</h2>
-          <p class="text-sm text-md-on-surface-variant">Dedicated configuration guides for JioFiber, Airtel Xstream, BSNL, and ACT Fibernet</p>
+          <h2 class="text-xl font-extrabold text-md-on-surface tracking-tight">ISP Fiber Gateway Guides</h2>
+          <p class="text-xs text-md-on-surface-variant">Dedicated configuration guides for JioFiber, Airtel Xstream, BSNL, and ACT</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
         {ISPS.map(item => (
           <IspCard data={item} />
         ))}
       </div>
     </section>
 
-    <!-- 5. SEO Deep-Dive: Network Security & Router Hardening -->
-    <section class="m3-card p-6 sm:p-10 space-y-6">
-      <h2 class="text-2xl font-extrabold text-md-on-surface tracking-tight">
-        Essential Security Steps After Logging into 192.168.1.1
-      </h2>
-      <p class="text-sm text-md-on-surface-variant leading-relaxed">
-        Logging into your router for the first time is only half the job. To prevent automated botnets, DNS hijacking, and unauthorized bandwidth leeching, follow these security hardening recommendations:
-      </p>
+    <!-- 5. Network Security & Router Hardening -->
+    <section class="m3-card-compact space-y-4">
+      <div>
+        <span class="m3-chip m3-chip-tonal text-[11px] font-bold tracking-wider">
+          🛡️ Security Hardening
+        </span>
+        <h2 class="text-xl font-extrabold text-md-on-surface tracking-tight mt-1.5">
+          Essential Security Steps After Logging into 192.168.1.1
+        </h2>
+        <p class="text-xs text-md-on-surface-variant mt-0.5 leading-relaxed">
+          Follow these key security best practices to protect your network from unauthorized access and brute-force attempts:
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
-        <div class="p-5 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/40 space-y-2">
-          <span class="text-xl">🔒</span>
-          <h3 class="font-bold text-sm text-md-on-surface">1. Change Default Admin Passwords</h3>
-          <p class="text-xs text-md-on-surface-variant leading-relaxed">
-            Never leave <code class="font-mono bg-white px-1 py-0.5 rounded border">admin/admin</code> active. Set a custom 16+ character passphrase under Administration settings.
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-1">
+        <div class="p-3.5 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/40 space-y-1.5">
+          <span class="text-lg">🔒</span>
+          <h3 class="font-bold text-xs text-md-on-surface">1. Change Default Passwords</h3>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            Never leave <code class="font-mono bg-white px-1 py-0.5 rounded border">admin/admin</code> active. Set a custom 16+ character passphrase under Administration.
           </p>
         </div>
 
-        <div class="p-5 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/40 space-y-2">
-          <span class="text-xl">📶</span>
-          <h3 class="font-bold text-sm text-md-on-surface">2. Upgrade to WPA3 or WPA2-AES</h3>
-          <p class="text-xs text-md-on-surface-variant leading-relaxed">
-            Avoid outdated WEP or TKIP modes. Use WPA3-Personal (SAE) or WPA2-PSK (AES) to prevent KRACK and offline brute-force attacks.
+        <div class="p-3.5 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/40 space-y-1.5">
+          <span class="text-lg">📶</span>
+          <h3 class="font-bold text-xs text-md-on-surface">2. Upgrade to WPA3 / WPA2-AES</h3>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            Avoid outdated WEP/TKIP modes. Use WPA3-Personal or WPA2-PSK (AES) for strong encryption.
           </p>
         </div>
 
-        <div class="p-5 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/40 space-y-2">
-          <span class="text-xl">🚫</span>
-          <h3 class="font-bold text-sm text-md-on-surface">3. Disable WPS & Remote Management</h3>
-          <p class="text-xs text-md-on-surface-variant leading-relaxed">
-            Disable Wi-Fi Protected Setup (WPS PIN) and turn off WAN Remote Management (Port 80/443 on public IP) to block external exploits.
+        <div class="p-3.5 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/40 space-y-1.5">
+          <span class="text-lg">🚫</span>
+          <h3 class="font-bold text-xs text-md-on-surface">3. Disable WPS & Remote WAN</h3>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            Disable Wi-Fi Protected Setup (WPS PIN) and turn off Remote WAN Management to prevent external access.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Practical Guide: How to Find Your Router IP on Any OS -->
-    <section class="m3-card p-6 sm:p-10 space-y-6">
+    <section class="m3-card-compact space-y-4">
       <div>
-        <span class="m3-chip m3-chip-tonal text-xs font-bold tracking-wider">
+        <span class="m3-chip m3-chip-tonal text-[11px] font-bold tracking-wider">
           🔍 Quick Diagnostic
         </span>
-        <h2 class="text-2xl font-black text-md-on-surface tracking-tight mt-2.5">
-          Not Sure If 192.168.1.1 Is Your Router's IP? Here's How to Check
+        <h2 class="text-xl font-black text-md-on-surface tracking-tight mt-1.5">
+          Not Sure If 192.168.1.1 Is Your Router IP? Check in Seconds
         </h2>
-        <p class="text-sm text-md-on-surface-variant mt-1 leading-relaxed">
-          Your device automatically receives your router's exact IP address when connected. Here is how to find it in seconds on any operating system:
+        <p class="text-xs text-md-on-surface-variant mt-0.5 leading-relaxed">
+          Your device automatically receives your router's default gateway address when connected:
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
-          <strong class="text-slate-900 font-bold block text-sm">💻 Windows 10 / 11</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Press <kbd class="px-1.5 py-0.5 bg-white border rounded font-mono text-[10px]">Win + R</kbd>, type <code class="font-mono bg-white px-1 py-0.5 rounded">cmd</code>, and press Enter. Type <code class="font-mono bg-white px-1 py-0.5 rounded font-bold text-sky-700">ipconfig</code>. Look for <strong>Default Gateway</strong>.
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+          <strong class="text-slate-900 font-bold block text-xs">💻 Windows 10 / 11</strong>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            Press <kbd class="px-1 py-0.5 bg-white border rounded font-mono text-[9px]">Win + R</kbd>, run <code class="font-mono bg-white px-1 py-0.5 rounded text-[10px]">cmd</code>, type <code class="font-mono bg-white px-1 py-0.5 rounded font-bold text-sky-700 text-[10px]">ipconfig</code>. Look for <strong>Default Gateway</strong>.
           </p>
         </div>
 
-        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
-          <strong class="text-slate-900 font-bold block text-sm">🍎 macOS (MacBook / iMac)</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Open <strong>System Settings</strong> $\rightarrow$ <strong>Wi-Fi</strong> $\rightarrow$ click <strong>Details</strong> next to your network $\rightarrow$ select <strong>TCP/IP</strong>. Check the <strong>Router</strong> entry.
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+          <strong class="text-slate-900 font-bold block text-xs">🍎 macOS (Mac)</strong>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            Open <strong>System Settings</strong> → <strong>Wi-Fi</strong> → click <strong>Details</strong> → <strong>TCP/IP</strong>. Check <strong>Router</strong>.
           </p>
         </div>
 
-        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
-          <strong class="text-slate-900 font-bold block text-sm">📱 iPhone / iPad (iOS)</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Open <strong>Settings</strong> $\rightarrow$ <strong>Wi-Fi</strong> $\rightarrow$ tap the blue <span class="font-bold font-mono">ⓘ</span> icon next to your connected Wi-Fi. Scroll down to see <strong>Router</strong>.
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+          <strong class="text-slate-900 font-bold block text-xs">📱 iPhone / iPad (iOS)</strong>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            Open <strong>Settings</strong> → <strong>Wi-Fi</strong> → tap <span class="font-bold font-mono">ⓘ</span> next to Wi-Fi. Scroll down to <strong>Router</strong>.
           </p>
         </div>
 
-        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
-          <strong class="text-slate-900 font-bold block text-sm">🤖 Android Phone / Tablet</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Go to <strong>Settings</strong> $\rightarrow$ <strong>Network & Internet</strong> $\rightarrow$ <strong>Wi-Fi</strong> $\rightarrow$ tap the ⚙️ gear icon $\rightarrow$ tap <strong>Advanced</strong> to view <strong>Gateway</strong>.
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+          <strong class="text-slate-900 font-bold block text-xs">🤖 Android Device</strong>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            Go to <strong>Settings</strong> → <strong>Wi-Fi</strong> → tap ⚙️ gear icon → tap <strong>Advanced</strong> to view <strong>Gateway</strong>.
           </p>
         </div>
       </div>
     </section>
 
     <!-- 6. Typo Warning Alert Box -->
-    <section class="bg-amber-50/90 rounded-m3-xl p-6 sm:p-8 border border-amber-200 shadow-xs">
+    <section class="bg-amber-50/90 rounded-m3-lg p-4 sm:p-5 border border-amber-200 shadow-2xs">
       <div class="max-w-3xl">
-        <div class="flex items-center gap-2 text-amber-900 font-black text-lg mb-2">
+        <div class="flex items-center gap-1.5 text-amber-900 font-bold text-sm mb-1.5">
           <span>⚠️</span> Avoid Common IP Typos (192.168.l.l vs 192.168.1.1)
         </div>
-        <p class="text-sm text-amber-800 leading-relaxed mb-4">
-          IP addresses consist <strong>strictly of numbers</strong> separated by periods. Typing letters like "l" (lowercase L) or "o" (letter O) will trigger a Google search instead of opening your router:
+        <p class="text-xs text-amber-800 leading-relaxed mb-3">
+          IP addresses consist strictly of numbers. Typing letters like "l" (lowercase L) or "o" (letter O) will trigger a web search error:
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono font-bold">
-          <div class="bg-white/95 p-3 rounded-m3-md border border-amber-200 flex flex-col shadow-xs">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono font-bold">
+          <div class="bg-white/95 p-2 rounded-m3-sm border border-amber-200 flex flex-col shadow-2xs text-[11px]">
             <span class="text-red-600 line-through">192.168.l.l</span>
-            <span class="text-emerald-700 mt-1">✓ 192.168.1.1</span>
+            <span class="text-emerald-700 font-bold">✓ 192.168.1.1</span>
           </div>
-          <div class="bg-white/95 p-3 rounded-m3-md border border-amber-200 flex flex-col shadow-xs">
+          <div class="bg-white/95 p-2 rounded-m3-sm border border-amber-200 flex flex-col shadow-2xs text-[11px]">
             <span class="text-red-600 line-through">192.168.o.1</span>
-            <span class="text-emerald-700 mt-1">✓ 192.168.0.1</span>
+            <span class="text-emerald-700 font-bold">✓ 192.168.0.1</span>
           </div>
-          <div class="bg-white/95 p-3 rounded-m3-md border border-amber-200 flex flex-col shadow-xs">
+          <div class="bg-white/95 p-2 rounded-m3-sm border border-amber-200 flex flex-col shadow-2xs text-[11px]">
             <span class="text-red-600 line-through">19216811</span>
-            <span class="text-emerald-700 mt-1">✓ 192.168.1.1</span>
+            <span class="text-emerald-700 font-bold">✓ 192.168.1.1</span>
           </div>
-          <div class="bg-white/95 p-3 rounded-m3-md border border-amber-200 flex flex-col shadow-xs">
+          <div class="bg-white/95 p-2 rounded-m3-sm border border-amber-200 flex flex-col shadow-2xs text-[11px]">
             <span class="text-red-600 line-through">http 192.168 1.1</span>
-            <span class="text-emerald-700 mt-1">✓ 192.168.1.1</span>
+            <span class="text-emerald-700 font-bold">✓ 192.168.1.1</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 7. 192.168.1.1 Troubleshooting & FAQ Section -->
-    <section class="m3-card p-6 sm:p-10 space-y-6">
+    <section class="m3-card-compact space-y-4">
       <div>
-        <h2 class="text-2xl font-black text-md-on-surface tracking-tight">
-          192.168.1.1 Frequently Asked Questions & Troubleshooting
+        <h2 class="text-xl font-black text-md-on-surface tracking-tight">
+          Frequently Asked Questions & Troubleshooting
         </h2>
-        <p class="text-sm text-md-on-surface-variant mt-1">
+        <p class="text-xs text-md-on-surface-variant mt-0.5">
           Solutions for unreachable admin portals, IP address conflicts, and forgotten credentials
         </p>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-2.5">
         {currentIp.faqs.map(faq => (
-          <details class="group border border-md-outline-variant/40 rounded-m3-lg p-5 open:bg-md-surface-container-low transition-colors">
-            <summary class="font-bold text-md-on-surface cursor-pointer list-none flex justify-between items-center text-sm">
+          <details class="group border border-md-outline-variant/40 rounded-m3-md p-3.5 open:bg-md-surface-container-low transition-colors">
+            <summary class="font-bold text-md-on-surface cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
               {faq.question}
-              <span class="text-md-outline group-open:rotate-180 transition-transform">▼</span>
+              <span class="text-md-outline group-open:rotate-180 transition-transform text-xs">▼</span>
             </summary>
-            <p class="text-xs sm:text-sm text-md-on-surface-variant mt-3 leading-relaxed border-t border-md-surface-variant/40 pt-3">
+            <p class="text-xs text-md-on-surface-variant mt-2 leading-relaxed border-t border-md-surface-variant/40 pt-2">
               {faq.answer}
             </p>
           </details>
         ))}
 
-        <details class="group border border-md-outline-variant/40 rounded-m3-lg p-5 open:bg-md-surface-container-low transition-colors">
-          <summary class="font-bold text-md-on-surface cursor-pointer list-none flex justify-between items-center text-sm">
+        <details class="group border border-md-outline-variant/40 rounded-m3-md p-3.5 open:bg-md-surface-container-low transition-colors">
+          <summary class="font-bold text-md-on-surface cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             How do I change the DNS servers on 192.168.1.1 for faster speeds?
-            <span class="text-md-outline group-open:rotate-180 transition-transform">▼</span>
+            <span class="text-md-outline group-open:rotate-180 transition-transform text-xs">▼</span>
           </summary>
-          <p class="text-xs sm:text-sm text-md-on-surface-variant mt-3 leading-relaxed border-t border-md-surface-variant/40 pt-3">
-            In your router's <strong>DHCP / LAN Settings</strong>, set Primary DNS to <code class="font-mono bg-white px-1 py-0.5 rounded">1.1.1.1</code> (Cloudflare) or <code class="font-mono bg-white px-1 py-0.5 rounded">8.8.8.8</code> (Google), and Secondary DNS to <code class="font-mono bg-white px-1 py-0.5 rounded">1.0.0.1</code> or <code class="font-mono bg-white px-1 py-0.5 rounded">8.8.4.4</code>. This bypasses slow ISP DNS servers and provides faster lookup latency.
+          <p class="text-xs text-md-on-surface-variant mt-2 leading-relaxed border-t border-md-surface-variant/40 pt-2">
+            In your router's <strong>DHCP / LAN Settings</strong>, set Primary DNS to <code class="font-mono bg-white px-1 py-0.5 rounded">1.1.1.1</code> (Cloudflare) or <code class="font-mono bg-white px-1 py-0.5 rounded">8.8.8.8</code> (Google), and Secondary DNS to <code class="font-mono bg-white px-1 py-0.5 rounded">1.0.0.1</code> or <code class="font-mono bg-white px-1 py-0.5 rounded">8.8.4.4</code>.
           </p>
         </details>
       </div>

@@ -7,27 +7,27 @@ import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { BRANDS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "All Router Brands & Manufacturers Directory | Default Login List";
+const title = "All Router Brands & Manufacturers Directory | 19216811.page";
 const description = "Comprehensive list of all major router manufacturers including TP-Link, Netgear, ASUS, Cisco, D-Link, Linksys, Huawei, ZTE, and Tenda. Find default IPs and logins.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
     
     <!-- Contextual Search -->
-    <div class="mb-8">
+    <div>
       <SearchBar />
     </div>
 
     <!-- Header -->
-    <header class="text-center max-w-2xl mx-auto mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold uppercase mb-3 border border-sky-200">
+    <header class="text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase mb-2 border border-md-primary/20">
         🏷️ Manufacturer Index
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
         Router Brands Directory
       </h1>
-      <p class="text-sm sm:text-base text-slate-600">
+      <p class="text-xs sm:text-sm text-md-on-surface-variant">
         Explore default IP addresses, passwords, firmware guides, and model databases for {BRANDS.length} top router manufacturers.
       </p>
     </header>
@@ -35,13 +35,13 @@ const description = "Comprehensive list of all major router manufacturers includ
     <AdBanner format="leaderboard" />
 
     <!-- Alphabet Filter -->
-    <div class="flex flex-wrap items-center justify-center gap-1.5 my-8 p-3 bg-white rounded-2xl border border-slate-200 shadow-sm text-xs font-bold text-slate-600">
-      <span class="text-slate-400 mr-2 font-mono">Filter:</span>
-      <button class="px-2.5 py-1 rounded-lg bg-sky-600 text-white" onclick="filterBrands('ALL')">ALL</button>
+    <div class="flex flex-wrap items-center justify-center gap-1 p-2.5 m3-card-compact bg-md-surface-container-low text-xs font-bold text-md-on-surface">
+      <span class="text-md-on-surface-variant mr-1 font-mono text-[11px]">Filter:</span>
+      <button class="m3-chip m3-chip-filled py-0.5 px-2 text-[11px]" id="filter-all-btn">ALL</button>
       {['0-9', 'A', 'B', 'C', 'D', 'H', 'L', 'M', 'N', 'S', 'T', 'U', 'Z'].map(letter => (
         <button 
-          class="px-2.5 py-1 rounded-lg hover:bg-slate-100 transition-colors"
-          onclick={`filterBrands('${letter}')`}
+          class="m3-chip m3-chip-outlined py-0.5 px-2 text-[11px] filter-letter-btn"
+          data-letter={letter}
         >
           {letter}
         </button>
@@ -49,7 +49,7 @@ const description = "Comprehensive list of all major router manufacturers includ
     </div>
 
     <!-- Brands Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-8" id="brands-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="brands-grid">
       {BRANDS.map(item => (
         <div class="brand-item" data-name={item.name}>
           <BrandCard data={item} />
@@ -60,41 +60,41 @@ const description = "Comprehensive list of all major router manufacturers includ
     <AdBanner format="horizontal" />
 
     <!-- SEO Information -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">How to Find Your Router Manufacturer & Model</h2>
-      <p class="text-sm text-slate-600 leading-relaxed">
+    <section class="m3-card-compact space-y-4">
+      <h2 class="text-xl font-bold text-md-on-surface">How to Find Your Router Manufacturer & Model</h2>
+      <p class="text-xs text-md-on-surface-variant leading-relaxed">
         If you are unsure which router brand you have, look at the physical label located on the underside or rear panel of your hardware device. The label includes the exact manufacturer name, model number, serial number, default IP address (such as 192.168.1.1), and factory default wireless network name (SSID).
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs pt-2">
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
           <span class="text-base">📱</span>
-          <strong class="text-slate-900 block font-bold">App vs Web Browser Setup</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Brands like TP-Link (Tether), Netgear (Nighthawk), and ASUS provide companion mobile apps. While apps are great for quick setup, browser access via IP (192.168.1.1) unlocks advanced settings like port forwarding, static routes, and VPN servers.
+          <strong class="text-md-on-surface block font-bold text-xs">App vs Web Browser Setup</strong>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            Brands provide companion mobile apps for quick setup, but browser access via IP unlocks advanced settings like port forwarding and VPNs.
           </p>
         </div>
 
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
           <span class="text-base">🛡️</span>
-          <strong class="text-slate-900 block font-bold">Why Firmware Updates Matter</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Router manufacturers regularly release firmware patches that fix critical security vulnerabilities, enhance Wi-Fi stability, and optimize MU-MIMO throughput. Always update firmware from the official manufacturer support page.
+          <strong class="text-md-on-surface block font-bold text-xs">Firmware Updates Matter</strong>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            Manufacturers regularly release firmware patches that fix critical security vulnerabilities and optimize Wi-Fi stability.
           </p>
         </div>
 
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
           <span class="text-base">🏷️</span>
-          <strong class="text-slate-900 block font-bold">Hardware Revisions (V1, V2, V3)</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Many brands release multiple hardware versions under the same model name (e.g. Archer C6 V2 vs V3). Always match your router's exact hardware version printed on the bottom sticker before flashing firmware.
+          <strong class="text-md-on-surface block font-bold text-xs">Hardware Revisions</strong>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            Many brands release multiple hardware versions (e.g. V2 vs V3). Always match your router's exact revision before updating firmware.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Interlinking 2-Column Grid -->
-    <div class="mt-12">
+    <div>
       <RelatedLinksGrid />
     </div>
 
@@ -102,18 +102,32 @@ const description = "Comprehensive list of all major router manufacturers includ
 </BaseLayout>
 
 <script>
-  function filterBrands(letter: string) {
-    const items = document.querySelectorAll('.brand-item');
-    items.forEach(el => {
-      const name = (el as HTMLElement).getAttribute('data-name') || '';
-      if (letter === 'ALL') {
-        (el as HTMLElement).style.display = 'block';
-      } else if (letter === '0-9') {
-        (el as HTMLElement).style.display = /^[0-9]/.test(name) ? 'block' : 'none';
-      } else {
-        (el as HTMLElement).style.display = name.toUpperCase().startsWith(letter) ? 'block' : 'none';
-      }
+  function setupBrandFilters() {
+    const allBtn = document.getElementById('filter-all-btn');
+    const letterBtns = document.querySelectorAll('.filter-letter-btn');
+    const brandItems = document.querySelectorAll('.brand-item');
+
+    function filterBrands(letter: string) {
+      brandItems.forEach((item) => {
+        const name = (item as HTMLElement).getAttribute('data-name') || '';
+        if (letter === 'ALL') {
+          (item as HTMLElement).style.display = '';
+        } else if (letter === '0-9') {
+          (item as HTMLElement).style.display = /^[0-9]/.test(name) ? '' : 'none';
+        } else {
+          (item as HTMLElement).style.display = name.toUpperCase().startsWith(letter) ? '' : 'none';
+        }
+      });
+    }
+
+    allBtn?.addEventListener('click', () => filterBrands('ALL'));
+    letterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const letter = btn.getAttribute('data-letter') || 'ALL';
+        filterBrands(letter);
+      });
     });
   }
-  (window as any).filterBrands = filterBrands;
+
+  setupBrandFilters();
 </script>

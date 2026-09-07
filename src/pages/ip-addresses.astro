@@ -7,35 +7,35 @@ import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { GATEWAY_IPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Default Router IP Addresses List (192.168.1.1, 192.168.0.1, 10.0.0.1)";
+const title = "Default Router IP Addresses List (192.168.1.1, 192.168.0.1, 10.0.0.1) | 19216811.page";
 const description = "Comprehensive directory of private default gateway IP addresses used by WiFi routers and modems. Step-by-step admin login access and IP subnet classes.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
     
     <!-- Search Bar -->
-    <div class="mb-8">
+    <div>
       <SearchBar />
     </div>
 
     <!-- Header -->
-    <header class="text-center max-w-2xl mx-auto mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-bold uppercase mb-3 border border-sky-200">
+    <header class="text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase mb-2 border border-md-primary/20">
         🌐 Gateway IP Directory
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
         Router IP Addresses
       </h1>
-      <p class="text-sm sm:text-base text-slate-600">
-        Browse common private IP addresses designated for local wireless router configuration panels and default logins.
+      <p class="text-xs sm:text-sm text-md-on-surface-variant">
+        Browse common private IP addresses designated for local wireless router configuration panels.
       </p>
     </header>
 
     <AdBanner format="leaderboard" />
 
     <!-- IP Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
       {GATEWAY_IPS.map(item => (
         <IpCard data={item} />
       ))}
@@ -44,64 +44,64 @@ const description = "Comprehensive directory of private default gateway IP addre
     <AdBanner format="horizontal" />
 
     <!-- Technical SEO Explanation Table -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">Private IP Address Ranges Explained (RFC 1918)</h2>
-      <p class="text-sm text-slate-600 leading-relaxed">
+    <section class="m3-card-compact space-y-4">
+      <h2 class="text-xl font-bold text-md-on-surface">Private IP Address Ranges Explained (RFC 1918)</h2>
+      <p class="text-xs text-md-on-surface-variant leading-relaxed">
         The Internet Engineering Task Force (IETF) reserved specific ranges of IPv4 addresses strictly for private local area networks (LAN). These addresses cannot be routed across the public internet:
       </p>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm text-slate-700 border border-slate-200 rounded-xl overflow-hidden">
-          <thead class="bg-slate-50 font-bold text-xs uppercase text-slate-500 border-b border-slate-200">
+      <div class="overflow-x-auto rounded-m3-md border border-md-outline-variant/40">
+        <table class="w-full text-left text-xs text-md-on-surface">
+          <thead class="bg-md-surface-container-high font-bold uppercase text-[11px] text-md-on-surface-variant border-b border-md-outline-variant/40">
             <tr>
-              <th class="p-3.5">Class</th>
-              <th class="p-3.5">IP Address Range</th>
-              <th class="p-3.5">Default Subnet Mask</th>
-              <th class="p-3.5">Typical Use</th>
+              <th class="p-2.5">Class</th>
+              <th class="p-2.5">IP Address Range</th>
+              <th class="p-2.5">Default Mask</th>
+              <th class="p-2.5">Typical Use</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 font-mono text-xs">
-            <tr class="hover:bg-slate-50">
-              <td class="p-3.5 font-bold font-sans">Class A</td>
-              <td class="p-3.5">10.0.0.0 – 10.255.255.255</td>
-              <td class="p-3.5">255.0.0.0 (/8)</td>
-              <td class="p-3.5 font-sans">Large enterprise networks & Xfinity Gateways (10.0.0.1)</td>
+          <tbody class="divide-y divide-md-outline-variant/20 font-mono text-xs">
+            <tr class="hover:bg-md-surface-container-low">
+              <td class="p-2.5 font-bold font-sans">Class A</td>
+              <td class="p-2.5">10.0.0.0 – 10.255.255.255</td>
+              <td class="p-2.5">255.0.0.0 (/8)</td>
+              <td class="p-2.5 font-sans">Enterprise networks & Xfinity Gateways (10.0.0.1)</td>
             </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="p-3.5 font-bold font-sans">Class B</td>
-              <td class="p-3.5">172.16.0.0 – 172.31.255.255</td>
-              <td class="p-3.5">255.240.0.0 (/12)</td>
-              <td class="p-3.5 font-sans">Medium corporate networks & VPN connections</td>
+            <tr class="hover:bg-md-surface-container-low">
+              <td class="p-2.5 font-bold font-sans">Class B</td>
+              <td class="p-2.5">172.16.0.0 – 172.31.255.255</td>
+              <td class="p-2.5">255.240.0.0 (/12)</td>
+              <td class="p-2.5 font-sans">Medium corporate networks & VPNs</td>
             </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="p-3.5 font-bold font-sans">Class C</td>
-              <td class="p-3.5">192.168.0.0 – 192.168.255.255</td>
-              <td class="p-3.5">255.255.255.0 (/24)</td>
-              <td class="p-3.5 font-sans font-bold text-sky-700">Home & small office routers (192.168.1.1, 192.168.0.1)</td>
+            <tr class="hover:bg-md-surface-container-low">
+              <td class="p-2.5 font-bold font-sans">Class C</td>
+              <td class="p-2.5">192.168.0.0 – 192.168.255.255</td>
+              <td class="p-2.5">255.255.255.0 (/24)</td>
+              <td class="p-2.5 font-sans font-bold text-md-primary">Home routers (192.168.1.1, 192.168.0.1)</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-4">
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
-          <strong class="text-slate-900 block font-bold">⚠️ Avoiding IP Conflicts on Two Routers</strong>
-          <p class="text-slate-600 leading-relaxed">
-            If you connect a secondary router or Wi-Fi extender to your main ISP modem, ensure both do not use the same IP (e.g. both on 192.168.1.1). Change the secondary router to <strong>192.168.2.1</strong> or disable its DHCP server to operate in Access Point (AP) mode.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+          <strong class="text-md-on-surface block font-bold text-xs">⚠️ Avoiding IP Conflicts on Two Routers</strong>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            If connecting a secondary router, ensure both do not share the same IP (192.168.1.1). Change the secondary router to <strong>192.168.2.1</strong> or switch it to Access Point (AP) mode.
           </p>
         </div>
 
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
-          <strong class="text-slate-900 block font-bold">🛠️ Rescuing an Unresponsive Router via Static IP</strong>
-          <p class="text-slate-600 leading-relaxed">
-            If your computer fails to receive an IP via DHCP, manually configure your PC's Ethernet adapter to a static IP like <code class="font-mono bg-white px-1 py-0.5 rounded">192.168.1.50</code> with subnet mask <code class="font-mono bg-white px-1 py-0.5 rounded">255.255.255.0</code> to regain access to <code class="font-mono bg-white px-1 py-0.5 rounded">192.168.1.1</code>.
+        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+          <strong class="text-md-on-surface block font-bold text-xs">🛠️ Rescuing an Unresponsive Router</strong>
+          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+            If DHCP fails, set a static IP like <code class="font-mono bg-white px-1 py-0.5 rounded border">192.168.1.50</code> with subnet <code class="font-mono bg-white px-1 py-0.5 rounded border">255.255.255.0</code> to reconnect.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Interlinking 2-Column Grid -->
-    <div class="mt-12">
+    <div>
       <RelatedLinksGrid />
     </div>
 

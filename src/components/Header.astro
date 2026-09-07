@@ -4,87 +4,71 @@ interface Props {
 }
 const { currentPath = '/' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const navItems = [
+  { label: 'Home', href: `${base}/`, icon: '🏠', active: currentPath === '/' || currentPath === base || currentPath === `${base}/` },
+  { label: 'Brands', href: `${base}/brands`, icon: '🏷️', active: currentPath.includes('brands') },
+  { label: 'IPs', href: `${base}/ip-addresses`, icon: '🌐', active: currentPath.includes('ip-addresses') },
+  { label: 'Models', href: `${base}/routers`, icon: '📟', active: currentPath.includes('routers') },
+  { label: 'Tools', href: `${base}/tools`, icon: '🛠️', active: currentPath.includes('tools') || currentPath.includes('generator') || currentPath.includes('what-is-my-ip') },
+  { label: 'Passwords', href: `${base}/default-passwords`, icon: '🔑', active: currentPath.includes('default-passwords') }
+];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-md-surface-variant/70 shadow-m3-1">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 h-13 sm:h-14 flex items-center justify-between">
     
-    <!-- M3 Logo -->
-    <a href={`${base}/`} class="flex items-center gap-2.5 group">
-      <div class="w-10 h-10 rounded-m3-md bg-md-primary text-md-on-primary flex items-center justify-center text-xl shadow-m3-1 group-hover:scale-105 transition-transform font-mono">
+    <!-- Compact Logo -->
+    <a href={`${base}/`} class="flex items-center gap-2 group flex-shrink-0">
+      <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-md-primary text-white flex items-center justify-center text-base sm:text-lg shadow-xs group-hover:scale-105 transition-transform font-mono">
         📡
       </div>
-      <div>
-        <div class="flex items-center gap-1.5">
-          <span class="font-black text-lg sm:text-xl text-md-on-surface tracking-tight font-mono">19216811<span class="text-md-primary font-sans font-black">.page</span></span>
-          <span class="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider text-md-on-primary-container bg-md-primary-container px-2 py-0.5 rounded-m3-full">
-            Router Login
-          </span>
-        </div>
+      <div class="flex items-center gap-1.5">
+        <span class="font-black text-base sm:text-lg text-slate-900 tracking-tight font-mono">19216811<span class="text-md-primary font-sans font-black">.page</span></span>
+        <span class="hidden md:inline-block text-[9px] font-bold uppercase tracking-wider text-sky-800 bg-sky-100 px-1.5 py-0.5 rounded-full border border-sky-200">
+          Admin Portal
+        </span>
       </div>
     </a>
 
-    <!-- M3 Navigation Chips (Desktop) -->
-    <nav class="hidden lg:flex items-center gap-1.5">
-      <a 
-        href={`${base}/`} 
-        class={`m3-chip ${currentPath === '/' || currentPath === base || currentPath === `${base}/` ? 'm3-chip-tonal font-bold text-md-primary bg-md-primary-container' : 'm3-chip-outlined font-medium'}`}
-      >
-        <span>🏠 Home</span>
-      </a>
-      <a 
-        href={`${base}/brands`} 
-        class={`m3-chip ${currentPath.includes('brands') ? 'm3-chip-tonal font-bold text-md-primary bg-md-primary-container' : 'm3-chip-outlined font-medium'}`}
-      >
-        <span>🏷️ Brands</span>
-      </a>
-      <a 
-        href={`${base}/ip-addresses`} 
-        class={`m3-chip ${currentPath.includes('ip-addresses') ? 'm3-chip-tonal font-bold text-md-primary bg-md-primary-container' : 'm3-chip-outlined font-medium'}`}
-      >
-        <span>🌐 Gateway IPs</span>
-      </a>
-      <a 
-        href={`${base}/routers`} 
-        class={`m3-chip ${currentPath.includes('routers') ? 'm3-chip-tonal font-bold text-md-primary bg-md-primary-container' : 'm3-chip-outlined font-medium'}`}
-      >
-        <span>📟 Models</span>
-      </a>
-      <a 
-        href={`${base}/tools`} 
-        class={`m3-chip ${currentPath.includes('tools') || currentPath.includes('generator') || currentPath.includes('what-is-my-ip') ? 'm3-chip-tonal font-bold text-md-primary bg-md-primary-container' : 'm3-chip-outlined font-medium'}`}
-      >
-        <span>🛠️ Tools</span>
-      </a>
-      <a 
-        href={`${base}/default-passwords`} 
-        class={`m3-chip ${currentPath.includes('default-passwords') ? 'm3-chip-tonal font-bold text-md-primary bg-md-primary-container' : 'm3-chip-outlined font-medium'}`}
-      >
-        <span>🔑 Passwords</span>
-      </a>
+    <!-- Desktop Navigation Chips -->
+    <nav class="hidden lg:flex items-center gap-1">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class={`px-3 py-1 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${item.active ? 'bg-sky-100 text-sky-900 font-bold border border-sky-300' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'}`}
+        >
+          <span class="text-xs">{item.icon}</span>
+          <span>{item.label}</span>
+        </a>
+      ))}
     </nav>
 
-    <!-- M3 FAB Action Button -->
-    <div class="flex items-center gap-2">
+    <!-- Compact Action Button -->
+    <div class="flex items-center gap-2 flex-shrink-0">
       <a 
         href="http://192.168.1.1"
         target="_blank"
         rel="noopener noreferrer"
-        class="m3-btn-filled text-xs py-2 px-4 shadow-m3-1 flex items-center gap-1.5"
+        class="px-3 sm:px-4 py-1.5 rounded-xl bg-md-primary hover:bg-[#004b80] text-white text-xs font-bold shadow-xs hover:shadow-sm transition-all flex items-center gap-1 active:scale-95"
       >
-        <span>🔗 Open 192.168.1.1</span>
-        <span class="text-[10px] opacity-80">↗</span>
+        <span class="hidden xs:inline">Open</span>
+        <span class="font-mono">192.168.1.1</span>
+        <span class="text-[10px]">↗</span>
       </a>
     </div>
   </div>
 
-  <!-- Mobile Segmented Navigation Bar -->
-  <div class="lg:hidden flex items-center justify-start gap-1.5 px-3 py-2 bg-md-surface-container overflow-x-auto no-scrollbar border-t border-md-surface-variant/40">
-    <a href={`${base}/`} class="m3-chip m3-chip-outlined text-[11px] py-1 px-3 whitespace-nowrap">Home</a>
-    <a href={`${base}/brands`} class="m3-chip m3-chip-outlined text-[11px] py-1 px-3 whitespace-nowrap">Brands</a>
-    <a href={`${base}/ip-addresses`} class="m3-chip m3-chip-outlined text-[11px] py-1 px-3 whitespace-nowrap">IPs</a>
-    <a href={`${base}/routers`} class="m3-chip m3-chip-outlined text-[11px] py-1 px-3 whitespace-nowrap">Models</a>
-    <a href={`${base}/tools`} class="m3-chip m3-chip-outlined text-[11px] py-1 px-3 whitespace-nowrap">Tools</a>
-    <a href={`${base}/default-passwords`} class="m3-chip m3-chip-outlined text-[11px] py-1 px-3 whitespace-nowrap">Passwords</a>
+  <!-- Mobile Horizontal Swipeable Segmented Chips -->
+  <div class="lg:hidden flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border-t border-slate-200/60 overflow-x-auto no-scrollbar">
+    {navItems.map(item => (
+      <a 
+        href={item.href} 
+        class={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1 flex-shrink-0 ${item.active ? 'bg-sky-600 text-white font-bold shadow-xs' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+      >
+        <span class="text-[11px]">{item.icon}</span>
+        <span>{item.label}</span>
+      </a>
+    ))}
   </div>
 </header>

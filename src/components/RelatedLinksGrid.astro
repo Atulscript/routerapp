@@ -21,62 +21,59 @@ const tools = [
 ];
 ---
 
-<div class="mt-14 pt-10 border-t border-md-surface-variant/60">
-  <div class="mb-6">
-    <span class="m3-chip m3-chip-tonal text-xs font-bold uppercase tracking-wider">
-      🔗 Related Network Portals
-    </span>
-    <h2 class="text-2xl font-black text-md-on-surface tracking-tight mt-2">
+<div class="mt-8 pt-6 border-t border-slate-200">
+  <div class="mb-4">
+    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-1 border border-slate-200">
+      🔗 Quick Directory Navigation
+    </div>
+    <h2 class="text-xl font-bold text-slate-900 tracking-tight">
       Explore Other Routers, ISPs & Gateway IPs
     </h2>
-    <p class="text-xs sm:text-sm text-md-on-surface-variant mt-1">
-      Quickly navigate between router models, provider configurations, and gateway setup pages.
-    </p>
   </div>
 
   <!-- Two-Column Interlinking Layout -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     
     <!-- Column 1: Other Routers & ISPs -->
-    <div class="m3-card p-5 sm:p-6 bg-white space-y-5">
+    <div class="bg-white rounded-xl p-4 border border-slate-200/90 shadow-2xs space-y-4">
       
       <!-- Brands Sub-section -->
       <div>
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-sm font-bold text-md-on-surface flex items-center gap-1.5">
-            <span>🏷️</span> Other Router Brands & Models
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1">
+            <span>🏷️</span> Router Brands & Models
           </h3>
-          <a href={`${base}/brands`} class="text-xs font-bold text-md-primary hover:underline">
+          <a href={`${base}/brands`} class="text-[11px] font-bold text-sky-600 hover:underline">
             All Brands →
           </a>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
           {otherBrands.slice(0, 12).map(brand => (
             <a 
               href={`${base}/${brand.slug}`} 
-              class="p-2.5 rounded-m3-md bg-md-surface-container-low hover:bg-md-primary-container/40 border border-md-outline-variant/30 text-xs font-bold text-md-on-surface hover:text-md-primary transition-all flex flex-col justify-between group"
+              class="p-2 rounded-lg bg-slate-50 hover:bg-sky-50 border border-slate-200/70 text-xs font-bold text-slate-800 hover:text-sky-700 transition-all flex flex-col justify-between group"
             >
-              <span class="group-hover:translate-x-0.5 transition-transform">{brand.name}</span>
-              <span class="text-[10px] font-mono text-md-on-surface-variant font-normal">{brand.defaultIp.split('/')[0]}</span>
+              <span class="group-hover:translate-x-0.5 transition-transform text-[11px] truncate">{brand.name}</span>
+              <span class="text-[9px] font-mono text-slate-500 font-normal">{brand.defaultIp.split('/')[0]}</span>
             </a>
           ))}
         </div>
       </div>
 
       <!-- ISPs Sub-section -->
-      <div class="pt-4 border-t border-md-surface-variant/40">
-        <h3 class="text-sm font-bold text-md-on-surface mb-3 flex items-center gap-1.5">
-          <span>📡</span> Internet Service Providers (ISPs)
+      <div class="pt-3 border-t border-slate-100">
+        <h3 class="text-xs font-bold text-slate-900 mb-2 flex items-center gap-1">
+          <span>📡</span> Fiber ISPs & Gateways
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
           {otherIsps.map(isp => (
             <a 
               href={`${base}/${isp.slug}`} 
-              class="p-2.5 rounded-m3-md bg-md-surface-container-low hover:bg-emerald-50 border border-md-outline-variant/30 text-xs font-bold text-md-on-surface hover:text-emerald-800 transition-all flex items-center justify-between group"
+              class="p-2 rounded-lg bg-slate-50 hover:bg-emerald-50 border border-slate-200/70 text-xs font-bold text-slate-800 hover:text-emerald-800 transition-all flex items-center justify-between group"
             >
-              <span class="group-hover:translate-x-0.5 transition-transform">{isp.name}</span>
-              <span class="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-100/70 px-1.5 py-0.5 rounded">
+              <span class="group-hover:translate-x-0.5 transition-transform text-[11px]">{isp.name}</span>
+              <span class="text-[9px] font-mono font-bold text-emerald-700 bg-emerald-100/70 px-1 py-0.5 rounded">
                 {isp.defaultIp}
               </span>
             </a>
@@ -87,51 +84,51 @@ const tools = [
     </div>
 
     <!-- Column 2: Gateway IPs & Utilities -->
-    <div class="m3-card p-5 sm:p-6 bg-white space-y-5">
+    <div class="bg-white rounded-xl p-4 border border-slate-200/90 shadow-2xs space-y-4">
       
       <!-- Gateway IPs Sub-section -->
       <div>
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-sm font-bold text-md-on-surface flex items-center gap-1.5">
-            <span>🌐</span> Default Gateway IP Addresses
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1">
+            <span>🌐</span> Default Gateway IPs
           </h3>
-          <a href={`${base}/ip-addresses`} class="text-xs font-bold text-md-primary hover:underline">
+          <a href={`${base}/ip-addresses`} class="text-[11px] font-bold text-sky-600 hover:underline">
             All IPs →
           </a>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
           {otherIps.map(ip => (
             <a 
               href={ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`} 
-              class="p-2.5 rounded-m3-md bg-md-surface-container-low hover:bg-md-primary-container/40 border border-md-outline-variant/30 text-xs font-mono font-bold text-md-on-surface hover:text-md-primary transition-all flex flex-col justify-between group"
+              class="p-2 rounded-lg bg-slate-50 hover:bg-sky-50 border border-slate-200/70 text-xs font-mono font-bold text-slate-800 hover:text-sky-700 transition-all flex flex-col justify-between group"
             >
-              <span class="group-hover:translate-x-0.5 transition-transform text-md-primary">{ip.ip}</span>
-              <span class="text-[10px] font-sans text-md-on-surface-variant font-normal">Login Guide</span>
+              <span class="group-hover:translate-x-0.5 transition-transform text-sky-700 text-[11px]">{ip.ip}</span>
+              <span class="text-[9px] font-sans text-slate-500 font-normal">Login Guide</span>
             </a>
           ))}
         </div>
       </div>
 
       <!-- Network Tools Sub-section -->
-      <div class="pt-4 border-t border-md-surface-variant/40">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-sm font-bold text-md-on-surface flex items-center gap-1.5">
+      <div class="pt-3 border-t border-slate-100">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1">
             <span>🛠️</span> Network & Security Tools
           </h3>
-          <a href={`${base}/tools`} class="text-xs font-bold text-md-primary hover:underline">
+          <a href={`${base}/tools`} class="text-[11px] font-bold text-sky-600 hover:underline">
             All Tools →
           </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
           {tools.map(tool => (
             <a 
               href={`${base}/${tool.slug}`} 
-              class="p-2.5 rounded-m3-md bg-md-surface-container-low hover:bg-sky-50 border border-md-outline-variant/30 text-xs font-bold text-md-on-surface hover:text-sky-800 transition-all flex items-center gap-2 group"
+              class="p-2 rounded-lg bg-slate-50 hover:bg-sky-50 border border-slate-200/70 text-xs font-bold text-slate-800 hover:text-sky-700 transition-all flex items-center gap-1.5 group"
             >
-              <span>{tool.icon}</span>
-              <span class="group-hover:translate-x-0.5 transition-transform">{tool.title}</span>
+              <span class="text-xs">{tool.icon}</span>
+              <span class="group-hover:translate-x-0.5 transition-transform text-[11px]">{tool.title}</span>
             </a>
           ))}
         </div>

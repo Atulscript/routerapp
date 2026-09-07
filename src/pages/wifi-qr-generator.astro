@@ -10,168 +10,151 @@ const description = "Generate a customized WiFi QR code to easily share your hom
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
     
     <!-- Search Bar -->
-    <div class="mb-8">
+    <div>
       <SearchBar />
     </div>
 
     <!-- Header -->
-    <header class="text-center max-w-2xl mx-auto mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase mb-3 border border-emerald-200">
+    <header class="text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-emerald-100 text-emerald-900 text-[11px] font-bold uppercase mb-2 border border-emerald-300">
         📶 Wireless Utility Tool
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
         WiFi QR Code Generator
       </h1>
-      <p class="text-sm sm:text-base text-slate-600">
-        Create a scannable QR code for your WiFi network so friends and guests can connect instantly without typing complicated passwords.
+      <p class="text-xs sm:text-sm text-md-on-surface-variant">
+        Create a scannable QR code for your WiFi network so guests can connect instantly without typing passwords.
       </p>
     </header>
 
     <AdBanner format="leaderboard" />
 
     <!-- Generator Interface -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl shadow-slate-100 my-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5 m3-card-compact p-5 sm:p-7 shadow-m3-1">
       
       <!-- Controls (7 cols) -->
-      <div class="md:col-span-7 space-y-5">
+      <div class="md:col-span-7 space-y-3.5">
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-md-on-surface mb-1">
             Network Name (SSID) *
           </label>
           <input 
             type="text" 
             id="ssid-input" 
             placeholder="e.g. MyHome_WiFi_5G" 
-            class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm font-semibold focus:border-sky-600 focus:bg-white focus:ring-2 focus:ring-sky-500/20 outline-none"
+            class="w-full px-3 py-2 bg-md-surface-container-low border border-md-outline-variant/60 rounded-m3-md text-md-on-surface text-xs font-semibold focus:border-md-primary focus:bg-white focus:ring-1 focus:ring-md-primary outline-none"
             value="HomeNetwork_5G"
           />
         </div>
 
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-md-on-surface mb-1">
             WiFi Password *
           </label>
           <input 
             type="text" 
             id="password-input" 
             placeholder="Enter your WiFi password" 
-            class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm font-mono focus:border-sky-600 focus:bg-white focus:ring-2 focus:ring-sky-500/20 outline-none"
+            class="w-full px-3 py-2 bg-md-surface-container-low border border-md-outline-variant/60 rounded-m3-md text-md-on-surface text-xs font-mono focus:border-md-primary focus:bg-white focus:ring-1 focus:ring-md-primary outline-none"
             value="SuperSecretPassword123"
           />
         </div>
 
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-md-on-surface mb-1">
             Security Encryption
           </label>
           <select 
             id="encryption-select" 
-            class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm font-semibold focus:border-sky-600 focus:bg-white focus:ring-2 focus:ring-sky-500/20 outline-none cursor-pointer"
+            class="w-full px-3 py-2 bg-md-surface-container-low border border-md-outline-variant/60 rounded-m3-md text-md-on-surface text-xs font-semibold focus:border-md-primary focus:bg-white outline-none cursor-pointer"
           >
-            <option value="WPA">WPA / WPA2 / WPA3 (Default for most routers)</option>
+            <option value="WPA">WPA / WPA2 / WPA3 (Standard)</option>
             <option value="WEP">WEP (Older routers)</option>
             <option value="nopass">None (Open Network)</option>
           </select>
         </div>
 
-        <div class="flex items-center gap-2 pt-2">
-          <input type="checkbox" id="hidden-check" class="w-4 h-4 rounded text-sky-600 focus:ring-sky-500 border-slate-300 cursor-pointer" />
-          <label for="hidden-check" class="text-xs font-medium text-slate-700 cursor-pointer">
-            This is a hidden network (SSID not broadcasted)
+        <div class="flex items-center gap-2 pt-0.5">
+          <input type="checkbox" id="hidden-check" class="w-3.5 h-3.5 rounded text-md-primary border-md-outline-variant cursor-pointer" />
+          <label for="hidden-check" class="text-[11px] font-medium text-md-on-surface-variant cursor-pointer">
+            Hidden network (SSID not broadcasted)
           </label>
         </div>
 
         <button 
           id="generate-btn" 
-          class="w-full py-3.5 px-6 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-500/20 transition-all hover:scale-[1.01] active:scale-[0.99]"
+          class="w-full py-2.5 px-4 rounded-m3-md bg-md-primary hover:bg-[#00528c] text-white font-bold text-xs shadow-m3-1 transition-all"
         >
           Generate WiFi QR Code
         </button>
       </div>
 
       <!-- Preview (5 cols) -->
-      <div class="md:col-span-5 flex flex-col items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-200 text-center">
-        <div class="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm mb-4">
+      <div class="md:col-span-5 flex flex-col items-center justify-center p-4 bg-md-surface-container-low rounded-m3-lg border border-md-outline-variant/40 text-center">
+        <div class="p-3 bg-white rounded-m3-md border border-md-outline-variant/30 shadow-2xs mb-3">
           <img 
             id="qr-image" 
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=WIFI:S:HomeNetwork_5G;T:WPA;P:SuperSecretPassword123;;" 
-            alt="WiFi QR Code"
-            class="w-48 h-48 rounded-lg"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=WIFI:S:HomeNetwork_5G;T:WPA;P:SuperSecretPassword123;;" 
+            alt="Generated WiFi QR Code" 
+            class="w-36 h-36 object-contain"
           />
         </div>
-        <p class="text-xs text-slate-500 mb-3 font-medium">Scan with your smartphone camera to connect</p>
-        <button 
-          id="print-btn" 
-          class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold shadow-sm transition-all"
-        >
-          🖨️ Print WiFi Card
-        </button>
+        <div class="text-[11px] font-mono text-md-on-surface-variant font-bold truncate max-w-[200px]" id="preview-ssid">
+          SSID: HomeNetwork_5G
+        </div>
+        <p class="text-[10px] text-md-on-surface-variant/80 mt-1">Scan with iOS Camera or Google Lens</p>
       </div>
 
     </div>
 
     <AdBanner format="horizontal" />
 
-    <!-- SEO Content Section -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 mt-10">
-      <h2 class="text-2xl font-bold text-slate-900">How Does WiFi QR Code Sharing Work?</h2>
-      <p class="text-sm text-slate-600 leading-relaxed">
-        When smartphones scan a standardized WiFi QR code format (<code class="font-mono text-xs bg-slate-100 p-1 rounded">WIFI:S:&lt;SSID&gt;;T:&lt;Security&gt;;P:&lt;Password&gt;;;</code>), iOS (iPhone) and Android recognize the network credentials automatically and display a single-tap <em>"Join Network"</em> prompt.
-      </p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-          <strong class="text-slate-900 block font-bold">🔒 100% Client-Side Privacy</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Your WiFi credentials never touch external web servers. The QR graphic is generated on-the-fly and rendered securely in your browser.
-          </p>
+    <!-- Instructions / Guide -->
+    <section class="m3-card-compact space-y-3">
+      <h2 class="text-base font-bold text-md-on-surface">How to Connect to WiFi Using a QR Code</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-md-on-surface-variant">
+        <div class="p-3 bg-md-surface-container-low rounded-m3-md border border-md-outline-variant/30">
+          <strong class="text-md-on-surface block font-bold mb-1">📱 iPhone & iPad (iOS)</strong>
+          Open your standard Camera app and point it at the QR code. Tap the yellow <strong>"Join [Network]"</strong> banner that appears on screen.
         </div>
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-          <strong class="text-slate-900 block font-bold">📱 Universal Device Support</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Compatible with all modern iPhones (iOS 11+) and Android devices (Android 10+) using their native default camera apps.
-          </p>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-          <strong class="text-slate-900 block font-bold">🖨️ Perfect for Guest Wi-Fi</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Print and frame the QR code in your living room, cafe, or office meeting room so guests can connect in 1 second without password typos.
-          </p>
+        <div class="p-3 bg-md-surface-container-low rounded-m3-md border border-md-outline-variant/30">
+          <strong class="text-md-on-surface block font-bold mb-1">🤖 Android Devices</strong>
+          Open your Camera or Google Lens app and focus on the code. Tap <strong>"Connect to Network"</strong> to join automatically.
         </div>
       </div>
     </section>
 
-    <!-- 2-Column Cross Linking Grid -->
-    <RelatedLinksGrid currentSlug="wifi-qr-generator" />
+    <!-- Interlinking 2-Column Grid -->
+    <div>
+      <RelatedLinksGrid />
+    </div>
 
   </div>
 </BaseLayout>
 
 <script>
-  function updateQr() {
-    const ssid = (document.getElementById('ssid-input') as HTMLInputElement)?.value || '';
-    const password = (document.getElementById('password-input') as HTMLInputElement)?.value || '';
-    const encryption = (document.getElementById('encryption-select') as HTMLSelectElement)?.value || 'WPA';
-    const isHidden = (document.getElementById('hidden-check') as HTMLInputElement)?.checked;
+  function updateQrCode() {
+    const ssid = (document.getElementById('ssid-input') as HTMLInputElement)?.value.trim() || '';
+    const pass = (document.getElementById('password-input') as HTMLInputElement)?.value.trim() || '';
+    const enc = (document.getElementById('encryption-select') as HTMLSelectElement)?.value || 'WPA';
+    const isHidden = (document.getElementById('hidden-check') as HTMLInputElement)?.checked ? 'H:true;' : '';
 
-    const qrData = `WIFI:S:${ssid};T:${encryption};P:${password};${isHidden ? 'H:true;' : ''};`;
-    const encoded = encodeURIComponent(qrData);
-    const img = document.getElementById('qr-image') as HTMLImageElement;
-    if (img) {
-      img.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encoded}`;
-    }
+    const qrData = `WIFI:S:${ssid};T:${enc};P:${pass};${isHidden};`;
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(qrData)}`;
+
+    const qrImg = document.getElementById('qr-image') as HTMLImageElement;
+    const previewSsid = document.getElementById('preview-ssid');
+
+    if (qrImg) qrImg.src = qrUrl;
+    if (previewSsid) previewSsid.innerText = `SSID: ${ssid}`;
   }
 
-  document.getElementById('generate-btn')?.addEventListener('click', updateQr);
-  document.getElementById('ssid-input')?.addEventListener('input', updateQr);
-  document.getElementById('password-input')?.addEventListener('input', updateQr);
-  document.getElementById('encryption-select')?.addEventListener('change', updateQr);
-  document.getElementById('hidden-check')?.addEventListener('change', updateQr);
-
-  document.getElementById('print-btn')?.addEventListener('click', () => {
-    window.print();
-  });
+  document.getElementById('generate-btn')?.addEventListener('click', updateQrCode);
+  document.getElementById('ssid-input')?.addEventListener('input', updateQrCode);
+  document.getElementById('password-input')?.addEventListener('input', updateQrCode);
+  document.getElementById('encryption-select')?.addEventListener('change', updateQrCode);
+  document.getElementById('hidden-check')?.addEventListener('change', updateQrCode);
 </script>
