@@ -59,6 +59,25 @@ export default {
         'm3-lg': '16px',
         'm3-xl': '24px',
         'm3-full': '9999px',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(6px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseSlow: {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.15)' },
+        },
+        badgeFloat: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-3px)' },
+        }
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.25s ease-out forwards',
+        'pulse-slow': 'pulseSlow 2.5s infinite ease-in-out',
+        'badge-float': 'badgeFloat 3s infinite ease-in-out',
       }
     },
   },

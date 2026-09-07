@@ -16,101 +16,112 @@ const {
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<div class="space-y-4 my-4 font-sans">
+<div class="space-y-6 my-6 font-sans">
   
   <!-- Box 1: Router Login Guide -->
-  <div class="bg-white rounded-2xl border border-slate-200/90 shadow-card p-4 sm:p-6 space-y-4">
-    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2">
-        <span class="w-7 h-7 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center text-sm font-bold">
+  <div class="bg-white rounded-2xl border border-slate-200/90 shadow-card p-5 sm:p-7 space-y-5">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-sky-600 text-white flex items-center justify-center text-base font-bold shadow-xs">
           🔑
-        </span>
-        <h2 class="text-base sm:text-lg font-bold text-slate-900">
-          How to Log In to {entityName} @ {ipAddress}
-        </h2>
+        </div>
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+            How to Log In to {entityName} @ {ipAddress}
+          </h2>
+          <p class="text-xs text-slate-500">Universal router access instructions</p>
+        </div>
       </div>
-      <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
-        Step-by-Step
+      <span class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+        3 Quick Steps
       </span>
     </div>
 
-    <p class="text-xs text-slate-600 leading-relaxed">
-      Follow these three steps to access the web-based management dashboard of your <strong>{entityName}</strong> router at <strong>http://{ipAddress}</strong>:
-    </p>
-
-    <div class="space-y-3">
+    <div class="space-y-3.5">
       <!-- Step 1 -->
-      <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-        <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center text-[11px] font-bold">
+      <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-brand-300 transition-colors">
+        <div class="w-7 h-7 rounded-xl bg-gradient-to-br from-sky-500 to-brand-600 text-white flex-shrink-0 flex items-center justify-center text-xs font-black shadow-xs">
           1
-        </span>
-        <div class="text-xs text-slate-700 space-y-1">
-          <p class="font-semibold text-slate-900">Connect your device to the router</p>
-          <p class="text-slate-600 leading-relaxed">
-            Ensure your computer or phone is connected via Ethernet cable or to the router's Wi-Fi network.
+        </div>
+        <div class="text-xs text-slate-700 space-y-1.5 flex-1">
+          <p class="font-bold text-slate-900 text-sm">Connect your device to the router</p>
+          <p class="text-slate-600 leading-relaxed text-xs">
+            Make sure your PC, laptop, or smartphone is connected via an <strong>RJ-45 Ethernet cable</strong> or to the router's <strong>Wi-Fi network</strong> SSID.
           </p>
-          <div class="mt-1.5 p-2 bg-white rounded-lg border border-slate-200 text-[11px] text-slate-600">
-            💡 <strong class="text-slate-800">Pro Tip:</strong> {customSuggestion || `Using an Ethernet cable ensures a stable setup without accidental disconnections during firmware updates.`}
+          <div class="mt-2 p-2.5 bg-white rounded-lg border border-slate-200 text-xs text-slate-700 flex items-center gap-2 shadow-2xs">
+            <span class="text-amber-500 text-sm">💡</span>
+            <div><strong class="text-slate-900 font-bold">Pro Tip:</strong> {customSuggestion || `Using an Ethernet cable provides a direct link and prevents signal dropouts during setup.`}</div>
           </div>
         </div>
       </div>
 
       <!-- Step 2 -->
-      <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-        <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center text-[11px] font-bold">
+      <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-brand-300 transition-colors">
+        <div class="w-7 h-7 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex-shrink-0 flex items-center justify-center text-xs font-black shadow-xs">
           2
-        </span>
-        <div class="text-xs text-slate-700 space-y-1">
-          <p class="font-semibold text-slate-900">Open your web browser and navigate to {ipAddress}</p>
-          <p class="text-slate-600 leading-relaxed">
-            Type <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200 font-bold text-brand-700">http://{ipAddress}</code> in your browser's address bar and press Enter.
+        </div>
+        <div class="text-xs text-slate-700 space-y-1.5 flex-1">
+          <p class="font-bold text-slate-900 text-sm">Open your web browser and navigate to {ipAddress}</p>
+          <p class="text-slate-600 leading-relaxed text-xs">
+            Open Chrome, Safari, Edge, or Firefox and type <code class="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 font-bold text-brand-700 shadow-2xs">http://{ipAddress}</code> into the URL bar, then press <strong>Enter</strong>.
           </p>
         </div>
       </div>
 
       <!-- Step 3 -->
-      <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50/70 border border-slate-100">
-        <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex-shrink-0 flex items-center justify-center text-[11px] font-bold">
+      <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-brand-300 transition-colors">
+        <div class="w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex-shrink-0 flex items-center justify-center text-xs font-black shadow-xs">
           3
-        </span>
-        <div class="text-xs text-slate-700 space-y-1">
-          <p class="font-semibold text-slate-900">Enter factory default username and password</p>
-          <p class="text-slate-600 leading-relaxed">
-            Enter the default credentials (usually <code class="font-mono bg-white px-1 py-0.5 rounded border border-slate-200">admin / admin</code> or <code class="font-mono bg-white px-1 py-0.5 rounded border border-slate-200">admin / password</code>) to open the control panel.
+        </div>
+        <div class="text-xs text-slate-700 space-y-1.5 flex-1">
+          <p class="font-bold text-slate-900 text-sm">Enter factory default username & password</p>
+          <p class="text-slate-600 leading-relaxed text-xs">
+            When prompted by the login dialog, input the default credentials (usually <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-900 font-semibold">admin / admin</code> or <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-900 font-semibold">admin / password</code>).
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Box 2: Routers Support -->
-  <div class="bg-white rounded-2xl border border-slate-200/90 shadow-card p-4 sm:p-6 space-y-4">
-    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2">
-        <span class="w-7 h-7 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center text-sm font-bold">
+  <!-- Box 2: Routers Support & Troubleshooting -->
+  <div class="bg-white rounded-2xl border border-slate-200/90 shadow-card p-5 sm:p-7 space-y-5">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center text-base font-bold shadow-xs">
           🛠️
-        </span>
-        <h2 class="text-base sm:text-lg font-bold text-slate-900">
-          {entityName} @ {ipAddress} Support & Troubleshooting
-        </h2>
+        </div>
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+            {entityName} @ {ipAddress} Support & Troubleshooting
+          </h2>
+          <p class="text-xs text-slate-500">Quick fixes for common connection issues</p>
+        </div>
       </div>
-      <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
-        Help Guide
+      <span class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+        Diagnostics
       </span>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-      <div class="p-3 rounded-xl bg-slate-50/70 border border-slate-100 space-y-1">
-        <strong class="text-slate-900 block font-semibold">Forgotten Admin Password?</strong>
-        <p class="text-slate-600 leading-relaxed">
-          Press and hold the physical <strong>RESET</strong> button on the back of the router for 10 seconds to restore factory default settings.
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+      <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-slate-300 transition-colors space-y-1.5">
+        <div class="flex items-center gap-1.5 text-slate-900 font-bold text-xs">
+          <span>🔄</span>
+          <span>Forgotten Admin Password?</span>
+        </div>
+        <p class="text-slate-600 leading-relaxed text-xs">
+          Locate the physical <strong>RESET pinhole button</strong> on the router's rear panel. Press and hold with a paperclip for 10-15 seconds until all LED lights flash. This restores default factory credentials.
         </p>
       </div>
 
-      <div class="p-3 rounded-xl bg-slate-50/70 border border-slate-100 space-y-1">
-        <strong class="text-slate-900 block font-semibold">192.168.1.1 Not Opening?</strong>
-        <p class="text-slate-600 leading-relaxed">
-          Make sure your device is connected to the right Wi-Fi SSID and not on cellular mobile data. Check our <a href={`${base}/ip-addresses`} class="text-brand-600 font-semibold underline hover:text-brand-800">gateway IP list</a> to confirm your address.
+      <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-slate-300 transition-colors space-y-1.5">
+        <div class="flex items-center gap-1.5 text-slate-900 font-bold text-xs">
+          <span>⚠️</span>
+          <span>{ipAddress} Refuses to Connect?</span>
+        </div>
+        <p class="text-slate-600 leading-relaxed text-xs">
+          Disable mobile data on your phone and disconnect active VPN connections. Confirm your router's exact gateway IP using our <a href={`${base}/what-is-my-ip`} class="text-brand-600 font-bold underline hover:text-brand-800">Gateway Finder Tool</a>.
         </p>
       </div>
     </div>

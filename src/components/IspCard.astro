@@ -7,40 +7,52 @@ interface Props {
 
 const { data } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// ISP specific brand accents
+const ispColors: Record<string, { bg: string; badge: string; text: string }> = {
+  'JioFiber': { bg: 'bg-blue-600', badge: 'bg-blue-50 text-blue-700 border-blue-200', text: 'text-blue-700' },
+  'Airtel Xstream': { bg: 'bg-red-600', badge: 'bg-red-50 text-red-700 border-red-200', text: 'text-red-700' },
+  'BSNL Bharat Fiber': { bg: 'bg-amber-600', badge: 'bg-amber-50 text-amber-800 border-amber-200', text: 'text-amber-800' },
+  'ACT Fibernet': { bg: 'bg-emerald-600', badge: 'bg-emerald-50 text-emerald-800 border-emerald-200', text: 'text-emerald-800' },
+  'Tata Play Fiber': { bg: 'bg-purple-600', badge: 'bg-purple-50 text-purple-800 border-purple-200', text: 'text-purple-800' },
+};
+
+const ispStyle = ispColors[data.name] || { bg: 'bg-emerald-700', badge: 'bg-emerald-50 text-emerald-800 border-emerald-200', text: 'text-emerald-700' };
 ---
 
 <a 
   href={`${base}/${data.slug}`} 
-  class="group bg-white rounded-xl border border-slate-200/80 p-3.5 sm:p-4 shadow-card hover:shadow-card-hover hover:border-slate-300 transition-all flex flex-col justify-between"
+  class="group bg-white rounded-2xl border border-slate-200/90 p-4 shadow-card hover:shadow-card-hover hover:border-brand-400 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
 >
   <div>
-    <div class="flex items-start justify-between gap-2 mb-2">
+    <div class="flex items-start justify-between gap-2 mb-3">
       <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold text-xs font-mono group-hover:bg-emerald-800 transition-colors shadow-2xs">
+        <div class={`w-10 h-10 rounded-xl ${ispStyle.bg} text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs group-hover:scale-105 transition-transform`}>
           {data.name.slice(0, 2).toUpperCase()}
         </div>
         <div>
-          <h3 class="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors">
+          <h3 class="font-extrabold text-slate-900 text-sm group-hover:text-brand-600 transition-colors">
             {data.name}
           </h3>
-          <span class="text-[11px] text-slate-500 font-medium">
+          <span class="inline-flex items-center gap-1 text-[11px] text-slate-500 font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
             Fiber Broadband
           </span>
         </div>
       </div>
-      <span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800">
+      <span class={`text-[11px] font-mono font-bold px-2 py-0.5 rounded-md border shadow-2xs ${ispStyle.badge}`}>
         {data.defaultIp}
       </span>
     </div>
 
-    <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-3">
+    <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
       {data.description}
     </p>
   </div>
 
-  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
-    <span>Login: <strong class="text-slate-800 font-mono">{data.defaultUser}</strong></span>
-    <span class="text-slate-900 group-hover:text-emerald-700 font-semibold flex items-center gap-0.5">
+  <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-500">
+    <span class="font-mono text-[11px]">User: <strong class="text-slate-800 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-200/80">{data.defaultUser}</strong></span>
+    <span class="text-brand-600 font-bold flex items-center gap-0.5 text-xs group-hover:translate-x-0.5 transition-transform">
       Setup Guide →
     </span>
   </div>

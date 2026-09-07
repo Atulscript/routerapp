@@ -3,21 +3,24 @@ const currentYear = new Date().getFullYear();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<footer class="bg-slate-100/90 text-slate-600 border-t border-slate-200/90 mt-16 transition-colors">
+<footer class="bg-slate-100/95 text-slate-600 border-t border-slate-200/90 mt-16 transition-colors font-sans">
   
-  <!-- Quick Direct Gateway Strip -->
-  <div class="border-b border-slate-200/70 bg-white/60">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+  <!-- Quick Direct Gateway Strip with animated ping -->
+  <div class="border-b border-slate-200/70 bg-white/70 backdrop-blur-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-        <span class="font-bold text-slate-800">Quick Gateway Test:</span>
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="font-bold text-slate-800">Quick Gateway Direct Access:</span>
       </div>
       <div class="flex flex-wrap items-center gap-2 font-mono text-[11px] font-semibold">
-        <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-600 transition-colors">192.168.1.1 ↗</a>
-        <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-600 transition-colors">192.168.0.1 ↗</a>
-        <a href="http://192.168.2.1" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-600 transition-colors">192.168.2.1 ↗</a>
-        <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-600 transition-colors">10.0.0.1 ↗</a>
-        <a href="http://192.168.29.1" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-brand-600 transition-colors">192.168.29.1 ↗</a>
+        <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 transition-all shadow-2xs">192.168.1.1 ↗</a>
+        <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 transition-all shadow-2xs">192.168.0.1 ↗</a>
+        <a href="http://192.168.2.1" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 transition-all shadow-2xs">192.168.2.1 ↗</a>
+        <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 transition-all shadow-2xs">10.0.0.1 ↗</a>
+        <a href="http://192.168.29.1" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 transition-all shadow-2xs">192.168.29.1 ↗</a>
       </div>
     </div>
   </div>
@@ -29,22 +32,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <!-- Col 1: Brand Info -->
       <div class="col-span-2 md:col-span-1 space-y-3">
         <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-            <svg class="w-3.5 h-3.5 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <div class="w-8 h-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+            <svg class="w-4 h-4 text-sky-400 animate-pulse-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
               <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
               <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
               <line x1="12" y1="20" x2="12.01" y2="20"></line>
             </svg>
           </div>
-          <span class="font-extrabold text-slate-900 text-base tracking-tight font-sans">
+          <span class="font-black text-slate-900 text-base tracking-tight font-sans">
             19216811<span class="text-brand-600">.page</span>
           </span>
         </div>
-        <p class="text-xs text-slate-500 leading-relaxed">
-          Open directory for wireless router gateway IPs, factory credentials, and home network setup.
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Open reference directory for wireless router gateways, default login credentials, and home network configuration.
         </p>
-        <div class="flex items-center gap-1.5 text-[11px] text-slate-500 font-mono pt-1">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-slate-200/80 text-[10px] text-slate-600 font-mono shadow-2xs">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           <span>RFC 1918 Private IPv4 Standard</span>
         </div>
@@ -52,62 +55,70 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <!-- Col 2: Gateway IPs -->
       <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2.5">Gateways</h4>
-        <ul class="space-y-1.5 text-xs text-slate-600">
-          <li><a href={`${base}/`} class="hover:text-brand-600 transition-colors">192.168.1.1 Login</a></li>
-          <li><a href={`${base}/192-168-0-1`} class="hover:text-brand-600 transition-colors">192.168.0.1 Admin</a></li>
-          <li><a href={`${base}/192-168-2-1`} class="hover:text-brand-600 transition-colors">192.168.2.1 Belkin</a></li>
-          <li><a href={`${base}/192-168-1-254`} class="hover:text-brand-600 transition-colors">192.168.1.254 Technicolor</a></li>
-          <li><a href={`${base}/10-0-0-1`} class="hover:text-brand-600 transition-colors">10.0.0.1 Xfinity</a></li>
-          <li><a href={`${base}/192-168-29-1`} class="hover:text-brand-600 transition-colors">192.168.29.1 Jio</a></li>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
+          <span class="text-brand-600">🌐</span> Gateways
+        </h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href={`${base}/`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">192.168.1.1 Login</a></li>
+          <li><a href={`${base}/192-168-0-1`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">192.168.0.1 Admin</a></li>
+          <li><a href={`${base}/192-168-2-1`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">192.168.2.1 Belkin</a></li>
+          <li><a href={`${base}/192-168-1-254`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">192.168.1.254 AT&T</a></li>
+          <li><a href={`${base}/10-0-0-1`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">10.0.0.1 Xfinity</a></li>
+          <li><a href={`${base}/192-168-29-1`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">192.168.29.1 Jio</a></li>
         </ul>
       </div>
 
       <!-- Col 3: Router Brands -->
       <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2.5">Top Brands</h4>
-        <ul class="space-y-1.5 text-xs text-slate-600">
-          <li><a href={`${base}/tp-link`} class="hover:text-brand-600 transition-colors">TP-Link</a></li>
-          <li><a href={`${base}/netgear`} class="hover:text-brand-600 transition-colors">Netgear</a></li>
-          <li><a href={`${base}/asus`} class="hover:text-brand-600 transition-colors">ASUS RT</a></li>
-          <li><a href={`${base}/d-link`} class="hover:text-brand-600 transition-colors">D-Link</a></li>
-          <li><a href={`${base}/cisco`} class="hover:text-brand-600 transition-colors">Cisco</a></li>
-          <li><a href={`${base}/linksys`} class="hover:text-brand-600 transition-colors">Linksys</a></li>
-          <li><a href={`${base}/tenda`} class="hover:text-brand-600 transition-colors">Tenda</a></li>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
+          <span class="text-amber-600">🏷️</span> Top Brands
+        </h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href={`${base}/tp-link`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">TP-Link</a></li>
+          <li><a href={`${base}/netgear`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Netgear</a></li>
+          <li><a href={`${base}/asus`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">ASUS RT</a></li>
+          <li><a href={`${base}/d-link`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">D-Link</a></li>
+          <li><a href={`${base}/cisco`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Cisco</a></li>
+          <li><a href={`${base}/linksys`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Linksys</a></li>
+          <li><a href={`${base}/tenda`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Tenda</a></li>
         </ul>
       </div>
 
       <!-- Col 4: Fiber ISPs -->
       <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2.5">Fiber ISPs</h4>
-        <ul class="space-y-1.5 text-xs text-slate-600">
-          <li><a href={`${base}/jio`} class="hover:text-brand-600 transition-colors">JioFiber</a></li>
-          <li><a href={`${base}/airtel`} class="hover:text-brand-600 transition-colors">Airtel Xstream</a></li>
-          <li><a href={`${base}/bsnl`} class="hover:text-brand-600 transition-colors">BSNL Fiber</a></li>
-          <li><a href={`${base}/act-fibernet`} class="hover:text-brand-600 transition-colors">ACT Fibernet</a></li>
-          <li><a href={`${base}/tata-play-fiber`} class="hover:text-brand-600 transition-colors">Tata Play Fiber</a></li>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
+          <span class="text-emerald-600">📶</span> Fiber ISPs
+        </h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href={`${base}/jio`} class="hover:text-emerald-700 hover:translate-x-1 inline-flex transition-all">JioFiber</a></li>
+          <li><a href={`${base}/airtel`} class="hover:text-red-700 hover:translate-x-1 inline-flex transition-all">Airtel Xstream</a></li>
+          <li><a href={`${base}/bsnl`} class="hover:text-amber-700 hover:translate-x-1 inline-flex transition-all">BSNL Fiber</a></li>
+          <li><a href={`${base}/act-fibernet`} class="hover:text-emerald-700 hover:translate-x-1 inline-flex transition-all">ACT Fibernet</a></li>
+          <li><a href={`${base}/tata-play-fiber`} class="hover:text-purple-700 hover:translate-x-1 inline-flex transition-all">Tata Play Fiber</a></li>
         </ul>
       </div>
 
       <!-- Col 5: Tools & Directories -->
       <div>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2.5">Tools</h4>
-        <ul class="space-y-1.5 text-xs text-slate-600">
-          <li><a href={`${base}/what-is-my-ip`} class="hover:text-brand-600 transition-colors">What is My IP?</a></li>
-          <li><a href={`${base}/wifi-qr-generator`} class="hover:text-brand-600 transition-colors">WiFi QR Generator</a></li>
-          <li><a href={`${base}/password-generator`} class="hover:text-brand-600 transition-colors">Password Generator</a></li>
-          <li><a href={`${base}/default-passwords`} class="hover:text-brand-600 transition-colors">Default Passwords</a></li>
-          <li><a href={`${base}/routers`} class="hover:text-brand-600 transition-colors">Hardware Database</a></li>
-          <li><a href={`${base}/brands`} class="hover:text-brand-600 transition-colors">Brands Directory</a></li>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-1.5">
+          <span class="text-indigo-600">🛠️</span> Tools
+        </h4>
+        <ul class="space-y-2 text-xs text-slate-600">
+          <li><a href={`${base}/what-is-my-ip`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">What is My IP?</a></li>
+          <li><a href={`${base}/wifi-qr-generator`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">WiFi QR Generator</a></li>
+          <li><a href={`${base}/password-generator`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Password Generator</a></li>
+          <li><a href={`${base}/default-passwords`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Default Passwords</a></li>
+          <li><a href={`${base}/routers`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Hardware Database</a></li>
+          <li><a href={`${base}/brands`} class="hover:text-brand-600 hover:translate-x-1 inline-flex transition-all">Brands Directory</a></li>
         </ul>
       </div>
 
     </div>
 
     <!-- Bottom Bar -->
-    <div class="border-t border-slate-200 mt-10 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+    <div class="border-t border-slate-200 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
       <p>© {currentYear} 19216811.page · Open Router Reference Portal</p>
-      <div class="flex items-center gap-4 text-[11px]">
+      <div class="flex items-center gap-4 text-xs font-medium">
         <a href={`${base}/brands`} class="hover:text-slate-900 transition-colors">All Brands</a>
         <a href={`${base}/ip-addresses`} class="hover:text-slate-900 transition-colors">All Gateways</a>
         <a href={`${base}/sitemap-index.xml`} class="hover:text-slate-900 transition-colors">XML Sitemap</a>

@@ -10,53 +10,58 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pageUrl = (data.slug === '192-168-1-1' || data.ip === '192.168.1.1') ? `${base}/` : `${base}/${data.slug}`;
 ---
 
-<div class="bg-white rounded-xl border border-slate-200/80 p-4 shadow-card hover:shadow-card-hover hover:border-slate-300 transition-all flex flex-col justify-between">
+<div class="group bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 shadow-card hover:shadow-card-hover hover:border-brand-400 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
   <div>
-    <div class="flex items-center justify-between mb-2">
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-sky-50 text-brand-700 border border-sky-200">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+    <div class="flex items-center justify-between mb-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-sky-50 text-brand-700 border border-sky-200 shadow-2xs">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         {data.ip}
       </span>
-      <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Gateway</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
+        Gateway
+      </span>
     </div>
 
-    <h3 class="text-base font-bold text-slate-900 hover:text-brand-600 transition-colors mb-1.5">
-      <a href={pageUrl}>
-        {data.ip} Admin Login
+    <h3 class="text-base font-extrabold text-slate-900 group-hover:text-brand-600 transition-colors mb-2">
+      <a href={pageUrl} class="flex items-center justify-between">
+        <span>{data.ip} Admin Login</span>
+        <span class="text-slate-300 group-hover:text-brand-600 group-hover:translate-x-1 transition-all">→</span>
       </a>
     </h3>
 
-    <p class="text-xs text-slate-500 line-clamp-2 mb-3 leading-relaxed">
+    <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
       {data.description}
     </p>
 
-    <!-- Credential Box -->
-    <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-100 mb-3 space-y-1 text-xs font-mono">
-      <div class="flex justify-between">
-        <span class="text-slate-500 font-sans text-[11px]">User:</span>
-        <span class="font-bold text-slate-800">{data.defaultUser}</span>
+    <!-- Credential Box with Clear Contrast -->
+    <div class="bg-slate-50/80 rounded-xl p-3 border border-slate-200/80 mb-4 space-y-1.5 text-xs font-mono">
+      <div class="flex items-center justify-between">
+        <span class="text-slate-500 font-sans text-[11px] font-medium">Default User:</span>
+        <span class="font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-2xs">{data.defaultUser}</span>
       </div>
-      <div class="flex justify-between">
-        <span class="text-slate-500 font-sans text-[11px]">Pass:</span>
-        <span class="font-bold text-slate-800">{data.defaultPass}</span>
+      <div class="flex items-center justify-between">
+        <span class="text-slate-500 font-sans text-[11px] font-medium">Default Pass:</span>
+        <span class="font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-2xs">{data.defaultPass}</span>
       </div>
     </div>
   </div>
 
-  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+  <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
     <a 
       href={`http://${data.ip}`} 
       target="_blank" 
       rel="noopener noreferrer"
-      class="text-slate-500 hover:text-slate-900 font-medium flex items-center gap-0.5 text-[11px]"
+      class="inline-flex items-center gap-1 text-slate-600 hover:text-slate-900 font-bold text-xs bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded-lg transition-colors"
     >
-      Open IP ↗
+      <span>Open IP</span>
+      <span class="text-sky-600">↗</span>
     </a>
     <a 
       href={pageUrl} 
-      class="font-semibold text-brand-600 hover:text-brand-800 text-[11px]"
+      class="font-bold text-brand-600 hover:text-brand-800 text-xs flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
     >
-      Guide →
+      <span>Setup Guide</span>
+      <span>→</span>
     </a>
   </div>
 </div>
