@@ -96,6 +96,40 @@ const allModels = BRANDS.flatMap(b =>
       </div>
     </section>
 
+    <!-- Practical Hardware Guide Section -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6 my-10">
+      <h2 class="text-2xl font-bold text-slate-900">Understanding Router Hardware Modes & Maintenance</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Modern wireless routers can be configured in multiple operating modes depending on your home or office network architecture:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs pt-2">
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+          <span class="text-xl">🌐</span>
+          <strong class="text-slate-900 block font-bold text-sm">Router Mode (Default)</strong>
+          <p class="text-slate-600 leading-relaxed">
+            The router connects directly to your internet modem, creates a private local subnet (e.g. 192.168.1.1), assigns DHCP IP addresses, and handles NAT firewall security.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+          <span class="text-xl">📡</span>
+          <strong class="text-slate-900 block font-bold text-sm">Access Point (AP) Mode</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Disables internal routing and DHCP. Extends Wi-Fi coverage by connecting via Ethernet to an existing main router, preventing double-NAT latency in gaming and VoIP.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+          <span class="text-xl">🔄</span>
+          <strong class="text-slate-900 block font-bold text-sm">Repeater / Range Extender Mode</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Picks up an existing wireless signal over the air and re-broadcasts it to eliminate Wi-Fi dead zones, without requiring physical Ethernet cabling.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Interlinking 2-Column Grid -->
     <div class="mt-12">
       <RelatedLinksGrid />

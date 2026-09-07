@@ -244,6 +244,51 @@ const schema = {
       </div>
     </section>
 
+    <!-- Practical Guide: How to Find Your Router IP on Any OS -->
+    <section class="m3-card p-6 sm:p-10 space-y-6">
+      <div>
+        <span class="m3-chip m3-chip-tonal text-xs font-bold tracking-wider">
+          🔍 Quick Diagnostic
+        </span>
+        <h2 class="text-2xl font-black text-md-on-surface tracking-tight mt-2.5">
+          Not Sure If 192.168.1.1 Is Your Router's IP? Here's How to Check
+        </h2>
+        <p class="text-sm text-md-on-surface-variant mt-1 leading-relaxed">
+          Your device automatically receives your router's exact IP address when connected. Here is how to find it in seconds on any operating system:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
+          <strong class="text-slate-900 font-bold block text-sm">💻 Windows 10 / 11</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Press <kbd class="px-1.5 py-0.5 bg-white border rounded font-mono text-[10px]">Win + R</kbd>, type <code class="font-mono bg-white px-1 py-0.5 rounded">cmd</code>, and press Enter. Type <code class="font-mono bg-white px-1 py-0.5 rounded font-bold text-sky-700">ipconfig</code>. Look for <strong>Default Gateway</strong>.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
+          <strong class="text-slate-900 font-bold block text-sm">🍎 macOS (MacBook / iMac)</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Open <strong>System Settings</strong> $\rightarrow$ <strong>Wi-Fi</strong> $\rightarrow$ click <strong>Details</strong> next to your network $\rightarrow$ select <strong>TCP/IP</strong>. Check the <strong>Router</strong> entry.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
+          <strong class="text-slate-900 font-bold block text-sm">📱 iPhone / iPad (iOS)</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Open <strong>Settings</strong> $\rightarrow$ <strong>Wi-Fi</strong> $\rightarrow$ tap the blue <span class="font-bold font-mono">ⓘ</span> icon next to your connected Wi-Fi. Scroll down to see <strong>Router</strong>.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-m3-lg bg-md-surface-container-low border border-md-outline-variant/30 space-y-2">
+          <strong class="text-slate-900 font-bold block text-sm">🤖 Android Phone / Tablet</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Go to <strong>Settings</strong> $\rightarrow$ <strong>Network & Internet</strong> $\rightarrow$ <strong>Wi-Fi</strong> $\rightarrow$ tap the ⚙️ gear icon $\rightarrow$ tap <strong>Advanced</strong> to view <strong>Gateway</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. Typo Warning Alert Box -->
     <section class="bg-amber-50/90 rounded-m3-xl p-6 sm:p-8 border border-amber-200 shadow-xs">
       <div class="max-w-3xl">

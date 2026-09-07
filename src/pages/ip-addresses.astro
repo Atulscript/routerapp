@@ -82,6 +82,22 @@ const description = "Comprehensive directory of private default gateway IP addre
           </tbody>
         </table>
       </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-4">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+          <strong class="text-slate-900 block font-bold">⚠️ Avoiding IP Conflicts on Two Routers</strong>
+          <p class="text-slate-600 leading-relaxed">
+            If you connect a secondary router or Wi-Fi extender to your main ISP modem, ensure both do not use the same IP (e.g. both on 192.168.1.1). Change the secondary router to <strong>192.168.2.1</strong> or disable its DHCP server to operate in Access Point (AP) mode.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+          <strong class="text-slate-900 block font-bold">🛠️ Rescuing an Unresponsive Router via Static IP</strong>
+          <p class="text-slate-600 leading-relaxed">
+            If your computer fails to receive an IP via DHCP, manually configure your PC's Ethernet adapter to a static IP like <code class="font-mono bg-white px-1 py-0.5 rounded">192.168.1.50</code> with subnet mask <code class="font-mono bg-white px-1 py-0.5 rounded">255.255.255.0</code> to regain access to <code class="font-mono bg-white px-1 py-0.5 rounded">192.168.1.1</code>.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Interlinking 2-Column Grid -->

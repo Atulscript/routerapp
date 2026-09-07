@@ -152,6 +152,59 @@ if (type === 'ip') {
             </div>
           </section>
 
+          <!-- Human Guide: Troubleshooting {ip.ip} -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold text-slate-900">
+              Why Can't I Connect to {ip.ip}? (Top 4 Quick Fixes)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
+                <strong class="text-slate-900 block font-bold text-sm">1. Check Your Physical Connection</strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Make sure your phone or laptop is actively connected to your router's Wi-Fi network or plugged directly into a LAN port with an Ethernet cable. If you are on cellular data (4G/5G), turn off mobile data first.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
+                <strong class="text-slate-900 block font-bold text-sm">2. Disable Active VPNs & Proxies</strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Active VPN tunnels reroute your network traffic to a remote server, making local private IP addresses like <code class="font-mono bg-white px-1 py-0.5 rounded">{ip.ip}</code> unreachable. Temporarily disconnect your VPN.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
+                <strong class="text-slate-900 block font-bold text-sm">3. Avoid Typo Mistakes</strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Double check the URL bar. Do not type letters (like "l" instead of "1") and do not search for it in Google. Type <code class="font-mono bg-white px-1 py-0.5 rounded font-bold text-sky-700">http://{ip.ip}</code> directly in the browser address bar.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
+                <strong class="text-slate-900 block font-bold text-sm">4. Verify Gateway Address</strong>
+                <p class="text-slate-600 leading-relaxed">
+                  Your router might be on a different subnet (e.g. 192.168.0.1 or 10.0.0.1). Open Command Prompt on Windows and type <code class="font-mono bg-white px-1 py-0.5 rounded">ipconfig</code> to confirm your Default Gateway.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step-by-Step WiFi Configuration Guide -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+            <h2 class="text-xl font-bold text-slate-900">
+              How to Change Your Wi-Fi Password at {ip.ip}
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Once you have successfully logged in using your default credentials, securing your wireless network is simple:
+            </p>
+            <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700 font-medium pl-1">
+              <li>Navigate to the <strong>Wireless</strong> or <strong>Wi-Fi Settings</strong> menu tab on the left dashboard.</li>
+              <li>Locate the <strong>SSID Name</strong> field to rename your network (e.g., <em>Home_5G</em>).</li>
+              <li>Under <strong>Security Mode</strong>, select <strong>WPA2-PSK (AES)</strong> or <strong>WPA3-Personal</strong>.</li>
+              <li>Type your new custom password in the <strong>Passphrase / Pre-Shared Key</strong> field.</li>
+              <li>Click <strong>Save / Apply</strong>. Your connected devices will briefly disconnect and require the new password.</li>
+            </ol>
+          </section>
+
           <!-- FAQ Accordion -->
           {ip.faqs && ip.faqs.length > 0 && (
             <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
@@ -229,6 +282,30 @@ if (type === 'ip') {
               ))}
             </ol>
           </section>
+
+          <!-- Factory Reset & Troubleshooting Guide for Brand -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold text-slate-900">
+              Forgot Your {brand.name} Custom Login? How to Factory Reset
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              If the default password ({brand.defaultPass}) has been changed and you can no longer sign in, you can reset the hardware back to original factory defaults:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                <strong class="text-slate-900 block font-bold">1. Find the Pinhole</strong>
+                <p class="text-slate-600">Locate the small hole marked <em>RESET</em> on the back or bottom panel of your {brand.name} router.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                <strong class="text-slate-900 block font-bold">2. Press for 10 Seconds</strong>
+                <p class="text-slate-600">While the router is powered ON, press and hold the button with a paperclip or pin for 10 to 15 seconds.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                <strong class="text-slate-900 block font-bold">3. Reconnect with Defaults</strong>
+                <p class="text-slate-600">Release the button when the LEDs flash. The router will reboot and restore default IP <strong>{brand.defaultIp}</strong>.</p>
+              </div>
+            </div>
+          </section>
         </article>
       );
     })()}
@@ -288,6 +365,44 @@ if (type === 'ip') {
                 </li>
               ))}
             </ol>
+          </section>
+
+          <!-- Fiber ONT Indicator Diagnostics for ISPs -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+            <h2 class="text-xl font-bold text-slate-900">
+              Understanding Your {isp.name} ONT Indicator Lights
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              If your {isp.name} broadband shows "Connected, No Internet", glance at the front LED indicators on your fiber optical modem before logging in:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
+                <span class="font-bold text-emerald-900 flex items-center gap-1.5 text-sm">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> PON Light (Solid Green)
+                </span>
+                <p class="text-emerald-800 text-[11px] leading-relaxed">
+                  Optical connection with your ISP exchange is healthy and authenticated.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 space-y-1">
+                <span class="font-bold text-rose-900 flex items-center gap-1.5 text-sm">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span> LOS Light (Blinking Red)
+                </span>
+                <p class="text-rose-800 text-[11px] leading-relaxed">
+                  Loss of Signal: The yellow fiber optic patch cord is loose, bent, or there is an area-wide fiber cut.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-sky-50 border border-sky-200 space-y-1">
+                <span class="font-bold text-sky-900 flex items-center gap-1.5 text-sm">
+                  <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> LAN / WLAN (Blinking Green)
+                </span>
+                <p class="text-sky-800 text-[11px] leading-relaxed">
+                  Data packets are actively transmitting between your Wi-Fi devices and the router.
+                </p>
+              </div>
+            </div>
           </section>
         </article>
       );
