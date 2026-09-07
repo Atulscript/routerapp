@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBar from '../components/SearchBar.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
@@ -12,9 +11,12 @@ const description = "Instantly detect your public IPv4/IPv6 address, internet se
 <BaseLayout title={title} description={description}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 text-center">
     
-    <div>
-      <SearchBar />
-    </div>
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium text-left">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">What is My IP?</span>
+    </nav>
 
     <header class="max-w-xl mx-auto">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-bold uppercase mb-2 border border-emerald-200">

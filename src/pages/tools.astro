@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBar from '../components/SearchBar.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
@@ -41,22 +40,24 @@ const toolsList = [
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
-    <!-- Search Bar -->
-    <div>
-      <SearchBar />
-    </div>
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Tools</span>
+    </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase mb-2 border border-md-primary/20">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase mb-2 border border-slate-200">
         🛠️ Web Utilities
       </div>
-      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
         Networking Tools
       </h1>
-      <p class="text-xs sm:text-sm text-md-on-surface-variant">
+      <p class="text-xs sm:text-sm text-slate-600">
         Free, browser-based network configuration and diagnostic utilities with zero server data storage.
       </p>
     </header>
@@ -68,28 +69,28 @@ const toolsList = [
       {toolsList.map(tool => (
         <a 
           href={tool.url}
-          class="m3-card-compact p-4 sm:p-5 flex flex-col justify-between group hover:border-md-primary transition-all"
+          class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-slate-300 transition-all flex flex-col justify-between group"
         >
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="w-10 h-10 rounded-m3-md bg-md-primary-container/40 border border-md-primary/20 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <span class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
                 {tool.icon}
               </span>
-              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-m3-full bg-md-secondary-container text-md-on-secondary-container">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">
                 {tool.badge}
               </span>
             </div>
 
-            <h3 class="text-base font-bold text-md-on-surface group-hover:text-md-primary transition-colors mb-1.5">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-brand-600 transition-colors mb-1">
               {tool.title}
             </h3>
 
-            <p class="text-xs text-md-on-surface-variant leading-relaxed">
+            <p class="text-xs text-slate-500 leading-relaxed">
               {tool.description}
             </p>
           </div>
 
-          <div class="mt-4 pt-3 border-t border-md-surface-variant/40 flex items-center justify-between text-xs font-bold text-md-primary">
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
             <span>Launch Tool</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
@@ -100,33 +101,33 @@ const toolsList = [
     <AdBanner format="horizontal" />
 
     <!-- Human SEO Overview Section -->
-    <section class="m3-card-compact space-y-4">
-      <h2 class="text-xl font-bold text-md-on-surface">Why Use 19216811.page Network Utilities?</h2>
-      <p class="text-xs text-md-on-surface-variant leading-relaxed">
+    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3.5">
+      <h2 class="text-lg font-bold text-slate-900">Why Use 19216811.page Network Utilities?</h2>
+      <p class="text-xs text-slate-600 leading-relaxed">
         Our suite of networking utilities is built for speed, privacy, and simplicity. Whether you are setting up a new home Wi-Fi network, troubleshooting broadband connectivity, or generating secure passwords, our tools run entirely in your local browser:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
-        <div class="p-3.5 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
-          <span class="text-lg">🛡️</span>
-          <strong class="text-md-on-surface block font-bold text-xs">Zero Server Logging</strong>
-          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
-            Your generated passwords and Wi-Fi QR credentials never leave your browser window. Zero tracking, 100% private.
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+          <span class="text-base">🛡️</span>
+          <strong class="text-slate-900 block font-semibold text-xs">Zero Server Logging</strong>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            Your generated passwords and Wi-Fi QR credentials never leave your browser window. Zero tracking, zero telemetry, 100% private.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
-          <span class="text-lg">⚡</span>
-          <strong class="text-md-on-surface block font-bold text-xs">Instant Diagnostics</strong>
-          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+          <span class="text-base">⚡</span>
+          <strong class="text-slate-900 block font-semibold text-xs">Instant Diagnostics</strong>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
             Real-time IP detection and subnet matching help you identify your local router gateway within milliseconds.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
-          <span class="text-lg">📱</span>
-          <strong class="text-md-on-surface block font-bold text-xs">Fully Mobile Responsive</strong>
-          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+          <span class="text-base">📱</span>
+          <strong class="text-slate-900 block font-semibold text-xs">Fully Mobile Responsive</strong>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
             All tools work seamlessly on iPhone, iPad, Android devices, macOS, and Windows without needing app downloads.
           </p>
         </div>

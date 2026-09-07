@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBar from '../components/SearchBar.astro';
 import RouterLookupTable from '../components/RouterLookupTable.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
@@ -26,10 +25,12 @@ const allModels = BRANDS.flatMap(b =>
 <BaseLayout title={title} description={description}>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
-    <!-- Search Bar -->
-    <div>
-      <SearchBar />
-    </div>
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Router Models</span>
+    </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">

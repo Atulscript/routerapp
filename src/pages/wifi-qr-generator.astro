@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AdBanner from '../components/AdBanner.astro';
-import SearchBar from '../components/SearchBar.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -12,10 +11,12 @@ const description = "Generate a customized WiFi QR code to easily share your hom
 <BaseLayout title={title} description={description}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
-    <!-- Search Bar -->
-    <div>
-      <SearchBar />
-    </div>
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">WiFi QR Generator</span>
+    </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">

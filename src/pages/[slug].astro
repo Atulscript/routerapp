@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBar from '../components/SearchBar.astro';
 import PasswordTable from '../components/PasswordTable.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
@@ -62,11 +61,6 @@ if (type === 'ip') {
 <BaseLayout title={pageTitle} description={pageDescription} schema={schema}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
-    <!-- Contextual Search -->
-    <div>
-      <SearchBar />
-    </div>
-
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
