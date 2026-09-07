@@ -6,11 +6,62 @@ import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { BRANDS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "All Router Brands & Manufacturers Directory | 19216811.page";
-const description = "Comprehensive list of all major router manufacturers including TP-Link, Netgear, ASUS, Cisco, D-Link, Linksys, Huawei, ZTE, and Tenda. Find default IPs and logins.";
+const title = "Router Brands & Manufacturers Login Directory | 19216811.page";
+const description = "Complete directory of router manufacturers. Find factory default IP addresses, passwords, firmware guides, and model databases for TP-Link, Netgear, ASUS, Cisco, and more.";
+const keywords = [
+  "router brands",
+  "router manufacturers",
+  "tp link router",
+  "netgear router login",
+  "asus router admin",
+  "linksys default password",
+  "cisco router login",
+  "d-link setup",
+  "huawei router gateway",
+  "router directory"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Router Brands",
+        "item": `${siteUrl}/brands`
+      }
+    ]
+  },
+  {
+    "@type": "ItemList",
+    "name": "Major Wireless Router Brands & Manufacturers",
+    "description": "Directory of wireless networking hardware manufacturers and default login credentials.",
+    "itemListElement": BRANDS.map((brand, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": `${brand.name} Routers`,
+      "url": `${siteUrl}/${brand.slug}`
+    }))
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->

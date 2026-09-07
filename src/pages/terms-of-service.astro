@@ -3,11 +3,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Terms of Service | 19216811.page";
-const description = "Terms of Service for 19216811.page. Read our conditions of use, intellectual property disclaimers, and guidelines for using our networking reference portal.";
+const title = "Terms of Service & Usage Agreement | 19216811.page";
+const description = "Terms of Service and user agreement for accessing router guides, default password archives, and online networking utilities on 19216811.page.";
+const keywords = [
+  "terms of service",
+  "user agreement",
+  "terms of use",
+  "conditions of use",
+  "router directory legal"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Terms of Service",
+        "item": `${siteUrl}/terms-of-service`
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "name": "19216811.page Terms of Service",
+    "url": `${siteUrl}/terms-of-service`,
+    "description": description
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 font-sans">
     
     <!-- Breadcrumb -->

@@ -7,19 +7,76 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  keywords?: string | string[];
   canonical?: string;
-  schema?: Record<string, any>;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 const { 
   title, 
   description, 
+  keywords = "192.168.1.1, 192.168.0.1, router login, default router password, router admin password, gateway IP, wifi setup, router guide",
   canonical = Astro.url.href,
+  ogType = 'website',
+  ogImage,
+  noindex = false,
   schema 
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const siteUrl = "https://atulscript.github.io/routerapp";
+const socialImage = ogImage || `${siteUrl}/og-image.svg`;
+const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords;
+
+// Base Organization and WebSite Schema for rich snippets
+const globalSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "19216811.page",
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/favicon.svg`,
+        "caption": "19216811.page Router Gateway Logo"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "19216811.page",
+      "description": "Comprehensive Directory of Router Default Passwords, Gateway IPs, and Wi-Fi Configuration Guides",
+      "publisher": {
+        "@id": `${siteUrl}/#organization`
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${siteUrl}/?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+};
+
+// Merge page-specific schemas if provided
+let finalSchema = globalSchema;
+if (schema) {
+  const pageSchemas = Array.isArray(schema) ? schema : [schema];
+  finalSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...globalSchema["@graph"],
+      ...pageSchemas
+    ]
+  };
+}
 ---
 
 <!DOCTYPE html>
@@ -28,25 +85,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+  <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
   
   <!-- Primary Meta Tags -->
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  <meta name="keywords" content={keywordsString} />
+  <meta name="author" content="19216811.page Editorial Team" />
+  <meta name="publisher" content="19216811.page" />
+  <meta name="theme-color" content="#0284c7" />
   <link rel="canonical" href={canonical} />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <!-- Search Engine Robots Directive -->
+  {noindex ? (
+    <meta name="robots" content="noindex, follow" />
+  ) : (
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  )}
+
+  <!-- Open Graph / Facebook / LinkedIn / Discord -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:site_name" content="19216811.page" />
   <meta property="og:url" content={canonical} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <meta property="og:image" content={socialImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="19216811.page Router Gateway & Default Password Directory" />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={canonical} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description} />
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonical} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={socialImage} />
+  <meta name="twitter:image:alt" content="19216811.page Router Gateway & Default Password Directory" />
 
   <!-- Google AdSense Verification & Auto Ads Script -->
   <script 
@@ -55,10 +131,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     crossorigin="anonymous"
   ></script>
 
-  <!-- Schema.org JSON-LD -->
-  {schema && (
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  )}
+  <!-- Schema.org JSON-LD Structured Data Graph -->
+  <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white font-sans bg-[#f8fafc] text-slate-900">
   <Header currentPath={currentPath} />

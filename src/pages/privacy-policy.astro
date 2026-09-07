@@ -3,11 +3,53 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Privacy Policy | 19216811.page";
-const description = "Privacy Policy for 19216811.page. Learn how we collect, use, and protect your information, including disclosures for Google AdSense and third-party advertising cookies.";
+const title = "Privacy Policy & Google AdSense Disclosures | 19216811.page";
+const description = "Privacy Policy for 19216811.page detailing Google AdSense DoubleClick DART cookies, GDPR & CCPA privacy rights, and user data protection measures.";
+const keywords = [
+  "privacy policy",
+  "adsense privacy policy",
+  "cookie policy",
+  "gdpr compliance",
+  "ccpa compliance",
+  "google dart cookie disclosures"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": `${siteUrl}/privacy-policy`
+      }
+    ]
+  },
+  {
+    "@type": "WebPage",
+    "name": "19216811.page Privacy Policy",
+    "url": `${siteUrl}/privacy-policy`,
+    "description": description
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 font-sans">
     
     <!-- Breadcrumb -->

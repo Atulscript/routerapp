@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <!-- Dark Modern Gradient Background -->
+  <rect width="1200" height="630" fill="#0b1329"/>
+  <circle cx="950" cy="150" r="300" fill="#0284c7" fill-opacity="0.15" filter="blur(80px)"/>
+  <circle cx="250" cy="500" r="250" fill="#10b981" fill-opacity="0.1" filter="blur(80px)"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Logo Container -->
+  <g transform="translate(100, 100)">
+    <!-- Router Icon Badge -->
+    <rect x="0" y="0" width="90" height="90" rx="24" fill="#0f172a" stroke="#0284c7" stroke-width="3"/>
+    
+    <!-- Router Graphic -->
+    <path d="M26 56L20 28" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M64 56L70 28" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M45 56V18" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M30 30C38 24 52 24 60 30" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+    <rect x="14" y="56" width="62" height="22" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="26" cy="67" r="3" fill="#10b981"/>
+    <circle cx="38" cy="67" r="3" fill="#38bdf8"/>
+    <circle cx="50" cy="67" r="3" fill="#38bdf8"/>
+    <circle cx="62" cy="67" r="3" fill="#38bdf8"/>
+
+    <!-- Brand Wordmark -->
+    <text x="115" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-1">
+      19216811<tspan fill="#38bdf8">.page</tspan>
+    </text>
+    <text x="115" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#94a3b8" letter-spacing="3">
+      ROUTER GATEWAY DIRECTORY
+    </text>
+  </g>
+
+  <!-- Main Value Proposition Headline -->
+  <text x="100" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-1">
+    Router Admin Login, Gateway IPs
+  </text>
+  <text x="100" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#38bdf8" letter-spacing="-1">
+    &amp; Default Password Database
+  </text>
+
+  <!-- Subtitle Feature Pills -->
+  <g transform="translate(100, 420)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="220" height="50" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="24" y="32" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">🌐 192.168.1.1 Gateway</text>
+
+    <!-- Pill 2 -->
+    <rect x="240" y="0" width="230" height="50" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="264" y="32" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">🔑 20+ Router Brands</text>
+
+    <!-- Pill 3 -->
+    <rect x="490" y="0" width="230" height="50" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="514" y="32" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#f8fafc">⚡ Free Network Tools</text>
+  </g>
+
+  <!-- Bottom Authority Strip -->
+  <line x1="100" y1="520" x2="1100" y2="520" stroke="#1e293b" stroke-width="2"/>
+  <text x="100" y="560" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#64748b">
+    RFC 1918 Private IPv4 Standard Reference · TP-Link, Netgear, ASUS, D-Link, Cisco, JioFiber, Airtel Setup Guides
+  </text>
+  <text x="1100" y="560" text-anchor="end" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#10b981">
+    ✓ 100% Free &amp; Verified
+  </text>
+</svg>

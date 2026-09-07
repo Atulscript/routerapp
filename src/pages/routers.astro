@@ -6,8 +6,19 @@ import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { BRANDS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Router Hardware & Models Database | Default Logins & Protocols | 19216811.page";
-const description = "Search and filter router hardware models across all manufacturers. Find factory default IP addresses, protocols, usernames, and passwords.";
+const title = "Router Hardware Models & Specs Database | 19216811.page";
+const description = "Search and filter over 100+ wireless router hardware models. Find factory default IP gateways, protocols, usernames, passwords, and firmware specs.";
+const keywords = [
+  "router models database",
+  "router hardware specs",
+  "wifi router list",
+  "router default logins",
+  "router password database",
+  "wireless router hardware",
+  "modem default credentials"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
 
 const allModels = BRANDS.flatMap(b => 
   b.models.map(m => ({
@@ -20,9 +31,46 @@ const allModels = BRANDS.flatMap(b =>
     password: m.password
   }))
 );
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Router Models",
+        "item": `${siteUrl}/routers`
+      }
+    ]
+  },
+  {
+    "@type": "ItemList",
+    "name": "Wireless Router Hardware Database",
+    "description": "Comprehensive specifications and default credentials for wireless routers.",
+    "numberOfItems": allModels.length,
+    "itemListElement": allModels.slice(0, 30).map((item, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": `${item.brand} ${item.model} (${item.ip} - ${item.username})`
+    }))
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->

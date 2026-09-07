@@ -4,8 +4,19 @@ import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Free Networking & Router Tools | IP Lookup, WiFi QR, Password Generator | 19216811.page";
-const description = "Suite of free online router and networking utilities. Find your public IP address, generate WiFi QR codes, create strong passwords, and troubleshoot local gateway connections.";
+const title = "Free Network & Wi-Fi Utility Tools | 19216811.page";
+const description = "Free network utility suite: What Is My IP detector, Wi-Fi QR Code Generator, and Secure Router Password Generator. Fast, private, and client-side.";
+const keywords = [
+  "network tools",
+  "what is my ip",
+  "wifi qr code generator",
+  "password generator",
+  "router tools",
+  "wifi utilities",
+  "network diagnostic tools"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
 
 const toolsList = [
   {
@@ -45,9 +56,46 @@ const toolsList = [
     badgeColor: 'bg-amber-50 text-amber-800 border-amber-200'
   }
 ];
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Network Tools",
+        "item": `${siteUrl}/tools`
+      }
+    ]
+  },
+  {
+    "@type": "ItemList",
+    "name": "Free Network & Wi-Fi Tools",
+    "description": "Suite of free online utilities for network analysis and Wi-Fi administration.",
+    "itemListElement": toolsList.map((tool, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": tool.title,
+      "url": `${siteUrl}${tool.url.replace(base, '')}`
+    }))
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->

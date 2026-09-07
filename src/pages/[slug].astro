@@ -19,46 +19,284 @@ type Props =
 const { type, data } = Astro.props as Props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-// Dynamic title and description based on page type
+// Dynamic title, description, keywords, and schemas based on page type
 let pageTitle = "";
 let pageDescription = "";
-let schema: Record<string, any> = {};
+let keywords: string[] = [];
+let schemas: Record<string, any>[] = [];
+const siteUrl = "https://atulscript.github.io/routerapp";
+const currentCanonical = `${siteUrl}/${data.slug}`;
 
 if (type === 'ip') {
   const ipData = data as GatewayIp;
-  pageTitle = `${ipData.ip} Router Login, Admin Password & Setup Guide | 19216811.page`;
-  pageDescription = ipData.description;
-  schema = {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": pageTitle,
-    "description": pageDescription,
-    "articleBody": ipData.steps.join(' ')
-  };
+  pageTitle = `${ipData.ip} Router Admin Login, Passwords & Setup Guide | 19216811.page`;
+  pageDescription = `Access router admin dashboard at ${ipData.ip}. Default login usernames, factory passwords, WiFi security configuration, and troubleshooting for ${ipData.commonBrands.slice(0, 4).join(', ')}.`;
+  keywords = [
+    ipData.ip,
+    `${ipData.ip} login`,
+    `${ipData.ip} admin`,
+    `${ipData.ip} default password`,
+    `${ipData.ip} router setup`,
+    "default gateway ip",
+    "router admin dashboard",
+    ...ipData.commonBrands.map(b => `${b} router login`)
+  ];
+
+  schemas = [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${siteUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gateway IP Addresses",
+          "item": `${siteUrl}/ip-addresses`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": `${ipData.ip} Setup Guide`,
+          "item": currentCanonical
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": `How to Login to Router Gateway at ${ipData.ip}`,
+      "description": `Step-by-step instructions to connect and log into your router dashboard at ${ipData.ip}.`,
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Connect Network Cable or Wi-Fi",
+          "text": "Connect your computer or phone to the router via Ethernet or Wi-Fi.",
+          "url": `${currentCanonical}#step-1`
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": `Navigate to http://${ipData.ip}`,
+          "text": `Open your browser address bar, type http://${ipData.ip} and press Enter.`,
+          "url": `${currentCanonical}#step-2`
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Enter Credentials",
+          "text": `Enter default username (${ipData.defaultUser}) and password (${ipData.defaultPass}) to access admin settings.`,
+          "url": `${currentCanonical}#step-3`
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": pageTitle,
+      "description": pageDescription,
+      "url": currentCanonical,
+      "author": {
+        "@type": "Organization",
+        "name": "19216811.page Network Research"
+      },
+      "articleBody": ipData.steps ? ipData.steps.join(' ') : ipData.description
+    }
+  ];
+
+  if (ipData.faqs && ipData.faqs.length > 0) {
+    schemas.push({
+      "@type": "FAQPage",
+      "mainEntity": ipData.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    });
+  }
 } else if (type === 'brand') {
   const brandData = data as Brand;
-  pageTitle = `${brandData.name} Router Default Passwords & Login Guide | 19216811.page`;
-  pageDescription = brandData.description;
-  schema = {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": pageTitle,
-    "description": pageDescription
-  };
+  pageTitle = `${brandData.name} Router Default Passwords & Admin Login Guide | 19216811.page`;
+  pageDescription = `Complete factory default password directory and login tutorial for ${brandData.name} wireless routers and modems. Access IP ${brandData.defaultIp} with default username '${brandData.defaultUser}'.`;
+  keywords = [
+    `${brandData.name} router login`,
+    `${brandData.name} default password`,
+    `${brandData.name} admin login`,
+    `${brandData.name} default ip`,
+    brandData.defaultIp,
+    `${brandData.name} router setup`,
+    `${brandData.name} wifi password`,
+    "router password database"
+  ];
+
+  schemas = [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${siteUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Router Brands",
+          "item": `${siteUrl}/brands`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": `${brandData.name} Directory`,
+          "item": currentCanonical
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": `How to Login to ${brandData.name} Router Admin Panel`,
+      "description": `Step-by-step instructions to configure your ${brandData.name} router at ${brandData.defaultIp}.`,
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Connect to Router",
+          "text": `Connect your device to the ${brandData.name} network via Wi-Fi or LAN cable.`,
+          "url": `${currentCanonical}#step-1`
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Open Web Gateway",
+          "text": `Enter http://${brandData.defaultIp} into your browser URL bar.`,
+          "url": `${currentCanonical}#step-2`
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Enter Default Credentials",
+          "text": `Type username '${brandData.defaultUser}' and password '${brandData.defaultPass}' to sign in.`,
+          "url": `${currentCanonical}#step-3`
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": pageTitle,
+      "description": pageDescription,
+      "url": currentCanonical,
+      "author": {
+        "@type": "Organization",
+        "name": "19216811.page Network Research"
+      }
+    }
+  ];
+
+  if (brandData.models && brandData.models.length > 0) {
+    schemas.push({
+      "@type": "ItemList",
+      "name": `${brandData.name} Router Models`,
+      "itemListElement": brandData.models.map((model, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": `${brandData.name} ${model.model} - IP: ${model.ip} (User: ${model.username})`
+      }))
+    });
+  }
 } else if (type === 'isp') {
   const ispData = data as Isp;
   pageTitle = `${ispData.name} Router Admin Login (${ispData.defaultIp}) & Setup | 19216811.page`;
-  pageDescription = ispData.description;
-  schema = {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": pageTitle,
-    "description": pageDescription
-  };
+  pageDescription = `Step-by-step ${ispData.name} broadband router login guide. Configure Wi-Fi, view ONT optical status, and login to default IP ${ispData.defaultIp} with verified admin credentials.`;
+  keywords = [
+    `${ispData.name} router login`,
+    `${ispData.name} default password`,
+    `${ispData.name} admin login`,
+    ispData.defaultIp,
+    `${ispData.name} wifi settings`,
+    `${ispData.name} fiber ont`,
+    `${ispData.name} optical indicator lights`
+  ];
+
+  schemas = [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `${siteUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Default Passwords",
+          "item": `${siteUrl}/default-passwords`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": `${ispData.name} Router Guide`,
+          "item": currentCanonical
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": `How to Login to ${ispData.name} Router & ONT Dashboard`,
+      "description": `Connect to ${ispData.name} optical router at ${ispData.defaultIp} and configure network settings.`,
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Connect to Broadband Network",
+          "text": `Connect to your ${ispData.name} Wi-Fi SSID or plug into the LAN port.`,
+          "url": `${currentCanonical}#step-1`
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": `Access ${ispData.defaultIp}`,
+          "text": `Type http://${ispData.defaultIp} in your browser and hit Enter.`,
+          "url": `${currentCanonical}#step-2`
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Authenticate",
+          "text": `Sign in with username '${ispData.defaultUser}' and password '${ispData.defaultPass}'.`,
+          "url": `${currentCanonical}#step-3`
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": pageTitle,
+      "description": pageDescription,
+      "url": currentCanonical,
+      "author": {
+        "@type": "Organization",
+        "name": "19216811.page Network Research"
+      }
+    }
+  ];
 }
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} schema={schema}>
+<BaseLayout 
+  title={pageTitle} 
+  description={pageDescription} 
+  keywords={keywords}
+  schema={schemas}
+  ogType="article"
+>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
