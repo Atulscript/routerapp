@@ -10,53 +10,53 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pageUrl = (data.slug === '192-168-1-1' || data.ip === '192.168.1.1') ? `${base}/` : `${base}/${data.slug}`;
 ---
 
-<div class="m3-card p-6 flex flex-col justify-between group hover:border-md-primary/60 transition-all">
+<div class="bg-white rounded-xl border border-slate-200/80 p-4 shadow-card hover:shadow-card-hover hover:border-slate-300 transition-all flex flex-col justify-between">
   <div>
-    <div class="flex items-center justify-between mb-3">
-      <span class="m3-chip m3-chip-tonal text-xs font-mono font-bold bg-md-primary-container text-md-on-primary-container">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+    <div class="flex items-center justify-between mb-2">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-sky-50 text-brand-700 border border-sky-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
         {data.ip}
       </span>
-      <span class="text-[11px] font-bold uppercase tracking-wider text-md-on-surface-variant">Default Gateway</span>
+      <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Gateway</span>
     </div>
 
-    <h3 class="text-lg font-bold text-md-on-surface group-hover:text-md-primary transition-colors mb-2">
-      <a href={pageUrl} class="focus:outline-none">
+    <h3 class="text-base font-bold text-slate-900 hover:text-brand-600 transition-colors mb-1.5">
+      <a href={pageUrl}>
         {data.ip} Admin Login
       </a>
     </h3>
 
-    <p class="text-xs text-md-on-surface-variant line-clamp-2 mb-4 leading-relaxed font-normal">
+    <p class="text-xs text-slate-500 line-clamp-2 mb-3 leading-relaxed">
       {data.description}
     </p>
 
-    <!-- Tonal Credential Chip Box -->
-    <div class="bg-md-surface-container rounded-m3-md p-3.5 border border-md-surface-variant/50 mb-4 space-y-1 text-xs font-mono">
+    <!-- Credential Box -->
+    <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-100 mb-3 space-y-1 text-xs font-mono">
       <div class="flex justify-between">
-        <span class="text-md-on-surface-variant font-sans font-medium">Username:</span>
-        <span class="font-bold text-md-on-surface">{data.defaultUser}</span>
+        <span class="text-slate-500 font-sans text-[11px]">User:</span>
+        <span class="font-bold text-slate-800">{data.defaultUser}</span>
       </div>
       <div class="flex justify-between">
-        <span class="text-md-on-surface-variant font-sans font-medium">Password:</span>
-        <span class="font-bold text-md-on-surface">{data.defaultPass}</span>
+        <span class="text-slate-500 font-sans text-[11px]">Pass:</span>
+        <span class="font-bold text-slate-800">{data.defaultPass}</span>
       </div>
     </div>
   </div>
 
-  <div class="pt-3 border-t border-md-surface-variant/50 flex items-center justify-between">
+  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
     <a 
       href={`http://${data.ip}`} 
       target="_blank" 
       rel="noopener noreferrer"
-      class="text-xs font-bold text-md-on-surface-variant hover:text-md-primary flex items-center gap-1"
+      class="text-slate-500 hover:text-slate-900 font-medium flex items-center gap-0.5 text-[11px]"
     >
       Open IP ↗
     </a>
     <a 
       href={pageUrl} 
-      class="m3-btn-outlined text-xs py-1.5 px-3.5 group-hover:bg-md-primary group-hover:text-white group-hover:border-md-primary transition-all"
+      class="font-semibold text-brand-600 hover:text-brand-800 text-[11px]"
     >
-      Setup Guide →
+      Guide →
     </a>
   </div>
 </div>

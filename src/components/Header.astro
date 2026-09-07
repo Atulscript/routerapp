@@ -6,68 +6,68 @@ const { currentPath = '/' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const navItems = [
-  { label: 'Home', href: `${base}/`, icon: '🏠', active: currentPath === '/' || currentPath === base || currentPath === `${base}/` },
-  { label: 'Brands', href: `${base}/brands`, icon: '🏷️', active: currentPath.includes('brands') },
-  { label: 'IPs', href: `${base}/ip-addresses`, icon: '🌐', active: currentPath.includes('ip-addresses') },
-  { label: 'Models', href: `${base}/routers`, icon: '📟', active: currentPath.includes('routers') },
-  { label: 'Tools', href: `${base}/tools`, icon: '🛠️', active: currentPath.includes('tools') || currentPath.includes('generator') || currentPath.includes('what-is-my-ip') },
-  { label: 'Passwords', href: `${base}/default-passwords`, icon: '🔑', active: currentPath.includes('default-passwords') }
+  { label: 'Home', href: `${base}/`, active: currentPath === '/' || currentPath === base || currentPath === `${base}/` },
+  { label: 'Brands', href: `${base}/brands`, active: currentPath.includes('brands') },
+  { label: 'Gateway IPs', href: `${base}/ip-addresses`, active: currentPath.includes('ip-addresses') },
+  { label: 'Router Models', href: `${base}/routers`, active: currentPath.includes('routers') },
+  { label: 'Tools', href: `${base}/tools`, active: currentPath.includes('tools') || currentPath.includes('generator') || currentPath.includes('what-is-my-ip') },
+  { label: 'Default Passwords', href: `${base}/default-passwords`, active: currentPath.includes('default-passwords') }
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-  <div class="max-w-7xl mx-auto px-3 sm:px-6 h-13 sm:h-14 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 transition-all">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
     
-    <!-- Compact Logo -->
-    <a href={`${base}/`} class="flex items-center gap-2 group flex-shrink-0">
-      <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-md-primary text-white flex items-center justify-center text-base sm:text-lg shadow-xs group-hover:scale-105 transition-transform font-mono">
-        📡
+    <!-- Sleek Modern Logo -->
+    <a href={`${base}/`} class="flex items-center gap-2.5 group flex-shrink-0">
+      <div class="w-8 h-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-xs shadow-xs group-hover:bg-brand-600 transition-colors">
+        IP
       </div>
-      <div class="flex items-center gap-1.5">
-        <span class="font-black text-base sm:text-lg text-slate-900 tracking-tight font-mono">19216811<span class="text-md-primary font-sans font-black">.page</span></span>
-        <span class="hidden md:inline-block text-[9px] font-bold uppercase tracking-wider text-sky-800 bg-sky-100 px-1.5 py-0.5 rounded-full border border-sky-200">
-          Admin Portal
+      <div class="flex items-baseline gap-1">
+        <span class="font-extrabold text-base tracking-tight text-slate-900 font-sans">
+          19216811<span class="text-brand-600">.page</span>
+        </span>
+        <span class="hidden sm:inline-block text-[10px] font-semibold text-slate-500 uppercase tracking-widest pl-1">
+          Router Guide
         </span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Chips -->
-    <nav class="hidden lg:flex items-center gap-1">
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex items-center gap-1">
       {navItems.map(item => (
         <a 
           href={item.href} 
-          class={`px-3 py-1 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 ${item.active ? 'bg-sky-100 text-sky-900 font-bold border border-sky-300' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'}`}
+          class={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${item.active ? 'bg-slate-100 text-slate-900 font-semibold shadow-2xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
         >
-          <span class="text-xs">{item.icon}</span>
-          <span>{item.label}</span>
+          {item.label}
         </a>
       ))}
     </nav>
 
-    <!-- Compact Action Button -->
+    <!-- Quick Open CTA -->
     <div class="flex items-center gap-2 flex-shrink-0">
       <a 
         href="http://192.168.1.1"
-        target="_blank"
+        target="_blank" 
         rel="noopener noreferrer"
-        class="px-3 sm:px-4 py-1.5 rounded-xl bg-md-primary hover:bg-[#004b80] text-white text-xs font-bold shadow-xs hover:shadow-sm transition-all flex items-center gap-1 active:scale-95"
+        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs hover:shadow-sm transition-all active:scale-95"
       >
-        <span class="hidden xs:inline">Open</span>
-        <span class="font-mono">192.168.1.1</span>
-        <span class="text-[10px]">↗</span>
+        <span>Open</span>
+        <span class="font-mono text-[11px] font-bold text-sky-300">192.168.1.1</span>
+        <span class="text-[10px] text-slate-300">↗</span>
       </a>
     </div>
   </div>
 
-  <!-- Mobile Horizontal Swipeable Segmented Chips -->
-  <div class="lg:hidden flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border-t border-slate-200/60 overflow-x-auto no-scrollbar">
+  <!-- Mobile Swipeable Nav Bar -->
+  <div class="md:hidden flex items-center gap-1 px-4 py-1.5 bg-slate-50/90 border-t border-slate-200/60 overflow-x-auto no-scrollbar">
     {navItems.map(item => (
       <a 
         href={item.href} 
-        class={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1 flex-shrink-0 ${item.active ? 'bg-sky-600 text-white font-bold shadow-xs' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'}`}
+        class={`px-2.5 py-1 rounded-md text-xs font-medium whitespace-nowrap transition-all flex-shrink-0 ${item.active ? 'bg-slate-900 text-white font-semibold shadow-2xs' : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200/70'}`}
       >
-        <span class="text-[11px]">{item.icon}</span>
-        <span>{item.label}</span>
+        {item.label}
       </a>
     ))}
   </div>

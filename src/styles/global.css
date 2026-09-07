@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,15 +6,16 @@
 
 @layer base {
   html {
-    font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    background-color: #F8FAFD;
-    color: #1A1C1E;
+    background-color: #f8fafc;
+    color: #0f172a;
     overflow-x: hidden;
   }
 
@@ -24,7 +25,7 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
     background: #cbd5e1;
@@ -35,14 +36,22 @@
   }
 }
 
-/* Material Design 3 Custom Components & Utilities */
+/* Modern App Component Classes */
 @layer components {
+  .app-card {
+    @apply bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200;
+  }
+
+  .app-card-compact {
+    @apply bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:shadow-card transition-all duration-200;
+  }
+
   .m3-card {
-    @apply bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-200;
+    @apply bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-200;
   }
 
   .m3-card-compact {
-    @apply bg-white rounded-xl border border-slate-200/80 shadow-xs hover:shadow-sm transition-all duration-200;
+    @apply bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:shadow-card transition-all duration-200;
   }
 
   .m3-chip {
@@ -50,23 +59,27 @@
   }
 
   .m3-chip-tonal {
-    @apply bg-md-secondary-container text-md-on-secondary-container border-transparent hover:bg-md-secondary-container/80;
+    @apply bg-slate-100 text-slate-800 border-transparent hover:bg-slate-200/80;
   }
 
   .m3-chip-outlined {
-    @apply bg-white text-md-on-surface border-slate-200 hover:border-md-primary hover:text-md-primary hover:bg-slate-50;
+    @apply bg-white text-slate-700 border-slate-200 hover:border-brand-500 hover:text-brand-600 hover:bg-slate-50;
   }
 
   .m3-btn-filled {
-    @apply inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-md-primary text-md-on-primary text-xs sm:text-sm font-bold tracking-wide shadow-sm hover:shadow-md hover:bg-[#004b80] active:scale-[0.98] transition-all;
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 text-xs sm:text-sm font-semibold tracking-tight shadow-xs hover:shadow-sm active:scale-[0.98] transition-all;
+  }
+
+  .m3-btn-brand {
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 text-xs sm:text-sm font-semibold tracking-tight shadow-xs hover:shadow-sm active:scale-[0.98] transition-all;
   }
 
   .m3-btn-tonal {
-    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-md-secondary-container text-md-on-secondary-container text-xs sm:text-sm font-semibold tracking-wide hover:bg-md-secondary-container/80 active:scale-[0.98] transition-all;
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 text-slate-800 text-xs sm:text-sm font-semibold tracking-tight hover:bg-slate-200/80 active:scale-[0.98] transition-all;
   }
 
   .m3-btn-outlined {
-    @apply inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-transparent text-md-primary border border-slate-300 text-xs font-semibold tracking-wide hover:bg-md-primary/5 hover:border-md-primary active:scale-[0.98] transition-all;
+    @apply inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white text-slate-700 border border-slate-300 text-xs font-semibold tracking-tight hover:bg-slate-50 hover:border-slate-400 active:scale-[0.98] transition-all;
   }
 
   /* Horizontal swipeable chip scrollbar hide */
@@ -76,5 +89,18 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Custom subtle scrollbar inside components */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
   }
 }

@@ -24,7 +24,7 @@ const allModels = BRANDS.flatMap(b =>
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Search Bar -->
     <div>
@@ -33,13 +33,13 @@ const allModels = BRANDS.flatMap(b =>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase mb-2 border border-md-primary/20">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase mb-2 border border-slate-200">
         📟 Hardware Catalog
       </div>
-      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
         Router Models Database
       </h1>
-      <p class="text-xs sm:text-sm text-md-on-surface-variant">
+      <p class="text-xs sm:text-sm text-slate-600">
         Lookup default credentials for {allModels.length} router models across {BRANDS.length} manufacturers with protocol specifications.
       </p>
     </header>
@@ -47,48 +47,48 @@ const allModels = BRANDS.flatMap(b =>
     <AdBanner format="leaderboard" />
 
     <!-- Interactive Lookup Component -->
-    <div>
+    <div class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card">
       <RouterLookupTable />
     </div>
 
     <AdBanner format="horizontal" />
 
     <!-- Master Models Table with Instant Filter -->
-    <section class="m3-card-compact space-y-4">
+    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3.5">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-lg font-bold text-md-on-surface">Complete Master Hardware List</h2>
-          <p class="text-xs text-md-on-surface-variant">Filter by typing any model, brand, or IP address</p>
+          <h2 class="text-base font-bold text-slate-900">Complete Master Hardware List</h2>
+          <p class="text-xs text-slate-500">Filter by typing any model, brand, or IP address</p>
         </div>
         <input 
           type="text" 
           id="model-filter-input" 
           placeholder="Filter models (e.g. Archer, AX)..." 
-          class="w-full sm:w-64 px-3 py-1.5 bg-md-surface-container-low border border-md-outline-variant/60 rounded-m3-md text-xs font-semibold focus:border-md-primary focus:bg-white outline-none"
+          class="w-full sm:w-60 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:border-brand-500 focus:bg-white outline-none"
         />
       </div>
 
-      <div class="overflow-x-auto rounded-m3-md border border-md-outline-variant/40 max-h-96 overflow-y-auto custom-scrollbar">
-        <table class="w-full text-left text-xs text-md-on-surface" id="all-models-master-table">
-          <thead class="sticky top-0 bg-md-surface-container-high font-bold uppercase tracking-wider text-[11px] text-md-on-surface-variant border-b border-md-outline-variant/40 z-10 shadow-2xs">
+      <div class="overflow-x-auto rounded-xl border border-slate-200/90 max-h-96 overflow-y-auto custom-scrollbar">
+        <table class="w-full text-left text-xs text-slate-800" id="all-models-master-table">
+          <thead class="sticky top-0 bg-slate-900 font-semibold uppercase tracking-wider text-[11px] text-white z-10 shadow-2xs">
             <tr>
-              <th class="p-2.5">Brand</th>
-              <th class="p-2.5">Model</th>
-              <th class="p-2.5">Default IP</th>
-              <th class="p-2.5">Protocol</th>
-              <th class="p-2.5">Username</th>
-              <th class="p-2.5">Password</th>
+              <th class="py-2.5 px-3">Brand</th>
+              <th class="py-2.5 px-3">Model</th>
+              <th class="py-2.5 px-3">Default IP</th>
+              <th class="py-2.5 px-3">Protocol</th>
+              <th class="py-2.5 px-3">Username</th>
+              <th class="py-2.5 px-3 text-right">Password</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-md-outline-variant/20 font-mono text-xs" id="master-table-body">
+          <tbody class="divide-y divide-slate-100 font-mono text-xs" id="master-table-body">
             {allModels.map(item => (
-              <tr class="hover:bg-md-surface-container-low master-row">
-                <td class="p-2.5 font-bold font-sans text-md-on-surface">{item.brand}</td>
-                <td class="p-2.5 font-sans font-medium text-md-on-surface">{item.model}</td>
-                <td class="p-2.5 text-md-primary font-bold">{item.ip}</td>
-                <td class="p-2.5 text-md-on-surface-variant text-[11px]">{item.protocol}</td>
-                <td class="p-2.5">{item.username}</td>
-                <td class="p-2.5 font-bold text-md-on-surface">{item.password}</td>
+              <tr class="hover:bg-sky-50/70 master-row">
+                <td class="py-2 px-3 font-bold font-sans text-slate-900">{item.brand}</td>
+                <td class="py-2 px-3 font-sans font-medium text-slate-800">{item.model}</td>
+                <td class="py-2 px-3 text-brand-600 font-bold">{item.ip}</td>
+                <td class="py-2 px-3 text-slate-500 text-[11px]">{item.protocol}</td>
+                <td class="py-2 px-3 text-slate-700">{item.username}</td>
+                <td class="py-2 px-3 font-bold text-slate-900 text-right">{item.password}</td>
               </tr>
             ))}
           </tbody>
@@ -97,9 +97,9 @@ const allModels = BRANDS.flatMap(b =>
     </section>
 
     <!-- Practical Hardware Guide Section -->
-    <section class="m3-card-compact space-y-3">
-      <h2 class="text-base font-bold text-md-on-surface">How Model Numbers Affect Default Credentials</h2>
-      <p class="text-xs text-md-on-surface-variant leading-relaxed">
+    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3">
+      <h2 class="text-base font-bold text-slate-900">How Model Numbers Affect Default Credentials</h2>
+      <p class="text-xs text-slate-600 leading-relaxed">
         Manufacturers often update factory credentials across firmware generations. For example, older TP-Link units default to <code>admin/admin</code>, while newer Archer AX WiFi 6 routers require you to establish a secure administrator password upon first connection.
       </p>
     </section>

@@ -12,7 +12,7 @@ const description = "Comprehensive list of all major router manufacturers includ
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Contextual Search -->
     <div>
@@ -21,13 +21,13 @@ const description = "Comprehensive list of all major router manufacturers includ
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-m3-full bg-md-primary-container text-md-on-primary-container text-[11px] font-bold uppercase mb-2 border border-md-primary/20">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase mb-2 border border-slate-200">
         🏷️ Manufacturer Index
       </div>
-      <h1 class="text-2xl sm:text-4xl font-black text-md-on-surface tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
         Router Brands Directory
       </h1>
-      <p class="text-xs sm:text-sm text-md-on-surface-variant">
+      <p class="text-xs sm:text-sm text-slate-600">
         Explore default IP addresses, passwords, firmware guides, and model databases for {BRANDS.length} top router manufacturers.
       </p>
     </header>
@@ -35,12 +35,12 @@ const description = "Comprehensive list of all major router manufacturers includ
     <AdBanner format="leaderboard" />
 
     <!-- Alphabet Filter -->
-    <div class="flex flex-wrap items-center justify-center gap-1 p-2.5 m3-card-compact bg-md-surface-container-low text-xs font-bold text-md-on-surface">
-      <span class="text-md-on-surface-variant mr-1 font-mono text-[11px]">Filter:</span>
-      <button class="m3-chip m3-chip-filled py-0.5 px-2 text-[11px]" id="filter-all-btn">ALL</button>
+    <div class="flex flex-wrap items-center justify-center gap-1 p-2.5 bg-white rounded-2xl border border-slate-200/90 shadow-2xs text-xs font-semibold text-slate-700">
+      <span class="text-slate-400 mr-1 font-mono text-[11px]">Filter:</span>
+      <button class="px-2.5 py-0.5 rounded-full bg-slate-900 text-white text-[11px] font-semibold" id="filter-all-btn">ALL</button>
       {['0-9', 'A', 'B', 'C', 'D', 'H', 'L', 'M', 'N', 'S', 'T', 'U', 'Z'].map(letter => (
         <button 
-          class="m3-chip m3-chip-outlined py-0.5 px-2 text-[11px] filter-letter-btn"
+          class="px-2.5 py-0.5 rounded-full hover:bg-slate-100 text-[11px] font-semibold text-slate-700 filter-letter-btn transition-colors"
           data-letter={letter}
         >
           {letter}
@@ -49,7 +49,7 @@ const description = "Comprehensive list of all major router manufacturers includ
     </div>
 
     <!-- Brands Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="brands-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="brands-grid">
       {BRANDS.map(item => (
         <div class="brand-item" data-name={item.name}>
           <BrandCard data={item} />
@@ -60,33 +60,33 @@ const description = "Comprehensive list of all major router manufacturers includ
     <AdBanner format="horizontal" />
 
     <!-- SEO Information -->
-    <section class="m3-card-compact space-y-4">
-      <h2 class="text-xl font-bold text-md-on-surface">How to Find Your Router Manufacturer & Model</h2>
-      <p class="text-xs text-md-on-surface-variant leading-relaxed">
+    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3.5">
+      <h2 class="text-lg font-bold text-slate-900">How to Find Your Router Manufacturer & Model</h2>
+      <p class="text-xs text-slate-600 leading-relaxed">
         If you are unsure which router brand you have, look at the physical label located on the underside or rear panel of your hardware device. The label includes the exact manufacturer name, model number, serial number, default IP address (such as 192.168.1.1), and factory default wireless network name (SSID).
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
-        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
           <span class="text-base">📱</span>
-          <strong class="text-md-on-surface block font-bold text-xs">App vs Web Browser Setup</strong>
-          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+          <strong class="text-slate-900 block font-semibold text-xs">App vs Web Browser Setup</strong>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
             Brands provide companion mobile apps for quick setup, but browser access via IP unlocks advanced settings like port forwarding and VPNs.
           </p>
         </div>
 
-        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
           <span class="text-base">🛡️</span>
-          <strong class="text-md-on-surface block font-bold text-xs">Firmware Updates Matter</strong>
-          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+          <strong class="text-slate-900 block font-semibold text-xs">Firmware Updates Matter</strong>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
             Manufacturers regularly release firmware patches that fix critical security vulnerabilities and optimize Wi-Fi stability.
           </p>
         </div>
 
-        <div class="p-3 rounded-m3-md bg-md-surface-container-low border border-md-outline-variant/30 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
           <span class="text-base">🏷️</span>
-          <strong class="text-md-on-surface block font-bold text-xs">Hardware Revisions</strong>
-          <p class="text-[11px] text-md-on-surface-variant leading-relaxed">
+          <strong class="text-slate-900 block font-semibold text-xs">Hardware Revisions</strong>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
             Many brands release multiple hardware versions (e.g. V2 vs V3). Always match your router's exact revision before updating firmware.
           </p>
         </div>
