@@ -8,7 +8,7 @@ export const GATEWAY_IPS: GatewayIp[] = [
     description: 'Access your router configuration panel at 192.168.1.1. Step-by-step default login credentials, WiFi password change, and troubleshooting.',
     defaultUser: 'admin',
     defaultPass: 'admin / password',
-    commonBrands: ['TP-Link', 'ASUS', 'Linksys', 'Huawei', 'ZTE', 'Nokia', 'Airtel', 'BSNL', 'Keenetic', 'Digisol'],
+    commonBrands: ['TP-Link', 'ASUS', 'Linksys', 'Huawei', 'ZTE', 'Nokia', 'Airtel', 'BSNL', 'Keenetic', 'Digisol', 'Palo Alto', 'Juniper'],
     steps: [
       'Connect your PC or smartphone to the router WiFi network or via Ethernet cable.',
       'Open your web browser (Chrome, Safari, Edge, or Firefox).',
@@ -38,7 +38,7 @@ export const GATEWAY_IPS: GatewayIp[] = [
     description: 'Default IP address for D-Link, Netgear, Tenda, and TP-Link routers. Find default passwords and login instructions.',
     defaultUser: 'admin',
     defaultPass: 'admin / password / (blank)',
-    commonBrands: ['D-Link', 'Netgear', 'Tenda', 'TP-Link', 'Mercusys', 'Motorola', 'Totolink'],
+    commonBrands: ['D-Link', 'Netgear', 'Tenda', 'TP-Link', 'Mercusys', 'Motorola', 'Totolink', 'Hitron', 'Humax'],
     steps: [
       'Ensure your computer or mobile is connected to the router network.',
       'Open your internet browser and go to http://192.168.0.1 in the address bar.',
@@ -80,10 +80,10 @@ export const GATEWAY_IPS: GatewayIp[] = [
     ip: '192.168.1.254',
     slug: '192-168-1-254',
     title: '192.168.1.254 Router Admin Login & Setup Guide',
-    description: 'Default IP address for Technicolor, Thomson, BT Home Hub, Plusnet, Billion, and AT&T Fiber modems.',
+    description: 'Default IP address for Technicolor, Thomson, BT Home Hub, Plusnet, Billion, Vantiva, and AT&T Fiber modems.',
     defaultUser: 'admin',
     defaultPass: 'admin / (serial number) / Access Code',
-    commonBrands: ['Technicolor', 'Thomson', 'BT Home Hub', 'Plusnet', 'AT&T Fiber', 'Billion'],
+    commonBrands: ['Technicolor', 'Thomson', 'BT Home Hub', 'Plusnet', 'AT&T Fiber', 'Billion', 'Vantiva'],
     steps: [
       'Connect your device to the modem router via WiFi or cable.',
       'Visit http://192.168.1.254 in your web browser.',
@@ -337,25 +337,21 @@ export const GATEWAY_IPS: GatewayIp[] = [
   {
     ip: '10.0.1.1',
     slug: '10-0-1-1',
-    title: '10.0.1.1 Apple AirPort Extreme & Time Capsule Setup Guide',
-    description: 'Default gateway IP for Apple AirPort Extreme, Time Capsule, and Express base stations. AirPort Utility connection and wireless management.',
+    title: '10.0.1.1 Apple AirPort & WatchGuard Admin Login Guide',
+    description: 'Default gateway IP for Apple AirPort Extreme, Time Capsule, and WatchGuard Firebox security appliances.',
     defaultUser: 'admin',
-    defaultPass: 'public',
-    commonBrands: ['Apple'],
+    defaultPass: 'public / readwrite',
+    commonBrands: ['Apple', 'WatchGuard'],
     steps: [
-      'Connect your Apple Mac, iPhone, or Windows PC to the AirPort Wi-Fi network.',
-      'Launch the AirPort Utility app (built-in on macOS/iOS or available for Windows).',
-      'Select your AirPort base station graphic in the network topology map.',
-      'Enter the base station password (default is "public" or custom) to configure Wi-Fi and Time Machine backup disks.'
+      'Connect your PC or Mac to the AirPort or WatchGuard Interface 1.',
+      'For WatchGuard, open https://10.0.1.1:8080 in your web browser.',
+      'Enter Username: admin and Password: readwrite (or use Apple AirPort Utility for AirPort devices).',
+      'Configure security policies and network routing.'
     ],
     faqs: [
       {
-        question: 'Can I open 10.0.1.1 in a regular web browser?',
-        answer: 'Apple AirPort devices do not use a web interface; you must use the official Apple AirPort Utility application on macOS, iOS, or Windows.'
-      },
-      {
-        question: 'What is the default base station password for Apple 10.0.1.1?',
-        answer: 'The factory default base station password is "public".'
+        question: 'How do I access WatchGuard Firebox at 10.0.1.1:8080?',
+        answer: 'Navigate to https://10.0.1.1:8080 and accept the SSL certificate, then log in with admin / readwrite.'
       }
     ]
   },
@@ -377,10 +373,6 @@ export const GATEWAY_IPS: GatewayIp[] = [
       {
         question: 'Can I log into 192.168.86.1 using a browser?',
         answer: 'Google Nest WiFi devices show a status page at http://192.168.86.1/api/v1/status in a browser, but all configuration is performed inside the Google Home mobile app.'
-      },
-      {
-        question: 'Can I change the 192.168.86.1 subnet on Google Nest WiFi?',
-        answer: 'Yes! Open Google Home app -> Wi-Fi -> Settings -> Advanced networking -> LAN settings, and adjust your router LAN address.'
       }
     ]
   },
@@ -402,10 +394,6 @@ export const GATEWAY_IPS: GatewayIp[] = [
       {
         question: 'Does eero have a browser web admin interface at 192.168.4.1?',
         answer: 'eero routers are strictly cloud-managed via the official eero mobile application for iOS and Android.'
-      },
-      {
-        question: 'What is the default DHCP subnet for eero?',
-        answer: 'eero defaults to the 192.168.4.1 - 192.168.7.254 range (/22 subnet) to accommodate large whole-home smart device setups.'
       }
     ]
   },
@@ -448,10 +436,6 @@ export const GATEWAY_IPS: GatewayIp[] = [
       {
         question: 'Why must I set a static IP to connect to 192.168.1.99?',
         answer: 'By default, FortiGate firewalls do not run a DHCP server on management ports. You must configure static IP 192.168.1.100 on your PC.'
-      },
-      {
-        question: 'What is the factory default login for FortiGate 192.168.1.99?',
-        answer: 'Username: admin, Password: (leave empty / blank).'
       }
     ]
   },
@@ -514,7 +498,7 @@ export const GATEWAY_IPS: GatewayIp[] = [
     faqs: [
       {
         question: 'Can I access TP-Link Deco settings via web browser at 192.168.68.1?',
-        answer: 'Yes! The Deco web interface at 192.168.68.1 allows checking status, firmware updates, and logs, while advanced setup is in the Deco mobile app.'
+        answer: 'Yes! The Deco web interface at 192.168.68.1 allows checking status, firmware updates, and logs.'
       }
     ]
   },
@@ -557,6 +541,131 @@ export const GATEWAY_IPS: GatewayIp[] = [
       {
         question: 'Where is the default password for Grandstream 192.168.80.1?',
         answer: 'Look at the barcode label on the underside of your Grandstream GWN router for the unique factory admin password.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.12.1',
+    slug: '192-168-12-1',
+    title: '192.168.12.1 T-Mobile 5G Home Internet Gateway Login Guide',
+    description: 'Default admin IP for T-Mobile 5G Home Internet Gateways (Arcadyan KVD21, Sagemcom Fast 5688W, Nokia 5G21). Cellular signal stats and setup.',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on gateway sticker',
+    commonBrands: ['T-Mobile', 'Arcadyan', 'Sagemcom', 'Nokia'],
+    steps: [
+      'Connect to your T-Mobile 5G Wi-Fi network.',
+      'Open your browser and navigate to http://192.168.12.1.',
+      'Enter the administrator password printed on the sticker underneath the gateway.',
+      'Check 5G cellular signal metrics (RSRP, RSRQ, SINR) and connected devices.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default login for T-Mobile 192.168.12.1?',
+        answer: 'Username: admin, Password: (look at the laser-etched label on the underside/back of the gateway).'
+      }
+    ]
+  },
+  {
+    ip: '192.168.3.1',
+    slug: '192-168-3-1',
+    title: '192.168.3.1 Huawei HiLink & Sub-Router Admin Login Guide',
+    description: 'Default gateway IP for Huawei WiFi AX3, HiLink mesh sub-routers, and secondary wireless access points.',
+    defaultUser: 'admin',
+    defaultPass: 'Set during initial setup / admin',
+    commonBrands: ['Huawei'],
+    steps: [
+      'Connect to your Huawei Wi-Fi network.',
+      'Open http://192.168.3.1 in your web browser.',
+      'Enter your router login password configured during the setup wizard.',
+      'Configure HarmonyOS Mesh+ interconnect and Wi-Fi 6 Plus parameters.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for Huawei 192.168.3.1?',
+        answer: 'Huawei prompts you to choose an admin password during first-time Wi-Fi setup.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.254.254',
+    slug: '192-168-254-254',
+    title: '192.168.254.254 Siemens Gigaset & Netopia Modem Login Guide',
+    description: 'Default gateway IP address for Siemens Gigaset, Motorola Netopia Cayman, and SpeedStream DSL routers.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    commonBrands: ['Siemens', 'Netopia', 'SpeedStream'],
+    steps: [
+      'Connect your PC to the modem LAN port with an Ethernet cable.',
+      'Open your browser and type http://192.168.254.254.',
+      'Enter default username: admin and password: admin (or leave blank).',
+      'Configure VPI/VCI parameters and PPPoE authentication.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default login for 192.168.254.254?',
+        answer: 'Most Siemens and Netopia routers default to username "admin" and password "admin".'
+      }
+    ]
+  },
+  {
+    ip: '192.168.123.254',
+    slug: '192-168-123-254',
+    title: '192.168.123.254 Sitecom & LevelOne Router Admin Login Guide',
+    description: 'Default IP address for Sitecom broadband routers, LevelOne networking hardware, and IP sharing gateways.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    commonBrands: ['Sitecom', 'LevelOne'],
+    steps: [
+      'Connect to your Sitecom or LevelOne router network.',
+      'Open http://192.168.123.254 in your web browser.',
+      'Enter Username: admin and Password: admin (or password).',
+      'Configure LAN/WAN routing and wireless encryption.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for Sitecom 192.168.123.254?',
+        answer: 'Username: admin, Password: admin (or check the security card inside the product packaging).'
+      }
+    ]
+  },
+  {
+    ip: '192.168.15.1',
+    slug: '192-168-15-1',
+    title: '192.168.15.1 Linksys & Cisco VoIP ATA Router Login Guide',
+    description: 'Default management IP for Linksys SPA2102, PAP2T, and Cisco VoIP telephone adapter gateways.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    commonBrands: ['Linksys', 'Cisco', 'Vonage'],
+    steps: [
+      'Connect your computer to the Ethernet LAN port of the VoIP adapter.',
+      'Open http://192.168.15.1 in your browser.',
+      'Click "Admin Login" and "Advanced" to access SIP voice lines and codec settings.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default login for Linksys VoIP ATA at 192.168.15.1?',
+        answer: 'Username: admin, Password: (blank / no password required).'
+      }
+    ]
+  },
+  {
+    ip: '192.168.254.1',
+    slug: '192-168-254-1',
+    title: '192.168.254.1 CenturyLink & Westell DSL Modem Login Guide',
+    description: 'Default IP address for CenturyLink Zyxel/Actiontec modems and Westell ProLine broadband gateways.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    commonBrands: ['CenturyLink', 'Westell'],
+    steps: [
+      'Connect to your CenturyLink or Westell modem via Ethernet.',
+      'Open http://192.168.254.1 in your web browser.',
+      'Enter Username: admin and Password found on the modem sticker.',
+      'Configure Transparent Bridging or PPPoE credentials.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for CenturyLink 192.168.254.1?',
+        answer: 'The Admin Username is "admin" and Admin Password is printed on the modem label.'
       }
     ]
   }
@@ -617,6 +726,43 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'Adtran',
+    slug: 'adtran',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Default credentials, AOS configuration, and setup guides for Adtran Total Access, NetVanta, and SDX optical ONTs.',
+    models: [
+      { brand: 'Adtran', model: 'SDX 620 (10G XGS-PON ONT)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Adtran', model: 'Total Access 908e IP Business Gateway', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Adtran', model: 'NetVanta 3140 Gigabit Router', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'password' }
+    ],
+    guide: [
+      'Connect your computer to the Adtran ETH port.',
+      'Open https://192.168.1.1 in your browser.',
+      'Log in with Username: admin and Password: password.',
+      'Use the AOS GUI to configure voice trunks and routing.'
+    ]
+  },
+  {
+    name: 'Alcatel-Lucent',
+    slug: 'alcatel-lucent',
+    defaultIp: '192.168.1.1 / 192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'admin / alcatel',
+    description: 'Default logins and configurations for Alcatel-Lucent OmniAccess Stellar, OmniSwitch, and CellPipe routers.',
+    models: [
+      { brand: 'Alcatel-Lucent', model: 'OmniAccess Stellar AP1201 / AP1301', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Alcatel-Lucent', model: 'OmniSwitch 6350 Enterprise Switch/Router', protocol: 'SSH / HTTPS', ip: '192.168.1.1', username: 'admin', password: 'switch' },
+      { brand: 'Alcatel-Lucent', model: 'CellPipe 7130 VDSL2 Gateway', protocol: 'HTTP', ip: '192.168.1.254', username: 'admin', password: 'alcatel' }
+    ],
+    guide: [
+      'Connect your PC to the LAN interface.',
+      'Open http://192.168.1.1 or http://192.168.1.254 in your browser.',
+      'Enter default credentials to manage enterprise routing.'
+    ]
+  },
+  {
     name: 'Amazon (eero)',
     slug: 'eero',
     defaultIp: '192.168.4.1',
@@ -674,6 +820,24 @@ export const BRANDS: Brand[] = [
       'Open http://192.168.0.1 or http://192.168.100.1 in your web browser.',
       'Enter Username: admin and Password: password (or custom password on device sticker).',
       'Configure Wi-Fi network settings, parental controls, and firewall rules.'
+    ]
+  },
+  {
+    name: 'Askey',
+    slug: 'askey',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin / 1234',
+    defaultPass: '1234 / Printed on sticker',
+    description: 'Default passwords and setup guides for Askey Home Gateway Units (HGU Fibra) and 5G cellular CPE gateways.',
+    models: [
+      { brand: 'Askey', model: 'RTF8115VW (Movistar/Telefónica HGU)', protocol: 'HTTP', ip: '192.168.1.1', username: '1234', password: 'Printed on sticker' },
+      { brand: 'Askey', model: 'Askey 5G NR ODU/IDU Sub-6 Gateway', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Askey', model: 'AP5100 (Wi-Fi 6 Mesh Access Point)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to Askey Wi-Fi or LAN port.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Enter credentials printed on the base barcode label.'
     ]
   },
   {
@@ -779,22 +943,61 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'Calix',
+    slug: 'calix',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Printed on sticker',
+    description: 'Default credentials, GigaSpire CommandIQ setup, and FTTH configuration for Calix optical networking gateways.',
+    models: [
+      { brand: 'Calix', model: 'GigaSpire BLAST u6 (Wi-Fi 6 Optical Gateway)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'Calix', model: 'GigaSpire BLAST u4 (Compact Wi-Fi 6 Gateway)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'Calix', model: 'GigaCenter 844G (GPON Residential Gateway)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Calix', model: '716GE Optical Network Terminal (ONT)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect your PC or mobile to Calix GigaSpire Wi-Fi.',
+      'Open http://192.168.1.1 in your browser.',
+      'Enter Username: admin and Password printed on device sticker (or use CommandIQ app).'
+    ]
+  },
+  {
     name: 'Cisco',
     slug: 'cisco',
-    defaultIp: '192.168.1.1 / 10.0.0.1',
+    defaultIp: '192.168.1.1 / 10.0.0.1 / 192.168.15.1',
     defaultUser: 'cisco / admin',
     defaultPass: 'cisco / password',
-    description: 'Default logins for Cisco Small Business, RV Series, and Catalyst routers.',
+    description: 'Default logins for Cisco Small Business, RV Series, Catalyst, and Meraki Go routers.',
     models: [
-      { brand: 'Cisco', model: 'RV160 / RV260 / RV340', protocol: 'HTTPS', ip: '192.168.1.1', username: 'cisco', password: 'cisco' },
+      { brand: 'Cisco', model: 'RV160 / RV260 / RV340 Gigabit VPN Router', protocol: 'HTTPS', ip: '192.168.1.1', username: 'cisco', password: 'cisco' },
+      { brand: 'Cisco', model: 'Meraki Go GX20 / GX50 Security Gateway', protocol: 'Meraki Go App', ip: '192.168.1.1', username: 'admin', password: 'Set in app' },
       { brand: 'Cisco', model: 'DPC3941T (Xfinity Gateway)', protocol: 'HTTP', ip: '10.0.0.1', username: 'admin', password: 'password' },
-      { brand: 'Cisco', model: 'WRVS4400N', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { brand: 'Cisco', model: 'Catalyst 2960 / 3750', protocol: 'Telnet/SSH', ip: '192.168.1.1', username: 'cisco', password: 'cisco' }
+      { brand: 'Cisco', model: 'WRVS4400N Wireless-N Gigabit Router', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Cisco', model: 'SPA2102 / PAP2T VoIP Telephone Adapter', protocol: 'HTTP', ip: '192.168.15.1', username: 'admin', password: '(blank)' },
+      { brand: 'Cisco', model: 'Catalyst 2960 / 3750 Layer 3 Switch', protocol: 'Telnet/SSH', ip: '192.168.1.1', username: 'cisco', password: 'cisco' }
     ],
     guide: [
       'Connect via Ethernet cable to Cisco router LAN port 1.',
       'Open https://192.168.1.1 in browser.',
       'Login with username: cisco and password: cisco.'
+    ]
+  },
+  {
+    name: 'Comtrend',
+    slug: 'comtrend',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'root / admin',
+    defaultPass: '12345 / admin',
+    description: 'Default logins, VDSL2 configurations, and G.hn Powerline setup for Comtrend gateways.',
+    models: [
+      { brand: 'Comtrend', model: 'NexusLink 3112 (Bonded VDSL2 Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Comtrend', model: 'AR-5381u (Wireless ADSL2+ Router)', protocol: 'HTTP', ip: '192.168.1.1', username: 'root', password: '12345' },
+      { brand: 'Comtrend', model: 'VR-3033 (Multi-DSL Wireless Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect PC to Comtrend LAN port.',
+      'Navigate to http://192.168.1.1 in your browser.',
+      'Log in with Username: root and Password: 12345 (or admin / admin).'
     ]
   },
   {
@@ -878,6 +1081,24 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'DZS (Zhone)',
+    slug: 'dzs-zhone',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'zhone / admin',
+    description: 'Default passwords and FTTH GPON configuration for DZS (DASAN Zhone Solutions) optical network terminals.',
+    models: [
+      { brand: 'DZS (Zhone)', model: 'zNID GPON 2426A (Dual Band Wi-Fi ONT)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'zhone' },
+      { brand: 'DZS (Zhone)', model: 'zNID GPON 2428A1 (Gigabit GPON Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'zhone' },
+      { brand: 'DZS (Zhone)', model: 'zNID 2608T Indoor ONT', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to DZS ONT LAN port.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Log in with Username: admin and Password: zhone.'
+    ]
+  },
+  {
     name: 'Fortinet (FortiGate)',
     slug: 'fortinet',
     defaultIp: '192.168.1.99',
@@ -958,9 +1179,27 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'Hitron',
+    slug: 'hitron',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'cusadmin',
+    defaultPass: 'password / highspeed',
+    description: 'Default logins and DOCSIS 3.1 Gigabit gateway configuration for Hitron CODA and CGNM cable modems.',
+    models: [
+      { brand: 'Hitron', model: 'CODA-4582 (DOCSIS 3.1 Gigabit Gateway)', protocol: 'HTTP', ip: '192.168.0.1', username: 'cusadmin', password: 'password' },
+      { brand: 'Hitron', model: 'CODA-56 (Multi-Gigabit DOCSIS 3.1 Modem)', protocol: 'HTTP', ip: '192.168.100.1', username: 'cusadmin', password: 'password' },
+      { brand: 'Hitron', model: 'CGNM-2250 (Dual-Band AC Gateway)', protocol: 'HTTP', ip: '192.168.0.1', username: 'cusadmin', password: 'password' }
+    ],
+    guide: [
+      'Connect PC to Hitron cable modem via Ethernet.',
+      'Open http://192.168.0.1 in browser.',
+      'Enter Username: cusadmin and Password: password (or passphrase on sticker).'
+    ]
+  },
+  {
     name: 'Huawei',
     slug: 'huawei',
-    defaultIp: '192.168.1.1 / 192.168.100.1 / 192.168.8.1',
+    defaultIp: '192.168.1.1 / 192.168.100.1 / 192.168.8.1 / 192.168.3.1',
     defaultUser: 'admin / telecomadmin',
     defaultPass: 'admin / admintelecom',
     description: 'Default credentials for Huawei HG8145V5, EchoLife ONT, and 4G/5G CPE routers.',
@@ -974,6 +1213,42 @@ export const BRANDS: Brand[] = [
       'Connect to Huawei WiFi or LAN.',
       'Open http://192.168.100.1 or http://192.168.8.1.',
       'Log in with admin credentials.'
+    ]
+  },
+  {
+    name: 'Humax',
+    slug: 'humax',
+    defaultIp: '192.168.0.1 / 192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'password / 1234',
+    description: 'Default credentials and setup guides for Humax Quantum Wi-Fi routers, cable modems, and FTTH gateways.',
+    models: [
+      { brand: 'Humax', model: 'Quantum T9 (AC2400 Dual Band Router)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' },
+      { brand: 'Humax', model: 'HG100R (DOCSIS 3.0 Cable Gateway)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' },
+      { brand: 'Humax', model: 'BG-1000 (Gigabit FTTH Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: '1234' }
+    ],
+    guide: [
+      'Connect to Humax Wi-Fi or LAN port.',
+      'Open http://192.168.0.1 in your browser.',
+      'Log in with Username: admin and Password: password.'
+    ]
+  },
+  {
+    name: 'Juniper',
+    slug: 'juniper',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'root',
+    defaultPass: '(blank)',
+    description: 'Default logins, J-Web browser management, and Junos OS setup for Juniper SRX series security gateways.',
+    models: [
+      { brand: 'Juniper', model: 'SRX300 (Enterprise Branch Gateway)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root', password: '(blank)' },
+      { brand: 'Juniper', model: 'SRX320 (Secure Router with LTE)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root', password: '(blank)' },
+      { brand: 'Juniper', model: 'SRX340 / SRX550 Services Gateway', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root', password: '(blank)' }
+    ],
+    guide: [
+      'Connect PC to Juniper ge-0/0/0 port.',
+      'Open https://192.168.1.1 in your browser to launch J-Web.',
+      'Log in with Username: root and leave Password empty.'
     ]
   },
   {
@@ -1057,6 +1332,23 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'MitraStar',
+    slug: 'mitrastar',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin / 1234',
+    defaultPass: '1234 / Printed on sticker',
+    description: 'Default logins and setup instructions for MitraStar GPT and HGW series FTTH optical routers.',
+    models: [
+      { brand: 'MitraStar', model: 'GPT-2541GNAC (HGU Fibra Movistar)', protocol: 'HTTP', ip: '192.168.1.1', username: '1234', password: 'Printed on sticker' },
+      { brand: 'MitraStar', model: 'HGW-2501GN-R2 (Dual Band GPON Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to MitraStar ONT Wi-Fi.',
+      'Open http://192.168.1.1 in browser.',
+      'Enter credentials printed on the base barcode label.'
+    ]
+  },
+  {
     name: 'Motorola',
     slug: 'motorola',
     defaultIp: '192.168.0.1 / 192.168.100.1',
@@ -1122,12 +1414,13 @@ export const BRANDS: Brand[] = [
   {
     name: 'Nokia',
     slug: 'nokia',
-    defaultIp: '192.168.1.1 / 192.168.18.1',
+    defaultIp: '192.168.1.1 / 192.168.18.1 / 192.168.12.1',
     defaultUser: 'AdminGPON / admin',
     defaultPass: 'ALC#FBRG@H / admin',
     description: 'Default passwords, GPON settings, and Wi-Fi configuration guides for Nokia optical ONT gateways and Nokia WiFi Beacons.',
     models: [
       { brand: 'Nokia', model: 'G-2425G-A (Dual Band GPON ONT)', protocol: 'HTTP', ip: '192.168.18.1', username: 'AdminGPON', password: 'ALC#FBRG@H' },
+      { brand: 'Nokia', model: 'Nokia 5G21 (T-Mobile 5G Home Gateway)', protocol: 'HTTP', ip: '192.168.12.1', username: 'admin', password: 'Printed on sticker' },
       { brand: 'Nokia', model: 'G-140W-ME (GPON Optical Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'Nokia', model: 'Nokia WiFi Beacon 6 (Wi-Fi 6 Mesh)', protocol: 'Nokia WiFi App', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' },
       { brand: 'Nokia', model: 'Nokia WiFi Beacon 1 / Beacon 2', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' }
@@ -1159,6 +1452,24 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'Palo Alto',
+    slug: 'palo-alto',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default credentials, PAN-OS web interface, and provisioning guide for Palo Alto PA-series Next-Generation Firewalls.',
+    models: [
+      { brand: 'Palo Alto', model: 'PA-440 / PA-460 Next-Gen Firewall', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Palo Alto', model: 'PA-220 (Branch Security Appliance)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Palo Alto', model: 'PA-850 Enterprise Security Gateway', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect PC to Palo Alto MGT port via Ethernet.',
+      'Set static IP 192.168.1.2 on PC adapter.',
+      'Open https://192.168.1.1 in browser and log in with admin / admin.'
+    ]
+  },
+  {
     name: 'Ruijie (Reyee)',
     slug: 'ruijie-reyee',
     defaultIp: '192.168.110.1',
@@ -1181,18 +1492,37 @@ export const BRANDS: Brand[] = [
   {
     name: 'Sagemcom',
     slug: 'sagemcom',
-    defaultIp: '192.168.1.1',
+    defaultIp: '192.168.1.1 / 192.168.12.1',
     defaultUser: 'admin',
     defaultPass: 'admin / printed on sticker',
-    description: 'Default passwords and gateway management for Sagemcom FAST series modems.',
+    description: 'Default passwords and gateway management for Sagemcom FAST series fiber and 5G cellular modems.',
     models: [
+      { brand: 'Sagemcom', model: 'FAST 5688W (T-Mobile 5G Home Gateway)', protocol: 'HTTP', ip: '192.168.12.1', username: 'admin', password: 'Printed on sticker' },
       { brand: 'Sagemcom', model: 'FAST 5260 / 5370', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'Sagemcom', model: 'FAST 5655 / 5670 FTTH', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
     ],
     guide: [
       'Connect to Sagemcom gateway.',
-      'Open http://192.168.1.1 in browser.',
+      'Open http://192.168.1.1 or http://192.168.12.1 in browser.',
       'Login with credentials from the rear sticker.'
+    ]
+  },
+  {
+    name: 'Sercomm',
+    slug: 'sercomm',
+    defaultIp: '192.168.1.1 / 192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Printed on sticker',
+    description: 'Default credentials, ONT configuration, and router setup for Sercomm FTTH gateways and Vodafone Station modems.',
+    models: [
+      { brand: 'Sercomm', model: 'Sercomm FG1000 (GPON Wi-Fi 6 Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'Sercomm', model: 'Sercomm H500-s (Vodafone Wi-Fi Hub)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Vodafone password' },
+      { brand: 'Sercomm', model: 'Speedport Smart (Telekom Fiber Gateway)', protocol: 'HTTP', ip: '192.168.2.1', username: 'admin', password: 'Printed on sticker' }
+    ],
+    guide: [
+      'Connect to Sercomm Wi-Fi or LAN.',
+      'Open http://192.168.1.1 in browser.',
+      'Enter credentials from rear label.'
     ]
   },
   {
@@ -1405,6 +1735,62 @@ export const BRANDS: Brand[] = [
       'Connect PC to eth0 or eth1.',
       'Navigate to https://192.168.1.1 in your browser.',
       'Log in with username: ubnt and password: ubnt.'
+    ]
+  },
+  {
+    name: 'Vantiva',
+    slug: 'vantiva',
+    defaultIp: '192.168.1.1 / 192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (serial number)',
+    description: 'Default credentials and gateway configuration for Vantiva 5G gateways, Falcon Wi-Fi 6E, and SmartView broadband hubs.',
+    models: [
+      { brand: 'Vantiva', model: 'Cobra 5G Gateway (Sub-6 & mmWave)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Vantiva', model: 'Falcon Wi-Fi 6E Broadband Gateway', protocol: 'HTTPS', ip: '192.168.1.254', username: 'admin', password: 'admin' },
+      { brand: 'Vantiva', model: 'SmartView FTTH Gigabit Optical Hub', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to Vantiva Wi-Fi or LAN port.',
+      'Open http://192.168.1.1 or http://192.168.1.254 in your browser.',
+      'Log in with Username: admin and Password found on product label.'
+    ]
+  },
+  {
+    name: 'WatchGuard',
+    slug: 'watchguard',
+    defaultIp: '10.0.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'readwrite',
+    description: 'Default logins, Web UI configuration on port 8080, and Fireware OS setup for WatchGuard Firebox security appliances.',
+    models: [
+      { brand: 'WatchGuard', model: 'Firebox T20 / T25 (Desktop UTM Firewall)', protocol: 'HTTPS', ip: '10.0.1.1', username: 'admin', password: 'readwrite' },
+      { brand: 'WatchGuard', model: 'Firebox T40 / T45 (High-Performance Branch)', protocol: 'HTTPS', ip: '10.0.1.1', username: 'admin', password: 'readwrite' },
+      { brand: 'WatchGuard', model: 'Firebox T80 / T85 (Multi-Gigabit Firewall)', protocol: 'HTTPS', ip: '10.0.1.1', username: 'admin', password: 'readwrite' },
+      { brand: 'WatchGuard', model: 'Firebox M270 / M370 (Rackmount Appliance)', protocol: 'HTTPS', ip: '10.0.1.1', username: 'admin', password: 'readwrite' }
+    ],
+    guide: [
+      'Connect PC to Firebox Interface 1 (Trusted).',
+      'Set static IP 10.0.1.2 on PC.',
+      'Open https://10.0.1.1:8080 in browser.',
+      'Log in with Username: admin and Password: readwrite (status user: readonly).'
+    ]
+  },
+  {
+    name: 'Wavlink',
+    slug: 'wavlink',
+    defaultIp: '192.168.10.1 / wifi.wavlink.com',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default passwords and setup instructions for Wavlink high-power outdoor APs, Halo mesh, and quantum range extenders.',
+    models: [
+      { brand: 'Wavlink', model: 'Aerial HD4 (High Power Outdoor AP/Repeater)', protocol: 'HTTP', ip: '192.168.10.1', username: 'admin', password: 'admin' },
+      { brand: 'Wavlink', model: 'Halo Base AC1200 Whole Home Mesh', protocol: 'HTTP', ip: '192.168.10.1', username: 'admin', password: 'admin' },
+      { brand: 'Wavlink', model: 'Quantum D4G AC1200 Gigabit Router', protocol: 'HTTP', ip: '192.168.10.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to Wavlink Wi-Fi (WAVLINK-N / WAVLINK-AC).',
+      'Open http://wifi.wavlink.com or http://192.168.10.1 in browser.',
+      'Enter default password "admin" to launch setup.'
     ]
   },
   {
