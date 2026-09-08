@@ -775,6 +775,134 @@ export const GATEWAY_IPS: GatewayIp[] = [
       }
 ]
   }
+,
+  {
+    ip: '192.168.100.100',
+    slug: '192-168-100-100',
+    title: '192.168.100.100 FTTH Optical ONT Diagnostic Login Guide',
+    description: 'Default diagnostic IP for Huawei EchoLife, ZTE, and Fiberhome GPON optical network terminals (ONTs).',
+    defaultUser: 'telecomadmin',
+    defaultPass: 'admintelecom',
+    commonBrands: ["Huawei (EchoLife)", "ZTE", "Fiberhome"],
+    steps: [
+      "Connect an Ethernet cable directly from your PC to the LAN 1 port of the ONT modem.",
+      "Assign your PC static IP 192.168.100.10 (Subnet: 255.255.255.0).",
+      "Open http://192.168.100.100 in your web browser.",
+      "Enter superadmin credentials: telecomadmin / admintelecom.",
+      "Check Optical Rx/Tx power levels and OMCI status."
+],
+    faqs: [
+      {
+            "question": "What is 192.168.100.100 used for?",
+            "answer": "192.168.100.100 is the dedicated diagnostic management IP used by telecommunication field technicians to inspect GPON fiber line optical power."
+      }
+]
+  },
+  {
+    ip: '192.168.1.250',
+    slug: '192-168-1-250',
+    title: '192.168.1.250 HP ProCurve & HPE Aruba Switch Login Guide',
+    description: 'Default management IP for HP ProCurve, HPE OfficeConnect, and Aruba smart managed network switches.',
+    defaultUser: 'admin',
+    defaultPass: '(blank) / admin',
+    commonBrands: ["HP (ProCurve)", "HPE Aruba", "OfficeConnect"],
+    steps: [
+      "Connect your PC to Port 1 or the dedicated MGMT port.",
+      "Set your PC IP to 192.168.1.100 (Subnet: 255.255.255.0).",
+      "Open http://192.168.1.250 in your browser.",
+      "Leave password blank or enter admin and configure VLAN interfaces."
+],
+    faqs: [
+      {
+            "question": "What is the default login for HP 192.168.1.250?",
+            "answer": "Default Username is 'admin' and Password is blank (press Enter)."
+      }
+]
+  },
+  {
+    ip: '192.168.0.50',
+    slug: '192-168-0-50',
+    title: '192.168.0.50 D-Link Access Point & Extender Setup Guide',
+    description: 'Default static setup IP for D-Link DAP series wireless access points, Wi-Fi range extenders, and powerline adapters.',
+    defaultUser: 'admin',
+    defaultPass: '(blank)',
+    commonBrands: ["D-Link (DAP Series)"],
+    steps: [
+      "Plug your PC directly into the D-Link DAP access point Ethernet port.",
+      "Assign your PC static IP 192.168.0.10 (Subnet: 255.255.255.0).",
+      "Open http://192.168.0.50 or http://dlinkap.local in your web browser.",
+      "Leave password blank and click Log In to launch the wireless configuration wizard."
+],
+    faqs: [
+      {
+            "question": "Why can't I open 192.168.0.50?",
+            "answer": "Ensure your computer network adapter is manually configured to static IP 192.168.0.10 with subnet 255.255.255.0."
+      }
+]
+  },
+  {
+    ip: '192.168.1.20',
+    slug: '192-168-1-20',
+    title: '192.168.1.20 Ubiquiti UniFi Access Point Fallback IP Guide',
+    description: 'Default fallback IP address for unadopted Ubiquiti UniFi Access Points (U6-Pro, U6-Mesh, U7-Pro, AC-Pro) when DHCP is unavailable.',
+    defaultUser: 'ubnt',
+    defaultPass: 'ubnt',
+    commonBrands: ["Ubiquiti (UniFi)"],
+    steps: [
+      "Power the UniFi AP via a PoE injector or PoE switch.",
+      "Connect your PC to the LAN port with static IP 192.168.1.100.",
+      "SSH into the AP using `ssh ubnt@192.168.1.20` (Password: ubnt).",
+      "Run `set-inform http://[your-controller-ip]:8080/inform` to adopt the AP into your UniFi Network Controller."
+],
+    faqs: [
+      {
+            "question": "What is 192.168.1.20 on UniFi devices?",
+            "answer": "When a factory-reset UniFi AP fails to receive an IP via DHCP, it automatically falls back to static IP 192.168.1.20."
+      }
+]
+  },
+  {
+    ip: '10.0.0.138',
+    slug: '10-0-0-138',
+    title: '10.0.0.138 Telstra Thomson & SpeedTouch Modem Login Guide',
+    description: 'Default gateway IP address for Telstra Thomson SpeedTouch, TG582n, and TG782T ADSL broadband modems in Australia.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    commonBrands: ["Thomson", "SpeedTouch", "Telstra"],
+    steps: [
+      "Connect to the Thomson/SpeedTouch modem via Ethernet.",
+      "Open http://10.0.0.138 in your web browser.",
+      "Log in with Username: admin and Password: admin (or leave password blank).",
+      "Configure BigPond ADSL credentials and Wi-Fi security."
+],
+    faqs: [
+      {
+            "question": "What is the default password for 10.0.0.138?",
+            "answer": "Username: admin, Password: admin (or blank on unbranded SpeedTouch modems)."
+      }
+]
+  },
+  {
+    ip: '192.168.16.1',
+    slug: '192-168-16-1',
+    title: '192.168.16.1 Western Digital My Net Router Login Guide',
+    description: 'Default gateway IP address for Western Digital My Net N900, N750, and N600 HD dual-band media routers.',
+    defaultUser: 'admin',
+    defaultPass: 'password / admin',
+    commonBrands: ["Western Digital"],
+    steps: [
+      "Connect to My Net router Wi-Fi or LAN port.",
+      "Open http://192.168.16.1 or http://wdrouter in your browser.",
+      "Enter Username: admin and Password: password.",
+      "Manage FasTrack Plus QoS gaming and media acceleration."
+],
+    faqs: [
+      {
+            "question": "What is the default login for WD My Net at 192.168.16.1?",
+            "answer": "Username: admin, Password: password."
+      }
+]
+  }
 ];
 
 export const BRANDS: Brand[] = [
@@ -2908,6 +3036,295 @@ export const BRANDS: Brand[] = [
       "Open http://192.168.1.1 in your web browser.",
       "Log in with Username: admin and Password: password.",
       "Configure your wireless network and administrator credentials."
+]
+  }
+,
+  {
+    name: '2Wire',
+    slug: '2wire',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    description: 'Default login passwords and setup guides for 2Wire HomePortal and AT&T U-verse DSL gateways.',
+    models: [
+      {
+            "brand": "2Wire",
+            "model": "2Wire 2701HG-B",
+            "protocol": "HTTP",
+            "ip": "192.168.1.254",
+            "username": "admin",
+            "password": "Printed on sticker"
+      },
+      {
+            "brand": "2Wire",
+            "model": "2Wire 3801HGV",
+            "protocol": "HTTP",
+            "ip": "192.168.1.254",
+            "username": "admin",
+            "password": "Printed on sticker"
+      }
+],
+    guide: [
+      "Connect your PC to 2Wire LAN port or Wi-Fi.",
+      "Open http://192.168.1.254 or http://gateway.2wire.net in your browser.",
+      "Enter system password found on the yellow label on the gateway base.",
+      "Configure PPPoE credentials and wireless encryption."
+]
+  },
+  {
+    name: 'Edimax',
+    slug: 'edimax',
+    defaultIp: '192.168.2.1',
+    defaultUser: 'admin',
+    defaultPass: '1234',
+    description: 'Edimax BR-series Wi-Fi routers, Gemini whole-home mesh, and Pro access point login credentials and setup.',
+    models: [
+      {
+            "brand": "Edimax",
+            "model": "Edimax BR-6473AX",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.2.1",
+            "username": "admin",
+            "password": "1234"
+      },
+      {
+            "brand": "Edimax",
+            "model": "Edimax Gemini RG21S",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.2.1",
+            "username": "admin",
+            "password": "1234"
+      }
+],
+    guide: [
+      "Connect to the Edimax router network via Wi-Fi or Ethernet.",
+      "Open http://192.168.2.1 or http://edimax.setup in your web browser.",
+      "Enter Username: admin and Password: 1234 (or 'admin').",
+      "Use the iQ Setup wizard to establish your WAN Internet connection."
+]
+  },
+  {
+    name: 'QNAP',
+    slug: 'qnap',
+    defaultIp: '192.168.100.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / MAC Address',
+    description: 'QNAP QHora-301W and QHora-322 10GbE SD-WAN router setup guides and QuRouter OS login credentials.',
+    models: [
+      {
+            "brand": "QNAP",
+            "model": "QNAP QHora-301W",
+            "protocol": "HTTPS",
+            "ip": "192.168.100.1",
+            "username": "admin",
+            "password": "MAC address / admin"
+      },
+      {
+            "brand": "QNAP",
+            "model": "QNAP QHora-322",
+            "protocol": "HTTPS / SSH",
+            "ip": "192.168.100.1",
+            "username": "admin",
+            "password": "MAC address / admin"
+      }
+],
+    guide: [
+      "Connect your computer to QHora LAN Port 1.",
+      "Open https://192.168.100.1 or https://qnaprouter.local in your browser.",
+      "Log in with Username: admin and Password: (first MAC address of device without colons in uppercase or 'admin').",
+      "Configure QuWAN SD-WAN mesh and 10GbE multi-gigabit routing."
+]
+  },
+  {
+    name: 'Allied Telesis',
+    slug: 'allied-telesis',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'manager',
+    defaultPass: 'friend',
+    description: 'Default credentials, AlliedWare Plus CLI, and configuration guides for Allied Telesis AR-Series Next-Gen UTM Firewalls and routers.',
+    models: [
+      {
+            "brand": "Allied Telesis",
+            "model": "Allied Telesis AT-AR4050S",
+            "protocol": "HTTPS / SSH / CLI",
+            "ip": "192.168.1.1",
+            "username": "manager",
+            "password": "friend"
+      }
+],
+    guide: [
+      "Connect via console cable or Ethernet port 1.",
+      "Open https://192.168.1.1 or connect via SSH to 192.168.1.1.",
+      "Log in with Username: manager and Password: friend.",
+      "Use AlliedWare Plus CLI or Web GUI to configure SD-WAN and AMF security."
+]
+  },
+  {
+    name: 'Barracuda Networks',
+    slug: 'barracuda',
+    defaultIp: '192.168.200.200',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Barracuda CloudGen Firewall and Secure Connector router setup, default IP, and Barracuda NextGen Admin access.',
+    models: [
+      {
+            "brand": "Barracuda",
+            "model": "Barracuda CloudGen F180",
+            "protocol": "Barracuda Admin / HTTPS",
+            "ip": "192.168.200.200",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect your PC to Barracuda Port 0 (MGMT).",
+      "Set your PC IP to 192.168.200.10 (Subnet: 255.255.255.0).",
+      "Open Barracuda NextGen Admin utility or navigate to https://192.168.200.200 in browser.",
+      "Enter Username: admin and Password: admin."
+]
+  },
+  {
+    name: 'Extreme Networks',
+    slug: 'extreme-networks',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'aerohive / admin',
+    description: 'ExtremeCloud IQ, Aerohive, and Extreme Networks Wi-Fi 6 enterprise access point and security router setup.',
+    models: [
+      {
+            "brand": "Extreme Networks",
+            "model": "Extreme Networks AP4000",
+            "protocol": "HTTPS / SSH",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "aerohive / admin"
+      }
+],
+    guide: [
+      "Connect your AP/Router to a PoE+ switch port.",
+      "Open https://extremecloudiq.com or local console at https://192.168.0.1.",
+      "Log in with Username: admin and Password: admin (or aerohive on legacy units).",
+      "Adopt into ExtremeCloud IQ for AI-powered wireless management."
+]
+  },
+  {
+    name: 'Samsung',
+    slug: 'samsung',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / 4-digit code on sticker',
+    description: 'Samsung Connect Home, SmartThings Wifi mesh, and Samsung LTE mobile hotspot setup and login instructions.',
+    models: [
+      {
+            "brand": "Samsung",
+            "model": "Samsung SmartThings Wifi (ET-WV525)",
+            "protocol": "SmartThings App / HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "Set via SmartThings App"
+      }
+],
+    guide: [
+      "Download and open the Samsung SmartThings app on your Android or iOS device.",
+      "Power on your Samsung Connect Home or SmartThings Wifi hub.",
+      "Tap 'Add Device' -> 'Wi-Fi Hub' and scan the QR code under the router.",
+      "Manage SmartThings Zigbee/Z-Wave automations and Plume AI mesh Wi-Fi."
+]
+  },
+  {
+    name: 'USRobotics',
+    slug: 'usrobotics',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default passwords and configuration guides for USRobotics SureConnect, MAXg, and Wireless ADSL2+ gateways.',
+    models: [
+      {
+            "brand": "USRobotics",
+            "model": "USRobotics USR9108 MAXg",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to USRobotics router via LAN cable.",
+      "Open http://192.168.1.1 or http://192.168.101.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure MAXg wireless security and ADSL parameters."
+]
+  },
+  {
+    name: 'Fiberhome',
+    slug: 'fiberhome',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / %0admin#',
+    description: 'Default login passwords and OMCI configurations for Fiberhome AN5506 and HG6245 GPON FTTH optical routers.',
+    models: [
+      {
+            "brand": "Fiberhome",
+            "model": "Fiberhome HG6245D",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "%0admin# / admin"
+      }
+],
+    guide: [
+      "Connect your computer to Fiberhome LAN 1 port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: %0admin# (or admin / admin).",
+      "Configure GPON LOID registration and VLAN triple-play settings."
+]
+  },
+  {
+    name: 'Genexis',
+    slug: 'genexis',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on bottom label',
+    description: 'Default logins and configurations for Genexis Platinum, FiberBox, and Pulse European fiber optic gateways.',
+    models: [
+      {
+            "brand": "Genexis",
+            "model": "Genexis Platinum 7840",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "Printed on label"
+      }
+],
+    guide: [
+      "Connect to the Genexis router Wi-Fi or LAN port.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter the Admin password printed on the sticker on the back of the device.",
+      "Configure Gigabit fiber settings and Wi-Fi security."
+]
+  },
+  {
+    name: 'Western Digital',
+    slug: 'western-digital',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'password / admin',
+    description: 'Western Digital My Net N900, N750, and N600 HD dual-band streaming router setup and login credentials.',
+    models: [
+      {
+            "brand": "Western Digital",
+            "model": "Western Digital My Net N900",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "password"
+      }
+],
+    guide: [
+      "Connect to My Net router network.",
+      "Open http://wdrouter or http://192.168.1.1 (or http://192.168.16.1) in your browser.",
+      "Enter Username: admin and Password: password (or admin).",
+      "Configure FasTrack Plus HD video and gaming QoS priority."
 ]
   }
 ];
