@@ -669,6 +669,112 @@ export const GATEWAY_IPS: GatewayIp[] = [
       }
     ]
   }
+,
+  {
+    ip: '192.168.0.254',
+    slug: '192-168-0-254',
+    title: '192.168.0.254 TP-Link & Netgear Access Point Setup Guide',
+    description: 'Default IP address for TP-Link outdoor CPE access points (Pharos), Netgear range extenders, and DrayTek secondary subnets.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    commonBrands: ["TP-Link (Pharos / CPE)", "Netgear (Extenders)", "DrayTek"],
+    steps: [
+      "Connect your computer via Ethernet to the access point LAN/PoE port.",
+      "Set your PC static IP to 192.168.0.100 (Subnet: 255.255.255.0).",
+      "Open http://192.168.0.254 in your web browser.",
+      "Enter default Username: admin and Password: admin."
+],
+    faqs: [
+      {
+            "question": "What devices use 192.168.0.254 as their default IP?",
+            "answer": "TP-Link Pharos outdoor CPE bridges (CPE210, CPE510, CPE710), Netgear Wi-Fi range extenders, and TP-Link Omada access points in standalone mode."
+      }
+]
+  },
+  {
+    ip: '192.168.225.1',
+    slug: '192-168-225-1',
+    title: '192.168.225.1 JioFi 4G Hotspot Admin Login Guide',
+    description: 'Default admin portal IP for JioFi 2, JioFi 3, JioFi 4, and Jio Dongle 4G portable Wi-Fi hotspot devices (jiofi.local.html).',
+    defaultUser: 'administrator',
+    defaultPass: 'administrator',
+    commonBrands: ["JioFi (Reliance Jio)"],
+    steps: [
+      "Connect your smartphone or laptop to your JioFi Wi-Fi SSID.",
+      "Open your browser and navigate to http://192.168.225.1 or http://jiofi.local.html.",
+      "Click on 'Login' in the top-right corner.",
+      "Enter Username: administrator and Password: administrator.",
+      "Change your JioFi Wi-Fi password and view 4G signal strength and battery percentage."
+],
+    faqs: [
+      {
+            "question": "What is the default username and password for JioFi 192.168.225.1?",
+            "answer": "Default Username is 'administrator' and Password is 'administrator'."
+      }
+]
+  },
+  {
+    ip: '10.1.10.1',
+    slug: '10-1-10-1',
+    title: '10.1.10.1 Comcast Business Gateway Admin Login Guide',
+    description: 'Default internal management IP address for Comcast Business Class Internet routers and Cisco/SMC commercial gateways.',
+    defaultUser: 'cusadmin',
+    defaultPass: 'highspeed / CantTouchThis',
+    commonBrands: ["Comcast Business", "Cisco", "SMC Networks"],
+    steps: [
+      "Connect your computer to any Ethernet LAN port on the Comcast Business gateway.",
+      "Open http://10.1.10.1 in your web browser.",
+      "Enter Username: cusadmin and Password: highspeed (or CantTouchThis on older models).",
+      "Configure Static IP pass-through, True Static Subnets, and firewall rules."
+],
+    faqs: [
+      {
+            "question": "What is the default login for Comcast Business 10.1.10.1?",
+            "answer": "Username: cusadmin, Password: highspeed. For technician level access, username is 'mso'."
+      }
+]
+  },
+  {
+    ip: '172.20.10.1',
+    slug: '172-20-10-1',
+    title: '172.20.10.1 Apple iPhone Personal Hotspot Gateway Guide',
+    description: 'Default IP gateway assigned when sharing internet through an Apple iPhone or iPad Personal Hotspot.',
+    defaultUser: 'iOS System Managed',
+    defaultPass: 'Set on iPhone Screen',
+    commonBrands: ["Apple (iPhone / iPad)"],
+    steps: [
+      "Enable Personal Hotspot in Settings -> Personal Hotspot on your iPhone.",
+      "Connect your laptop to the iPhone Wi-Fi network or via USB cable.",
+      "Your laptop will automatically receive default gateway 172.20.10.1.",
+      "All tethering bandwidth and client controls are managed directly in iOS Settings."
+],
+    faqs: [
+      {
+            "question": "Can I open a web configuration page at 172.20.10.1?",
+            "answer": "No, Apple Personal Hotspot does not host a web admin panel. Hotspot security and connected clients are viewed inside iOS Settings."
+      }
+]
+  },
+  {
+    ip: '192.168.43.1',
+    slug: '192-168-43-1',
+    title: '192.168.43.1 Android Wi-Fi Hotspot Gateway Guide',
+    description: 'Default gateway IP address allocated by Android smartphones when enabling Portable Wi-Fi Hotspot tethering.',
+    defaultUser: 'Android System Managed',
+    defaultPass: 'Configured on Android Phone',
+    commonBrands: ["Android (Samsung, Google Pixel, Xiaomi, OnePlus)"],
+    steps: [
+      "Turn on 'Portable Hotspot' in Android Settings -> Network & Internet.",
+      "Connect your laptop or other devices to the Android hotspot SSID.",
+      "Check connected devices and data limits in the Android hotspot settings menu."
+],
+    faqs: [
+      {
+            "question": "Why is my default gateway 192.168.43.1?",
+            "answer": "192.168.43.1 is the standard DHCP server IP used by Android OS for Wi-Fi hotspot routing."
+      }
+]
+  }
 ];
 
 export const BRANDS: Brand[] = [
@@ -2959,6 +3065,133 @@ export const ISPS: Isp[] = [
       'Enter the Admin Password found on the pull-out plastic card on the back of the Smart Hub.',
       'Disable Smart Setup if connecting non-standard smart home devices.'
     ]
+  }
+,
+  {
+    name: 'Telstra Broadband Australia',
+    slug: 'telstra-australia',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Telstra setup password',
+    description: 'Telstra Smart Modem Gen 2 & Gen 3 NBN gateway configuration, Wi-Fi booster pairing, and 4G backup diagnostics.',
+    instructions: [
+      "Connect your device to Telstra Wi-Fi or plug into a LAN port.",
+      "Open http://192.168.0.1 or http://telstra.gateway in your browser.",
+      "Enter Username: admin and Password: admin (or the custom password set during initial setup).",
+      "Monitor NBN sync speeds, manage Guest Wi-Fi, and check 4G backup status."
+]
+  },
+  {
+    name: 'Optus Broadband Australia',
+    slug: 'optus-australia',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Printed on modem barcode',
+    description: 'Optus Ultra WiFi Gen 2 & Sagemcom 5366 TN gateway login and NBN VoIP telephone configuration.',
+    instructions: [
+      "Connect to Optus Wi-Fi network.",
+      "Navigate to http://192.168.0.1 or http://optus.gateway in your browser.",
+      "Log in with Username: admin and the Admin Password printed on your modem sticker.",
+      "Configure Wi-Fi security keys, parental controls, and band steering."
+]
+  },
+  {
+    name: 'Rogers Ignite Canada',
+    slug: 'rogers-ignite',
+    defaultIp: '10.0.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Rogers Ignite WiFi Gateway (XB6, XB7, XB8) admin dashboard login, bridge mode, and Ignite HomeConnect guide.',
+    instructions: [
+      "Connect to your Rogers Ignite Wi-Fi network.",
+      "Open http://10.0.0.1 in any web browser.",
+      "Enter Username: admin and Password: password.",
+      "Enable Bridge Mode if connecting a third-party mesh Wi-Fi system."
+]
+  },
+  {
+    name: 'Sky Broadband UK',
+    slug: 'sky-broadband',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'sky / Wi-Fi password',
+    description: 'Sky Broadband Hub (SR203 / SR204) and Sky Q Hub admin portal login and Wi-Fi channel selection guide.',
+    instructions: [
+      "Connect to Sky Wi-Fi or plug in via Ethernet.",
+      "Open http://192.168.0.1 or http://skyhub.fast in your web browser.",
+      "Enter Username: admin and Password: sky (or the default Wi-Fi password printed on the back on newer hubs).",
+      "Adjust Wi-Fi 5GHz channel widths and inspect downstream line attenuation."
+]
+  },
+  {
+    name: 'TalkTalk UK',
+    slug: 'talktalk-broadband',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Wi-Fi password on router card',
+    description: 'TalkTalk Wi-Fi Hub (FAST 5364 / Amazon eero) admin login, port forwarding, and line sync diagnostics.',
+    instructions: [
+      "Connect your computer to the TalkTalk router network.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter Username: admin and the unique router password found on the pull-out card.",
+      "Configure port forwarding rules, firewall security, and parental filters."
+]
+  },
+  {
+    name: 'Deutsche Telekom Germany',
+    slug: 'deutsche-telekom',
+    defaultIp: '192.168.2.1',
+    defaultUser: 'admin',
+    defaultPass: 'Device password on rear label',
+    description: 'Deutsche Telekom Speedport Smart 4, Smart 3, and Speedport Pro router setup at 192.168.2.1 (speedport.ip).',
+    instructions: [
+      "Connect your device to Speedport Wi-Fi.",
+      "Open http://192.168.2.1 or http://speedport.ip in your browser.",
+      "Enter the Device Password (Ger\u00e4tepasswort) printed on the sticker on the back of the Speedport.",
+      "Configure DSL / Fiber access credentials, DECT telephones, and WLAN guest access."
+]
+  },
+  {
+    name: 'Vodafone Germany / UK',
+    slug: 'vodafone-station',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on gateway sticker',
+    description: 'Vodafone Station Wi-Fi 6 (DOCSIS 3.1 & DSL) and Vodafone Power Station admin portal login guide.',
+    instructions: [
+      "Connect to Vodafone Wi-Fi or LAN port.",
+      "Open http://192.168.0.1 in your browser.",
+      "Enter the administrator password printed on the sticker underneath the Vodafone Station.",
+      "Configure SuperWLAN mesh pods, guest Wi-Fi, and bridge mode."
+]
+  },
+  {
+    name: 'Orange France (Livebox)',
+    slug: 'orange-livebox',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'First 8 characters of Wi-Fi key',
+    description: 'Orange Livebox 6 (Wi-Fi 6E) and Livebox 7 (Wi-Fi 7) 10G optical fiber gateway setup and admin configuration.',
+    instructions: [
+      "Connect to Orange Livebox Wi-Fi.",
+      "Open http://192.168.1.1 or http://livebox.home in your browser.",
+      "Log in with Username: admin and Password: the first 8 characters of the default Wi-Fi security key printed on the Livebox label.",
+      "Manage Wi-Fi 6E / Wi-Fi 7 frequency bands, Livebox touch screen, and optical ONT status."
+]
+  },
+  {
+    name: 'Cox Communications',
+    slug: 'cox-panoramic',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Cox Panoramic WiFi Gateway (PW7 / PW8) admin login, bridge mode, and Panoramic WiFi mobile app guide.',
+    instructions: [
+      "Connect to Cox Panoramic Wi-Fi.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Enter Username: admin and Password: password.",
+      "Manage advanced networking features, MoCA coax, and bridge mode."
+]
   }
 ];
 
