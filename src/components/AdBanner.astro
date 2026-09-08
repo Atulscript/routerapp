@@ -1,47 +1,114 @@
 ---
 interface Props {
   slotId?: string;
-  format?: 'leaderboard' | 'rectangle' | 'horizontal' | 'in-feed';
+  format?: 'leaderboard' | 'rectangle' | 'horizontal' | 'in-feed' | 'in-article';
   className?: string;
 }
 
-const { format = 'horizontal', className = '' } = Astro.props;
+const { 
+  slotId = 'default-slot', 
+  format = 'horizontal', 
+  className = '' 
+} = Astro.props;
+
+const publisherId = "ca-pub-8700784373117801";
 ---
 
-<div class={`my-6 flex flex-col items-center justify-center ${className}`}>
-  <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">
+<div class={`my-5 sm:my-6 flex flex-col items-center justify-center w-full transition-colors ${className}`}>
+  <!-- Ad Label Compliant with Google AdSense Policy -->
+  <div class="text-[9px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest mb-1 select-none">
     Advertisement
   </div>
 
-  {format === 'leaderboard' && (
-    <div class="w-full max-w-[728px] h-[90px] bg-slate-100/90 border border-dashed border-slate-300 rounded-xl flex items-center justify-center text-slate-400 text-xs font-mono select-none">
-      <span class="flex items-center gap-2">
-        <span>📢</span> Responsive Leaderboard Ad Space (728x90)
-      </span>
-    </div>
-  )}
+  <div class="w-full flex items-center justify-center overflow-hidden">
+    {format === 'leaderboard' && (
+      <div class="w-full max-w-[728px] min-h-[90px] bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs">
+        <ins 
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client={publisherId}
+          data-ad-slot={slotId}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <!-- Fallback Placeholder when script is offline or in dev -->
+        <div class="ad-placeholder py-3.5 px-4 text-center text-slate-400 dark:text-slate-500 text-[11px] font-sans flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+          <span>Sponsored Technical Reference · Google AdSense Verified ({publisherId})</span>
+        </div>
+      </div>
+    )}
 
-  {format === 'horizontal' && (
-    <div class="w-full max-w-4xl h-[100px] bg-slate-100/90 border border-dashed border-slate-300 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono select-none">
-      <span class="flex items-center gap-2">
-        <span>📢</span> Responsive Banner Ad Space
-      </span>
-    </div>
-  )}
+    {format === 'horizontal' && (
+      <div class="w-full max-w-4xl min-h-[90px] bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs">
+        <ins 
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client={publisherId}
+          data-ad-slot={slotId}
+          data-ad-format="horizontal"
+          data-full-width-responsive="true"
+        ></ins>
+        <div class="ad-placeholder py-3.5 px-4 text-center text-slate-400 dark:text-slate-500 text-[11px] font-sans flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+          <span>Sponsored Network Hardware Resource · Google AdSense Verified ({publisherId})</span>
+        </div>
+      </div>
+    )}
 
-  {format === 'rectangle' && (
-    <div class="w-full max-w-[336px] h-[280px] bg-slate-100/90 border border-dashed border-slate-300 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono select-none mx-auto">
-      <span class="flex items-center gap-2">
-        <span>📢</span> Medium Rectangle Ad (336x280)
-      </span>
-    </div>
-  )}
+    {format === 'rectangle' && (
+      <div class="w-full max-w-[336px] min-h-[280px] bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs mx-auto">
+        <ins 
+          class="adsbygoogle"
+          style="display:inline-block;width:336px;height:280px"
+          data-ad-client={publisherId}
+          data-ad-slot={slotId}
+        ></ins>
+        <div class="ad-placeholder p-4 text-center text-slate-400 dark:text-slate-500 text-[11px] font-sans flex flex-col items-center justify-center gap-1.5">
+          <span class="text-xl">📢</span>
+          <span>Responsive Ad Placement</span>
+          <span class="text-[9px] font-mono opacity-75">{publisherId}</span>
+        </div>
+      </div>
+    )}
 
-  {format === 'in-feed' && (
-    <div class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono select-none my-4">
-      <span class="flex items-center gap-2">
-        <span>📢</span> Native In-Feed Ad Placement
-      </span>
-    </div>
-  )}
+    {format === 'in-article' && (
+      <div class="w-full min-h-[100px] bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs my-3">
+        <ins 
+          class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client={publisherId}
+          data-ad-slot={slotId}
+        ></ins>
+        <div class="ad-placeholder py-3 px-4 text-center text-slate-400 dark:text-slate-500 text-[11px] font-sans flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+          <span>Recommended Network Tools & Services</span>
+        </div>
+      </div>
+    )}
+
+    {format === 'in-feed' && (
+      <div class="w-full p-4 bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs my-3">
+        <ins 
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-fb+5w+4e-db+86"
+          data-ad-client={publisherId}
+          data-ad-slot={slotId}
+        ></ins>
+        <div class="ad-placeholder text-center text-slate-400 dark:text-slate-500 text-[11px] font-sans">
+          <span>Featured Network Solution</span>
+        </div>
+      </div>
+    )}
+  </div>
 </div>
+
+<script is:inline>
+  try {
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (e) {}
+</script>
