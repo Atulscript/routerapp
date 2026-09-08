@@ -1,5 +1,5 @@
 ---
-import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
+import { GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS, formatModelTitle } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -23,15 +23,15 @@ const searchItems = [
     subtitle: `Default IP: ${b.defaultIp}`,
     badgeColor: 'bg-sky-50 text-sky-700 border-sky-200'
   })),
-  // Router Models
-  ...BRANDS.flatMap(b => b.models.map(m => ({
-    name: `${b.name} ${m.model}`,
-    title: `${b.name} ${m.model}`,
+  // Router Models - Dedicated Model Pages
+  ...ROUTER_MODELS.map(m => ({
+    name: `${m.brand} ${m.model} ${m.series || ''} ${m.wifiStandard || ''} ${m.category || ''} ${m.ip}`,
+    title: formatModelTitle(m.brand, m.model),
     category: 'Model',
-    url: `${base}/${b.slug}`,
-    subtitle: `IP: ${m.ip} · Login: ${m.username}/${m.password}`,
+    url: `${base}/${m.slug}`,
+    subtitle: `${m.wifiStandard ? m.wifiStandard.split(' ')[0] + ' · ' : ''}IP: ${m.ip} · ${m.speedRating || m.category || 'Router'}`,
     badgeColor: 'bg-purple-50 text-purple-700 border-purple-200'
-  }))),
+  })),
   // ISPs
   ...ISPS.map(isp => ({
     name: isp.name,

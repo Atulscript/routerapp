@@ -1,22 +1,37 @@
 ---
-import { BRANDS } from '../lib/data-loader';
+import { BRANDS, ROUTER_MODELS, formatModelTitle } from '../lib/data-loader';
 
-// Collect all models with brand and protocol
-const allModels = BRANDS.flatMap(b => 
+// Collect all models with brand, model, slug, and protocol
+const allModels = ROUTER_MODELS.length > 0 ? ROUTER_MODELS.map(m => ({
+  brand: m.brand,
+  brandSlug: m.brandSlug,
+  model: m.model,
+  slug: m.slug,
+  protocol: m.protocol || 'HTTP',
+  ip: m.ip,
+  username: m.username,
+  password: m.password,
+  wifiStandard: m.wifiStandard || '',
+  category: m.category || ''
+})) : BRANDS.flatMap(b => 
   b.models.map(m => ({
     brand: b.name,
     brandSlug: b.slug,
     model: m.model,
+    slug: (m as any).slug || '',
     protocol: m.protocol || 'HTTP',
     ip: m.ip,
     username: m.username,
-    password: m.password
+    password: m.password,
+    wifiStandard: '',
+    category: ''
   }))
 );
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a.localeCompare(b));
-const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFiber', 'Airtel', 'Linksys', 'Tenda'];
+const brandNames = Array.from(new Set(allModels.map(b => b.brand))).sort((a, b) => a.localeCompare(b));
+const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'MikroTik', 'Linksys', 'D-Link', 'Xiaomi', 'GL.iNet'];
+
 ---
 
 <div class="w-full my-2 font-sans" id="router-lookup-container">
@@ -207,6 +222,14 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
       const ipHref = getIpPath(cleanIp);
       const brandHref = `${base}/${item.brandSlug}`;
 
+      const modelHref = item.slug ? `${base}/${item.slug}` : (item.brandSlug ? `${base}/${item.brandSlug}` : null);
+      const modelCellHtml = modelHref ? `
+        <a href="${modelHref}" class="text-brand-700 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 hover:underline font-bold inline-flex items-center gap-1">
+          <span>${item.model}</span>
+          <span class="text-[10px] opacity-75">→</span>
+        </a>
+      ` : `<span>${item.model}</span>`;
+
       return `
         <tr class="${bgClass} hover:bg-sky-50/80 dark:hover:bg-slate-800/80 transition-colors">
           <td class="py-2 px-3.5 font-bold text-slate-900 dark:text-slate-100 whitespace-nowrap text-xs">
@@ -214,7 +237,9 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
               ${item.brand}
             </a>
           </td>
-          <td class="py-2 px-3.5 font-medium text-slate-800 dark:text-slate-200 whitespace-nowrap text-xs">${item.model}</td>
+          <td class="py-2 px-3.5 font-medium text-slate-800 dark:text-slate-200 whitespace-nowrap text-xs">
+            ${modelCellHtml}
+          </td>
           <td class="py-2 px-3.5 font-mono font-semibold whitespace-nowrap text-xs">
             <div class="inline-flex items-center gap-1.5">
               <a href="${ipHref}" class="text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 hover:underline" title="View ${cleanIp} guide">

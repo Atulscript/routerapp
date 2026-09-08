@@ -3,11 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import RouterLookupTable from '../components/RouterLookupTable.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
-import { BRANDS } from '../lib/data-loader';
+import { BRANDS, ROUTER_MODELS, formatModelTitle } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = "Router Hardware Models & Specs Database | 19216811.page";
-const description = "Search and filter over 100+ wireless router hardware models. Find factory default IP gateways, protocols, usernames, passwords, and firmware specs.";
+const description = "Search and filter over 500+ wireless router hardware models. Find factory default IP gateways, protocols, usernames, passwords, and firmware specs.";
 const keywords = [
   "router models database",
   "router hardware specs",
@@ -20,17 +20,21 @@ const keywords = [
 
 const siteUrl = "https://atulscript.github.io/routerapp";
 
-const allModels = BRANDS.flatMap(b => 
+const allModels = ROUTER_MODELS.length > 0 ? ROUTER_MODELS : BRANDS.flatMap(b => 
   b.models.map(m => ({
     brand: b.name,
     brandSlug: b.slug,
     model: m.model,
+    slug: (m as any).slug || '',
     protocol: m.protocol || 'HTTP',
     ip: m.ip,
     username: m.username,
-    password: m.password
+    password: m.password,
+    wifiStandard: '',
+    category: ''
   }))
 );
+
 
 const schema = [
   {
@@ -162,6 +166,9 @@ const schema = [
             {allModels.map(item => {
               const ipSlug = item.ip === '192.168.1.1' ? '' : item.ip.replace(/\./g, '-');
               const ipUrl = ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`;
+              const modelHref = item.slug ? `${base}/${item.slug}` : (item.brandSlug ? `${base}/${item.brandSlug}` : null);
+              const displayTitle = formatModelTitle(item.brand, item.model);
+
               return (
                 <tr class="hover:bg-sky-50/70 dark:hover:bg-slate-800/60 master-row transition-colors">
                   <td class="py-2 px-3 font-bold font-sans text-slate-900 dark:text-white">
@@ -169,7 +176,20 @@ const schema = [
                       {item.brand}
                     </a>
                   </td>
-                  <td class="py-2 px-3 font-sans font-medium text-slate-800 dark:text-slate-300">{item.model}</td>
+                  <td class="py-2 px-3 font-sans font-medium text-slate-800 dark:text-slate-300">
+                    {modelHref ? (
+                      <a 
+                        href={modelHref} 
+                        class="text-brand-700 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 hover:underline font-bold inline-flex items-center gap-1"
+                        title={`View ${displayTitle} full technical specifications and login guide`}
+                      >
+                        <span>{item.model}</span>
+                        <span class="text-[10px] opacity-75">→</span>
+                      </a>
+                    ) : (
+                      <span>{item.model}</span>
+                    )}
+                  </td>
                   <td class="py-2 px-3 font-bold">
                     <div class="inline-flex items-center gap-1">
                       <a href={ipUrl} class="text-brand-600 dark:text-brand-400 hover:underline">
@@ -180,7 +200,7 @@ const schema = [
                       </a>
                     </div>
                   </td>
-                  <td class="py-2 px-3 text-slate-500 dark:text-slate-400 text-[11px]">{item.protocol}</td>
+                  <td class="py-2 px-3 text-slate-500 dark:text-slate-400 text-[11px]">{item.protocol || 'HTTP'}</td>
                   <td class="py-2 px-3 text-slate-700 dark:text-slate-300">{item.username}</td>
                   <td class="py-2 px-3 font-bold text-slate-900 dark:text-white text-right">{item.password}</td>
                 </tr>

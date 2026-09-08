@@ -2068,26 +2068,57 @@ export function getIspSlug(name?: string | null): string | null {
   return found ? found.slug : null;
 }
 
-export function getModelsForIp(targetIp: string) {
+export function getModelsForIp(targetIp: string): RouterModel[] {
   if (!targetIp) return [];
-  const matches: Array<{ brand: string; brandSlug: string; model: string; ip: string; username: string; password: string; protocol: string }> = [];
-  ROUTER_MODELS.forEach(m => {
-    if (m.ip === targetIp) {
-      matches.push({
-        brand: m.brand,
-        brandSlug: m.brandSlug,
-        model: m.model,
-        ip: m.ip || targetIp,
-        username: m.username,
-        password: m.password,
-        protocol: m.protocol || 'HTTP'
-      });
-    }
-  });
-  return matches;
+  return ROUTER_MODELS.filter(m => m.ip === targetIp);
 }
 
-export function getModelsForBrand(brandSlug: string) {
+export function getModelsForBrand(brandSlug: string): RouterModel[] {
   return ROUTER_MODELS.filter(m => m.brandSlug === brandSlug);
 }
+
+export function getModelSlug(brand?: string | null, model?: string | null): string | null {
+  if (!model) return null;
+  const cleanModel = model.toLowerCase().trim();
+  const cleanBrand = (brand || '').toLowerCase().trim();
+
+  // 1. Direct match on slug
+  const directSlug = cleanModel.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const foundBySlug = ROUTER_MODELS.find(m => m.slug === directSlug || m.slug === `${cleanBrand}-${directSlug}`);
+  if (foundBySlug) return foundBySlug.slug;
+
+  // 2. Direct match on model & brand
+  const found = ROUTER_MODELS.find(m => {
+    const mModel = m.model.toLowerCase().trim();
+    const mBrand = m.brand.toLowerCase().trim();
+    if (mModel === cleanModel) {
+      if (!cleanBrand || mBrand === cleanBrand || mBrand.includes(cleanBrand) || cleanBrand.includes(mBrand)) {
+        return true;
+      }
+    }
+    return false;
+  });
+  if (found) return found.slug;
+
+  // 3. Partial / contains match
+  const fuzzy = ROUTER_MODELS.find(m => {
+    const mModel = m.model.toLowerCase().trim();
+    return cleanModel.includes(mModel) || mModel.includes(cleanModel);
+  });
+  if (fuzzy) return fuzzy.slug;
+
+  return null;
+}
+
+export function formatModelTitle(brand?: string | null, model?: string | null): string {
+  if (!model) return brand || '';
+  if (!brand) return model;
+  const cleanModel = model.trim();
+  const cleanBrand = brand.trim();
+  if (cleanModel.toLowerCase().startsWith(cleanBrand.toLowerCase())) {
+    return cleanModel;
+  }
+  return `${cleanBrand} ${cleanModel}`;
+}
+
 
