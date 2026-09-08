@@ -412,7 +412,7 @@ if (type === 'ip') {
   canonical={currentCanonical}
   schema={schemas}
 >
-  <div class="space-y-6">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
 
     <!-- Top Leaderboard Ad Slot -->
     <AdBanner format="leaderboard" />
@@ -428,26 +428,26 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb */}
-          <nav class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-            <a href={`${base}/`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">Home</a>
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+            <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
-            <a href={`${base}/ip-addresses`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">IP Gateways</a>
+            <a href={`${base}/ip-addresses`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">IP Gateways</a>
             <span>/</span>
-            <span class="text-slate-900 dark:text-slate-200 font-semibold">{ipData.ip}</span>
+            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ipData.ip}</span>
           </nav>
 
-          {/* Hero Header Card */}
-          <header class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+          {/* Hero Header Card (Google OneBox Style) */}
+          <header class="g-card p-5 sm:p-7 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
               <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-sky-50 dark:bg-sky-950/60 text-brand-700 dark:text-brand-300 border border-sky-200 dark:border-sky-800 mb-2">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] mb-2">
+                  <span class="w-2 h-2 rounded-full bg-[#34a853] animate-pulse"></span>
                   Default Gateway IP
                 </div>
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
                   {ipData.ip} Router Admin Login
                 </h1>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1.5 max-w-2xl leading-relaxed">
+                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1.5 max-w-2xl leading-relaxed">
                   {ipData.description}
                 </p>
               </div>
@@ -457,7 +457,7 @@ if (type === 'ip') {
                   href={`http://${ipData.ip}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-95 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+                  class="g-btn-primary"
                 >
                   <span>Open http://{ipData.ip}</span>
                   <span class="text-xs">↗</span>
@@ -467,42 +467,42 @@ if (type === 'ip') {
 
             {/* Quick Metrics */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">{ipData.ip}</div>
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ipData.ip}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={ipData.ip}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">{ipData.defaultUser || '(blank)'}</div>
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ipData.defaultUser || '(blank)'}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={ipData.defaultUser}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">{ipData.defaultPass || '(blank)'}</div>
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ipData.defaultPass || '(blank)'}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={ipData.defaultPass}
                 >
                   📋 Copy
@@ -520,18 +520,18 @@ if (type === 'ip') {
 
           {/* Associated Router Models */}
           {associatedModels.length > 0 && (
-            <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+            <section class="g-card p-5 sm:p-6 space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
                 <div>
-                  <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
                     <span>📡</span>
                     Hardware Routers Using {ipData.ip} Gateway
                   </h2>
-                  <p class="text-xs text-slate-600 dark:text-slate-400">
+                  <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
                     Verified factory default credentials and model specifications
                   </p>
                 </div>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800 w-fit">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] w-fit">
                   {associatedModels.length} Models
                 </span>
               </div>
@@ -539,19 +539,19 @@ if (type === 'ip') {
             </section>
           )}
 
-          {/* Mid Ad Slot */}
+          <!-- Mid Ad Slot -->
           <AdBanner format="horizontal" />
 
           {/* Other Gateway IP Addresses Grid */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <section class="g-card p-4 sm:p-5 space-y-3">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
               Other Popular Router Gateway IP Addresses
             </h2>
             <div class="flex flex-wrap gap-2">
               {otherIps.map(item => (
                 <a 
                   href={`${base}/${item.slug}`}
-                  class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-brand-800 dark:hover:text-brand-400 transition-colors"
+                  class="g-chip font-mono text-[11px]"
                 >
                   {item.ip}
                 </a>
@@ -575,30 +575,30 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumbs */}
-          <nav class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-            <a href={`${base}/`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">Home</a>
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+            <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
-            <a href={`${base}/brands`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">Brands</a>
+            <a href={`${base}/brands`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Brands</a>
             <span>/</span>
-            <span class="text-slate-900 dark:text-slate-200 font-semibold">{brandData.name}</span>
+            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{brandData.name}</span>
           </nav>
 
           {/* Hero Header Card */}
-          <header class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <header class="g-card p-5 sm:p-7 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
               <div class="flex items-start gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 text-white flex items-center justify-center text-lg font-extrabold shadow-md flex-shrink-0">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1a73e8] to-[#1557b0] text-white flex items-center justify-center text-lg font-bold shadow-xs flex-shrink-0">
                   {brandData.name.slice(0, 2).toUpperCase()}
                 </div>
                 <div>
-                  <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80 mb-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
                     Verified Manufacturer Hub
                   </div>
-                  <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                  <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
                     {brandData.name} Router Login & Default Passwords
                   </h1>
-                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                  <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
                     {brandData.description}
                   </p>
                 </div>
@@ -609,7 +609,7 @@ if (type === 'ip') {
                   href={`http://${brandData.defaultIp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-95 text-white text-xs font-bold shadow-sm transition-all"
+                  class="g-btn-primary"
                 >
                   <span>Open {brandData.defaultIp}</span>
                   <span>↗</span>
@@ -619,12 +619,12 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default Gateway IP</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
                     {brandIpSlug ? (
-                      <a href={`${base}/${brandIpSlug}`} class="text-brand-700 dark:text-brand-400 hover:underline">
+                      <a href={`${base}/${brandIpSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                         {brandData.defaultIp}
                       </a>
                     ) : (
@@ -634,39 +634,39 @@ if (type === 'ip') {
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={brandData.defaultIp}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
                     {brandData.defaultUser || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={brandData.defaultUser}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
                     {brandData.defaultPass || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={brandData.defaultPass}
                 >
                   📋 Copy
@@ -675,19 +675,19 @@ if (type === 'ip') {
             </div>
           </header>
 
-          {/* Interactive Hardware Models Directory with Filter */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+          {/* Interactive Hardware Models Directory */}
+          <section class="g-card p-5 sm:p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
               <div>
-                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
                   <span>📟</span>
                   {brandData.name} Hardware Models Catalog
                 </h2>
-                <p class="text-xs text-slate-600 dark:text-slate-400">
+                <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
                   Select any model below to view technical specs, port configuration, and setup guide
                 </p>
               </div>
-              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 w-fit">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] w-fit">
                 {finalModels.length} Models Indexed
               </span>
             </div>
@@ -695,21 +695,21 @@ if (type === 'ip') {
             <PasswordTable models={finalModels} brandName={brandData.name} brandSlug={brandData.slug} />
           </section>
 
-          {/* Mid Ad Slot */}
+          <!-- Mid Ad Slot -->
           <AdBanner format="horizontal" />
 
           {/* Step-by-Step Configuration Guide */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-            <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+          <section class="g-card p-5 sm:p-6 space-y-4">
+            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
               <span class="text-lg">📋</span>
-              <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
                 How to Log In & Configure Your {brandData.name} Router
               </h2>
             </div>
             <ol class="space-y-3">
               {brandData.guide.map((step, idx) => (
-                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-slate-50/70 dark:bg-slate-850/50 border border-slate-200/70 dark:border-slate-800">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-600 text-white font-black flex items-center justify-center text-xs shadow-xs">
+                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
                   </span>
                   <span class="pt-0.5 leading-relaxed">{step}</span>
@@ -719,26 +719,26 @@ if (type === 'ip') {
           </section>
 
           {/* Factory Reset Instructions */}
-          <section class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/20 rounded-2xl p-5 sm:p-6 border border-amber-200/80 dark:border-amber-900/50 shadow-card space-y-3">
-            <div class="flex items-center gap-2 text-amber-950 dark:text-amber-200 font-bold text-sm sm:text-base">
+          <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#fef7e0] dark:bg-[#332a00]/40 border border-[#fbbc04]/60 dark:border-[#fbbc04]/30 space-y-3">
+            <div class="flex items-center gap-2 text-[#b06000] dark:text-[#fdd663] font-bold text-sm sm:text-base">
               <span>🔄</span>
               <span>How to Hard Reset {brandData.name} Router to Factory Defaults</span>
             </div>
-            <p class="text-xs text-amber-900/90 dark:text-amber-300/90 leading-relaxed">
+            <p class="text-xs text-[#5f6368] dark:text-[#e8eaed] leading-relaxed">
               If you forgot your customized admin password or cannot reach the web portal, locate the physical <strong>RESET</strong> pinhole button on the back of your {brandData.name} router. While powered on, press and hold the button with a paperclip for <strong>10 to 15 seconds</strong> until the power LED begins flashing. Release the button and wait 2 minutes for the unit to reboot with factory default credentials (<strong>User: {brandData.defaultUser || 'admin'} / Pass: {brandData.defaultPass || 'admin'}</strong>).
             </p>
           </section>
 
           {/* Other Popular Brands Grid */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <section class="g-card p-4 sm:p-5 space-y-3">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
               Other Popular Router Brands
             </h2>
             <div class="flex flex-wrap gap-2">
               {otherBrands.map(b => (
                 <a 
                   href={`${base}/${b.slug}`}
-                  class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-brand-800 dark:hover:text-brand-400 transition-colors"
+                  class="g-chip"
                 >
                   {b.name}
                 </a>
@@ -761,44 +761,44 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 flex-wrap">
-            <a href={`${base}/`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">Home</a>
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] flex-wrap">
+            <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
-            <a href={`${base}/routers`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">Routers</a>
+            <a href={`${base}/routers`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Routers</a>
             <span>/</span>
             {brandSlug ? (
-              <a href={`${base}/${brandSlug}`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">{model.brand}</a>
+              <a href={`${base}/${brandSlug}`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">{model.brand}</a>
             ) : (
               <span>{model.brand}</span>
             )}
             <span>/</span>
-            <span class="text-slate-900 dark:text-slate-200 font-semibold">{model.model}</span>
+            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{model.model}</span>
           </nav>
 
           {/* Model Header Card */}
-          <header class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <header class="g-card p-5 sm:p-7 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
               <div>
-                <div class="flex items-center gap-2 flex-wrap mb-2">
-                  <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                <div class="flex items-center gap-2 flex-wrap mb-2.5">
+                  <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8]">
                     {model.category}
                   </span>
                   {model.wifiStandard && (
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#fce8e6] dark:bg-[#4c1d1a] text-[#ea4335] dark:text-[#f28b82] border border-[#fad2cf] dark:border-[#ea4335]">
                       {model.wifiStandard}
                     </span>
                   )}
                   {model.speedRating && (
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853]">
                       {model.speedRating}
                     </span>
                   )}
                 </div>
 
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
                   {model.brand} {model.model}
                 </h1>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
                   {model.useCase}
                 </p>
               </div>
@@ -808,7 +808,7 @@ if (type === 'ip') {
                   href={`http://${model.ip}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-95 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+                  class="g-btn-primary"
                 >
                   <span>Open http://{model.ip}</span>
                   <span class="text-xs">↗</span>
@@ -818,12 +818,12 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
                     {ipSlug ? (
-                      <a href={`${base}/${ipSlug}`} class="text-brand-700 dark:text-brand-400 hover:underline">
+                      <a href={`${base}/${ipSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                         {model.ip}
                       </a>
                     ) : (
@@ -833,39 +833,39 @@ if (type === 'ip') {
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={model.ip}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Factory Username</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Username</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
                     {model.username || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={model.username}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Factory Password</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Password</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
                     {model.password || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={model.password}
                 >
                   📋 Copy
@@ -875,25 +875,25 @@ if (type === 'ip') {
           </header>
 
           {/* Technical Specifications Matrix */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-              <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <section class="g-card p-5 sm:p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
                 <span>⚙️</span>
                 Technical Hardware Specifications
               </h2>
-              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <span class="text-xs font-semibold text-[#5f6368] dark:text-[#9aa0a6]">
                 {model.series || `${model.brand} Hardware`}
               </span>
             </div>
 
-            <div class="overflow-x-auto rounded-xl border border-slate-200/80 dark:border-slate-800">
+            <div class="overflow-x-auto rounded-2xl border border-[#e8eaed] dark:border-[#3c4043]">
               <table class="w-full text-xs text-left">
-                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 w-1/3 bg-slate-50/30 dark:bg-slate-950/20">Manufacturer</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">
+                <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043]">
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] w-1/3 bg-[#f8fafd] dark:bg-[#202124]">Manufacturer</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
                       {brandSlug ? (
-                        <a href={`${base}/${brandSlug}`} class="text-brand-700 dark:text-brand-400 hover:underline">
+                        <a href={`${base}/${brandSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                           {model.brand}
                         </a>
                       ) : (
@@ -901,42 +901,42 @@ if (type === 'ip') {
                       )}
                     </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Product Series</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">{model.series || `${model.brand} Series`}</td>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Product Series</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.series || `${model.brand} Series`}</td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Device Class / Category</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">
-                      <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium">
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Device Class / Category</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
+                      <span class="px-2.5 py-0.5 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#e8eaed] font-medium">
                         {model.category}
                       </span>
                     </td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Wireless Standard</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">{model.wifiStandard || 'N/A (Wired Gateway)'}</td>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Wireless Standard</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.wifiStandard || 'N/A (Wired Gateway)'}</td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Speed Rating</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">{model.speedRating || 'Gigabit Class'}</td>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Speed Rating</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.speedRating || 'Gigabit Class'}</td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Ethernet & Fiber Ports</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">{model.ports}</td>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Ethernet & Fiber Ports</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.ports}</td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Routing / Firewall Throughput</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">{model.throughput || 'Full Line-Rate Gigabit'}</td>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Routing / Firewall Throughput</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.throughput || 'Full Line-Rate Gigabit'}</td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Operating System / Firmware</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">{model.os || `${model.brand} Firmware`}</td>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Operating System / Firmware</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.os || `${model.brand} Firmware`}</td>
                   </tr>
-                  <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-850/50">
-                    <th class="py-3 px-4 font-bold text-slate-500 dark:text-slate-400 bg-slate-50/30 dark:bg-slate-950/20">Default Gateway URL</th>
-                    <td class="py-3 px-4 font-semibold text-slate-900 dark:text-white">
-                      <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-brand-700 dark:text-brand-400 hover:underline">
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Default Gateway URL</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
+                      <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                         http://{model.ip} ↗
                       </a>
                     </td>
@@ -946,44 +946,44 @@ if (type === 'ip') {
             </div>
           </section>
 
-          {/* Mid Ad Slot */}
+          <!-- Mid Ad Slot -->
           <AdBanner format="horizontal" />
 
           {/* Setup Walkthrough */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-            <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+          <section class="g-card p-5 sm:p-6 space-y-4">
+            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
               <span class="text-lg">📖</span>
-              <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
                 How to Log In & Set Up Your {model.brand} {model.model}
               </h2>
             </div>
             <ol class="space-y-3">
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-slate-50/70 dark:bg-slate-850/50 border border-slate-200/70 dark:border-slate-800">
-                <span class="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-600 text-white font-black flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   1
                 </span>
                 <span class="pt-0.5 leading-relaxed">
                   <strong>Connect Your Device:</strong> Plug your PC into any LAN port on the <strong>{model.brand} {model.model}</strong> using an Ethernet cable, or connect to the default Wi-Fi SSID printed on the router label.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-slate-50/70 dark:bg-slate-850/50 border border-slate-200/70 dark:border-slate-800">
-                <span class="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-600 text-white font-black flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#34a853] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   2
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono text-xs font-bold text-brand-700 dark:text-brand-300">http://{model.ip}</code> into the address bar.
+                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8]">http://{model.ip}</code> into the address bar.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-slate-50/70 dark:bg-slate-850/50 border border-slate-200/70 dark:border-slate-800">
-                <span class="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-600 text-white font-black flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#f9ab00] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   3
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Enter Factory Credentials:</strong> Enter username <strong class="font-mono text-slate-900 dark:text-white">"{model.username}"</strong> and password <strong class="font-mono text-slate-900 dark:text-white">"{model.password}"</strong>, then click Login.
+                  <strong>Enter Factory Credentials:</strong> Enter username <strong class="font-mono text-[#202124] dark:text-white">"{model.username}"</strong> and password <strong class="font-mono text-[#202124] dark:text-white">"{model.password}"</strong>, then click Login.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-slate-50/70 dark:bg-slate-850/50 border border-slate-200/70 dark:border-slate-800">
-                <span class="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-600 text-white font-black flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#ea4335] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   4
                 </span>
                 <span class="pt-0.5 leading-relaxed">
@@ -995,22 +995,22 @@ if (type === 'ip') {
 
           {/* Sibling Hardware Models Interlink */}
           {siblingModels.length > 0 && (
-            <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
-              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <section class="g-card p-4 sm:p-5 space-y-3">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
                 Related {model.brand} Hardware Models
               </h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {siblingModels.map(s => (
                   <a 
                     href={`${base}/${s.slug}`}
-                    class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 transition-colors block space-y-1.5"
+                    class="p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] border border-[#e8eaed] dark:border-[#3c4043] transition-colors block space-y-1.5"
                   >
-                    <div class="text-xs font-bold text-slate-900 dark:text-white truncate">
+                    <div class="text-xs font-bold text-[#202124] dark:text-white truncate">
                       {s.model}
                     </div>
-                    <div class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
+                    <div class="text-[11px] text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-between">
                       <span class="truncate max-w-[120px]">{s.category}</span>
-                      <span class="font-mono text-brand-700 dark:text-brand-400 font-bold">{s.ip}</span>
+                      <span class="font-mono text-[#1a73e8] dark:text-[#8ab4f8] font-bold">{s.ip}</span>
                     </div>
                   </a>
                 ))}
@@ -1031,24 +1031,24 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-            <a href={`${base}/`} class="hover:text-brand-800 dark:hover:text-brand-400 transition-colors">Home</a>
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+            <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
-            <span class="text-slate-900 dark:text-slate-200 font-semibold">{ispData.name}</span>
+            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ispData.name}</span>
           </nav>
 
           {/* Hero Header Card */}
-          <header class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+          <header class="g-card p-5 sm:p-7 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
               <div>
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 mb-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
                   Fiber Broadband Provider
                 </div>
-                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
                   {ispData.name} Router Login & Setup Guide
                 </h1>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
                   {ispData.description}
                 </p>
               </div>
@@ -1058,7 +1058,7 @@ if (type === 'ip') {
                   href={`http://${ispData.defaultIp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs sm:text-sm font-bold shadow-md transition-all"
+                  class="g-btn-primary"
                 >
                   <span>Open http://{ispData.defaultIp}</span>
                   <span class="text-xs">↗</span>
@@ -1068,42 +1068,42 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">{ispData.defaultIp}</div>
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ispData.defaultIp}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={ispData.defaultIp}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default User</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">{ispData.defaultUser}</div>
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default User</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ispData.defaultUser}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={ispData.defaultUser}
                 >
                   📋 Copy
                 </button>
               </div>
 
-              <div class="bg-slate-50 dark:bg-slate-800/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
                 <div>
-                  <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">Default Pass</div>
-                  <div class="text-sm font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">{ispData.defaultPass}</div>
+                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Pass</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ispData.defaultPass}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-2.5 py-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
                   data-copy={ispData.defaultPass}
                 >
                   📋 Copy
@@ -1113,17 +1113,17 @@ if (type === 'ip') {
           </header>
 
           {/* Step-by-Step ONT Setup Guide */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-            <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+          <section class="g-card p-5 sm:p-6 space-y-4">
+            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
               <span class="text-lg">🛠️</span>
-              <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
                 Step-by-Step {ispData.name} ONT Setup Guide
               </h2>
             </div>
             <ol class="space-y-3">
               {ispData.instructions.map((step, idx) => (
-                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 p-3 rounded-xl bg-slate-50/70 dark:bg-slate-850/50 border border-slate-200/70 dark:border-slate-800">
-                  <span class="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white font-black flex items-center justify-center text-xs shadow-xs">
+                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#34a853] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
                   </span>
                   <span class="pt-0.5 leading-relaxed">{step}</span>
@@ -1133,15 +1133,15 @@ if (type === 'ip') {
           </section>
 
           {/* Other Fiber Broadband Providers Grid */}
-          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          <section class="g-card p-4 sm:p-5 space-y-3">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
               Other Fiber Broadband Providers
             </h2>
             <div class="flex flex-wrap gap-2">
               {otherIsps.map(i => (
                 <a 
                   href={`${base}/${i.slug}`}
-                  class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-emerald-800 dark:hover:text-emerald-400 transition-colors"
+                  class="g-chip"
                 >
                   {i.name} ({i.defaultIp})
                 </a>
@@ -1158,14 +1158,14 @@ if (type === 'ip') {
     {/* ========================================================= */}
     {/* FAQ ACCORDION SECTION (STRICTLY JUST ABOVE FOOTER) */}
     {/* ========================================================= */}
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+    <section class="g-card p-5 sm:p-7 space-y-4">
+      <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
         <span class="text-lg">❓</span>
         <div>
-          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+          <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
             Frequently Asked Questions & Answers
           </h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
             Common troubleshooting solutions and login assistance
           </p>
         </div>
@@ -1180,15 +1180,15 @@ if (type === 'ip') {
           ];
 
           return faqsList.map(faq => (
-            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
                   {faq.question}
                 </span>
-                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1213,15 +1213,15 @@ if (type === 'ip') {
           ];
 
           return brandFaqs.map(faq => (
-            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
                   {faq.question}
                 </span>
-                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1246,15 +1246,15 @@ if (type === 'ip') {
           ];
 
           return modelFaqs.map(faq => (
-            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
                   {faq.question}
                 </span>
-                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1279,15 +1279,15 @@ if (type === 'ip') {
           ];
 
           return ispFaqs.map(faq => (
-            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
                   {faq.question}
                 </span>
-                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1309,13 +1309,13 @@ if (type === 'ip') {
       navigator.clipboard.writeText(textToCopy).then(() => {
         const originalText = button.innerHTML;
         button.innerHTML = '✓ Copied';
-        button.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
-        button.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300');
+        button.classList.add('bg-[#34a853]', 'text-white', 'border-[#34a853]');
+        button.classList.remove('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]');
 
         setTimeout(() => {
           button.innerHTML = originalText;
-          button.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
-          button.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300');
+          button.classList.remove('bg-[#34a853]', 'text-white', 'border-[#34a853]');
+          button.classList.add('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]');
         }, 1500);
       });
     });

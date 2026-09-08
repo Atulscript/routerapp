@@ -7,7 +7,7 @@ import BrandCard from '../components/BrandCard.astro';
 import IspCard from '../components/IspCard.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
-import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
+import { GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = "192.168.1.1 Router Admin Login, Passwords & Setup Guide | 19216811.page";
@@ -111,72 +111,101 @@ const schema = [
   ogType="website"
 >
   
-  <!-- Modern Sleek Hero Section with Vibrant Background Accents -->
-  <section class="relative bg-gradient-to-b from-white via-sky-50/30 to-slate-50 dark:from-slate-950 dark:via-slate-900/60 dark:to-slate-950 py-8 sm:py-12 border-b border-slate-200/80 dark:border-slate-800">
+  <!-- ========================================================= -->
+  <!-- 1. GOOGLE-STYLE HERO & KNOWLEDGE ONEBOX SECTION -->
+  <!-- ========================================================= -->
+  <section class="relative pt-6 sm:pt-10 pb-8 sm:pb-12 border-b border-[#e8eaed] dark:border-[#3c4043] bg-gradient-to-b from-white via-[#f8fafd] to-white dark:from-[#202124] dark:via-[#292a2d]/40 dark:to-[#202124]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       
-      <!-- Animated Status Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold tracking-tight mb-4 shadow-2xs hover:shadow-xs transition-shadow">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span class="font-bold text-slate-900 dark:text-white">19216811.page</span>
-        <span class="text-slate-300 dark:text-slate-700">|</span>
-        <span class="text-slate-600 dark:text-slate-400 font-medium">Universal Router Gateway Directory</span>
+      <!-- Google Brand Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-xs font-medium mb-5 shadow-2xs">
+        <div class="flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-[#4285f4]"></span>
+          <span class="w-2 h-2 rounded-full bg-[#ea4335]"></span>
+          <span class="w-2 h-2 rounded-full bg-[#fbbc05]"></span>
+          <span class="w-2 h-2 rounded-full bg-[#34a853]"></span>
+        </div>
+        <span class="font-bold text-[#202124] dark:text-[#e8eaed]">Universal Router Gateway Directory</span>
+        <span class="text-[#dadce0] dark:text-[#5f6368]">|</span>
+        <span class="text-[#5f6368] dark:text-[#9aa0a6]">400+ Models Indexed</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 font-sans leading-tight">
-        192.168.1.1 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600 dark:from-brand-400 dark:via-sky-400 dark:to-indigo-400">Router Admin Login</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#202124] dark:text-white tracking-tight mb-3 font-sans leading-tight">
+        192.168.1.1 <span class="text-[#1a73e8] dark:text-[#8ab4f8]">Router Admin Login</span>
       </h1>
       
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto mb-6 leading-relaxed">
-        Access your wireless router and modem dashboard at <strong>http://192.168.1.1</strong>. Lookup default factory passwords, configure Wi-Fi security, and fix connection errors.
+      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] max-w-xl mx-auto mb-7 leading-relaxed">
+        Instant access to your wireless router gateway dashboard at <strong class="text-[#202124] dark:text-white font-mono">http://192.168.1.1</strong>. Lookup default factory passwords, configure Wi-Fi security, and fix connection errors.
       </p>
 
-      <!-- Primary 192.168.1.1 Command Card with Live Accents -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 text-slate-900 dark:text-white shadow-card hover:shadow-card-hover border border-slate-200/90 dark:border-slate-800 max-w-xl mx-auto mb-5 text-left transition-all duration-200">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <!-- Google Knowledge OneBox (Rich Answer Card for 192.168.1.1) -->
+      <div class="g-onebox max-w-xl mx-auto mb-6 text-left">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-[10px] uppercase font-extrabold tracking-wider text-brand-700 dark:text-brand-300 bg-sky-50 dark:bg-sky-950/60 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-800/80 mb-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Default Gateway Address
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#34a853] animate-pulse"></span>
+              Verified Local Gateway IP
             </div>
-            <div class="text-2xl sm:text-3xl font-mono font-extrabold text-slate-900 dark:text-white mt-1 tracking-tight">
+            <div class="text-2xl sm:text-3xl font-mono font-bold text-[#202124] dark:text-white tracking-tight">
               192.168.1.1
             </div>
-            <div class="mt-2.5 flex flex-wrap gap-2 text-xs font-mono">
-              <span class="bg-slate-100/90 dark:bg-slate-800 px-2.5 py-1 rounded-lg text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700">User: <strong class="text-slate-900 dark:text-white font-bold">admin</strong></span>
-              <span class="bg-slate-100/90 dark:bg-slate-800 px-2.5 py-1 rounded-lg text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700">Pass: <strong class="text-slate-900 dark:text-white font-bold">admin / password</strong></span>
+            <div class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
+              Default for TP-Link, Netgear, ASUS, Linksys, Cisco, Zyxel
             </div>
           </div>
-          
+
           <a 
             href="http://192.168.1.1" 
             target="_blank" 
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-900 dark:bg-brand-600 hover:bg-brand-600 dark:hover:bg-brand-500 text-white text-xs font-extrabold whitespace-nowrap shadow-xs hover:shadow-md hover:shadow-brand-500/20 transition-all duration-200 active:scale-95 w-full sm:w-auto"
+            class="g-btn-primary w-full sm:w-auto text-center"
           >
-            <span>Open 192.168.1.1</span>
-            <span class="text-sky-300 dark:text-sky-100 group-hover:text-white">↗</span>
+            <span>Open Dashboard</span>
+            <span class="text-xs">↗</span>
           </a>
+        </div>
+
+        <!-- Default Credentials Row with Instant Copy -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+          <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
+            <div>
+              <div class="text-[10px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Default User</div>
+              <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">admin</div>
+            </div>
+            <button 
+              type="button" 
+              class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+              data-copy="admin"
+            >
+              📋 Copy
+            </button>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
+            <div>
+              <div class="text-[10px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Default Password</div>
+              <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">admin / password</div>
+            </div>
+            <button 
+              type="button" 
+              class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+              data-copy="admin"
+            >
+              📋 Copy
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Spotlight Search Bar -->
-      <div class="max-w-xl mx-auto">
-        <SearchBar />
-      </div>
-
-      <!-- Common Gateways Quick Links with Colored Chips -->
-      <div class="mt-4 flex flex-wrap items-center justify-center gap-1.5 text-xs">
-        <span class="text-slate-400 dark:text-slate-500 font-semibold text-[11px] mr-1">Direct Gateway Shortcuts:</span>
-        {otherIps.map(item => (
+      <!-- Quick IP Gateway Chips -->
+      <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+        <span class="font-medium mr-1">Other Common Gateways:</span>
+        {otherIps.slice(0, 5).map(ip => (
           <a 
-            href={`${base}/${item.slug}`} 
-            class="px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono font-bold hover:border-brand-500 dark:hover:border-brand-400 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50/30 dark:hover:bg-slate-800 transition-all shadow-2xs hover:scale-105"
+            href={`${base}/${ip.slug}`}
+            class="g-chip font-mono text-[11px]"
           >
-            {item.ip}
+            {ip.ip}
           </a>
         ))}
       </div>
@@ -184,202 +213,243 @@ const schema = [
     </div>
   </section>
 
-  <!-- Leaderboard Ad Slot -->
-  <div class="max-w-5xl mx-auto px-4 pt-4">
-    <AdBanner format="leaderboard" />
-  </div>
+  <!-- Top Leaderboard Ad Slot -->
+  <AdBanner format="leaderboard" />
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 space-y-8">
-    
-    <!-- 1. Interactive Brand & Model Password Table -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-6 shadow-card">
-      <div class="max-w-2xl mb-2">
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/80 text-brand-700 dark:text-brand-300 text-[10px] font-bold uppercase tracking-wider">
-          🔑 Brand Password Database
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8">
+
+    <!-- ========================================================= -->
+    <!-- 2. GOOGLE MATERIAL 3 DIAGNOSTIC TOOLS GRID -->
+    <!-- ========================================================= -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white tracking-tight">
+            Network Diagnostics & Utilities
+          </h2>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
+            Free online tools for bandwidth testing, IP subnetting, and Wi-Fi sharing
+          </p>
         </div>
-        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1.5">
-          Find Default Passwords by Router Brand
-        </h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">
-          Select your manufacturer to view default factory credentials, management IP, and protocol.
-        </p>
+        <a href={`${base}/tools`} class="text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline flex items-center gap-1">
+          <span>All Tools</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        
+        <!-- Speed Test Tool Card -->
+        <a href={`${base}/speed-test`} class="g-card p-4 flex flex-col justify-between group">
+          <div class="space-y-2.5">
+            <div class="w-10 h-10 rounded-2xl bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center text-lg font-bold">
+              ⚡
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+                Internet Speed Test
+              </h3>
+              <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
+                Test real-time download, upload bandwidth, jitter, and latency.
+              </p>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-between">
+            <span>Run Benchmark</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Subnet Calculator Tool Card -->
+        <a href={`${base}/subnet-calculator`} class="g-card p-4 flex flex-col justify-between group">
+          <div class="space-y-2.5">
+            <div class="w-10 h-10 rounded-2xl bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] flex items-center justify-center text-lg font-bold">
+              🧮
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+                CIDR Subnet Calculator
+              </h3>
+              <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
+                Calculate usable IP host ranges, broadcast, and wildcard masks.
+              </p>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#34a853] dark:text-[#81c995] flex items-center justify-between">
+            <span>Calculate Subnet</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- What Is My IP Card -->
+        <a href={`${base}/what-is-my-ip`} class="g-card p-4 flex flex-col justify-between group">
+          <div class="space-y-2.5">
+            <div class="w-10 h-10 rounded-2xl bg-[#fef7e0] dark:bg-[#4d3800] text-[#f9ab00] dark:text-[#fdd663] flex items-center justify-center text-lg font-bold">
+              🌐
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+                What Is My IP Address?
+              </h3>
+              <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
+                Detect your public IPv4, IPv6, ISP provider, and gateway IP.
+              </p>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#f9ab00] dark:text-[#fdd663] flex items-center justify-between">
+            <span>Check IP Info</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- WiFi QR Code Generator -->
+        <a href={`${base}/wifi-qr-generator`} class="g-card p-4 flex flex-col justify-between group">
+          <div class="space-y-2.5">
+            <div class="w-10 h-10 rounded-2xl bg-[#fce8e6] dark:bg-[#4c1d1a] text-[#ea4335] dark:text-[#f28b82] flex items-center justify-center text-lg font-bold">
+              📱
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+                Wi-Fi QR Generator
+              </h3>
+              <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
+                Generate printable QR codes to connect phones without passwords.
+              </p>
+            </div>
+          </div>
+          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#ea4335] dark:text-[#f28b82] flex items-center justify-between">
+            <span>Generate QR</span>
+            <span>→</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 3. INTERACTIVE ROUTER HARDWARE DIRECTORY -->
+    <!-- ========================================================= -->
+    <section class="g-card p-5 sm:p-7 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white flex items-center gap-2">
+            <span>📟</span>
+            Router Hardware Models & Default Password Finder
+          </h2>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
+            Instant search across 400+ consumer, gaming, mesh, and enterprise gateways
+          </p>
+        </div>
+        <a href={`${base}/routers`} class="g-btn-secondary w-fit text-xs font-bold">
+          <span>View All Models</span>
+          <span>→</span>
+        </a>
       </div>
 
       <RouterLookupTable />
     </section>
 
-    <!-- In-Content Ad Slot -->
+    <!-- Mid In-Content Ad Banner -->
     <AdBanner format="horizontal" />
 
-    <!-- 2. Router Login & Support Two-Box Guide -->
-    <RouterGuideCard 
-      entityName="Wireless" 
-      ipAddress="192.168.1.1" 
-      brandName="TP-Link, Netgear, ASUS, D-Link" 
-    />
-
-    <!-- 3. Popular Router Brands That Use 192.168.1.1 -->
-    <section>
-      <div class="flex items-center justify-between mb-3.5">
-        <div>
-          <h2 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">Popular Router Brands</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Default passwords and setup tutorials by manufacturer</p>
+    <!-- ========================================================= -->
+    <!-- 4. GOOGLE HELP CENTER STYLE 4-STEP WALKTHROUGH -->
+    <!-- ========================================================= -->
+    <section class="g-card p-5 sm:p-7 space-y-5">
+      <div class="border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold mb-2">
+          📖 Setup Guide
         </div>
-        <a href={`${base}/brands`} class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
-          <span>All Brands</span>
-          <span>→</span>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {BRANDS.slice(0, 9).map(item => (
-          <BrandCard data={item} />
-        ))}
-      </div>
-    </section>
-
-    <!-- 4. ISP Fiber ONT Configuration Section -->
-    <section>
-      <div class="flex items-center justify-between mb-3.5">
-        <div>
-          <h2 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">ISP Fiber Gateway Guides</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Dedicated configuration guides for JioFiber, Airtel Xstream, BSNL, and ACT</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {ISPS.map(item => (
-          <IspCard data={item} />
-        ))}
-      </div>
-    </section>
-
-    <!-- 5. Network Security & Router Hardening -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-5 sm:p-7 shadow-card space-y-4">
-      <div>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider shadow-2xs">
-          🛡️ Network Security Standards
-        </span>
-        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-2">
-          Essential Security Steps After Logging into 192.168.1.1
+        <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white tracking-tight">
+          How to Log In to 192.168.1.1 Router Admin Panel
         </h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-          Follow these three foundational security practices immediately after accessing your router control panel:
+        <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1">
+          Follow these 4 simple steps to connect and manage your router dashboard
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500 transition-colors space-y-2">
-          <div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 flex items-center justify-center text-sm font-bold shadow-2xs">
-            🔒
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Step 1 (Google Blue) -->
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#1a73e8] text-white flex items-center justify-center text-xs font-bold shadow-xs">
+              1
+            </span>
+            <h3 class="text-sm font-bold text-[#202124] dark:text-white">Connect Device to Router</h3>
           </div>
-          <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">1. Change Factory Passwords</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            Never leave <code class="font-mono bg-white dark:bg-slate-900 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 text-[11px] font-bold text-red-600 dark:text-red-400">admin/admin</code> active. Set a custom 16+ character passphrase under <strong>Administration → User Accounts</strong>.
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed pl-11">
+            Connect your PC, smartphone, or laptop using an Ethernet cable (recommended) or via your router's default wireless SSID.
           </p>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-500 transition-colors space-y-2">
-          <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-sm font-bold shadow-2xs">
-            📶
+        <!-- Step 2 (Google Green) -->
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#34a853] text-white flex items-center justify-center text-xs font-bold shadow-xs">
+              2
+            </span>
+            <h3 class="text-sm font-bold text-[#202124] dark:text-white">Open Web Browser</h3>
           </div>
-          <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">2. Upgrade to WPA3 / WPA2-AES</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            Avoid outdated WEP or TKIP cipher modes. Switch your Wi-Fi SSID encryption to <strong>WPA3-Personal</strong> or <strong>WPA2-PSK (AES)</strong> for robust packet protection.
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed pl-11">
+            Open Chrome, Safari, Edge, or Firefox, type <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8]">http://192.168.1.1</code> in the URL bar, and press Enter.
           </p>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-500 transition-colors space-y-2">
-          <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 flex items-center justify-center text-sm font-bold shadow-2xs">
-            🚫
+        <!-- Step 3 (Google Yellow) -->
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#f9ab00] text-white flex items-center justify-center text-xs font-bold shadow-xs">
+              3
+            </span>
+            <h3 class="text-sm font-bold text-[#202124] dark:text-white">Enter Default Credentials</h3>
           </div>
-          <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">3. Disable WPS & Remote WAN</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            Disable Wi-Fi Protected Setup (WPS PIN) and turn off <strong>Remote WAN Management</strong> to prevent brute-force attacks from the public internet.
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed pl-11">
+            Enter username <strong class="text-[#202124] dark:text-white font-mono">admin</strong> and password <strong class="text-[#202124] dark:text-white font-mono">admin</strong> or <strong class="text-[#202124] dark:text-white font-mono">password</strong> on the login screen.
+          </p>
+        </div>
+
+        <!-- Step 4 (Google Red) -->
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#ea4335] text-white flex items-center justify-center text-xs font-bold shadow-xs">
+              4
+            </span>
+            <h3 class="text-sm font-bold text-[#202124] dark:text-white">Configure & Harden Security</h3>
+          </div>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed pl-11">
+            Navigate to Wireless Settings to change default Wi-Fi passwords, enable WPA3/WPA2 encryption, and change master admin credentials.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Quick Diagnostic: Finding Router IP on Any OS -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-5 sm:p-7 shadow-card space-y-4">
-      <div>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/80 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider shadow-2xs">
-          🔍 Gateway Detection
-        </span>
-        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-2">
-          How to Find Your Default Gateway IP Address
-        </h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-          Your device automatically negotiates an IP gateway when connecting to Wi-Fi:
-        </p>
+    <!-- ========================================================= -->
+    <!-- 5. GOOGLE "DID YOU MEAN?" TYPO PITFALL CARD -->
+    <!-- ========================================================= -->
+    <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#fef7e0] dark:bg-[#332a00]/40 border border-[#fbbc04]/60 dark:border-[#fbbc04]/30 space-y-3">
+      <div class="flex items-center gap-2 text-[#b06000] dark:text-[#fdd663] font-bold text-sm sm:text-base">
+        <span>⚠️</span>
+        <span>Common IP Typo Pitfalls (192.168.l.l vs 192.168.1.1)</span>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 text-xs">
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-500 transition-colors space-y-1.5">
-          <div class="flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-xs sm:text-sm">
-            <span>💻</span> Windows
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-xs">
-            Press <kbd class="px-1.5 py-0.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded font-mono text-[10px] shadow-2xs">Win + R</kbd>, type <code class="font-mono bg-white dark:bg-slate-900 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 text-[10px] font-bold">cmd</code>, and enter <code class="font-mono bg-white dark:bg-slate-900 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-bold text-brand-700 dark:text-brand-400 text-[10px]">ipconfig</code>. Look for <strong>Default Gateway</strong>.
-          </p>
+      <p class="text-xs text-[#5f6368] dark:text-[#e8eaed] leading-relaxed">
+        Router IP addresses only contain numbers (0-9). Typing letters like "l" (lowercase L) or "o" (letter O) will mistakenly trigger a Google search instead of connecting to your local router:
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono font-bold">
+        <div class="bg-white dark:bg-[#202124] p-2.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] flex flex-col shadow-2xs">
+          <span class="text-[#ea4335] line-through text-[11px]">192.168.l.l</span>
+          <span class="text-[#34a853] font-bold text-xs">✓ 192.168.1.1</span>
         </div>
-
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 transition-colors space-y-1.5">
-          <div class="flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-xs sm:text-sm">
-            <span>🍎</span> macOS
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-xs">
-            Open <strong>System Settings</strong> → <strong>Wi-Fi</strong> → click <strong>Details...</strong> → <strong>TCP/IP</strong>. Check the numerical <strong>Router IP</strong> address.
-          </p>
+        <div class="bg-white dark:bg-[#202124] p-2.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] flex flex-col shadow-2xs">
+          <span class="text-[#ea4335] line-through text-[11px]">192.168.o.1</span>
+          <span class="text-[#34a853] font-bold text-xs">✓ 192.168.0.1</span>
         </div>
-
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-500 transition-colors space-y-1.5">
-          <div class="flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-xs sm:text-sm">
-            <span>📱</span> iPhone / iPad
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-xs">
-            Open <strong>Settings</strong> → <strong>Wi-Fi</strong> → tap the blue <span class="font-bold font-mono px-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded">ⓘ</span> info button next to your Wi-Fi name. Scroll to <strong>Router</strong>.
-          </p>
+        <div class="bg-white dark:bg-[#202124] p-2.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] flex flex-col shadow-2xs">
+          <span class="text-[#ea4335] line-through text-[11px]">19216811</span>
+          <span class="text-[#34a853] font-bold text-xs">✓ 192.168.1.1</span>
         </div>
-
-        <div class="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-500 transition-colors space-y-1.5">
-          <div class="flex items-center gap-1.5 text-slate-900 dark:text-white font-bold text-xs sm:text-sm">
-            <span>🤖</span> Android
-          </div>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-xs">
-            Go to <strong>Settings</strong> → <strong>Network & Internet</strong> → tap Wi-Fi ⚙️ gear icon → <strong>Advanced</strong> to view <strong>Gateway</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Typo Warning Alert Box with High Visual Pop -->
-    <section class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/40 dark:to-orange-950/30 rounded-2xl p-5 sm:p-6 border border-amber-200/90 dark:border-amber-900/60 shadow-card">
-      <div class="max-w-4xl">
-        <div class="flex items-center gap-2 text-amber-950 dark:text-amber-200 font-extrabold text-base mb-2">
-          <span class="text-lg">⚠️</span> Common IP Typo Pitfalls (192.168.l.l vs 192.168.1.1)
-        </div>
-        <p class="text-xs text-amber-900/90 dark:text-amber-300/90 leading-relaxed mb-3.5">
-          Router IP addresses consist exclusively of numerical digits (0-9). Typing letters such as "l" (lowercase L) or "o" (letter O) will mistakenly trigger a search engine lookup instead of connecting to your local hardware:
-        </p>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono font-bold">
-          <div class="bg-white/95 dark:bg-slate-900/90 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/70 flex flex-col shadow-2xs">
-            <span class="text-red-500 dark:text-red-400 line-through text-[11px]">192.168.l.l</span>
-            <span class="text-emerald-700 dark:text-emerald-400 font-extrabold text-xs">✓ 192.168.1.1</span>
-          </div>
-          <div class="bg-white/95 dark:bg-slate-900/90 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/70 flex flex-col shadow-2xs">
-            <span class="text-red-500 dark:text-red-400 line-through text-[11px]">192.168.o.1</span>
-            <span class="text-emerald-700 dark:text-emerald-400 font-extrabold text-xs">✓ 192.168.0.1</span>
-          </div>
-          <div class="bg-white/95 dark:bg-slate-900/90 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/70 flex flex-col shadow-2xs">
-            <span class="text-red-500 dark:text-red-400 line-through text-[11px]">19216811</span>
-            <span class="text-emerald-700 dark:text-emerald-400 font-extrabold text-xs">✓ 192.168.1.1</span>
-          </div>
-          <div class="bg-white/95 dark:bg-slate-900/90 p-2.5 rounded-xl border border-amber-200 dark:border-amber-800/70 flex flex-col shadow-2xs">
-            <span class="text-red-500 dark:text-red-400 line-through text-[11px]">http 192.168 1.1</span>
-            <span class="text-emerald-700 dark:text-emerald-400 font-extrabold text-xs">✓ 192.168.1.1</span>
-          </div>
+        <div class="bg-white dark:bg-[#202124] p-2.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] flex flex-col shadow-2xs">
+          <span class="text-[#ea4335] line-through text-[11px]">http 192.168 1.1</span>
+          <span class="text-[#34a853] font-bold text-xs">✓ 192.168.1.1</span>
         </div>
       </div>
     </section>
@@ -387,46 +457,48 @@ const schema = [
     <!-- Cross-Directory Interlinking Network (Before FAQ) -->
     <RelatedLinksGrid currentSlug="192-168-1-1" />
 
-    <!-- 7. 192.168.1.1 Troubleshooting & FAQ Section (Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-5 sm:p-7 shadow-card space-y-4">
-      <div>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider shadow-2xs">
-          ❓ Help & Answers
-        </span>
-        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-2">
-          Frequently Asked Questions & Troubleshooting
-        </h2>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-          Solutions for unreachable admin portals, IP address conflicts, and forgotten credentials
-        </p>
+    <!-- ========================================================= -->
+    <!-- 6. GOOGLE SEARCH STYLE FAQ ACCORDION (JUST ABOVE FOOTER) -->
+    <!-- ========================================================= -->
+    <section class="g-card p-5 sm:p-7 space-y-4">
+      <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+        <span class="text-lg">❓</span>
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+            Frequently Asked Questions & Answers
+          </h2>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+            Troubleshooting solutions for unreachable portals and forgotten credentials
+          </p>
+        </div>
       </div>
 
       <div class="space-y-3">
         {currentIp.faqs.map(faq => (
-          <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/70 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-150">
-            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+          <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+            <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
               <span class="flex items-center gap-2">
-                <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+                <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
                 {faq.question}
               </span>
-              <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform duration-200 text-xs flex-shrink-0 ml-2">▼</span>
+              <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
             </summary>
-            <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-200/80 dark:border-slate-800 pt-2.5">
+            <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
               {faq.answer}
             </p>
           </details>
         ))}
 
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/70 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-150">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
               How do I change the DNS servers on 192.168.1.1 for faster speeds?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform duration-200 text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-200/80 dark:border-slate-800 pt-2.5">
-            In your router's <strong>DHCP / LAN Settings</strong>, set Primary DNS to <code class="font-mono bg-white dark:bg-slate-950 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-bold text-brand-700 dark:text-brand-400">1.1.1.1</code> (Cloudflare) or <code class="font-mono bg-white dark:bg-slate-950 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-bold text-brand-700 dark:text-brand-400">8.8.8.8</code> (Google), and Secondary DNS to <code class="font-mono bg-white dark:bg-slate-950 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-bold text-brand-700 dark:text-brand-400">1.0.0.1</code> or <code class="font-mono bg-white dark:bg-slate-950 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 font-bold text-brand-700 dark:text-brand-400">8.8.4.4</code>.
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+            In your router's <strong>DHCP / LAN Settings</strong>, set Primary DNS to <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368] font-bold text-[#1a73e8] dark:text-[#8ab4f8]">1.1.1.1</code> (Cloudflare) or <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368] font-bold text-[#1a73e8] dark:text-[#8ab4f8]">8.8.8.8</code> (Google), and Secondary DNS to <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368] font-bold text-[#1a73e8] dark:text-[#8ab4f8]">1.0.0.1</code> or <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368] font-bold text-[#1a73e8] dark:text-[#8ab4f8]">8.8.4.4</code>.
           </p>
         </details>
       </div>
@@ -434,3 +506,26 @@ const schema = [
 
   </div>
 </BaseLayout>
+
+<script>
+  // Single-click copy handler with immediate visual feedback
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const textToCopy = button.getAttribute('data-copy');
+      if (!textToCopy) return;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = button.innerHTML;
+        button.innerHTML = '✓ Copied';
+        button.classList.add('bg-[#34a853]', 'text-white', 'border-[#34a853]');
+        button.classList.remove('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]');
+
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.classList.remove('bg-[#34a853]', 'text-white', 'border-[#34a853]');
+          button.classList.add('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]');
+        }, 1500);
+      });
+    });
+  });
+</script>
