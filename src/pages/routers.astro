@@ -60,6 +60,35 @@ const schema = [
       "position": idx + 1,
       "name": `${item.brand} ${item.model} (${item.ip} - ${item.username})`
     }))
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why do some router models require setting a password on first login?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recent cybersecurity regulations (such as California SB-327 and UK PSTI Act) prohibit manufacturers from shipping routers with generic universal passwords like 'admin'. Modern models prompt the user to set a unique admin password upon initial setup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if my exact router model is not listed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Try the most common gateway IPs for your manufacturer (such as 192.168.1.1 or 192.168.0.1) with 'admin' / 'admin' or check the physical barcode sticker located underneath your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I upgrade my router's firmware through the IP gateway?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, once logged into your router's admin portal, navigate to System Tools or Administration -> Firmware Upgrade to install the latest security patches from the manufacturer."
+        }
+      }
+    ]
   }
 ];
 ---
@@ -75,20 +104,20 @@ const schema = [
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 font-semibold truncate">Router Models</span>
+      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">Router Models</span>
     </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase mb-2 border border-slate-200">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase mb-2 border border-slate-200 dark:border-slate-700">
         📟 Hardware Catalog
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
         Router Models Database
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600">
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
         Lookup default credentials for {allModels.length} router models across {BRANDS.length} manufacturers with protocol specifications.
       </p>
     </header>
@@ -96,30 +125,30 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Interactive Lookup Component -->
-    <div class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card transition-colors">
       <RouterLookupTable />
     </div>
 
     <AdBanner format="horizontal" />
 
     <!-- Master Models Table with Instant Filter -->
-    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3.5">
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 transition-colors">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-base font-bold text-slate-900">Complete Master Hardware List</h2>
-          <p class="text-xs text-slate-500">Filter by typing any model, brand, or IP address</p>
+          <h2 class="text-base font-bold text-slate-900 dark:text-white">Complete Master Hardware List</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Filter by typing any model, brand, or IP address</p>
         </div>
         <input 
           type="text" 
           id="model-filter-input" 
           placeholder="Filter models (e.g. Archer, AX)..." 
-          class="w-full sm:w-60 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:border-brand-500 focus:bg-white outline-none"
+          class="w-full sm:w-60 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white dark:focus:bg-slate-750 outline-none"
         />
       </div>
 
-      <div class="overflow-x-auto rounded-xl border border-slate-200/90 max-h-96 overflow-y-auto custom-scrollbar">
-        <table class="w-full text-left text-xs text-slate-800" id="all-models-master-table">
-          <thead class="sticky top-0 bg-slate-900 font-semibold uppercase tracking-wider text-[11px] text-white z-10 shadow-2xs">
+      <div class="overflow-x-auto rounded-xl border border-slate-200/90 dark:border-slate-800 max-h-96 overflow-y-auto custom-scrollbar">
+        <table class="w-full text-left text-xs text-slate-800 dark:text-slate-200" id="all-models-master-table">
+          <thead class="sticky top-0 bg-slate-900 dark:bg-slate-950 font-semibold uppercase tracking-wider text-[11px] text-white z-10 shadow-2xs">
             <tr>
               <th class="py-2.5 px-3">Brand</th>
               <th class="py-2.5 px-3">Model</th>
@@ -129,31 +158,31 @@ const schema = [
               <th class="py-2.5 px-3 text-right">Password</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 font-mono text-xs" id="master-table-body">
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-xs" id="master-table-body">
             {allModels.map(item => {
               const ipSlug = item.ip === '192.168.1.1' ? '' : item.ip.replace(/\./g, '-');
               const ipUrl = ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`;
               return (
-                <tr class="hover:bg-sky-50/70 master-row">
-                  <td class="py-2 px-3 font-bold font-sans text-slate-900">
-                    <a href={`${base}/${item.brandSlug}`} class="text-brand-700 hover:text-brand-900 hover:underline">
+                <tr class="hover:bg-sky-50/70 dark:hover:bg-slate-800/60 master-row transition-colors">
+                  <td class="py-2 px-3 font-bold font-sans text-slate-900 dark:text-white">
+                    <a href={`${base}/${item.brandSlug}`} class="text-brand-700 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 hover:underline">
                       {item.brand}
                     </a>
                   </td>
-                  <td class="py-2 px-3 font-sans font-medium text-slate-800">{item.model}</td>
+                  <td class="py-2 px-3 font-sans font-medium text-slate-800 dark:text-slate-300">{item.model}</td>
                   <td class="py-2 px-3 font-bold">
                     <div class="inline-flex items-center gap-1">
-                      <a href={ipUrl} class="text-brand-600 hover:underline">
+                      <a href={ipUrl} class="text-brand-600 dark:text-brand-400 hover:underline">
                         {item.ip}
                       </a>
-                      <a href={`http://${item.ip}`} target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600">
+                      <a href={`http://${item.ip}`} target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
                         ↗
                       </a>
                     </div>
                   </td>
-                  <td class="py-2 px-3 text-slate-500 text-[11px]">{item.protocol}</td>
-                  <td class="py-2 px-3 text-slate-700">{item.username}</td>
-                  <td class="py-2 px-3 font-bold text-slate-900 text-right">{item.password}</td>
+                  <td class="py-2 px-3 text-slate-500 dark:text-slate-400 text-[11px]">{item.protocol}</td>
+                  <td class="py-2 px-3 text-slate-700 dark:text-slate-300">{item.username}</td>
+                  <td class="py-2 px-3 font-bold text-slate-900 dark:text-white text-right">{item.password}</td>
                 </tr>
               );
             })}
@@ -163,10 +192,10 @@ const schema = [
     </section>
 
     <!-- Practical Hardware Guide Section -->
-    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3">
-      <h2 class="text-base font-bold text-slate-900">How Model Numbers Affect Default Credentials</h2>
-      <p class="text-xs text-slate-600 leading-relaxed">
-        Manufacturers often update factory credentials across firmware generations. For example, older TP-Link units default to <code>admin/admin</code>, while newer Archer AX WiFi 6 routers require you to establish a secure administrator password upon first connection.
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3 transition-colors">
+      <h2 class="text-base font-bold text-slate-900 dark:text-white">How Model Numbers Affect Default Credentials</h2>
+      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+        Manufacturers often update factory credentials across firmware generations. For example, older TP-Link units default to <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">admin/admin</code>, while newer Archer AX WiFi 6 routers require you to establish a secure administrator password upon first connection.
       </p>
     </section>
 
@@ -174,6 +203,31 @@ const schema = [
     <div>
       <RelatedLinksGrid />
     </div>
+
+    <!-- FAQ Accordion (Positioned Just Above Footer) -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Router Models & Hardware FAQs</h2>
+      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why do some router models require setting a password on first login?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Recent cybersecurity regulations (such as California SB-327 and UK PSTI Act) prohibit manufacturers from shipping routers with generic universal passwords like 'admin'. Modern models prompt the user to set a unique admin password upon initial setup.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">What should I do if my exact router model is not listed?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Try the most common gateway IPs for your manufacturer (such as 192.168.1.1 or 192.168.0.1) with 'admin' / 'admin' or check the physical barcode sticker located underneath your device.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Can I upgrade my router's firmware through the IP gateway?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Yes, once logged into your router's admin portal, navigate to System Tools or Administration -> Firmware Upgrade to install the latest security patches from the manufacturer.
+          </p>
+        </div>
+      </div>
+    </section>
 
   </div>
 </BaseLayout>

@@ -59,69 +59,69 @@ const schema = [
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 font-semibold truncate">About Us</span>
+      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">About Us</span>
     </nav>
 
     <!-- Header -->
-    <header class="space-y-2 border-b border-slate-200/80 pb-6">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase border border-brand-200 shadow-2xs">
+    <header class="space-y-2 border-b border-slate-200/80 dark:border-slate-800 pb-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase border border-brand-200/50 dark:border-brand-800/50 shadow-2xs">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
         Editorial & Mission
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         About 19216811.page
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
         An independent, authoritative directory and educational resource for home network administrators, broadband subscribers, and IT enthusiasts.
       </p>
     </header>
 
     <!-- About Content Cards -->
-    <div class="space-y-6 text-xs sm:text-sm text-slate-700 leading-relaxed bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-card">
+    <div class="space-y-6 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-card transition-colors">
       
       <section class="space-y-3">
-        <h2 class="text-base sm:text-lg font-bold text-slate-900">Our Mission</h2>
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">Our Mission</h2>
         <p>
           Configuring a home router or troubleshooting wireless connectivity should not be a frustrating ordeal. Thousands of users struggle daily with unreachable gateways, forgotten default passwords, or confusing subnets.
         </p>
         <p>
-          <strong>19216811.page</strong> was founded with a single objective: to build a clean, ad-balanced, privacy-first reference directory that demystifies IPv4 private address spaces (<code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-xs">192.168.1.1</code>, <code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-xs">192.168.0.1</code>, <code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-xs">10.0.0.1</code>) and provides verified login procedures for all major router brands.
+          <strong>19216811.page</strong> was founded with a single objective: to build a clean, ad-balanced, privacy-first reference directory that demystifies IPv4 private address spaces (<code class="font-mono bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-1 py-0.5 rounded text-xs">192.168.1.1</code>, <code class="font-mono bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-1 py-0.5 rounded text-xs">192.168.0.1</code>, <code class="font-mono bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-1 py-0.5 rounded text-xs">10.0.0.1</code>) and provides verified login procedures for all major router brands.
         </p>
       </section>
 
-      <section class="space-y-3 pt-2 border-t border-slate-100">
-        <h2 class="text-base sm:text-lg font-bold text-slate-900">Our Editorial & Verification Standards</h2>
+      <section class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">Our Editorial & Verification Standards</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-1.5">
             <span class="text-lg">🧪</span>
-            <h3 class="font-bold text-slate-900">Factory Verified</h3>
-            <p class="text-slate-600 leading-relaxed">
+            <h3 class="font-bold text-slate-900 dark:text-white">Factory Verified</h3>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               All default credentials and IP assignments are cross-referenced with official vendor manuals and documentation.
             </p>
           </div>
 
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-1.5">
             <span class="text-lg">🔒</span>
-            <h3 class="font-bold text-slate-900">Security-First</h3>
-            <p class="text-slate-600 leading-relaxed">
+            <h3 class="font-bold text-slate-900 dark:text-white">Security-First</h3>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               We advocate WPA3 encryption, disabling remote WAN vulnerabilities, and creating strong passphrases over factory defaults.
             </p>
           </div>
 
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-1.5">
             <span class="text-lg">⚡</span>
-            <h3 class="font-bold text-slate-900">Client-Side Privacy</h3>
-            <p class="text-slate-600 leading-relaxed">
+            <h3 class="font-bold text-slate-900 dark:text-white">Client-Side Privacy</h3>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               Our tools process all inputs locally in your browser. No private passwords or Wi-Fi keys are stored or transmitted.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="space-y-3 pt-2 border-t border-slate-100">
-        <h2 class="text-base sm:text-lg font-bold text-slate-900">RFC 1918 Private Address Standards</h2>
+      <section class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">RFC 1918 Private Address Standards</h2>
         <p>
           Our documentation strictly adheres to Internet Engineering Task Force (IETF) RFC 1918 specifications for private IPv4 addressing, covering the 24-bit block (10.0.0.0/8), 20-bit block (172.16.0.0/12), and 16-bit block (192.168.0.0/16).
         </p>

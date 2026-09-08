@@ -27,13 +27,13 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
       
       <!-- Brand Dropdown Selector -->
       <div class="sm:col-span-7">
-        <label for="brand-select" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+        <label for="brand-select" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
           Router Brand
         </label>
         <div class="relative">
           <select 
             id="brand-select" 
-            class="w-full pl-3 pr-8 py-2 bg-slate-50 hover:bg-slate-100/80 border border-slate-300/80 rounded-lg text-slate-900 text-xs font-bold shadow-2xs focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/15 outline-none cursor-pointer appearance-none transition-all"
+            class="w-full pl-3 pr-8 py-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100/80 dark:hover:bg-slate-850 border border-slate-300/80 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white text-xs font-bold shadow-2xs focus:border-brand-500 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-brand-500/15 outline-none cursor-pointer appearance-none transition-all"
           >
             <option value="ALL">-- All Brands ({allModels.length} Models) --</option>
             {brandNames.map(brand => (
@@ -42,7 +42,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
               </option>
             ))}
           </select>
-          <div class="pointer-events-none absolute inset-y-0 right-2.5 flex items-center text-slate-400 text-xs">
+          <div class="pointer-events-none absolute inset-y-0 right-2.5 flex items-center text-slate-400 dark:text-slate-500 text-xs">
             ▼
           </div>
         </div>
@@ -50,7 +50,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
 
       <!-- Quick Filter Search Input -->
       <div class="sm:col-span-5">
-        <label for="table-search-input" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+        <label for="table-search-input" class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
           Filter Models
         </label>
         <div class="relative">
@@ -58,12 +58,12 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
             type="text" 
             id="table-search-input" 
             placeholder="Search model, admin, pass..." 
-            class="w-full pl-3 pr-7 py-2 bg-slate-50 hover:bg-slate-100/80 border border-slate-300/80 rounded-lg text-xs font-medium text-slate-900 focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/15 outline-none shadow-2xs transition-all"
+            class="w-full pl-3 pr-7 py-2 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100/80 dark:hover:bg-slate-850 border border-slate-300/80 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-brand-500/15 outline-none shadow-2xs transition-all"
           />
           <button 
             type="button" 
             id="clear-search-btn" 
-            class="hidden absolute right-2 inset-y-0 text-slate-400 hover:text-slate-600 text-xs font-bold my-auto"
+            class="hidden absolute right-2 inset-y-0 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-xs font-bold my-auto"
           >
             ✕
           </button>
@@ -74,14 +74,14 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
 
     <!-- Quick Brand Pills -->
     <div class="flex flex-wrap items-center gap-1.5 pt-0.5 text-xs">
-      <span class="text-slate-400 font-semibold text-[11px] mr-0.5">Popular:</span>
-      <button type="button" class="brand-pill px-2.5 py-0.5 rounded-full text-[11px] font-semibold border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition-all cursor-pointer" data-brand="ALL">
+      <span class="text-slate-400 dark:text-slate-500 font-semibold text-[11px] mr-0.5">Popular:</span>
+      <button type="button" class="brand-pill px-2.5 py-0.5 rounded-full text-[11px] font-semibold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-all cursor-pointer" data-brand="ALL">
         All
       </button>
       {popularBrands.map(pb => (
         <button 
           type="button" 
-          class={`brand-pill px-2.5 py-0.5 rounded-full text-[11px] font-semibold border transition-all cursor-pointer ${pb === 'TP-Link' ? 'bg-slate-900 text-white border-slate-900 shadow-2xs' : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700'}`}
+          class={`brand-pill px-2.5 py-0.5 rounded-full text-[11px] font-semibold border transition-all cursor-pointer ${pb === 'TP-Link' ? 'bg-slate-900 dark:bg-brand-600 text-white border-slate-900 dark:border-brand-500 shadow-2xs' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
           data-brand={pb}
         >
           {pb}
@@ -91,9 +91,9 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
   </div>
 
   <!-- Sleek Modern Table Container -->
-  <div class="overflow-x-auto border border-slate-200 rounded-xl shadow-2xs bg-white max-h-80 overflow-y-auto custom-scrollbar">
+  <div class="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xs bg-white dark:bg-slate-900 max-h-80 overflow-y-auto custom-scrollbar">
     <table class="w-full text-left border-collapse" id="models-table">
-      <thead class="sticky top-0 z-10 bg-slate-900 text-white text-[11px] font-semibold uppercase tracking-wider shadow-xs">
+      <thead class="sticky top-0 z-10 bg-slate-900 dark:bg-slate-950 text-white text-[11px] font-semibold uppercase tracking-wider shadow-xs">
         <tr>
           <th class="py-2.5 px-3.5 whitespace-nowrap">Brand Guide</th>
           <th class="py-2.5 px-3.5 whitespace-nowrap">Model</th>
@@ -103,16 +103,16 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
           <th class="py-2.5 px-3.5 whitespace-nowrap text-right">Password</th>
         </tr>
       </thead>
-      <tbody id="table-body" class="divide-y divide-slate-100 text-xs text-slate-800 font-sans">
+      <tbody id="table-body" class="divide-y divide-slate-100 dark:divide-slate-800 text-xs text-slate-800 dark:text-slate-200 font-sans">
         <!-- Filled dynamically -->
       </tbody>
     </table>
   </div>
 
   <!-- Footer status bar -->
-  <div class="flex flex-col sm:flex-row justify-between items-center mt-2.5 text-xs text-slate-500 gap-1 px-1">
-    <span id="model-count-text" class="font-medium text-[11px] text-slate-600">Loading models...</span>
-    <span class="text-[11px] text-slate-400">
+  <div class="flex flex-col sm:flex-row justify-between items-center mt-2.5 text-xs text-slate-500 dark:text-slate-400 gap-1 px-1">
+    <span id="model-count-text" class="font-medium text-[11px] text-slate-600 dark:text-slate-300">Loading models...</span>
+    <span class="text-[11px] text-slate-400 dark:text-slate-500">
       Click brand or IP for full setup guide
     </span>
   </div>
@@ -135,12 +135,12 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
     navigator.clipboard.writeText(pw);
     const origHtml = btn.innerHTML;
     btn.innerHTML = '✓ Copied';
-    btn.classList.remove('bg-slate-100', 'text-slate-700', 'border-slate-200');
+    btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
     btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
     setTimeout(() => {
       btn.innerHTML = origHtml;
       btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
-      btn.classList.add('bg-slate-100', 'text-slate-700', 'border-slate-200');
+      btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
     }, 1500);
   }
   window.copyPassword = copyPassword;
@@ -149,11 +149,11 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
     pills.forEach(pill => {
       const b = pill.getAttribute('data-brand');
       if (b === currentBrand || (b === 'ALL' && currentBrand === 'ALL')) {
-        pill.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
-        pill.classList.add('bg-slate-900', 'text-white', 'border-slate-900', 'shadow-2xs');
+        pill.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
+        pill.classList.add('bg-slate-900', 'dark:bg-brand-600', 'text-white', 'border-slate-900', 'dark:border-brand-500', 'shadow-2xs');
       } else {
-        pill.classList.remove('bg-slate-900', 'text-white', 'border-slate-900', 'shadow-2xs');
-        pill.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+        pill.classList.remove('bg-slate-900', 'dark:bg-brand-600', 'text-white', 'border-slate-900', 'dark:border-brand-500', 'shadow-2xs');
+        pill.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
       }
     });
   }
@@ -193,7 +193,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
     if (filtered.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="6" class="py-8 text-center text-slate-400 italic bg-slate-50/50">
+          <td colspan="6" class="py-8 text-center text-slate-400 dark:text-slate-500 italic bg-slate-50/50 dark:bg-slate-900/50">
             No matching router models found.
           </td>
         </tr>
@@ -202,40 +202,40 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
     }
 
     tbody.innerHTML = filtered.map((item, index) => {
-      const bgClass = index % 2 === 0 ? 'bg-slate-50/60' : 'bg-white';
+      const bgClass = index % 2 === 0 ? 'bg-slate-50/60 dark:bg-slate-900/40' : 'bg-white dark:bg-slate-900/80';
       const cleanIp = item.ip || '192.168.1.1';
       const ipHref = getIpPath(cleanIp);
       const brandHref = `${base}/${item.brandSlug}`;
 
       return `
-        <tr class="${bgClass} hover:bg-sky-50/80 transition-colors">
-          <td class="py-2 px-3.5 font-bold text-slate-900 whitespace-nowrap text-xs">
-            <a href="${brandHref}" class="text-brand-700 hover:text-brand-900 hover:underline inline-flex items-center gap-1">
+        <tr class="${bgClass} hover:bg-sky-50/80 dark:hover:bg-slate-800/80 transition-colors">
+          <td class="py-2 px-3.5 font-bold text-slate-900 dark:text-slate-100 whitespace-nowrap text-xs">
+            <a href="${brandHref}" class="text-brand-700 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 hover:underline inline-flex items-center gap-1">
               ${item.brand}
             </a>
           </td>
-          <td class="py-2 px-3.5 font-medium text-slate-800 whitespace-nowrap text-xs">${item.model}</td>
+          <td class="py-2 px-3.5 font-medium text-slate-800 dark:text-slate-200 whitespace-nowrap text-xs">${item.model}</td>
           <td class="py-2 px-3.5 font-mono font-semibold whitespace-nowrap text-xs">
             <div class="inline-flex items-center gap-1.5">
-              <a href="${ipHref}" class="text-brand-600 hover:text-brand-800 hover:underline" title="View ${cleanIp} guide">
+              <a href="${ipHref}" class="text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 hover:underline" title="View ${cleanIp} guide">
                 ${cleanIp}
               </a>
-              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600" title="Open http://${cleanIp} in new tab">
+              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600 dark:hover:text-brand-400" title="Open http://${cleanIp} in new tab">
                 ↗
               </a>
             </div>
           </td>
-          <td class="py-2 px-3.5 text-slate-500 whitespace-nowrap text-[11px]">
-            <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">${item.protocol}</span>
+          <td class="py-2 px-3.5 text-slate-500 dark:text-slate-400 whitespace-nowrap text-[11px]">
+            <span class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-mono text-[10px]">${item.protocol}</span>
           </td>
-          <td class="py-2 px-3.5 font-mono text-slate-700 whitespace-nowrap text-xs">${item.username}</td>
-          <td class="py-2 px-3.5 font-mono font-bold text-slate-900 whitespace-nowrap text-xs text-right">
+          <td class="py-2 px-3.5 font-mono text-slate-700 dark:text-slate-300 whitespace-nowrap text-xs">${item.username}</td>
+          <td class="py-2 px-3.5 font-mono font-bold text-slate-900 dark:text-slate-100 whitespace-nowrap text-xs text-right">
             <div class="inline-flex items-center justify-end gap-2">
               <span class="truncate max-w-[90px] sm:max-w-[130px]">${item.password}</span>
               <button 
                 type="button" 
                 onclick="window.copyPassword('${item.password}', this)"
-                class="text-[10px] px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-700 font-sans font-semibold border border-slate-200 transition-all active:scale-95 cursor-pointer shadow-2xs"
+                class="text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 dark:hover:bg-slate-700 hover:text-white text-slate-700 dark:text-slate-300 font-sans font-semibold border border-slate-200 dark:border-slate-700 transition-all active:scale-95 cursor-pointer shadow-2xs"
               >
                 Copy
               </button>

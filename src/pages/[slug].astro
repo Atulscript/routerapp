@@ -300,28 +300,28 @@ if (type === 'ip') {
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
       {type === 'ip' && (
         <>
-          <a href={`${base}/ip-addresses`} class="hover:text-slate-900 transition-colors">Gateway IPs</a>
+          <a href={`${base}/ip-addresses`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Gateway IPs</a>
           <span>/</span>
         </>
       )}
       {type === 'brand' && (
         <>
-          <a href={`${base}/brands`} class="hover:text-slate-900 transition-colors">Brands</a>
+          <a href={`${base}/brands`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Brands</a>
           <span>/</span>
         </>
       )}
       {type === 'isp' && (
         <>
-          <a href={`${base}/default-passwords`} class="hover:text-slate-900 transition-colors">ISPs</a>
+          <a href={`${base}/default-passwords`} class="hover:text-slate-900 dark:hover:text-white transition-colors">ISPs</a>
           <span>/</span>
         </>
       )}
-      <span class="text-slate-800 font-semibold truncate">{pageTitle.split('|')[0]}</span>
+      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">{pageTitle.split('|')[0]}</span>
     </nav>
 
     <AdBanner format="leaderboard" />
@@ -334,31 +334,31 @@ if (type === 'ip') {
       
       return (
         <article class="space-y-6">
-          <header class="border-b border-slate-200/80 pb-5">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 text-brand-700 text-[11px] font-bold font-mono uppercase mb-2 border border-sky-200">
+          <header class="border-b border-slate-200/80 dark:border-slate-800 pb-5">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/60 text-brand-700 dark:text-brand-300 text-[11px] font-bold font-mono uppercase mb-2 border border-sky-200 dark:border-sky-800/80">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               Gateway IP: {ip.ip}
             </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
               {ip.title}
             </h1>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {ip.description}
             </p>
           </header>
 
           <!-- Quick Action Card -->
-          <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Direct Gateway URL</span>
-                <div class="text-2xl font-mono font-extrabold text-slate-900 mt-0.5">http://{ip.ip}</div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 dark:text-slate-500 block">Direct Gateway URL</span>
+                <div class="text-2xl font-mono font-extrabold text-slate-900 dark:text-white mt-0.5">http://{ip.ip}</div>
                 <div class="mt-2 flex flex-wrap gap-2 text-xs font-mono">
-                  <div class="bg-slate-100 px-2.5 py-1 rounded-md text-slate-700">
-                    User: <strong class="text-slate-900">{ip.defaultUser}</strong>
+                  <div class="bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                    User: <strong class="text-slate-900 dark:text-white">{ip.defaultUser}</strong>
                   </div>
-                  <div class="bg-slate-100 px-2.5 py-1 rounded-md text-slate-700">
-                    Pass: <strong class="text-slate-900">{ip.defaultPass}</strong>
+                  <div class="bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                    Pass: <strong class="text-slate-900 dark:text-white">{ip.defaultPass}</strong>
                   </div>
                 </div>
               </div>
@@ -366,7 +366,7 @@ if (type === 'ip') {
                 href={`http://${ip.ip}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold whitespace-nowrap shadow-xs hover:shadow-sm transition-all active:scale-95 w-full sm:w-auto"
+                class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white text-xs font-bold whitespace-nowrap shadow-xs hover:shadow-sm transition-all active:scale-95 w-full sm:w-auto"
               >
                 Open {ip.ip} Portal ↗
               </a>
@@ -374,14 +374,14 @@ if (type === 'ip') {
           </div>
 
           <!-- Other Gateway Shortcuts -->
-          <div class="flex flex-wrap items-center gap-1.5 p-3 bg-white rounded-2xl border border-slate-200/90 shadow-2xs text-xs">
-            <span class="text-slate-400 font-bold text-[11px] mr-1">Other Gateway IPs:</span>
+          <div class="flex flex-wrap items-center gap-1.5 p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs text-xs">
+            <span class="text-slate-400 dark:text-slate-500 font-bold text-[11px] mr-1">Other Gateway IPs:</span>
             {otherIpsList.map(other => {
               const otherUrl = other.slug === '192-168-1-1' ? `${base}/` : `${base}/${other.slug}`;
               return (
                 <a 
                   href={otherUrl}
-                  class="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-sky-50 border border-slate-200/80 font-mono font-bold text-slate-700 hover:text-brand-600 transition-colors"
+                  class="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700 font-mono font-bold text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   {other.ip}
                 </a>
@@ -399,12 +399,12 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           <!-- Clickable Common Brands for this IP -->
-          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-2.5">
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
             <div class="flex items-center justify-between">
-              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Routers & Brands using {ip.ip}
               </h2>
-              <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 hover:underline">
+              <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 dark:text-brand-400 hover:underline">
                 All Brands →
               </a>
             </div>
@@ -414,13 +414,13 @@ if (type === 'ip') {
                 return bSlug ? (
                   <a 
                     href={`${base}/${bSlug}`}
-                    class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 text-xs font-bold text-slate-800 hover:text-brand-600 hover:border-sky-300 transition-all flex items-center gap-1"
+                    class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 hover:border-sky-300 dark:hover:border-sky-600 transition-all flex items-center gap-1"
                   >
                     <span>{brand}</span>
-                    <span class="text-[10px] text-slate-400">→</span>
+                    <span class="text-[10px] text-slate-400 dark:text-slate-500">→</span>
                   </a>
                 ) : (
-                  <span class="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-800">
+                  <span class="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200">
                     {brand}
                   </span>
                 );
@@ -430,15 +430,15 @@ if (type === 'ip') {
 
           <!-- Router Models Using This IP Table -->
           {matchingModels.length > 0 && (
-            <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-3">
+            <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
               <div class="flex items-center justify-between">
                 <div>
-                  <h2 class="text-base font-bold text-slate-900">
+                  <h2 class="text-base font-bold text-slate-900 dark:text-white">
                     Router Hardware Models Configured at {ip.ip}
                   </h2>
-                  <p class="text-xs text-slate-500">Verified factory credentials for hardware utilizing {ip.ip}</p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Verified factory credentials for hardware utilizing {ip.ip}</p>
                 </div>
-                <a href={`${base}/routers`} class="text-xs font-semibold text-brand-600 hover:underline">
+                <a href={`${base}/routers`} class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">
                   All Hardware ({BRANDS.reduce((acc, b) => acc + b.models.length, 0)}) →
                 </a>
               </div>
@@ -447,14 +447,14 @@ if (type === 'ip') {
           )}
 
           <!-- Step-by-Step WiFi Configuration Guide -->
-          <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3">
-            <h2 class="text-base sm:text-lg font-bold text-slate-900">
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
               How to Change Your Wi-Fi Password at {ip.ip}
             </h2>
-            <p class="text-xs text-slate-600 leading-relaxed">
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               Once you have successfully logged in using your default credentials, securing your wireless network is simple:
             </p>
-            <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-700 font-medium pl-1">
+            <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-700 dark:text-slate-300 font-medium pl-1">
               <li>Navigate to the <strong>Wireless</strong> or <strong>Wi-Fi Settings</strong> menu tab on the left dashboard.</li>
               <li>Locate the <strong>SSID Name</strong> field to rename your network (e.g., <em>Home_5G</em>).</li>
               <li>Under <strong>Security Mode</strong>, select <strong>WPA2-PSK (AES)</strong> or <strong>WPA3-Personal</strong>.</li>
@@ -462,26 +462,6 @@ if (type === 'ip') {
               <li>Click <strong>Save / Apply</strong>. Your connected devices will briefly disconnect and require the new password.</li>
             </ol>
           </section>
-
-          <!-- FAQ Accordion -->
-          {ip.faqs && ip.faqs.length > 0 && (
-            <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3">
-              <h2 class="text-base sm:text-lg font-bold text-slate-900">Troubleshooting & Questions for {ip.ip}</h2>
-              <div class="space-y-2">
-                {ip.faqs.map(faq => (
-                  <details class="group border border-slate-200/80 rounded-xl p-3 open:bg-slate-50/50 transition-colors">
-                    <summary class="font-bold text-slate-900 cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                      {faq.question}
-                      <span class="text-slate-400 group-open:rotate-180 transition-transform text-xs">▼</span>
-                    </summary>
-                    <p class="text-xs text-slate-600 mt-2 leading-relaxed border-t border-slate-100 pt-2">
-                      {faq.answer}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </section>
-          )}
         </article>
       );
     })()}
@@ -496,48 +476,48 @@ if (type === 'ip') {
 
       return (
         <article class="space-y-6">
-          <header class="border-b border-slate-200/80 pb-5">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase mb-2">
+          <header class="border-b border-slate-200/80 dark:border-slate-800 pb-5">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase mb-2 border border-slate-200 dark:border-slate-700">
               Brand Directory
             </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
               {brand.name} Router Default Passwords & Login Guide
             </h1>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {brand.description}
             </p>
           </header>
 
           <!-- Summary info cards with Interlinks -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div class="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-              <span class="text-[11px] text-slate-400 block mb-0.5 font-medium">Default Gateway IP</span>
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-800 shadow-2xs">
+              <span class="text-[11px] text-slate-400 dark:text-slate-500 block mb-0.5 font-medium">Default Gateway IP</span>
               {ipUrl ? (
-                <a href={ipUrl} class="font-mono font-bold text-brand-600 text-sm hover:underline flex items-center justify-between">
+                <a href={ipUrl} class="font-mono font-bold text-brand-600 dark:text-brand-400 text-sm hover:underline flex items-center justify-between">
                   <span>{brand.defaultIp}</span>
-                  <span class="text-xs text-slate-400">Setup Guide →</span>
+                  <span class="text-xs text-slate-400 dark:text-slate-500">Setup Guide →</span>
                 </a>
               ) : (
-                <span class="font-mono font-bold text-slate-900 text-sm">{brand.defaultIp}</span>
+                <span class="font-mono font-bold text-slate-900 dark:text-white text-sm">{brand.defaultIp}</span>
               )}
             </div>
-            <div class="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-              <span class="text-[11px] text-slate-400 block mb-0.5 font-medium">Default Username</span>
-              <span class="font-mono font-bold text-slate-900 text-sm">{brand.defaultUser}</span>
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-800 shadow-2xs">
+              <span class="text-[11px] text-slate-400 dark:text-slate-500 block mb-0.5 font-medium">Default Username</span>
+              <span class="font-mono font-bold text-slate-900 dark:text-white text-sm">{brand.defaultUser}</span>
             </div>
-            <div class="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
-              <span class="text-[11px] text-slate-400 block mb-0.5 font-medium">Default Password</span>
-              <span class="font-mono font-bold text-slate-900 text-sm">{brand.defaultPass}</span>
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-800 shadow-2xs">
+              <span class="text-[11px] text-slate-400 dark:text-slate-500 block mb-0.5 font-medium">Default Password</span>
+              <span class="font-mono font-bold text-slate-900 dark:text-white text-sm">{brand.defaultPass}</span>
             </div>
           </div>
 
           <!-- Models Table -->
-          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-3">
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
             <div class="flex items-center justify-between">
-              <h2 class="text-base font-bold text-slate-900">
+              <h2 class="text-base font-bold text-slate-900 dark:text-white">
                 {brand.name} Model Credentials Database
               </h2>
-              <a href={`${base}/routers`} class="text-xs font-semibold text-brand-600 hover:underline">
+              <a href={`${base}/routers`} class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">
                 Hardware DB →
               </a>
             </div>
@@ -554,12 +534,12 @@ if (type === 'ip') {
           />
 
           <!-- Other Router Brands Cross-Links -->
-          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-2.5">
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
             <div class="flex items-center justify-between">
-              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Compare with Other Router Manufacturers
               </h2>
-              <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 hover:underline">
+              <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 dark:text-brand-400 hover:underline">
                 All Brands ({BRANDS.length}) →
               </a>
             </div>
@@ -567,7 +547,7 @@ if (type === 'ip') {
               {otherBrands.slice(0, 10).map(b => (
                 <a 
                   href={`${base}/${b.slug}`}
-                  class="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200/80 text-xs font-semibold text-slate-800 hover:text-brand-600 transition-colors"
+                  class="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
                 >
                   {b.name}
                 </a>
@@ -587,42 +567,42 @@ if (type === 'ip') {
 
       return (
         <article class="space-y-6">
-          <header class="border-b border-slate-200/80 pb-5">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-bold uppercase mb-2 border border-emerald-200">
+          <header class="border-b border-slate-200/80 dark:border-slate-800 pb-5">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold uppercase mb-2 border border-emerald-200 dark:border-emerald-800/80">
               Internet Service Provider
             </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
               {isp.name} Router Login & Setup Guide
             </h1>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {isp.description}
             </p>
           </header>
 
           <!-- Quick Action Card with Interlink to IP -->
-          <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Gateway Address</span>
+                <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Gateway Address</span>
                 <div class="flex items-center gap-2 mt-0.5">
                   {ipUrl ? (
-                    <a href={ipUrl} class="text-2xl font-mono font-bold text-brand-600 hover:underline" title={`View ${isp.defaultIp} guide`}>
+                    <a href={ipUrl} class="text-2xl font-mono font-bold text-brand-600 dark:text-brand-400 hover:underline" title={`View ${isp.defaultIp} guide`}>
                       {isp.defaultIp}
                     </a>
                   ) : (
-                    <span class="text-2xl font-mono font-bold text-slate-900">{isp.defaultIp}</span>
+                    <span class="text-2xl font-mono font-bold text-slate-900 dark:text-white">{isp.defaultIp}</span>
                   )}
-                  <span class="text-xs text-slate-400 font-sans font-medium">(Click for IP guide)</span>
+                  <span class="text-xs text-slate-400 dark:text-slate-500 font-sans font-medium">(Click for IP guide)</span>
                 </div>
-                <div class="mt-1.5 text-xs font-mono text-slate-600">
-                  Default Credentials: <strong>{isp.defaultUser}</strong> / <strong>{isp.defaultPass}</strong>
+                <div class="mt-1.5 text-xs font-mono text-slate-600 dark:text-slate-300">
+                  Default Credentials: <strong class="text-slate-900 dark:text-white">{isp.defaultUser}</strong> / <strong class="text-slate-900 dark:text-white">{isp.defaultPass}</strong>
                 </div>
               </div>
               <a 
                 href={`http://${isp.defaultIp}`}
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs"
+                class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white text-xs font-semibold shadow-xs transition-all"
               >
                 Open {isp.defaultIp} ↗
               </a>
@@ -637,37 +617,37 @@ if (type === 'ip') {
           />
 
           <!-- Fiber ONT Indicator Diagnostics for ISPs -->
-          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-3">
-            <h2 class="text-base font-bold text-slate-900">
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
+            <h2 class="text-base font-bold text-slate-900 dark:text-white">
               Understanding Your {isp.name} ONT Indicator Lights
             </h2>
-            <p class="text-xs text-slate-600 leading-relaxed">
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               If your broadband shows "Connected, No Internet", glance at the front LED indicators on your fiber optical modem before logging in:
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200/80 space-y-1">
-                <span class="font-bold text-emerald-900 flex items-center gap-1.5 text-xs">
+              <div class="p-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/70 space-y-1">
+                <span class="font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5 text-xs">
                   <span class="w-2 h-2 rounded-full bg-emerald-500"></span> PON Light (Solid Green)
                 </span>
-                <p class="text-emerald-800 text-[11px] leading-relaxed">
+                <p class="text-emerald-800 dark:text-emerald-400 text-[11px] leading-relaxed">
                   Optical connection with your ISP exchange is healthy and authenticated.
                 </p>
               </div>
 
-              <div class="p-3 rounded-xl bg-rose-50/70 border border-rose-200/80 space-y-1">
-                <span class="font-bold text-rose-900 flex items-center gap-1.5 text-xs">
+              <div class="p-3 rounded-xl bg-rose-50/70 dark:bg-rose-950/40 border border-rose-200/80 dark:border-rose-800/70 space-y-1">
+                <span class="font-bold text-rose-900 dark:text-rose-300 flex items-center gap-1.5 text-xs">
                   <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span> LOS Light (Blinking Red)
                 </span>
-                <p class="text-rose-800 text-[11px] leading-relaxed">
+                <p class="text-rose-800 dark:text-rose-400 text-[11px] leading-relaxed">
                   Loss of Signal: The optical fiber cord is loose, bent, or there is an ISP fiber cut.
                 </p>
               </div>
 
-              <div class="p-3 rounded-xl bg-sky-50/70 border border-sky-200/80 space-y-1">
-                <span class="font-bold text-sky-900 flex items-center gap-1.5 text-xs">
+              <div class="p-3 rounded-xl bg-sky-50/70 dark:bg-sky-950/40 border border-sky-200/80 dark:border-sky-800/70 space-y-1">
+                <span class="font-bold text-sky-900 dark:text-sky-300 flex items-center gap-1.5 text-xs">
                   <span class="w-2 h-2 rounded-full bg-sky-500"></span> LAN / WLAN (Blinking Green)
                 </span>
-                <p class="text-sky-800 text-[11px] leading-relaxed">
+                <p class="text-sky-800 dark:text-sky-400 text-[11px] leading-relaxed">
                   Data packets are actively transmitting between devices and the router.
                 </p>
               </div>
@@ -675,15 +655,15 @@ if (type === 'ip') {
           </section>
 
           <!-- Other Fiber ISPs Cross-Links -->
-          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-2.5">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Other Fiber Broadband Providers
             </h2>
             <div class="flex flex-wrap gap-1.5">
               {otherIsps.map(i => (
                 <a 
                   href={`${base}/${i.slug}`}
-                  class="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-emerald-50 border border-slate-200/80 text-xs font-semibold text-slate-800 hover:text-emerald-800 transition-colors"
+                  class="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-slate-750 border border-slate-200/80 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-emerald-800 dark:hover:text-emerald-400 transition-colors"
                 >
                   {i.name} ({i.defaultIp})
                 </a>
@@ -694,8 +674,109 @@ if (type === 'ip') {
       );
     })()}
 
-    <!-- 2-Column Cross Linking Grid -->
+    <!-- 2-Column Cross Linking Grid (Placed Before FAQ) -->
     <RelatedLinksGrid currentSlug={data.slug} />
+
+    <!-- FAQ Accordion Section (Just Above Footer) -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
+      <div class="flex items-center gap-2">
+        <span class="text-base">❓</span>
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+          Frequently Asked Questions & Answers
+        </h2>
+      </div>
+
+      <div class="space-y-2.5">
+        {type === 'ip' && (() => {
+          const ip = data as GatewayIp;
+          const faqsList = ip.faqs && ip.faqs.length > 0 ? ip.faqs : [
+            { question: `What is the default login for ${ip.ip}?`, answer: `The default username is typically "${ip.defaultUser}" and password is "${ip.defaultPass}".` },
+            { question: `Why is ${ip.ip} not loading in my browser?`, answer: `Make sure your device is directly connected to the router via Wi-Fi or Ethernet, and verify that mobile data or VPNs are turned off.` }
+          ];
+
+          return faqsList.map(faq => (
+            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-3.5 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+                <span class="flex items-center gap-2">
+                  <span class="text-brand-600 dark:text-brand-400 font-bold">Q.</span>
+                  {faq.question}
+                </span>
+                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2">
+                {faq.answer}
+              </p>
+            </details>
+          ));
+        })()}
+
+        {type === 'brand' && (() => {
+          const brand = data as Brand;
+          const brandFaqs = [
+            {
+              question: `What is the default IP address for ${brand.name} routers?`,
+              answer: `Most ${brand.name} routers use ${brand.defaultIp} as their factory default gateway management address.`
+            },
+            {
+              question: `What is the factory default login password for ${brand.name}?`,
+              answer: `The standard factory username is "${brand.defaultUser}" and default password is "${brand.defaultPass}". Check your physical router label if these don't work.`
+            },
+            {
+              question: `How do I factory reset my ${brand.name} router if I forgot the password?`,
+              answer: `Press and hold the physical RESET pinhole button on the back of your ${brand.name} device with a paperclip for 10-15 seconds until all LED lights blink, restoring default credentials.`
+            }
+          ];
+
+          return brandFaqs.map(faq => (
+            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-3.5 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+                <span class="flex items-center gap-2">
+                  <span class="text-brand-600 dark:text-brand-400 font-bold">Q.</span>
+                  {faq.question}
+                </span>
+                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2">
+                {faq.answer}
+              </p>
+            </details>
+          ));
+        })()}
+
+        {type === 'isp' && (() => {
+          const isp = data as Isp;
+          const ispFaqs = [
+            {
+              question: `How do I log in to my ${isp.name} fiber router admin portal?`,
+              answer: `Connect to your ${isp.name} Wi-Fi network, navigate to http://${isp.defaultIp} in your browser, and enter username "${isp.defaultUser}" and password "${isp.defaultPass}".`
+            },
+            {
+              question: `What should I do if the LOS light on my ${isp.name} router is blinking red?`,
+              answer: `A blinking red LOS (Loss of Signal) light indicates an optical fiber cable disconnection or an ISP outage. Verify the thin yellow fiber cable is firmly seated, and contact ${isp.name} support if the issue persists.`
+            },
+            {
+              question: `How can I change my ${isp.name} Wi-Fi password and network name?`,
+              answer: `Log in to http://${isp.defaultIp}, go to Network/WLAN → 2.4G/5G Settings, update the SSID and WPA Pre-Shared Key, then click Apply.`
+            }
+          ];
+
+          return ispFaqs.map(faq => (
+            <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-3.5 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+              <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+                <span class="flex items-center gap-2">
+                  <span class="text-brand-600 dark:text-brand-400 font-bold">Q.</span>
+                  {faq.question}
+                </span>
+                <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2">
+                {faq.answer}
+              </p>
+            </details>
+          ));
+        })()}
+      </div>
+    </section>
 
   </div>
 </BaseLayout>

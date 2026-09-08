@@ -121,6 +121,35 @@ const schema = [
       "name": tool.title,
       "url": `${siteUrl}${tool.url.replace(base, '')}`
     }))
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are the networking tools free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, 100% free with no registration, no downloads, and no limits. All calculations and tests run directly in your web browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do any of the tools send my private network data or passwords to a remote server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The Wi-Fi QR generator, Subnet Calculator, Port Forwarding helper, and Password Generator operate purely client-side using JavaScript. Your inputs never touch our servers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is the browser broadband speed test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our speed test measures real-time HTTP streaming throughput across multi-threaded CDN endpoints and measures TCP/DNS ping round-trip times with millisecond precision."
+        }
+      }
+    ]
   }
 ];
 ---
@@ -136,21 +165,21 @@ const schema = [
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 font-semibold truncate">Tools</span>
+      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">Tools</span>
     </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase mb-2 border border-indigo-200 shadow-2xs">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase mb-2 border border-indigo-200/50 dark:border-indigo-800/50 shadow-2xs">
         <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
         🛠️ Web Utilities
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
         Networking Tools
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600">
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
         Free, browser-based network configuration and diagnostic utilities with zero server data storage.
       </p>
     </header>
@@ -162,28 +191,28 @@ const schema = [
       {toolsList.map(tool => (
         <a 
           href={tool.url}
-          class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-brand-400 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
+          class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card hover:shadow-card-hover hover:border-brand-400 dark:hover:border-brand-500 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
         >
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class={`w-11 h-11 rounded-2xl bg-gradient-to-br ${tool.gradient} text-white flex items-center justify-center text-xl shadow-xs group-hover:scale-105 transition-transform`}>
                 {tool.icon}
               </span>
-              <span class={`text-xs font-bold px-2.5 py-0.5 rounded-md border shadow-2xs ${tool.badgeColor}`}>
+              <span class={`text-xs font-bold px-2.5 py-0.5 rounded-md border shadow-2xs ${tool.badgeColor} dark:bg-opacity-20`}>
                 {tool.badge}
               </span>
             </div>
 
-            <h3 class="text-base font-extrabold text-slate-900 group-hover:text-brand-600 transition-colors mb-1.5">
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-1.5">
               {tool.title}
             </h3>
 
-            <p class="text-xs text-slate-600 leading-relaxed">
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               {tool.description}
             </p>
           </div>
 
-          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brand-600">
+          <div class="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-brand-600 dark:text-brand-400">
             <span>Launch Tool</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
@@ -194,33 +223,33 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- Human SEO Overview Section -->
-    <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3.5">
-      <h2 class="text-lg font-bold text-slate-900">Why Use 19216811.page Network Utilities?</h2>
-      <p class="text-xs text-slate-600 leading-relaxed">
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 transition-colors">
+      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Why Use 19216811.page Network Utilities?</h2>
+      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
         Our suite of networking utilities is built for speed, privacy, and simplicity. Whether you are setting up a new home Wi-Fi network, troubleshooting broadband connectivity, or generating secure passwords, our tools run entirely in your local browser:
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
-        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
           <span class="text-base">🛡️</span>
-          <strong class="text-slate-900 block font-semibold text-xs">Zero Server Logging</strong>
-          <p class="text-[11px] text-slate-600 leading-relaxed">
+          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">Zero Server Logging</strong>
+          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
             Your generated passwords and Wi-Fi QR credentials never leave your browser window. Zero tracking, zero telemetry, 100% private.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
           <span class="text-base">⚡</span>
-          <strong class="text-slate-900 block font-semibold text-xs">Instant Diagnostics</strong>
-          <p class="text-[11px] text-slate-600 leading-relaxed">
+          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">Instant Diagnostics</strong>
+          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
             Real-time IP detection and subnet matching help you identify your local router gateway within milliseconds.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
           <span class="text-base">📱</span>
-          <strong class="text-slate-900 block font-semibold text-xs">Fully Mobile Responsive</strong>
-          <p class="text-[11px] text-slate-600 leading-relaxed">
+          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">Fully Mobile Responsive</strong>
+          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
             All tools work seamlessly on iPhone, iPad, Android devices, macOS, and Windows without needing app downloads.
           </p>
         </div>
@@ -231,6 +260,31 @@ const schema = [
     <div>
       <RelatedLinksGrid />
     </div>
+
+    <!-- FAQ Accordion (Positioned Just Above Footer) -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Network Tools FAQs</h2>
+      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Are the networking tools free to use?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Yes, 100% free with no registration, no downloads, and no limits. All calculations and tests run directly in your web browser.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Do any of the tools send my private network data or passwords to a remote server?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            No. The Wi-Fi QR generator, Subnet Calculator, Port Forwarding helper, and Password Generator operate purely client-side using JavaScript. Your inputs never touch our servers.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">How accurate is the browser broadband speed test?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Our speed test measures real-time HTTP streaming throughput across multi-threaded CDN endpoints and measures TCP/DNS ping round-trip times with millisecond precision.
+          </p>
+        </div>
+      </div>
+    </section>
 
   </div>
 </BaseLayout>

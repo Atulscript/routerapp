@@ -236,40 +236,40 @@ const schema = [
     <!-- Master DNS Providers Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {dnsProviders.map(provider => (
-        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-3.5 flex flex-col justify-between">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 flex flex-col justify-between transition-colors">
           <div>
             <!-- Title & Badge -->
             <div class="flex items-center justify-between gap-2 mb-1">
-              <h3 class="text-base font-extrabold text-slate-900">
+              <h3 class="text-base font-extrabold text-slate-900 dark:text-white">
                 {provider.name}
               </h3>
-              <span class={`text-[10px] font-bold px-2 py-0.5 rounded-md border shadow-2xs ${provider.badgeColor}`}>
+              <span class={`text-[10px] font-bold px-2 py-0.5 rounded-md border shadow-2xs ${provider.badgeColor} dark:bg-opacity-20`}>
                 {provider.badge}
               </span>
             </div>
             
-            <p class="text-xs text-slate-600 mb-3">
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-3">
               {provider.tagline}
             </p>
 
             <!-- IPv4 Addresses -->
             <div class="space-y-1.5 font-mono text-xs">
-              <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+              <div class="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between">
                 <div>
-                  <span class="text-[9px] font-sans font-bold uppercase text-slate-400 block">Primary IPv4</span>
-                  <span class="font-bold text-slate-900">{provider.primaryIpv4}</span>
+                  <span class="text-[9px] font-sans font-bold uppercase text-slate-400 dark:text-slate-500 block">Primary IPv4</span>
+                  <span class="font-bold text-slate-900 dark:text-white">{provider.primaryIpv4}</span>
                 </div>
-                <button class="copy-dns-btn px-2 py-1 rounded bg-white hover:bg-slate-100 border border-slate-200 text-[10px] font-sans font-bold text-brand-600 transition-colors cursor-pointer" data-val={provider.primaryIpv4}>
+                <button class="copy-dns-btn px-2 py-1 rounded bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 text-[10px] font-sans font-bold text-brand-600 dark:text-brand-400 transition-colors cursor-pointer" data-val={provider.primaryIpv4}>
                   Copy
                 </button>
               </div>
 
-              <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+              <div class="p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between">
                 <div>
-                  <span class="text-[9px] font-sans font-bold uppercase text-slate-400 block">Secondary IPv4</span>
-                  <span class="font-bold text-slate-700">{provider.secondaryIpv4}</span>
+                  <span class="text-[9px] font-sans font-bold uppercase text-slate-400 dark:text-slate-500 block">Secondary IPv4</span>
+                  <span class="font-bold text-slate-700 dark:text-slate-300">{provider.secondaryIpv4}</span>
                 </div>
-                <button class="copy-dns-btn px-2 py-1 rounded bg-white hover:bg-slate-100 border border-slate-200 text-[10px] font-sans font-bold text-brand-600 transition-colors cursor-pointer" data-val={provider.secondaryIpv4}>
+                <button class="copy-dns-btn px-2 py-1 rounded bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 text-[10px] font-sans font-bold text-brand-600 dark:text-brand-400 transition-colors cursor-pointer" data-val={provider.secondaryIpv4}>
                   Copy
                 </button>
               </div>
@@ -278,7 +278,7 @@ const schema = [
             <!-- Features Chips -->
             <div class="flex flex-wrap gap-1.5 mt-3">
               {provider.features.map(f => (
-                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">
+                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                   ✓ {f}
                 </span>
               ))}
@@ -286,8 +286,8 @@ const schema = [
           </div>
 
           <!-- IPv6 Accordion Preview -->
-          <div class="pt-2 border-t border-slate-100 text-[10px] font-mono text-slate-500 truncate">
-            <span class="font-sans font-bold text-slate-400">IPv6:</span> {provider.primaryIpv6}
+          <div class="pt-2 border-t border-slate-100 dark:border-slate-800 text-[10px] font-mono text-slate-500 dark:text-slate-400 truncate">
+            <span class="font-sans font-bold text-slate-400 dark:text-slate-500">IPv6:</span> {provider.primaryIpv6}
           </div>
         </div>
       ))}
@@ -296,75 +296,50 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- Step-by-Step DNS Change Setup Guides -->
-    <section class="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-card space-y-4">
-      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-[11px] font-bold">
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold border border-emerald-200/50 dark:border-emerald-800/50">
         🛠️ Setup Walkthrough
       </div>
-      <h2 class="text-xl font-extrabold text-slate-900">
+      <h2 class="text-xl font-extrabold text-slate-900 dark:text-white">
         How to Change DNS on Your Router & Devices
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
         
         <!-- Guide 1: In Router -->
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
           <div class="text-lg">📟</div>
-          <strong class="text-xs font-bold text-slate-900 block">In Router Dashboard (All Devices)</strong>
-          <ol class="text-[11px] text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
-            <li>Log into your router admin panel (e.g. <a href={`${base}/`} class="text-brand-600 font-bold hover:underline">192.168.1.1</a> or <a href={`${base}/192-168-0-1`} class="text-brand-600 font-bold hover:underline">192.168.0.1</a>).</li>
-            <li>Navigate to <strong>Network</strong> $\rightarrow$ <strong>WAN</strong> or <strong>DHCP Server</strong> settings.</li>
-            <li>Change Primary DNS to <code>1.1.1.1</code> and Secondary DNS to <code>8.8.8.8</code>.</li>
+          <strong class="text-xs font-bold text-slate-900 dark:text-white block">In Router Dashboard (All Devices)</strong>
+          <ol class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li>Log into your router admin panel (e.g. <a href={`${base}/`} class="text-brand-600 dark:text-brand-400 font-bold hover:underline">192.168.1.1</a> or <a href={`${base}/192-168-0-1`} class="text-brand-600 dark:text-brand-400 font-bold hover:underline">192.168.0.1</a>).</li>
+            <li>Navigate to <strong>Network</strong> → <strong>WAN</strong> or <strong>DHCP Server</strong> settings.</li>
+            <li>Change Primary DNS to <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">1.1.1.1</code> and Secondary DNS to <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">8.8.8.8</code>.</li>
             <li>Click <strong>Save & Apply</strong>, then reboot your router.</li>
           </ol>
         </div>
 
         <!-- Guide 2: Windows 11 / 10 -->
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
           <div class="text-lg">💻</div>
-          <strong class="text-xs font-bold text-slate-900 block">Windows 11 / Windows 10</strong>
-          <ol class="text-[11px] text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
-            <li>Open <strong>Settings</strong> $\rightarrow$ <strong>Network & Internet</strong> $\rightarrow$ <strong>Wi-Fi</strong>.</li>
+          <strong class="text-xs font-bold text-slate-900 dark:text-white block">Windows 11 / Windows 10</strong>
+          <ol class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li>Open <strong>Settings</strong> → <strong>Network & Internet</strong> → <strong>Wi-Fi</strong>.</li>
             <li>Click <strong>Hardware properties</strong> and click <strong>Edit</strong> next to DNS server assignment.</li>
-            <li>Toggle to <strong>Manual</strong>, enable IPv4, and enter <code>1.1.1.1</code> and <code>1.0.0.1</code>.</li>
+            <li>Toggle to <strong>Manual</strong>, enable IPv4, and enter <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">1.1.1.1</code> and <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">1.0.0.1</code>.</li>
             <li>Select <em>Encrypted only (DNS over HTTPS)</em> and Save.</li>
           </ol>
         </div>
 
         <!-- Guide 3: Android / iOS -->
-        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
           <div class="text-lg">📱</div>
-          <strong class="text-xs font-bold text-slate-900 block">Android & iOS / iPhone</strong>
-          <ol class="text-[11px] text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
-            <li><strong>Android:</strong> Go to Settings $\rightarrow$ Network & Internet $\rightarrow$ <em>Private DNS</em>. Set hostname to <code>one.one.one.one</code> or <code>dns.google</code>.</li>
-            <li><strong>iOS:</strong> Settings $\rightarrow$ Wi-Fi $\rightarrow$ tap the (i) icon next to your network $\rightarrow$ <em>Configure DNS</em> $\rightarrow$ Manual $\rightarrow$ add <code>1.1.1.1</code>.</li>
+          <strong class="text-xs font-bold text-slate-900 dark:text-white block">Android & iOS / iPhone</strong>
+          <ol class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li><strong>Android:</strong> Go to Settings → Network & Internet → <em>Private DNS</em>. Set hostname to <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">one.one.one.one</code> or <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">dns.google</code>.</li>
+            <li><strong>iOS:</strong> Settings → Wi-Fi → tap the (i) icon next to your network → <em>Configure DNS</em> → Manual → add <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">1.1.1.1</code>.</li>
           </ol>
         </div>
 
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <section class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-4">
-      <h2 class="text-lg font-bold text-slate-900">DNS Frequently Asked Questions</h2>
-      <div class="divide-y divide-slate-100 text-xs">
-        <div class="py-3">
-          <strong class="text-slate-900 text-xs block font-semibold mb-1">Why should I change my router's default DNS server?</strong>
-          <p class="text-slate-600 leading-relaxed">
-            By default, routers use your Internet Service Provider's (ISP) DNS servers, which can be slow, prone to outages, track your website browsing history, or block certain websites. Switching to Cloudflare (1.1.1.1) or Google DNS (8.8.8.8) provides faster browsing speeds, better uptime, encrypted lookups, and built-in malware protection.
-          </p>
-        </div>
-        <div class="py-3">
-          <strong class="text-slate-900 text-xs block font-semibold mb-1">What is DNS over HTTPS (DoH)?</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Traditional DNS queries are sent in plaintext, allowing ISPs or network eavesdroppers to see every domain you visit. DNS over HTTPS (DoH) encrypts your DNS lookups over port 443, preventing eavesdropping and tampering.
-          </p>
-        </div>
-        <div class="py-3">
-          <strong class="text-slate-900 text-xs block font-semibold mb-1">Which DNS is fastest for online gaming?</strong>
-          <p class="text-slate-600 leading-relaxed">
-            Cloudflare DNS (1.1.1.1) and Google Public DNS (8.8.8.8) consistently rank as the fastest DNS resolvers globally due to their massive Anycast edge networks. While DNS does not lower in-game ping during an active match, it speeds up game matchmaking server discovery, lobby connections, and asset downloads.
-          </p>
-        </div>
       </div>
     </section>
 
@@ -372,6 +347,31 @@ const schema = [
     <div>
       <RelatedLinksGrid />
     </div>
+
+    <!-- FAQ Accordion (Positioned Just Above Footer) -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-slate-900 dark:text-white">DNS Frequently Asked Questions</h2>
+      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why should I change my router's default DNS server?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            By default, routers use your Internet Service Provider's (ISP) DNS servers, which can be slow, prone to outages, track your website browsing history, or block certain websites. Switching to Cloudflare (1.1.1.1) or Google DNS (8.8.8.8) provides faster browsing speeds, better uptime, encrypted lookups, and built-in malware protection.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">What is DNS over HTTPS (DoH)?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Traditional DNS queries are sent in plaintext, allowing ISPs or network eavesdroppers to see every domain you visit. DNS over HTTPS (DoH) encrypts your DNS lookups over port 443, preventing eavesdropping and tampering.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Which DNS is fastest for online gaming?</strong>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Cloudflare DNS (1.1.1.1) and Google Public DNS (8.8.8.8) consistently rank as the fastest DNS resolvers globally due to their massive Anycast edge networks. While DNS does not lower in-game ping during an active match, it speeds up game matchmaking server discovery, lobby connections, and asset downloads.
+          </p>
+        </div>
+      </div>
+    </section>
 
   </div>
 </BaseLayout>
