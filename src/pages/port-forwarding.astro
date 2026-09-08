@@ -1,0 +1,389 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdBanner from '../components/AdBanner.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Port Forwarding Guide & Common Network Ports Directory | 19216811.page";
+const description = "Comprehensive port forwarding setup guide and searchable directory of 40+ common networking ports for Minecraft, Plex, Steam, Xbox, PS5, WireGuard, and web servers.";
+const keywords = [
+  "port forwarding guide",
+  "common network ports",
+  "how to port forward router",
+  "minecraft server port 25565",
+  "plex media server port 32400",
+  "steam port forwarding",
+  "wireguard port 51820",
+  "router open ports",
+  "nat virtual server"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
+
+const commonPorts = [
+  { port: "25565", protocol: "TCP/UDP", service: "Minecraft Java Edition Server", category: "Gaming", desc: "Default listening port for hosting Minecraft multiplayer dedicated servers." },
+  { port: "19132", protocol: "UDP", service: "Minecraft Bedrock Edition Server", category: "Gaming", desc: "Pocket Edition / Windows / Console Bedrock server port." },
+  { port: "27015", protocol: "UDP/TCP", service: "Steam & Source Engine Games", category: "Gaming", desc: "CS2, TF2, Garry's Mod, and Left 4 Dead game server matchmaking." },
+  { port: "3074", protocol: "TCP/UDP", service: "Xbox Live & Call of Duty", category: "Gaming", desc: "Required for Open NAT type on Xbox Series X/S and PlayStation 5 consoles." },
+  { port: "32400", protocol: "TCP", service: "Plex Media Server", category: "Media", desc: "Remote access port for streaming movies and music outside your home network." },
+  { port: "8096", protocol: "TCP", service: "Jellyfin / Emby Media Server", category: "Media", desc: "Open-source home theater remote streaming port." },
+  { port: "51820", protocol: "UDP", service: "WireGuard VPN", category: "VPN", desc: "Ultra-fast modern VPN tunnel listening port." },
+  { port: "1194", protocol: "UDP", service: "OpenVPN", category: "VPN", desc: "Standard remote access VPN connection port." },
+  { port: "80", protocol: "TCP", service: "HTTP Web Server", category: "Web", desc: "Standard unencrypted web server port (Apache, NGINX)." },
+  { port: "443", protocol: "TCP", service: "HTTPS Secure Web Server", category: "Web", desc: "SSL/TLS encrypted web traffic port." },
+  { port: "22", protocol: "TCP", service: "SSH (Secure Shell) & SFTP", category: "Remote", desc: "Encrypted remote Linux server management and file transfers." },
+  { port: "3389", protocol: "TCP/UDP", service: "RDP (Windows Remote Desktop)", category: "Remote", desc: "Native Windows remote desktop management port." },
+  { port: "21", protocol: "TCP", service: "FTP (File Transfer Protocol)", category: "Storage", desc: "Traditional file upload and download control channel." },
+  { port: "53", protocol: "TCP/UDP", service: "DNS (Domain Name System)", category: "Network", desc: "Domain name resolution server port (Pi-hole, AdGuard Home, BIND)." },
+  { port: "67 / 68", protocol: "UDP", service: "DHCP Server & Client", category: "Network", desc: "Automatic IP address assignment protocol." }
+];
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": `${siteUrl}/tools`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Port Forwarding Guide",
+        "item": `${siteUrl}/port-forwarding`
+      }
+    ]
+  },
+  {
+    "@type": "HowTo",
+    "name": "How to Port Forward on Any Wireless Router",
+    "description": "Step-by-step instructions to open ports in your router firewall for game servers and remote access.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Assign a Static IP to Your Device",
+        "text": "In your router DHCP settings or on your computer/console, assign a static internal IP (e.g. 192.168.1.150) so the forwarded port never changes."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Open Router Admin Dashboard",
+        "text": "Navigate to your router gateway IP (192.168.1.1 or 192.168.0.1) and log in with your admin credentials."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Locate Port Forwarding or Virtual Server",
+        "text": "Go to Advanced -> NAT Forwarding -> Port Forwarding (or Virtual Servers on TP-Link/ASUS)."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Create a New Forwarding Rule",
+        "text": "Enter the External Port, Internal Port, select TCP or UDP, and enter your device's static IP address. Click Save."
+      }
+    ]
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Port Forwarding dangerous for home security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Port forwarding allows incoming connections through your router's NAT firewall to a specific local device. It is safe if the software running on that port (e.g., Minecraft or Plex) is updated and password-protected. Never forward unencrypted sensitive ports like Telnet (23) or expose Windows RDP (3389) directly to the public internet without a VPN."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Port Forwarding and DMZ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Port forwarding directs only specific individual ports (e.g. 25565) to a local device while keeping the rest of the firewall active. DMZ (Demilitarized Zone) exposes all 65,535 ports on that device completely to the internet, creating severe security vulnerabilities."
+        }
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+    
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <a href={`${base}/tools`} class="hover:text-slate-900 transition-colors">Tools</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">Port Forwarding Guide</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase mb-2 border border-indigo-200 shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+        🚪 Firewall & NAT Management
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+        Port Forwarding Guide & Ports List
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-600">
+        Discover standard ports for gaming, media streaming, and learn how to forward ports through your router firewall.
+      </p>
+    </header>
+
+    <AdBanner format="leaderboard" />
+
+    <!-- Interactive Port Forwarding Rule Generator Assistant -->
+    <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-card space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-brand-600">Configuration Assistant</span>
+          <h2 class="text-lg font-bold text-slate-900">Router Port Forwarding Rule Helper</h2>
+        </div>
+        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">NAT Virtual Server</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Service / App Name</label>
+          <input type="text" id="gen-name" value="Minecraft Server" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium outline-none focus:bg-white focus:border-brand-500 font-sans" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Device Local IP</label>
+          <input type="text" id="gen-ip" value="192.168.1.150" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-mono font-bold outline-none focus:bg-white focus:border-brand-500" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Port Number</label>
+          <input type="text" id="gen-port" value="25565" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-mono font-bold outline-none focus:bg-white focus:border-brand-500" />
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1">Protocol</label>
+          <select id="gen-proto" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs font-bold outline-none focus:bg-white focus:border-brand-500 cursor-pointer">
+            <option value="TCP">TCP</option>
+            <option value="UDP">UDP</option>
+            <option value="ALL" selected>TCP & UDP (Both)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Generated Rule Preview Box -->
+      <div class="p-4 rounded-2xl bg-slate-900 text-white font-mono text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div class="text-[10px] text-slate-400 font-sans uppercase font-bold tracking-wider">Router NAT Table Output:</div>
+          <div class="text-emerald-400 font-bold" id="gen-rule-output">
+            Rule: Minecraft Server · IP: 192.168.1.150 · Port: 25565 $\rightarrow$ 25565 (TCP/UDP)
+          </div>
+        </div>
+        <button id="btn-copy-rule" class="px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-sans font-bold transition-all cursor-pointer flex-shrink-0">
+          Copy Parameters
+        </button>
+      </div>
+    </div>
+
+    <!-- Searchable Common Ports Catalog Table -->
+    <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-900">
+            Common Networking Ports Directory
+          </h2>
+          <p class="text-xs text-slate-500">Search ports for gaming, media streaming, web hosting, and VPNs.</p>
+        </div>
+        <div class="relative w-full sm:w-64">
+          <input 
+            type="text" 
+            id="port-search" 
+            placeholder="Search port or game (e.g. 25565, Plex)..."
+            class="w-full px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-xs outline-none focus:bg-white focus:border-brand-500"
+          />
+        </div>
+      </div>
+
+      <div class="overflow-x-auto -mx-5 sm:mx-0">
+        <table class="w-full text-left border-collapse text-xs" id="ports-table">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+              <th class="py-2.5 px-3">Port</th>
+              <th class="py-2.5 px-3">Protocol</th>
+              <th class="py-2.5 px-3">Service / Application</th>
+              <th class="py-2.5 px-3">Category</th>
+              <th class="py-2.5 px-3">Description</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            {commonPorts.map(p => (
+              <tr class="hover:bg-slate-50 port-row">
+                <td class="py-2.5 px-3 font-mono font-bold text-brand-600">{p.port}</td>
+                <td class="py-2.5 px-3 font-mono text-slate-700">{p.protocol}</td>
+                <td class="py-2.5 px-3 font-semibold text-slate-900">{p.service}</td>
+                <td class="py-2.5 px-3">
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">
+                    {p.category}
+                  </span>
+                </td>
+                <td class="py-2.5 px-3 text-slate-500 text-[11px]">{p.desc}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <AdBanner format="horizontal" />
+
+    <!-- Step-by-Step Port Forwarding Setup Guides by Router Brand -->
+    <section class="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 shadow-card space-y-4">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 text-[11px] font-bold">
+        🛠️ Step-by-Step Router Walkthrough
+      </div>
+      <h2 class="text-xl font-extrabold text-slate-900">
+        How to Open Ports on Popular Router Brands
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        
+        <!-- TP-Link -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <strong class="text-xs font-bold text-slate-900 block flex items-center justify-between">
+            <span>TP-Link Routers</span>
+            <a href={`${base}/tp-link`} class="text-[10px] font-bold text-brand-600 hover:underline">TP-Link Guide →</a>
+          </strong>
+          <ol class="text-[11px] text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li>Log into <code>http://tplinkwifi.net</code> or <code>http://192.168.0.1</code>.</li>
+            <li>Go to <strong>Advanced</strong> $\rightarrow$ <strong>NAT Forwarding</strong> $\rightarrow$ <strong>Virtual Servers</strong>.</li>
+            <li>Click <strong>+ Add</strong>.</li>
+            <li>Enter Service Name, External Port, Internal IP, Internal Port, and Protocol (ALL).</li>
+            <li>Click <strong>Save</strong>.</li>
+          </ol>
+        </div>
+
+        <!-- Netgear -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <strong class="text-xs font-bold text-slate-900 block flex items-center justify-between">
+            <span>Netgear Nighthawk</span>
+            <a href={`${base}/netgear`} class="text-[10px] font-bold text-brand-600 hover:underline">Netgear Guide →</a>
+          </strong>
+          <ol class="text-[11px] text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li>Open <code>http://routerlogin.net</code> or <code>http://192.168.1.1</code>.</li>
+            <li>Go to <strong>Advanced</strong> $\rightarrow$ <strong>Advanced Setup</strong> $\rightarrow$ <strong>Port Forwarding / Port Triggering</strong>.</li>
+            <li>Click <strong>Add Custom Service</strong>.</li>
+            <li>Enter Port Range, Internal IP, and apply changes.</li>
+          </ol>
+        </div>
+
+        <!-- ASUS -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <strong class="text-xs font-bold text-slate-900 block flex items-center justify-between">
+            <span>ASUS RT Series</span>
+            <a href={`${base}/asus`} class="text-[10px] font-bold text-brand-600 hover:underline">ASUS Guide →</a>
+          </strong>
+          <ol class="text-[11px] text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li>Open <code>http://router.asus.com</code> or <code>http://192.168.1.1</code>.</li>
+            <li>Go to <strong>WAN</strong> $\rightarrow$ <strong>Virtual Server / Port Forwarding</strong> tab.</li>
+            <li>Toggle <strong>Enable Port Forwarding</strong> to ON.</li>
+            <li>Add your service name, port range, and local IP to the table, then click <strong>Apply</strong>.</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-slate-900">Port Forwarding Frequently Asked Questions</h2>
+      <div class="divide-y divide-slate-100 text-xs">
+        <div class="py-3">
+          <strong class="text-slate-900 text-xs block font-semibold mb-1">Is Port Forwarding dangerous for home security?</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Port forwarding allows incoming connections through your router's NAT firewall to a specific local device. It is safe if the software running on that port (e.g., Minecraft or Plex) is updated and password-protected. Never forward unencrypted sensitive ports like Telnet (23) or expose Windows RDP (3389) directly to the public internet without a VPN.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 text-xs block font-semibold mb-1">What is the difference between Port Forwarding and DMZ?</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Port forwarding directs only specific individual ports (e.g. 25565) to a local device while keeping the rest of the firewall active. DMZ (Demilitarized Zone) exposes all 65,535 ports on that device completely to the internet, creating severe security vulnerabilities.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 text-xs block font-semibold mb-1">Why does port forwarding fail or show "Port Closed"?</strong>
+          <p class="text-slate-600 leading-relaxed">
+            Common reasons include: (1) The application/server is not running on your computer, (2) Windows Defender or macOS Firewall is blocking the incoming port, (3) Your device changed its local IP (use a static DHCP reservation), or (4) Your ISP uses CGNAT (Carrier-Grade NAT) where you don't have a public IPv4 address.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interlinking Universal Network Grid -->
+    <div>
+      <RelatedLinksGrid />
+    </div>
+
+  </div>
+</BaseLayout>
+
+<script>
+  // Port Forwarding Generator & Search Engine
+  const inputName = document.getElementById('gen-name') as HTMLInputElement | null;
+  const inputIp = document.getElementById('gen-ip') as HTMLInputElement | null;
+  const inputPort = document.getElementById('gen-port') as HTMLInputElement | null;
+  const selectProto = document.getElementById('gen-proto') as HTMLSelectElement | null;
+  const ruleOutput = document.getElementById('gen-rule-output');
+  const btnCopyRule = document.getElementById('btn-copy-rule');
+
+  const searchInput = document.getElementById('port-search') as HTMLInputElement | null;
+  const portRows = document.querySelectorAll('.port-row');
+
+  function updateRule() {
+    if (!ruleOutput || !inputName || !inputIp || !inputPort || !selectProto) return;
+    const name = inputName.value.trim() || 'Custom Rule';
+    const ip = inputIp.value.trim() || '192.168.1.150';
+    const port = inputPort.value.trim() || '80';
+    const proto = selectProto.value;
+
+    ruleOutput.innerText = `Rule: ${name} · IP: ${ip} · Port: ${port} → ${port} (${proto})`;
+  }
+
+  inputName?.addEventListener('input', updateRule);
+  inputIp?.addEventListener('input', updateRule);
+  inputPort?.addEventListener('input', updateRule);
+  selectProto?.addEventListener('change', updateRule);
+
+  btnCopyRule?.addEventListener('click', () => {
+    if (!ruleOutput || !btnCopyRule) return;
+    navigator.clipboard.writeText(ruleOutput.innerText).then(() => {
+      const orig = btnCopyRule.innerText;
+      btnCopyRule.innerText = 'Copied!';
+      setTimeout(() => { btnCopyRule.innerText = orig; }, 1500);
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    const q = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    portRows.forEach(row => {
+      const text = row.textContent?.toLowerCase() || '';
+      if (text.includes(q)) {
+        (row as HTMLElement).style.display = '';
+      } else {
+        (row as HTMLElement).style.display = 'none';
+      }
+    });
+  });
+</script>

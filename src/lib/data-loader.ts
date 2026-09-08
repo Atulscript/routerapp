@@ -598,6 +598,90 @@ export const ISPS: Isp[] = [
       'Open http://192.168.1.1.',
       'Login with username: admin and password: admin.'
     ]
+  },
+  {
+    name: 'AT&T Fiber',
+    slug: 'att-fiber',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Access Code on Sticker',
+    description: 'AT&T Fiber BGW210 / BGW320 / NVG589 gateway login, IP Passthrough, and Wi-Fi configuration.',
+    instructions: [
+      'Connect to your AT&T Wi-Fi or plug into an Ethernet port.',
+      'Navigate to http://192.168.1.254 in your web browser.',
+      'When prompted for modifications, enter the Device Access Code printed on the gateway sticker.',
+      'Configure IP Passthrough, NAT gaming rules, or Wi-Fi security keys.'
+    ]
+  },
+  {
+    name: 'Xfinity Comcast',
+    slug: 'xfinity',
+    defaultIp: '10.0.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Xfinity xFi Wireless Gateway (XB6, XB7, XB8) admin dashboard login and bridge mode guide.',
+    instructions: [
+      'Connect to your Xfinity home wireless network.',
+      'Open http://10.0.0.1 in any desktop or mobile browser.',
+      'Log in with Username: admin and Password: password (or custom password set during initial boot).',
+      'Manage connected devices, parental controls, and MoCA coax settings.'
+    ]
+  },
+  {
+    name: 'Verizon Fios',
+    slug: 'verizon-fios',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on router sticker',
+    description: 'Verizon Fios CR1000A / G3100 / G1100 Quantum Gateway login and optical ONT settings.',
+    instructions: [
+      'Connect your device to Verizon Fios Wi-Fi.',
+      'Open http://192.168.1.1 or http://myfiosgateway.com.',
+      'Enter the admin password printed on the router label.',
+      'Adjust SON (Self-Organizing Network) Wi-Fi steering and port forwarding.'
+    ]
+  },
+  {
+    name: 'Spectrum Internet',
+    slug: 'spectrum',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    description: 'Charter Spectrum WiFi 6 Router (SAX1V1K / SAC2V1K) administration and My Spectrum app guide.',
+    instructions: [
+      'Connect to your Spectrum Wi-Fi network.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Enter admin credentials or manage advanced settings through the My Spectrum mobile app.',
+      'Configure DNS servers, UPnP, and guest networks.'
+    ]
+  },
+  {
+    name: 'Virgin Media UK',
+    slug: 'virgin-media',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Settings password on hub base',
+    description: 'Virgin Media UK Superhub 3, Hub 4, and Hub 5 fiber gateway login and modem mode guide.',
+    instructions: [
+      'Connect to Virgin Media Wi-Fi or LAN cable.',
+      'Navigate to http://192.168.0.1 in your browser.',
+      'Enter the Settings Password printed on the sticker underneath the Hub base.',
+      'Enable Modem Mode if using a third-party mesh router system.'
+    ]
+  },
+  {
+    name: 'BT Broadband UK',
+    slug: 'bt-broadband',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Admin password on hub card',
+    description: 'BT Smart Hub 2 and Home Hub 5/6 fiber broadband router login and Smart Setup configuration.',
+    instructions: [
+      'Connect to your BT Smart Hub Wi-Fi.',
+      'Open http://192.168.1.254 or http://bthomehub.home.',
+      'Enter the Admin Password found on the pull-out plastic card on the back of the Smart Hub.',
+      'Disable Smart Setup if connecting non-standard smart home devices.'
+    ]
   }
 ];
 
