@@ -179,28 +179,59 @@ const schema = [
       <RelatedLinksGrid />
     </div>
 
-    <!-- FAQ Accordion (Positioned Just Above Footer) -->
+    <!-- FAQ Accordion (Positioned Strictly Just Above Footer) -->
     <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Router Brands FAQs</h2>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
-        <div class="py-3">
-          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">How do I know which brand made my router or modem?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <span class="text-lg">❓</span>
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            Router Brands Frequently Asked Questions
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Common questions regarding router manufacturers, firmware versions, and default logins
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <span class="flex items-center gap-2">
+              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              How do I know which brand made my router or modem?
+            </span>
+            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+          </summary>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
             Look at the front faceplate logo or check the regulatory sticker on the underside of the device. If your router was provided by your Internet Service Provider, they may brand it (e.g. Xfinity, Spectrum, AT&T) while the underlying hardware is manufactured by Arris, Sagemcom, or Technicolor.
           </p>
-        </div>
-        <div class="py-3">
-          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Do all models from the same brand share identical login passwords?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+        </details>
+
+        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <span class="flex items-center gap-2">
+              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              Do all models from the same brand share identical login passwords?
+            </span>
+            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+          </summary>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
             Older models often share default credentials like 'admin/admin', but newer hardware models generate a unique randomized default Wi-Fi and admin password printed on the device label.
           </p>
-        </div>
-        <div class="py-3">
-          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Can I use web browser setup instead of downloading the manufacturer's mobile app?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+        </details>
+
+        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <span class="flex items-center gap-2">
+              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              Can I use web browser setup instead of downloading the manufacturer's mobile app?
+            </span>
+            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+          </summary>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
             Yes, nearly all routers have a built-in web management interface accessible via their local gateway IP in any web browser without needing any third-party app or account registration.
           </p>
-        </div>
+        </details>
       </div>
     </section>
 

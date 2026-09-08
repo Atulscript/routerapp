@@ -224,28 +224,59 @@ const schema = [
       <RelatedLinksGrid />
     </div>
 
-    <!-- FAQ Accordion (Positioned Just Above Footer) -->
+    <!-- FAQ Accordion (Positioned Strictly Just Above Footer) -->
     <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Router Models & Hardware FAQs</h2>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
-        <div class="py-3">
-          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why do some router models require setting a password on first login?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <span class="text-lg">❓</span>
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+            Router Models & Hardware FAQs
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Hardware specifications, factory defaults, and setup answers
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <span class="flex items-center gap-2">
+              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              Why do some router models require setting a password on first login?
+            </span>
+            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+          </summary>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
             Recent cybersecurity regulations (such as California SB-327 and UK PSTI Act) prohibit manufacturers from shipping routers with generic universal passwords like 'admin'. Modern models prompt the user to set a unique admin password upon initial setup.
           </p>
-        </div>
-        <div class="py-3">
-          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">What should I do if my exact router model is not listed?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+        </details>
+
+        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <span class="flex items-center gap-2">
+              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              What should I do if my exact router model is not listed?
+            </span>
+            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+          </summary>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
             Try the most common gateway IPs for your manufacturer (such as 192.168.1.1 or 192.168.0.1) with 'admin' / 'admin' or check the physical barcode sticker located underneath your device.
           </p>
-        </div>
-        <div class="py-3">
-          <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Can I upgrade my router's firmware through the IP gateway?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-            Yes, once logged into your router's admin portal, navigate to System Tools or Administration -> Firmware Upgrade to install the latest security patches from the manufacturer.
+        </details>
+
+        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <span class="flex items-center gap-2">
+              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              Can I upgrade my router's firmware through the IP gateway?
+            </span>
+            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+          </summary>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+            Yes, once logged into your router's admin portal, navigate to System Tools or Administration -&gt; Firmware Upgrade to install the latest security patches from the manufacturer.
           </p>
-        </div>
+        </details>
       </div>
     </section>
 
