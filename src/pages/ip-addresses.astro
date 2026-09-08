@@ -117,19 +117,23 @@ const schema = [
               <td class="p-2.5 font-bold font-sans">Class A</td>
               <td class="p-2.5">10.0.0.0 – 10.255.255.255</td>
               <td class="p-2.5">255.0.0.0 (/8)</td>
-              <td class="p-2.5 font-sans">Enterprise networks & Xfinity Gateways (10.0.0.1)</td>
+              <td class="p-2.5 font-sans">
+                Enterprise networks & Xfinity Gateways (<a href={`${base}/10-0-0-1`} class="text-brand-600 font-bold hover:underline">10.0.0.1 Guide →</a>)
+              </td>
             </tr>
             <tr class="hover:bg-slate-50">
               <td class="p-2.5 font-bold font-sans">Class B</td>
               <td class="p-2.5">172.16.0.0 – 172.31.255.255</td>
               <td class="p-2.5">255.240.0.0 (/12)</td>
-              <td class="p-2.5 font-sans">Medium corporate networks & VPNs</td>
+              <td class="p-2.5 font-sans">Medium corporate networks, Docker & VPN subnets</td>
             </tr>
             <tr class="hover:bg-slate-50">
               <td class="p-2.5 font-bold font-sans">Class C</td>
               <td class="p-2.5">192.168.0.0 – 192.168.255.255</td>
               <td class="p-2.5">255.255.255.0 (/24)</td>
-              <td class="p-2.5 font-sans font-bold text-brand-600">Home routers (192.168.1.1, 192.168.0.1)</td>
+              <td class="p-2.5 font-sans font-bold">
+                Home routers (<a href={`${base}/`} class="text-brand-600 hover:underline">192.168.1.1</a>, <a href={`${base}/192-168-0-1`} class="text-brand-600 hover:underline">192.168.0.1</a>, <a href={`${base}/192-168-2-1`} class="text-brand-600 hover:underline">192.168.2.1</a>)
+              </td>
             </tr>
           </tbody>
         </table>

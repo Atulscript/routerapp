@@ -4,7 +4,7 @@ import PasswordTable from '../components/PasswordTable.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import RouterGuideCard from '../components/RouterGuideCard.astro';
-import { getAllSlugs } from '../lib/data-loader';
+import { getAllSlugs, getBrandSlug, getIpSlug, getModelsForIp, GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
 import type { GatewayIp, Brand, Isp } from '../lib/types';
 
 export async function getStaticPaths() {
@@ -303,6 +303,24 @@ if (type === 'ip') {
     <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
+      {type === 'ip' && (
+        <>
+          <a href={`${base}/ip-addresses`} class="hover:text-slate-900 transition-colors">Gateway IPs</a>
+          <span>/</span>
+        </>
+      )}
+      {type === 'brand' && (
+        <>
+          <a href={`${base}/brands`} class="hover:text-slate-900 transition-colors">Brands</a>
+          <span>/</span>
+        </>
+      )}
+      {type === 'isp' && (
+        <>
+          <a href={`${base}/default-passwords`} class="hover:text-slate-900 transition-colors">ISPs</a>
+          <span>/</span>
+        </>
+      )}
       <span class="text-slate-800 font-semibold truncate">{pageTitle.split('|')[0]}</span>
     </nav>
 
@@ -311,6 +329,9 @@ if (type === 'ip') {
     <!-- IP View -->
     {type === 'ip' && (() => {
       const ip = data as GatewayIp;
+      const matchingModels = getModelsForIp(ip.ip);
+      const otherIpsList = GATEWAY_IPS.filter(g => g.ip !== ip.ip);
+      
       return (
         <article class="space-y-6">
           <header class="border-b border-slate-200/80 pb-5">
@@ -352,6 +373,22 @@ if (type === 'ip') {
             </div>
           </div>
 
+          <!-- Other Gateway Shortcuts -->
+          <div class="flex flex-wrap items-center gap-1.5 p-3 bg-white rounded-2xl border border-slate-200/90 shadow-2xs text-xs">
+            <span class="text-slate-400 font-bold text-[11px] mr-1">Other Gateway IPs:</span>
+            {otherIpsList.map(other => {
+              const otherUrl = other.slug === '192-168-1-1' ? `${base}/` : `${base}/${other.slug}`;
+              return (
+                <a 
+                  href={otherUrl}
+                  class="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-sky-50 border border-slate-200/80 font-mono font-bold text-slate-700 hover:text-brand-600 transition-colors"
+                >
+                  {other.ip}
+                </a>
+              );
+            })}
+          </div>
+
           <!-- Router Login & Support Two-Box Guide -->
           <RouterGuideCard 
             entityName="Wi-Fi Router" 
@@ -361,17 +398,53 @@ if (type === 'ip') {
 
           <AdBanner format="horizontal" />
 
-          <!-- Common Brands for this IP -->
-          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">Routers that commonly use {ip.ip}</h2>
+          <!-- Clickable Common Brands for this IP -->
+          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+                Routers & Brands using {ip.ip}
+              </h2>
+              <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 hover:underline">
+                All Brands →
+              </a>
+            </div>
             <div class="flex flex-wrap gap-1.5">
-              {ip.commonBrands.map(brand => (
-                <span class="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-800">
-                  {brand}
-                </span>
-              ))}
+              {ip.commonBrands.map(brand => {
+                const bSlug = getBrandSlug(brand);
+                return bSlug ? (
+                  <a 
+                    href={`${base}/${bSlug}`}
+                    class="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 text-xs font-bold text-slate-800 hover:text-brand-600 hover:border-sky-300 transition-all flex items-center gap-1"
+                  >
+                    <span>{brand}</span>
+                    <span class="text-[10px] text-slate-400">→</span>
+                  </a>
+                ) : (
+                  <span class="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-semibold text-slate-800">
+                    {brand}
+                  </span>
+                );
+              })}
             </div>
           </section>
+
+          <!-- Router Models Using This IP Table -->
+          {matchingModels.length > 0 && (
+            <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h2 class="text-base font-bold text-slate-900">
+                    Router Hardware Models Configured at {ip.ip}
+                  </h2>
+                  <p class="text-xs text-slate-500">Verified factory credentials for hardware utilizing {ip.ip}</p>
+                </div>
+                <a href={`${base}/routers`} class="text-xs font-semibold text-brand-600 hover:underline">
+                  All Hardware ({BRANDS.reduce((acc, b) => acc + b.models.length, 0)}) →
+                </a>
+              </div>
+              <PasswordTable models={matchingModels as any} />
+            </section>
+          )}
 
           <!-- Step-by-Step WiFi Configuration Guide -->
           <section class="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-card space-y-3">
@@ -416,6 +489,11 @@ if (type === 'ip') {
     <!-- Brand View -->
     {type === 'brand' && (() => {
       const brand = data as Brand;
+      const primaryIp = brand.defaultIp.split('/')[0].trim();
+      const ipSlug = getIpSlug(primaryIp);
+      const ipUrl = ipSlug !== null ? (ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`) : null;
+      const otherBrands = BRANDS.filter(b => b.slug !== brand.slug);
+
       return (
         <article class="space-y-6">
           <header class="border-b border-slate-200/80 pb-5">
@@ -430,13 +508,18 @@ if (type === 'ip') {
             </p>
           </header>
 
-          <!-- Summary info cards -->
+          <!-- Summary info cards with Interlinks -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div class="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
               <span class="text-[11px] text-slate-400 block mb-0.5 font-medium">Default Gateway IP</span>
-              <a href={`${base}/${brand.defaultIp === '192.168.1.1' ? '' : brand.defaultIp.replace(/\./g, '-')}`} class="font-mono font-bold text-brand-600 text-sm hover:underline">
-                {brand.defaultIp}
-              </a>
+              {ipUrl ? (
+                <a href={ipUrl} class="font-mono font-bold text-brand-600 text-sm hover:underline flex items-center justify-between">
+                  <span>{brand.defaultIp}</span>
+                  <span class="text-xs text-slate-400">Setup Guide →</span>
+                </a>
+              ) : (
+                <span class="font-mono font-bold text-slate-900 text-sm">{brand.defaultIp}</span>
+              )}
             </div>
             <div class="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs">
               <span class="text-[11px] text-slate-400 block mb-0.5 font-medium">Default Username</span>
@@ -450,10 +533,15 @@ if (type === 'ip') {
 
           <!-- Models Table -->
           <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-3">
-            <h2 class="text-base font-bold text-slate-900">
-              {brand.name} Model Credentials Database
-            </h2>
-            <PasswordTable models={brand.models} brandName={brand.name} />
+            <div class="flex items-center justify-between">
+              <h2 class="text-base font-bold text-slate-900">
+                {brand.name} Model Credentials Database
+              </h2>
+              <a href={`${base}/routers`} class="text-xs font-semibold text-brand-600 hover:underline">
+                Hardware DB →
+              </a>
+            </div>
+            <PasswordTable models={brand.models} brandName={brand.name} brandSlug={brand.slug} />
           </section>
 
           <AdBanner format="horizontal" />
@@ -464,6 +552,28 @@ if (type === 'ip') {
             ipAddress={brand.defaultIp} 
             brandName={brand.name} 
           />
+
+          <!-- Other Router Brands Cross-Links -->
+          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+                Compare with Other Router Manufacturers
+              </h2>
+              <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 hover:underline">
+                All Brands ({BRANDS.length}) →
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              {otherBrands.slice(0, 10).map(b => (
+                <a 
+                  href={`${base}/${b.slug}`}
+                  class="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200/80 text-xs font-semibold text-slate-800 hover:text-brand-600 transition-colors"
+                >
+                  {b.name}
+                </a>
+              ))}
+            </div>
+          </section>
         </article>
       );
     })()}
@@ -471,6 +581,10 @@ if (type === 'ip') {
     <!-- ISP View -->
     {type === 'isp' && (() => {
       const isp = data as Isp;
+      const ipSlug = getIpSlug(isp.defaultIp);
+      const ipUrl = ipSlug !== null ? (ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`) : null;
+      const otherIsps = ISPS.filter(i => i.slug !== isp.slug);
+
       return (
         <article class="space-y-6">
           <header class="border-b border-slate-200/80 pb-5">
@@ -485,12 +599,21 @@ if (type === 'ip') {
             </p>
           </header>
 
-          <!-- Quick Action Card -->
+          <!-- Quick Action Card with Interlink to IP -->
           <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Gateway Address</span>
-                <div class="text-2xl font-mono font-bold text-slate-900 mt-0.5">{isp.defaultIp}</div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  {ipUrl ? (
+                    <a href={ipUrl} class="text-2xl font-mono font-bold text-brand-600 hover:underline" title={`View ${isp.defaultIp} guide`}>
+                      {isp.defaultIp}
+                    </a>
+                  ) : (
+                    <span class="text-2xl font-mono font-bold text-slate-900">{isp.defaultIp}</span>
+                  )}
+                  <span class="text-xs text-slate-400 font-sans font-medium">(Click for IP guide)</span>
+                </div>
                 <div class="mt-1.5 text-xs font-mono text-slate-600">
                   Default Credentials: <strong>{isp.defaultUser}</strong> / <strong>{isp.defaultPass}</strong>
                 </div>
@@ -501,7 +624,7 @@ if (type === 'ip') {
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs"
               >
-                Open {isp.defaultIp} →
+                Open {isp.defaultIp} ↗
               </a>
             </div>
           </div>
@@ -550,6 +673,23 @@ if (type === 'ip') {
               </div>
             </div>
           </section>
+
+          <!-- Other Fiber ISPs Cross-Links -->
+          <section class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-card space-y-2.5">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Other Fiber Broadband Providers
+            </h2>
+            <div class="flex flex-wrap gap-1.5">
+              {otherIsps.map(i => (
+                <a 
+                  href={`${base}/${i.slug}`}
+                  class="px-2.5 py-1 rounded-lg bg-slate-50 hover:bg-emerald-50 border border-slate-200/80 text-xs font-semibold text-slate-800 hover:text-emerald-800 transition-colors"
+                >
+                  {i.name} ({i.defaultIp})
+                </a>
+              ))}
+            </div>
+          </section>
         </article>
       );
     })()}
@@ -559,3 +699,4 @@ if (type === 'ip') {
 
   </div>
 </BaseLayout>
+

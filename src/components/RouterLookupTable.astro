@@ -14,6 +14,7 @@ const allModels = BRANDS.flatMap(b =>
   }))
 );
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const brandNames = Array.from(new Set(BRANDS.map(b => b.name))).sort((a, b) => a.localeCompare(b));
 const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFiber', 'Airtel', 'Linksys', 'Tenda'];
 ---
@@ -94,9 +95,9 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
     <table class="w-full text-left border-collapse" id="models-table">
       <thead class="sticky top-0 z-10 bg-slate-900 text-white text-[11px] font-semibold uppercase tracking-wider shadow-xs">
         <tr>
-          <th class="py-2.5 px-3.5 whitespace-nowrap">Brand</th>
+          <th class="py-2.5 px-3.5 whitespace-nowrap">Brand Guide</th>
           <th class="py-2.5 px-3.5 whitespace-nowrap">Model</th>
-          <th class="py-2.5 px-3.5 whitespace-nowrap">Default IP</th>
+          <th class="py-2.5 px-3.5 whitespace-nowrap">Gateway IP</th>
           <th class="py-2.5 px-3.5 whitespace-nowrap">Protocol</th>
           <th class="py-2.5 px-3.5 whitespace-nowrap">Username</th>
           <th class="py-2.5 px-3.5 whitespace-nowrap text-right">Password</th>
@@ -112,18 +113,23 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
   <div class="flex flex-col sm:flex-row justify-between items-center mt-2.5 text-xs text-slate-500 gap-1 px-1">
     <span id="model-count-text" class="font-medium text-[11px] text-slate-600">Loading models...</span>
     <span class="text-[11px] text-slate-400">
-      Click copy button next to password to copy
+      Click brand or IP for full setup guide
     </span>
   </div>
 </div>
 
-<script define:vars={{ allModels }}>
+<script define:vars={{ allModels, base }}>
   const select = document.getElementById('brand-select');
   const searchInput = document.getElementById('table-search-input');
   const clearBtn = document.getElementById('clear-search-btn');
   const tbody = document.getElementById('table-body');
   const countText = document.getElementById('model-count-text');
   const pills = document.querySelectorAll('.brand-pill');
+
+  function getIpPath(ip) {
+    if (ip === '192.168.1.1') return `${base}/`;
+    return `${base}/${ip.replace(/\./g, '-')}`;
+  }
 
   function copyPassword(pw, btn) {
     navigator.clipboard.writeText(pw);
@@ -198,14 +204,26 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'D-Link', 'Cisco', 'JioFibe
     tbody.innerHTML = filtered.map((item, index) => {
       const bgClass = index % 2 === 0 ? 'bg-slate-50/60' : 'bg-white';
       const cleanIp = item.ip || '192.168.1.1';
+      const ipHref = getIpPath(cleanIp);
+      const brandHref = `${base}/${item.brandSlug}`;
+
       return `
         <tr class="${bgClass} hover:bg-sky-50/80 transition-colors">
-          <td class="py-2 px-3.5 font-bold text-slate-900 whitespace-nowrap text-xs">${item.brand}</td>
-          <td class="py-2 px-3.5 font-medium text-slate-800 whitespace-nowrap text-xs">${item.model}</td>
-          <td class="py-2 px-3.5 font-mono font-semibold text-brand-600 whitespace-nowrap text-xs">
-            <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-brand-800 inline-flex items-center gap-0.5">
-              ${cleanIp} <span class="text-[9px]">↗</span>
+          <td class="py-2 px-3.5 font-bold text-slate-900 whitespace-nowrap text-xs">
+            <a href="${brandHref}" class="text-brand-700 hover:text-brand-900 hover:underline inline-flex items-center gap-1">
+              ${item.brand}
             </a>
+          </td>
+          <td class="py-2 px-3.5 font-medium text-slate-800 whitespace-nowrap text-xs">${item.model}</td>
+          <td class="py-2 px-3.5 font-mono font-semibold whitespace-nowrap text-xs">
+            <div class="inline-flex items-center gap-1.5">
+              <a href="${ipHref}" class="text-brand-600 hover:text-brand-800 hover:underline" title="View ${cleanIp} guide">
+                ${cleanIp}
+              </a>
+              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600" title="Open http://${cleanIp} in new tab">
+                ↗
+              </a>
+            </div>
           </td>
           <td class="py-2 px-3.5 text-slate-500 whitespace-nowrap text-[11px]">
             <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 font-mono text-[10px]">${item.protocol}</span>

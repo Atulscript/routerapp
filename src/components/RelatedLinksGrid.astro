@@ -14,123 +14,169 @@ const otherIsps = ISPS.filter(i => i.slug !== currentSlug);
 const otherIps = GATEWAY_IPS.filter(i => i.slug !== currentSlug);
 
 const tools = [
-  { title: 'What is My IP Address?', slug: 'what-is-my-ip', icon: '🌐' },
-  { title: 'WiFi QR Generator', slug: 'wifi-qr-generator', icon: '📶' },
-  { title: 'Password Generator', slug: 'password-generator', icon: '🛡️' },
-  { title: 'Default Passwords', slug: 'default-passwords', icon: '🔑' }
+  { title: 'What is My IP?', slug: 'what-is-my-ip', icon: '🌐', desc: 'Public IP & Gateway' },
+  { title: 'WiFi QR Generator', slug: 'wifi-qr-generator', icon: '📶', desc: 'Scan to Connect' },
+  { title: 'Password Generator', slug: 'password-generator', icon: '🛡️', desc: 'WPA3 / Admin Keys' },
+  { title: 'Router Models DB', slug: 'routers', icon: '📟', desc: 'Hardware Catalog' },
+  { title: 'Default Passwords', slug: 'default-passwords', icon: '🔑', desc: 'Master Password List' },
+  { title: 'Gateway IP Index', slug: 'ip-addresses', icon: '⚡', desc: 'RFC 1918 Subnets' }
 ];
 ---
 
-<div class="mt-8 pt-6 border-t border-slate-200/80">
-  <div class="mb-3.5">
-    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider mb-1">
-      🔗 Quick Directory Navigation
+<div class="mt-8 pt-6 border-t border-slate-200/80 font-sans">
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
+    <div>
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 text-brand-700 text-[10px] font-bold uppercase tracking-wider mb-1 border border-sky-200">
+        🔗 Universal Router Directory Network
+      </div>
+      <h2 class="text-lg font-extrabold text-slate-900 tracking-tight">
+        Explore Gateway IPs, Router Brands & Utilities
+      </h2>
     </div>
-    <h2 class="text-lg font-bold text-slate-900 tracking-tight">
-      Explore Other Routers, ISPs & Gateway IPs
-    </h2>
+    <div class="flex items-center gap-2 text-xs">
+      <a href={`${base}/brands`} class="text-brand-600 hover:text-brand-800 font-semibold hover:underline">All Brands →</a>
+      <span class="text-slate-300">|</span>
+      <a href={`${base}/ip-addresses`} class="text-brand-600 hover:text-brand-800 font-semibold hover:underline">All IPs →</a>
+    </div>
   </div>
 
-  <!-- Two-Column Interlinking Layout -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+  <!-- Multi-Section Interlinking Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
     
-    <!-- Column 1: Other Routers & ISPs -->
-    <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-2xs space-y-3.5">
+    <!-- Column 1: Gateway IPs & Network Tools (5 cols) -->
+    <div class="md:col-span-5 space-y-4">
       
-      <!-- Brands Sub-section -->
-      <div>
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1">
-            <span>🏷️</span> Router Brands
+      <!-- Gateway IPs -->
+      <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-card space-y-2.5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Popular Gateway IP Addresses
           </h3>
-          <a href={`${base}/brands`} class="text-[11px] font-semibold text-brand-600 hover:underline">
-            All Brands →
+          <a href={`${base}/ip-addresses`} class="text-[10px] font-bold text-brand-600 hover:underline">
+            View All ({GATEWAY_IPS.length}) →
           </a>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-          {otherBrands.slice(0, 12).map(brand => (
-            <a 
-              href={`${base}/${brand.slug}`} 
-              class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-100 text-xs font-semibold text-slate-800 hover:text-brand-600 transition-all flex flex-col justify-between"
-            >
-              <span class="text-[11px] truncate">{brand.name}</span>
-              <span class="text-[9px] font-mono text-slate-400 font-normal">{brand.defaultIp.split('/')[0]}</span>
-            </a>
-          ))}
+        <div class="grid grid-cols-2 gap-1.5">
+          {GATEWAY_IPS.map(ip => {
+            const isCurrent = ip.slug === currentSlug;
+            const targetUrl = ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`;
+            return (
+              <a 
+                href={targetUrl} 
+                class={`p-2.5 rounded-xl border text-xs font-mono font-bold transition-all flex items-center justify-between ${
+                  isCurrent 
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-2xs' 
+                    : 'bg-slate-50 hover:bg-sky-50 border-slate-200/80 text-slate-800 hover:text-brand-600 hover:border-sky-300'
+                }`}
+              >
+                <span>{ip.ip}</span>
+                <span class={`text-[9px] font-sans font-normal ${isCurrent ? 'text-sky-300' : 'text-slate-400'}`}>
+                  {isCurrent ? 'Current' : 'Guide →'}
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
 
-      <!-- ISPs Sub-section -->
-      <div class="pt-3 border-t border-slate-100">
-        <h3 class="text-xs font-bold text-slate-900 mb-2 flex items-center gap-1">
-          <span>📡</span> Fiber ISPs & Gateways
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-          {otherIsps.map(isp => (
-            <a 
-              href={`${base}/${isp.slug}`} 
-              class="p-2 rounded-lg bg-slate-50 hover:bg-emerald-50/70 border border-slate-100 text-xs font-semibold text-slate-800 hover:text-emerald-800 transition-all flex items-center justify-between"
-            >
-              <span class="text-[11px]">{isp.name}</span>
-              <span class="text-[9px] font-mono font-bold text-emerald-700 bg-emerald-100/60 px-1 py-0.5 rounded">
-                {isp.defaultIp}
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Column 2: Gateway IPs & Utilities -->
-    <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-2xs space-y-3.5">
-      
-      <!-- Gateway IPs Sub-section -->
-      <div>
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1">
-            <span>🌐</span> Gateway IPs
+      <!-- Free Utility Tools & Directories -->
+      <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-card space-y-2.5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+            Network Tools & Databases
           </h3>
-          <a href={`${base}/ip-addresses`} class="text-[11px] font-semibold text-brand-600 hover:underline">
-            All IPs →
+          <a href={`${base}/tools`} class="text-[10px] font-bold text-brand-600 hover:underline">
+            Tools Hub →
           </a>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-          {otherIps.map(ip => (
-            <a 
-              href={ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`} 
-              class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-100 text-xs font-mono font-bold text-slate-800 hover:text-brand-600 transition-all flex flex-col justify-between"
-            >
-              <span class="text-brand-700 text-[11px]">{ip.ip}</span>
-              <span class="text-[9px] font-sans text-slate-400 font-normal">Login Guide</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Network Tools Sub-section -->
-      <div class="pt-3 border-t border-slate-100">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1">
-            <span>🛠️</span> Network Tools
-          </h3>
-          <a href={`${base}/tools`} class="text-[11px] font-semibold text-brand-600 hover:underline">
-            All Tools →
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+        <div class="grid grid-cols-2 gap-1.5">
           {tools.map(tool => (
             <a 
               href={`${base}/${tool.slug}`} 
-              class="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-100 text-xs font-medium text-slate-800 hover:text-brand-600 transition-all flex items-center gap-1.5"
+              class="p-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/70 text-xs transition-all flex items-center gap-2 group"
             >
-              <span class="text-xs">{tool.icon}</span>
-              <span class="text-[11px] font-semibold">{tool.title}</span>
+              <span class="text-base group-hover:scale-110 transition-transform">{tool.icon}</span>
+              <div class="min-w-0">
+                <div class="text-[11px] font-bold text-slate-800 group-hover:text-brand-600 truncate">{tool.title}</div>
+                <div class="text-[9px] text-slate-400 truncate">{tool.desc}</div>
+              </div>
             </a>
           ))}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Column 2: Router Brands & Fiber ISPs (7 cols) -->
+    <div class="md:col-span-7 space-y-4">
+      
+      <!-- Router Brands -->
+      <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-card space-y-2.5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+            Router Manufacturers ({BRANDS.length})
+          </h3>
+          <a href={`${base}/brands`} class="text-[10px] font-bold text-brand-600 hover:underline">
+            Full Brand Directory →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+          {BRANDS.map(brand => {
+            const isCurrent = brand.slug === currentSlug;
+            return (
+              <a 
+                href={`${base}/${brand.slug}`} 
+                class={`p-2 rounded-xl border text-xs transition-all flex flex-col justify-between ${
+                  isCurrent 
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-2xs' 
+                    : 'bg-slate-50 hover:bg-sky-50/80 border-slate-200/70 text-slate-800 hover:text-brand-700 hover:border-sky-300'
+                }`}
+              >
+                <span class="font-bold text-[11px] truncate">{brand.name}</span>
+                <span class={`text-[9px] font-mono mt-0.5 ${isCurrent ? 'text-sky-300' : 'text-slate-400'}`}>
+                  {brand.defaultIp.split('/')[0].trim()}
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Fiber Broadband ISPs -->
+      <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-card space-y-2.5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Fiber Broadband ISPs & ONT Modems
+          </h3>
+          <span class="text-[10px] text-slate-400 font-medium">Optical Gateway Setups</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+          {ISPS.map(isp => {
+            const isCurrent = isp.slug === currentSlug;
+            return (
+              <a 
+                href={`${base}/${isp.slug}`} 
+                class={`p-2 rounded-xl border text-xs transition-all flex items-center justify-between ${
+                  isCurrent 
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-2xs' 
+                    : 'bg-slate-50 hover:bg-emerald-50/80 border-slate-200/70 text-slate-800 hover:text-emerald-800 hover:border-emerald-300'
+                }`}
+              >
+                <span class="font-bold text-[11px] truncate">{isp.name}</span>
+                <span class={`text-[9px] font-mono px-1 rounded ${isCurrent ? 'bg-slate-800 text-emerald-400' : 'bg-emerald-100/70 text-emerald-800'}`}>
+                  {isp.defaultIp}
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
 
@@ -138,3 +184,4 @@ const tools = [
 
   </div>
 </div>
+

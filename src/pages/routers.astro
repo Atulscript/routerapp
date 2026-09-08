@@ -130,16 +130,33 @@ const schema = [
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100 font-mono text-xs" id="master-table-body">
-            {allModels.map(item => (
-              <tr class="hover:bg-sky-50/70 master-row">
-                <td class="py-2 px-3 font-bold font-sans text-slate-900">{item.brand}</td>
-                <td class="py-2 px-3 font-sans font-medium text-slate-800">{item.model}</td>
-                <td class="py-2 px-3 text-brand-600 font-bold">{item.ip}</td>
-                <td class="py-2 px-3 text-slate-500 text-[11px]">{item.protocol}</td>
-                <td class="py-2 px-3 text-slate-700">{item.username}</td>
-                <td class="py-2 px-3 font-bold text-slate-900 text-right">{item.password}</td>
-              </tr>
-            ))}
+            {allModels.map(item => {
+              const ipSlug = item.ip === '192.168.1.1' ? '' : item.ip.replace(/\./g, '-');
+              const ipUrl = ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`;
+              return (
+                <tr class="hover:bg-sky-50/70 master-row">
+                  <td class="py-2 px-3 font-bold font-sans text-slate-900">
+                    <a href={`${base}/${item.brandSlug}`} class="text-brand-700 hover:text-brand-900 hover:underline">
+                      {item.brand}
+                    </a>
+                  </td>
+                  <td class="py-2 px-3 font-sans font-medium text-slate-800">{item.model}</td>
+                  <td class="py-2 px-3 font-bold">
+                    <div class="inline-flex items-center gap-1">
+                      <a href={ipUrl} class="text-brand-600 hover:underline">
+                        {item.ip}
+                      </a>
+                      <a href={`http://${item.ip}`} target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600">
+                        ↗
+                      </a>
+                    </div>
+                  </td>
+                  <td class="py-2 px-3 text-slate-500 text-[11px]">{item.protocol}</td>
+                  <td class="py-2 px-3 text-slate-700">{item.username}</td>
+                  <td class="py-2 px-3 font-bold text-slate-900 text-right">{item.password}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

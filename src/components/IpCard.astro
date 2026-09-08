@@ -1,5 +1,6 @@
 ---
 import type { GatewayIp } from '../lib/types';
+import { getBrandSlug } from '../lib/data-loader';
 
 interface Props {
   data: GatewayIp;
@@ -29,9 +30,33 @@ const pageUrl = (data.slug === '192-168-1-1' || data.ip === '192.168.1.1') ? `${
       </a>
     </h3>
 
-    <p class="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
+    <p class="text-xs text-slate-600 line-clamp-2 mb-3 leading-relaxed">
       {data.description}
     </p>
+
+    <!-- Clickable Brand Links for this Gateway IP -->
+    {data.commonBrands && data.commonBrands.length > 0 && (
+      <div class="mb-3">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Common Routers:</span>
+        <div class="flex flex-wrap gap-1">
+          {data.commonBrands.map(brandName => {
+            const bSlug = getBrandSlug(brandName);
+            return bSlug ? (
+              <a 
+                href={`${base}/${bSlug}`} 
+                class="text-[10px] px-2 py-0.5 rounded bg-slate-100 hover:bg-sky-100 text-slate-700 hover:text-brand-700 font-semibold border border-slate-200/70 transition-colors"
+              >
+                {brandName}
+              </a>
+            ) : (
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium border border-slate-200/70">
+                {brandName}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+    )}
 
     <!-- Credential Box with Clear Contrast -->
     <div class="bg-slate-50/80 rounded-xl p-3 border border-slate-200/80 mb-4 space-y-1.5 text-xs font-mono">

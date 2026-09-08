@@ -621,3 +621,57 @@ export async function getAllSlugs() {
 
   return [...ipSlugs, ...brandSlugs, ...ispSlugs];
 }
+
+// Helpers for interlinking
+export function getBrandSlug(name?: string | null): string | null {
+  if (!name) return null;
+  const normalized = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const found = BRANDS.find(b => 
+    b.name.toLowerCase().replace(/[^a-z0-9]/g, '') === normalized ||
+    b.slug.replace(/[^a-z0-9]/g, '') === normalized
+  );
+  return found ? found.slug : null;
+}
+
+export function getIpSlug(ip?: string | null): string | null {
+  if (!ip) return null;
+  const clean = ip.trim();
+  const found = GATEWAY_IPS.find(g => g.ip === clean);
+  if (found) {
+    return found.ip === '192.168.1.1' ? '' : found.slug;
+  }
+  return null;
+}
+
+export function getIspSlug(name?: string | null): string | null {
+  if (!name) return null;
+  const normalized = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const found = ISPS.find(i => 
+    i.name.toLowerCase().replace(/[^a-z0-9]/g, '') === normalized ||
+    i.slug.replace(/[^a-z0-9]/g, '') === normalized
+  );
+  return found ? found.slug : null;
+}
+
+export function getModelsForIp(targetIp: string) {
+  if (!targetIp) return [];
+  const matches: Array<{ brand: string; brandSlug: string; model: string; ip: string; username: string; password: string; protocol: string }> = [];
+  BRANDS.forEach(b => {
+    b.models.forEach(m => {
+      if (m.ip === targetIp) {
+        matches.push({
+          brand: b.name,
+          brandSlug: b.slug,
+          model: m.model,
+          ip: m.ip || targetIp,
+          username: m.username,
+          password: m.password,
+          protocol: m.protocol || 'HTTP'
+        });
+      }
+    });
+  });
+  return matches;
+}
+
+
