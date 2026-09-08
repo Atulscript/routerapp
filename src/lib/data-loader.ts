@@ -3327,6 +3327,335 @@ export const BRANDS: Brand[] = [
       "Configure FasTrack Plus HD video and gaming QoS priority."
 ]
   }
+,
+  {
+    name: 'Starlink',
+    slug: 'starlink',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'Starlink App',
+    defaultPass: 'Configured in Starlink App',
+    description: 'Starlink Satellite Gen 3 Wi-Fi 6 router, Gen 2 Mesh, and Starlink Dishy administration and bypass mode guide.',
+    models: [
+      {
+            "brand": "Starlink",
+            "model": "Starlink Gen 3 Wi-Fi 6 Router (UTR-231)",
+            "protocol": "HTTP / Starlink App",
+            "ip": "192.168.1.1",
+            "username": "Starlink App",
+            "password": "Set via Starlink App"
+      },
+      {
+            "brand": "Starlink",
+            "model": "Starlink Gen 2 Mesh Router (UTR-211)",
+            "protocol": "Starlink App / HTTP",
+            "ip": "192.168.1.1",
+            "username": "Starlink App",
+            "password": "Set via Starlink App"
+      }
+],
+    guide: [
+      "Download and open the official Starlink app on iOS or Android.",
+      "Connect to your Starlink Wi-Fi network (STLINK-XXXXX).",
+      "Set your custom Wi-Fi SSID and password in the Starlink app.",
+      "Enable 'Bypass Mode' if connecting your own third-party router or firewall via Ethernet adapter."
+]
+  },
+  {
+    name: 'Greenwave Systems',
+    slug: 'greenwave',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Admin password on sticker',
+    description: 'Greenwave Systems C4000LG, C4000BG, and Verizon FiOS Quantum G1100 broadband gateway login instructions.',
+    models: [
+      {
+            "brand": "Greenwave",
+            "model": "Greenwave C4000LG (CenturyLink Wi-Fi 6)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "Printed on sticker"
+      },
+      {
+            "brand": "Greenwave",
+            "model": "Greenwave FiOS-G1100 (Verizon Quantum Gateway)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "Printed on sticker"
+      }
+],
+    guide: [
+      "Connect your PC to the Greenwave gateway LAN port or Wi-Fi.",
+      "Open http://192.168.0.1 or http://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password printed on the gateway sticker.",
+      "Configure Wi-Fi 6 4x4 channels, guest network, and parental controls."
+]
+  },
+  {
+    name: 'Pace',
+    slug: 'pace',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Access Code printed on label',
+    description: 'Default passwords and DMZplus configuration for Pace 5268AC and AT&T U-verse residential gateways.',
+    models: [
+      {
+            "brand": "Pace",
+            "model": "Pace 5268AC (AT&T U-verse Gateway)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.254",
+            "username": "admin",
+            "password": "Device Access Code on label"
+      }
+],
+    guide: [
+      "Connect your PC to the Pace gateway via Ethernet or Wi-Fi.",
+      "Open http://192.168.1.254 in your web browser.",
+      "When prompted, enter the Device Access Code found on the gateway rear sticker.",
+      "Configure DMZplus IP passthrough if using an external router."
+]
+  },
+  {
+    name: 'GX Group',
+    slug: 'gx-group',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / gx@123',
+    description: 'GX Group Titanium and Earth series GPON/XPON ONT fiber router setup and default login credentials.',
+    models: [
+      {
+            "brand": "GX Group",
+            "model": "GX Group Titanium-2121",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin / gx@123"
+      }
+],
+    guide: [
+      "Connect your PC to LAN 1 of the GX Titanium ONT.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin (or gx@123 / std1234).",
+      "Configure WAN connection with BSNL, RailWire, or local FTTH provider VLAN credentials."
+]
+  },
+  {
+    name: 'DBC Technologies',
+    slug: 'dbc-technologies',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'DBC Technologies GPON and EPON ONT fiber router login guide, optical power check, and Wi-Fi configuration.',
+    models: [
+      {
+            "brand": "DBC",
+            "model": "DBC DBC-GPON-ONT-24",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to DBC ONT Wi-Fi or LAN 1.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Set up PPPoE dial-up credentials and Wi-Fi SSID."
+]
+  },
+  {
+    name: 'Alphion',
+    slug: 'alphion',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Alphion AOL-244 and AOL-144 GPON ONT terminal login passwords and BSNL Bharat Fiber setup guide.',
+    models: [
+      {
+            "brand": "Alphion",
+            "model": "Alphion AOL-244 GPON ONT",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect via Ethernet to Alphion LAN port.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Optical OMCI and BSNL Bharat Fiber PPPoE."
+]
+  },
+  {
+    name: 'NEC (Aterm)',
+    slug: 'nec-aterm',
+    defaultIp: '192.168.10.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Setup Password',
+    description: 'NEC Aterm WX11000T12 (Wi-Fi 7), WX7800T8, and WX5400HP Japanese high-performance router setup and login.',
+    models: [
+      {
+            "brand": "NEC (Aterm)",
+            "model": "NEC Aterm WX11000T12",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.10.1",
+            "username": "admin",
+            "password": "Set during setup"
+      },
+      {
+            "brand": "NEC (Aterm)",
+            "model": "NEC Aterm WX7800T8",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.10.1",
+            "username": "admin",
+            "password": "Set during setup"
+      }
+],
+    guide: [
+      "Connect to NEC Aterm Wi-Fi network (aterm-xxxxxx).",
+      "Open http://192.168.10.1 or http://aterm.me in your browser.",
+      "Enter Username: admin and your master administrator password set on first boot.",
+      "Configure 10Gbps WAN/LAN, IPv6 IPoE (v6plus/OCN Virtual Connect), and Mesh backhaul."
+]
+  },
+  {
+    name: 'I-O DATA',
+    slug: 'io-data',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: '(blank) / admin',
+    description: 'I-O DATA WN-DAX series Wi-Fi 6 and 10Gbps optical routers default passwords, login guide, and IPv6 setup.',
+    models: [
+      {
+            "brand": "I-O DATA",
+            "model": "I-O DATA WN-DAX6000XR",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "(blank)"
+      }
+],
+    guide: [
+      "Connect your PC to I-O DATA LAN port or Wi-Fi.",
+      "Open http://192.168.0.1 or http://iodata.router in your web browser.",
+      "Enter Username: admin and leave password blank (or enter admin).",
+      "Set up IPv6 IPoE (transix / v6plus) and 360-degree high-power antennas."
+]
+  },
+  {
+    name: 'Yamaha',
+    slug: 'yamaha',
+    defaultIp: '192.168.100.1',
+    defaultUser: '(blank)',
+    defaultPass: '(blank) / admin',
+    description: 'Yamaha RTX1300, RTX830, and NVR510 enterprise gigabit VPN router setup guides and CLI/WebGUI login.',
+    models: [
+      {
+            "brand": "Yamaha",
+            "model": "Yamaha RTX1300",
+            "protocol": "HTTP/HTTPS / Telnet / SSH",
+            "ip": "192.168.100.1",
+            "username": "(blank)",
+            "password": "(blank)"
+      },
+      {
+            "brand": "Yamaha",
+            "model": "Yamaha RTX830",
+            "protocol": "HTTP/HTTPS / SSH",
+            "ip": "192.168.100.1",
+            "username": "(blank)",
+            "password": "(blank)"
+      }
+],
+    guide: [
+      "Connect your PC to Yamaha LAN Port 1.",
+      "Open http://192.168.100.1 in your browser.",
+      "Leave User and Password blank, then click Login.",
+      "Configure IPsec VPN, multi-WAN failover, and VLAN segmentation in Yamaha GUI."
+]
+  },
+  {
+    name: 'Freebox (Free)',
+    slug: 'freebox',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Set on Freebox Touchscreen',
+    description: 'Freebox Ultra (Wi-Fi 7), Freebox Pop, and Freebox Delta fiber router setup and Freebox OS login.',
+    models: [
+      {
+            "brand": "Freebox",
+            "model": "Freebox Ultra (Wi-Fi 7 10G EPON)",
+            "protocol": "HTTP/HTTPS / Freebox Connect App",
+            "ip": "192.168.1.254",
+            "username": "admin",
+            "password": "Set on OLED Screen"
+      },
+      {
+            "brand": "Freebox",
+            "model": "Freebox Pop (Wi-Fi 6 Fiber Gateway)",
+            "protocol": "HTTP/HTTPS / Freebox App",
+            "ip": "192.168.1.254",
+            "username": "admin",
+            "password": "Set on screen"
+      }
+],
+    guide: [
+      "Connect to your Freebox Wi-Fi or LAN port.",
+      "Open http://192.168.1.254 or http://mafreebox.freebox.fr in your browser.",
+      "Confirm the security request displayed on the Freebox front OLED display.",
+      "Create your master password for Freebox OS management."
+]
+  },
+  {
+    name: 'NetComm Wireless',
+    slug: 'netcomm',
+    defaultIp: '192.168.20.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Printed on barcode',
+    description: 'NetComm NF20MESH, NF18MESH, and Australian NBN VDSL2/FTTC gateway login credentials and setup.',
+    models: [
+      {
+            "brand": "NetComm",
+            "model": "NetComm NF20MESH",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.20.1",
+            "username": "admin",
+            "password": "Printed on label"
+      }
+],
+    guide: [
+      "Connect to NetComm Wi-Fi or LAN 1.",
+      "Open http://192.168.20.1 in your browser.",
+      "Enter Username: admin and Password printed on your NetComm gateway label.",
+      "Configure NBN connection type (VDSL2, FTTP, HFC, Fixed Wireless)."
+]
+  },
+  {
+    name: 'Kaon Broadband',
+    slug: 'kaon',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    description: 'Kaon Broadband AR2140, CG3000, and Claro / Telecom Argentina GPON and DOCSIS 3.1 gateway setup.',
+    models: [
+      {
+            "brand": "Kaon",
+            "model": "Kaon AR2140",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to Kaon router Wi-Fi.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password found on the device sticker.",
+      "Configure Wi-Fi mesh pods and parental controls."
+]
+  }
 ];
 
 export const ISPS: Isp[] = [
