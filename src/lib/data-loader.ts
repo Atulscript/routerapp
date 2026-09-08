@@ -1850,6 +1850,960 @@ export const BRANDS: Brand[] = [
       'Enter username: admin and password: 1234.'
     ]
   }
+,
+  {
+    name: 'Google',
+    slug: 'google',
+    defaultIp: '192.168.86.1',
+    defaultUser: 'admin',
+    defaultPass: 'Google Account',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Google routers.',
+    models: [
+      {
+            "brand": "Google",
+            "model": "Nest Wifi Pro (Wi-Fi 6E)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.86.1",
+            "username": "admin",
+            "password": "Google Account"
+      },
+      {
+            "brand": "Google",
+            "model": "Nest Wifi Router",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.86.1",
+            "username": "admin",
+            "password": "Google Account"
+      },
+      {
+            "brand": "Google",
+            "model": "Google Wifi Router",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.86.1",
+            "username": "admin",
+            "password": "Google Account"
+      }
+],
+    guide: [
+      "Connect to your Google router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.86.1 in your web browser.",
+      "Log in with Username: admin and Password: Google Account.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Amazon Eero',
+    slug: 'amazon-eero',
+    defaultIp: '192.168.4.1',
+    defaultUser: 'admin',
+    defaultPass: 'Amazon / eero App',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Amazon Eero routers.',
+    models: [
+      {
+            "brand": "Amazon Eero",
+            "model": "eero Max 7",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.4.1",
+            "username": "admin",
+            "password": "Amazon / eero App"
+      },
+      {
+            "brand": "Amazon Eero",
+            "model": "eero Pro 6E",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.4.1",
+            "username": "admin",
+            "password": "Amazon / eero App"
+      },
+      {
+            "brand": "Amazon Eero",
+            "model": "eero Pro 6",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.4.1",
+            "username": "admin",
+            "password": "Amazon / eero App"
+      },
+      {
+            "brand": "Amazon Eero",
+            "model": "eero 6+",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.4.1",
+            "username": "admin",
+            "password": "Amazon / eero App"
+      },
+      {
+            "brand": "Amazon Eero",
+            "model": "eero PoE Gateway",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.4.1",
+            "username": "admin",
+            "password": "Amazon / eero App"
+      }
+],
+    guide: [
+      "Connect to your Amazon Eero router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.4.1 in your web browser.",
+      "Log in with Username: admin and Password: Amazon / eero App.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'GL.iNet',
+    slug: 'glinet',
+    defaultIp: '192.168.8.1',
+    defaultUser: 'root',
+    defaultPass: 'Set during setup',
+    description: 'Default login credentials, admin IP addresses, and setup guides for GL.iNet routers.',
+    models: [
+      {
+            "brand": "GL.iNet",
+            "model": "Flint 2 (GL-MT6000)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.8.1",
+            "username": "root",
+            "password": "Set during setup"
+      },
+      {
+            "brand": "GL.iNet",
+            "model": "Flint (GL-AX1800)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.8.1",
+            "username": "root",
+            "password": "Set during setup"
+      },
+      {
+            "brand": "GL.iNet",
+            "model": "Beryl AX (GL-MT3000)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.8.1",
+            "username": "root",
+            "password": "Set during setup"
+      },
+      {
+            "brand": "GL.iNet",
+            "model": "Slate AX (GL-AXT1800)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.8.1",
+            "username": "root",
+            "password": "Set during setup"
+      },
+      {
+            "brand": "GL.iNet",
+            "model": "Spitz AX (GL-X3000)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.8.1",
+            "username": "root",
+            "password": "Set during setup"
+      }
+],
+    guide: [
+      "Connect to your GL.iNet router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.8.1 in your web browser.",
+      "Log in with Username: root and Password: Set during setup.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Peplink',
+    slug: 'peplink',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Peplink routers.',
+    models: [
+      {
+            "brand": "Peplink",
+            "model": "Balance Two",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      },
+      {
+            "brand": "Peplink",
+            "model": "Balance 20X",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      },
+      {
+            "brand": "Peplink",
+            "model": "MAX BR1 Pro 5G",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.50.1",
+            "username": "admin",
+            "password": "admin"
+      },
+      {
+            "brand": "Peplink",
+            "model": "MAX Transit Duo",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.50.1",
+            "username": "admin",
+            "password": "admin"
+      },
+      {
+            "brand": "Peplink",
+            "model": "Balance 380",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to your Peplink router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Netgate (pfSense)',
+    slug: 'netgate',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'pfsense',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Netgate (pfSense) routers.',
+    models: [
+      {
+            "brand": "Netgate (pfSense)",
+            "model": "Netgate 1100 (SG-1100)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "pfsense"
+      },
+      {
+            "brand": "Netgate (pfSense)",
+            "model": "Netgate 2100 (SG-2100)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "pfsense"
+      },
+      {
+            "brand": "Netgate (pfSense)",
+            "model": "Netgate 4100",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "pfsense"
+      },
+      {
+            "brand": "Netgate (pfSense)",
+            "model": "Netgate 6100",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "pfsense"
+      },
+      {
+            "brand": "Netgate (pfSense)",
+            "model": "Netgate 8200",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "pfsense"
+      }
+],
+    guide: [
+      "Connect to your Netgate (pfSense) router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: pfsense.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'OPNsense',
+    slug: 'opnsense',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'root',
+    defaultPass: 'opnsense',
+    description: 'OPNsense DEC appliance, firewall setup, default credentials, and WebGUI configuration guide.',
+    models: [
+      {
+            "brand": "OPNsense",
+            "model": "DEC675 OPNsense Desktop",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "root",
+            "password": "opnsense"
+      },
+      {
+            "brand": "OPNsense",
+            "model": "DEC750 OPNsense Desktop",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "root",
+            "password": "opnsense"
+      },
+      {
+            "brand": "OPNsense",
+            "model": "DEC850 OPNsense Rackmount",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "root",
+            "password": "opnsense"
+      }
+],
+    guide: [
+      "Connect your computer to the LAN interface (Port 1).",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: root and Password: opnsense.",
+      "Run through the initial setup wizard to configure WAN connection, DNS, and NTP servers."
+]
+  },
+  {
+    name: 'AVM (FRITZ!Box)',
+    slug: 'avm',
+    defaultIp: '192.168.178.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on bottom sticker',
+    description: 'Default login credentials, admin IP addresses, and setup guides for AVM (FRITZ!Box) routers.',
+    models: [
+      {
+            "brand": "AVM (FRITZ!Box)",
+            "model": "FRITZ!Box 7590 AX",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.178.1",
+            "username": "admin",
+            "password": "Printed on bottom sticker"
+      },
+      {
+            "brand": "AVM (FRITZ!Box)",
+            "model": "FRITZ!Box 7530 AX",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.178.1",
+            "username": "admin",
+            "password": "Printed on bottom sticker"
+      },
+      {
+            "brand": "AVM (FRITZ!Box)",
+            "model": "FRITZ!Box 5590 Fiber",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.178.1",
+            "username": "admin",
+            "password": "Printed on bottom sticker"
+      },
+      {
+            "brand": "AVM (FRITZ!Box)",
+            "model": "FRITZ!Box 6690 Cable",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.178.1",
+            "username": "admin",
+            "password": "Printed on bottom sticker"
+      },
+      {
+            "brand": "AVM (FRITZ!Box)",
+            "model": "FRITZ!Box 4060",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.178.1",
+            "username": "admin",
+            "password": "Printed on bottom sticker"
+      }
+],
+    guide: [
+      "Connect to your AVM (FRITZ!Box) router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.178.1 in your web browser.",
+      "Log in with Username: admin and Password: Printed on bottom sticker.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'CenturyLink',
+    slug: 'centurylink',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on sticker',
+    description: 'Default login credentials, admin IP addresses, and setup guides for CenturyLink routers.',
+    models: [
+      {
+            "brand": "CenturyLink",
+            "model": "C4000XG (Wi-Fi 6 xPON)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "Printed on sticker"
+      },
+      {
+            "brand": "CenturyLink",
+            "model": "C3000A (DSL & Fiber)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "Printed on sticker"
+      }
+],
+    guide: [
+      "Connect to your CenturyLink router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: Printed on sticker.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Xfinity (Comcast)',
+    slug: 'xfinity',
+    defaultIp: '10.0.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Xfinity (Comcast) routers.',
+    models: [
+      {
+            "brand": "Xfinity (Comcast)",
+            "model": "Xfinity xFi Gateway (XB8)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "10.0.0.1",
+            "username": "admin",
+            "password": "password"
+      },
+      {
+            "brand": "Xfinity (Comcast)",
+            "model": "Xfinity xFi Gateway (XB7)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "10.0.0.1",
+            "username": "admin",
+            "password": "password"
+      },
+      {
+            "brand": "Xfinity (Comcast)",
+            "model": "Xfinity xFi Gateway (XB6)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "10.0.0.1",
+            "username": "admin",
+            "password": "password"
+      }
+],
+    guide: [
+      "Connect to your Xfinity (Comcast) router via Wi-Fi or Ethernet cable.",
+      "Open http://10.0.0.1 in your web browser.",
+      "Log in with Username: admin and Password: password.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Spectrum (Charter)',
+    slug: 'spectrum',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'My Spectrum App',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Spectrum (Charter) routers.',
+    models: [
+      {
+            "brand": "Spectrum (Charter)",
+            "model": "Spectrum WiFi 6 Router (SAX1V1K)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "My Spectrum App"
+      },
+      {
+            "brand": "Spectrum (Charter)",
+            "model": "Spectrum Wave 2 Router (RAC2V1S)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to your Spectrum (Charter) router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: My Spectrum App.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'BT (British Telecom)',
+    slug: 'bt',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on pull-out card',
+    description: 'Default login credentials, admin IP addresses, and setup guides for BT (British Telecom) routers.',
+    models: [
+      {
+            "brand": "BT (British Telecom)",
+            "model": "BT Smart Hub 2",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.254",
+            "username": "admin",
+            "password": "Printed on pull-out card"
+      }
+],
+    guide: [
+      "Connect to your BT (British Telecom) router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Log in with Username: admin and Password: Printed on pull-out card.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Virgin Media',
+    slug: 'virgin-media',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on base sticker',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Virgin Media routers.',
+    models: [
+      {
+            "brand": "Virgin Media",
+            "model": "Virgin Media Hub 5 (Wi-Fi 6)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "Printed on base sticker"
+      }
+],
+    guide: [
+      "Connect to your Virgin Media router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: Printed on base sticker.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Vodafone',
+    slug: 'vodafone',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Vodafone password on card',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Vodafone routers.',
+    models: [
+      {
+            "brand": "Vodafone",
+            "model": "Vodafone Ultra Hub (Wi-Fi 6E)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "Vodafone password on card"
+      }
+],
+    guide: [
+      "Connect to your Vodafone router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: Vodafone password on card.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Bell Canada',
+    slug: 'bell',
+    defaultIp: '192.168.2.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Bell Canada routers.',
+    models: [
+      {
+            "brand": "Bell Canada",
+            "model": "Bell Giga Hub (Wi-Fi 6E)",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.2.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to your Bell Canada router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Ruijie',
+    slug: 'ruijie',
+    defaultIp: '192.168.110.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Set during setup',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Ruijie routers.',
+    models: [
+      {
+            "brand": "Ruijie",
+            "model": "Reyee RG-EW3200GX PRO",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.110.1",
+            "username": "admin",
+            "password": "admin / Set during setup"
+      },
+      {
+            "brand": "Ruijie",
+            "model": "Reyee RG-EG210G-E",
+            "protocol": "HTTP/HTTPS / Reyee Cloud",
+            "ip": "192.168.110.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to your Ruijie router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.110.1 in your web browser.",
+      "Log in with Username: admin and Password: admin / Set during setup.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Cradlepoint',
+    slug: 'cradlepoint',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on bottom label',
+    description: 'Default credentials, NetCloud OS setup, and 5G cellular configuration for Cradlepoint E3000, E300, and IBR series gateways.',
+    models: [
+      {
+            "brand": "Cradlepoint",
+            "model": "Cradlepoint E3000 5G",
+            "protocol": "HTTPS / NetCloud",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "Printed on bottom label"
+      },
+      {
+            "brand": "Cradlepoint",
+            "model": "Cradlepoint E300 5G",
+            "protocol": "HTTPS / NetCloud",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "Printed on bottom label"
+      }
+],
+    guide: [
+      "Connect your laptop to the Cradlepoint LAN port or Wi-Fi network.",
+      "Open http://192.168.0.1 or http://cp in your browser.",
+      "Enter Username: admin and Password found on the barcode sticker under the device.",
+      "Register the router with NetCloud Manager for cloud orchestration and zero-trust policies."
+]
+  },
+  {
+    name: 'Aruba (HPE)',
+    slug: 'aruba',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin / Aruba Cloud App',
+    defaultPass: 'Set during setup',
+    description: 'Aruba Instant On AP22, AP25, and enterprise wireless access point setup and cloud portal login.',
+    models: [
+      {
+            "brand": "Aruba",
+            "model": "Aruba Instant On AP25",
+            "protocol": "HTTPS / Mobile App",
+            "ip": "192.168.1.1",
+            "username": "admin / Aruba Cloud App",
+            "password": "Set during setup"
+      },
+      {
+            "brand": "Aruba",
+            "model": "Aruba Instant On AP22",
+            "protocol": "HTTPS / Mobile App",
+            "ip": "192.168.1.1",
+            "username": "admin / Aruba Cloud App",
+            "password": "Set during setup"
+      }
+],
+    guide: [
+      "Connect your Aruba Instant On access point to your PoE switch or router.",
+      "Open the Aruba Instant On mobile app or visit https://myaudit.instant-on.arubanetworks.com.",
+      "Scan the QR code on the back of the AP to adopt it into your cloud site.",
+      "Configure guest networks, captive portals, and WPA3 security."
+]
+  },
+  {
+    name: 'Ruckus (CommScope)',
+    slug: 'ruckus',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'password / Unleashed Setup',
+    description: 'Ruckus Unleashed R750, R650, and R550 BeamFlex Wi-Fi 6 access point setup and controllerless login.',
+    models: [
+      {
+            "brand": "Ruckus",
+            "model": "Ruckus Unleashed R750",
+            "protocol": "HTTPS / SSH",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "password / Unleashed Setup"
+      },
+      {
+            "brand": "Ruckus",
+            "model": "Ruckus Unleashed R550",
+            "protocol": "HTTPS / SSH",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "password / Unleashed Setup"
+      }
+],
+    guide: [
+      "Connect your PC to the Ruckus AP network (Configure.Me-XXXXXX).",
+      "Open https://unleashed.ruckuswireless.com or https://192.168.0.1 in your browser.",
+      "Follow the Unleashed setup wizard to create your master network SSID and administrator password.",
+      "Add additional Ruckus APs for automatic self-forming, self-healing mesh coverage."
+]
+  },
+  {
+    name: 'EnGenius',
+    slug: 'engenius',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'EnGenius Cloud ECW230, FitXpress, and EnMesh business access point and router setup instructions.',
+    models: [
+      {
+            "brand": "EnGenius",
+            "model": "EnGenius ECW230",
+            "protocol": "HTTPS / Cloud App",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to the EnGenius LAN port or setup Wi-Fi.",
+      "Open http://192.168.1.1 or use the EnGenius Cloud To-Go mobile app.",
+      "Log in with Username: admin and Password: admin.",
+      "Register device to EnGenius Cloud for remote multi-site management."
+]
+  },
+  {
+    name: 'Arcadyan',
+    slug: 'arcadyan',
+    defaultIp: '192.168.12.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on gateway rear label',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Arcadyan routers.',
+    models: [
+      {
+            "brand": "Arcadyan",
+            "model": "Arcadyan KVD21 (T-Mobile 5G Gateway)",
+            "protocol": "HTTP",
+            "ip": "192.168.12.1",
+            "username": "admin",
+            "password": "Printed on gateway rear label"
+      },
+      {
+            "brand": "Arcadyan",
+            "model": "Arcadyan LH1000 (Telstra Smart Modem Gen 2)",
+            "protocol": "HTTP",
+            "ip": "192.168.0.1",
+            "username": "admin",
+            "password": "admin / Telstra setup"
+      }
+],
+    guide: [
+      "Connect to your Arcadyan router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.12.1 in your web browser.",
+      "Log in with Username: admin and Password: Printed on gateway rear label.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'VSOL',
+    slug: 'vsol',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'VSOL XPON ONT Wi-Fi 6 router configuration, default logins, and GPON fiber diagnostics.',
+    models: [
+      {
+            "brand": "VSOL",
+            "model": "VSOL V2804AX",
+            "protocol": "HTTP/HTTPS",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to the VSOL Wi-Fi network or plug an Ethernet cable into LAN 1.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Inspect Optical Rx Power and configure high-speed Wi-Fi 6 wireless parameters."
+]
+  },
+  {
+    name: 'Amped Wireless',
+    slug: 'amped-wireless',
+    defaultIp: '192.168.1.240',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Amped Wireless high-power long-range router and range extender setup guides and default credentials.',
+    models: [
+      {
+            "brand": "Amped Wireless",
+            "model": "Amped Wireless ATHENA-R2",
+            "protocol": "HTTP",
+            "ip": "192.168.1.240",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to the Amped Wireless Wi-Fi network.",
+      "Open http://setup.ampedwireless.com or http://192.168.1.240 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure high-power signal amplifiers and wireless channel widths."
+]
+  }
+,
+  {
+    name: 'Check Point',
+    slug: 'check-point',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Check Point routers.',
+    models: [
+      {
+            "brand": "Check Point",
+            "model": "Quantum Spark 1590",
+            "protocol": "HTTPS (Port 4434) / SSH",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      },
+      {
+            "brand": "Check Point",
+            "model": "Quantum Spark 1570",
+            "protocol": "HTTPS (Port 4434) / SSH",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "admin"
+      }
+],
+    guide: [
+      "Connect to your Check Point router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Inseego',
+    slug: 'inseego',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on gateway base label',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Inseego routers.',
+    models: [
+      {
+            "brand": "Inseego",
+            "model": "Wavemaker PRO FG2000",
+            "protocol": "HTTP/HTTPS / Inseego App",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "Printed on gateway base label"
+      },
+      {
+            "brand": "Inseego",
+            "model": "MiFi X PRO 5G",
+            "protocol": "HTTP/HTTPS / Touchscreen",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "Printed on screen / battery"
+      }
+],
+    guide: [
+      "Connect to your Inseego router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: Printed on gateway base label.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Digi International',
+    slug: 'digi-international',
+    defaultIp: '192.168.210.1',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on label',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Digi International routers.',
+    models: [
+      {
+            "brand": "Digi International",
+            "model": "Digi IX20",
+            "protocol": "HTTPS / SSH",
+            "ip": "192.168.210.1",
+            "username": "admin",
+            "password": "Printed on label"
+      }
+],
+    guide: [
+      "Connect to your Digi International router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.210.1 in your web browser.",
+      "Log in with Username: admin and Password: Printed on label.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Sierra Wireless',
+    slug: 'sierra-wireless',
+    defaultIp: '192.168.13.31',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on device label',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Sierra Wireless routers.',
+    models: [
+      {
+            "brand": "Sierra Wireless",
+            "model": "AirLink XR90 5G",
+            "protocol": "HTTPS (Port 9443) / SSH",
+            "ip": "192.168.13.31",
+            "username": "admin",
+            "password": "Printed on device label"
+      }
+],
+    guide: [
+      "Connect to your Sierra Wireless router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.13.31 in your web browser.",
+      "Log in with Username: admin and Password: Printed on device label.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Netis',
+    slug: 'netis',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'guest / admin',
+    defaultPass: 'guest / password',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Netis routers.',
+    models: [
+      {
+            "brand": "Netis",
+            "model": "Netis N2",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "guest / admin",
+            "password": "guest / password"
+      }
+],
+    guide: [
+      "Connect to your Netis router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: guest / admin and Password: guest / password.",
+      "Configure your wireless network and administrator credentials."
+]
+  },
+  {
+    name: 'Westell',
+    slug: 'westell',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Default login credentials, admin IP addresses, and setup guides for Westell routers.',
+    models: [
+      {
+            "brand": "Westell",
+            "model": "Westell ProLine 6100",
+            "protocol": "HTTP",
+            "ip": "192.168.1.1",
+            "username": "admin",
+            "password": "password"
+      }
+],
+    guide: [
+      "Connect to your Westell router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: password.",
+      "Configure your wireless network and administrator credentials."
+]
+  }
 ];
 
 export const ISPS: Isp[] = [
