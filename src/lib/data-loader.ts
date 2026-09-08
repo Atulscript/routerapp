@@ -8,7 +8,7 @@ export const GATEWAY_IPS: GatewayIp[] = [
     description: 'Access your router configuration panel at 192.168.1.1. Step-by-step default login credentials, WiFi password change, and troubleshooting.',
     defaultUser: 'admin',
     defaultPass: 'admin / password',
-    commonBrands: ['TP-Link', 'ASUS', 'Linksys', 'Huawei', 'ZTE', 'Airtel', 'BSNL'],
+    commonBrands: ['TP-Link', 'ASUS', 'Linksys', 'Huawei', 'ZTE', 'Nokia', 'Airtel', 'BSNL'],
     steps: [
       'Connect your PC or smartphone to the router WiFi network or via Ethernet cable.',
       'Open your web browser (Chrome, Safari, Edge, or Firefox).',
@@ -38,7 +38,7 @@ export const GATEWAY_IPS: GatewayIp[] = [
     description: 'Default IP address for D-Link, Netgear, Tenda, and TP-Link routers. Find default passwords and login instructions.',
     defaultUser: 'admin',
     defaultPass: 'admin / password / (blank)',
-    commonBrands: ['D-Link', 'Netgear', 'Tenda', 'TP-Link'],
+    commonBrands: ['D-Link', 'Netgear', 'Tenda', 'TP-Link', 'Mercusys'],
     steps: [
       'Ensure your computer or mobile is connected to the router network.',
       'Open your internet browser and go to http://192.168.0.1 in the address bar.',
@@ -80,10 +80,10 @@ export const GATEWAY_IPS: GatewayIp[] = [
     ip: '192.168.1.254',
     slug: '192-168-1-254',
     title: '192.168.1.254 Router Admin Login & Setup Guide',
-    description: 'Default IP address for Technicolor, Thomson, BT Home Hub, Plusnet, and TP-Link ADSL modems.',
+    description: 'Default IP address for Technicolor, Thomson, BT Home Hub, Plusnet, and AT&T Fiber modems.',
     defaultUser: 'admin',
-    defaultPass: 'admin / (serial number)',
-    commonBrands: ['Technicolor', 'Thomson', 'BT Home Hub', 'Plusnet', 'TP-Link'],
+    defaultPass: 'admin / (serial number) / Access Code',
+    commonBrands: ['Technicolor', 'Thomson', 'BT Home Hub', 'Plusnet', 'AT&T Fiber'],
     steps: [
       'Connect your device to the modem router via WiFi or cable.',
       'Visit http://192.168.1.254 in your web browser.',
@@ -135,6 +135,227 @@ export const GATEWAY_IPS: GatewayIp[] = [
       {
         question: 'What is the default password for JioFiber 192.168.29.1?',
         answer: 'The default username is "admin" and password is "Jiocentrum". Alternatively, you can manage settings using the MyJio app.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.178.1',
+    slug: '192-168-178-1',
+    title: '192.168.178.1 FRITZ!Box Router Admin Login & Setup Guide',
+    description: 'Access AVM FRITZ!Box router configuration dashboard at 192.168.178.1 (fritz.box). Default login passwords, mesh setup, and troubleshooting.',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on sticker / (blank)',
+    commonBrands: ['AVM FRITZ!Box'],
+    steps: [
+      'Connect your device to your FRITZ!Box Wi-Fi network or via LAN cable.',
+      'Open your internet browser and type http://192.168.178.1 or http://fritz.box.',
+      'Enter the FRITZ!Box admin password printed on the sticker underneath the device.',
+      'Access the FRITZ!OS dashboard to configure Wi-Fi, Mesh networking, and DECT telephony.'
+    ],
+    faqs: [
+      {
+        question: 'How do I access my FRITZ!Box if 192.168.178.1 does not open?',
+        answer: 'You can type http://fritz.box in your browser or use the emergency recovery IP 169.254.1.1.'
+      },
+      {
+        question: 'Where is the default password for FRITZ!Box 192.168.178.1?',
+        answer: 'Look at the sticker located on the base/underside of your FRITZ!Box router labeled "FRITZ!Box password".'
+      }
+    ]
+  },
+  {
+    ip: '192.168.31.1',
+    slug: '192-168-31-1',
+    title: '192.168.31.1 Xiaomi & Redmi Router Admin Login Guide',
+    description: 'Default gateway IP for Xiaomi Mi Router and Redmi WiFi gateways (miwifi.com). Setup instructions, default credentials, and MiWiFi guide.',
+    defaultUser: 'admin',
+    defaultPass: 'Set during initial setup',
+    commonBrands: ['Xiaomi', 'Redmi'],
+    steps: [
+      'Connect to your Xiaomi / Redmi Wi-Fi SSID (e.g., Xiaomi_XXXX).',
+      'Open your browser and navigate to http://192.168.31.1 or http://miwifi.com.',
+      'Enter your administrator password configured during initial setup or use the Mi Home / MiWiFi app.',
+      'Configure dual-band Wi-Fi 6 settings, Mesh interconnect, and QoS bandwidth control.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for Xiaomi router 192.168.31.1?',
+        answer: 'Xiaomi routers do not come with a default password. You are prompted to set an admin password during the initial setup wizard.'
+      },
+      {
+        question: 'Can I manage 192.168.31.1 using a smartphone app?',
+        answer: 'Yes, download the Mi Home or MiWiFi app on Android or iOS and connect to your router network to manage settings.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.8.1',
+    slug: '192-168-8-1',
+    title: '192.168.8.1 Huawei, GL.iNet & ZTE 4G/5G Router Login Guide',
+    description: 'Login guide for 192.168.8.1 default IP address used by GL.iNet travel routers, Huawei 4G/5G CPE modems, and ZTE mobile hotspots.',
+    defaultUser: 'admin / root',
+    defaultPass: 'admin / (printed on label)',
+    commonBrands: ['GL.iNet', 'Huawei', 'ZTE', 'Teltonika'],
+    steps: [
+      'Connect your laptop or mobile to the router Wi-Fi or LAN port.',
+      'Open a web browser and go to http://192.168.8.1.',
+      'Enter username (admin or root) and password (admin or printed on the back/battery compartment).',
+      'Manage VPN client (WireGuard/OpenVPN), mobile broadband SIM APN, and Wi-Fi repeater settings.'
+    ],
+    faqs: [
+      {
+        question: 'What devices use 192.168.8.1 as default IP?',
+        answer: 'GL.iNet travel routers (Beryl, Slate, Flint), Huawei 4G LTE CPE routers (B310, B535), and many portable ZTE LTE/5G Wi-Fi hotspots.'
+      },
+      {
+        question: 'How do I log into GL.iNet at 192.168.8.1?',
+        answer: 'On first startup at 192.168.8.1, choose your language and set a master admin password for the Admin Panel.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.100.1',
+    slug: '192-168-100-1',
+    title: '192.168.100.1 Huawei EchoLife & Arris Cable Modem Login Guide',
+    description: 'Access ONT fiber modems and SURFboard cable modems at 192.168.100.1. Default telecomadmin credentials and diagnostic instructions.',
+    defaultUser: 'telecomadmin / admin',
+    defaultPass: 'admintelecom / password',
+    commonBrands: ['Huawei', 'Arris', 'Motorola', 'ZTE'],
+    steps: [
+      'Connect your computer directly to the modem/ONT LAN 1 port via Ethernet.',
+      'Open a browser and navigate to http://192.168.100.1.',
+      'Enter username telecomadmin and password admintelecom (for Huawei GPON) or admin / password (for Arris/Motorola).',
+      'Inspect downstream/upstream DOCSIS power levels or GPON optical Rx/Tx power.'
+    ],
+    faqs: [
+      {
+        question: 'Why is 192.168.100.1 used by cable and fiber modems?',
+        answer: '192.168.100.1 is the standard diagnostic management IP for DOCSIS cable modems (Arris SURFboard, Motorola) and FTTH GPON ONTs (Huawei EchoLife).'
+      },
+      {
+        question: 'What is the telecomadmin password for Huawei 192.168.100.1?',
+        answer: 'Default username is "telecomadmin" and password is "admintelecom". For standard user access, use "root" and "admin".'
+      }
+    ]
+  },
+  {
+    ip: '192.168.88.1',
+    slug: '192-168-88-1',
+    title: '192.168.88.1 MikroTik RouterOS & WinBox Login Guide',
+    description: 'Default IP address for MikroTik RouterBOARD, hAP, and Cloud Core Routers. WebFig, WinBox connection, and default admin login instructions.',
+    defaultUser: 'admin',
+    defaultPass: '(blank) / printed on sticker',
+    commonBrands: ['MikroTik'],
+    steps: [
+      'Connect your computer to Ether2, Ether3, or Wi-Fi (do not connect to Ether1 / WAN).',
+      'Open a web browser to http://192.168.88.1 or download and open the MikroTik WinBox utility.',
+      'Login with username "admin" and leave the password blank.',
+      'Use WebFig or QuickSet to configure IP firewall, NAT, DHCP server, and wireless interfaces.'
+    ],
+    faqs: [
+      {
+        question: 'Why can\'t I connect to 192.168.88.1 on Ether1?',
+        answer: 'In default RouterOS configuration, Ether1 is reserved as the WAN port with the firewall enabled. Always plug into Ether2 or LAN ports.'
+      },
+      {
+        question: 'What is the default password for MikroTik 192.168.88.1?',
+        answer: 'By default, the username is "admin" with NO password (blank). Newer models may have a unique password printed on the sticker.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.18.1',
+    slug: '192-168-18-1',
+    title: '192.168.18.1 Nokia GPON & FTTH Optical Router Login Guide',
+    description: 'Default IP gateway for Nokia ONT fiber optical modems (G-2425G-A). Default AdminGPON login credentials and optical signal diagnostics.',
+    defaultUser: 'AdminGPON / admin',
+    defaultPass: 'ALC#FBRG@H / admin',
+    commonBrands: ['Nokia', 'Alcatel-Lucent'],
+    steps: [
+      'Connect to the Nokia ONT Wi-Fi or connect via LAN port.',
+      'Open your web browser and visit http://192.168.18.1.',
+      'Enter Username: AdminGPON and Password: ALC#FBRG@H (or admin / admin).',
+      'Check Optical Rx Power, WAN GPON status, and Wi-Fi 2.4/5GHz configuration.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default AdminGPON password for Nokia 192.168.18.1?',
+        answer: 'For Nokia G-2425G-A and Alcatel-Lucent ONTs, the superadmin username is "AdminGPON" and password is "ALC#FBRG@H".'
+      },
+      {
+        question: 'How to fix 192.168.18.1 login timeout?',
+        answer: 'Ensure your computer is assigned an IP in the 192.168.18.x range (e.g., 192.168.18.100) via DHCP.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.10.1',
+    slug: '192-168-10-1',
+    title: '192.168.10.1 TRENDnet & Wavlink Router Admin Login Guide',
+    description: 'Default gateway IP for TRENDnet TEW series, Wavlink range extenders, and Repotec networking hardware. Default passwords and setup steps.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    commonBrands: ['TRENDnet', 'Wavlink', 'Repotec'],
+    steps: [
+      'Connect your device to the TRENDnet or Wavlink wireless network.',
+      'Open your web browser and type http://192.168.10.1.',
+      'Enter username "admin" and password "admin" (or "password").',
+      'Follow the setup wizard to configure wireless encryption and WAN connection type.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for 192.168.10.1?',
+        answer: 'For TRENDnet and Wavlink devices, both username and password default to "admin".'
+      },
+      {
+        question: 'Can I access Wavlink range extender at 192.168.10.1?',
+        answer: 'Yes, when in AP or Repeater configuration mode, Wavlink extenders default to 192.168.10.1 or wifi.wavlink.com.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.11.1',
+    slug: '192-168-11-1',
+    title: '192.168.11.1 Buffalo AirStation Router Admin Login Guide',
+    description: 'Access Buffalo AirStation wireless router configuration at 192.168.11.1. Default credentials, AOSS wireless setup, and firmware management.',
+    defaultUser: 'admin / root',
+    defaultPass: 'password / (blank)',
+    commonBrands: ['Buffalo AirStation'],
+    steps: [
+      'Connect to your Buffalo AirStation via Wi-Fi or Ethernet cable.',
+      'Open your web browser and go to http://192.168.11.1.',
+      'Enter Username: admin and Password: password (or Username: root and leave password blank on older units).',
+      'Configure AOSS Wi-Fi security, guest network, and Internet WAN settings.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default login for Buffalo 192.168.11.1?',
+        answer: 'Newer Buffalo routers use admin/password, while classic AirStation models use username "root" with no password.'
+      }
+    ]
+  },
+  {
+    ip: '10.0.1.1',
+    slug: '10-0-1-1',
+    title: '10.0.1.1 Apple AirPort Extreme & Time Capsule Setup Guide',
+    description: 'Default gateway IP for Apple AirPort Extreme, Time Capsule, and Express base stations. AirPort Utility connection and wireless management.',
+    defaultUser: 'admin',
+    defaultPass: 'public',
+    commonBrands: ['Apple'],
+    steps: [
+      'Connect your Apple Mac, iPhone, or Windows PC to the AirPort Wi-Fi network.',
+      'Launch the AirPort Utility app (built-in on macOS/iOS or available for Windows).',
+      'Select your AirPort base station graphic in the network topology map.',
+      'Enter the base station password (default is "public" or custom) to configure Wi-Fi and Time Machine backup disks.'
+    ],
+    faqs: [
+      {
+        question: 'Can I open 10.0.1.1 in a regular web browser?',
+        answer: 'Apple AirPort devices do not use a web interface; you must use the official Apple AirPort Utility application on macOS, iOS, or Windows.'
+      },
+      {
+        question: 'What is the default base station password for Apple 10.0.1.1?',
+        answer: 'The factory default base station password is "public".'
       }
     ]
   }
@@ -202,14 +423,35 @@ export const BRANDS: Brand[] = [
     defaultPass: 'public',
     description: 'AirPort Extreme, AirPort Express, and Time Capsule setup guides and default logins.',
     models: [
-      { brand: 'Apple', model: 'AirPort Extreme', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' },
-      { brand: 'Apple', model: 'AirPort Time Capsule', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' },
-      { brand: 'Apple', model: 'AirPort Express', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' }
+      { brand: 'Apple', model: 'AirPort Extreme 802.11ac', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' },
+      { brand: 'Apple', model: 'AirPort Time Capsule (2TB/3TB)', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' },
+      { brand: 'Apple', model: 'AirPort Express (2nd Gen)', protocol: 'AirPort App', ip: '10.0.1.1', username: 'admin', password: 'public' }
     ],
     guide: [
       'Open AirPort Utility on macOS, iOS, or Windows.',
       'Select your base station.',
       'Enter the base station password (default is "public" or custom).'
+    ]
+  },
+  {
+    name: 'Arris',
+    slug: 'arris',
+    defaultIp: '192.168.0.1 / 192.168.100.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Default credentials and setup guide for Arris SURFboard cable modems, DOCSIS gateways, and Touchstone telephony devices.',
+    models: [
+      { brand: 'Arris', model: 'SURFboard SBG8300 (Wi-Fi 6 DOCSIS 3.1)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' },
+      { brand: 'Arris', model: 'SURFboard G36 (Wi-Fi 6 Multi-Gigabit)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' },
+      { brand: 'Arris', model: 'SURFboard SBG10 (AC1600 DOCSIS 3.0)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' },
+      { brand: 'Arris', model: 'Touchstone TG3452 Telephony Gateway', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'password' },
+      { brand: 'Arris', model: 'SURFboard SB8200 (Modem Diagnostic)', protocol: 'HTTP', ip: '192.168.100.1', username: 'admin', password: 'password' }
+    ],
+    guide: [
+      'Connect your computer to the Arris gateway via Ethernet cable or Wi-Fi.',
+      'Open http://192.168.0.1 or http://192.168.100.1 in your web browser.',
+      'Enter Username: admin and Password: password (or custom password on device sticker).',
+      'Configure Wi-Fi network settings, parental controls, and firewall rules.'
     ]
   },
   {
@@ -220,10 +462,13 @@ export const BRANDS: Brand[] = [
     defaultPass: 'admin',
     description: 'Default credentials, ASUSWRT configuration, and WiFi setup for ASUS RT and ROG Rapture routers.',
     models: [
-      { brand: 'ASUS', model: 'RT-AX55 / RT-AX58U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { brand: 'ASUS', model: 'RT-AX86U / RT-AX88U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { brand: 'ASUS', model: 'ROG Rapture GT-AX6000', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'ROG Rapture GT-BE98 (Wi-Fi 7 Quad-Band)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'RT-BE96U (Wi-Fi 7 Tri-Band)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'ROG Rapture GT-AX6000 / GT-AX11000 Pro', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'ZenWiFi BQ16 Pro (Wi-Fi 7 Mesh)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'ASUS', model: 'ZenWiFi AX (XT8 / XD4)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'RT-AX86U / RT-AX88U Pro', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'ASUS', model: 'RT-AX55 / RT-AX58U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'ASUS', model: 'RT-AC68U / RT-AC86U', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
     ],
     guide: [
@@ -231,6 +476,27 @@ export const BRANDS: Brand[] = [
       'Navigate to http://router.asus.com or http://192.168.1.1 in your browser.',
       'Log in with username: admin and password: admin.',
       'Access ASUSWRT to manage AiProtection, QoS, and Wireless configuration.'
+    ]
+  },
+  {
+    name: 'AVM (FRITZ!Box)',
+    slug: 'avm-fritzbox',
+    defaultIp: '192.168.178.1 / fritz.box',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on sticker',
+    description: 'Default passwords, FRITZ!OS configuration, and setup guides for AVM FRITZ!Box DSL, Fiber, Cable, and LTE routers.',
+    models: [
+      { brand: 'AVM (FRITZ!Box)', model: 'FRITZ!Box 7590 AX (DSL / Wi-Fi 6)', protocol: 'HTTPS', ip: '192.168.178.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'AVM (FRITZ!Box)', model: 'FRITZ!Box 6690 Cable (DOCSIS 3.1)', protocol: 'HTTPS', ip: '192.168.178.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'AVM (FRITZ!Box)', model: 'FRITZ!Box 5590 Fiber (GPON/AON)', protocol: 'HTTPS', ip: '192.168.178.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'AVM (FRITZ!Box)', model: 'FRITZ!Box 4060 (Tri-Band Wi-Fi 6 Router)', protocol: 'HTTPS', ip: '192.168.178.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'AVM (FRITZ!Box)', model: 'FRITZ!Repeater 6000 / 3000 AX (Mesh)', protocol: 'HTTPS', ip: '192.168.178.1', username: 'admin', password: 'Printed on sticker' }
+    ],
+    guide: [
+      'Connect to your FRITZ!Box Wi-Fi or plug into any LAN port.',
+      'Open your web browser and visit http://fritz.box or http://192.168.178.1.',
+      'Enter the FRITZ!Box password printed on the card or sticker beneath the router.',
+      'Configure Internet connection parameters, DECT cordless phones, and Smart Home automation.'
     ]
   },
   {
@@ -249,6 +515,26 @@ export const BRANDS: Brand[] = [
       'Connect to Belkin WiFi network.',
       'Open http://192.168.2.1 in your browser.',
       'Leave password field blank and click Submit.'
+    ]
+  },
+  {
+    name: 'Buffalo',
+    slug: 'buffalo',
+    defaultIp: '192.168.11.1',
+    defaultUser: 'admin / root',
+    defaultPass: 'password / (blank)',
+    description: 'Default logins and AirStation setup instructions for Buffalo WXR, WSR, and AirStation HighPower series routers.',
+    models: [
+      { brand: 'Buffalo', model: 'AirStation WXR-5950AX12 (Wi-Fi 6)', protocol: 'HTTP', ip: '192.168.11.1', username: 'admin', password: 'password' },
+      { brand: 'Buffalo', model: 'AirStation WSR-3200AX4S', protocol: 'HTTP', ip: '192.168.11.1', username: 'admin', password: 'password' },
+      { brand: 'Buffalo', model: 'AirStation WZR-HP-G450H', protocol: 'HTTP', ip: '192.168.11.1', username: 'root', password: '(blank)' },
+      { brand: 'Buffalo', model: 'AirStation WHR-1166D', protocol: 'HTTP', ip: '192.168.11.1', username: 'admin', password: 'password' }
+    ],
+    guide: [
+      'Connect to the Buffalo AirStation Wi-Fi or Ethernet LAN port.',
+      'Open http://192.168.11.1 in your web browser.',
+      'Log in with Username: admin and Password: password (or root with blank password).',
+      'Use the AirStation web console to configure wireless SSIDs and WAN connection.'
     ]
   },
   {
@@ -276,8 +562,10 @@ export const BRANDS: Brand[] = [
     defaultIp: '192.168.0.1 / dlinkrouter.local',
     defaultUser: 'admin',
     defaultPass: '(blank) / admin',
-    description: 'Find default logins and configuration instructions for D-Link DIR, COVR, and DSL routers.',
+    description: 'Find default logins and configuration instructions for D-Link DIR, AQUILA PRO AI, COVR, and DSL routers.',
     models: [
+      { brand: 'D-Link', model: 'AQUILA PRO AI M30 / M60 (Wi-Fi 6 Mesh)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'D-Link', model: 'EAGLE PRO AI AX3200 (R32)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Printed on sticker' },
       { brand: 'D-Link', model: 'DIR-615 / DIR-825 / DIR-842', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: '(blank) / admin' },
       { brand: 'D-Link', model: 'EXO AX1500 / AX1800', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
       { brand: 'D-Link', model: 'DSL-2750U / 2877AL', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
@@ -309,6 +597,27 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'GL.iNet',
+    slug: 'gl-inet',
+    defaultIp: '192.168.8.1',
+    defaultUser: 'root / admin',
+    defaultPass: 'admin',
+    description: 'Setup guides and default logins for GL.iNet OpenWrt travel routers, security gateways, and Wi-Fi 6 home routers.',
+    models: [
+      { brand: 'GL.iNet', model: 'Flint 2 (GL-MT6000 Wi-Fi 6)', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'GL.iNet', model: 'Beryl AX (GL-MT3000 Travel Router)', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'GL.iNet', model: 'Slate AX (GL-AXT1800)', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'GL.iNet', model: 'Brume 2 (GL-MT2500 Security Gateway)', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'GL.iNet', model: 'Shadow (GL-AR300M16)', protocol: 'HTTP', ip: '192.168.8.1', username: 'root', password: 'admin' }
+    ],
+    guide: [
+      'Connect to GL.iNet Wi-Fi (GL-XXXXX) or plug into LAN port.',
+      'Navigate to http://192.168.8.1 in your browser.',
+      'Select system language and configure the Admin Panel master password.',
+      'Configure WireGuard / OpenVPN client, AdGuard Home, or Wi-Fi Repeater mode.'
+    ]
+  },
+  {
     name: 'Huawei',
     slug: 'huawei',
     defaultIp: '192.168.1.1 / 192.168.100.1 / 192.168.8.1',
@@ -318,7 +627,8 @@ export const BRANDS: Brand[] = [
     models: [
       { brand: 'Huawei', model: 'EchoLife HG8145V5 / HG8245H', protocol: 'HTTP', ip: '192.168.100.1', username: 'telecomadmin', password: 'admintelecom' },
       { brand: 'Huawei', model: 'WiFi AX3 / AX3 Pro', protocol: 'HTTP', ip: '192.168.3.1', username: 'admin', password: 'Set during initial setup' },
-      { brand: 'Huawei', model: '4G Router B310 / B315 / B535', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'admin' }
+      { brand: 'Huawei', model: '4G Router B310 / B315 / B535', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'admin' },
+      { brand: 'Huawei', model: '5G CPE Pro 2 (H122-373)', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'admin' }
     ],
     guide: [
       'Connect to Huawei WiFi or LAN.',
@@ -332,17 +642,39 @@ export const BRANDS: Brand[] = [
     defaultIp: '192.168.1.1 / myrouter.local',
     defaultUser: 'admin',
     defaultPass: 'admin',
-    description: 'Default passwords and setup instructions for Linksys Velop, Hydra, and MR series routers.',
+    description: 'Default passwords and setup instructions for Linksys Velop Pro 7, Hydra, and MR series routers.',
     models: [
+      { brand: 'Linksys', model: 'Velop Pro 7 (Wi-Fi 7 Mesh MBE7000)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Linksys', model: 'Hydra Pro 6E (MR7500)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'Linksys', model: 'Velop WHW0301 / MX4200 (Mesh)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'Linksys', model: 'Hydra Pro 6 / MR7350', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { brand: 'Linksys', model: 'WRT54G / WRT1900AC', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Linksys', model: 'WRT54G / WRT1900AC / WRT3200ACM', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
       { brand: 'Linksys', model: 'E1200 / E2500 / EA6900', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
     ],
     guide: [
       'Connect to Linksys WiFi or LAN port.',
       'Visit http://192.168.1.1 or http://myrouter.local.',
       'Enter username: admin and password: admin.'
+    ]
+  },
+  {
+    name: 'Mercusys',
+    slug: 'mercusys',
+    defaultIp: '192.168.1.1 / 192.168.0.1 / mwlogin.net',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default passwords and setup guides for Mercusys Wi-Fi 6 routers, Halo Mesh systems, and wireless range extenders.',
+    models: [
+      { brand: 'Mercusys', model: 'MR80X (AX3000 Wi-Fi 6)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Mercusys', model: 'MR50G (AC1900 Dual Band)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Mercusys', model: 'Halo H80X / H50G (Whole Home Mesh)', protocol: 'MERCUSYS App', ip: '192.168.68.1', username: 'admin', password: 'admin' },
+      { brand: 'Mercusys', model: 'MW305R / MW325R', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to your Mercusys Wi-Fi or Ethernet cable.',
+      'Open http://mwlogin.net or http://192.168.1.1 in your browser.',
+      'Create or enter your admin password to access the management interface.',
+      'Configure wireless security and internet connection parameters.'
     ]
   },
   {
@@ -354,8 +686,9 @@ export const BRANDS: Brand[] = [
     description: 'Default credentials and WinBox connection guide for MikroTik RouterBOARD and hAP series.',
     models: [
       { brand: 'MikroTik', model: 'hAP ac2 / ac3 / ax2 / ax3', protocol: 'HTTP / WinBox', ip: '192.168.88.1', username: 'admin', password: '(blank)' },
-      { brand: 'MikroTik', model: 'RouterBOARD RB750 / RB3011', protocol: 'WinBox / SSH', ip: '192.168.88.1', username: 'admin', password: '(blank)' },
-      { brand: 'MikroTik', model: 'Cloud Core Router (CCR)', protocol: 'WebFig / SSH', ip: '192.168.88.1', username: 'admin', password: '(blank)' }
+      { brand: 'MikroTik', model: 'RouterBOARD RB750 / RB3011 / RB4011', protocol: 'WinBox / SSH', ip: '192.168.88.1', username: 'admin', password: '(blank)' },
+      { brand: 'MikroTik', model: 'Cloud Core Router (CCR2004 / CCR2116)', protocol: 'WebFig / SSH', ip: '192.168.88.1', username: 'admin', password: '(blank)' },
+      { brand: 'MikroTik', model: 'Chateau 5G / LTE12', protocol: 'HTTP / WinBox', ip: '192.168.88.1', username: 'admin', password: '(blank)' }
     ],
     guide: [
       'Connect PC to Ether2 (LAN) port.',
@@ -369,8 +702,11 @@ export const BRANDS: Brand[] = [
     defaultIp: '192.168.1.1 / routerlogin.net',
     defaultUser: 'admin',
     defaultPass: 'password',
-    description: 'Default passwords and setup instructions for Netgear Nighthawk, Orbi, and RAX series routers.',
+    description: 'Default passwords and setup instructions for Netgear Nighthawk Wi-Fi 7, Orbi Quad-Band Mesh, and RAX series routers.',
     models: [
+      { brand: 'Netgear', model: 'Nighthawk RS700S (Wi-Fi 7 BE19000)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Netgear', model: 'Orbi 970 Series (RBE973 Wi-Fi 7 Mesh)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'password' },
+      { brand: 'Netgear', model: 'Nighthawk RAXE500 (Wi-Fi 6E Tri-Band)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'admin', password: 'password' },
       { brand: 'Netgear', model: 'Nighthawk R7000 / RAX40 / RAX80', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
       { brand: 'Netgear', model: 'Orbi RBK50 / RBK750 / RBK850', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
       { brand: 'Netgear', model: 'WNR2000 / JWNR2010', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'password' },
@@ -381,6 +717,45 @@ export const BRANDS: Brand[] = [
       'Open http://routerlogin.net or http://192.168.1.1 in a browser.',
       'Enter username: admin and password: password.',
       'Use the Genie or Nighthawk dashboard to manage your network settings.'
+    ]
+  },
+  {
+    name: 'Netlink',
+    slug: 'netlink',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / stdONUi0i$',
+    description: 'Default logins and FTTH GPON/EPON configuration instructions for Netlink optical network terminals.',
+    models: [
+      { brand: 'Netlink', model: 'HG323RGW (GPON ONT + Wi-Fi)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Netlink', model: 'V2801SG (1GE EPON/GPON ONT)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'stdONUi0i$' },
+      { brand: 'Netlink', model: 'HG326x Dual Band Gigabit ONT', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect PC to Netlink ONT via LAN cable.',
+      'Open http://192.168.1.1 in your browser.',
+      'Log in with admin / admin (or stdONUi0i$ for superadmin).',
+      'Configure PPPoE credentials and optical VLAN tags.'
+    ]
+  },
+  {
+    name: 'Nokia',
+    slug: 'nokia',
+    defaultIp: '192.168.1.1 / 192.168.18.1',
+    defaultUser: 'AdminGPON / admin',
+    defaultPass: 'ALC#FBRG@H / admin',
+    description: 'Default passwords, GPON settings, and Wi-Fi configuration guides for Nokia optical ONT gateways and Nokia WiFi Beacons.',
+    models: [
+      { brand: 'Nokia', model: 'G-2425G-A (Dual Band GPON ONT)', protocol: 'HTTP', ip: '192.168.18.1', username: 'AdminGPON', password: 'ALC#FBRG@H' },
+      { brand: 'Nokia', model: 'G-140W-ME (GPON Optical Gateway)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Nokia', model: 'Nokia WiFi Beacon 6 (Wi-Fi 6 Mesh)', protocol: 'Nokia WiFi App', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' },
+      { brand: 'Nokia', model: 'Nokia WiFi Beacon 1 / Beacon 2', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'Printed on sticker' }
+    ],
+    guide: [
+      'Connect to Nokia ONT Wi-Fi or plug into LAN 1.',
+      'Open http://192.168.18.1 or http://192.168.1.1 in browser.',
+      'Enter Username: AdminGPON and Password: ALC#FBRG@H (or check provider sticker).',
+      'Access optical status, port forwarding, and 2.4/5GHz Wi-Fi controls.'
     ]
   },
   {
@@ -415,6 +790,25 @@ export const BRANDS: Brand[] = [
       'Connect to Synology router network.',
       'Visit http://router.synology.com or http://192.168.1.1.',
       'Follow Synology SRM setup wizard.'
+    ]
+  },
+  {
+    name: 'Syrotech',
+    slug: 'syrotech',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / stdONUi0i$',
+    description: 'Default logins and FTTH GPON/EPON ONT setup instructions for Syrotech fiber optic routers.',
+    models: [
+      { brand: 'Syrotech', model: 'SY-GPON-1110-WDONT (Wi-Fi GPON ONT)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Syrotech', model: 'SY-GPON-2020-WADONT (Dual Band)', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
+      { brand: 'Syrotech', model: 'SY-ROUTER-1200 Gigabit Dual Band', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect your PC to Syrotech ONT via Ethernet cable.',
+      'Visit http://192.168.1.1 in your web browser.',
+      'Log in with Username: admin and Password: admin (or stdONUi0i$).',
+      'Set up PPPoE Internet account, VLAN ID, and Wi-Fi security.'
     ]
   },
   {
@@ -459,8 +853,11 @@ export const BRANDS: Brand[] = [
     defaultIp: '192.168.1.1 / 192.168.0.1 / tplinkwifi.net',
     defaultUser: 'admin',
     defaultPass: 'admin',
-    description: 'Complete default login credentials and setup guides for TP-Link Archer, Deco, and WR series routers.',
+    description: 'Complete default login credentials and setup guides for TP-Link Archer Wi-Fi 7, Deco Mesh, and WR series routers.',
     models: [
+      { brand: 'TP-Link', model: 'Archer BE800 / BE900 (Wi-Fi 7)', protocol: 'HTTPS', ip: '192.168.0.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'TP-Link', model: 'Archer AXE75 / AXE95 (Wi-Fi 6E)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'TP-Link', model: 'Deco XE75 / BE85 (Wi-Fi 6E/7 Mesh)', protocol: 'Tether App', ip: '192.168.68.1', username: 'TP-Link ID', password: 'Cloud Password' },
       { brand: 'TP-Link', model: 'Archer AX10 / AX20 / AX50 / AX73', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'Set during initial setup' },
       { brand: 'TP-Link', model: 'Archer C6 / C7 / C80 / A6', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
       { brand: 'TP-Link', model: 'TL-WR841N / TL-WR845N / TL-WR940N', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
@@ -475,6 +872,25 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'TRENDnet',
+    slug: 'trendnet',
+    defaultIp: '192.168.10.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default logins, setup instructions, and firmware management for TRENDnet TEW wireless AC and N routers.',
+    models: [
+      { brand: 'TRENDnet', model: 'TEW-827DRU (AC2600 StreamBoost)', protocol: 'HTTP', ip: '192.168.10.1', username: 'admin', password: 'admin' },
+      { brand: 'TRENDnet', model: 'TEW-831DR (AC1200 Dual Band)', protocol: 'HTTP', ip: '192.168.10.1', username: 'admin', password: 'admin' },
+      { brand: 'TRENDnet', model: 'TEW-731BR (N300 Wireless Router)', protocol: 'HTTP', ip: '192.168.10.1', username: 'admin', password: 'admin' }
+    ],
+    guide: [
+      'Connect to TRENDnet router Wi-Fi or LAN port.',
+      'Open http://192.168.10.1 in your browser.',
+      'Enter Username: admin and Password: admin.',
+      'Complete the setup wizard for internet and wireless security.'
+    ]
+  },
+  {
     name: 'Ubiquiti',
     slug: 'ubiquiti',
     defaultIp: '192.168.1.1',
@@ -482,8 +898,9 @@ export const BRANDS: Brand[] = [
     defaultPass: 'ubnt',
     description: 'Default credentials for UniFi Dream Machine, EdgeRouter, and airMAX devices.',
     models: [
-      { brand: 'Ubiquiti', model: 'UniFi Dream Machine (UDM / UDM Pro)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root / ui.com account', password: 'ubnt' },
-      { brand: 'Ubiquiti', model: 'EdgeRouter X / Lite / 4', protocol: 'HTTPS', ip: '192.168.1.1', username: 'ubnt', password: 'ubnt' },
+      { brand: 'Ubiquiti', model: 'UniFi Dream Machine (UDM / UDM Pro / SE)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root / ui.com account', password: 'ubnt' },
+      { brand: 'Ubiquiti', model: 'UniFi Express (UX Cloud Gateway)', protocol: 'HTTPS', ip: '192.168.1.1', username: 'root / ui.com account', password: 'ubnt' },
+      { brand: 'Ubiquiti', model: 'EdgeRouter X / Lite / 4 / 6P', protocol: 'HTTPS', ip: '192.168.1.1', username: 'ubnt', password: 'ubnt' },
       { brand: 'Ubiquiti', model: 'NanoStation / LiteBeam (airMAX)', protocol: 'HTTPS', ip: '192.168.1.20', username: 'ubnt', password: 'ubnt' }
     ],
     guide: [
@@ -493,15 +910,37 @@ export const BRANDS: Brand[] = [
     ]
   },
   {
+    name: 'Xiaomi',
+    slug: 'xiaomi',
+    defaultIp: '192.168.31.1 / miwifi.com',
+    defaultUser: 'admin',
+    defaultPass: 'Set during initial setup',
+    description: 'Default IP logins, MiWiFi dashboard setup, and firmware configuration for Xiaomi and Redmi AX-series routers.',
+    models: [
+      { brand: 'Xiaomi', model: 'Mi AIoT Router AX3600 (Wi-Fi 6)', protocol: 'HTTP', ip: '192.168.31.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Xiaomi', model: 'Xiaomi Router AX6000', protocol: 'HTTP', ip: '192.168.31.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Xiaomi', model: 'Xiaomi Router AX3000 / AX3200', protocol: 'HTTP', ip: '192.168.31.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Xiaomi', model: 'Redmi Gaming Router AX5400', protocol: 'HTTP', ip: '192.168.31.1', username: 'admin', password: 'Set during initial setup' },
+      { brand: 'Xiaomi', model: 'Mi Router 4A Gigabit Edition', protocol: 'HTTP', ip: '192.168.31.1', username: 'admin', password: 'Set during initial setup' }
+    ],
+    guide: [
+      'Connect to the Xiaomi / Redmi default Wi-Fi network.',
+      'Open http://miwifi.com or http://192.168.31.1 in your browser.',
+      'Follow the on-screen wizard to create an admin password and configure Wi-Fi SSID.',
+      'Use the MiWiFi or Mi Home mobile app for remote management and Mesh networking.'
+    ]
+  },
+  {
     name: 'ZTE',
     slug: 'zte',
-    defaultIp: '192.168.1.1 / 192.168.0.1',
+    defaultIp: '192.168.1.1 / 192.168.0.1 / 192.168.8.1',
     defaultUser: 'admin',
     defaultPass: 'admin',
     description: 'Default login credentials for ZTE ZXHN ONT and 4G/5G wireless routers.',
     models: [
       { brand: 'ZTE', model: 'ZXHN F660 / F670 / F680 FTTH', protocol: 'HTTP', ip: '192.168.1.1', username: 'admin', password: 'admin' },
-      { brand: 'ZTE', model: 'MF283 / MF286 (4G LTE Router)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' }
+      { brand: 'ZTE', model: 'MF283 / MF286 (4G LTE Router)', protocol: 'HTTP', ip: '192.168.0.1', username: 'admin', password: 'admin' },
+      { brand: 'ZTE', model: 'MU5001 / MC801A (5G Indoor CPE)', protocol: 'HTTP', ip: '192.168.8.1', username: 'admin', password: 'admin' }
     ],
     guide: [
       'Connect to ZTE router network.',
@@ -757,5 +1196,3 @@ export function getModelsForIp(targetIp: string) {
   });
   return matches;
 }
-
-
