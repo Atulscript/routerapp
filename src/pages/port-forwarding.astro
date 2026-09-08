@@ -127,7 +127,7 @@ const schema = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumbs -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
       <a href={`${base}/tools`} class="hover:text-slate-900 transition-colors">Tools</a>
@@ -152,31 +152,31 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Interactive Port Forwarding Rule Generator Assistant -->
-    <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+    <div class="bg-white dark:bg-[#292a2d] rounded-3xl p-5 sm:p-7 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
       <div class="flex items-center justify-between">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Configuration Assistant</span>
-          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Router Port Forwarding Rule Helper</h2>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#1a73e8] dark:text-[#8ab4f8]">Configuration Assistant</span>
+          <h2 class="text-lg font-bold text-[#202124] dark:text-white">Router Port Forwarding Rule Helper</h2>
         </div>
-        <span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-slate-600 dark:text-slate-300">NAT Virtual Server</span>
+        <span class="text-xs font-mono bg-[#f1f3f4] dark:bg-[#303134] px-2 py-1 rounded text-[#5f6368] dark:text-[#bdc1c6]">NAT Virtual Server</span>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Service / App Name</label>
-          <input type="text" id="gen-name" value="Minecraft Server" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-medium outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-brand-500 font-sans" />
+          <label class="block text-[11px] font-bold text-[#3c4043] dark:text-[#bdc1c6] uppercase mb-1">Service / App Name</label>
+          <input type="text" id="gen-name" value="Minecraft Server" class="w-full px-3 py-2 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#303134] text-[#202124] dark:text-white text-xs font-medium outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-[#1a73e8] font-sans" />
         </div>
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Device Local IP</label>
-          <input type="text" id="gen-ip" value="192.168.1.150" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-mono font-bold outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-brand-500" />
+          <label class="block text-[11px] font-bold text-[#3c4043] dark:text-[#bdc1c6] uppercase mb-1">Device Local IP</label>
+          <input type="text" id="gen-ip" value="192.168.1.150" class="w-full px-3 py-2 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#303134] text-[#202124] dark:text-white text-xs font-mono font-bold outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-[#1a73e8]" />
         </div>
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Port Number</label>
-          <input type="text" id="gen-port" value="25565" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-mono font-bold outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-brand-500" />
+          <label class="block text-[11px] font-bold text-[#3c4043] dark:text-[#bdc1c6] uppercase mb-1">Port Number</label>
+          <input type="text" id="gen-port" value="25565" class="w-full px-3 py-2 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#303134] text-[#202124] dark:text-white text-xs font-mono font-bold outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-[#1a73e8]" />
         </div>
         <div>
-          <label class="block text-[11px] font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Protocol</label>
-          <select id="gen-proto" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs font-bold outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-brand-500 cursor-pointer">
+          <label class="block text-[11px] font-bold text-[#3c4043] dark:text-[#bdc1c6] uppercase mb-1">Protocol</label>
+          <select id="gen-proto" class="w-full px-3 py-2 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#303134] text-[#202124] dark:text-white text-xs font-bold outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-[#1a73e8] cursor-pointer">
             <option value="TCP">TCP</option>
             <option value="UDP">UDP</option>
             <option value="ALL" selected>TCP & UDP (Both)</option>
@@ -187,32 +187,32 @@ const schema = [
       <!-- Generated Rule Preview Box -->
       <div class="p-4 rounded-2xl bg-slate-900 dark:bg-slate-950 text-white font-mono text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border dark:border-slate-800">
         <div class="space-y-1">
-          <div class="text-[10px] text-slate-400 font-sans uppercase font-bold tracking-wider">Router NAT Table Output:</div>
+          <div class="text-[10px] text-[#80868b] font-sans uppercase font-bold tracking-wider">Router NAT Table Output:</div>
           <div class="text-emerald-400 font-bold" id="gen-rule-output">
             Rule: Minecraft Server · IP: 192.168.1.150 · Port: 25565 → 25565 (TCP/UDP)
           </div>
         </div>
-        <button id="btn-copy-rule" class="px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-sans font-bold transition-all cursor-pointer flex-shrink-0">
+        <button id="btn-copy-rule" class="px-3 py-1.5 rounded-lg bg-[#1a73e8] hover:bg-brand-500 text-white text-xs font-sans font-bold transition-all cursor-pointer flex-shrink-0">
           Copy Parameters
         </button>
       </div>
     </div>
 
     <!-- Searchable Common Ports Catalog Table -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+    <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
+          <h2 class="text-base font-extrabold text-[#202124] dark:text-white">
             Common Networking Ports Directory
           </h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Search ports for gaming, media streaming, web hosting, and VPNs.</p>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">Search ports for gaming, media streaming, web hosting, and VPNs.</p>
         </div>
         <div class="relative w-full sm:w-64">
           <input 
             type="text" 
             id="port-search" 
             placeholder="Search port or game (e.g. 25565, Plex)..."
-            class="w-full px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-brand-500"
+            class="w-full px-3 py-1.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#303134] text-[#202124] dark:text-white text-xs outline-none focus:bg-white dark:focus:bg-slate-750 focus:border-[#1a73e8]"
           />
         </div>
       </div>
@@ -220,7 +220,7 @@ const schema = [
       <div class="overflow-x-auto -mx-5 sm:mx-0">
         <table class="w-full text-left border-collapse text-xs" id="ports-table">
           <thead>
-            <tr class="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+            <tr class="bg-[#f8fafd] dark:bg-[#303134]/80 border-b border-[#dadce0] dark:border-[#5f6368] text-[11px] font-bold text-[#5f6368] dark:text-[#bdc1c6] uppercase tracking-wider">
               <th class="py-2.5 px-3">Port</th>
               <th class="py-2.5 px-3">Protocol</th>
               <th class="py-2.5 px-3">Service / Application</th>
@@ -228,18 +228,18 @@ const schema = [
               <th class="py-2.5 px-3">Description</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+          <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043]">
             {commonPorts.map(p => (
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 port-row transition-colors">
-                <td class="py-2.5 px-3 font-mono font-bold text-brand-600 dark:text-brand-400">{p.port}</td>
-                <td class="py-2.5 px-3 font-mono text-slate-700 dark:text-slate-300">{p.protocol}</td>
-                <td class="py-2.5 px-3 font-semibold text-slate-900 dark:text-white">{p.service}</td>
+              <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#35373a]/50 port-row transition-colors">
+                <td class="py-2.5 px-3 font-mono font-bold text-[#1a73e8] dark:text-[#8ab4f8]">{p.port}</td>
+                <td class="py-2.5 px-3 font-mono text-[#3c4043] dark:text-[#bdc1c6]">{p.protocol}</td>
+                <td class="py-2.5 px-3 font-semibold text-[#202124] dark:text-white">{p.service}</td>
                 <td class="py-2.5 px-3">
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6]">
                     {p.category}
                   </span>
                 </td>
-                <td class="py-2.5 px-3 text-slate-500 dark:text-slate-400 text-[11px]">{p.desc}</td>
+                <td class="py-2.5 px-3 text-[#5f6368] dark:text-[#9aa0a6] text-[11px]">{p.desc}</td>
               </tr>
             ))}
           </tbody>
@@ -250,23 +250,23 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- Step-by-Step Port Forwarding Setup Guides by Router Brand -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-7 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
       <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 text-[11px] font-bold border border-sky-200/50 dark:border-sky-800/50">
         🛠️ Step-by-Step Router Walkthrough
       </div>
-      <h2 class="text-xl font-extrabold text-slate-900 dark:text-white">
+      <h2 class="text-xl font-extrabold text-[#202124] dark:text-white">
         How to Open Ports on Popular Router Brands
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
         
         <!-- TP-Link -->
-        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
-          <strong class="text-xs font-bold text-slate-900 dark:text-white block flex items-center justify-between">
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
+          <strong class="text-xs font-bold text-[#202124] dark:text-white block flex items-center justify-between">
             <span>TP-Link Routers</span>
-            <a href={`${base}/tp-link`} class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline">TP-Link Guide →</a>
+            <a href={`${base}/tp-link`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">TP-Link Guide →</a>
           </strong>
-          <ol class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+          <ol class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] space-y-1.5 list-decimal list-inside leading-relaxed">
             <li>Log into <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">http://tplinkwifi.net</code> or <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">http://192.168.0.1</code>.</li>
             <li>Go to <strong>Advanced</strong> → <strong>NAT Forwarding</strong> → <strong>Virtual Servers</strong>.</li>
             <li>Click <strong>+ Add</strong>.</li>
@@ -276,12 +276,12 @@ const schema = [
         </div>
 
         <!-- Netgear -->
-        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
-          <strong class="text-xs font-bold text-slate-900 dark:text-white block flex items-center justify-between">
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
+          <strong class="text-xs font-bold text-[#202124] dark:text-white block flex items-center justify-between">
             <span>Netgear Nighthawk</span>
-            <a href={`${base}/netgear`} class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline">Netgear Guide →</a>
+            <a href={`${base}/netgear`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">Netgear Guide →</a>
           </strong>
-          <ol class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+          <ol class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] space-y-1.5 list-decimal list-inside leading-relaxed">
             <li>Open <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">http://routerlogin.net</code> or <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">http://192.168.1.1</code>.</li>
             <li>Go to <strong>Advanced</strong> → <strong>Advanced Setup</strong> → <strong>Port Forwarding / Port Triggering</strong>.</li>
             <li>Click <strong>Add Custom Service</strong>.</li>
@@ -290,12 +290,12 @@ const schema = [
         </div>
 
         <!-- ASUS -->
-        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
-          <strong class="text-xs font-bold text-slate-900 dark:text-white block flex items-center justify-between">
+        <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
+          <strong class="text-xs font-bold text-[#202124] dark:text-white block flex items-center justify-between">
             <span>ASUS RT Series</span>
-            <a href={`${base}/asus`} class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline">ASUS Guide →</a>
+            <a href={`${base}/asus`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">ASUS Guide →</a>
           </strong>
-          <ol class="text-[11px] text-slate-600 dark:text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+          <ol class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] space-y-1.5 list-decimal list-inside leading-relaxed">
             <li>Open <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">http://router.asus.com</code> or <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">http://192.168.1.1</code>.</li>
             <li>Go to <strong>WAN</strong> → <strong>Virtual Server / Port Forwarding</strong> tab.</li>
             <li>Toggle <strong>Enable Port Forwarding</strong> to ON.</li>
@@ -312,24 +312,24 @@ const schema = [
     </div>
 
     <!-- FAQ Section (Positioned Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Port Forwarding Frequently Asked Questions</h2>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-[#202124] dark:text-white">Port Forwarding Frequently Asked Questions</h2>
+      <div class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] text-xs">
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Is Port Forwarding dangerous for home security?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Port forwarding allows incoming connections through your router's NAT firewall to a specific local device. It is safe if the software running on that port (e.g., Minecraft or Plex) is updated and password-protected. Never forward unencrypted sensitive ports like Telnet (23) or expose Windows RDP (3389) directly to the public internet without a VPN.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">What is the difference between Port Forwarding and DMZ?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Port forwarding directs only specific individual ports (e.g. 25565) to a local device while keeping the rest of the firewall active. DMZ (Demilitarized Zone) exposes all 65,535 ports on that device completely to the internet, creating severe security vulnerabilities.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why does port forwarding fail or show "Port Closed"?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Common reasons include: (1) The application/server is not running on your computer, (2) Windows Defender or macOS Firewall is blocking the incoming port, (3) Your device changed its local IP (use a static DHCP reservation), or (4) Your ISP uses CGNAT (Carrier-Grade NAT) where you don't have a public IPv4 address.
           </p>
         </div>

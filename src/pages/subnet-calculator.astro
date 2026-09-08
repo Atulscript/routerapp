@@ -100,7 +100,7 @@ const schema = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumbs -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
       <a href={`${base}/tools`} class="hover:text-slate-900 transition-colors">Tools</a>
@@ -132,7 +132,7 @@ const schema = [
         
         <!-- IP Address Field -->
         <div class="sm:col-span-7 space-y-1.5">
-          <label for="input-ip" class="block text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+          <label for="input-ip" class="block text-xs font-bold text-[#202124] dark:text-[#e8eaed] uppercase tracking-wider">
             IPv4 Address
           </label>
           <div class="relative">
@@ -141,19 +141,19 @@ const schema = [
               id="input-ip"
               value="192.168.1.1"
               placeholder="e.g. 192.168.1.1 or 10.0.0.1"
-              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-850 text-slate-900 dark:text-white font-mono text-sm font-bold focus:border-brand-500 focus:ring-3 focus:ring-brand-500/10 outline-none transition-all"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#202124] focus:bg-white dark:focus:bg-slate-850 text-[#202124] dark:text-white font-mono text-sm font-bold focus:border-[#1a73e8] focus:ring-3 focus:ring-[#1a73e8]/10 outline-none transition-all"
             />
           </div>
         </div>
 
         <!-- CIDR Mask Dropdown -->
         <div class="sm:col-span-5 space-y-1.5">
-          <label for="select-cidr" class="block text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+          <label for="select-cidr" class="block text-xs font-bold text-[#202124] dark:text-[#e8eaed] uppercase tracking-wider">
             Subnet Mask / CIDR
           </label>
           <select 
             id="select-cidr"
-            class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-850 text-slate-900 dark:text-white font-mono text-xs font-bold focus:border-brand-500 focus:ring-3 focus:ring-brand-500/10 outline-none transition-all cursor-pointer"
+            class="w-full px-3 py-2.5 rounded-xl border border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#202124] focus:bg-white dark:focus:bg-slate-850 text-[#202124] dark:text-white font-mono text-xs font-bold focus:border-[#1a73e8] focus:ring-3 focus:ring-[#1a73e8]/10 outline-none transition-all cursor-pointer"
           >
             <option value="32">/32 (255.255.255.255) - 1 Host</option>
             <option value="31">/31 (255.255.255.254) - Point-to-Point (RFC 3021)</option>
@@ -187,11 +187,11 @@ const schema = [
 
       <!-- Quick Preset Buttons -->
       <div class="flex flex-wrap items-center gap-1.5 pt-1">
-        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mr-1">Presets:</span>
-        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium transition-colors" data-ip="192.168.1.1" data-cidr="24">Home LAN (192.168.1.0/24)</button>
-        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium transition-colors" data-ip="10.0.0.1" data-cidr="20">Office Subnet (10.0.0.0/20)</button>
-        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium transition-colors" data-ip="172.16.0.1" data-cidr="16">Enterprise (172.16.0.0/16)</button>
-        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-slate-700 dark:text-slate-300 text-xs font-mono font-medium transition-colors" data-ip="192.168.0.1" data-cidr="30">Point-to-Point (/30)</button>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6] mr-1">Presets:</span>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-[#f1f3f4] dark:bg-[#303134] hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-[#3c4043] dark:text-[#bdc1c6] text-xs font-mono font-medium transition-colors" data-ip="192.168.1.1" data-cidr="24">Home LAN (192.168.1.0/24)</button>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-[#f1f3f4] dark:bg-[#303134] hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-[#3c4043] dark:text-[#bdc1c6] text-xs font-mono font-medium transition-colors" data-ip="10.0.0.1" data-cidr="20">Office Subnet (10.0.0.0/20)</button>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-[#f1f3f4] dark:bg-[#303134] hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-[#3c4043] dark:text-[#bdc1c6] text-xs font-mono font-medium transition-colors" data-ip="172.16.0.1" data-cidr="16">Enterprise (172.16.0.0/16)</button>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-[#f1f3f4] dark:bg-[#303134] hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-700 dark:hover:text-brand-300 text-[#3c4043] dark:text-[#bdc1c6] text-xs font-mono font-medium transition-colors" data-ip="192.168.0.1" data-cidr="30">Point-to-Point (/30)</button>
       </div>
 
       <!-- Calculated Results Grid -->
@@ -200,62 +200,62 @@ const schema = [
         <!-- Network Address -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Network ID Address</div>
-            <div class="text-sm font-mono font-bold text-slate-900 dark:text-white mt-0.5" id="res-network">192.168.1.0</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Network ID Address</div>
+            <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="res-network">192.168.1.0</div>
           </div>
-          <button class="copy-field-btn text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-network">Copy</button>
+          <button class="copy-field-btn text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-network">Copy</button>
         </div>
 
         <!-- Broadcast Address -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Broadcast Address</div>
-            <div class="text-sm font-mono font-bold text-slate-900 dark:text-white mt-0.5" id="res-broadcast">192.168.1.255</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Broadcast Address</div>
+            <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="res-broadcast">192.168.1.255</div>
           </div>
-          <button class="copy-field-btn text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-broadcast">Copy</button>
+          <button class="copy-field-btn text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-broadcast">Copy</button>
         </div>
 
         <!-- Usable Host Range -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Usable Host IP Range</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Usable Host IP Range</div>
             <div class="text-sm font-mono font-bold text-emerald-700 dark:text-emerald-400 mt-0.5" id="res-range">192.168.1.1 - 192.168.1.254</div>
           </div>
-          <button class="copy-field-btn text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-range">Copy</button>
+          <button class="copy-field-btn text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-range">Copy</button>
         </div>
 
         <!-- Total Usable Hosts -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Total Usable Hosts</div>
-            <div class="text-sm font-mono font-bold text-slate-900 dark:text-white mt-0.5" id="res-hosts">254</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Total Usable Hosts</div>
+            <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="res-hosts">254</div>
           </div>
-          <span class="text-[11px] font-mono text-slate-400 dark:text-slate-500">2^(32-n) - 2</span>
+          <span class="text-[11px] font-mono text-[#80868b] dark:text-[#9aa0a6]">2^(32-n) - 2</span>
         </div>
 
         <!-- Subnet Mask -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Subnet Mask</div>
-            <div class="text-sm font-mono font-bold text-slate-900 dark:text-white mt-0.5" id="res-netmask">255.255.255.0</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Subnet Mask</div>
+            <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="res-netmask">255.255.255.0</div>
           </div>
-          <button class="copy-field-btn text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-netmask">Copy</button>
+          <button class="copy-field-btn text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-netmask">Copy</button>
         </div>
 
         <!-- Wildcard Mask -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Cisco Wildcard Mask (ACLs)</div>
-            <div class="text-sm font-mono font-bold text-slate-900 dark:text-white mt-0.5" id="res-wildcard">0.0.0.255</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Cisco Wildcard Mask (ACLs)</div>
+            <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="res-wildcard">0.0.0.255</div>
           </div>
-          <button class="copy-field-btn text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-wildcard">Copy</button>
+          <button class="copy-field-btn text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-wildcard">Copy</button>
         </div>
 
         <!-- IP Class & Scope -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">IP Class & Routing Scope</div>
-            <div class="text-xs font-bold text-slate-900 dark:text-white mt-0.5 flex items-center gap-1.5" id="res-class">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">IP Class & Routing Scope</div>
+            <div class="text-xs font-bold text-[#202124] dark:text-white mt-0.5 flex items-center gap-1.5" id="res-class">
               <span class="px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-950/80 text-indigo-800 dark:text-indigo-300 font-mono text-[11px]">Class C</span>
               <span class="px-1.5 py-0.2 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-sans text-[11px]">RFC 1918 Private</span>
             </div>
@@ -265,31 +265,31 @@ const schema = [
         <!-- Hex Subnet Mask -->
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between group">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Hexadecimal Mask</div>
-            <div class="text-sm font-mono font-bold text-slate-900 dark:text-white mt-0.5" id="res-hex">0xFFFFFF00</div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Hexadecimal Mask</div>
+            <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="res-hex">0xFFFFFF00</div>
           </div>
-          <button class="copy-field-btn text-xs font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-hex">Copy</button>
+          <button class="copy-field-btn text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 p-1.5 rounded hover:bg-white dark:hover:bg-slate-800 transition-colors" data-target="res-hex">Copy</button>
         </div>
 
       </div>
 
       <!-- Binary Breakdown View -->
       <div class="p-4 rounded-2xl bg-slate-900 dark:bg-slate-950 border border-slate-800 text-white font-mono text-xs space-y-2 overflow-x-auto">
-        <div class="flex items-center justify-between text-[11px] font-sans text-slate-400 font-bold uppercase tracking-wider">
+        <div class="flex items-center justify-between text-[11px] font-sans text-[#80868b] font-bold uppercase tracking-wider">
           <span>32-Bit Binary Structure</span>
           <span class="text-sky-400">Network Bits (Blue) vs Host Bits (Gray)</span>
         </div>
         <div class="space-y-1 pt-1 text-[11px] sm:text-xs">
           <div class="flex items-center gap-2">
-            <span class="text-slate-400 w-24 flex-shrink-0">IP Address:</span>
+            <span class="text-[#80868b] w-24 flex-shrink-0">IP Address:</span>
             <span id="bin-ip" class="font-bold text-slate-200">11000000.10101000.00000001.00000001</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-slate-400 w-24 flex-shrink-0">Subnet Mask:</span>
+            <span class="text-[#80868b] w-24 flex-shrink-0">Subnet Mask:</span>
             <span id="bin-mask" class="font-bold text-sky-400">11111111.11111111.11111111.00000000</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-slate-400 w-24 flex-shrink-0">Network ID:</span>
+            <span class="text-[#80868b] w-24 flex-shrink-0">Network ID:</span>
             <span id="bin-net" class="font-bold text-emerald-400">11000000.10101000.00000001.00000000</span>
           </div>
         </div>
@@ -300,18 +300,18 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- CIDR Reference Table Cheat Sheet -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
       <div class="flex items-center justify-between">
-        <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
+        <h2 class="text-base font-extrabold text-[#202124] dark:text-white">
           IPv4 CIDR Prefix & Subnet Mask Reference Table
         </h2>
-        <span class="text-xs text-slate-400 dark:text-slate-500 font-mono">/8 to /32</span>
+        <span class="text-xs text-[#80868b] dark:text-[#9aa0a6] font-mono">/8 to /32</span>
       </div>
 
       <div class="overflow-x-auto -mx-5 sm:mx-0">
         <table class="w-full text-left border-collapse text-xs">
           <thead>
-            <tr class="bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+            <tr class="bg-slate-50 dark:bg-slate-950 border-b border-[#dadce0] dark:border-[#3c4043] text-[11px] font-bold text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-wider">
               <th class="py-2.5 px-3">CIDR Prefix</th>
               <th class="py-2.5 px-3">Subnet Mask</th>
               <th class="py-2.5 px-3">Usable Hosts</th>
@@ -319,55 +319,55 @@ const schema = [
               <th class="py-2.5 px-3">Standard Class</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+          <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] font-mono">
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/32</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.255.255.255</td>
-              <td class="py-2 px-3 text-slate-900 dark:text-white font-bold">1</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">1</td>
-              <td class="py-2 px-3 font-sans text-slate-500 dark:text-slate-400">Single Host / Loopback</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/32</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.255.255.255</td>
+              <td class="py-2 px-3 text-[#202124] dark:text-white font-bold">1</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">1</td>
+              <td class="py-2 px-3 font-sans text-[#5f6368] dark:text-[#9aa0a6]">Single Host / Loopback</td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/30</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.255.255.252</td>
-              <td class="py-2 px-3 text-slate-900 dark:text-white font-bold">2</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">4</td>
-              <td class="py-2 px-3 font-sans text-slate-500 dark:text-slate-400">Point-to-Point Link</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/30</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.255.255.252</td>
+              <td class="py-2 px-3 text-[#202124] dark:text-white font-bold">2</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">4</td>
+              <td class="py-2 px-3 font-sans text-[#5f6368] dark:text-[#9aa0a6]">Point-to-Point Link</td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/28</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.255.255.240</td>
-              <td class="py-2 px-3 text-slate-900 dark:text-white font-bold">14</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">16</td>
-              <td class="py-2 px-3 font-sans text-slate-500 dark:text-slate-400">Small Branch / VLAN</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/28</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.255.255.240</td>
+              <td class="py-2 px-3 text-[#202124] dark:text-white font-bold">14</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">16</td>
+              <td class="py-2 px-3 font-sans text-[#5f6368] dark:text-[#9aa0a6]">Small Branch / VLAN</td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850 bg-sky-50/40 dark:bg-sky-950/20">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/24</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.255.255.0</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/24</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.255.255.0</td>
               <td class="py-2 px-3 text-emerald-700 dark:text-emerald-400 font-bold">254</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">256</td>
-              <td class="py-2 px-3 font-sans font-bold text-slate-800 dark:text-slate-200">Class C (Home Routers)</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">256</td>
+              <td class="py-2 px-3 font-sans font-bold text-[#202124] dark:text-[#e8eaed]">Class C (Home Routers)</td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/20</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.255.240.0</td>
-              <td class="py-2 px-3 text-slate-900 dark:text-white font-bold">4,094</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">4,096</td>
-              <td class="py-2 px-3 font-sans text-slate-500 dark:text-slate-400">Medium Enterprise</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/20</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.255.240.0</td>
+              <td class="py-2 px-3 text-[#202124] dark:text-white font-bold">4,094</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">4,096</td>
+              <td class="py-2 px-3 font-sans text-[#5f6368] dark:text-[#9aa0a6]">Medium Enterprise</td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850 bg-indigo-50/40 dark:bg-indigo-950/20">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/16</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.255.0.0</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/16</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.255.0.0</td>
               <td class="py-2 px-3 text-indigo-700 dark:text-indigo-300 font-bold">65,534</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">65,536</td>
-              <td class="py-2 px-3 font-sans font-bold text-slate-800 dark:text-slate-200">Class B</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">65,536</td>
+              <td class="py-2 px-3 font-sans font-bold text-[#202124] dark:text-[#e8eaed]">Class B</td>
             </tr>
             <tr class="hover:bg-slate-50 dark:hover:bg-slate-850 bg-emerald-50/40 dark:bg-emerald-950/20">
-              <td class="py-2 px-3 font-bold text-brand-600 dark:text-brand-400">/8</td>
-              <td class="py-2 px-3 text-slate-700 dark:text-slate-300">255.0.0.0</td>
+              <td class="py-2 px-3 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">/8</td>
+              <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">255.0.0.0</td>
               <td class="py-2 px-3 text-emerald-700 dark:text-emerald-400 font-bold">16,777,214</td>
-              <td class="py-2 px-3 text-slate-500 dark:text-slate-400">16,777,216</td>
-              <td class="py-2 px-3 font-sans font-bold text-slate-800 dark:text-slate-200">Class A</td>
+              <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6]">16,777,216</td>
+              <td class="py-2 px-3 font-sans font-bold text-[#202124] dark:text-[#e8eaed]">Class A</td>
             </tr>
           </tbody>
         </table>
@@ -380,28 +380,28 @@ const schema = [
     </div>
 
     <!-- FAQ Section (Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
       <div class="flex items-center gap-2">
         <span class="text-base">❓</span>
-        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Subnetting Frequently Asked Questions</h2>
+        <h2 class="text-lg font-bold text-[#202124] dark:text-white">Subnetting Frequently Asked Questions</h2>
       </div>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+      <div class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] text-xs">
         <div class="py-3">
-          <strong class="text-slate-900 dark:text-white text-xs block font-semibold mb-1">How is the number of usable hosts calculated?</strong>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-            The formula for usable IPv4 hosts is <code class="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">2^(32 - CIDR) - 2</code>. We subtract 2 because the first address in any block is reserved for the Network ID and the last address is reserved for broadcast traffic.
+          <strong class="text-[#202124] dark:text-white text-xs block font-semibold mb-1">How is the number of usable hosts calculated?</strong>
+          <p class="text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+            The formula for usable IPv4 hosts is <code class="font-mono bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">2^(32 - CIDR) - 2</code>. We subtract 2 because the first address in any block is reserved for the Network ID and the last address is reserved for broadcast traffic.
           </p>
         </div>
         <div class="py-3">
-          <strong class="text-slate-900 dark:text-white text-xs block font-semibold mb-1">What is a Wildcard Mask used for?</strong>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-            A wildcard mask is the inverted binary representation of a subnet mask (<code class="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">255.255.255.255 minus Subnet Mask</code>). It is extensively used in Cisco IOS Access Control Lists (ACLs) and OSPF routing configurations to match ranges of IP addresses.
+          <strong class="text-[#202124] dark:text-white text-xs block font-semibold mb-1">What is a Wildcard Mask used for?</strong>
+          <p class="text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+            A wildcard mask is the inverted binary representation of a subnet mask (<code class="font-mono bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">255.255.255.255 minus Subnet Mask</code>). It is extensively used in Cisco IOS Access Control Lists (ACLs) and OSPF routing configurations to match ranges of IP addresses.
           </p>
         </div>
         <div class="py-3">
-          <strong class="text-slate-900 dark:text-white text-xs block font-semibold mb-1">What are the RFC 1918 Private IP Ranges?</strong>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-            RFC 1918 allocates three specific IPv4 address blocks for private local networks: <code class="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">10.0.0.0/8</code> (10.0.0.0 to 10.255.255.255), <code class="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">172.16.0.0/12</code> (172.16.0.0 to 172.31.255.255), and <code class="font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700">192.168.0.0/16</code> (192.168.0.0 to 192.168.255.255).
+          <strong class="text-[#202124] dark:text-white text-xs block font-semibold mb-1">What are the RFC 1918 Private IP Ranges?</strong>
+          <p class="text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+            RFC 1918 allocates three specific IPv4 address blocks for private local networks: <code class="font-mono bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">10.0.0.0/8</code> (10.0.0.0 to 10.255.255.255), <code class="font-mono bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">172.16.0.0/12</code> (172.16.0.0 to 172.31.255.255), and <code class="font-mono bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">192.168.0.0/16</code> (192.168.0.0 to 192.168.255.255).
           </p>
         </div>
       </div>

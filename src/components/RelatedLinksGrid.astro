@@ -31,14 +31,14 @@ const tools = [
       <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/80 text-brand-700 dark:text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1 border border-sky-200 dark:border-sky-800">
         🔗 Universal Router Directory Network
       </div>
-      <h2 class="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
+      <h2 class="text-lg font-extrabold text-[#202124] dark:text-white tracking-tight">
         Explore Gateway IPs, Router Brands & Utilities
       </h2>
     </div>
     <div class="flex items-center gap-2 text-xs">
-      <a href={`${base}/brands`} class="text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-semibold hover:underline">All Brands →</a>
+      <a href={`${base}/brands`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 font-semibold hover:underline">All Brands →</a>
       <span class="text-slate-300 dark:text-slate-700">|</span>
-      <a href={`${base}/ip-addresses`} class="text-brand-600 dark:text-brand-400 hover:text-brand-800 dark:hover:text-brand-300 font-semibold hover:underline">All IPs →</a>
+      <a href={`${base}/ip-addresses`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 font-semibold hover:underline">All IPs →</a>
     </div>
   </div>
 
@@ -49,13 +49,13 @@ const tools = [
     <div class="md:col-span-5 space-y-4">
       
       <!-- Gateway IPs -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
+      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             Popular Gateway IP Addresses
           </h3>
-          <a href={`${base}/ip-addresses`} class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline">
+          <a href={`${base}/ip-addresses`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
             View All ({GATEWAY_IPS.length}) →
           </a>
         </div>
@@ -69,12 +69,12 @@ const tools = [
                 href={targetUrl} 
                 class={`p-2.5 rounded-xl border text-xs font-mono font-bold transition-all flex items-center justify-between ${
                   isCurrent 
-                    ? 'bg-slate-900 dark:bg-brand-600 text-white border-slate-900 dark:border-brand-500 shadow-2xs' 
-                    : 'bg-slate-50 dark:bg-slate-800 hover:bg-sky-50 dark:hover:bg-slate-700 border-slate-200/80 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
+                    ? 'bg-slate-900 dark:bg-[#1a73e8] text-white border-slate-900 dark:border-[#1a73e8] shadow-2xs' 
+                    : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-[#e8f0fe]/50 dark:hover:bg-[#35373a] border-slate-200/80 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-brand-600 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
                 }`}
               >
                 <span>{ip.ip}</span>
-                <span class={`text-[9px] font-sans font-normal ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-slate-400 dark:text-slate-500'}`}>
+                <span class={`text-[9px] font-sans font-normal ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-[#80868b] dark:text-[#9aa0a6]'}`}>
                   {isCurrent ? 'Current' : 'Guide →'}
                 </span>
               </a>
@@ -84,13 +84,13 @@ const tools = [
       </div>
 
       <!-- Free Utility Tools & Directories -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
+      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
             Network Tools & Databases
           </h3>
-          <a href={`${base}/tools`} class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline">
+          <a href={`${base}/tools`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
             Tools Hub →
           </a>
         </div>
@@ -99,12 +99,12 @@ const tools = [
           {tools.map(tool => (
             <a 
               href={`${base}/${tool.slug}`} 
-              class="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200/70 dark:border-slate-700 text-xs transition-all flex items-center gap-2 group"
+              class="p-2 rounded-xl bg-[#f8fafd] dark:bg-[#303134] hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200/70 dark:border-slate-700 text-xs transition-all flex items-center gap-2 group"
             >
               <span class="text-base group-hover:scale-110 transition-transform">{tool.icon}</span>
               <div class="min-w-0">
-                <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 truncate">{tool.title}</div>
-                <div class="text-[9px] text-slate-400 dark:text-slate-500 truncate">{tool.desc}</div>
+                <div class="text-[11px] font-bold text-[#202124] dark:text-[#e8eaed] group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] truncate">{tool.title}</div>
+                <div class="text-[9px] text-[#80868b] dark:text-[#9aa0a6] truncate">{tool.desc}</div>
               </div>
             </a>
           ))}
@@ -117,13 +117,13 @@ const tools = [
     <div class="md:col-span-7 space-y-4">
       
       <!-- Router Brands -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
+      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-sky-500"></span>
             Router Manufacturers ({BRANDS.length})
           </h3>
-          <a href={`${base}/brands`} class="text-[10px] font-bold text-brand-600 dark:text-brand-400 hover:underline">
+          <a href={`${base}/brands`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
             Full Brand Directory →
           </a>
         </div>
@@ -136,12 +136,12 @@ const tools = [
                 href={`${base}/${brand.slug}`} 
                 class={`p-2 rounded-xl border text-xs transition-all flex flex-col justify-between ${
                   isCurrent 
-                    ? 'bg-slate-900 dark:bg-brand-600 text-white border-slate-900 dark:border-brand-500 shadow-2xs' 
-                    : 'bg-slate-50 dark:bg-slate-800 hover:bg-sky-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:text-brand-700 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
+                    ? 'bg-slate-900 dark:bg-[#1a73e8] text-white border-slate-900 dark:border-[#1a73e8] shadow-2xs' 
+                    : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-sky-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-brand-700 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
                 }`}
               >
                 <span class="font-bold text-[11px] truncate">{brand.name}</span>
-                <span class={`text-[9px] font-mono mt-0.5 ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-slate-400 dark:text-slate-500'}`}>
+                <span class={`text-[9px] font-mono mt-0.5 ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-[#80868b] dark:text-[#9aa0a6]'}`}>
                   {brand.defaultIp.split('/')[0].trim()}
                 </span>
               </a>
@@ -151,13 +151,13 @@ const tools = [
       </div>
 
       <!-- Fiber Broadband ISPs -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-2.5">
+      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             Fiber Broadband ISPs & ONT Modems
           </h3>
-          <span class="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Optical Gateway Setups</span>
+          <span class="text-[10px] text-[#80868b] dark:text-[#9aa0a6] font-medium">Optical Gateway Setups</span>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
@@ -168,8 +168,8 @@ const tools = [
                 href={`${base}/${isp.slug}`} 
                 class={`p-2 rounded-xl border text-xs transition-all flex items-center justify-between ${
                   isCurrent 
-                    ? 'bg-slate-900 dark:bg-brand-600 text-white border-slate-900 dark:border-brand-500 shadow-2xs' 
-                    : 'bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-300 dark:hover:border-emerald-700'
+                    ? 'bg-slate-900 dark:bg-[#1a73e8] text-white border-slate-900 dark:border-[#1a73e8] shadow-2xs' 
+                    : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-emerald-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-300 dark:hover:border-emerald-700'
                 }`}
               >
                 <span class="font-bold text-[11px] truncate">{isp.name}</span>

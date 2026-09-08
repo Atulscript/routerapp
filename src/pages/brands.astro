@@ -94,21 +94,21 @@ const schema = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">Router Brands</span>
+      <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">Router Brands</span>
     </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase mb-2 border border-slate-200 dark:border-slate-700">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6] text-[11px] font-bold uppercase mb-2 border border-[#dadce0] dark:border-[#5f6368]">
         🏷️ Manufacturer Index
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         Router Brands Directory
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
         Explore default IP addresses, passwords, firmware guides, and model databases for {BRANDS.length} top router manufacturers.
       </p>
     </header>
@@ -116,12 +116,12 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Alphabet Filter -->
-    <div class="flex flex-wrap items-center justify-center gap-1 p-2.5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-2xs text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors">
-      <span class="text-slate-400 dark:text-slate-500 mr-1 font-mono text-[11px]">Filter:</span>
-      <button class="px-2.5 py-0.5 rounded-full bg-slate-900 dark:bg-brand-600 text-white text-[11px] font-semibold cursor-pointer" id="filter-all-btn">ALL</button>
+    <div class="flex flex-wrap items-center justify-center gap-1 p-2.5 bg-white dark:bg-[#292a2d] rounded-2xl border border-[#dadce0] dark:border-[#3c4043] shadow-2xs text-xs font-semibold text-[#3c4043] dark:text-[#bdc1c6] transition-colors">
+      <span class="text-[#80868b] dark:text-[#9aa0a6] mr-1 font-mono text-[11px]">Filter:</span>
+      <button class="px-2.5 py-0.5 rounded-full bg-slate-900 dark:bg-[#1a73e8] text-white text-[11px] font-semibold cursor-pointer" id="filter-all-btn">ALL</button>
       {['0-9', 'A', 'B', 'C', 'D', 'H', 'L', 'M', 'N', 'S', 'T', 'U', 'Z'].map(letter => (
         <button 
-          class="px-2.5 py-0.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-[11px] font-semibold text-slate-700 dark:text-slate-300 filter-letter-btn transition-colors cursor-pointer"
+          class="px-2.5 py-0.5 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] text-[11px] font-semibold text-[#3c4043] dark:text-[#bdc1c6] filter-letter-btn transition-colors cursor-pointer"
           data-letter={letter}
         >
           {letter}
@@ -141,33 +141,33 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- SEO Information -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 transition-colors">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">How to Find Your Router Manufacturer & Model</h2>
-      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3.5 transition-colors">
+      <h2 class="text-lg font-bold text-[#202124] dark:text-white">How to Find Your Router Manufacturer & Model</h2>
+      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
         If you are unsure which router brand you have, look at the physical label located on the underside or rear panel of your hardware device. The label includes the exact manufacturer name, model number, serial number, default IP address (such as 192.168.1.1), and factory default wireless network name (SSID).
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
-        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+        <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <span class="text-base">📱</span>
-          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">App vs Web Browser Setup</strong>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+          <strong class="text-[#202124] dark:text-white block font-semibold text-xs">App vs Web Browser Setup</strong>
+          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             Brands provide companion mobile apps for quick setup, but browser access via IP unlocks advanced settings like port forwarding and VPNs.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+        <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <span class="text-base">🛡️</span>
-          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">Firmware Updates Matter</strong>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+          <strong class="text-[#202124] dark:text-white block font-semibold text-xs">Firmware Updates Matter</strong>
+          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             Manufacturers regularly release firmware patches that fix critical security vulnerabilities and optimize Wi-Fi stability.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+        <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <span class="text-base">🏷️</span>
-          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">Hardware Revisions</strong>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+          <strong class="text-[#202124] dark:text-white block font-semibold text-xs">Hardware Revisions</strong>
+          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             Many brands release multiple hardware versions (e.g. V2 vs V3). Always match your router's exact revision before updating firmware.
           </p>
         </div>
@@ -180,55 +180,55 @@ const schema = [
     </div>
 
     <!-- FAQ Accordion (Positioned Strictly Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
+      <div class="flex items-center gap-2 border-b border-[#dadce0] dark:border-[#3c4043] pb-3">
         <span class="text-lg">❓</span>
         <div>
-          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+          <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
             Router Brands Frequently Asked Questions
           </h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
             Common questions regarding router manufacturers, firmware versions, and default logins
           </p>
         </div>
       </div>
 
       <div class="space-y-3">
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-black">Q.</span>
               How do I know which brand made my router or modem?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#80868b] dark:text-[#9aa0a6] group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
             Look at the front faceplate logo or check the regulatory sticker on the underside of the device. If your router was provided by your Internet Service Provider, they may brand it (e.g. Xfinity, Spectrum, AT&T) while the underlying hardware is manufactured by Arris, Sagemcom, or Technicolor.
           </p>
         </details>
 
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-black">Q.</span>
               Do all models from the same brand share identical login passwords?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#80868b] dark:text-[#9aa0a6] group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
             Older models often share default credentials like 'admin/admin', but newer hardware models generate a unique randomized default Wi-Fi and admin password printed on the device label.
           </p>
         </details>
 
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-black">Q.</span>
               Can I use web browser setup instead of downloading the manufacturer's mobile app?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#80868b] dark:text-[#9aa0a6] group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
             Yes, nearly all routers have a built-in web management interface accessible via their local gateway IP in any web browser without needing any third-party app or account registration.
           </p>
         </details>

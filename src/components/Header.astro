@@ -336,8 +336,8 @@ const searchItems = [
 
     if (currentMatches.length === 0) {
       resultsList.innerHTML = `
-        <div class="p-4 text-center text-xs text-slate-400 dark:text-slate-500">
-          No matches found for "<strong class="text-slate-700 dark:text-slate-300">${query}</strong>"
+        <div class="p-4 text-center text-xs text-[#80868b] dark:text-[#9aa0a6]">
+          No matches found for "<strong class="text-[#3c4043] dark:text-[#bdc1c6]">${query}</strong>"
         </div>
       `;
     } else {
@@ -345,18 +345,18 @@ const searchItems = [
         <a 
           href="${item.url}" 
           data-index="${idx}"
-          class="header-search-item flex items-center justify-between p-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group ${idx === 0 ? 'bg-slate-50/60 dark:bg-slate-800/60' : ''}"
+          class="header-search-item flex items-center justify-between p-2.5 hover:bg-[#f8fafd] dark:hover:bg-[#35373a] transition-colors group ${idx === 0 ? 'bg-slate-50/60 dark:bg-slate-800/60' : ''}"
         >
           <div class="flex items-center gap-2 min-w-0">
             <span class="text-[9px] font-bold px-1.5 py-0.5 rounded border ${item.badgeColor || 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'} flex-shrink-0">
               ${item.category}
             </span>
             <div class="min-w-0">
-              <div class="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 truncate">${highlightMatch(item.title, q)}</div>
-              <div class="text-[10px] text-slate-500 dark:text-slate-400 truncate">${highlightMatch(item.subtitle, q)}</div>
+              <div class="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] truncate">${highlightMatch(item.title, q)}</div>
+              <div class="text-[10px] text-[#5f6368] dark:text-[#9aa0a6] truncate">${highlightMatch(item.subtitle, q)}</div>
             </div>
           </div>
-          <span class="text-xs text-slate-300 dark:text-slate-600 group-hover:text-brand-600 dark:group-hover:text-brand-400 font-semibold flex-shrink-0 ml-1.5">
+          <span class="text-xs text-slate-300 dark:text-slate-600 group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] font-semibold flex-shrink-0 ml-1.5">
             →
           </span>
         </a>

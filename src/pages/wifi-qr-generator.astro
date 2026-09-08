@@ -125,10 +125,10 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">WiFi QR Generator</span>
+      <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">WiFi QR Generator</span>
     </nav>
 
     <!-- Header -->
@@ -137,10 +137,10 @@ const schema = [
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
         📶 Wireless Utility Tool
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         WiFi QR Code Generator
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
         Create a scannable QR code for your WiFi network so guests can connect instantly without typing passwords.
       </p>
     </header>
@@ -148,43 +148,43 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Generator Interface -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-card transition-colors">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 bg-white dark:bg-[#292a2d] rounded-2xl p-6 sm:p-8 border border-[#dadce0] dark:border-[#3c4043] shadow-card transition-colors">
       
       <!-- Controls (7 cols) -->
       <div class="md:col-span-7 space-y-3.5">
         <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] mb-1">
             Network Name (SSID) *
           </label>
           <input 
             type="text" 
             id="ssid-input" 
             placeholder="e.g. MyHome_WiFi_5G" 
-            class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white text-xs font-semibold focus:border-brand-500 focus:bg-white dark:focus:bg-slate-750 focus:ring-2 focus:ring-brand-500/15 outline-none"
+            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-semibold focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 focus:ring-2 focus:ring-[#1a73e8]/15 outline-none"
             value="HomeNetwork_5G"
           />
         </div>
 
         <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] mb-1">
             WiFi Password *
           </label>
           <input 
             type="text" 
             id="password-input" 
             placeholder="Enter your WiFi password" 
-            class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white text-xs font-mono focus:border-brand-500 focus:bg-white dark:focus:bg-slate-750 focus:ring-2 focus:ring-brand-500/15 outline-none"
+            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-mono focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 focus:ring-2 focus:ring-[#1a73e8]/15 outline-none"
             value="SuperSecretPassword123"
           />
         </div>
 
         <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] mb-1">
             Security Encryption
           </label>
           <select 
             id="encryption-select" 
-            class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white text-xs font-semibold focus:border-brand-500 focus:bg-white dark:focus:bg-slate-750 outline-none cursor-pointer"
+            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-semibold focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 outline-none cursor-pointer"
           >
             <option value="WPA">WPA / WPA2 / WPA3 (Standard)</option>
             <option value="WEP">WEP (Older routers)</option>
@@ -193,8 +193,8 @@ const schema = [
         </div>
 
         <div class="flex items-center gap-2 pt-0.5">
-          <input type="checkbox" id="hidden-check" class="w-3.5 h-3.5 rounded text-slate-900 dark:text-brand-500 border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 cursor-pointer" />
-          <label for="hidden-check" class="text-[11px] font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
+          <input type="checkbox" id="hidden-check" class="w-3.5 h-3.5 rounded text-slate-900 dark:text-brand-500 border-[#dadce0] dark:border-[#5f6368] bg-[#f8fafd] dark:bg-[#303134] cursor-pointer" />
+          <label for="hidden-check" class="text-[11px] font-medium text-[#5f6368] dark:text-[#9aa0a6] cursor-pointer">
             Hidden network (SSID not broadcasted)
           </label>
         </div>
@@ -202,15 +202,15 @@ const schema = [
         <button 
           id="generate-btn" 
           type="button"
-          class="w-full py-2.5 px-4 rounded-xl bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-xs shadow-xs transition-all active:scale-[0.99] cursor-pointer"
+          class="w-full py-2.5 px-4 rounded-xl bg-slate-900 dark:bg-[#1a73e8] hover:bg-slate-800 dark:hover:bg-brand-500 text-white font-semibold text-xs shadow-xs transition-all active:scale-[0.99] cursor-pointer"
         >
           Generate WiFi QR Code
         </button>
       </div>
 
       <!-- Preview (5 cols) -->
-      <div class="md:col-span-5 flex flex-col items-center justify-center p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-800 text-center">
-        <div class="p-3 bg-white rounded-xl border border-slate-200 dark:border-slate-700 shadow-2xs mb-2.5">
+      <div class="md:col-span-5 flex flex-col items-center justify-center p-4 bg-[#f8fafd] dark:bg-[#303134]/60 rounded-xl border border-[#e8eaed] dark:border-[#3c4043] text-center">
+        <div class="p-3 bg-white rounded-xl border border-[#dadce0] dark:border-[#5f6368] shadow-2xs mb-2.5">
           <img 
             id="qr-image" 
             src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=WIFI:S:HomeNetwork_5G;T:WPA;P:SuperSecretPassword123;;" 
@@ -218,10 +218,10 @@ const schema = [
             class="w-36 h-36 object-contain"
           />
         </div>
-        <div class="text-[11px] font-mono text-slate-700 dark:text-slate-300 font-bold truncate max-w-[180px]" id="preview-ssid">
+        <div class="text-[11px] font-mono text-[#3c4043] dark:text-[#bdc1c6] font-bold truncate max-w-[180px]" id="preview-ssid">
           SSID: HomeNetwork_5G
         </div>
-        <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Scan with iPhone Camera or Google Lens</p>
+        <p class="text-[10px] text-[#80868b] dark:text-[#9aa0a6] mt-0.5">Scan with iPhone Camera or Google Lens</p>
       </div>
 
     </div>
@@ -229,15 +229,15 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- Instructions / Guide -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3 transition-colors">
-      <h2 class="text-base font-bold text-slate-900 dark:text-white">How to Connect to WiFi Using a QR Code</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-300">
-        <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-800">
-          <strong class="text-slate-900 dark:text-white block font-semibold mb-1">📱 iPhone & iPad (iOS)</strong>
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3 transition-colors">
+      <h2 class="text-base font-bold text-[#202124] dark:text-white">How to Connect to WiFi Using a QR Code</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#5f6368] dark:text-[#bdc1c6]">
+        <div class="p-3 bg-[#f8fafd] dark:bg-[#303134]/60 rounded-xl border border-[#e8eaed] dark:border-[#3c4043]">
+          <strong class="text-[#202124] dark:text-white block font-semibold mb-1">📱 iPhone & iPad (iOS)</strong>
           Open your standard Camera app and point it at the QR code. Tap the yellow <strong>"Join [Network]"</strong> banner that appears on screen.
         </div>
-        <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-800">
-          <strong class="text-slate-900 dark:text-white block font-semibold mb-1">🤖 Android Devices</strong>
+        <div class="p-3 bg-[#f8fafd] dark:bg-[#303134]/60 rounded-xl border border-[#e8eaed] dark:border-[#3c4043]">
+          <strong class="text-[#202124] dark:text-white block font-semibold mb-1">🤖 Android Devices</strong>
           Open your Camera or Google Lens app and focus on the code. Tap <strong>"Connect to Network"</strong> to join automatically.
         </div>
       </div>
@@ -249,24 +249,24 @@ const schema = [
     </div>
 
     <!-- FAQ Accordion (Positioned Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">WiFi QR Code FAQs</h2>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-[#202124] dark:text-white">WiFi QR Code FAQs</h2>
+      <div class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] text-xs">
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Is it safe to generate Wi-Fi QR codes online?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Yes. The Wi-Fi QR code generation uses client-side parameter encoding. Your network SSID and password are never uploaded, logged, or stored on our servers.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Do iPhone and Android cameras support connecting via QR code natively?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Yes, both iOS (iPhone camera) and modern Android devices have built-in QR scanner support in their default camera apps. Pointing the camera at the code triggers a prompt to join the Wi-Fi network.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">What encryption type should I choose for modern routers?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Most routers use WPA2 or WPA3-Personal. Selecting WPA / WPA2 / WPA3 will work across 99% of contemporary wireless access points.
           </p>
         </div>

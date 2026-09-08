@@ -10,49 +10,49 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // ISP specific brand accents
 const ispColors: Record<string, { bg: string; badge: string; text: string }> = {
-  'JioFiber': { bg: 'bg-blue-600', badge: 'bg-blue-50 text-blue-700 border-blue-200', text: 'text-blue-700' },
-  'Airtel Xstream': { bg: 'bg-red-600', badge: 'bg-red-50 text-red-700 border-red-200', text: 'text-red-700' },
-  'BSNL Bharat Fiber': { bg: 'bg-amber-600', badge: 'bg-amber-50 text-amber-800 border-amber-200', text: 'text-amber-800' },
-  'ACT Fibernet': { bg: 'bg-emerald-600', badge: 'bg-emerald-50 text-emerald-800 border-emerald-200', text: 'text-emerald-800' },
-  'Tata Play Fiber': { bg: 'bg-purple-600', badge: 'bg-purple-50 text-purple-800 border-purple-200', text: 'text-purple-800' },
+  'JioFiber': { bg: 'bg-[#00897b]', badge: 'bg-[#e0f2f1] text-[#00695c] border-[#80cbc4]', text: 'text-[#00695c]' },
+  'Airtel Xstream': { bg: 'bg-[#d93025]', badge: 'bg-[#fce8e6] text-[#c5221f] border-[#f28b82]', text: 'text-[#c5221f]' },
+  'BSNL Bharat Fiber': { bg: 'bg-[#f57c00]', badge: 'bg-[#fef7e0] text-[#e37400] border-[#fdd663]', text: 'text-[#e37400]' },
+  'ACT Fibernet': { bg: 'bg-[#188038]', badge: 'bg-[#e6f4ea] text-[#137333] border-[#81c995]', text: 'text-[#137333]' },
+  'Tata Play Fiber': { bg: 'bg-[#1a73e8]', badge: 'bg-[#e8f0fe] text-[#174ea6] border-[#8ab4f8]', text: 'text-[#174ea6]' },
 };
 
-const ispStyle = ispColors[data.name] || { bg: 'bg-emerald-700', badge: 'bg-emerald-50 text-emerald-800 border-emerald-200', text: 'text-emerald-700' };
+const ispStyle = ispColors[data.name] || { bg: 'bg-[#1a73e8]', badge: 'bg-[#e8f0fe] text-[#174ea6] border-[#8ab4f8]', text: 'text-[#174ea6]' };
 ---
 
 <a 
   href={`${base}/${data.slug}`} 
-  class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 shadow-card hover:shadow-card-hover hover:border-brand-400 dark:hover:border-brand-500 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
+  class="group g-card p-4 flex flex-col justify-between"
 >
   <div>
     <div class="flex items-start justify-between gap-2 mb-3">
       <div class="flex items-center gap-2.5">
-        <div class={`w-10 h-10 rounded-xl ${ispStyle.bg} text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs group-hover:scale-105 transition-transform`}>
+        <div class={`w-10 h-10 rounded-2xl ${ispStyle.bg} text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs group-hover:scale-105 transition-transform`}>
           {data.name.slice(0, 2).toUpperCase()}
         </div>
         <div>
-          <h3 class="font-extrabold text-slate-900 dark:text-white text-sm group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+          <h3 class="font-bold text-[#202124] dark:text-white text-sm group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
             {data.name}
           </h3>
-          <span class="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span class="inline-flex items-center gap-1 text-[11px] text-[#5f6368] dark:text-[#9aa0a6] font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
             Fiber Broadband
           </span>
         </div>
       </div>
-      <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800/80 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 shadow-2xs">
+      <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-[#ceead6] dark:border-[#137333]/60 bg-[#e6f4ea] dark:bg-[#137333]/20 text-[#137333] dark:text-[#81c995] shadow-2xs">
         {data.defaultIp}
       </span>
     </div>
 
-    <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed mb-3">
+    <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] line-clamp-2 leading-relaxed mb-3">
       {data.description}
     </p>
   </div>
 
-  <div class="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-medium text-slate-500 dark:text-slate-400">
-    <span class="font-mono text-[11px]">User: <strong class="text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-800 px-1.5 py-0.5 rounded border border-slate-200/80 dark:border-slate-700">{data.defaultUser}</strong></span>
-    <span class="text-brand-600 dark:text-brand-400 font-bold flex items-center gap-0.5 text-xs group-hover:translate-x-0.5 transition-transform">
+  <div class="pt-2.5 border-t border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6]">
+    <span class="font-mono text-[11px]">User: <strong class="text-[#202124] dark:text-white bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">{data.defaultUser}</strong></span>
+    <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold flex items-center gap-0.5 text-xs group-hover:translate-x-0.5 transition-transform">
       Setup Guide →
     </span>
   </div>

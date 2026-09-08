@@ -97,20 +97,20 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 text-center">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium text-left">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium text-left">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">What is My IP?</span>
+      <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">What is My IP?</span>
     </nav>
 
     <header class="max-w-xl mx-auto">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold uppercase mb-2 border border-emerald-200/50 dark:border-emerald-800/50">
         🌐 IP Detection Tool
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         What is My IP Address?
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
         Check your current public IP address and discover your local router gateway.
       </p>
     </header>
@@ -118,18 +118,18 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Compact IP Display Card -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 max-w-md mx-auto shadow-card border border-slate-200/90 dark:border-slate-800 transition-colors">
-      <span class="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider">Your Public IPv4 Address</span>
-      <div id="ip-display" class="text-3xl sm:text-4xl font-mono font-extrabold text-slate-900 dark:text-white my-3 tracking-tight">
+    <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-6 sm:p-8 max-w-md mx-auto shadow-card border border-[#dadce0] dark:border-[#3c4043] transition-colors">
+      <span class="text-[10px] uppercase font-bold text-[#80868b] dark:text-[#9aa0a6] tracking-wider">Your Public IPv4 Address</span>
+      <div id="ip-display" class="text-3xl sm:text-4xl font-mono font-extrabold text-[#202124] dark:text-white my-3 tracking-tight">
         Checking...
       </div>
-      <p id="ip-location" class="text-xs text-slate-500 dark:text-slate-400 mb-4 font-medium">
+      <p id="ip-location" class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mb-4 font-medium">
         Detecting Connection...
       </p>
       <button 
         id="copy-ip-btn"
         type="button"
-        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 dark:bg-brand-600 hover:bg-slate-800 dark:hover:bg-brand-500 text-white text-xs font-semibold shadow-xs transition-all active:scale-95 cursor-pointer"
+        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 dark:bg-[#1a73e8] hover:bg-slate-800 dark:hover:bg-brand-500 text-white text-xs font-semibold shadow-xs transition-all active:scale-95 cursor-pointer"
       >
         <span>📋 Copy IP Address</span>
       </button>
@@ -138,36 +138,36 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- Gateway Detection Info -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 text-left max-w-2xl mx-auto border border-slate-200/90 dark:border-slate-800 shadow-card transition-colors">
-      <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">💡 Looking for your Local Router IP instead?</h2>
-      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+    <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 text-left max-w-2xl mx-auto border border-[#dadce0] dark:border-[#3c4043] shadow-card transition-colors">
+      <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] mb-1">💡 Looking for your Local Router IP instead?</h2>
+      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed mb-3">
         Your <strong>Public IP</strong> (shown above) is what external websites see. Your <strong>Private Gateway IP</strong> is used to access your router settings at home:
       </p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono font-bold">
-        <a href={`${base}/`} class="p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 text-slate-800 dark:text-slate-200 transition-colors">192.168.1.1</a>
-        <a href={`${base}/192-168-0-1`} class="p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 text-slate-800 dark:text-slate-200 transition-colors">192.168.0.1</a>
-        <a href={`${base}/192-168-2-1`} class="p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 text-slate-800 dark:text-slate-200 transition-colors">192.168.2.1</a>
-        <a href={`${base}/10-0-0-1`} class="p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 text-slate-800 dark:text-slate-200 transition-colors">10.0.0.1</a>
+        <a href={`${base}/`} class="p-2.5 bg-[#f8fafd] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded-xl hover:border-[#1a73e8] dark:hover:border-[#1a73e8] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] text-[#202124] dark:text-[#e8eaed] transition-colors">192.168.1.1</a>
+        <a href={`${base}/192-168-0-1`} class="p-2.5 bg-[#f8fafd] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded-xl hover:border-[#1a73e8] dark:hover:border-[#1a73e8] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] text-[#202124] dark:text-[#e8eaed] transition-colors">192.168.0.1</a>
+        <a href={`${base}/192-168-2-1`} class="p-2.5 bg-[#f8fafd] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded-xl hover:border-[#1a73e8] dark:hover:border-[#1a73e8] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] text-[#202124] dark:text-[#e8eaed] transition-colors">192.168.2.1</a>
+        <a href={`${base}/10-0-0-1`} class="p-2.5 bg-[#f8fafd] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded-xl hover:border-[#1a73e8] dark:hover:border-[#1a73e8] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] text-[#202124] dark:text-[#e8eaed] transition-colors">10.0.0.1</a>
       </div>
     </div>
 
     <!-- Human SEO Explanation -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 text-left max-w-2xl mx-auto border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 transition-colors">
-      <h2 class="text-base font-bold text-slate-900 dark:text-white">Understanding Your Public IP Address</h2>
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 text-left max-w-2xl mx-auto border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3.5 transition-colors">
+      <h2 class="text-base font-bold text-[#202124] dark:text-white">Understanding Your Public IP Address</h2>
       
-      <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-          <strong class="text-slate-900 dark:text-white block font-semibold mb-0.5">🌐 Public IPv4 vs Private Gateway IP</strong>
+      <div class="space-y-2.5 text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+        <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043]">
+          <strong class="text-[#202124] dark:text-white block font-semibold mb-0.5">🌐 Public IPv4 vs Private Gateway IP</strong>
           Your Public IP is assigned by your Internet Service Provider and acts as your network's external postal address. Your private IP (192.168.1.1) stays inside your home network.
         </div>
 
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-          <strong class="text-slate-900 dark:text-white block font-semibold mb-0.5">🔄 Why Does My Public IP Change?</strong>
+        <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043]">
+          <strong class="text-[#202124] dark:text-white block font-semibold mb-0.5">🔄 Why Does My Public IP Change?</strong>
           Most residential internet connections use <strong>Dynamic IP addressing</strong> or <strong>CGNAT</strong>. Your ISP reassigns IP addresses whenever your modem restarts or the DHCP lease refreshes.
         </div>
 
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
-          <strong class="text-slate-900 dark:text-white block font-semibold mb-0.5">📍 Can Someone Find My Exact Location from My IP?</strong>
+        <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043]">
+          <strong class="text-[#202124] dark:text-white block font-semibold mb-0.5">📍 Can Someone Find My Exact Location from My IP?</strong>
           No. Public IP geolocation only identifies the ISP's nearest routing exchange or city hub — never your private residence or street address.
         </div>
       </div>
@@ -179,24 +179,24 @@ const schema = [
     </div>
 
     <!-- FAQ Accordion (Positioned Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4 text-left">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">What Is My IP FAQs</h2>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4 text-left">
+      <h2 class="text-lg font-bold text-[#202124] dark:text-white">What Is My IP FAQs</h2>
+      <div class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] text-xs">
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">What is the difference between a Public IP and a Private Gateway IP?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Your Public IP is assigned by your ISP and visible to all websites across the world wide web. Your Private Gateway IP (such as 192.168.1.1 or 192.168.0.1) is used locally inside your home or office to manage router settings.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why does my public IP address change over time?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Most internet service providers use Dynamic IP addressing or CGNAT to allocate addresses from a pool. When you restart your router or your DHCP lease expires, your ISP assigns a new public IP.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Can anyone find my exact physical home address from my IP?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             No. Geolocation databases only map public IPs to your ISP's regional routing hub or city area, never to your specific physical house or street address.
           </p>
         </div>

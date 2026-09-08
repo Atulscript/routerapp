@@ -94,21 +94,21 @@ const schema = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">Gateway IPs</span>
+      <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">Gateway IPs</span>
     </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase mb-2 border border-slate-200 dark:border-slate-700">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6] text-[11px] font-bold uppercase mb-2 border border-[#dadce0] dark:border-[#5f6368]">
         🌐 Gateway IP Directory
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         Router IP Addresses
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
         Browse common private IP addresses designated for local wireless router configuration panels.
       </p>
     </header>
@@ -125,15 +125,15 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- Technical SEO Explanation Table -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 transition-colors">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Private IP Address Ranges Explained (RFC 1918)</h2>
-      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3.5 transition-colors">
+      <h2 class="text-lg font-bold text-[#202124] dark:text-white">Private IP Address Ranges Explained (RFC 1918)</h2>
+      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
         The Internet Engineering Task Force (IETF) reserved specific ranges of IPv4 addresses strictly for private local area networks (LAN). These addresses cannot be routed across the public internet:
       </p>
 
-      <div class="overflow-x-auto rounded-xl border border-slate-200/90 dark:border-slate-800">
-        <table class="w-full text-left text-xs text-slate-800 dark:text-slate-200">
-          <thead class="bg-slate-50 dark:bg-slate-800/80 font-semibold uppercase text-[11px] text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
+      <div class="overflow-x-auto rounded-xl border border-[#dadce0] dark:border-[#3c4043]">
+        <table class="w-full text-left text-xs text-[#202124] dark:text-[#e8eaed]">
+          <thead class="bg-[#f8fafd] dark:bg-[#303134]/80 font-semibold uppercase text-[11px] text-[#5f6368] dark:text-[#9aa0a6] border-b border-[#dadce0] dark:border-[#5f6368]">
             <tr>
               <th class="p-2.5">Class</th>
               <th class="p-2.5">IP Address Range</th>
@@ -141,27 +141,27 @@ const schema = [
               <th class="p-2.5">Typical Use</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-xs">
-            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+          <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] font-mono text-xs">
+            <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#35373a]/50 transition-colors">
               <td class="p-2.5 font-bold font-sans">Class A</td>
               <td class="p-2.5">10.0.0.0 – 10.255.255.255</td>
               <td class="p-2.5">255.0.0.0 (/8)</td>
               <td class="p-2.5 font-sans">
-                Enterprise networks & Xfinity Gateways (<a href={`${base}/10-0-0-1`} class="text-brand-600 dark:text-brand-400 font-bold hover:underline">10.0.0.1 Guide →</a>)
+                Enterprise networks & Xfinity Gateways (<a href={`${base}/10-0-0-1`} class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold hover:underline">10.0.0.1 Guide →</a>)
               </td>
             </tr>
-            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+            <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#35373a]/50 transition-colors">
               <td class="p-2.5 font-bold font-sans">Class B</td>
               <td class="p-2.5">172.16.0.0 – 172.31.255.255</td>
               <td class="p-2.5">255.240.0.0 (/12)</td>
               <td class="p-2.5 font-sans">Medium corporate networks, Docker & VPN subnets</td>
             </tr>
-            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+            <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#35373a]/50 transition-colors">
               <td class="p-2.5 font-bold font-sans">Class C</td>
               <td class="p-2.5">192.168.0.0 – 192.168.255.255</td>
               <td class="p-2.5">255.255.255.0 (/24)</td>
               <td class="p-2.5 font-sans font-bold">
-                Home routers (<a href={`${base}/`} class="text-brand-600 dark:text-brand-400 hover:underline">192.168.1.1</a>, <a href={`${base}/192-168-0-1`} class="text-brand-600 dark:text-brand-400 hover:underline">192.168.0.1</a>, <a href={`${base}/192-168-2-1`} class="text-brand-600 dark:text-brand-400 hover:underline">192.168.2.1</a>)
+                Home routers (<a href={`${base}/`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">192.168.1.1</a>, <a href={`${base}/192-168-0-1`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">192.168.0.1</a>, <a href={`${base}/192-168-2-1`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">192.168.2.1</a>)
               </td>
             </tr>
           </tbody>
@@ -169,16 +169,16 @@ const schema = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
-        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
-          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">⚠️ Avoiding IP Conflicts on Two Routers</strong>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
+          <strong class="text-[#202124] dark:text-white block font-semibold text-xs">⚠️ Avoiding IP Conflicts on Two Routers</strong>
+          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             If connecting a secondary router, ensure both do not share the same IP (192.168.1.1). Change the secondary router to <strong>192.168.2.1</strong> or switch it to Access Point (AP) mode.
           </p>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
-          <strong class="text-slate-900 dark:text-white block font-semibold text-xs">🛠️ Rescuing an Unresponsive Router</strong>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
+          <strong class="text-[#202124] dark:text-white block font-semibold text-xs">🛠️ Rescuing an Unresponsive Router</strong>
+          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             If DHCP fails, set a static IP like <code class="font-mono bg-white dark:bg-slate-700 px-1 py-0.5 rounded border dark:border-slate-600">192.168.1.50</code> with subnet <code class="font-mono bg-white dark:bg-slate-700 px-1 py-0.5 rounded border dark:border-slate-600">255.255.255.0</code> to reconnect.
           </p>
         </div>
@@ -191,24 +191,24 @@ const schema = [
     </div>
 
     <!-- FAQ Accordion (Positioned Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Gateway IP FAQs</h2>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-[#202124] dark:text-white">Gateway IP FAQs</h2>
+      <div class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] text-xs">
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why do different router brands use different IP addresses?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Manufacturers select default subnets defined by RFC 1918. For instance, TP-Link and D-Link commonly use 192.168.0.1, Netgear and Linksys use 192.168.1.1, and Comcast/Xfinity uses 10.0.0.1 to avoid default subnet collisions with customer equipment.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Can I change my router's default gateway IP address?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Yes, inside your router's LAN or Network settings you can change the Gateway IP (for example from 192.168.1.1 to 192.168.10.1). Note that all connected devices will renew their DHCP leases with the new IP range.
           </p>
         </div>
         <div class="py-3">
           <strong class="text-slate-900 dark:text-slate-100 text-xs block font-semibold mb-1">Why is my router IP not loading in the browser?</strong>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
             Verify you are directly connected to your router via Wi-Fi or Ethernet cable, ensure you are using 'http://' rather than 'https://', and check that no VPN or proxy is active on your device.
           </p>
         </div>

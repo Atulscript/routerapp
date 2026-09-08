@@ -107,21 +107,21 @@ const schema = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-800 dark:text-slate-200 font-semibold truncate">Router Models</span>
+      <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">Router Models</span>
     </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase mb-2 border border-slate-200 dark:border-slate-700">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6] text-[11px] font-bold uppercase mb-2 border border-[#dadce0] dark:border-[#5f6368]">
         📟 Hardware Catalog
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         Router Models Database
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
         Lookup default credentials for {allModels.length} router models across {BRANDS.length} manufacturers with protocol specifications.
       </p>
     </header>
@@ -129,29 +129,29 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Interactive Lookup Component -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card transition-colors">
+    <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card transition-colors">
       <RouterLookupTable />
     </div>
 
     <AdBanner format="horizontal" />
 
     <!-- Master Models Table with Instant Filter -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3.5 transition-colors">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3.5 transition-colors">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-base font-bold text-slate-900 dark:text-white">Complete Master Hardware List</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Filter by typing any model, brand, or IP address</p>
+          <h2 class="text-base font-bold text-[#202124] dark:text-white">Complete Master Hardware List</h2>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">Filter by typing any model, brand, or IP address</p>
         </div>
         <input 
           type="text" 
           id="model-filter-input" 
           placeholder="Filter models (e.g. Archer, AX)..." 
-          class="w-full sm:w-60 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-white focus:border-brand-500 focus:bg-white dark:focus:bg-slate-750 outline-none"
+          class="w-full sm:w-60 px-3 py-1.5 bg-[#f8fafd] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded-xl text-xs font-medium text-[#202124] dark:text-white focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 outline-none"
         />
       </div>
 
-      <div class="overflow-x-auto rounded-xl border border-slate-200/90 dark:border-slate-800 max-h-96 overflow-y-auto custom-scrollbar">
-        <table class="w-full text-left text-xs text-slate-800 dark:text-slate-200" id="all-models-master-table">
+      <div class="overflow-x-auto rounded-xl border border-[#dadce0] dark:border-[#3c4043] max-h-96 overflow-y-auto custom-scrollbar">
+        <table class="w-full text-left text-xs text-[#202124] dark:text-[#e8eaed]" id="all-models-master-table">
           <thead class="sticky top-0 bg-slate-900 dark:bg-slate-950 font-semibold uppercase tracking-wider text-[11px] text-white z-10 shadow-2xs">
             <tr>
               <th class="py-2.5 px-3">Brand</th>
@@ -162,7 +162,7 @@ const schema = [
               <th class="py-2.5 px-3 text-right">Password</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-xs" id="master-table-body">
+          <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] font-mono text-xs" id="master-table-body">
             {allModels.map(item => {
               const ipSlug = item.ip === '192.168.1.1' ? '' : item.ip.replace(/\./g, '-');
               const ipUrl = ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`;
@@ -171,8 +171,8 @@ const schema = [
 
               return (
                 <tr class="hover:bg-sky-50/70 dark:hover:bg-slate-800/60 master-row transition-colors">
-                  <td class="py-2 px-3 font-bold font-sans text-slate-900 dark:text-white">
-                    <a href={`${base}/${item.brandSlug}`} class="text-brand-700 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 hover:underline">
+                  <td class="py-2 px-3 font-bold font-sans text-[#202124] dark:text-white">
+                    <a href={`${base}/${item.brandSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-[#1557b0] dark:hover:text-[#aecbfa] hover:underline">
                       {item.brand}
                     </a>
                   </td>
@@ -180,7 +180,7 @@ const schema = [
                     {modelHref ? (
                       <a 
                         href={modelHref} 
-                        class="text-brand-700 dark:text-brand-400 hover:text-brand-900 dark:hover:text-brand-300 hover:underline font-bold inline-flex items-center gap-1"
+                        class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-[#1557b0] dark:hover:text-[#aecbfa] hover:underline font-bold inline-flex items-center gap-1"
                         title={`View ${displayTitle} full technical specifications and login guide`}
                       >
                         <span>{item.model}</span>
@@ -192,17 +192,17 @@ const schema = [
                   </td>
                   <td class="py-2 px-3 font-bold">
                     <div class="inline-flex items-center gap-1">
-                      <a href={ipUrl} class="text-brand-600 dark:text-brand-400 hover:underline">
+                      <a href={ipUrl} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                         {item.ip}
                       </a>
-                      <a href={`http://${item.ip}`} target="_blank" rel="noopener noreferrer" class="text-[10px] text-slate-400 hover:text-brand-600 dark:hover:text-brand-400">
+                      <a href={`http://${item.ip}`} target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#80868b] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]">
                         ↗
                       </a>
                     </div>
                   </td>
-                  <td class="py-2 px-3 text-slate-500 dark:text-slate-400 text-[11px]">{item.protocol || 'HTTP'}</td>
-                  <td class="py-2 px-3 text-slate-700 dark:text-slate-300">{item.username}</td>
-                  <td class="py-2 px-3 font-bold text-slate-900 dark:text-white text-right">{item.password}</td>
+                  <td class="py-2 px-3 text-[#5f6368] dark:text-[#9aa0a6] text-[11px]">{item.protocol || 'HTTP'}</td>
+                  <td class="py-2 px-3 text-[#3c4043] dark:text-[#bdc1c6]">{item.username}</td>
+                  <td class="py-2 px-3 font-bold text-[#202124] dark:text-white text-right">{item.password}</td>
                 </tr>
               );
             })}
@@ -212,9 +212,9 @@ const schema = [
     </section>
 
     <!-- Practical Hardware Guide Section -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3 transition-colors">
-      <h2 class="text-base font-bold text-slate-900 dark:text-white">How Model Numbers Affect Default Credentials</h2>
-      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3 transition-colors">
+      <h2 class="text-base font-bold text-[#202124] dark:text-white">How Model Numbers Affect Default Credentials</h2>
+      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
         Manufacturers often update factory credentials across firmware generations. For example, older TP-Link units default to <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-200 font-mono">admin/admin</code>, while newer Archer AX WiFi 6 routers require you to establish a secure administrator password upon first connection.
       </p>
     </section>
@@ -225,55 +225,55 @@ const schema = [
     </div>
 
     <!-- FAQ Accordion (Positioned Strictly Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
-      <div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
+      <div class="flex items-center gap-2 border-b border-[#dadce0] dark:border-[#3c4043] pb-3">
         <span class="text-lg">❓</span>
         <div>
-          <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+          <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
             Router Models & Hardware FAQs
           </h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
             Hardware specifications, factory defaults, and setup answers
           </p>
         </div>
       </div>
 
       <div class="space-y-3">
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-black">Q.</span>
               Why do some router models require setting a password on first login?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#80868b] dark:text-[#9aa0a6] group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
             Recent cybersecurity regulations (such as California SB-327 and UK PSTI Act) prohibit manufacturers from shipping routers with generic universal passwords like 'admin'. Modern models prompt the user to set a unique admin password upon initial setup.
           </p>
         </details>
 
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-black">Q.</span>
               What should I do if my exact router model is not listed?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#80868b] dark:text-[#9aa0a6] group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
             Try the most common gateway IPs for your manufacturer (such as 192.168.1.1 or 192.168.0.1) with 'admin' / 'admin' or check the physical barcode sticker located underneath your device.
           </p>
         </details>
 
-        <details class="group border border-slate-200/90 dark:border-slate-800 rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-          <summary class="font-bold text-slate-900 dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+        <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-xl p-4 open:bg-slate-50/60 dark:open:bg-slate-850/60 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+          <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
-              <span class="text-brand-600 dark:text-brand-400 font-black">Q.</span>
+              <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-black">Q.</span>
               Can I upgrade my router's firmware through the IP gateway?
             </span>
-            <span class="text-slate-400 dark:text-slate-500 group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-[#80868b] dark:text-[#9aa0a6] group-open:rotate-180 group-open:text-brand-600 dark:group-open:text-brand-400 transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-2.5">
+          <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
             Yes, once logged into your router's admin portal, navigate to System Tools or Administration -&gt; Firmware Upgrade to install the latest security patches from the manufacturer.
           </p>
         </details>

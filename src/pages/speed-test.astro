@@ -100,7 +100,7 @@ const schema = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumbs -->
-    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
       <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
       <a href={`${base}/tools`} class="hover:text-slate-900 transition-colors">Tools</a>
@@ -125,25 +125,25 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Main Speed Test Console Card -->
-    <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-card text-center relative overflow-hidden">
+    <div class="bg-white dark:bg-[#292a2d] rounded-3xl p-6 sm:p-8 border border-[#dadce0] dark:border-[#3c4043] shadow-card text-center relative overflow-hidden">
       
       <!-- Top Metrics Bar (Ping / Jitter) -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-8">
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Ping (Latency)</div>
-          <div class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-0.5" id="metric-ping">-- <span class="text-xs font-normal text-slate-400 dark:text-slate-500">ms</span></div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Ping (Latency)</div>
+          <div class="text-xl sm:text-2xl font-black text-[#202124] dark:text-white mt-0.5" id="metric-ping">-- <span class="text-xs font-normal text-[#80868b] dark:text-[#9aa0a6]">ms</span></div>
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Jitter</div>
-          <div class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-0.5" id="metric-jitter">-- <span class="text-xs font-normal text-slate-400 dark:text-slate-500">ms</span></div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Jitter</div>
+          <div class="text-xl sm:text-2xl font-black text-[#202124] dark:text-white mt-0.5" id="metric-jitter">-- <span class="text-xs font-normal text-[#80868b] dark:text-[#9aa0a6]">ms</span></div>
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Download</div>
-          <div class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5" id="metric-download">-- <span class="text-xs font-normal text-slate-400 dark:text-slate-500">Mbps</span></div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Download</div>
+          <div class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5" id="metric-download">-- <span class="text-xs font-normal text-[#80868b] dark:text-[#9aa0a6]">Mbps</span></div>
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800">
-          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Upload</div>
-          <div class="text-xl sm:text-2xl font-black text-sky-600 dark:text-sky-400 mt-0.5" id="metric-upload">-- <span class="text-xs font-normal text-slate-400 dark:text-slate-500">Mbps</span></div>
+          <div class="text-[10px] font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6]">Upload</div>
+          <div class="text-xl sm:text-2xl font-black text-sky-600 dark:text-sky-400 mt-0.5" id="metric-upload">-- <span class="text-xs font-normal text-[#80868b] dark:text-[#9aa0a6]">Mbps</span></div>
         </div>
       </div>
 
@@ -192,10 +192,10 @@ const schema = [
           </div>
 
           <div id="running-state" class="hidden flex flex-col items-center justify-center">
-            <div class="text-[11px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1" id="running-phase">Testing Ping...</div>
-            <div class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight font-mono" id="live-speed">0.0</div>
-            <div class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1 uppercase" id="live-unit">Mbps</div>
-            <div class="text-[11px] text-slate-400 dark:text-slate-500 mt-1 font-mono" id="live-mbs">0.0 MB/s</div>
+            <div class="text-[11px] font-extrabold uppercase tracking-widest text-[#80868b] dark:text-[#9aa0a6] mb-1" id="running-phase">Testing Ping...</div>
+            <div class="text-4xl sm:text-5xl font-black text-[#202124] dark:text-white tracking-tight font-mono" id="live-speed">0.0</div>
+            <div class="text-xs font-bold text-[#5f6368] dark:text-[#9aa0a6] mt-1 uppercase" id="live-unit">Mbps</div>
+            <div class="text-[11px] text-[#80868b] dark:text-[#9aa0a6] mt-1 font-mono" id="live-mbs">0.0 MB/s</div>
           </div>
         </div>
 
@@ -205,53 +205,53 @@ const schema = [
       <div id="test-complete-actions" class="hidden mt-6 flex flex-wrap items-center justify-center gap-3">
         <button 
           id="btn-retest"
-          class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
+          class="px-5 py-2.5 rounded-xl bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95"
         >
           <span>🔄</span> Run Test Again
         </button>
         <button 
           id="btn-copy-report"
-          class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+          class="px-4 py-2.5 rounded-xl bg-[#f1f3f4] dark:bg-[#303134] hover:bg-slate-200 dark:hover:bg-slate-700 text-[#3c4043] dark:text-[#bdc1c6] text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
         >
           <span>📋</span> Copy Speed Report
         </button>
         <a 
           href={`${base}/what-is-my-ip`}
-          class="px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-semibold transition-all flex items-center gap-1.5"
+          class="px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-850 hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] text-[#5f6368] dark:text-[#bdc1c6] border border-[#dadce0] dark:border-[#5f6368] text-xs font-semibold transition-all flex items-center gap-1.5"
         >
           <span>🌐</span> Check Public IP & Gateway →
         </a>
       </div>
 
       <!-- Scorecard Ratings (4K Streaming, Gaming, Video Calls) -->
-      <div id="scorecard-section" class="hidden mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 max-w-2xl mx-auto">
-        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3">Connection Performance Rating</h3>
+      <div id="scorecard-section" class="hidden mt-8 pt-6 border-t border-[#e8eaed] dark:border-[#3c4043] max-w-2xl mx-auto">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-[#80868b] dark:text-[#9aa0a6] mb-3">Connection Performance Rating</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           
           <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 text-left flex items-start gap-3">
             <span class="text-2xl">📺</span>
             <div>
-              <div class="text-xs font-bold text-slate-900 dark:text-white">4K Streaming</div>
+              <div class="text-xs font-bold text-[#202124] dark:text-white">4K Streaming</div>
               <div class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400" id="rating-streaming">Optimal</div>
-              <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Smooth UHD buffer-free playback</p>
+              <p class="text-[10px] text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">Smooth UHD buffer-free playback</p>
             </div>
           </div>
 
           <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 text-left flex items-start gap-3">
             <span class="text-2xl">🎮</span>
             <div>
-              <div class="text-xs font-bold text-slate-900 dark:text-white">Online Gaming</div>
+              <div class="text-xs font-bold text-[#202124] dark:text-white">Online Gaming</div>
               <div class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400" id="rating-gaming">Competitive</div>
-              <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Low latency & responsive tickrate</p>
+              <p class="text-[10px] text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">Low latency & responsive tickrate</p>
             </div>
           </div>
 
           <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-850/60 border border-slate-200/80 dark:border-slate-800 text-left flex items-start gap-3">
             <span class="text-2xl">📹</span>
             <div>
-              <div class="text-xs font-bold text-slate-900 dark:text-white">Video Calls</div>
+              <div class="text-xs font-bold text-[#202124] dark:text-white">Video Calls</div>
               <div class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400" id="rating-calls">Crystal Clear</div>
-              <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Zoom / Teams HD without stutter</p>
+              <p class="text-[10px] text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">Zoom / Teams HD without stutter</p>
             </div>
           </div>
 
@@ -266,45 +266,45 @@ const schema = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       
       <!-- Card 1: Understanding Speed Test Metrics -->
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
+      <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3">
         <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 text-[11px] font-bold">
           📊 Understanding Your Results
         </div>
-        <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
+        <h2 class="text-base font-extrabold text-[#202124] dark:text-white">
           How Are Speed Metrics Measured?
         </h2>
-        <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+        <ul class="space-y-2.5 text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
           <li class="flex items-start gap-2">
-            <strong class="text-slate-900 dark:text-white min-w-[70px]">Download:</strong>
+            <strong class="text-[#202124] dark:text-white min-w-[70px]">Download:</strong>
             <span>The rate at which data transfers from the web server to your device. Measured in Megabits per second (Mbps). Essential for streaming Netflix/YouTube, browsing, and downloading files.</span>
           </li>
           <li class="flex items-start gap-2">
-            <strong class="text-slate-900 dark:text-white min-w-[70px]">Upload:</strong>
+            <strong class="text-[#202124] dark:text-white min-w-[70px]">Upload:</strong>
             <span>The speed at which your device sends data to the cloud. Crucial for video conferencing (Zoom/Teams), security camera feeds, and uploading videos.</span>
           </li>
           <li class="flex items-start gap-2">
-            <strong class="text-slate-900 dark:text-white min-w-[70px]">Ping (RTT):</strong>
+            <strong class="text-[#202124] dark:text-white min-w-[70px]">Ping (RTT):</strong>
             <span>Round-trip latency in milliseconds (ms). Represents the time it takes for a data packet to reach the destination and bounce back.</span>
           </li>
           <li class="flex items-start gap-2">
-            <strong class="text-slate-900 dark:text-white min-w-[70px]">Jitter:</strong>
+            <strong class="text-[#202124] dark:text-white min-w-[70px]">Jitter:</strong>
             <span>Variance in ping latency over time. Low jitter (&lt; 5ms) ensures smooth real-time voice and multiplayer gaming without rubberbanding.</span>
           </li>
         </ul>
       </section>
 
       <!-- Card 2: How to Optimize Router Wi-Fi Speed -->
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-3">
+      <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3">
         <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold">
           🛠️ Router Optimization Tips
         </div>
-        <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
+        <h2 class="text-base font-extrabold text-[#202124] dark:text-white">
           How to Boost Your Wi-Fi & Internet Speed
         </h2>
-        <ol class="space-y-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed list-decimal list-inside">
+        <ol class="space-y-2 text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed list-decimal list-inside">
           <li><strong>Switch to 5GHz or 6GHz Wi-Fi Band:</strong> The 5GHz frequency delivers significantly higher throughput and less interference than the congested 2.4GHz band.</li>
           <li><strong>Relocate Your Router:</strong> Place your wireless gateway in an elevated, central location away from thick concrete walls, microwaves, and metal enclosures.</li>
-          <li><strong>Change Wi-Fi Channels:</strong> Log into your router admin portal (e.g. <a href={`${base}/`} class="text-brand-600 dark:text-brand-400 font-bold hover:underline">192.168.1.1</a> or <a href={`${base}/192-168-0-1`} class="text-brand-600 dark:text-brand-400 font-bold hover:underline">192.168.0.1</a>) and switch to uncongested channels (1, 6, 11 for 2.4GHz; 36, 44, 149 for 5GHz).</li>
+          <li><strong>Change Wi-Fi Channels:</strong> Log into your router admin portal (e.g. <a href={`${base}/`} class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold hover:underline">192.168.1.1</a> or <a href={`${base}/192-168-0-1`} class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold hover:underline">192.168.0.1</a>) and switch to uncongested channels (1, 6, 11 for 2.4GHz; 36, 44, 149 for 5GHz).</li>
           <li><strong>Enable QoS (Quality of Service):</strong> Prioritize work devices or gaming consoles over background cloud backups to eliminate bufferbloat.</li>
         </ol>
       </section>
@@ -317,27 +317,27 @@ const schema = [
     </div>
 
     <!-- FAQ Accordion (Just Above Footer) -->
-    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-4">
+    <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-5 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-4">
       <div class="flex items-center gap-2">
         <span class="text-base">❓</span>
-        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        <h2 class="text-lg font-bold text-[#202124] dark:text-white">Frequently Asked Questions</h2>
       </div>
-      <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+      <div class="divide-y divide-[#e8eaed] dark:divide-[#3c4043] text-xs">
         <div class="py-3">
-          <strong class="text-slate-900 dark:text-white text-xs block font-semibold mb-1">What is the difference between Mbps and MB/s?</strong>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+          <strong class="text-[#202124] dark:text-white text-xs block font-semibold mb-1">What is the difference between Mbps and MB/s?</strong>
+          <p class="text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             Mbps stands for Megabits per second (used by ISPs and speed tests to measure bandwidth), while MB/s stands for Megabytes per second (used for file download size). There are 8 bits in 1 byte, so a 100 Mbps connection downloads files at approximately 12.5 MB/s.
           </p>
         </div>
         <div class="py-3">
-          <strong class="text-slate-900 dark:text-white text-xs block font-semibold mb-1">What is considered a good ping and jitter for gaming?</strong>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+          <strong class="text-[#202124] dark:text-white text-xs block font-semibold mb-1">What is considered a good ping and jitter for gaming?</strong>
+          <p class="text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             A ping under 20ms is exceptional for competitive gaming. 20ms to 50ms is good, while anything above 100ms causes noticeable lag. Jitter measures ping variance; an ideal jitter score is below 5ms.
           </p>
         </div>
         <div class="py-3">
-          <strong class="text-slate-900 dark:text-white text-xs block font-semibold mb-1">Why is my Wi-Fi speed slower than my router's advertised speed?</strong>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+          <strong class="text-[#202124] dark:text-white text-xs block font-semibold mb-1">Why is my Wi-Fi speed slower than my router's advertised speed?</strong>
+          <p class="text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             Advertised speeds (e.g. AX3000 or AC1200) are theoretical physical link rates under laboratory conditions. Real-world speeds are affected by distance, wall interference, 2.4GHz vs 5GHz channel congestion, and client device antenna limitations.
           </p>
         </div>
@@ -484,10 +484,10 @@ const schema = [
     testActions.classList.add('hidden');
     scorecard.classList.add('hidden');
 
-    if (metricPing) metricPing.innerHTML = `-- <span class="text-xs font-normal text-slate-400">ms</span>`;
-    if (metricJitter) metricJitter.innerHTML = `-- <span class="text-xs font-normal text-slate-400">ms</span>`;
-    if (metricDownload) metricDownload.innerHTML = `-- <span class="text-xs font-normal text-slate-400">Mbps</span>`;
-    if (metricUpload) metricUpload.innerHTML = `-- <span class="text-xs font-normal text-slate-400">Mbps</span>`;
+    if (metricPing) metricPing.innerHTML = `-- <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (metricJitter) metricJitter.innerHTML = `-- <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (metricDownload) metricDownload.innerHTML = `-- <span class="text-xs font-normal text-[#80868b]">Mbps</span>`;
+    if (metricUpload) metricUpload.innerHTML = `-- <span class="text-xs font-normal text-[#80868b]">Mbps</span>`;
 
     // Phase 1: Ping & Jitter
     if (runningPhase) runningPhase.innerText = 'Testing Ping & Latency...';
@@ -496,8 +496,8 @@ const schema = [
     
     const { ping, jitter } = await measurePingAndJitter();
     if (liveSpeed) liveSpeed.innerText = `${ping}`;
-    if (metricPing) metricPing.innerHTML = `${ping} <span class="text-xs font-normal text-slate-400">ms</span>`;
-    if (metricJitter) metricJitter.innerHTML = `${jitter} <span class="text-xs font-normal text-slate-400">ms</span>`;
+    if (metricPing) metricPing.innerHTML = `${ping} <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (metricJitter) metricJitter.innerHTML = `${jitter} <span class="text-xs font-normal text-[#80868b]">ms</span>`;
 
     await new Promise(r => setTimeout(r, 400));
 
@@ -511,7 +511,7 @@ const schema = [
       setGaugeProgress(pct, '#10b981');
     });
 
-    if (metricDownload) metricDownload.innerHTML = `${formatMbps(finalDownload)} <span class="text-xs font-normal text-slate-400">Mbps</span>`;
+    if (metricDownload) metricDownload.innerHTML = `${formatMbps(finalDownload)} <span class="text-xs font-normal text-[#80868b]">Mbps</span>`;
 
     await new Promise(r => setTimeout(r, 400));
 
@@ -525,7 +525,7 @@ const schema = [
       setGaugeProgress(pct, '#0284c7');
     });
 
-    if (metricUpload) metricUpload.innerHTML = `${formatMbps(finalUpload)} <span class="text-xs font-normal text-slate-400">Mbps</span>`;
+    if (metricUpload) metricUpload.innerHTML = `${formatMbps(finalUpload)} <span class="text-xs font-normal text-[#80868b]">Mbps</span>`;
 
     // Complete & Finalize
     if (runningPhase) runningPhase.innerText = 'Test Complete';
