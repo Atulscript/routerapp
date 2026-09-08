@@ -1,13 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SearchBar from '../components/SearchBar.astro';
 import RouterLookupTable from '../components/RouterLookupTable.astro';
-import RouterGuideCard from '../components/RouterGuideCard.astro';
 import BrandCard from '../components/BrandCard.astro';
-import IspCard from '../components/IspCard.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
-import { GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
+import { GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS, formatModelTitle } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const title = "192.168.1.1 Router Admin Login, Passwords & Setup Guide | 19216811.page";
@@ -29,8 +26,69 @@ const keywords = [
 
 const currentIp = GATEWAY_IPS.find(i => i.ip === '192.168.1.1') || GATEWAY_IPS[0];
 const otherIps = GATEWAY_IPS.filter(i => i.ip !== '192.168.1.1');
+const popularBrands = BRANDS.slice(0, 8);
 
-// Comprehensive JSON-LD structured data graph (HowTo + FAQPage + Breadcrumbs)
+// Collect top search items for the interactive hero search
+const heroSearchItems = [
+  ...GATEWAY_IPS.map(ip => ({
+    name: `${ip.ip} router login admin gateway default`,
+    title: `${ip.ip} Admin Login`,
+    category: 'Gateway IP',
+    url: ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`,
+    subtitle: `Default: ${ip.defaultUser} / ${ip.defaultPass} · ${ip.commonBrands.slice(0, 3).join(', ')}`,
+    badge: 'IP Gateway'
+  })),
+  ...BRANDS.map(b => ({
+    name: `${b.name} router setup default password admin ip`,
+    title: `${b.name} Routers`,
+    category: 'Brand',
+    url: `${base}/${b.slug}`,
+    subtitle: `Default IP: ${b.defaultIp} · ${b.models.length} Models`,
+    badge: 'Brand'
+  })),
+  ...ROUTER_MODELS.slice(0, 150).map(m => ({
+    name: `${m.brand} ${m.model} ${m.series || ''} ${m.wifiStandard || ''} ${m.category || ''} ${m.ip}`,
+    title: formatModelTitle(m.brand, m.model),
+    category: 'Model',
+    url: `${base}/${m.slug}`,
+    subtitle: `${m.wifiStandard ? m.wifiStandard.split(' ')[0] + ' · ' : ''}IP: ${m.ip} · ${m.category}`,
+    badge: 'Hardware'
+  })),
+  {
+    name: 'Internet Speed Test WiFi Ping Jitter Download Upload Bandwidth Latency',
+    title: 'Internet Speed Test',
+    category: 'Tool',
+    url: `${base}/speed-test`,
+    subtitle: 'Measure WiFi Latency, Ping, Download & Upload',
+    badge: 'Tool'
+  },
+  {
+    name: 'Subnet Calculator CIDR IP Network Host Range Netmask Wildcard',
+    title: 'CIDR Subnet Calculator',
+    category: 'Tool',
+    url: `${base}/subnet-calculator`,
+    subtitle: 'IPv4 Subnetting, Host Ranges, Netmask & Wildcard',
+    badge: 'Tool'
+  },
+  {
+    name: 'What Is My IP Public IPv4 IPv6 Address ISP Detector Gateway Finder',
+    title: 'What Is My IP Address?',
+    category: 'Tool',
+    url: `${base}/what-is-my-ip`,
+    subtitle: 'Instant Public IP, ISP & Gateway Detector',
+    badge: 'Tool'
+  },
+  {
+    name: 'WiFi QR Code Generator Scan Connect Password Guest Network',
+    title: 'WiFi QR Code Generator',
+    category: 'Tool',
+    url: `${base}/wifi-qr-generator`,
+    subtitle: 'Generate Printable QR Code to Connect Instantly',
+    badge: 'Tool'
+  }
+];
+
+// Comprehensive JSON-LD structured data graph
 const schema = [
   {
     "@type": "BreadcrumbList",
@@ -112,102 +170,164 @@ const schema = [
 >
   
   <!-- ========================================================= -->
-  <!-- 1. GOOGLE-STYLE HERO & KNOWLEDGE ONEBOX SECTION -->
+  <!-- 1. GOOGLE HERO & LIVE INTERACTIVE SEARCH SECTION -->
   <!-- ========================================================= -->
-  <section class="relative pt-6 sm:pt-10 pb-8 sm:pb-12 border-b border-[#e8eaed] dark:border-[#3c4043] bg-gradient-to-b from-white via-[#f8fafd] to-white dark:from-[#202124] dark:via-[#292a2d]/40 dark:to-[#202124]">
+  <section class="relative pt-8 sm:pt-12 pb-10 sm:pb-14 border-b border-[#dadce0] dark:border-[#3c4043] bg-gradient-to-b from-white via-[#f8fafd] to-white dark:from-[#202124] dark:via-[#292a2d]/40 dark:to-[#202124]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       
       <!-- Google Brand Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-xs font-medium mb-5 shadow-2xs">
         <div class="flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full bg-[#4285f4]"></span>
-          <span class="w-2 h-2 rounded-full bg-[#ea4335]"></span>
-          <span class="w-2 h-2 rounded-full bg-[#fbbc05]"></span>
-          <span class="w-2 h-2 rounded-full bg-[#34a853]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#4285f4]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#ea4335]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#fbbc05]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#34a853]"></span>
         </div>
         <span class="font-bold text-[#202124] dark:text-[#e8eaed]">Universal Router Gateway Directory</span>
         <span class="text-[#dadce0] dark:text-[#5f6368]">|</span>
-        <span class="text-[#5f6368] dark:text-[#9aa0a6]">400+ Models Indexed</span>
+        <span class="text-[#5f6368] dark:text-[#9aa0a6]">400+ Verified Models</span>
       </div>
 
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#202124] dark:text-white tracking-tight mb-3 font-sans leading-tight">
-        192.168.1.1 <span class="text-[#1a73e8] dark:text-[#8ab4f8]">Router Admin Login</span>
+        Universal Router Admin & <span class="text-[#1a73e8] dark:text-[#8ab4f8]">Network Directory</span>
       </h1>
       
       <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] max-w-xl mx-auto mb-7 leading-relaxed">
-        Instant access to your wireless router gateway dashboard at <strong class="text-[#202124] dark:text-white font-mono">http://192.168.1.1</strong>. Lookup default factory passwords, configure Wi-Fi security, and fix connection errors.
+        Find factory default passwords for 400+ router models, access <strong class="text-[#202124] dark:text-white font-mono">192.168.1.1</strong> & <strong class="text-[#202124] dark:text-white font-mono">192.168.0.1</strong> gateways, and run network diagnostics.
       </p>
 
-      <!-- Google Knowledge OneBox (Rich Answer Card for 192.168.1.1) -->
-      <div class="g-onebox max-w-xl mx-auto mb-6 text-left">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
-          <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] mb-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#34a853] animate-pulse"></span>
-              Verified Local Gateway IP
-            </div>
-            <div class="text-2xl sm:text-3xl font-mono font-bold text-[#202124] dark:text-white tracking-tight">
-              192.168.1.1
-            </div>
-            <div class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
-              Default for TP-Link, Netgear, ASUS, Linksys, Cisco, Zyxel
-            </div>
+      <!-- Google Material 3 Hero Search Bar with Live Instant Autocomplete -->
+      <div class="relative max-w-xl mx-auto mb-7 text-left" id="hero-search-wrapper">
+        <div class="g-search-bar px-4 py-3">
+          <div class="text-[#5f6368] dark:text-[#9aa0a6] mr-3 flex items-center">
+            <svg class="w-5 h-5 text-[#1a73e8] dark:text-[#8ab4f8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
           </div>
-
-          <a 
-            href="http://192.168.1.1" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="g-btn-primary w-full sm:w-auto text-center"
+          <input 
+            type="text" 
+            id="hero-search-input" 
+            placeholder="Search any router model, brand, IP, or tool (e.g. Archer, Netgear, 192.168.1.1)..." 
+            class="w-full bg-transparent text-sm text-[#202124] dark:text-white placeholder-[#80868b] dark:placeholder-[#9aa0a6] outline-none font-medium"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button 
+            id="hero-search-clear" 
+            type="button" 
+            class="hidden text-[#80868b] hover:text-[#202124] dark:hover:text-white text-sm font-bold ml-2"
           >
-            <span>Open Dashboard</span>
-            <span class="text-xs">↗</span>
-          </a>
+            ✕
+          </button>
         </div>
 
-        <!-- Default Credentials Row with Instant Copy -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-          <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-            <div>
-              <div class="text-[10px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Default User</div>
-              <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">admin</div>
-            </div>
-            <button 
-              type="button" 
-              class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
-              data-copy="admin"
-            >
-              📋 Copy
-            </button>
-          </div>
-
-          <div class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-            <div>
-              <div class="text-[10px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Default Password</div>
-              <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">admin / password</div>
-            </div>
-            <button 
-              type="button" 
-              class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
-              data-copy="admin"
-            >
-              📋 Copy
-            </button>
-          </div>
+        <!-- Live Hero Search Results Dropdown -->
+        <div 
+          id="hero-search-results" 
+          class="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-[#292a2d] rounded-2xl sm:rounded-3xl shadow-card-hover border border-[#dadce0] dark:border-[#3c4043] overflow-hidden hidden z-50 max-h-96 overflow-y-auto divide-y divide-[#f1f3f4] dark:divide-[#3c4043] custom-scrollbar animate-fade-in"
+        >
+          <div id="hero-results-list"></div>
         </div>
       </div>
 
-      <!-- Quick IP Gateway Chips -->
-      <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
-        <span class="font-medium mr-1">Other Common Gateways:</span>
-        {otherIps.slice(0, 5).map(ip => (
-          <a 
-            href={`${base}/${ip.slug}`}
-            class="g-chip font-mono text-[11px]"
-          >
-            {ip.ip}
-          </a>
-        ))}
+      <!-- Quick Search Chips -->
+      <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] mb-8">
+        <span class="font-medium mr-1 text-[11px] uppercase tracking-wider text-[#80868b]">Popular:</span>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="192.168.1.1">192.168.1.1</button>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="192.168.0.1">192.168.0.1</button>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="TP-Link">TP-Link</button>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="Netgear">Netgear</button>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="ASUS">ASUS</button>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="Ubiquiti">Ubiquiti</button>
+        <button type="button" class="hero-chip g-chip text-[11px]" data-query="Speed Test">⚡ Speed Test</button>
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- GOOGLE KNOWLEDGE ONEBOX (DYNAMIC GATEWAY SWITCHER) -->
+      <!-- ========================================================= -->
+      <div class="g-onebox max-w-2xl mx-auto text-left" id="onebox-container">
+        
+        <!-- Gateway Switcher Tab Bar -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-3 mb-4 border-b border-[#e8eaed] dark:border-[#3c4043]">
+          <span class="text-[11px] uppercase font-bold text-[#80868b] dark:text-[#9aa0a6] mr-1 flex-shrink-0">Gateway:</span>
+          {GATEWAY_IPS.slice(0, 6).map((item, idx) => (
+            <button 
+              type="button" 
+              class={`gateway-tab px-3 py-1 rounded-full text-xs font-mono font-bold transition-all flex-shrink-0 cursor-pointer ${idx === 0 ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8]' : 'bg-white dark:bg-[#303134] text-[#5f6368] dark:text-[#e8eaed] border border-[#dadce0] dark:border-[#5f6368] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'}`}
+              data-ip={item.ip}
+              data-user={item.defaultUser}
+              data-pass={item.defaultPass}
+              data-desc={item.description}
+              data-brands={item.commonBrands.slice(0, 4).join(', ')}
+              data-slug={item.slug}
+            >
+              {item.ip}
+            </button>
+          ))}
+        </div>
+
+        <!-- Dynamic Control Card Area -->
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#34a853] animate-pulse"></span>
+                Active Gateway Control Panel
+              </div>
+              <div class="text-2xl sm:text-3xl font-mono font-bold text-[#202124] dark:text-white tracking-tight" id="onebox-ip-display">
+                192.168.1.1
+              </div>
+              <div class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5" id="onebox-brands-display">
+                Default for TP-Link, Netgear, ASUS, Linksys, Cisco
+              </div>
+            </div>
+
+            <a 
+              href="http://192.168.1.1" 
+              id="onebox-launch-btn"
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="g-btn-primary w-full sm:w-auto text-center"
+            >
+              <span id="onebox-launch-text">Open http://192.168.1.1</span>
+              <span class="text-xs">↗</span>
+            </a>
+          </div>
+
+          <!-- Credentials Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
+              <div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Default User</div>
+                <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="onebox-user-display">admin</div>
+              </div>
+              <button 
+                type="button" 
+                id="onebox-copy-user-btn"
+                class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                data-copy="admin"
+              >
+                📋 Copy
+              </button>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
+              <div>
+                <div class="text-[10px] font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Default Password</div>
+                <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5" id="onebox-pass-display">admin / password</div>
+              </div>
+              <button 
+                type="button" 
+                id="onebox-copy-pass-btn"
+                class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                data-copy="admin"
+              >
+                📋 Copy
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -216,7 +336,7 @@ const schema = [
   <!-- Top Leaderboard Ad Slot -->
   <AdBanner format="leaderboard" />
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-9">
 
     <!-- ========================================================= -->
     <!-- 2. GOOGLE MATERIAL 3 DIAGNOSTIC TOOLS GRID -->
@@ -224,25 +344,28 @@ const schema = [
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white tracking-tight">
-            Network Diagnostics & Utilities
+          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold mb-1">
+            ⚡ Web Utilities
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
+            Network Diagnostics & Web Tools
           </h2>
           <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
-            Free online tools for bandwidth testing, IP subnetting, and Wi-Fi sharing
+            Instant browser utilities for latency testing, IP subnetting, and Wi-Fi QR generation
           </p>
         </div>
-        <a href={`${base}/tools`} class="text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline flex items-center gap-1">
+        <a href={`${base}/tools`} class="g-btn-outlined text-xs font-bold">
           <span>All Tools</span>
           <span>→</span>
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <!-- Speed Test Tool Card -->
-        <a href={`${base}/speed-test`} class="g-card p-4 flex flex-col justify-between group">
-          <div class="space-y-2.5">
-            <div class="w-10 h-10 rounded-2xl bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center text-lg font-bold">
+        <!-- Speed Test Tool Card (Google Blue) -->
+        <a href={`${base}/speed-test`} class="g-card p-5 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center text-xl font-bold shadow-2xs group-hover:scale-105 transition-transform">
               ⚡
             </div>
             <div>
@@ -250,76 +373,76 @@ const schema = [
                 Internet Speed Test
               </h3>
               <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
-                Test real-time download, upload bandwidth, jitter, and latency.
+                Test download, upload speed, latency, and ping jitter in real time.
               </p>
             </div>
           </div>
-          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-between">
+          <div class="pt-3.5 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-between">
             <span>Run Benchmark</span>
-            <span>→</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </a>
 
-        <!-- Subnet Calculator Tool Card -->
-        <a href={`${base}/subnet-calculator`} class="g-card p-4 flex flex-col justify-between group">
-          <div class="space-y-2.5">
-            <div class="w-10 h-10 rounded-2xl bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] flex items-center justify-center text-lg font-bold">
+        <!-- Subnet Calculator Tool Card (Google Green) -->
+        <a href={`${base}/subnet-calculator`} class="g-card p-5 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] flex items-center justify-center text-xl font-bold shadow-2xs group-hover:scale-105 transition-transform">
               🧮
             </div>
             <div>
-              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#34a853] dark:group-hover:text-[#81c995] transition-colors">
                 CIDR Subnet Calculator
               </h3>
               <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
-                Calculate usable IP host ranges, broadcast, and wildcard masks.
+                Calculate usable IPv4 host ranges, broadcast, netmask, and binary bits.
               </p>
             </div>
           </div>
-          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#34a853] dark:text-[#81c995] flex items-center justify-between">
+          <div class="pt-3.5 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-bold text-[#34a853] dark:text-[#81c995] flex items-center justify-between">
             <span>Calculate Subnet</span>
-            <span>→</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </a>
 
-        <!-- What Is My IP Card -->
-        <a href={`${base}/what-is-my-ip`} class="g-card p-4 flex flex-col justify-between group">
-          <div class="space-y-2.5">
-            <div class="w-10 h-10 rounded-2xl bg-[#fef7e0] dark:bg-[#4d3800] text-[#f9ab00] dark:text-[#fdd663] flex items-center justify-center text-lg font-bold">
+        <!-- What Is My IP Card (Google Yellow) -->
+        <a href={`${base}/what-is-my-ip`} class="g-card p-5 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#fef7e0] dark:bg-[#4d3800] text-[#f9ab00] dark:text-[#fdd663] flex items-center justify-center text-xl font-bold shadow-2xs group-hover:scale-105 transition-transform">
               🌐
             </div>
             <div>
-              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#f9ab00] dark:group-hover:text-[#fdd663] transition-colors">
                 What Is My IP Address?
               </h3>
               <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
-                Detect your public IPv4, IPv6, ISP provider, and gateway IP.
+                Detect your public IPv4, IPv6, ISP provider, and default gateway address.
               </p>
             </div>
           </div>
-          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#f9ab00] dark:text-[#fdd663] flex items-center justify-between">
+          <div class="pt-3.5 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-bold text-[#f9ab00] dark:text-[#fdd663] flex items-center justify-between">
             <span>Check IP Info</span>
-            <span>→</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </a>
 
-        <!-- WiFi QR Code Generator -->
-        <a href={`${base}/wifi-qr-generator`} class="g-card p-4 flex flex-col justify-between group">
-          <div class="space-y-2.5">
-            <div class="w-10 h-10 rounded-2xl bg-[#fce8e6] dark:bg-[#4c1d1a] text-[#ea4335] dark:text-[#f28b82] flex items-center justify-center text-lg font-bold">
+        <!-- WiFi QR Code Generator (Google Red) -->
+        <a href={`${base}/wifi-qr-generator`} class="g-card p-5 flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-[#fce8e6] dark:bg-[#4c1d1a] text-[#ea4335] dark:text-[#f28b82] flex items-center justify-center text-xl font-bold shadow-2xs group-hover:scale-105 transition-transform">
               📱
             </div>
             <div>
-              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
+              <h3 class="font-bold text-sm text-[#202124] dark:text-white group-hover:text-[#ea4335] dark:group-hover:text-[#f28b82] transition-colors">
                 Wi-Fi QR Generator
               </h3>
               <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1 leading-relaxed">
-                Generate printable QR codes to connect phones without passwords.
+                Generate printable QR codes for guests to connect instantly without typing keys.
               </p>
             </div>
           </div>
-          <div class="pt-3 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-medium text-[#ea4335] dark:text-[#f28b82] flex items-center justify-between">
+          <div class="pt-3.5 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-bold text-[#ea4335] dark:text-[#f28b82] flex items-center justify-between">
             <span>Generate QR</span>
-            <span>→</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </a>
 
@@ -327,17 +450,48 @@ const schema = [
     </section>
 
     <!-- ========================================================= -->
-    <!-- 3. INTERACTIVE ROUTER HARDWARE DIRECTORY -->
+    <!-- 3. TOP ROUTER BRANDS SHOWCASE (GOOGLE STORE STYLE) -->
+    <!-- ========================================================= -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] text-xs font-bold mb-1">
+            🏷️ Hardware Manufacturers
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
+            Popular Router Brands & Defaults
+          </h2>
+          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
+            Explore setup guides and factory login credentials for leading network hardware
+          </p>
+        </div>
+        <a href={`${base}/brands`} class="g-btn-outlined text-xs font-bold">
+          <span>All Brands ({BRANDS.length})</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        {popularBrands.map(brand => (
+          <BrandCard data={brand} />
+        ))}
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 4. MASTER HARDWARE CATALOG & LOOKUP TABLE -->
     <!-- ========================================================= -->
     <section class="g-card p-5 sm:p-7 space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
         <div>
-          <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white flex items-center gap-2">
-            <span>📟</span>
-            Router Hardware Models & Default Password Finder
+          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#fef7e0] dark:bg-[#4d3800] text-[#f9ab00] dark:text-[#fdd663] text-xs font-bold mb-1">
+            📟 Master Database
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
+            Router Models & Password Finder
           </h2>
           <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
-            Instant search across 400+ consumer, gaming, mesh, and enterprise gateways
+            Instant search across 400+ consumer, mesh, gaming, and enterprise gateways
           </p>
         </div>
         <a href={`${base}/routers`} class="g-btn-secondary w-fit text-xs font-bold">
@@ -353,18 +507,18 @@ const schema = [
     <AdBanner format="horizontal" />
 
     <!-- ========================================================= -->
-    <!-- 4. GOOGLE HELP CENTER STYLE 4-STEP WALKTHROUGH -->
+    <!-- 5. GOOGLE HELP CENTER 4-STEP WALKTHROUGH -->
     <!-- ========================================================= -->
     <section class="g-card p-5 sm:p-7 space-y-5">
       <div class="border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold mb-2">
+        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold mb-2">
           📖 Setup Guide
         </div>
-        <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white tracking-tight">
+        <h2 class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
           How to Log In to 192.168.1.1 Router Admin Panel
         </h2>
         <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-1">
-          Follow these 4 simple steps to connect and manage your router dashboard
+          Follow these 4 simple steps to connect and configure your wireless router
         </p>
       </div>
 
@@ -424,7 +578,7 @@ const schema = [
     </section>
 
     <!-- ========================================================= -->
-    <!-- 5. GOOGLE "DID YOU MEAN?" TYPO PITFALL CARD -->
+    <!-- 6. GOOGLE "DID YOU MEAN?" TYPO PITFALL CARD -->
     <!-- ========================================================= -->
     <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#fef7e0] dark:bg-[#332a00]/40 border border-[#fbbc04]/60 dark:border-[#fbbc04]/30 space-y-3">
       <div class="flex items-center gap-2 text-[#b06000] dark:text-[#fdd663] font-bold text-sm sm:text-base">
@@ -458,7 +612,7 @@ const schema = [
     <RelatedLinksGrid currentSlug="192-168-1-1" />
 
     <!-- ========================================================= -->
-    <!-- 6. GOOGLE SEARCH STYLE FAQ ACCORDION (JUST ABOVE FOOTER) -->
+    <!-- 7. GOOGLE SEARCH STYLE FAQ ACCORDION (JUST ABOVE FOOTER) -->
     <!-- ========================================================= -->
     <section class="g-card p-5 sm:p-7 space-y-4">
       <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
@@ -507,9 +661,9 @@ const schema = [
   </div>
 </BaseLayout>
 
-<script>
+<script define:vars={{ heroSearchItems }}>
   // Single-click copy handler with immediate visual feedback
-  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(button => {
+  document.querySelectorAll('.copy-btn').forEach(button => {
     button.addEventListener('click', () => {
       const textToCopy = button.getAttribute('data-copy');
       if (!textToCopy) return;
@@ -527,5 +681,121 @@ const schema = [
         }, 1500);
       });
     });
+  });
+
+  // Dynamic Gateway Tab Switcher for Google Knowledge OneBox
+  const tabs = document.querySelectorAll('.gateway-tab');
+  const ipDisplay = document.getElementById('onebox-ip-display');
+  const brandsDisplay = document.getElementById('onebox-brands-display');
+  const launchBtn = document.getElementById('onebox-launch-btn');
+  const launchText = document.getElementById('onebox-launch-text');
+  const userDisplay = document.getElementById('onebox-user-display');
+  const passDisplay = document.getElementById('onebox-pass-display');
+  const copyUserBtn = document.getElementById('onebox-copy-user-btn');
+  const copyPassBtn = document.getElementById('onebox-copy-pass-btn');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('bg-[#e8f0fe]', 'dark:bg-[#1a3a60]', 'text-[#1a73e8]', 'dark:text-[#8ab4f8]', 'border-[#d2e3fc]', 'dark:border-[#1a73e8]');
+        t.classList.add('bg-white', 'dark:bg-[#303134]', 'text-[#5f6368]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
+      });
+      tab.classList.remove('bg-white', 'dark:bg-[#303134]', 'text-[#5f6368]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
+      tab.classList.add('bg-[#e8f0fe]', 'dark:bg-[#1a3a60]', 'text-[#1a73e8]', 'dark:text-[#8ab4f8]', 'border-[#d2e3fc]', 'dark:border-[#1a73e8]');
+
+      const ip = tab.getAttribute('data-ip') || '192.168.1.1';
+      const user = tab.getAttribute('data-user') || 'admin';
+      const pass = tab.getAttribute('data-pass') || 'admin';
+      const brands = tab.getAttribute('data-brands') || '';
+
+      if (ipDisplay) ipDisplay.textContent = ip;
+      if (brandsDisplay) brandsDisplay.textContent = `Default for ${brands}`;
+      if (launchBtn) launchBtn.setAttribute('href', `http://${ip}`);
+      if (launchText) launchText.textContent = `Open http://${ip}`;
+      if (userDisplay) userDisplay.textContent = user;
+      if (passDisplay) passDisplay.textContent = pass;
+      if (copyUserBtn) copyUserBtn.setAttribute('data-copy', user);
+      if (copyPassBtn) copyPassBtn.setAttribute('data-copy', pass);
+    });
+  });
+
+  // Hero Live Search Autocomplete
+  const heroInput = document.getElementById('hero-search-input');
+  const heroResults = document.getElementById('hero-search-results');
+  const heroList = document.getElementById('hero-results-list');
+  const heroClear = document.getElementById('hero-search-clear');
+  const heroChips = document.querySelectorAll('.hero-chip');
+
+  function renderHeroSearch(query) {
+    if (!query.trim()) {
+      heroResults?.classList.add('hidden');
+      heroClear?.classList.add('hidden');
+      return;
+    }
+
+    heroClear?.classList.remove('hidden');
+    const q = query.toLowerCase().trim();
+    const matches = heroSearchItems.filter(item => 
+      item.name.toLowerCase().includes(q) ||
+      item.title.toLowerCase().includes(q) ||
+      item.subtitle.toLowerCase().includes(q) ||
+      item.category.toLowerCase().includes(q)
+    ).slice(0, 6);
+
+    if (matches.length === 0) {
+      if (heroList) {
+        heroList.innerHTML = `
+          <div class="p-4 text-center text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+            No matching results found for "<strong class="text-[#202124] dark:text-white">${query}</strong>"
+          </div>
+        `;
+      }
+      heroResults?.classList.remove('hidden');
+      return;
+    }
+
+    if (heroList) {
+      heroList.innerHTML = matches.map(item => `
+        <a 
+          href="${item.url}" 
+          class="flex items-center justify-between p-3.5 hover:bg-[#f8fafd] dark:hover:bg-[#303134] transition-colors text-left group"
+        >
+          <div class="space-y-0.5">
+            <div class="text-xs font-bold text-[#202124] dark:text-white group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] flex items-center gap-2">
+              <span>${item.title}</span>
+              <span class="text-[10px] px-2 py-0.2 rounded-full bg-[#f1f3f4] dark:bg-[#3c4043] text-[#5f6368] dark:text-[#e8eaed] font-medium border border-[#dadce0] dark:border-[#5f6368]">${item.badge}</span>
+            </div>
+            <div class="text-[11px] text-[#5f6368] dark:text-[#9aa0a6] font-mono">${item.subtitle}</div>
+          </div>
+          <span class="text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
+      `).join('');
+    }
+    heroResults?.classList.remove('hidden');
+  }
+
+  heroInput?.addEventListener('input', (e) => {
+    renderHeroSearch(e.target.value);
+  });
+
+  heroClear?.addEventListener('click', () => {
+    if (heroInput) heroInput.value = '';
+    renderHeroSearch('');
+  });
+
+  heroChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const q = chip.getAttribute('data-query') || '';
+      if (heroInput) {
+        heroInput.value = q;
+        renderHeroSearch(q);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('hero-search-wrapper')?.contains(e.target)) {
+      heroResults?.classList.add('hidden');
+    }
   });
 </script>
