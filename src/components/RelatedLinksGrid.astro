@@ -14,6 +14,8 @@ const otherIsps = ISPS.filter(i => i.slug !== currentSlug);
 const otherIps = GATEWAY_IPS.filter(i => i.slug !== currentSlug);
 
 const tools = [
+  { title: 'Speed Test', slug: 'speed-test', icon: '⚡', desc: 'Ping, Jitter, Mbps' },
+  { title: 'Subnet Calculator', slug: 'subnet-calculator', icon: '🧮', desc: 'CIDR & Host Range' },
   { title: 'What is My IP?', slug: 'what-is-my-ip', icon: '🌐', desc: 'Public IP & Gateway' },
   { title: 'WiFi QR Generator', slug: 'wifi-qr-generator', icon: '📶', desc: 'Scan to Connect' },
   { title: 'Password Generator', slug: 'password-generator', icon: '🛡️', desc: 'WPA3 / Admin Keys' },

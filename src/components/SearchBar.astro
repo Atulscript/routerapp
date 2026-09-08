@@ -3,61 +3,137 @@ import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-// Prepare search index data
+// Prepare rich search index data
 const searchItems = [
+  // Gateway IPs
   ...GATEWAY_IPS.map(ip => ({
     name: ip.ip,
     title: `${ip.ip} Router Login`,
     category: 'Gateway IP',
     url: ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`,
-    subtitle: `Default: ${ip.defaultUser} / ${ip.defaultPass}`
+    subtitle: `Default: ${ip.defaultUser} / ${ip.defaultPass}`,
+    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200'
   })),
+  // Router Brands
   ...BRANDS.map(b => ({
     name: b.name,
     title: `${b.name} Default Passwords`,
     category: 'Brand',
     url: `${base}/${b.slug}`,
-    subtitle: `Default IP: ${b.defaultIp}`
+    subtitle: `Default IP: ${b.defaultIp}`,
+    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200'
   })),
+  // Router Models
+  ...BRANDS.flatMap(b => b.models.map(m => ({
+    name: `${b.name} ${m.model}`,
+    title: `${b.name} ${m.model}`,
+    category: 'Model',
+    url: `${base}/${b.slug}`,
+    subtitle: `IP: ${m.ip} · Login: ${m.username}/${m.password}`,
+    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200'
+  }))),
+  // ISPs
   ...ISPS.map(isp => ({
     name: isp.name,
     title: `${isp.name} Setup Guide`,
     category: 'ISP',
     url: `${base}/${isp.slug}`,
-    subtitle: `Gateway: ${isp.defaultIp}`
-  }))
+    subtitle: `Gateway: ${isp.defaultIp}`,
+    badgeColor: 'bg-amber-50 text-amber-700 border-amber-200'
+  })),
+  // Tools & Utilities
+  {
+    name: 'Internet Speed Test WiFi Ping Jitter Download Upload',
+    title: 'Internet Speed Test',
+    category: 'Tool',
+    url: `${base}/speed-test`,
+    subtitle: 'Measure WiFi Latency, Ping, Download & Upload',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  },
+  {
+    name: 'Subnet Calculator CIDR IP Network Host Range',
+    title: 'CIDR Subnet Calculator',
+    category: 'Tool',
+    url: `${base}/subnet-calculator`,
+    subtitle: 'IPv4 Subnetting, Host Ranges, Netmask & Wildcard',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  },
+  {
+    name: 'What Is My IP Public IPv4 IPv6 Address ISP Detector',
+    title: 'What Is My IP Address?',
+    category: 'Tool',
+    url: `${base}/what-is-my-ip`,
+    subtitle: 'Instant Public IP, ISP & Gateway Detector',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  },
+  {
+    name: 'WiFi QR Code Generator Scan Connect Password',
+    title: 'WiFi QR Code Generator',
+    category: 'Tool',
+    url: `${base}/wifi-qr-generator`,
+    subtitle: 'Generate Printable QR Code to Connect Instantly',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  },
+  {
+    name: 'Password Generator Secure High Entropy WPA3 Admin Key',
+    title: 'Secure Password Generator',
+    category: 'Tool',
+    url: `${base}/password-generator`,
+    subtitle: 'Cryptographic Passwords for Routers & WiFi',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  },
+  {
+    name: 'Default Router Passwords List Database',
+    title: 'Default Passwords DB',
+    category: 'Tool',
+    url: `${base}/default-passwords`,
+    subtitle: 'Master Catalog of Factory Router Passwords',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  }
 ];
 ---
 
 <div class="relative max-w-xl mx-auto w-full" id="search-container">
-  <div class="relative flex items-center bg-white rounded-xl shadow-xs border border-slate-200 hover:border-slate-300 focus-within:border-brand-500 focus-within:ring-3 focus-within:ring-brand-500/10 transition-all duration-150">
-    <div class="pl-3.5 pr-2 pointer-events-none text-slate-400 flex items-center">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+  <div class="relative flex items-center bg-white rounded-2xl shadow-xs border border-slate-200/90 hover:border-slate-300 focus-within:border-brand-500 focus-within:ring-4 focus-within:ring-brand-500/10 transition-all duration-150">
+    <div class="pl-4 pr-2 pointer-events-none text-slate-400 flex items-center">
+      <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
     </div>
     <input 
       type="text" 
       id="search-input"
-      placeholder="Search IP, router brand, or ISP..." 
-      class="w-full py-2.5 pr-8 bg-transparent text-slate-900 placeholder-slate-400 outline-none text-xs sm:text-sm font-medium"
+      placeholder="Search IP (192.168.1.1), Brand (TP-Link), Tool (Speed Test)..." 
+      class="w-full py-3 pr-16 bg-transparent text-slate-900 placeholder-slate-400 outline-none text-xs sm:text-sm font-medium"
       autocomplete="off"
+      spellcheck="false"
     />
-    <button 
-      id="search-clear" 
-      type="button"
-      class="absolute right-3 text-slate-400 hover:text-slate-600 hidden text-xs font-bold px-1.5 py-0.5 rounded hover:bg-slate-100 transition-colors"
-    >
-      ✕
-    </button>
+    <div class="absolute right-3 flex items-center gap-1.5">
+      <button 
+        id="search-clear" 
+        type="button"
+        class="text-slate-400 hover:text-slate-600 hidden text-xs font-bold px-1.5 py-0.5 rounded hover:bg-slate-100 transition-colors"
+        aria-label="Clear search"
+      >
+        ✕
+      </button>
+      <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-semibold text-slate-400 bg-slate-100 border border-slate-200 rounded">
+        /
+      </kbd>
+    </div>
   </div>
 
   <!-- Results Dropdown -->
   <div 
     id="search-results" 
-    class="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-card-hover border border-slate-200 overflow-hidden hidden z-50 max-h-72 overflow-y-auto divide-y divide-slate-100 custom-scrollbar"
+    class="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-card-hover border border-slate-200/90 overflow-hidden hidden z-50 max-h-80 overflow-y-auto divide-y divide-slate-100 custom-scrollbar animate-fade-in"
+    role="listbox"
   >
     <div id="results-list"></div>
+    <div class="px-3 py-2 bg-slate-50 border-t border-slate-100 text-[10px] text-slate-400 flex items-center justify-between">
+      <span>Use <kbd class="px-1 py-0.5 bg-white border rounded font-mono text-[9px]">↑</kbd> <kbd class="px-1 py-0.5 bg-white border rounded font-mono text-[9px]">↓</kbd> to navigate</span>
+      <span><kbd class="px-1 py-0.5 bg-white border rounded font-mono text-[9px]">Enter</kbd> to select · <kbd class="px-1 py-0.5 bg-white border rounded font-mono text-[9px]">Esc</kbd> to dismiss</span>
+    </div>
   </div>
 </div>
 
@@ -66,53 +142,87 @@ const searchItems = [
   const resultsContainer = document.getElementById('search-results');
   const resultsList = document.getElementById('results-list');
   const clearBtn = document.getElementById('search-clear');
+  let selectedIndex = -1;
+  let currentMatches = [];
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark class="bg-amber-100 text-amber-900 rounded-xs px-0.5 font-semibold">$1</mark>');
+  }
 
   function renderResults(query) {
+    selectedIndex = -1;
     if (!query.trim()) {
       resultsContainer.classList.add('hidden');
       clearBtn.classList.add('hidden');
+      currentMatches = [];
       return;
     }
 
     clearBtn.classList.remove('hidden');
     const q = query.toLowerCase().trim();
-    const matches = searchItems.filter(item => 
+    currentMatches = searchItems.filter(item => 
       item.name.toLowerCase().includes(q) ||
       item.title.toLowerCase().includes(q) ||
-      item.subtitle.toLowerCase().includes(q)
-    );
+      item.subtitle.toLowerCase().includes(q) ||
+      item.category.toLowerCase().includes(q)
+    ).slice(0, 10);
 
-    if (matches.length === 0) {
+    if (currentMatches.length === 0) {
       resultsList.innerHTML = `
-        <div class="p-4 text-center text-xs text-slate-500">
-          No matches found for "<strong class="text-slate-800">${query}</strong>"
+        <div class="p-5 text-center text-xs text-slate-500 space-y-1">
+          <p>No matches found for "<strong class="text-slate-800">${query}</strong>"</p>
+          <p class="text-[11px] text-slate-400">Try searching for "192.168.1.1", "TP-Link", "Speed Test", or "Subnet"</p>
         </div>
       `;
     } else {
-      resultsList.innerHTML = matches.map(item => `
-        <a href="${item.url}" class="flex items-center justify-between px-3.5 py-2.5 hover:bg-slate-50 transition-colors group">
-          <div class="flex items-center gap-2.5">
-            <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">
+      resultsList.innerHTML = currentMatches.map((item, idx) => `
+        <a 
+          href="${item.url}" 
+          data-index="${idx}"
+          class="search-item flex items-center justify-between px-3.5 py-2.5 hover:bg-slate-50 transition-colors group ${idx === 0 ? 'bg-slate-50/60' : ''}"
+        >
+          <div class="flex items-center gap-2.5 min-w-0">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md border ${item.badgeColor || 'bg-slate-100 text-slate-700'} flex-shrink-0">
               ${item.category}
             </span>
-            <div>
-              <div class="text-xs font-semibold text-slate-900 group-hover:text-brand-600">${item.title}</div>
-              <div class="text-[11px] text-slate-500">${item.subtitle}</div>
+            <div class="min-w-0">
+              <div class="text-xs font-bold text-slate-900 group-hover:text-brand-600 truncate">
+                ${highlightMatch(item.title, q)}
+              </div>
+              <div class="text-[11px] text-slate-500 truncate">
+                ${highlightMatch(item.subtitle, q)}
+              </div>
             </div>
           </div>
-          <span class="text-xs font-semibold text-slate-400 group-hover:text-slate-900 transition-colors">
+          <span class="text-xs font-semibold text-slate-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all flex-shrink-0 ml-2">
             →
           </span>
         </a>
       `).join('');
+      selectedIndex = 0;
+      updateActiveItem();
     }
 
     resultsContainer.classList.remove('hidden');
   }
 
+  function updateActiveItem() {
+    const items = resultsList.querySelectorAll('.search-item');
+    items.forEach((item, idx) => {
+      if (idx === selectedIndex) {
+        item.classList.add('bg-brand-50/70', 'ring-1', 'ring-brand-500/30');
+        item.scrollIntoView({ block: 'nearest' });
+      } else {
+        item.classList.remove('bg-brand-50/70', 'ring-1', 'ring-brand-500/30');
+      }
+    });
+  }
+
   input?.addEventListener('input', (e) => renderResults(e.target.value));
   input?.addEventListener('focus', () => {
-    if (input.value.trim()) resultsContainer.classList.remove('hidden');
+    if (input.value.trim()) renderResults(input.value);
   });
 
   clearBtn?.addEventListener('click', () => {
@@ -121,9 +231,43 @@ const searchItems = [
     input.focus();
   });
 
+  input?.addEventListener('keydown', (e) => {
+    if (resultsContainer.classList.contains('hidden')) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (currentMatches.length > 0) {
+        selectedIndex = (selectedIndex + 1) % currentMatches.length;
+        updateActiveItem();
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (currentMatches.length > 0) {
+        selectedIndex = (selectedIndex - 1 + currentMatches.length) % currentMatches.length;
+        updateActiveItem();
+      }
+    } else if (e.key === 'Enter') {
+      if (selectedIndex >= 0 && currentMatches[selectedIndex]) {
+        e.preventDefault();
+        window.location.href = currentMatches[selectedIndex].url;
+      }
+    } else if (e.key === 'Escape') {
+      resultsContainer.classList.add('hidden');
+    }
+  });
+
   document.addEventListener('click', (e) => {
     if (!document.getElementById('search-container')?.contains(e.target)) {
       resultsContainer.classList.add('hidden');
+    }
+  });
+
+  // Global '/' keyboard shortcut to focus search
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== input && !['input', 'textarea'].includes(document.activeElement?.tagName?.toLowerCase())) {
+      e.preventDefault();
+      input?.focus();
+      input?.select();
     }
   });
 </script>

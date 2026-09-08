@@ -1,0 +1,591 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdBanner from '../components/AdBanner.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "IPv4 CIDR Subnet Calculator - Subnet Mask, Host Range & Network ID | 19216811.page";
+const description = "Free online IPv4 CIDR Subnet Calculator. Calculate network address, broadcast address, usable host IP range, wildcard mask, and binary breakdown instantly.";
+const keywords = [
+  "subnet calculator",
+  "cidr calculator",
+  "ipv4 subnet calculator",
+  "subnet mask calculator",
+  "ip address calculator",
+  "wildcard mask calculator",
+  "network address calculator",
+  "host range calculator",
+  "rfc 1918 subnetting"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${siteUrl}/`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": `${siteUrl}/tools`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Subnet Calculator",
+        "item": `${siteUrl}/subnet-calculator`
+      }
+    ]
+  },
+  {
+    "@type": "WebApplication",
+    "name": "IPv4 CIDR Subnet Calculator",
+    "url": `${siteUrl}/subnet-calculator`,
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "description": "High-precision IPv4 subnet and CIDR calculator with binary visualization and Cisco wildcard mask generation.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is the number of usable hosts calculated in a subnet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The formula for usable IPv4 hosts is 2^(32 - CIDR) - 2. We subtract 2 because the first address is reserved for the Network ID and the last address is reserved as the Subnet Broadcast address."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Wildcard Mask in networking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A wildcard mask is the inverted binary representation of a subnet mask (255.255.255.255 minus Subnet Mask). It is commonly used in Cisco IOS Access Control Lists (ACLs) and OSPF/EIGRP routing protocol configurations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are RFC 1918 Private IP Ranges?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RFC 1918 defines three non-routable private IPv4 blocks for local networks: 10.0.0.0/8 (10.0.0.0 - 10.255.255.255), 172.16.0.0/12 (172.16.0.0 - 172.31.255.255), and 192.168.0.0/16 (192.168.0.0 - 192.168.255.255)."
+        }
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+    
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+      <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
+      <span>/</span>
+      <a href={`${base}/tools`} class="hover:text-slate-900 transition-colors">Tools</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold truncate">CIDR Subnet Calculator</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase mb-2 border border-indigo-200 shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+        🧮 IP Network Engineering Tool
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+        CIDR Subnet Calculator
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-600">
+        Instantly compute network addresses, broadcast IDs, usable host ranges, and binary masks for any IPv4 CIDR prefix.
+      </p>
+    </header>
+
+    <AdBanner format="leaderboard" />
+
+    <!-- Subnet Calculator Console -->
+    <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-card space-y-6">
+      
+      <!-- Input Controls -->
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+        
+        <!-- IP Address Field -->
+        <div class="sm:col-span-7 space-y-1.5">
+          <label for="input-ip" class="block text-xs font-bold text-slate-800 uppercase tracking-wider">
+            IPv4 Address
+          </label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="input-ip"
+              value="192.168.1.1"
+              placeholder="e.g. 192.168.1.1 or 10.0.0.1"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 font-mono text-sm font-bold focus:border-brand-500 focus:ring-3 focus:ring-brand-500/10 outline-none transition-all"
+            />
+          </div>
+        </div>
+
+        <!-- CIDR Mask Dropdown -->
+        <div class="sm:col-span-5 space-y-1.5">
+          <label for="select-cidr" class="block text-xs font-bold text-slate-800 uppercase tracking-wider">
+            Subnet Mask / CIDR
+          </label>
+          <select 
+            id="select-cidr"
+            class="w-full px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white text-slate-900 font-mono text-xs font-bold focus:border-brand-500 focus:ring-3 focus:ring-brand-500/10 outline-none transition-all cursor-pointer"
+          >
+            <option value="32">/32 (255.255.255.255) - 1 Host</option>
+            <option value="31">/31 (255.255.255.254) - Point-to-Point (RFC 3021)</option>
+            <option value="30">/30 (255.255.255.252) - 2 Hosts</option>
+            <option value="29">/29 (255.255.255.248) - 6 Hosts</option>
+            <option value="28">/28 (255.255.255.240) - 14 Hosts</option>
+            <option value="27">/27 (255.255.255.224) - 30 Hosts</option>
+            <option value="26">/26 (255.255.255.192) - 62 Hosts</option>
+            <option value="25">/25 (255.255.255.128) - 126 Hosts</option>
+            <option value="24" selected>/24 (255.255.255.0) - 254 Hosts (Standard Class C)</option>
+            <option value="23">/23 (255.255.254.0) - 510 Hosts</option>
+            <option value="22">/22 (255.255.252.0) - 1,022 Hosts</option>
+            <option value="21">/21 (255.255.248.0) - 2,046 Hosts</option>
+            <option value="20">/20 (255.255.240.0) - 4,094 Hosts</option>
+            <option value="19">/19 (255.255.224.0) - 8,190 Hosts</option>
+            <option value="18">/18 (255.255.192.0) - 16,382 Hosts</option>
+            <option value="17">/17 (255.255.128.0) - 32,766 Hosts</option>
+            <option value="16">/16 (255.255.0.0) - 65,534 Hosts (Class B)</option>
+            <option value="15">/15 (255.254.0.0) - 131,070 Hosts</option>
+            <option value="14">/14 (255.252.0.0) - 262,142 Hosts</option>
+            <option value="13">/13 (255.248.0.0) - 524,286 Hosts</option>
+            <option value="12">/12 (255.240.0.0) - 1,048,574 Hosts</option>
+            <option value="11">/11 (255.224.0.0) - 2,097,150 Hosts</option>
+            <option value="10">/10 (255.192.0.0) - 4,194,302 Hosts</option>
+            <option value="9">/9 (255.128.0.0) - 8,388,606 Hosts</option>
+            <option value="8">/8 (255.0.0.0) - 16,777,214 Hosts (Class A)</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Quick Preset Buttons -->
+      <div class="flex flex-wrap items-center gap-1.5 pt-1">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mr-1">Presets:</span>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-slate-700 text-xs font-mono font-medium transition-colors" data-ip="192.168.1.1" data-cidr="24">Home LAN (192.168.1.0/24)</button>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-slate-700 text-xs font-mono font-medium transition-colors" data-ip="10.0.0.1" data-cidr="20">Office Subnet (10.0.0.0/20)</button>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-slate-700 text-xs font-mono font-medium transition-colors" data-ip="172.16.0.1" data-cidr="16">Enterprise (172.16.0.0/16)</button>
+        <button type="button" class="preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-slate-700 text-xs font-mono font-medium transition-colors" data-ip="192.168.0.1" data-cidr="30">Point-to-Point (/30)</button>
+      </div>
+
+      <!-- Calculated Results Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+        
+        <!-- Network Address -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Network ID Address</div>
+            <div class="text-sm font-mono font-bold text-slate-900 mt-0.5" id="res-network">192.168.1.0</div>
+          </div>
+          <button class="copy-field-btn text-xs font-semibold text-brand-600 hover:text-brand-800 p-1.5 rounded hover:bg-white transition-colors" data-target="res-network">Copy</button>
+        </div>
+
+        <!-- Broadcast Address -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Broadcast Address</div>
+            <div class="text-sm font-mono font-bold text-slate-900 mt-0.5" id="res-broadcast">192.168.1.255</div>
+          </div>
+          <button class="copy-field-btn text-xs font-semibold text-brand-600 hover:text-brand-800 p-1.5 rounded hover:bg-white transition-colors" data-target="res-broadcast">Copy</button>
+        </div>
+
+        <!-- Usable Host Range -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Usable Host IP Range</div>
+            <div class="text-sm font-mono font-bold text-emerald-700 mt-0.5" id="res-range">192.168.1.1 - 192.168.1.254</div>
+          </div>
+          <button class="copy-field-btn text-xs font-semibold text-brand-600 hover:text-brand-800 p-1.5 rounded hover:bg-white transition-colors" data-target="res-range">Copy</button>
+        </div>
+
+        <!-- Total Usable Hosts -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Usable Hosts</div>
+            <div class="text-sm font-mono font-bold text-slate-900 mt-0.5" id="res-hosts">254</div>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400">2^(32-n) - 2</span>
+        </div>
+
+        <!-- Subnet Mask -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Subnet Mask</div>
+            <div class="text-sm font-mono font-bold text-slate-900 mt-0.5" id="res-netmask">255.255.255.0</div>
+          </div>
+          <button class="copy-field-btn text-xs font-semibold text-brand-600 hover:text-brand-800 p-1.5 rounded hover:bg-white transition-colors" data-target="res-netmask">Copy</button>
+        </div>
+
+        <!-- Wildcard Mask -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Cisco Wildcard Mask (ACLs)</div>
+            <div class="text-sm font-mono font-bold text-slate-900 mt-0.5" id="res-wildcard">0.0.0.255</div>
+          </div>
+          <button class="copy-field-btn text-xs font-semibold text-brand-600 hover:text-brand-800 p-1.5 rounded hover:bg-white transition-colors" data-target="res-wildcard">Copy</button>
+        </div>
+
+        <!-- IP Class & Scope -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">IP Class & Routing Scope</div>
+            <div class="text-xs font-bold text-slate-900 mt-0.5 flex items-center gap-1.5" id="res-class">
+              <span class="px-1.5 py-0.2 rounded bg-indigo-100 text-indigo-800 font-mono text-[11px]">Class C</span>
+              <span class="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-sans text-[11px]">RFC 1918 Private</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hex Subnet Mask -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between group">
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Hexadecimal Mask</div>
+            <div class="text-sm font-mono font-bold text-slate-900 mt-0.5" id="res-hex">0xFFFFFF00</div>
+          </div>
+          <button class="copy-field-btn text-xs font-semibold text-brand-600 hover:text-brand-800 p-1.5 rounded hover:bg-white transition-colors" data-target="res-hex">Copy</button>
+        </div>
+
+      </div>
+
+      <!-- Binary Breakdown View -->
+      <div class="p-4 rounded-2xl bg-slate-900 text-white font-mono text-xs space-y-2 overflow-x-auto">
+        <div class="flex items-center justify-between text-[11px] font-sans text-slate-400 font-bold uppercase tracking-wider">
+          <span>32-Bit Binary Structure</span>
+          <span class="text-sky-400">Network Bits (Blue) vs Host Bits (Gray)</span>
+        </div>
+        <div class="space-y-1 pt-1 text-[11px] sm:text-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400 w-24 flex-shrink-0">IP Address:</span>
+            <span id="bin-ip" class="font-bold text-slate-200">11000000.10101000.00000001.00000001</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400 w-24 flex-shrink-0">Subnet Mask:</span>
+            <span id="bin-mask" class="font-bold text-sky-400">11111111.11111111.11111111.00000000</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-slate-400 w-24 flex-shrink-0">Network ID:</span>
+            <span id="bin-net" class="font-bold text-emerald-400">11000000.10101000.00000001.00000000</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <AdBanner format="horizontal" />
+
+    <!-- CIDR Reference Table Cheat Sheet -->
+    <section class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-base font-extrabold text-slate-900">
+          IPv4 CIDR Prefix & Subnet Mask Reference Table
+        </h2>
+        <span class="text-xs text-slate-400 font-mono">/8 to /32</span>
+      </div>
+
+      <div class="overflow-x-auto -mx-5 sm:mx-0">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+              <th class="py-2.5 px-3">CIDR Prefix</th>
+              <th class="py-2.5 px-3">Subnet Mask</th>
+              <th class="py-2.5 px-3">Usable Hosts</th>
+              <th class="py-2.5 px-3">Total IPs</th>
+              <th class="py-2.5 px-3">Standard Class</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 font-mono">
+            <tr class="hover:bg-slate-50">
+              <td class="py-2 px-3 font-bold text-brand-600">/32</td>
+              <td class="py-2 px-3 text-slate-700">255.255.255.255</td>
+              <td class="py-2 px-3 text-slate-900 font-bold">1</td>
+              <td class="py-2 px-3 text-slate-500">1</td>
+              <td class="py-2 px-3 font-sans text-slate-500">Single Host / Loopback</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-2 px-3 font-bold text-brand-600">/30</td>
+              <td class="py-2 px-3 text-slate-700">255.255.255.252</td>
+              <td class="py-2 px-3 text-slate-900 font-bold">2</td>
+              <td class="py-2 px-3 text-slate-500">4</td>
+              <td class="py-2 px-3 font-sans text-slate-500">Point-to-Point Link</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-2 px-3 font-bold text-brand-600">/28</td>
+              <td class="py-2 px-3 text-slate-700">255.255.255.240</td>
+              <td class="py-2 px-3 text-slate-900 font-bold">14</td>
+              <td class="py-2 px-3 text-slate-500">16</td>
+              <td class="py-2 px-3 font-sans text-slate-500">Small Branch / VLAN</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-sky-50/40">
+              <td class="py-2 px-3 font-bold text-brand-600">/24</td>
+              <td class="py-2 px-3 text-slate-700">255.255.255.0</td>
+              <td class="py-2 px-3 text-emerald-700 font-bold">254</td>
+              <td class="py-2 px-3 text-slate-500">256</td>
+              <td class="py-2 px-3 font-sans font-bold text-slate-800">Class C (Home Routers)</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-2 px-3 font-bold text-brand-600">/20</td>
+              <td class="py-2 px-3 text-slate-700">255.255.240.0</td>
+              <td class="py-2 px-3 text-slate-900 font-bold">4,094</td>
+              <td class="py-2 px-3 text-slate-500">4,096</td>
+              <td class="py-2 px-3 font-sans text-slate-500">Medium Enterprise</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-indigo-50/40">
+              <td class="py-2 px-3 font-bold text-brand-600">/16</td>
+              <td class="py-2 px-3 text-slate-700">255.255.0.0</td>
+              <td class="py-2 px-3 text-indigo-700 font-bold">65,534</td>
+              <td class="py-2 px-3 text-slate-500">65,536</td>
+              <td class="py-2 px-3 font-sans font-bold text-slate-800">Class B</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-emerald-50/40">
+              <td class="py-2 px-3 font-bold text-brand-600">/8</td>
+              <td class="py-2 px-3 text-slate-700">255.0.0.0</td>
+              <td class="py-2 px-3 text-emerald-700 font-bold">16,777,214</td>
+              <td class="py-2 px-3 text-slate-500">16,777,216</td>
+              <td class="py-2 px-3 font-sans font-bold text-slate-800">Class A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-card space-y-4">
+      <h2 class="text-lg font-bold text-slate-900">Subnetting Frequently Asked Questions</h2>
+      <div class="divide-y divide-slate-100 text-xs">
+        <div class="py-3">
+          <strong class="text-slate-900 text-xs block font-semibold mb-1">How is the number of usable hosts calculated?</strong>
+          <p class="text-slate-600 leading-relaxed">
+            The formula for usable IPv4 hosts is <code>2^(32 - CIDR) - 2</code>. We subtract 2 because the first address in any block is reserved for the Network ID and the last address is reserved for broadcast traffic.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 text-xs block font-semibold mb-1">What is a Wildcard Mask used for?</strong>
+          <p class="text-slate-600 leading-relaxed">
+            A wildcard mask is the inverted binary representation of a subnet mask (<code>255.255.255.255 minus Subnet Mask</code>). It is extensively used in Cisco IOS Access Control Lists (ACLs) and OSPF routing configurations to match ranges of IP addresses.
+          </p>
+        </div>
+        <div class="py-3">
+          <strong class="text-slate-900 text-xs block font-semibold mb-1">What are the RFC 1918 Private IP Ranges?</strong>
+          <p class="text-slate-600 leading-relaxed">
+            RFC 1918 allocates three specific IPv4 address blocks for private local networks: <code>10.0.0.0/8</code> (10.0.0.0 to 10.255.255.255), <code>172.16.0.0/12</code> (172.16.0.0 to 172.31.255.255), and <code>192.168.0.0/16</code> (192.168.0.0 to 192.168.255.255).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interlinking Universal Network Grid -->
+    <div>
+      <RelatedLinksGrid />
+    </div>
+
+  </div>
+</BaseLayout>
+
+<script>
+  // Subnet Calculation Engine
+  const inputIp = document.getElementById('input-ip') as HTMLInputElement | null;
+  const selectCidr = document.getElementById('select-cidr') as HTMLSelectElement | null;
+  const presetBtns = document.querySelectorAll('.preset-btn');
+  const copyBtns = document.querySelectorAll('.copy-field-btn');
+
+  const resNetwork = document.getElementById('res-network');
+  const resBroadcast = document.getElementById('res-broadcast');
+  const resRange = document.getElementById('res-range');
+  const resHosts = document.getElementById('res-hosts');
+  const resNetmask = document.getElementById('res-netmask');
+  const resWildcard = document.getElementById('res-wildcard');
+  const resClass = document.getElementById('res-class');
+  const resHex = document.getElementById('res-hex');
+
+  const binIp = document.getElementById('bin-ip');
+  const binMask = document.getElementById('bin-mask');
+  const binNet = document.getElementById('bin-net');
+
+  function ipToInt(ip: string): number {
+    return ip.split('.').reduce((acc, octet) => ((acc << 8) + parseInt(octet, 10)) >>> 0, 0);
+  }
+
+  function intToIp(int: number): string {
+    return [
+      (int >>> 24) & 255,
+      (int >>> 16) & 255,
+      (int >>> 8) & 255,
+      int & 255
+    ].join('.');
+  }
+
+  function toBinaryString(int: number): string {
+    const bin = (int >>> 0).toString(2).padStart(32, '0');
+    return `${bin.slice(0, 8)}.${bin.slice(8, 16)}.${bin.slice(16, 24)}.${bin.slice(24, 32)}`;
+  }
+
+  function isValidIpv4(ip: string): boolean {
+    const parts = ip.trim().split('.');
+    if (parts.length !== 4) return false;
+    return parts.every(part => {
+      if (!/^\d+$/.test(part)) return false;
+      const num = parseInt(part, 10);
+      return num >= 0 && num <= 255;
+    });
+  }
+
+  function getIpClassAndScope(firstOctet: number, ipStr: string): { ipClass: string; scope: string } {
+    let ipClass = 'Class A';
+    if (firstOctet >= 128 && firstOctet <= 191) ipClass = 'Class B';
+    else if (firstOctet >= 192 && firstOctet <= 223) ipClass = 'Class C';
+    else if (firstOctet >= 224 && firstOctet <= 239) ipClass = 'Class D (Multicast)';
+    else if (firstOctet >= 240) ipClass = 'Class E (Reserved)';
+
+    let scope = 'Public Internet IP';
+    if (ipStr.startsWith('10.') || ipStr.startsWith('192.168.')) {
+      scope = 'RFC 1918 Private';
+    } else if (firstOctet === 172) {
+      const second = parseInt(ipStr.split('.')[1], 10);
+      if (second >= 16 && second <= 31) scope = 'RFC 1918 Private';
+    } else if (ipStr.startsWith('127.')) {
+      scope = 'Loopback';
+    } else if (ipStr.startsWith('169.254.')) {
+      scope = 'APIPA Link-Local';
+    }
+
+    return { ipClass, scope };
+  }
+
+  function recalculate() {
+    if (!inputIp || !selectCidr) return;
+
+    let ipRaw = inputIp.value.trim();
+    // Allow CIDR shorthand typed directly in IP box e.g. 192.168.1.1/28
+    if (ipRaw.includes('/')) {
+      const [ipPart, cidrPart] = ipRaw.split('/');
+      ipRaw = ipPart.trim();
+      const parsedCidr = parseInt(cidrPart.trim(), 10);
+      if (parsedCidr >= 1 && parsedCidr <= 32) {
+        selectCidr.value = parsedCidr.toString();
+      }
+    }
+
+    if (!isValidIpv4(ipRaw)) {
+      if (resNetwork) resNetwork.innerText = 'Invalid IPv4 Address';
+      return;
+    }
+
+    const cidr = parseInt(selectCidr.value, 10);
+    const ipInt = ipToInt(ipRaw);
+
+    const maskInt = cidr === 0 ? 0 : ((0xFFFFFFFF << (32 - cidr)) >>> 0);
+    const wildcardInt = (~maskInt) >>> 0;
+    const networkInt = (ipInt & maskInt) >>> 0;
+    const broadcastInt = (networkInt | wildcardInt) >>> 0;
+
+    const netmaskStr = intToIp(maskInt);
+    const wildcardStr = intToIp(wildcardInt);
+    const networkStr = intToIp(networkInt);
+    const broadcastStr = intToIp(broadcastInt);
+
+    // Host Range & Count
+    let totalUsable = 0;
+    let firstHostStr = '';
+    let lastHostStr = '';
+
+    if (cidr === 32) {
+      totalUsable = 1;
+      firstHostStr = networkStr;
+      lastHostStr = networkStr;
+    } else if (cidr === 31) {
+      totalUsable = 2;
+      firstHostStr = networkStr;
+      lastHostStr = broadcastStr;
+    } else {
+      totalUsable = Math.max(0, Math.pow(2, 32 - cidr) - 2);
+      firstHostStr = intToIp(networkInt + 1);
+      lastHostStr = intToIp(broadcastInt - 1);
+    }
+
+    // Hex representation
+    const hexStr = '0x' + (maskInt >>> 0).toString(16).toUpperCase().padStart(8, '0');
+
+    // Update UI elements
+    if (resNetwork) resNetwork.innerText = `${networkStr}/${cidr}`;
+    if (resBroadcast) resBroadcast.innerText = broadcastStr;
+    if (resRange) resRange.innerText = cidr >= 31 ? `${firstHostStr} - ${lastHostStr} (Point-to-Point)` : `${firstHostStr} - ${lastHostStr}`;
+    if (resHosts) resHosts.innerText = totalUsable.toLocaleString();
+    if (resNetmask) resNetmask.innerText = netmaskStr;
+    if (resWildcard) resWildcard.innerText = wildcardStr;
+    if (resHex) resHex.innerText = hexStr;
+
+    // Class & Scope
+    const firstOctet = parseInt(ipRaw.split('.')[0], 10);
+    const { ipClass, scope } = getIpClassAndScope(firstOctet, ipRaw);
+    if (resClass) {
+      resClass.innerHTML = `
+        <span class="px-1.5 py-0.2 rounded bg-indigo-100 text-indigo-800 font-mono text-[11px] font-bold">${ipClass}</span>
+        <span class="px-1.5 py-0.2 rounded ${scope.includes('Private') ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-800'} font-sans text-[11px] font-bold">${scope}</span>
+      `;
+    }
+
+    // Binary Strings
+    if (binIp) binIp.innerText = toBinaryString(ipInt);
+    if (binMask) binMask.innerText = toBinaryString(maskInt);
+    if (binNet) binNet.innerText = toBinaryString(networkInt);
+  }
+
+  inputIp?.addEventListener('input', recalculate);
+  selectCidr?.addEventListener('change', recalculate);
+
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const ip = target.getAttribute('data-ip');
+      const cidr = target.getAttribute('data-cidr');
+      if (ip && inputIp) inputIp.value = ip;
+      if (cidr && selectCidr) selectCidr.value = cidr;
+      recalculate();
+    });
+  });
+
+  copyBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLElement;
+      const id = target.getAttribute('data-target');
+      if (!id) return;
+      const elem = document.getElementById(id);
+      if (elem) {
+        navigator.clipboard.writeText(elem.innerText).then(() => {
+          const orig = target.innerText;
+          target.innerText = 'Copied!';
+          setTimeout(() => { target.innerText = orig; }, 1500);
+        });
+      }
+    });
+  });
+
+  // Initial calculation on load
+  recalculate();
+</script>
