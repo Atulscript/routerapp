@@ -2008,6 +2008,9 @@ export const ISPS: Isp[] = [
   }
 ];
 
+export { ROUTER_MODELS } from './router-models-data';
+import { ROUTER_MODELS } from './router-models-data';
+
 export async function getAllSlugs() {
   const ipSlugs = GATEWAY_IPS
     .filter(item => item.slug !== '192-168-1-1')
@@ -2026,7 +2029,12 @@ export async function getAllSlugs() {
     props: { type: 'isp' as const, data: item }
   }));
 
-  return [...ipSlugs, ...brandSlugs, ...ispSlugs];
+  const modelSlugs = ROUTER_MODELS.map(item => ({
+    params: { slug: item.slug },
+    props: { type: 'model' as const, data: item }
+  }));
+
+  return [...ipSlugs, ...brandSlugs, ...ispSlugs, ...modelSlugs];
 }
 
 // Helpers for interlinking
@@ -2063,20 +2071,23 @@ export function getIspSlug(name?: string | null): string | null {
 export function getModelsForIp(targetIp: string) {
   if (!targetIp) return [];
   const matches: Array<{ brand: string; brandSlug: string; model: string; ip: string; username: string; password: string; protocol: string }> = [];
-  BRANDS.forEach(b => {
-    b.models.forEach(m => {
-      if (m.ip === targetIp) {
-        matches.push({
-          brand: b.name,
-          brandSlug: b.slug,
-          model: m.model,
-          ip: m.ip || targetIp,
-          username: m.username,
-          password: m.password,
-          protocol: m.protocol || 'HTTP'
-        });
-      }
-    });
+  ROUTER_MODELS.forEach(m => {
+    if (m.ip === targetIp) {
+      matches.push({
+        brand: m.brand,
+        brandSlug: m.brandSlug,
+        model: m.model,
+        ip: m.ip || targetIp,
+        username: m.username,
+        password: m.password,
+        protocol: m.protocol || 'HTTP'
+      });
+    }
   });
   return matches;
 }
+
+export function getModelsForBrand(brandSlug: string) {
+  return ROUTER_MODELS.filter(m => m.brandSlug === brandSlug);
+}
+
