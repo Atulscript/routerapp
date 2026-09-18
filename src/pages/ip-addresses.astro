@@ -1,11 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import IpCard from '../components/IpCard.astro';
+import CardFilterBar from '../components/CardFilterBar.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { GATEWAY_IPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Bucket each gateway by its RFC 1918 block, the same ranges the table further
+// down the page explains. Chips that teach something beat chips that only filter.
+function ipRange(ip: string): string {
+  if (ip.startsWith('192.168.')) return '192.168';
+  if (ip.startsWith('10.')) return '10';
+  const second = Number(ip.split('.')[1]);
+  if (ip.startsWith('172.') && second >= 16 && second <= 31) return '172';
+  return 'other';
+}
+
+const rangeLabels: Record<string, string> = {
+  '192.168': '192.168.x.x',
+  '10': '10.x.x.x',
+  '172': '172.16-31.x.x',
+  other: 'Other',
+};
+
+const rangeChips = ['192.168', '10', '172', 'other']
+  .filter(key => GATEWAY_IPS.some(item => ipRange(item.ip) === key))
+  .map(key => ({ value: key, label: rangeLabels[key] }));
 const title = "Default Router Gateway IP Addresses Directory | 19216811.page";
 const description = "Comprehensive directory of private default gateway IP addresses (192.168.1.1, 192.168.0.1, 10.0.0.1, 192.168.2.1). Step-by-step router admin login access and IP subnet classes.";
 const keywords = [
@@ -116,11 +138,33 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- IP Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-      {GATEWAY_IPS.map(item => (
-        <IpCard data={item} />
-      ))}
-    </div>
+    <section id="ip-index">
+      <CardFilterBar
+        chips={rangeChips}
+        placeholder="Filter by IP or brand…"
+        label="Filter gateway IP addresses by address or brand"
+        chipsLabel="Filter by private IP range"
+        total={GATEWAY_IPS.length}
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-4">
+        {GATEWAY_IPS.map(item => (
+          <div class="cf-item" data-k={ipRange(item.ip)}>
+            <IpCard data={item} />
+          </div>
+        ))}
+      </div>
+
+      <p class="cf-empty text-center text-sm text-[#5f6368] dark:text-[#9aa0a6] py-10" hidden>
+        No gateway IPs match that search.
+        <button type="button" class="cf-resetter text-[#1a73e8] dark:text-[#8ab4f8] font-semibold hover:underline cursor-pointer">Reset the filters</button>
+      </p>
+    </section>
+
+    <script>
+      import { initCardFilter } from '../scripts/card-filter';
+      initCardFilter('ip-index');
+    </script>
 
     <AdBanner format="horizontal" />
 

@@ -1,11 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import IspCard from '../components/IspCard.astro';
+import CardFilterBar from '../components/CardFilterBar.astro';
+import { getIndexLetter } from '../lib/brand-index';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { ISPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Only letters that actually have a provider behind them get a chip.
+const letterChips = [...new Set(ISPS.map(isp => getIndexLetter(isp.name)))]
+  .sort((a, b) => (a === '0-9' ? -1 : b === '0-9' ? 1 : a.localeCompare(b)))
+  .map(letter => ({ value: letter, label: letter }));
 const title = "Broadband ISP Router Login Directory | 19216811.page";
 const description = `Router and ONT login guides for ${ISPS.length} broadband providers, including JioFiber, Airtel, BSNL, AT&T, Xfinity and Verizon Fios. Default gateway IPs and admin usernames.`;
 const keywords = [
@@ -71,9 +78,33 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <h2 class="sr-only">All internet providers</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-      {ISPS.map(isp => <IspCard data={isp} />)}
-    </div>
+    <section id="isp-index">
+      <CardFilterBar
+        chips={letterChips}
+        placeholder="Filter providers by name, IP or password…"
+        label="Filter internet providers by name, gateway IP or credentials"
+        chipsLabel="Filter providers by first letter"
+        total={ISPS.length}
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-4">
+        {ISPS.map(isp => (
+          <div class="cf-item" data-k={getIndexLetter(isp.name)}>
+            <IspCard data={isp} />
+          </div>
+        ))}
+      </div>
+
+      <p class="cf-empty text-center text-sm text-[#5f6368] dark:text-[#9aa0a6] py-10" hidden>
+        No providers match that search.
+        <button type="button" class="cf-resetter text-[#1a73e8] dark:text-[#8ab4f8] font-semibold hover:underline cursor-pointer">Reset the filters</button>
+      </p>
+    </section>
+
+    <script>
+      import { initCardFilter } from '../scripts/card-filter';
+      initCardFilter('isp-index');
+    </script>
 
     <AdBanner format="horizontal" />
 
