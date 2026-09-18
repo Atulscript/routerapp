@@ -15,17 +15,20 @@
 - **Every URL stays.** The built page count is 3,622 and the full URL set must be byte-identical before and after. Guarded by `npm run test:ui`.
 - **No content removal.** Body copy, FAQs, model rows and links stay in the served HTML. Collapsing is a visibility change only; collapsed content must still be present in the page source.
 - **Ad slots preserved.** Slot count, `format` values and `slotId` values unchanged per page type. Placement may move.
-- **Palette and type families unchanged.** No edits to the `colors` or `fontFamily` blocks of `tailwind.config.mjs`. Density work changes spacing, weight and structure only.
+- **Type families unchanged.** No edits to the `fontFamily` block of `tailwind.config.mjs`.
+- **Colour only ever moves through tokens.** After Task 0, no new hardcoded hex may be added in `src/`. Components use the semantic utilities (`bg-surface`, `text-ink`, `border-line`, `text-accent`). This is what keeps the RouterSync repaint a one-file change.
 - **Progressive enhancement.** Content renders expanded in HTML; JS collapses it. Never ship content hidden by default in markup.
 - **Accessibility floor.** Every disclosure control is a `<button>` with `aria-expanded`; focus-visible rings and `prefers-reduced-motion` handling already in `global.css` must keep working.
 - **Depth target.** No page type over 8 phone screens (7,200px at 390px width).
-- **Naming.** Do not invent a brand name. Until the owner resolves *19216811.page* vs *RouterSync* (spec Open Question 2), leave existing name strings exactly as they are.
+- **Naming.** The brand is **RouterSync.com**, settled by commit `cbf73e15`. Do not reintroduce *19216811.page* strings.
 
 ---
 
 ## File Structure
 
 **Create:**
+- `src/styles/tokens.css` — the single source of colour
+- `scripts/codemod-tokens.mjs` — one-off pair-to-token migration
 - `scripts/test/credentials.test.mjs` — unit tests for credential classification
 - `scripts/verify-ui.mjs` — build-output guard (URLs, content, ads, h1, heights)
 - `scripts/ui-baseline.json` — generated baseline, committed
@@ -46,6 +49,228 @@
 - `src/components/CookieConsent.astro` — compact bar
 - `src/styles/global.css` — density utilities
 - `package.json` — add `test:ui` script
+
+---
+
+### Task 0: Tokenise colour
+
+Commit `cbf73e15` began moving the brand to RouterSync (cyan/slate) while 2,886
+hardcoded Google-palette hexes remain across 46 files. Building twelve tasks of
+new components on those hexes would deepen the split. This task makes colour
+addressable first.
+
+The token values in this task are **identical to today's colours**, so the change
+is visually a no-op. That is the point: it can be proven safe by comparison, and
+the RouterSync repaint then becomes a separate, reviewable change to about
+fifteen values.
+
+**Files:**
+- Create: `src/styles/tokens.css`
+- Create: `scripts/codemod-tokens.mjs`
+- Modify: `tailwind.config.mjs`, `src/styles/global.css`
+
+**Interfaces:**
+- Produces semantic utilities used by every later task: `bg-surface`,
+  `bg-surface-sunken`, `bg-surface-muted`, `text-ink`, `text-ink-muted`,
+  `border-line`, `border-line-subtle`, `text-accent`, `bg-accent-soft`.
+
+- [ ] **Step 1: Capture the before state**
+
+```bash
+npm run build && npx astro preview --port 4341 &
+sleep 5
+CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+for p in "" brands tp-link routers; do
+  "$CHROME" --headless=new --disable-gpu --screenshot=/tmp/before-${p:-home}.png \
+    --window-size=1280,900 --hide-scrollbars --virtual-time-budget=6000 \
+    "http://localhost:4341/routerapp/$p"
+done
+md5 /tmp/before-*.png
+```
+
+Keep these hashes. They are the proof the refactor changed nothing.
+
+- [ ] **Step 2: Write the tokens**
+
+Create `src/styles/tokens.css`. Every value is copied from what the codebase
+already uses, so nothing shifts:
+
+```css
+/*
+ * The one place colour is defined. Components reference the semantic utilities
+ * these back (bg-surface, text-ink, border-line), never a raw hex, so a rebrand
+ * is a change to this file rather than to 46 others.
+ */
+:root {
+  --surface: #ffffff;
+  --surface-sunken: #f8fafd;
+  --surface-muted: #f1f3f4;
+  --surface-raised: #e8eaed;
+
+  --ink: #202124;
+  --ink-muted: #5f6368;
+  --ink-subtle: #80868b;
+
+  --line: #dadce0;
+  --line-subtle: #e8eaed;
+
+  --accent: #1a73e8;
+  --accent-hover: #1557b0;
+  --accent-soft: #e8f0fe;
+  --accent-ink: #174ea6;
+
+  --ok: #137333;
+  --ok-soft: #e6f4ea;
+}
+
+html.dark {
+  --surface: #292a2d;
+  --surface-sunken: #202124;
+  --surface-muted: #303134;
+  --surface-raised: #3c4043;
+
+  --ink: #e8eaed;
+  --ink-muted: #9aa0a6;
+  --ink-subtle: #80868b;
+
+  --line: #3c4043;
+  --line-subtle: #3c4043;
+
+  --accent: #8ab4f8;
+  --accent-hover: #aecbfa;
+  --accent-soft: #1a3a60;
+  --accent-ink: #d2e3fc;
+
+  --ok: #81c995;
+  --ok-soft: rgba(19, 115, 51, 0.2);
+}
+```
+
+Import it at the very top of `src/styles/global.css`, before the `@tailwind`
+directives: `@import './tokens.css';`
+
+- [ ] **Step 3: Expose the tokens to Tailwind**
+
+In `tailwind.config.mjs`, inside `theme.extend.colors`, **add** these alongside
+the existing `google`, `brand` and `md` entries. Do not remove anything yet;
+the old names must keep working while the migration runs.
+
+```js
+surface: 'var(--surface)',
+'surface-sunken': 'var(--surface-sunken)',
+'surface-muted': 'var(--surface-muted)',
+'surface-raised': 'var(--surface-raised)',
+ink: 'var(--ink)',
+'ink-muted': 'var(--ink-muted)',
+'ink-subtle': 'var(--ink-subtle)',
+line: 'var(--line)',
+'line-subtle': 'var(--line-subtle)',
+accent: 'var(--accent)',
+'accent-hover': 'var(--accent-hover)',
+'accent-soft': 'var(--accent-soft)',
+'accent-ink': 'var(--accent-ink)',
+ok: 'var(--ok)',
+'ok-soft': 'var(--ok-soft)',
+```
+
+- [ ] **Step 4: Write the codemod**
+
+Create `scripts/codemod-tokens.mjs`. It replaces light/dark **pairs**, because a
+lone hex is ambiguous (`#202124` is text in light mode and a background in dark)
+while a pair is not:
+
+```js
+import fs from 'fs';
+import path from 'path';
+
+// Ordered: longest and most specific first, so a general rule cannot
+// swallow a more specific one.
+const RULES = [
+  [/text-\[#202124\] dark:text-white/g, 'text-ink'],
+  [/text-\[#202124\] dark:text-\[#e8eaed\]/g, 'text-ink'],
+  [/text-\[#5f6368\] dark:text-\[#9aa0a6\]/g, 'text-ink-muted'],
+  [/text-\[#5f6368\] dark:text-\[#bdc1c6\]/g, 'text-ink-muted'],
+  [/text-\[#3c4043\] dark:text-\[#bdc1c6\]/g, 'text-ink-muted'],
+  [/text-\[#1a73e8\] dark:text-\[#8ab4f8\]/g, 'text-accent'],
+  [/bg-white dark:bg-\[#292a2d\]/g, 'bg-surface'],
+  [/bg-\[#f8fafd\] dark:bg-\[#202124\]/g, 'bg-surface-sunken'],
+  [/bg-\[#f1f3f4\] dark:bg-\[#303134\]/g, 'bg-surface-muted'],
+  [/bg-\[#f8fafd\] dark:bg-\[#303134\]/g, 'bg-surface-muted'],
+  [/bg-\[#e8f0fe\] dark:bg-\[#1a3a60\]/g, 'bg-accent-soft'],
+  [/border-\[#dadce0\] dark:border-\[#3c4043\]/g, 'border-line'],
+  [/border-\[#dadce0\] dark:border-\[#5f6368\]/g, 'border-line'],
+  [/border-\[#e8eaed\] dark:border-\[#3c4043\]/g, 'border-line-subtle'],
+];
+
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, out);
+    else if (/\.(astro|ts|css)$/.test(e.name)) out.push(p);
+  }
+  return out;
+}
+
+let files = 0, edits = 0;
+for (const file of walk('src')) {
+  const before = fs.readFileSync(file, 'utf8');
+  let after = before;
+  for (const [re, to] of RULES) {
+    after = after.replace(re, () => { edits++; return to; });
+  }
+  if (after !== before) { fs.writeFileSync(file, after); files++; }
+}
+console.log(`${edits} replacements across ${files} files`);
+```
+
+- [ ] **Step 5: Run it**
+
+Run: `node scripts/codemod-tokens.mjs`
+Expected: 1,243 replacements across 43 files (dry-run measured 2026-09-19). If it reports under 500, the
+patterns do not match the real formatting — inspect a file and fix the regexes
+rather than proceeding.
+
+- [ ] **Step 6: Prove nothing changed visually**
+
+```bash
+npm run build && npx astro preview --port 4341 &
+sleep 5
+CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+for p in "" brands tp-link routers; do
+  "$CHROME" --headless=new --disable-gpu --screenshot=/tmp/after-${p:-home}.png \
+    --window-size=1280,900 --hide-scrollbars --virtual-time-budget=6000 \
+    "http://localhost:4341/routerapp/$p"
+done
+md5 /tmp/after-*.png
+```
+
+Expected: hashes identical to Step 1. Token values equal the previous literals,
+so any visual difference is a bug in the codemod. If a hash differs, open both
+PNGs and compare before continuing — do not proceed on a difference you have not
+explained.
+
+- [ ] **Step 7: Check the remaining hexes are the genuinely one-off ones**
+
+Run: `grep -rhoE '#[0-9a-f]{6}' src/ | sort | uniq -c | sort -rn | head -20`
+
+What remains should be single-use decorative colours and the new RouterSync
+gradient, not the greys. If `#5f6368` or `#202124` still appear hundreds of
+times, add their patterns to `RULES` and rerun.
+
+- [ ] **Step 8: Run the guard and commit**
+
+Run: `npm run test:ui`
+Expected: PASS.
+
+```bash
+git add src/styles/tokens.css tailwind.config.mjs src/styles/global.css scripts/codemod-tokens.mjs src/
+git commit -m "refactor: move colour behind semantic tokens
+
+Values are identical to the previous literals, so this is a visual no-op,
+verified by identical screenshot hashes across four pages. It exists so the
+RouterSync rebrand is a change to one file rather than 46, and so the twelve
+tasks that follow are not built on the palette we are leaving."
+```
 
 ---
 
