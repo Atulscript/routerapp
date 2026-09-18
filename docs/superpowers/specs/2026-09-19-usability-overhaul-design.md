@@ -66,9 +66,10 @@ worst case, with no content removed from the HTML.
 ## Visual direction
 
 The owner asked for design inspiration from LinkedIn, explicitly not a copy. Of
-the qualities on offer, two were chosen: **dense professional information style**
-and **progressive disclosure**. The three-column shell and the warm canvas were
-considered and declined, so the existing single-column layout and palette stay.
+the qualities on offer, three are taken: **a two-column shell**, **dense
+professional information style** and **progressive disclosure**. The warm canvas
+was declined, so the existing palette stays. A three-column shell was considered
+and rejected as too much structure for this content.
 
 Identity stays our own. LinkedIn's accent, typography and card chrome are not
 imported; taking them would only trade looking like a Google property for looking
@@ -85,7 +86,44 @@ information, not how it looks.
 
 ## Design
 
-### 1. Navigation
+### 1. Two-column shell
+
+A shared layout wrapper used by the deep pages and the homepage. Main column
+carries the answer and the primary content; the rail carries everything
+supplementary.
+
+```
+DESKTOP (>=1024px)                        MOBILE (<1024px)
++---------------------------+----------+  +---------------------+
+| breadcrumb                | [ad]     |  | breadcrumb          |
+| Title                     |          |  | Title               |
+| +-----------------------+ | On this  |  | +-----------------+ |
+| | LoginCard  the answer | | page:    |  | | LoginCard       | |
+| +-----------------------+ | - Steps  |  | +-----------------+ |
+|                           | - Models |  | [ad]                |
+| Steps                     | - FAQ    |  | Steps               |
+| -----------------------   |          |  | Models / FAQ / copy |
+| Models  (20 + show all)   | Related  |  | ------------------- |
+| -----------------------   | brands   |  | Related brands      |
+| FAQ                       |          |  | Tools               |
+| -----------------------   | Tools    |  +---------------------+
+| About / SEO copy          |          |
++---------------------------+----------+
+   ~65%                       ~35%, sticky
+```
+
+- The rail absorbs `RelatedLinksGrid`, "Other popular gateways" and the tools
+  links, which today stack vertically at the foot of every page. Moving them
+  sideways is a direct cut to page height on desktop and costs nothing on mobile,
+  where they simply follow the main column as they do now.
+- The rail is sticky on desktop so the ad and the jump links stay in view.
+- The leaderboard ad moves into the rail on desktop. On mobile it sits directly
+  below the LoginCard, so it is still early in the page without displacing the
+  answer. Slot count and formats are unchanged.
+- "On this page" jump links are generated from the section headings that the page
+  actually renders, not hardcoded per type.
+
+### 2. Navigation
 
 Six top-level destinations collapse to two, plus a search field that is always
 visible rather than behind an icon.
@@ -108,7 +146,7 @@ they do not stop being linked.
 Mobile bottom navigation becomes Home · Find · Browse · Tools, where Find opens
 the search panel directly.
 
-### 2. LoginCard
+### 3. LoginCard
 
 A single component, used by all four deep page types, rendered immediately after
 the page title and before anything else.
@@ -141,7 +179,7 @@ Rules:
 - Copy uses the existing delegated clipboard pattern from `scripts/data-table.ts`
   rather than a handler per button.
 
-### 3. Template unification
+### 4. Template unification
 
 `[slug].astro` keeps its four data branches but renders one shared sequence:
 
@@ -162,13 +200,13 @@ loops over the existing FAQ data instead of hand-writing `<details>` blocks,
 which removes 15 duplicated blocks across five files and keeps the visible FAQ
 and the JSON-LD `FAQPage` schema reading from one source.
 
-### 4. Ad placement
+### 5. Ad placement
 
 The leaderboard currently sits between the page header and the content. It moves
 to directly below the LoginCard. The slot count, formats and IDs are unchanged,
 so inventory is unchanged; only the order of the answer and the ad changes.
 
-### 5. Information density
+### 6. Information density
 
 Applied to the shared components, so all ~3,600 deep pages inherit it.
 
@@ -186,7 +224,7 @@ Applied to the shared components, so all ~3,600 deep pages inherit it.
   and similar become plain text headings. They read as decoration, they render
   inconsistently across platforms, and they are noise in a reference document.
 
-### 6. Progressive disclosure
+### 7. Progressive disclosure
 
 The rule: content is always in the HTML, only its initial visibility changes.
 Collapsed content is still indexed, so nothing is hidden from crawlers and this
@@ -205,12 +243,59 @@ is not cloaking. Nothing is removed.
 Every disclosure control is a real `<button>` with `aria-expanded`, and every
 collapsed region is reachable by keyboard.
 
-### 7. Secondary fixes
+### 8. Homepage
+
+The homepage is rebuilt on the two-column shell. It is not a normal landing page:
+it is the canonical target for `192.168.1.1`, so it has to answer that query as
+directly as any deep page does, while still opening the directory to everyone
+else.
+
+```
++---------------------------------+----------+
+| H1: 192.168.1.1 router login    | [ad]     |
+| and default passwords           |          |
+| +-----------------------------+ | Popular  |
+| | search: find your router    | | brands   |
+| +-----------------------------+ |          |
+| +-----------------------------+ | Top      |
+| | LoginCard for 192.168.1.1   | | gateways |
+| | user / pass / Open          | |          |
+| +-----------------------------+ | Tools    |
+|                                 |          |
+| Popular gateways                |          |
+| -----------------------------   |          |
+| Top brands                      |          |
+| -----------------------------   |          |
+| Is this your router? checker    |          |
+| -----------------------------   |          |
+| FAQ                             |          |
++---------------------------------+----------+
+```
+
+Changes from today:
+
+- The full-bleed gradient hero band goes. It costs a large share of the first
+  screen and carries no information.
+- Search and the 192.168.1.1 answer both sit above the fold. Today the answer for
+  the site's highest-value query is below a hero, a badge and a chip row.
+- The tools grid, brand showcase and lookup table become divided sections of one
+  card, in line with the density rules, with the supplementary links moved to the
+  rail.
+- Section 4 of the current page (the master hardware catalog and lookup table)
+  duplicates `/routers`. It is reduced to a link into `/routers`, which is now a
+  properly filterable table, rather than a second copy of the same widget.
+
+### 9. Secondary fixes
 
 - **Cookie consent** becomes a compact single-line bottom bar. Same consent
   behaviour, far less screen taken on mobile.
-- **Homepage hero** replaces marketing copy with task copy and raises the
-  gateway panel.
+- **Naming.** The site uses two brand names at once: the header and domain say
+  *19216811.page*, while *RouterSync* appears across ten source files, including
+  the homepage H1 ("RouterSync Admin & Gateway Hub") and the footer. A reference
+  site that cannot name itself consistently reads as untrustworthy, which matters
+  more here than on most sites because visitors are being asked to trust
+  credentials. Settling on one name is an owner decision (see Open questions);
+  the implementation applies whichever is chosen.
 
 ## Testing
 
@@ -229,8 +314,10 @@ Verified against a real build, not assumed:
 - Headless screenshots at 500px and 1280px for one page of each type.
 - Above-the-fold check: the password is within the first 900px at phone width on
   brand and model pages.
-- Rendered page height re-measured for all four page types against the baseline
-  table above; none over 8 phone screens.
+- Rendered page height re-measured for all four page types and the homepage
+  against the baseline table above; none over 8 phone screens.
+- At desktop width the rail renders beside the main column, and at mobile width
+  it follows it, with the ad still above the main content's later sections.
 - Collapsed content is present in the served HTML: the full model row count and
   the full SEO copy still appear in the page source when collapsed.
 - Every disclosure control is a button with `aria-expanded`, and its region is
@@ -242,7 +329,11 @@ Verified against a real build, not assumed:
    its H1 serves no query. Proposed: "192.168.1.1 router login and default
    passwords". This should help relevance, but it is the highest-traffic page on
    the site and the change is the owner's call, not the implementer's.
-2. **Google Sans licensing.** `public/fonts/google-sans.woff2` is self-hosted.
+2. **One name or two.** *19216811.page* or *RouterSync*? The domain and the
+   header say the former, ten files say the latter. This needs an owner decision
+   before the copy work, since it touches the homepage H1, the footer and the
+   404 page.
+3. **Google Sans licensing.** `public/fonts/google-sans.woff2` is self-hosted.
    Google Sans is Google's proprietary brand face and is generally not licensed
    for third-party sites. The file's provenance could not be verified from the
    repository. If it is Google Sans, a licensed replacement is needed; that is a
