@@ -1,0 +1,175 @@
+# Usability overhaul: answer-first pages and task-based navigation
+
+Date: 2026-09-19
+Status: awaiting review
+
+## Problem
+
+The site is hard to use. It is not visually inconsistent and it is not unpolished:
+the existing Material 3 system is coherent and its accessibility basics (focus
+rings, reduced motion, skip link, tap target sizes) are already in place. The
+difficulty is structural, and it has two causes.
+
+**Navigation is shaped like the database, not like the visitor's problem.** The
+header offers Brands, Gateway IPs, Router Models, ISPs, Passwords and Tools. Four
+of those are different doors into one room: *what are my router's login details?*
+A visitor has to classify their own problem into our taxonomy before they can
+begin. Adding filters to each landing page (done previously) made each door
+easier to walk through without reducing the number of doors.
+
+**The answer is below the fold.** On `/tp-link` at phone width, the password sits
+beneath a logo, a badge, a title, a description, a call to action, the gateway IP
+and the username. The single fact the visit exists for requires scrolling.
+
+Four further problems follow from these:
+
+1. `192.168.1.1 / 192.168.0.1 / tplinkwifi.net` is three values in one field with
+   one Copy button, and nothing says what reaches the clipboard.
+2. The homepage H1 is "Universal Router Admin & Network Directory", which serves
+   no query, and it is the canonical target for `192.168.1.1` traffic.
+3. The cookie banner covers roughly the bottom third of every mobile page until
+   dismissed, on pages where the answer is already below the fold.
+4. `src/pages/[slug].astro` is 1,353 lines containing four duplicated layouts
+   (ip, brand, model, isp). That duplication is why the page types drift apart.
+   The FAQ accordion is the clearest symptom: 15 hand-written `<details>` blocks
+   across five files, including four inside `[slug].astro` alone, one per page
+   type, each hardcoded rather than looping over the FAQ data that already
+   exists in `ipData.faqs` and is already looped for the JSON-LD schema.
+
+## Constraint
+
+Every URL stays. No page is deleted, no body copy or FAQ is removed, no ad slot
+is dropped. The site earns its traffic from 3,622 indexed pages and the work must
+not put that at risk. Everything below changes what is *on* a page, never which
+pages exist or what they are about.
+
+## Non-goals
+
+- No palette, typography or component restyle. The problem identified is
+  usability, not identity, and repainting a coherent system adds risk without
+  addressing the cause.
+- No URL changes, redirects or new hub pages.
+- The `public/fonts/google-sans.woff2` licensing question is tracked separately
+  (see Open questions) and is not addressed here.
+
+## Design
+
+### 1. Navigation
+
+Six top-level destinations collapse to two, plus a search field that is always
+visible rather than behind an icon.
+
+```
+NOW  logo │ Brands  Gateway IPs  Router Models  ISPs  Passwords  Tools │ search │ theme
+NEW  logo │ search: "Find your router" ....................│ Browse ▾ │ Tools │ theme
+                                                             ├ Router brands
+                                                             ├ Router models
+                                                             ├ Gateway IPs
+                                                             ├ Internet providers
+                                                             └ Default passwords
+```
+
+Every link that exists today still exists, inside Browse. This matters for more
+than tidiness: those header links are internal links to the main category pages,
+and dropping them would remove link equity. They stop being the only entry point;
+they do not stop being linked.
+
+Mobile bottom navigation becomes Home · Find · Browse · Tools, where Find opens
+the search panel directly.
+
+### 2. LoginCard
+
+A single component, used by all four deep page types, rendered immediately after
+the page title and before anything else.
+
+```
+┌────────────────────────────────────┐
+│ Go to       192.168.1.1   [Open] ↗ │
+│ Username    admin         [Copy]   │
+│ Password    admin         [Copy]   │
+├────────────────────────────────────┤
+│ Also works: 192.168.0.1 · tplinkwifi.net │
+└────────────────────────────────────┘
+```
+
+Rules:
+
+- One value per row. One copy button per value. The ambiguity of a single Copy
+  button beside three slash-separated addresses disappears because the addresses
+  are no longer in one field.
+- The first gateway address is primary and carries an Open action linking to
+  `http://<ip>`. Remaining addresses are listed compactly beneath as plain text
+  with their own copy affordance.
+- **Not every password is a credential.** 791 of the 3,410 password values in the
+  data (23.2%, 153 distinct) are instructions rather than secrets: `Printed Admin
+  Password on Sticker`, `Amazon Account / OTP`, `Password on sticker`, `Empty (set
+  on first login)`. Attaching a copy button to these is meaningless, and it
+  affects nearly a quarter of the database. The card classifies the value and
+  renders an instruction without a copy affordance when it is not a literal
+  credential. The rule lives in the component, so all ~3,600 pages inherit it.
+- Copy uses the existing delegated clipboard pattern from `scripts/data-table.ts`
+  rather than a handler per button.
+
+### 3. Template unification
+
+`[slug].astro` keeps its four data branches but renders one shared sequence:
+
+```
+PageHero      breadcrumb, title, subtitle, logo or model photo
+LoginCard     the answer
+AdBanner      leaderboard, moved down from above the content
+StepsList     existing step-by-step content
+[type block]  models table / common brands / provider routers
+FaqAccordion  extracted; replaces 15 hand-written blocks across 5 files
+SeoSection    existing body copy, unchanged
+RelatedLinks  unchanged
+```
+
+Target: 1,353 lines to roughly 400, with five new shared components. The type
+branches keep only what genuinely differs between page types. `FaqAccordion`
+loops over the existing FAQ data instead of hand-writing `<details>` blocks,
+which removes 15 duplicated blocks across five files and keeps the visible FAQ
+and the JSON-LD `FAQPage` schema reading from one source.
+
+### 4. Ad placement
+
+The leaderboard currently sits between the page header and the content. It moves
+to directly below the LoginCard. The slot count, formats and IDs are unchanged,
+so inventory is unchanged; only the order of the answer and the ad changes.
+
+### 5. Secondary fixes
+
+- **Cookie consent** becomes a compact single-line bottom bar. Same consent
+  behaviour, far less screen taken on mobile.
+- **Homepage hero** replaces marketing copy with task copy and raises the
+  gateway panel.
+
+## Testing
+
+Verified against a real build, not assumed:
+
+- All 3,622 pages build; the page count and the full URL list are identical
+  before and after.
+- Ad slot count per page type unchanged.
+- Exactly one `h1` per page.
+- For a sample across all four page types, the gateway IP, username and password
+  values still appear in the HTML.
+- Non-literal passwords render without a copy button; literal ones render with.
+  Checked against known cases from the 153 distinct non-literal values.
+- The visible FAQ and the JSON-LD FAQPage entries match, since both now derive
+  from the same data.
+- Headless screenshots at 500px and 1280px for one page of each type.
+- Above-the-fold check: the password is within the first 900px at phone width on
+  brand and model pages.
+
+## Open questions
+
+1. **Homepage H1.** The homepage is the canonical target for `192.168.1.1` but
+   its H1 serves no query. Proposed: "192.168.1.1 router login and default
+   passwords". This should help relevance, but it is the highest-traffic page on
+   the site and the change is the owner's call, not the implementer's.
+2. **Google Sans licensing.** `public/fonts/google-sans.woff2` is self-hosted.
+   Google Sans is Google's proprietary brand face and is generally not licensed
+   for third-party sites. The file's provenance could not be verified from the
+   repository. If it is Google Sans, a licensed replacement is needed; that is a
+   separate change from this one.
