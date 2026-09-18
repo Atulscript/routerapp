@@ -1,4 +1,4 @@
+# Staging / Preview on GitHub Pages
+# Indexing is disabled to prevent duplicate content before production domain launch.
 User-agent: *
-Allow: /
-
-Sitemap: https://atulscript.github.io/routerapp/sitemap-index.xml
+Disallow: /
