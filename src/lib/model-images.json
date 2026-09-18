@@ -1,0 +1,1377 @@
+{
+  "act-fibernet-act-gigahome-router": {
+    "file": "images/models/act-fibernet-act-gigahome-router.webp",
+    "image": "https://m.media-amazon.com/images/I/619MtMvqqUL.jpg",
+    "page": "https://www.amazon.com/dp/B0GML18MLL"
+  },
+  "actiontec-gt701d": {
+    "file": "images/models/actiontec-gt701d.webp",
+    "image": "https://m.media-amazon.com/images/I/712Ky31csKL.jpg",
+    "page": "https://www.amazon.com/dp/B0B9WLL2LP"
+  },
+  "amazon-eero-eero-6": {
+    "file": "images/models/amazon-eero-eero-6.webp",
+    "image": "https://m.media-amazon.com/images/I/412FFoC11ML.jpg",
+    "page": "https://www.amazon.com/dp/B08QVZKJFF"
+  },
+  "amazon-eero-eero-poe-6": {
+    "file": "images/models/amazon-eero-eero-poe-6.webp",
+    "image": "https://m.media-amazon.com/images/I/51cKh2dczYL.jpg",
+    "page": "https://www.amazon.com/dp/B0CGYJ328Z"
+  },
+  "amazon-eero-eero-poe-gateway": {
+    "file": "images/models/amazon-eero-eero-poe-gateway.webp",
+    "image": "https://m.media-amazon.com/images/I/51cKh2dczYL.jpg",
+    "page": "https://www.amazon.com/dp/B0D1HMYWXZ"
+  },
+  "asus-4g-ac86u": {
+    "file": "images/models/asus-4g-ac86u.webp",
+    "image": "https://images.icecat.biz/img/gallery/c5fc93acb653fee2241114f673123b7c78889498.jpg",
+    "page": "https://icecat.biz/p/86186918"
+  },
+  "asus-4g-ax56": {
+    "file": "images/models/asus-4g-ax56.webp",
+    "image": "https://images.icecat.biz/img/gallery/8054bf019edb50fd55ba320fd4a837e44dffdbb6.jpg",
+    "page": "https://icecat.biz/p/93489987"
+  },
+  "asus-expertwifi-ebg15": {
+    "file": "images/models/asus-expertwifi-ebg15.webp",
+    "image": "https://images.icecat.biz/img/gallery/c794af0c4e41f516a511b8096fcbc2efa3b3a9bc.jpg",
+    "page": "https://icecat.biz/p/134891733"
+  },
+  "asus-expertwifi-ebr63": {
+    "file": "images/models/asus-expertwifi-ebr63.webp",
+    "image": "https://images.icecat.biz/img/gallery/3ed36e74939e0e8e210c4caa7c2b77d8ced1c2f8.jpg",
+    "page": "https://icecat.biz/p/112186013"
+  },
+  "asus-gt-ac5300": {
+    "file": "images/models/asus-gt-ac5300.webp",
+    "image": "https://images.icecat.biz/img/gallery/3795a8a762d4005856ed0b1e8cb429eb83a48862.jpg",
+    "page": "https://icecat.biz/p/35719438"
+  },
+  "asus-rog-gt-ax11000-pro": {
+    "file": "images/models/asus-rog-gt-ax11000-pro.webp",
+    "image": "https://images.icecat.biz/img/gallery/78295a51ed3849b0759950a0677e6931f461cd47.jpg",
+    "page": "https://icecat.biz/p/62326925"
+  },
+  "asus-rog-rapture-gt-ac5300": {
+    "file": "images/models/asus-rog-rapture-gt-ac5300.webp",
+    "image": "https://images.icecat.biz/img/gallery/3795a8a762d4005856ed0b1e8cb429eb83a48862.jpg",
+    "page": "https://icecat.biz/p/35719438"
+  },
+  "asus-rog-rapture-gt-ax11000-pro": {
+    "file": "images/models/asus-rog-rapture-gt-ax11000-pro.webp",
+    "image": "https://images.icecat.biz/img/gallery/78295a51ed3849b0759950a0677e6931f461cd47.jpg",
+    "page": "https://icecat.biz/p/62326925"
+  },
+  "asus-rog-strix-gs-ax5400": {
+    "file": "images/models/asus-rog-strix-gs-ax5400.webp",
+    "image": "https://images.icecat.biz/img/gallery/99284a87929449b5dcc7a0c2fa475e2183bbf792.jpg",
+    "page": "https://icecat.biz/p/93029804"
+  },
+  "asus-rt-ac1900p": {
+    "file": "images/models/asus-rt-ac1900p.webp",
+    "image": "https://images.icecat.biz/img/gallery/72876086471e546e93e6420431b8dbc150198138.jpg",
+    "page": "https://icecat.biz/p/77192670"
+  },
+  "asus-rt-ac5300": {
+    "file": "images/models/asus-rt-ac5300.webp",
+    "image": "https://images.icecat.biz/img/gallery/6e229c34734747ba4da7e771f214e1b3a3d588e6.jpg",
+    "page": "https://icecat.biz/p/30663245"
+  },
+  "asus-rt-ac68u": {
+    "file": "images/models/asus-rt-ac68u.webp",
+    "image": "https://images.icecat.biz/img/gallery/dd973ba488cb3f5adc73c50a71643b3b3b29bec7.jpg",
+    "page": "https://icecat.biz/p/19827324"
+  },
+  "asus-rt-ac86u": {
+    "file": "images/models/asus-rt-ac86u.webp",
+    "image": "https://images.icecat.biz/img/gallery/74f51435278676343edff6d3ec1410de9a5c3418.jpg",
+    "page": "https://icecat.biz/p/60164325"
+  },
+  "asus-rt-ac88u": {
+    "file": "images/models/asus-rt-ac88u.webp",
+    "image": "https://images.icecat.biz/img/gallery/da3d3f230ad9d83756c6194bc30cb207dcf2a4ef.jpg",
+    "page": "https://icecat.biz/p/30663244"
+  },
+  "asus-rt-ac88u-ac3100": {
+    "file": "images/models/asus-rt-ac88u-ac3100.webp",
+    "image": "https://images.icecat.biz/img/gallery/da3d3f230ad9d83756c6194bc30cb207dcf2a4ef.jpg",
+    "page": "https://icecat.biz/p/30663244"
+  },
+  "asus-rt-ax3000": {
+    "file": "images/models/asus-rt-ax3000.webp",
+    "image": "https://images.icecat.biz/img/gallery/168fc2cf25710227c451c8f6b48f53560063cf61.jpg",
+    "page": "https://icecat.biz/p/75776365"
+  },
+  "asus-rt-ax5400": {
+    "file": "images/models/asus-rt-ax5400.webp",
+    "image": "https://images.icecat.biz/img/gallery/80760422ee4bc3fca249a2bbfdd056d5d17ae1e2.jpg",
+    "page": "https://icecat.biz/p/107935544"
+  },
+  "asus-rt-ax55": {
+    "file": "images/models/asus-rt-ax55.webp",
+    "image": "https://images.icecat.biz/img/gallery/066ae2661a6150b623cce406a5cc088820c5ddfd.jpg",
+    "page": "https://icecat.biz/p/80152223"
+  },
+  "asus-rt-ax58u": {
+    "file": "images/models/asus-rt-ax58u.webp",
+    "image": "https://images.icecat.biz/img/gallery/59866109085f1de0d7242841d7f86c9b853d4b98.jpg",
+    "page": "https://icecat.biz/p/77014471"
+  },
+  "asus-rt-ax68u": {
+    "file": "images/models/asus-rt-ax68u.webp",
+    "image": "https://images.icecat.biz/img/gallery/b2755965fe649eac533a8f84de2e95e32117e93d.jpg",
+    "page": "https://icecat.biz/p/87966580"
+  },
+  "asus-rt-ax82u": {
+    "file": "images/models/asus-rt-ax82u.webp",
+    "image": "https://images.icecat.biz/img/gallery/61a831ce3f996864b26ed448a25cdac16cff6d88.jpg",
+    "page": "https://icecat.biz/p/80160034"
+  },
+  "asus-rt-ax86s": {
+    "file": "images/models/asus-rt-ax86s.webp",
+    "image": "https://images.icecat.biz/img/gallery/bf99bdaa728fa75ef71131d87f5ac70d5804bab8.jpg",
+    "page": "https://icecat.biz/p/93105415"
+  },
+  "asus-rt-ax86u-pro": {
+    "file": "images/models/asus-rt-ax86u-pro.webp",
+    "image": "https://images.icecat.biz/img/gallery/286b9cb018a73bc58bd03d1b49745d082a75267b.jpg",
+    "page": "https://icecat.biz/p/103112730"
+  },
+  "asus-rt-ax88u-pro": {
+    "file": "images/models/asus-rt-ax88u-pro.webp",
+    "image": "https://images.icecat.biz/img/gallery/abe215e7d5e9d1ff69f6cc758b7d6242e4f54013.jpg",
+    "page": "https://icecat.biz/p/108701966"
+  },
+  "asus-tuf-gaming-ax3000": {
+    "file": "images/models/asus-tuf-gaming-ax3000.webp",
+    "image": "https://m.media-amazon.com/images/I/61e2ygBTCjL.jpg",
+    "page": "https://www.amazon.com/dp/B0CPQXK86B"
+  },
+  "asus-tuf-gaming-ax5400": {
+    "file": "images/models/asus-tuf-gaming-ax5400.webp",
+    "image": "https://m.media-amazon.com/images/I/51RoyFl5dEL.jpg",
+    "page": "https://www.amazon.com/dp/B08TH4D3QV"
+  },
+  "asus-tuf-gaming-ax6000": {
+    "file": "images/models/asus-tuf-gaming-ax6000.webp",
+    "image": "https://m.media-amazon.com/images/I/51LAwSQnb+L.jpg",
+    "page": "https://www.amazon.com/dp/B0BQ41LDQ3"
+  },
+  "asus-zenwifi-bq16": {
+    "file": "images/models/asus-zenwifi-bq16.webp",
+    "image": "https://m.media-amazon.com/images/I/21pGm3tmI4L.jpg",
+    "page": "https://www.amazon.com/dp/B0DWPGPW6T"
+  },
+  "asus-zenwifi-bq16-pro": {
+    "file": "images/models/asus-zenwifi-bq16-pro.webp",
+    "image": "https://m.media-amazon.com/images/I/21pGm3tmI4L.jpg",
+    "page": "https://www.amazon.com/dp/B0DWPGPW6T"
+  },
+  "asus-zenwifi-pro-et12": {
+    "file": "images/models/asus-zenwifi-pro-et12.webp",
+    "image": "https://images.icecat.biz/img/gallery/357c1dd9c24649c159866701d9020142fae88884.jpg",
+    "page": "https://icecat.biz/p/97446164"
+  },
+  "buffalo-airstation-wsr-1800ax4": {
+    "file": "images/models/buffalo-airstation-wsr-1800ax4.webp",
+    "image": "https://m.media-amazon.com/images/I/518c11AD-0L.jpg",
+    "page": "https://www.amazon.com/dp/B0BC5FK78M"
+  },
+  "centurylink-c3000a-dsl-fiber": {
+    "file": "images/models/centurylink-c3000a-dsl-fiber.webp",
+    "image": "https://m.media-amazon.com/images/I/71O4eKv5e+L.jpg",
+    "page": "https://www.amazon.com/dp/B0D7TG5JQY"
+  },
+  "centurylink-c4000xg-wi-fi-6-xpon": {
+    "file": "images/models/centurylink-c4000xg-wi-fi-6-xpon.webp",
+    "image": "https://m.media-amazon.com/images/I/41vhjCTr-CL.jpg",
+    "page": "https://www.amazon.com/dp/B0D846LK5W"
+  },
+  "cisco-meraki-mx68": {
+    "file": "images/models/cisco-meraki-mx68.webp",
+    "image": "https://m.media-amazon.com/images/I/41MY7BchwHL.jpg",
+    "page": "https://www.amazon.com/dp/B07L9H6Y9X"
+  },
+  "cisco-rv082-dual-wan-vpn": {
+    "file": "images/models/cisco-rv082-dual-wan-vpn.webp",
+    "image": "https://m.media-amazon.com/images/I/31q1VByWKPL.jpg",
+    "page": "https://www.amazon.com/dp/B01MCTN7EF"
+  },
+  "cisco-rv345": {
+    "file": "images/models/cisco-rv345.webp",
+    "image": "https://m.media-amazon.com/images/I/714-xadRUhL.jpg",
+    "page": "https://www.amazon.com/dp/B06Y1FFX53"
+  },
+  "cisco-rv345-dual-wan-vpn": {
+    "file": "images/models/cisco-rv345-dual-wan-vpn.webp",
+    "image": "https://m.media-amazon.com/images/I/714-xadRUhL.jpg",
+    "page": "https://www.amazon.com/dp/B06Y1FFX53"
+  },
+  "cudy-lt300": {
+    "file": "images/models/cudy-lt300.webp",
+    "image": "https://images.icecat.biz/img/gallery/8ddc0f9c1a84927d78c1fdcdbcf2be865de08c22.jpg",
+    "page": "https://icecat.biz/p/122698399"
+  },
+  "cudy-lt500-4g": {
+    "file": "images/models/cudy-lt500-4g.webp",
+    "image": "https://images.icecat.biz/img/gallery/f336ebe006cc01e55f6654b3d566e36e5f7d0fa2.jpg",
+    "page": "https://icecat.biz/p/101334266"
+  },
+  "cudy-m1300": {
+    "file": "images/models/cudy-m1300.webp",
+    "image": "https://m.media-amazon.com/images/I/51oBUN4-8PL.jpg",
+    "page": "https://www.amazon.com/dp/B0BFV8D1FS"
+  },
+  "cudy-m1800-mesh": {
+    "file": "images/models/cudy-m1800-mesh.webp",
+    "image": "https://images.icecat.biz/img/gallery/6ca73ec5a5a50c502aeec7bd04b3b4acaf90d9a4.jpg",
+    "page": "https://icecat.biz/p/101334472"
+  },
+  "cudy-wr1300": {
+    "file": "images/models/cudy-wr1300.webp",
+    "image": "https://images.icecat.biz/img/gallery/fb17cf97f252ae1bfa2d844c0a08987649c42ecc.jpg",
+    "page": "https://icecat.biz/p/101307499"
+  },
+  "cudy-wr2000": {
+    "file": "images/models/cudy-wr2000.webp",
+    "image": "https://m.media-amazon.com/images/I/41uXHpahl5L.jpg",
+    "page": "https://www.amazon.com/dp/B089JW8H4N"
+  },
+  "cudy-wr2100": {
+    "file": "images/models/cudy-wr2100.webp",
+    "image": "https://images.icecat.biz/img/gallery/7722972d4ce2ac6f87197ade8b91de7c131dadf3.jpg",
+    "page": "https://icecat.biz/p/101307814"
+  },
+  "cudy-wr3000": {
+    "file": "images/models/cudy-wr3000.webp",
+    "image": "https://images.icecat.biz/img/gallery/f31610cbfe6bf955504895fce7785a3fc10daec3.jpg",
+    "page": "https://icecat.biz/p/106176274"
+  },
+  "d-link-covr-x1870-ax1800": {
+    "file": "images/models/d-link-covr-x1870-ax1800.webp",
+    "image": "https://images.icecat.biz/img/gallery/0ac94d0c4ba6b23f26365d369d190bc69facbda8.jpg",
+    "page": "https://icecat.biz/p/88923056"
+  },
+  "d-link-dir-2640": {
+    "file": "images/models/d-link-dir-2640.webp",
+    "image": "https://images.icecat.biz/img/gallery/8266dea0b7fd5cbc4c432408d39919d1d44dccff.jpg",
+    "page": "https://icecat.biz/p/77507447"
+  },
+  "d-link-dir-615": {
+    "file": "images/models/d-link-dir-615.webp",
+    "image": "https://images.icecat.biz/img/gallery/b5395ee3e3e3fff903ae3e2b9b170cbcbf9b6d73.jpg",
+    "page": "https://icecat.biz/p/1253514"
+  },
+  "d-link-dir-615-n300": {
+    "file": "images/models/d-link-dir-615-n300.webp",
+    "image": "https://images.icecat.biz/img/gallery/b5395ee3e3e3fff903ae3e2b9b170cbcbf9b6d73.jpg",
+    "page": "https://icecat.biz/p/1253514"
+  },
+  "d-link-dir-822": {
+    "file": "images/models/d-link-dir-822.webp",
+    "image": "https://images.icecat.biz/img/gallery/ebb91d63f01796ed21de37120a4badc3043fb587.jpg",
+    "page": "https://icecat.biz/p/32745486"
+  },
+  "d-link-dir-825": {
+    "file": "images/models/d-link-dir-825.webp",
+    "image": "https://images.icecat.biz/img/gallery/41c968b2fcad0d82e3113c8a5d90729d459728b8.jpg",
+    "page": "https://icecat.biz/p/1999205"
+  },
+  "d-link-dir-825-ac1200": {
+    "file": "images/models/d-link-dir-825-ac1200.webp",
+    "image": "https://images.icecat.biz/img/gallery/41c968b2fcad0d82e3113c8a5d90729d459728b8.jpg",
+    "page": "https://icecat.biz/p/1999205"
+  },
+  "d-link-dir-842-ac1200": {
+    "file": "images/models/d-link-dir-842-ac1200.webp",
+    "image": "https://images.icecat.biz/img/gallery/43bad88c8695383a4d6948dca80addc13df1adc6.jpg",
+    "page": "https://icecat.biz/p/28549656"
+  },
+  "d-link-dir-859": {
+    "file": "images/models/d-link-dir-859.webp",
+    "image": "https://images.icecat.biz/img/gallery/4cd464a9d70f4fdd4d40a38d15a6b388bf555066.jpg",
+    "page": "https://icecat.biz/p/30251405"
+  },
+  "d-link-dir-868l": {
+    "file": "images/models/d-link-dir-868l.webp",
+    "image": "https://images.icecat.biz/img/gallery/bc641d4e14cd64bd262dcbabd802014ec335bf8e.jpg",
+    "page": "https://icecat.biz/p/18270629"
+  },
+  "d-link-dir-878": {
+    "file": "images/models/d-link-dir-878.webp",
+    "image": "https://images.icecat.biz/img/gallery/6760941987d41579dddd1c868953399266c881a2.jpg",
+    "page": "https://icecat.biz/p/37028969"
+  },
+  "d-link-dir-880l": {
+    "file": "images/models/d-link-dir-880l.webp",
+    "image": "https://images.icecat.biz/img/gallery/3c23a8aeb1ae95fd4da4fdeb3a4e87f7c05bf8d1.jpg",
+    "page": "https://icecat.biz/p/22096946"
+  },
+  "d-link-dir-882": {
+    "file": "images/models/d-link-dir-882.webp",
+    "image": "https://images.icecat.biz/img/gallery/03e93b4cce584815104b9d6398ad9926150e951d.jpg",
+    "page": "https://icecat.biz/p/37806694"
+  },
+  "d-link-dir-890l": {
+    "file": "images/models/d-link-dir-890l.webp",
+    "image": "https://images.icecat.biz/img/gallery/604111bcee071115ee9b2f72d81e118dac21ecc5.jpg",
+    "page": "https://icecat.biz/p/26066192"
+  },
+  "d-link-dir-x1560": {
+    "file": "images/models/d-link-dir-x1560.webp",
+    "image": "https://images.icecat.biz/img/gallery/a750f4d4d16c8f18056c1cb06b5a16c96debc5a5.jpg",
+    "page": "https://icecat.biz/p/76986075"
+  },
+  "d-link-dir-x1560-exo-ax": {
+    "file": "images/models/d-link-dir-x1560-exo-ax.webp",
+    "image": "https://images.icecat.biz/img/gallery/a750f4d4d16c8f18056c1cb06b5a16c96debc5a5.jpg",
+    "page": "https://icecat.biz/p/76986075"
+  },
+  "d-link-dir-x1860": {
+    "file": "images/models/d-link-dir-x1860.webp",
+    "image": "https://images.icecat.biz/img/gallery/da830536ea3a4b44411a1465af4b9712ddf212a9.jpg",
+    "page": "https://icecat.biz/p/79728782"
+  },
+  "d-link-dir-x1860-exo-ax": {
+    "file": "images/models/d-link-dir-x1860-exo-ax.webp",
+    "image": "https://images.icecat.biz/img/gallery/da830536ea3a4b44411a1465af4b9712ddf212a9.jpg",
+    "page": "https://icecat.biz/p/79728782"
+  },
+  "d-link-dir-x3260": {
+    "file": "images/models/d-link-dir-x3260.webp",
+    "image": "https://images.icecat.biz/img/gallery/1888048c583187ea302ac46d34f3b1c3bc456f2d.jpg",
+    "page": "https://icecat.biz/p/92476824"
+  },
+  "d-link-dir-x5460": {
+    "file": "images/models/d-link-dir-x5460.webp",
+    "image": "https://images.icecat.biz/img/gallery/5a77ee445d862578ed526065294e467b447a62dc.jpg",
+    "page": "https://icecat.biz/p/79330230"
+  },
+  "d-link-dir-x5460-exo-ax": {
+    "file": "images/models/d-link-dir-x5460-exo-ax.webp",
+    "image": "https://images.icecat.biz/img/gallery/5a77ee445d862578ed526065294e467b447a62dc.jpg",
+    "page": "https://icecat.biz/p/79330230"
+  },
+  "d-link-dsl-2750u": {
+    "file": "images/models/d-link-dsl-2750u.webp",
+    "image": "https://images.icecat.biz/img/gallery/a7e529348a78cc3ecbabf4606e303f44bcedcb98.jpg",
+    "page": "https://icecat.biz/p/15763772"
+  },
+  "d-link-dsr-250-services-router": {
+    "file": "images/models/d-link-dsr-250-services-router.webp",
+    "image": "https://images.icecat.biz/img/gallery/2a81472d78c15fef8a0dcdc6ea36f141b6585d4e.jpg",
+    "page": "https://icecat.biz/p/14151961"
+  },
+  "d-link-dwr-932-4g-lte-hotspot": {
+    "file": "images/models/d-link-dwr-932-4g-lte-hotspot.webp",
+    "image": "https://images.icecat.biz/img/gallery/4aed4ff8bf10df36eaa4edfa6cd835870927b01d.jpg",
+    "page": "https://icecat.biz/p/24724603"
+  },
+  "d-link-dwr-953": {
+    "file": "images/models/d-link-dwr-953.webp",
+    "image": "https://images.icecat.biz/img/gallery/adaad03e2b069469cff41d302a3217ca6d37a228.jpg",
+    "page": "https://icecat.biz/p/32115169"
+  },
+  "d-link-eagle-pro-ai-m15": {
+    "file": "images/models/d-link-eagle-pro-ai-m15.webp",
+    "image": "https://m.media-amazon.com/images/I/513dLBdhTIL.jpg",
+    "page": "https://www.amazon.com/dp/B0D7MKJ56S"
+  },
+  "extreme-networks-ap4000": {
+    "file": "images/models/extreme-networks-ap4000.webp",
+    "image": "https://m.media-amazon.com/images/I/51P-abwwX2L.jpg",
+    "page": "https://www.amazon.com/dp/B0GT4VH5M7"
+  },
+  "fortinet-fortigate-40f": {
+    "file": "images/models/fortinet-fortigate-40f.webp",
+    "image": "https://m.media-amazon.com/images/I/51+RAoFKP3L.jpg",
+    "page": "https://www.amazon.com/dp/B0H73CWZT1"
+  },
+  "fortinet-fortigate-60f": {
+    "file": "images/models/fortinet-fortigate-60f.webp",
+    "image": "https://m.media-amazon.com/images/I/41IHARXnbpS.jpg",
+    "page": "https://www.amazon.com/dp/B0H73M6PDL"
+  },
+  "gl-inet-beryl-ax-gl-mt3000": {
+    "file": "images/models/gl-inet-beryl-ax-gl-mt3000.webp",
+    "image": "https://www.gl-inet.com/cdn/shop/files/1-shopify_mt3000_main2_1200x1200.png?v=1777017539",
+    "page": "https://www.gl-inet.com/en-us/products/gl-mt3000"
+  },
+  "gl-inet-brume-2-gl-mt2500": {
+    "file": "images/models/gl-inet-brume-2-gl-mt2500.webp",
+    "image": "https://m.media-amazon.com/images/I/41HQkgSoRNL.jpg",
+    "page": "https://www.amazon.com/dp/B0GGMTNG4S"
+  },
+  "gl-inet-flint-2-gl-mt6000": {
+    "file": "images/models/gl-inet-flint-2-gl-mt6000.webp",
+    "image": "https://m.media-amazon.com/images/I/41JyVWUKU7L.jpg",
+    "page": "https://www.amazon.com/dp/B0CT5HC3TF"
+  },
+  "gl-inet-flint-gl-ax1800": {
+    "file": "images/models/gl-inet-flint-gl-ax1800.webp",
+    "image": "https://m.media-amazon.com/images/I/41YJcGHPRAL.jpg",
+    "page": "https://www.amazon.com/dp/B0FX9C5QVJ"
+  },
+  "gl-inet-mudi-gl-e750": {
+    "file": "images/models/gl-inet-mudi-gl-e750.webp",
+    "image": "https://m.media-amazon.com/images/I/41iVhtzmgyL.jpg",
+    "page": "https://www.amazon.com/dp/B0HCZ6GF3Q"
+  },
+  "gl-inet-puli-ax-gl-xe3000": {
+    "file": "images/models/gl-inet-puli-ax-gl-xe3000.webp",
+    "image": "https://m.media-amazon.com/images/I/51obAKkKprL.jpg",
+    "page": "https://www.amazon.com/dp/B0B2J7WSDK"
+  },
+  "gl-inet-puli-gl-xe300": {
+    "file": "images/models/gl-inet-puli-gl-xe300.webp",
+    "image": "https://m.media-amazon.com/images/I/51xLdMMpUjL.jpg",
+    "page": "https://www.amazon.com/dp/B0HCZ6GF3Q"
+  },
+  "gl-inet-slate-ax-gl-axt1800": {
+    "file": "images/models/gl-inet-slate-ax-gl-axt1800.webp",
+    "image": "https://m.media-amazon.com/images/I/41nEHfIDjsL.jpg",
+    "page": "https://www.amazon.com/dp/B0D55SWRSM"
+  },
+  "gl-inet-spitz-gl-x750": {
+    "file": "images/models/gl-inet-spitz-gl-x750.webp",
+    "image": "https://m.media-amazon.com/images/I/41IDwisIM7L.jpg",
+    "page": "https://www.amazon.com/dp/B0B9WLL2LP"
+  },
+  "google-google-wifi-nls-1304-25": {
+    "file": "images/models/google-google-wifi-nls-1304-25.webp",
+    "image": "https://m.media-amazon.com/images/I/31PablVd63L.jpg",
+    "page": "https://www.amazon.com/dp/B0FTT21R11"
+  },
+  "google-nest-wifi-router": {
+    "file": "images/models/google-nest-wifi-router.webp",
+    "image": "https://m.media-amazon.com/images/I/51ZVoviXCVL.jpg",
+    "page": "https://www.amazon.com/dp/B07YMJ57MB"
+  },
+  "google-nest-wifi-router-h2d": {
+    "file": "images/models/google-nest-wifi-router-h2d.webp",
+    "image": "https://m.media-amazon.com/images/I/41R76eHf+iL.jpg",
+    "page": "https://www.amazon.com/dp/B07YMKD6SM"
+  },
+  "google-wifi-router": {
+    "file": "images/models/google-wifi-router.webp",
+    "image": "https://m.media-amazon.com/images/I/51ZVoviXCVL.jpg",
+    "page": "https://www.amazon.com/dp/B0BBWGVZLT"
+  },
+  "grandstream-gwn7001": {
+    "file": "images/models/grandstream-gwn7001.webp",
+    "image": "https://m.media-amazon.com/images/I/519Y8tsho6L.jpg",
+    "page": "https://www.amazon.com/dp/B0CGQ43F9M"
+  },
+  "grandstream-gwn7062": {
+    "file": "images/models/grandstream-gwn7062.webp",
+    "image": "https://m.media-amazon.com/images/I/51kLNSc05bL.jpg",
+    "page": "https://www.amazon.com/dp/B0F7JVXH48"
+  },
+  "greenwave-fios-g1100-verizon-quantum": {
+    "file": "images/models/greenwave-fios-g1100-verizon-quantum.webp",
+    "image": "https://m.media-amazon.com/images/I/61VqC95RleL.jpg",
+    "page": "https://www.amazon.com/dp/B01ETSPPEO"
+  },
+  "hitron-coda-56": {
+    "file": "images/models/hitron-coda-56.webp",
+    "image": "https://m.media-amazon.com/images/I/41gDffLVVsL.jpg",
+    "page": "https://www.amazon.com/dp/B0BKZ4DHNL"
+  },
+  "inseego-mifi-x-pro-5g": {
+    "file": "images/models/inseego-mifi-x-pro-5g.webp",
+    "image": "https://m.media-amazon.com/images/I/61BjnCS5i1L.jpg",
+    "page": "https://www.amazon.com/dp/B0F518CRGK"
+  },
+  "juniper-srx1500": {
+    "file": "images/models/juniper-srx1500.webp",
+    "image": "https://m.media-amazon.com/images/I/516A0TllNKL.jpg",
+    "page": "https://www.amazon.com/dp/B07XKW3YHF"
+  },
+  "juniper-srx345": {
+    "file": "images/models/juniper-srx345.webp",
+    "image": "https://m.media-amazon.com/images/I/41Uy2sclgiL.jpg",
+    "page": "https://www.amazon.com/dp/B08G56FC5G"
+  },
+  "keenetic-air-kn-1710": {
+    "file": "images/models/keenetic-air-kn-1710.webp",
+    "image": "https://m.media-amazon.com/images/I/41uXHpahl5L.jpg",
+    "page": "https://www.amazon.com/dp/B0CZ2MF13K"
+  },
+  "linksys-atlas-6-mx2000": {
+    "file": "images/models/linksys-atlas-6-mx2000.webp",
+    "image": "https://m.media-amazon.com/images/I/21DN0bofVHL.jpg",
+    "page": "https://www.amazon.com/dp/B09ZKCFNQX"
+  },
+  "linksys-e1200-n300": {
+    "file": "images/models/linksys-e1200-n300.webp",
+    "image": "https://images.icecat.biz/img/gallery/2839e97515324bb02daa31f5208dbf4405dec3d6.jpg",
+    "page": "https://icecat.biz/p/9157445"
+  },
+  "linksys-e2500-n600": {
+    "file": "images/models/linksys-e2500-n600.webp",
+    "image": "https://images.icecat.biz/img/gallery/dff112876a62f3e1d32146bac2cef3d582af367a.jpg",
+    "page": "https://icecat.biz/p/10597251"
+  },
+  "linksys-e5400-ac1200": {
+    "file": "images/models/linksys-e5400-ac1200.webp",
+    "image": "https://images.icecat.biz/img/gallery/78d46dc420589a21523547cf01555b57fd26595d.jpg",
+    "page": "https://icecat.biz/p/79551624"
+  },
+  "linksys-e5600-ac1200": {
+    "file": "images/models/linksys-e5600-ac1200.webp",
+    "image": "https://images.icecat.biz/img/gallery/7121a0248f5092c3f613dcd438199ef77d2bbde9.jpg",
+    "page": "https://icecat.biz/p/92847949"
+  },
+  "linksys-e7350-ax1800": {
+    "file": "images/models/linksys-e7350-ax1800.webp",
+    "image": "https://images.icecat.biz/img/gallery/8cf9c9ff6f51ec4105bea146edefc671245020ca.jpg",
+    "page": "https://icecat.biz/p/87034283"
+  },
+  "linksys-e8450-ax3200": {
+    "file": "images/models/linksys-e8450-ax3200.webp",
+    "image": "https://images.icecat.biz/img/gallery/eaddd30de185f92e1a14e51c98f4942f7c78569b.jpg",
+    "page": "https://icecat.biz/p/97337625"
+  },
+  "linksys-ea6350-ac1200": {
+    "file": "images/models/linksys-ea6350-ac1200.webp",
+    "image": "https://images.icecat.biz/img/gallery/8e705e938609041233cdd68ba8ac6eb4ea7e4378.jpg",
+    "page": "https://icecat.biz/p/24425751"
+  },
+  "linksys-ea7500-max-stream-ac1900": {
+    "file": "images/models/linksys-ea7500-max-stream-ac1900.webp",
+    "image": "https://images.icecat.biz/img/gallery/fdf30ec0e7188fb7750f0689e44d1929350aa03a.jpg",
+    "page": "https://icecat.biz/p/30648470"
+  },
+  "linksys-ea8300": {
+    "file": "images/models/linksys-ea8300.webp",
+    "image": "https://images.icecat.biz/img/gallery/8012033d3f2bb40c6984cc324ab3dfc6ff6c6275.jpg",
+    "page": "https://icecat.biz/p/35717197"
+  },
+  "linksys-ea8300-max-stream-ac2200": {
+    "file": "images/models/linksys-ea8300-max-stream-ac2200.webp",
+    "image": "https://images.icecat.biz/img/gallery/8012033d3f2bb40c6984cc324ab3dfc6ff6c6275.jpg",
+    "page": "https://icecat.biz/p/35717197"
+  },
+  "linksys-hydra-6-mr2000": {
+    "file": "images/models/linksys-hydra-6-mr2000.webp",
+    "image": "https://m.media-amazon.com/images/I/61H6qtFLk9L.jpg",
+    "page": "https://www.amazon.com/dp/B09VCWRZMV"
+  },
+  "linksys-hydra-pro-6e-mr7500": {
+    "file": "images/models/linksys-hydra-pro-6e-mr7500.webp",
+    "image": "https://images.icecat.biz/img/gallery/c738c5f63826e387cba5d0218c889939366af0b3.jpg",
+    "page": "https://icecat.biz/p/92034861"
+  },
+  "linksys-mr7350-ax1800": {
+    "file": "images/models/linksys-mr7350-ax1800.webp",
+    "image": "https://images.icecat.biz/img/gallery/d94e3f3f1225c99c5bf838542202da92f3976f3a.jpg",
+    "page": "https://icecat.biz/p/79840481"
+  },
+  "linksys-mr8300-ac2200": {
+    "file": "images/models/linksys-mr8300-ac2200.webp",
+    "image": "https://images.icecat.biz/img/gallery/8a82444813a5cb9c4a8296dbbe0b308a483455c9.jpg",
+    "page": "https://icecat.biz/p/69390299"
+  },
+  "linksys-mr9600": {
+    "file": "images/models/linksys-mr9600.webp",
+    "image": "https://images.icecat.biz/img/gallery/3024d2741d76a2488375853333aef0403a45586e.jpg",
+    "page": "https://icecat.biz/p/79553454"
+  },
+  "linksys-mr9600-ax6000": {
+    "file": "images/models/linksys-mr9600-ax6000.webp",
+    "image": "https://images.icecat.biz/img/gallery/3024d2741d76a2488375853333aef0403a45586e.jpg",
+    "page": "https://icecat.biz/p/79553454"
+  },
+  "linksys-velop-ax4200-mx4200": {
+    "file": "images/models/linksys-velop-ax4200-mx4200.webp",
+    "image": "https://images.icecat.biz/img/gallery/149fd14b0f5b97b299d2d1eaae8c1f107c69bed1.jpg",
+    "page": "https://icecat.biz/p/86098670"
+  },
+  "linksys-velop-mx4200-ax4200": {
+    "file": "images/models/linksys-velop-mx4200-ax4200.webp",
+    "image": "https://images.icecat.biz/img/gallery/149fd14b0f5b97b299d2d1eaae8c1f107c69bed1.jpg",
+    "page": "https://icecat.biz/p/86098670"
+  },
+  "linksys-velop-whw0303-ac2200": {
+    "file": "images/models/linksys-velop-whw0303-ac2200.webp",
+    "image": "https://images.icecat.biz/img/gallery/f6723c1a7380e2469c0fd5b06da410f96260902c.jpg",
+    "page": "https://icecat.biz/p/35659750"
+  },
+  "linksys-wrt1900acs": {
+    "file": "images/models/linksys-wrt1900acs.webp",
+    "image": "https://images.icecat.biz/img/gallery/fc2f249a33e1d098845a79dcdff569c3ff56451d.jpg",
+    "page": "https://icecat.biz/p/30021765"
+  },
+  "linksys-wrt3200acm": {
+    "file": "images/models/linksys-wrt3200acm.webp",
+    "image": "https://images.icecat.biz/img/gallery/ac2739cff23acd570088a63259c20524e8a88950.jpg",
+    "page": "https://icecat.biz/p/33271953"
+  },
+  "linksys-wrt54gl": {
+    "file": "images/models/linksys-wrt54gl.webp",
+    "image": "https://images.icecat.biz/img/gallery/7abe7ba595f21fd071a4f71a60b68b8515e3a566.jpg",
+    "page": "https://icecat.biz/p/543839"
+  },
+  "linksys-wrt54gl-legendary": {
+    "file": "images/models/linksys-wrt54gl-legendary.webp",
+    "image": "https://images.icecat.biz/img/gallery/7abe7ba595f21fd071a4f71a60b68b8515e3a566.jpg",
+    "page": "https://icecat.biz/p/543839"
+  },
+  "mercusys-ac12g": {
+    "file": "images/models/mercusys-ac12g.webp",
+    "image": "https://m.media-amazon.com/images/I/619MtMvqqUL.jpg",
+    "page": "https://www.amazon.com/dp/B09N72FMH5"
+  },
+  "mercusys-mr30g": {
+    "file": "images/models/mercusys-mr30g.webp",
+    "image": "https://m.media-amazon.com/images/I/619MtMvqqUL.jpg",
+    "page": "https://www.amazon.com/dp/B09N72FMH5"
+  },
+  "mercusys-mr60x": {
+    "file": "images/models/mercusys-mr60x.webp",
+    "image": "https://m.media-amazon.com/images/I/61PWJQxyrkL.jpg",
+    "page": "https://www.amazon.com/dp/B0HCZBS1G4"
+  },
+  "mercusys-mw325r": {
+    "file": "images/models/mercusys-mw325r.webp",
+    "image": "https://m.media-amazon.com/images/I/51ZMQWi36mL.jpg",
+    "page": "https://www.amazon.com/dp/B0CZ2MF13K"
+  },
+  "mikrotik-ccr1009-7g-1c-1s-plus": {
+    "file": "images/models/mikrotik-ccr1009-7g-1c-1s-plus.webp",
+    "image": "https://m.media-amazon.com/images/I/51wzAv9hKBL.jpg",
+    "page": "https://www.amazon.com/dp/B09GG52M7Q"
+  },
+  "mikrotik-ccr2004-16g-2s": {
+    "file": "images/models/mikrotik-ccr2004-16g-2s.webp",
+    "image": "https://m.media-amazon.com/images/I/51pLzcr+yxL.jpg",
+    "page": "https://www.amazon.com/dp/B0B1NBXT9G"
+  },
+  "mikrotik-ccr2116-12g-4s": {
+    "file": "images/models/mikrotik-ccr2116-12g-4s.webp",
+    "image": "https://m.media-amazon.com/images/I/519PJeYR5yL.jpg",
+    "page": "https://www.amazon.com/dp/B087X9QKGH"
+  },
+  "mikrotik-ccr2216-1g-12xs-2xq": {
+    "file": "images/models/mikrotik-ccr2216-1g-12xs-2xq.webp",
+    "image": "https://m.media-amazon.com/images/I/51Ki2VGxjVL.jpg",
+    "page": "https://www.amazon.com/dp/B0FVW5RVCM"
+  },
+  "mikrotik-chateau-5g-ax": {
+    "file": "images/models/mikrotik-chateau-5g-ax.webp",
+    "image": "https://cdn.mikrotik.com/web-assets/rb_images/2208_tm.webp",
+    "page": "https://mikrotik.com/product/chateau_5g_ax"
+  },
+  "mikrotik-hap-ac2-rbd52g": {
+    "file": "images/models/mikrotik-hap-ac2-rbd52g.webp",
+    "image": "https://m.media-amazon.com/images/I/61kIBd9i36L.jpg",
+    "page": "https://www.amazon.com/dp/B08438KG1P"
+  },
+  "mikrotik-hap-ac2-rbd52g-5hacd2hnd-tc": {
+    "file": "images/models/mikrotik-hap-ac2-rbd52g-5hacd2hnd-tc.webp",
+    "image": "https://m.media-amazon.com/images/I/61kIBd9i36L.jpg",
+    "page": "https://www.amazon.com/dp/B08438KG1P"
+  },
+  "mikrotik-hap-ax2-c52ig": {
+    "file": "images/models/mikrotik-hap-ax2-c52ig.webp",
+    "image": "https://m.media-amazon.com/images/I/61AcX4kVvpL.jpg",
+    "page": "https://www.amazon.com/dp/B0BRSCGFPN"
+  },
+  "mikrotik-hap-ax3-c53uig": {
+    "file": "images/models/mikrotik-hap-ax3-c53uig.webp",
+    "image": "https://m.media-amazon.com/images/I/71ZDJcaecpL.jpg",
+    "page": "https://www.amazon.com/dp/B0F76PQ2T8"
+  },
+  "mikrotik-hap-ax3-c53uig-5hpaxd2hpaxd": {
+    "file": "images/models/mikrotik-hap-ax3-c53uig-5hpaxd2hpaxd.webp",
+    "image": "https://m.media-amazon.com/images/I/71ZDJcaecpL.jpg",
+    "page": "https://www.amazon.com/dp/B08MLB51ZS"
+  },
+  "mikrotik-hap-lite-rb941-2nd": {
+    "file": "images/models/mikrotik-hap-lite-rb941-2nd.webp",
+    "image": "https://m.media-amazon.com/images/I/71D6dsr2mSL.jpg",
+    "page": "https://www.amazon.com/dp/B016E93MX2"
+  },
+  "mikrotik-hex-lite-rb750r2": {
+    "file": "images/models/mikrotik-hex-lite-rb750r2.webp",
+    "image": "https://m.media-amazon.com/images/I/716YmgbTiQL.jpg",
+    "page": "https://www.amazon.com/dp/B0BVV8RPVQ"
+  },
+  "mikrotik-hex-poe-rb960pgs": {
+    "file": "images/models/mikrotik-hex-poe-rb960pgs.webp",
+    "image": "https://m.media-amazon.com/images/I/61i6BbH3Z5L.jpg",
+    "page": "https://www.amazon.com/dp/B082KD85MY"
+  },
+  "mikrotik-l009uigs-rm": {
+    "file": "images/models/mikrotik-l009uigs-rm.webp",
+    "image": "https://m.media-amazon.com/images/I/61moppb3-xL.jpg",
+    "page": "https://www.amazon.com/dp/B0CHMWVYJK"
+  },
+  "mikrotik-map-lite-rbmapl-2nd": {
+    "file": "images/models/mikrotik-map-lite-rbmapl-2nd.webp",
+    "image": "https://m.media-amazon.com/images/I/61mwKgvF5jL.jpg",
+    "page": "https://www.amazon.com/dp/B0G36JM4TP"
+  },
+  "mikrotik-rb4011igs-5hacq2hnd-in": {
+    "file": "images/models/mikrotik-rb4011igs-5hacq2hnd-in.webp",
+    "image": "https://m.media-amazon.com/images/I/61hjPzfmMwL.jpg",
+    "page": "https://www.amazon.com/dp/B0843PXF7X"
+  },
+  "mikrotik-rb4011igs-rm": {
+    "file": "images/models/mikrotik-rb4011igs-rm.webp",
+    "image": "https://m.media-amazon.com/images/I/61OU6aDyv5L.jpg",
+    "page": "https://www.amazon.com/dp/B07QMNNVG8"
+  },
+  "mikrotik-rb5009ug-s-in": {
+    "file": "images/models/mikrotik-rb5009ug-s-in.webp",
+    "image": "https://m.media-amazon.com/images/I/61L9ktd6VNL.jpg",
+    "page": "https://www.amazon.com/dp/B0BBW159WW"
+  },
+  "netgear-nighthawk-cm3000": {
+    "file": "images/models/netgear-nighthawk-cm3000.webp",
+    "image": "https://assets.netgear.com/transform/f5b14e17-51c4-4557-b4a9-e0307582a068/CM1000_G1_779X536_32",
+    "page": "https://www.netgear.com/home/wifi/modems/cm3000/"
+  },
+  "netgear-nighthawk-m1-mr1100": {
+    "file": "images/models/netgear-nighthawk-m1-mr1100.webp",
+    "image": "https://m.media-amazon.com/images/I/61am6zSbQRL.jpg",
+    "page": "https://www.amazon.com/dp/B07M5HQQ1P"
+  },
+  "netgear-nighthawk-m5-mr5200": {
+    "file": "images/models/netgear-nighthawk-m5-mr5200.webp",
+    "image": "https://m.media-amazon.com/images/I/614tnoMKSZL.jpg",
+    "page": "https://www.amazon.com/dp/B0CKY7NBJ2"
+  },
+  "netgear-nighthawk-m6-mr6150": {
+    "file": "images/models/netgear-nighthawk-m6-mr6150.webp",
+    "image": "https://m.media-amazon.com/images/I/61iElTZODtL.jpg",
+    "page": "https://www.amazon.com/dp/B0H29QF1L3"
+  },
+  "netgear-nighthawk-m6-mr6150-5g": {
+    "file": "images/models/netgear-nighthawk-m6-mr6150-5g.webp",
+    "image": "https://m.media-amazon.com/images/I/61iElTZODtL.jpg",
+    "page": "https://www.amazon.com/dp/B0C2ZP2DXH"
+  },
+  "netgear-nighthawk-m6-pro-mr6500": {
+    "file": "images/models/netgear-nighthawk-m6-pro-mr6500.webp",
+    "image": "https://images.icecat.biz/img/gallery/c9df691df4c727745cd1357d3b65c7962cd6f7c3.jpg",
+    "page": "https://icecat.biz/p/99949788"
+  },
+  "netgear-nighthawk-pro-gaming-xr1000": {
+    "file": "images/models/netgear-nighthawk-pro-gaming-xr1000.webp",
+    "image": "https://m.media-amazon.com/images/I/51M0N5o16-L.jpg",
+    "page": "https://www.amazon.com/dp/B0FB8X43KJ"
+  },
+  "netgear-nighthawk-r6400-ac1750": {
+    "file": "images/models/netgear-nighthawk-r6400-ac1750.webp",
+    "image": "https://m.media-amazon.com/images/I/51jKfayHBqS.jpg",
+    "page": "https://www.amazon.com/dp/B00R2AZLD2"
+  },
+  "netgear-nighthawk-r6700-ac1750": {
+    "file": "images/models/netgear-nighthawk-r6700-ac1750.webp",
+    "image": "https://m.media-amazon.com/images/I/61JBRBWL91L.jpg",
+    "page": "https://www.amazon.com/dp/B0DK7RVXHP"
+  },
+  "netgear-nighthawk-r6900p-ac1900": {
+    "file": "images/models/netgear-nighthawk-r6900p-ac1900.webp",
+    "image": "https://m.media-amazon.com/images/I/61DzGnqfTUL.jpg",
+    "page": "https://www.amazon.com/dp/B083MZHFBT"
+  },
+  "netgear-nighthawk-r7000-ac1900": {
+    "file": "images/models/netgear-nighthawk-r7000-ac1900.webp",
+    "image": "https://images.icecat.biz/img/gallery/a16e512466a143c402b6ae4ef9d8fbffabc717d7.jpg",
+    "page": "https://icecat.biz/p/20993385"
+  },
+  "netgear-nighthawk-r9000-x10-ad7200": {
+    "file": "images/models/netgear-nighthawk-r9000-x10-ad7200.webp",
+    "image": "https://m.media-amazon.com/images/I/61FTV5oMAuL.jpg",
+    "page": "https://www.amazon.com/dp/B0DK7RVXHP"
+  },
+  "netgear-nighthawk-rax120": {
+    "file": "images/models/netgear-nighthawk-rax120.webp",
+    "image": "https://m.media-amazon.com/images/I/51g4G2w-iuL.jpg",
+    "page": "https://www.amazon.com/dp/B0C9JQLDCG"
+  },
+  "netgear-nighthawk-rax200": {
+    "file": "images/models/netgear-nighthawk-rax200.webp",
+    "image": "https://m.media-amazon.com/images/I/715argC0ydL.jpg",
+    "page": "https://www.amazon.com/dp/B07P3FGKYD"
+  },
+  "netgear-nighthawk-raxe500": {
+    "file": "images/models/netgear-nighthawk-raxe500.webp",
+    "image": "https://m.media-amazon.com/images/I/518ksJZHekL.jpg",
+    "page": "https://www.amazon.com/dp/B0FT8JD2KQ"
+  },
+  "netgear-nighthawk-rs700s": {
+    "file": "images/models/netgear-nighthawk-rs700s.webp",
+    "image": "https://m.media-amazon.com/images/I/41LadvHqBlL.jpg",
+    "page": "https://www.amazon.com/dp/B0DK7Q5SCN"
+  },
+  "netgear-nighthawk-x10-r9000": {
+    "file": "images/models/netgear-nighthawk-x10-r9000.webp",
+    "image": "https://m.media-amazon.com/images/I/61FTV5oMAuL.jpg",
+    "page": "https://www.amazon.com/dp/B07SHK2241"
+  },
+  "netgear-nighthawk-x6s-r8000p": {
+    "file": "images/models/netgear-nighthawk-x6s-r8000p.webp",
+    "image": "https://m.media-amazon.com/images/I/71QgpjgW1OL.jpg",
+    "page": "https://www.amazon.com/dp/B0C9JQLDCG"
+  },
+  "netgear-orbi-750-rbk752": {
+    "file": "images/models/netgear-orbi-750-rbk752.webp",
+    "image": "https://m.media-amazon.com/images/I/41PnpXYbZVL.jpg",
+    "page": "https://www.amazon.com/dp/B088B9S52T"
+  },
+  "netgear-orbi-770-rbe773": {
+    "file": "images/models/netgear-orbi-770-rbe773.webp",
+    "image": "https://images.icecat.biz/img/gallery/7a4625ed219489b6c9cc1f1c8381090f6cdf3b08.jpg",
+    "page": "https://icecat.biz/p/122738535"
+  },
+  "netgear-orbi-850-rbk852": {
+    "file": "images/models/netgear-orbi-850-rbk852.webp",
+    "image": "https://m.media-amazon.com/images/I/51Raf2clMjL.jpg",
+    "page": "https://www.amazon.com/dp/B083YRSCM9"
+  },
+  "netgear-orbi-960-rbke963": {
+    "file": "images/models/netgear-orbi-960-rbke963.webp",
+    "image": "https://m.media-amazon.com/images/I/41HOoa+MA4L.jpg",
+    "page": "https://www.amazon.com/dp/B09D8THD92"
+  },
+  "netgear-orbi-970-rbe973": {
+    "file": "images/models/netgear-orbi-970-rbe973.webp",
+    "image": "https://m.media-amazon.com/images/I/51joaF2z+mL.jpg",
+    "page": "https://www.amazon.com/dp/B0GJX8NKVR"
+  },
+  "netgear-orbi-pro-sxk30-ax1800": {
+    "file": "images/models/netgear-orbi-pro-sxk30-ax1800.webp",
+    "image": "https://m.media-amazon.com/images/I/31A71OFwh8L.jpg",
+    "page": "https://www.amazon.com/dp/B08FWLCGLW"
+  },
+  "netgear-orbi-pro-sxk80-ax6000": {
+    "file": "images/models/netgear-orbi-pro-sxk80-ax6000.webp",
+    "image": "https://images.icecat.biz/img/gallery/5fd14047caa83b589212afcac527f62b99c5a5ac.jpg",
+    "page": "https://icecat.biz/p/89479977"
+  },
+  "netgear-orbi-rbe973": {
+    "file": "images/models/netgear-orbi-rbe973.webp",
+    "image": "https://m.media-amazon.com/images/I/51joaF2z+mL.jpg",
+    "page": "https://www.amazon.com/dp/B0CJ9YMDX3"
+  },
+  "netgear-orbi-rbk50": {
+    "file": "images/models/netgear-orbi-rbk50.webp",
+    "image": "https://m.media-amazon.com/images/I/317gVkbLtDS.jpg",
+    "page": "https://www.amazon.com/dp/B088B9S52T"
+  },
+  "netgear-orbi-rbk50-ac3000": {
+    "file": "images/models/netgear-orbi-rbk50-ac3000.webp",
+    "image": "https://m.media-amazon.com/images/I/317gVkbLtDS.jpg",
+    "page": "https://www.amazon.com/dp/B088B9S52T"
+  },
+  "netgear-orbi-rbke963": {
+    "file": "images/models/netgear-orbi-rbke963.webp",
+    "image": "https://m.media-amazon.com/images/I/41F-Lmjxz6L.jpg",
+    "page": "https://www.amazon.com/dp/B0DZNQWLGJ"
+  },
+  "netgear-r6120-ac1200-dual-band": {
+    "file": "images/models/netgear-r6120-ac1200-dual-band.webp",
+    "image": "https://m.media-amazon.com/images/I/71kWs42272L.jpg",
+    "page": "https://www.amazon.com/dp/B01N7L06CF"
+  },
+  "netgear-r6220-ac1200-gigabit": {
+    "file": "images/models/netgear-r6220-ac1200-gigabit.webp",
+    "image": "https://m.media-amazon.com/images/I/51VYo8oZiLL.jpg",
+    "page": "https://www.amazon.com/dp/B008HO9DIG"
+  },
+  "netgear-wndr3700-n600-gigabit": {
+    "file": "images/models/netgear-wndr3700-n600-gigabit.webp",
+    "image": "https://m.media-amazon.com/images/I/714GsYVBs0L.jpg",
+    "page": "https://www.amazon.com/dp/B00IF0JAYE"
+  },
+  "netgear-wndr4500-n900-gigabit": {
+    "file": "images/models/netgear-wndr4500-n900-gigabit.webp",
+    "image": "https://m.media-amazon.com/images/I/51ZPbXpXQ5L.jpg",
+    "page": "https://www.amazon.com/dp/B084YVPV3J"
+  },
+  "netis-nc21": {
+    "file": "images/models/netis-nc21.webp",
+    "image": "https://m.media-amazon.com/images/I/619MtMvqqUL.jpg",
+    "page": "https://www.amazon.com/dp/B0B9WLL2LP"
+  },
+  "netis-nx10": {
+    "file": "images/models/netis-nx10.webp",
+    "image": "https://m.media-amazon.com/images/I/61PWJQxyrkL.jpg",
+    "page": "https://www.amazon.com/dp/B09G5W9R6R"
+  },
+  "netis-wf2409e": {
+    "file": "images/models/netis-wf2409e.webp",
+    "image": "https://m.media-amazon.com/images/I/4133CswrvtL.jpg",
+    "page": "https://www.amazon.com/dp/B08C3YBBHM"
+  },
+  "openwrt-nanopi-r4s": {
+    "file": "images/models/openwrt-nanopi-r4s.webp",
+    "image": "https://m.media-amazon.com/images/I/51puls3KtAL.jpg",
+    "page": "https://www.amazon.com/dp/B08PV4228F"
+  },
+  "openwrt-nanopi-r5s": {
+    "file": "images/models/openwrt-nanopi-r5s.webp",
+    "image": "https://m.media-amazon.com/images/I/610iARYWReL.jpg",
+    "page": "https://www.amazon.com/dp/B0B596KP3G"
+  },
+  "peplink-balance-20x": {
+    "file": "images/models/peplink-balance-20x.webp",
+    "image": "https://www.peplink.com/wp-content/uploads/2020/05/900Mbps-Dual-WAN-Router-Balance-20X.png",
+    "page": "https://www.peplink.com/products/enterprise-routers/balance-20x/"
+  },
+  "qnap-qhora-301w": {
+    "file": "images/models/qnap-qhora-301w.webp",
+    "image": "https://images.icecat.biz/img/gallery/678e3ce7e16817398b25bf9f503d09328f88e915.jpg",
+    "page": "https://icecat.biz/p/87017869"
+  },
+  "qnap-qhora-322": {
+    "file": "images/models/qnap-qhora-322.webp",
+    "image": "https://m.media-amazon.com/images/I/51wozUNT6cL.jpg",
+    "page": "https://www.amazon.com/dp/B0H42W28N2"
+  },
+  "ruckus-unleashed-r550": {
+    "file": "images/models/ruckus-unleashed-r550.webp",
+    "image": "https://m.media-amazon.com/images/I/61AtVnkqyjL.jpg",
+    "page": "https://www.amazon.com/dp/B08GL31J91"
+  },
+  "ruijie-rg-ew1800gx-pro": {
+    "file": "images/models/ruijie-rg-ew1800gx-pro.webp",
+    "image": "https://m.media-amazon.com/images/I/51NPaIorJiL.jpg",
+    "page": "https://www.amazon.com/dp/B09N6S5QJF"
+  },
+  "samsung-smartthings-wifi-et-wv525": {
+    "file": "images/models/samsung-smartthings-wifi-et-wv525.webp",
+    "image": "https://m.media-amazon.com/images/I/61TEWhhJrML.jpg",
+    "page": "https://www.amazon.com/dp/B01IE35PCC"
+  },
+  "spectrum-wave-2-router-rac2v1s": {
+    "file": "images/models/spectrum-wave-2-router-rac2v1s.webp",
+    "image": "https://m.media-amazon.com/images/I/31s0b4ycRwL.jpg",
+    "page": "https://www.amazon.com/dp/B0GT4VH5M7"
+  },
+  "teltonika-rut241": {
+    "file": "images/models/teltonika-rut241.webp",
+    "image": "https://m.media-amazon.com/images/I/71fX8hnhRJL.jpg",
+    "page": "https://www.amazon.com/dp/B0F218JCLY"
+  },
+  "teltonika-rut906": {
+    "file": "images/models/teltonika-rut906.webp",
+    "image": "https://m.media-amazon.com/images/I/719kQFQm9HL.jpg",
+    "page": "https://www.amazon.com/dp/B0DYWWZ1SW"
+  },
+  "teltonika-rut951": {
+    "file": "images/models/teltonika-rut951.webp",
+    "image": "https://m.media-amazon.com/images/I/71SGpcq6qkL.jpg",
+    "page": "https://www.amazon.com/dp/B0GLTVDD1B"
+  },
+  "teltonika-rut956": {
+    "file": "images/models/teltonika-rut956.webp",
+    "image": "https://m.media-amazon.com/images/I/71fpZiUMm4L.jpg",
+    "page": "https://www.amazon.com/dp/B0CK1TDSQC"
+  },
+  "teltonika-rutx10": {
+    "file": "images/models/teltonika-rutx10.webp",
+    "image": "https://m.media-amazon.com/images/I/51FYTkKixYL.jpg",
+    "page": "https://www.amazon.com/dp/B0DYWWZ1SW"
+  },
+  "teltonika-rutx11": {
+    "file": "images/models/teltonika-rutx11.webp",
+    "image": "https://m.media-amazon.com/images/I/71wBke-GQlL.jpg",
+    "page": "https://www.amazon.com/dp/B0B9WLL2LP"
+  },
+  "teltonika-trb140": {
+    "file": "images/models/teltonika-trb140.webp",
+    "image": "https://m.media-amazon.com/images/I/61Zpwh8ejVL.jpg",
+    "page": "https://www.amazon.com/dp/B09TX2MKVB"
+  },
+  "tenda-ac10": {
+    "file": "images/models/tenda-ac10.webp",
+    "image": "https://m.media-amazon.com/images/I/61w-X1N25-L.jpg",
+    "page": "https://www.amazon.com/dp/B06X1CHFJ5"
+  },
+  "tenda-ac15": {
+    "file": "images/models/tenda-ac15.webp",
+    "image": "https://m.media-amazon.com/images/I/41qhq9AhETL.jpg",
+    "page": "https://www.amazon.com/dp/B0BL6PR5N4"
+  },
+  "tenda-ac18": {
+    "file": "images/models/tenda-ac18.webp",
+    "image": "https://m.media-amazon.com/images/I/41qhq9AhETL.jpg",
+    "page": "https://www.amazon.com/dp/B0BL6PR5N4"
+  },
+  "tenda-ac6-ac1200": {
+    "file": "images/models/tenda-ac6-ac1200.webp",
+    "image": "https://m.media-amazon.com/images/I/61w-X1N25-L.jpg",
+    "page": "https://www.amazon.com/dp/B06X1CHFJ5"
+  },
+  "tenda-ac7": {
+    "file": "images/models/tenda-ac7.webp",
+    "image": "https://m.media-amazon.com/images/I/61w-X1N25-L.jpg",
+    "page": "https://www.amazon.com/dp/B06X1CHFJ5"
+  },
+  "tenda-ac8-ac1200": {
+    "file": "images/models/tenda-ac8-ac1200.webp",
+    "image": "https://m.media-amazon.com/images/I/61w-X1N25-L.jpg",
+    "page": "https://www.amazon.com/dp/B06X1CHFJ5"
+  },
+  "tenda-f3": {
+    "file": "images/models/tenda-f3.webp",
+    "image": "https://m.media-amazon.com/images/I/51ZMQWi36mL.jpg",
+    "page": "https://www.amazon.com/dp/B0DTP89FQ5"
+  },
+  "tenda-rx12-pro-ax3000": {
+    "file": "images/models/tenda-rx12-pro-ax3000.webp",
+    "image": "https://m.media-amazon.com/images/I/61dElQsduAL.jpg",
+    "page": "https://www.amazon.com/dp/B0CRYXN6QQ"
+  },
+  "tenda-rx9-pro": {
+    "file": "images/models/tenda-rx9-pro.webp",
+    "image": "https://m.media-amazon.com/images/I/61dElQsduAL.jpg",
+    "page": "https://www.amazon.com/dp/B0DFC581ZB"
+  },
+  "totolink-a3002ru": {
+    "file": "images/models/totolink-a3002ru.webp",
+    "image": "https://m.media-amazon.com/images/I/619MtMvqqUL.jpg",
+    "page": "https://www.amazon.com/dp/B0DC99N2T8"
+  },
+  "totolink-n300rt": {
+    "file": "images/models/totolink-n300rt.webp",
+    "image": "https://m.media-amazon.com/images/I/51ZMQWi36mL.jpg",
+    "page": "https://www.amazon.com/dp/B0FLDRPMMB"
+  },
+  "tp-link-archer-a7": {
+    "file": "images/models/tp-link-archer-a7.webp",
+    "image": "https://images.icecat.biz/img/gallery/d652ac901d3ceeb39f4995929ef972986d52d171.jpg",
+    "page": "https://icecat.biz/p/79348143"
+  },
+  "tp-link-archer-a8": {
+    "file": "images/models/tp-link-archer-a8.webp",
+    "image": "https://images.icecat.biz/img/gallery/9270e467109f3940915950fd2b7fb176e4cbf780.jpg",
+    "page": "https://icecat.biz/p/79847637"
+  },
+  "tp-link-archer-ax10": {
+    "file": "images/models/tp-link-archer-ax10.webp",
+    "image": "https://m.media-amazon.com/images/I/41kHxeOdw+L.jpg",
+    "page": "https://www.amazon.com/dp/B09G5W9R6R"
+  },
+  "tp-link-archer-ax11000": {
+    "file": "images/models/tp-link-archer-ax11000.webp",
+    "image": "https://images.icecat.biz/img/gallery/ed587162a61fa081d474933f5ce437640dd94fcd.jpg",
+    "page": "https://icecat.biz/p/79344010"
+  },
+  "tp-link-archer-ax1500": {
+    "file": "images/models/tp-link-archer-ax1500.webp",
+    "image": "https://images.icecat.biz/img/gallery/98755a4f5452b1818a24147d649768f9f80ea977.jpg",
+    "page": "https://icecat.biz/p/80309927"
+  },
+  "tp-link-archer-ax1800": {
+    "file": "images/models/tp-link-archer-ax1800.webp",
+    "image": "https://images.icecat.biz/img/gallery/193a92f4bf300aa1869d0c1e82ccb9d1234741dc.jpg",
+    "page": "https://icecat.biz/p/79670598"
+  },
+  "tp-link-archer-ax21": {
+    "file": "images/models/tp-link-archer-ax21.webp",
+    "image": "https://images.icecat.biz/img/gallery/356fa9847e6553ffdb9810ededf8659cd2328143.jpg",
+    "page": "https://icecat.biz/p/86360159"
+  },
+  "tp-link-archer-ax3000": {
+    "file": "images/models/tp-link-archer-ax3000.webp",
+    "image": "https://m.media-amazon.com/images/I/61dElQsduAL.jpg",
+    "page": "https://www.amazon.com/dp/B08H8ZLKKK"
+  },
+  "tp-link-archer-ax50": {
+    "file": "images/models/tp-link-archer-ax50.webp",
+    "image": "https://images.icecat.biz/img/gallery/dbdc3cb8f71dd15a1f242c9115b5703ab6cec4e8.jpg",
+    "page": "https://icecat.biz/p/79344002"
+  },
+  "tp-link-archer-ax53": {
+    "file": "images/models/tp-link-archer-ax53.webp",
+    "image": "https://images.icecat.biz/img/gallery/738e07bd62cfd5247bc7d4a5a5fe848addf3aeae.jpg",
+    "page": "https://icecat.biz/p/96609922"
+  },
+  "tp-link-archer-ax6000": {
+    "file": "images/models/tp-link-archer-ax6000.webp",
+    "image": "https://images.icecat.biz/img/gallery/d07116cd83a880b4419dbd5e3373de9c57c9aa6b.jpg",
+    "page": "https://icecat.biz/p/79344013"
+  },
+  "tp-link-archer-ax72": {
+    "file": "images/models/tp-link-archer-ax72.webp",
+    "image": "https://images.icecat.biz/img/gallery/adeb955160c33ce8afc3626a0d0fd0233e1483f8.jpg",
+    "page": "https://icecat.biz/p/92768126"
+  },
+  "tp-link-archer-ax80": {
+    "file": "images/models/tp-link-archer-ax80.webp",
+    "image": "https://images.icecat.biz/img/gallery/f3ec6264538c487bc9e2ad0cd775edd54f9c9997.jpg",
+    "page": "https://icecat.biz/p/114713277"
+  },
+  "tp-link-archer-axe300": {
+    "file": "images/models/tp-link-archer-axe300.webp",
+    "image": "https://m.media-amazon.com/images/I/51xvfaZy+LL.jpg",
+    "page": "https://www.amazon.com/dp/B0BCWBCY34"
+  },
+  "tp-link-archer-axe95": {
+    "file": "images/models/tp-link-archer-axe95.webp",
+    "image": "https://images.icecat.biz/img/gallery/ff31c603657cc30f8f9a95e9d5c60b9c67580e1b.jpg",
+    "page": "https://icecat.biz/p/99962692"
+  },
+  "tp-link-archer-be230": {
+    "file": "images/models/tp-link-archer-be230.webp",
+    "image": "https://images.icecat.biz/img/gallery/91c32f5fe3d337b1777eeac8fd3fa064b1a5822b.jpg",
+    "page": "https://icecat.biz/p/120874244"
+  },
+  "tp-link-archer-be900": {
+    "file": "images/models/tp-link-archer-be900.webp",
+    "image": "https://static.tp-link.com/upload/image-line/Archer_BE900_WiFi_7_Router_with_10G_Ports_1_large_20240412003459q.jpg",
+    "page": "https://www.tp-link.com/us/home-networking/wifi-router/archer-be900/"
+  },
+  "tp-link-archer-c2300": {
+    "file": "images/models/tp-link-archer-c2300.webp",
+    "image": "https://images.icecat.biz/img/gallery/771fac11cf8963b1283e679ae3264d91f4f8ff96.jpg",
+    "page": "https://icecat.biz/p/79344004"
+  },
+  "tp-link-archer-c24": {
+    "file": "images/models/tp-link-archer-c24.webp",
+    "image": "https://images.icecat.biz/img/gallery/45f663428bb1ba7d7cd0edf2bfeb1b0ce768e278.jpg",
+    "page": "https://icecat.biz/p/80485743"
+  },
+  "tp-link-archer-c3150": {
+    "file": "images/models/tp-link-archer-c3150.webp",
+    "image": "https://images.icecat.biz/img/gallery/94e976968f39f645fb51dd92217aa0de587c7987.jpg",
+    "page": "https://icecat.biz/p/32770301"
+  },
+  "tp-link-archer-c50": {
+    "file": "images/models/tp-link-archer-c50.webp",
+    "image": "https://images.icecat.biz/img/gallery/69926e6615dc4d32f9d31da46e36818510e6f673.jpg",
+    "page": "https://icecat.biz/p/34916767"
+  },
+  "tp-link-archer-c54": {
+    "file": "images/models/tp-link-archer-c54.webp",
+    "image": "https://images.icecat.biz/img/gallery/bb0b7bb3969bd844abe4203b82f8a17ba868ea8f.jpg",
+    "page": "https://icecat.biz/p/80485742"
+  },
+  "tp-link-archer-c5400x": {
+    "file": "images/models/tp-link-archer-c5400x.webp",
+    "image": "https://images.icecat.biz/img/gallery/6b78d6e1ef5a8c662be359a23dc9c0e7d93ebddf.jpg",
+    "page": "https://icecat.biz/p/62174182"
+  },
+  "tp-link-archer-c6": {
+    "file": "images/models/tp-link-archer-c6.webp",
+    "image": "https://images.icecat.biz/img/gallery/e4eeec10d55d3cac693415a5cd4b89998aefe02a.jpg",
+    "page": "https://icecat.biz/p/79344005"
+  },
+  "tp-link-archer-c64": {
+    "file": "images/models/tp-link-archer-c64.webp",
+    "image": "https://images.icecat.biz/img/gallery/bb9e515efdca75e93e23fcd5b38e614c8df07fb3.jpg",
+    "page": "https://icecat.biz/p/91985490"
+  },
+  "tp-link-archer-c80": {
+    "file": "images/models/tp-link-archer-c80.webp",
+    "image": "https://images.icecat.biz/img/gallery/e4eeec10d55d3cac693415a5cd4b89998aefe02a.jpg",
+    "page": "https://icecat.biz/p/95674565"
+  },
+  "tp-link-archer-c9": {
+    "file": "images/models/tp-link-archer-c9.webp",
+    "image": "https://images.icecat.biz/img/gallery/d4c1709b41dcc28c42154eab1fb5d4a67073653e.jpg",
+    "page": "https://icecat.biz/p/22577964"
+  },
+  "tp-link-archer-ge800": {
+    "file": "images/models/tp-link-archer-ge800.webp",
+    "image": "https://static.tp-link.com/upload/image-line/01_large_20230915035020b.jpg",
+    "page": "https://www.tp-link.com/us/home-networking/wifi-router/archer-ge800/"
+  },
+  "tp-link-archer-mr200-4g-lte": {
+    "file": "images/models/tp-link-archer-mr200-4g-lte.webp",
+    "image": "https://images.icecat.biz/img/gallery/6468c42496dbc59d3ca6bf81f058358e6db2daee.jpg",
+    "page": "https://icecat.biz/p/40377147"
+  },
+  "tp-link-archer-mr400-4g-lte": {
+    "file": "images/models/tp-link-archer-mr400-4g-lte.webp",
+    "image": "https://images.icecat.biz/img/gallery/eef45b0de13e0aca62a869d1a9560903491d6606.jpg",
+    "page": "https://icecat.biz/p/71366703"
+  },
+  "tp-link-archer-mr600-4g-cat-6": {
+    "file": "images/models/tp-link-archer-mr600-4g-cat-6.webp",
+    "image": "https://static.tp-link.com/upload/image-line/Archer_MR600_EU_3.0_1_large_20221107080638m.jpg",
+    "page": "https://www.tp-link.com/in/home-networking/5g-4g-router/archer-mr600/"
+  },
+  "tp-link-deco-x50-outdoor": {
+    "file": "images/models/tp-link-deco-x50-outdoor.webp",
+    "image": "https://images.icecat.biz/img/gallery/00dff458fde282495fa3decd652fa259215cd4f0.jpg",
+    "page": "https://icecat.biz/p/116199754"
+  },
+  "tp-link-deco-x50-poe": {
+    "file": "images/models/tp-link-deco-x50-poe.webp",
+    "image": "https://m.media-amazon.com/images/I/51atpOEv4wL.jpg",
+    "page": "https://www.amazon.com/dp/B0BTPGWDRJ"
+  },
+  "tp-link-er605w": {
+    "file": "images/models/tp-link-er605w.webp",
+    "image": "https://m.media-amazon.com/images/I/61lIwZudsiL.jpg",
+    "page": "https://www.amazon.com/dp/B0DH7F65J7"
+  },
+  "tp-link-er707-m2": {
+    "file": "images/models/tp-link-er707-m2.webp",
+    "image": "https://m.media-amazon.com/images/I/51Bxr8XXKtL.jpg",
+    "page": "https://www.amazon.com/dp/B0FFPZRPX9"
+  },
+  "tp-link-er8411": {
+    "file": "images/models/tp-link-er8411.webp",
+    "image": "https://static.tp-link.com/upload/image-line/ER8411_UN_1.0_overview_01_large_20220617022403g.jpg",
+    "page": "https://www.tp-link.com/sg/business-networking/omada-sdn-router/er8411/v1/"
+  },
+  "tp-link-omada-er707-m2": {
+    "file": "images/models/tp-link-omada-er707-m2.webp",
+    "image": "https://m.media-amazon.com/images/I/51Bxr8XXKtL.jpg",
+    "page": "https://www.amazon.com/dp/B0DDRC1T34"
+  },
+  "tp-link-tl-er5120": {
+    "file": "images/models/tp-link-tl-er5120.webp",
+    "image": "https://images.icecat.biz/img/gallery/4e9c3094f7bf7a9345b763c62bc264d3a35444af.jpg",
+    "page": "https://icecat.biz/p/79344103"
+  },
+  "tp-link-tl-er6120": {
+    "file": "images/models/tp-link-tl-er6120.webp",
+    "image": "https://images.icecat.biz/img/gallery/7144a169551f63b9a5132aeec0d0e320f459aaf9.jpg",
+    "page": "https://icecat.biz/p/79344195"
+  },
+  "tp-link-tl-mr100-4g-lte": {
+    "file": "images/models/tp-link-tl-mr100-4g-lte.webp",
+    "image": "https://images.icecat.biz/img/gallery/98a56464c9524b37a602d603bd1f1ddbd34a25dc.jpg",
+    "page": "https://icecat.biz/p/78368473"
+  },
+  "tp-link-tl-mr6400": {
+    "file": "images/models/tp-link-tl-mr6400.webp",
+    "image": "https://images.icecat.biz/img/gallery/eef45b0de13e0aca62a869d1a9560903491d6606.jpg",
+    "page": "https://icecat.biz/p/79344123"
+  },
+  "tp-link-tl-mr6400-4g-lte": {
+    "file": "images/models/tp-link-tl-mr6400-4g-lte.webp",
+    "image": "https://images.icecat.biz/img/gallery/eef45b0de13e0aca62a869d1a9560903491d6606.jpg",
+    "page": "https://icecat.biz/p/79344123"
+  },
+  "tp-link-tl-r470t": {
+    "file": "images/models/tp-link-tl-r470t.webp",
+    "image": "https://images.icecat.biz/img/gallery/586ae62e8f4a3241fd0bf6fa2636c388242335ec.jpg",
+    "page": "https://icecat.biz/p/79344154"
+  },
+  "tp-link-tl-r480t": {
+    "file": "images/models/tp-link-tl-r480t.webp",
+    "image": "https://images.icecat.biz/img/gallery/7c92b5a6e9cd1103cc746608359c744cef793dab.jpg",
+    "page": "https://icecat.biz/p/79344125"
+  },
+  "tp-link-tl-r600vpn": {
+    "file": "images/models/tp-link-tl-r600vpn.webp",
+    "image": "https://images.icecat.biz/img/gallery/bd755932f2b6ff59094c49c488073700bb9a5872.jpg",
+    "page": "https://icecat.biz/p/79344145"
+  },
+  "tp-link-tl-wr1043nd": {
+    "file": "images/models/tp-link-tl-wr1043nd.webp",
+    "image": "https://images.icecat.biz/img/gallery/bb0def0eccb49655cdf554530466f00005038271.jpg",
+    "page": "https://icecat.biz/p/5745416"
+  },
+  "tp-link-tl-wr740n": {
+    "file": "images/models/tp-link-tl-wr740n.webp",
+    "image": "https://images.icecat.biz/img/gallery/de35d835c1ee81e222d1f3f50346d50dabce9404.jpg",
+    "page": "https://icecat.biz/p/3468782"
+  },
+  "tp-link-tl-wr840n": {
+    "file": "images/models/tp-link-tl-wr840n.webp",
+    "image": "https://images.icecat.biz/img/gallery/07ef7b3912962c2f0f2ef254dbcdeee155edeebe.jpg",
+    "page": "https://icecat.biz/p/16754361"
+  },
+  "tp-link-tl-wr841n": {
+    "file": "images/models/tp-link-tl-wr841n.webp",
+    "image": "https://images.icecat.biz/img/gallery/0c80555f7ceedb34f6d17059566d990de82a1286.jpg",
+    "page": "https://icecat.biz/p/69367078"
+  },
+  "tp-link-tl-wr940n": {
+    "file": "images/models/tp-link-tl-wr940n.webp",
+    "image": "https://images.icecat.biz/img/gallery/a3f6649755ad8fe8357f13026d8c96e8476dfd8a.jpg",
+    "page": "https://icecat.biz/p/79344171"
+  },
+  "trendnet-tew-921dap": {
+    "file": "images/models/trendnet-tew-921dap.webp",
+    "image": "https://m.media-amazon.com/images/I/51lRE+GF9uL.jpg",
+    "page": "https://www.amazon.com/dp/B09D4YVT3W"
+  },
+  "trendnet-twg-431br": {
+    "file": "images/models/trendnet-twg-431br.webp",
+    "image": "https://m.media-amazon.com/images/I/51oNRjDE00L.jpg",
+    "page": "https://www.amazon.com/dp/B0771YYT3K"
+  },
+  "ubiquiti-amplifi-alien-afi-aln": {
+    "file": "images/models/ubiquiti-amplifi-alien-afi-aln.webp",
+    "image": "https://m.media-amazon.com/images/I/41MiiG1Cl8L.jpg",
+    "page": "https://www.amazon.com/dp/B088W3KFP7"
+  },
+  "ubiquiti-amplifi-alien-router": {
+    "file": "images/models/ubiquiti-amplifi-alien-router.webp",
+    "image": "https://m.media-amazon.com/images/I/41MiiG1Cl8L.jpg",
+    "page": "https://www.amazon.com/dp/B0FB8X43KJ"
+  },
+  "ubiquiti-unifi-cloud-gateway-max-ucg-max": {
+    "file": "images/models/ubiquiti-unifi-cloud-gateway-max-ucg-max.webp",
+    "image": "https://m.media-amazon.com/images/I/41Wts4RI21L.jpg",
+    "page": "https://www.amazon.com/dp/B0DK5ZMPMM"
+  },
+  "ubiquiti-unifi-cloud-gateway-ultra-ucg-ultra": {
+    "file": "images/models/ubiquiti-unifi-cloud-gateway-ultra-ucg-ultra.webp",
+    "image": "https://m.media-amazon.com/images/I/31hGbyg344L.jpg",
+    "page": "https://www.amazon.com/dp/B0DFWNLZ7K"
+  },
+  "ubiquiti-unifi-dream-machine-pro-udm-pro": {
+    "file": "images/models/ubiquiti-unifi-dream-machine-pro-udm-pro.webp",
+    "image": "https://cdn.ecomm.ui.com/products/9df27ed4-c4ae-471a-8982-f5b0650da76a/2ede4300-385f-4043-8d96-e0400a22465f.png",
+    "page": "https://store.ui.com/us/en/products/udm-pro"
+  },
+  "ubiquiti-unifi-express-ux": {
+    "file": "images/models/ubiquiti-unifi-express-ux.webp",
+    "image": "https://m.media-amazon.com/images/I/31ILM56qIcL.jpg",
+    "page": "https://www.amazon.com/dp/B0CC7X8XFD"
+  },
+  "ubiquiti-unifi-security-gateway-pro-4-usg-pro-4": {
+    "file": "images/models/ubiquiti-unifi-security-gateway-pro-4-usg-pro-4.webp",
+    "image": "https://m.media-amazon.com/images/I/511kLp6cZhL.jpg",
+    "page": "https://www.amazon.com/dp/B0DSLZ4JKR"
+  },
+  "ubiquiti-unifi-u6-enterprise": {
+    "file": "images/models/ubiquiti-unifi-u6-enterprise.webp",
+    "image": "https://m.media-amazon.com/images/I/41+obYQ2-zL.jpg",
+    "page": "https://www.amazon.com/dp/B0C9YQRWDR"
+  },
+  "ubiquiti-unifi-u7-pro-wi-fi-7": {
+    "file": "images/models/ubiquiti-unifi-u7-pro-wi-fi-7.webp",
+    "image": "https://m.media-amazon.com/images/I/41S5Mf840WL.jpg",
+    "page": "https://www.amazon.com/dp/B0FCYNZ7PR"
+  },
+  "wavlink-quantum-d4g-wn531g4": {
+    "file": "images/models/wavlink-quantum-d4g-wn531g4.webp",
+    "image": "https://m.media-amazon.com/images/I/51Si9j-Tj0L.jpg",
+    "page": "https://www.amazon.com/dp/B0FDVYVFNY"
+  },
+  "wavlink-wl-wn530hg4": {
+    "file": "images/models/wavlink-wl-wn530hg4.webp",
+    "image": "https://m.media-amazon.com/images/I/51Si9j-Tj0L.jpg",
+    "page": "https://www.amazon.com/dp/B08KJF5BS7"
+  },
+  "wavlink-wl-wn572hp3": {
+    "file": "images/models/wavlink-wl-wn572hp3.webp",
+    "image": "https://m.media-amazon.com/images/I/51Si9j-Tj0L.jpg",
+    "page": "https://www.amazon.com/dp/B0DHBXRC1X"
+  },
+  "yamaha-rtx830-gigabit-vpn": {
+    "file": "images/models/yamaha-rtx830-gigabit-vpn.webp",
+    "image": "https://images.icecat.biz/img/gallery/966ac99d7aebd04b9d3a1b39f7a24f2ed4e855d5.jpg",
+    "page": "https://icecat.biz/p/59947206"
+  },
+  "zyxel-nbg7510-ax1800": {
+    "file": "images/models/zyxel-nbg7510-ax1800.webp",
+    "image": "https://images.icecat.biz/img/gallery/32c551a64448607e486fd10a33dcfa6e9578c537.jpg",
+    "page": "https://icecat.biz/p/100434192"
+  }
+}

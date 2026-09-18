@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://atulscript.github.io/routerapp/sitemap-index.xml

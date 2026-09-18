@@ -34,7 +34,11 @@ export interface RouterModel {
     | 'Wi-Fi 6 (802.11ax)'
     | 'Wi-Fi 5 (802.11ac)'
     | 'Wi-Fi 4 (802.11n)'
-    | 'N/A (Wired Gateway)';
+    | 'Wi-Fi 3 (802.11g)'
+    | 'WiGig (802.11ad)'
+    | 'N/A (Wired Gateway)'
+    | 'N/A (Standalone Cable Modem)'
+    | 'N/A (Point-to-Point Wireless)';
   speedRating?: string;
   ports: string;
   throughput?: string;
@@ -46,6 +50,25 @@ export interface RouterModel {
   password: string;
   loginUrl?: string;
   features?: string[];
+  /** Year the model was released, where the data includes it */
+  releaseYear?: number;
+}
+
+/**
+ * Short model entry stored inline on a Brand. The full specs live in ROUTER_MODELS
+ * (see router-models-data.ts); these entries only carry login details.
+ */
+export interface BrandModel {
+  brand: string;
+  model: string;
+  ip: string;
+  username: string;
+  password: string;
+  protocol?: string;
+  slug?: string;
+  brandSlug?: string;
+  category?: string;
+  wifiStandard?: string;
 }
 
 export interface Brand {
@@ -55,7 +78,7 @@ export interface Brand {
   defaultUser: string;
   defaultPass: string;
   description: string;
-  models: RouterModel[];
+  models: BrandModel[];
   guide: string[];
 }
 
@@ -67,4 +90,6 @@ export interface Isp {
   defaultPass: string;
   description: string;
   instructions: string[];
+  /** Provider-supplied routers and ONTs, same short shape as Brand.models */
+  models?: BrandModel[];
 }

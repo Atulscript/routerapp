@@ -15,3 +15,5 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+scripts/.model-image-misses.json
+scripts/.model-verification.json

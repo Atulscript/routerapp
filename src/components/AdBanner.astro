@@ -5,110 +5,35 @@ interface Props {
   className?: string;
 }
 
-const { 
-  slotId = 'default-slot', 
-  format = 'horizontal', 
-  className = '' 
-} = Astro.props;
-
+const { slotId = 'default-slot', format = 'horizontal', className = '' } = Astro.props;
 const publisherId = "ca-pub-8700784373117801";
+
+// Height is reserved up front so the page doesn't jump when the ad arrives (CLS).
+const frame = {
+  // Responsive 'auto' ads are usually ~280px tall on phones, so reserve that there
+  leaderboard: 'max-w-[728px] min-h-[280px] sm:min-h-[90px]',
+  horizontal: 'max-w-4xl min-h-[90px]',
+  rectangle: 'max-w-[336px] min-h-[280px]',
+  'in-article': 'min-h-[100px]',
+  'in-feed': 'min-h-[100px]',
+}[format];
+
+const insAttrs = {
+  leaderboard: { 'data-ad-format': 'auto', 'data-full-width-responsive': 'true', style: 'display:block' },
+  horizontal: { 'data-ad-format': 'horizontal', 'data-full-width-responsive': 'true', style: 'display:block' },
+  rectangle: { style: 'display:inline-block;width:336px;height:280px' },
+  'in-article': { 'data-ad-layout': 'in-article', 'data-ad-format': 'fluid', style: 'display:block;text-align:center' },
+  'in-feed': { 'data-ad-format': 'fluid', 'data-ad-layout-key': '-fb+5w+4e-db+86', style: 'display:block' },
+}[format];
 ---
 
-<div class={`my-5 sm:my-6 flex flex-col items-center justify-center w-full transition-colors ${className}`}>
-  <!-- Ad Label Compliant with Google AdSense Policy -->
-  <div class="text-[9px] uppercase font-bold text-[#80868b] dark:text-[#9aa0a6] tracking-widest mb-1 select-none">
-    Advertisement
+<aside class={`ad-slot my-2 w-full flex flex-col items-center ${className}`} data-format={format} aria-label="Advertisement">
+  <span class="text-[11px] font-medium text-[#5f6368] dark:text-[#9aa0a6] mb-1 select-none">Advertisement</span>
+  <div class={`w-full ${frame} mx-auto rounded-2xl bg-[#f1f3f4]/60 dark:bg-[#292a2d]/60 overflow-hidden flex items-center justify-center`}>
+    <ins class="adsbygoogle w-full" data-ad-client={publisherId} data-ad-slot={slotId} {...insAttrs}></ins>
   </div>
-
-  <div class="w-full flex items-center justify-center overflow-hidden">
-    {format === 'leaderboard' && (
-      <div class="w-full max-w-[728px] min-h-[90px] bg-[#f8fafd] dark:bg-[#202124]/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs">
-        <ins 
-          class="adsbygoogle"
-          style="display:block"
-          data-ad-client={publisherId}
-          data-ad-slot={slotId}
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        ></ins>
-        <!-- Fallback Placeholder when script is offline or in dev -->
-        <div class="ad-placeholder py-3.5 px-4 text-center text-[#80868b] dark:text-[#9aa0a6] text-[11px] font-sans flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-          <span>Sponsored Technical Reference · Google AdSense Verified ({publisherId})</span>
-        </div>
-      </div>
-    )}
-
-    {format === 'horizontal' && (
-      <div class="w-full max-w-4xl min-h-[90px] bg-[#f8fafd] dark:bg-[#202124]/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs">
-        <ins 
-          class="adsbygoogle"
-          style="display:block"
-          data-ad-client={publisherId}
-          data-ad-slot={slotId}
-          data-ad-format="horizontal"
-          data-full-width-responsive="true"
-        ></ins>
-        <div class="ad-placeholder py-3.5 px-4 text-center text-[#80868b] dark:text-[#9aa0a6] text-[11px] font-sans flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-          <span>Sponsored Network Hardware Resource · Google AdSense Verified ({publisherId})</span>
-        </div>
-      </div>
-    )}
-
-    {format === 'rectangle' && (
-      <div class="w-full max-w-[336px] min-h-[280px] bg-[#f8fafd] dark:bg-[#202124]/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs mx-auto">
-        <ins 
-          class="adsbygoogle"
-          style="display:inline-block;width:336px;height:280px"
-          data-ad-client={publisherId}
-          data-ad-slot={slotId}
-        ></ins>
-        <div class="ad-placeholder p-4 text-center text-[#80868b] dark:text-[#9aa0a6] text-[11px] font-sans flex flex-col items-center justify-center gap-1.5">
-          <span class="text-xl">📢</span>
-          <span>Responsive Ad Placement</span>
-          <span class="text-[9px] font-mono opacity-75">{publisherId}</span>
-        </div>
-      </div>
-    )}
-
-    {format === 'in-article' && (
-      <div class="w-full min-h-[100px] bg-[#f8fafd] dark:bg-[#202124]/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs my-3">
-        <ins 
-          class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client={publisherId}
-          data-ad-slot={slotId}
-        ></ins>
-        <div class="ad-placeholder py-3 px-4 text-center text-[#80868b] dark:text-[#9aa0a6] text-[11px] font-sans flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-          <span>Recommended Network Tools & Services</span>
-        </div>
-      </div>
-    )}
-
-    {format === 'in-feed' && (
-      <div class="w-full p-4 bg-[#f8fafd] dark:bg-[#202124]/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xs my-3">
-        <ins 
-          class="adsbygoogle"
-          style="display:block"
-          data-ad-format="fluid"
-          data-ad-layout-key="-fb+5w+4e-db+86"
-          data-ad-client={publisherId}
-          data-ad-slot={slotId}
-        ></ins>
-        <div class="ad-placeholder text-center text-[#80868b] dark:text-[#9aa0a6] text-[11px] font-sans">
-          <span>Featured Network Solution</span>
-        </div>
-      </div>
-    )}
-  </div>
-</div>
+</aside>
 
 <script is:inline>
-  try {
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  } catch (e) {}
+  try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
 </script>

@@ -1,0 +1,156 @@
+---
+import { ROUTER_MODELS, BRANDS, getIpSlug, formatModelTitle } from '../lib/data-loader';
+import '../styles/data-table.css';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+/**
+ * The full hardware database as one filterable table.
+ *
+ * Rows are deliberately plain: the previous version embedded a BrandLogo and a
+ * ModelThumb in every row, and each falls back to an inline SVG glyph when there
+ * is no image, which put roughly 900 bytes of identical markup on every one of
+ * the 2,585 rows. Styling comes from data-table.css instead of utility classes
+ * repeated per cell.
+ */
+
+const source = ROUTER_MODELS.length > 0
+  ? ROUTER_MODELS
+  : BRANDS.flatMap(brand =>
+      brand.models.map(model => ({
+        brand: brand.name,
+        brandSlug: brand.slug,
+        model: model.model,
+        slug: '',
+        protocol: model.protocol || 'HTTP',
+        ip: model.ip,
+        username: model.username,
+        password: model.password,
+        wifiStandard: '',
+        category: '',
+      }))
+    );
+
+const rows = source.map(item => {
+  const ipSlug = getIpSlug(item.ip || '192.168.1.1');
+  const wifi = item.wifiStandard || '';
+
+  return {
+    title: formatModelTitle(item.brand, item.model),
+    href: item.slug ? `${base}/${item.slug}` : (item.brandSlug ? `${base}/${item.brandSlug}` : null),
+    brand: item.brand,
+    ip: item.ip || '192.168.1.1',
+    ipHref: ipSlug !== null ? (ipSlug === '' ? `${base}/` : `${base}/${ipSlug}`) : null,
+    protocol: item.protocol || 'HTTP',
+    username: item.username || 'admin',
+    password: item.password || '(blank)',
+    // Wired and modem-only entries read "N/A (...)", not a standard worth showing.
+    wifi: wifi && !wifi.startsWith('N/A') ? wifi.replace(/\s*\(.*\)\s*/, '').trim() : '',
+    category: item.category || '',
+  };
+});
+
+const brandNames = [...new Set(rows.map(r => r.brand))].sort((a, b) => a.localeCompare(b));
+const wifiStandards = [...new Set(rows.map(r => r.wifi).filter(Boolean))].sort();
+const categories = [...new Set(rows.map(r => r.category).filter(Boolean))].sort();
+const protocols = [...new Set(rows.map(r => r.protocol).filter(Boolean))].sort();
+
+const WINDOW = 100;
+---
+
+<section id="models-database">
+  <div class="dt-bar">
+    <div class="dt-search g-search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <label for="dt-mq" class="sr-only">Search router models, IP addresses and credentials</label>
+      <input id="dt-mq" class="dt-q" type="text" autocomplete="off" spellcheck="false" placeholder="Search a model, brand, IP or password…" />
+      <button type="button" class="dt-clear" aria-label="Clear the search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="dt-facets">
+      <label class="sr-only" for="dt-mbrand">Brand</label>
+      <select id="dt-mbrand" class="dt-select">
+        <option value="">All brands</option>
+        {brandNames.map(name => <option value={name.toLowerCase()}>{name}</option>)}
+      </select>
+
+      <label class="sr-only" for="dt-mwifi">Wi-Fi standard</label>
+      <select id="dt-mwifi" class="dt-select">
+        <option value="">Any Wi-Fi</option>
+        {wifiStandards.map(w => <option value={w.toLowerCase()}>{w}</option>)}
+      </select>
+
+      <label class="sr-only" for="dt-mcat">Device type</label>
+      <select id="dt-mcat" class="dt-select">
+        <option value="">Any device</option>
+        {categories.map(c => <option value={c.toLowerCase()}>{c}</option>)}
+      </select>
+
+      <label class="sr-only" for="dt-mproto">Protocol</label>
+      <select id="dt-mproto" class="dt-select">
+        <option value="">Any protocol</option>
+        {protocols.map(p => <option value={p.toLowerCase()}>{p}</option>)}
+      </select>
+
+      <button type="button" class="dt-reset dt-resetter">Reset</button>
+    </div>
+
+    <p class="dt-count" aria-live="polite">{rows.length} results</p>
+  </div>
+
+  <div class="dt-wrap">
+    <table class="dt-table">
+      <caption class="sr-only">Router hardware models with their gateway IP, protocol and factory credentials</caption>
+      <thead>
+        <tr>
+          <th scope="col">Model</th>
+          <th scope="col" data-l="Gateway IP">Gateway IP</th>
+          <th scope="col" data-l="Protocol">Protocol</th>
+          <th scope="col" data-l="Username">Username</th>
+          <th scope="col" data-l="Password">Password</th>
+          <th scope="col"><span class="sr-only">Copy password</span></th>
+        </tr>
+      </thead>
+      <tbody class="dt-body">
+        {rows.map((row, i) => (
+          <tr class="dt-row" data-f={`${row.brand}|${row.wifi}|${row.category}|${row.protocol}`.toLowerCase()} hidden={i >= WINDOW}>
+            <td class="dt-t">
+              {row.href ? <a href={row.href}>{row.title}</a> : row.title}
+              {row.wifi && <b class="dt-tag">{row.wifi}</b>}
+              {row.category && <span class="dt-sub">{row.category}</span>}
+            </td>
+            <td class="dt-ip">
+              {row.ipHref ? <a href={row.ipHref}>{row.ip}</a> : row.ip}
+            </td>
+            <td class="dt-x"><code>{row.protocol}</code></td>
+            <td class="dt-k"><code>{row.username}</code></td>
+            <td class="dt-p"><code>{row.password}</code></td>
+            <td class="dt-c">
+              <button type="button" class="dt-copy" data-c={row.password} aria-label={`Copy ${row.title} password`}></button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="dt-empty" hidden>
+    Nothing matches those filters. <button type="button" class="dt-resetter">Reset the filters</button> to see all {rows.length} models.
+  </p>
+
+  <div class="dt-more">
+    <button type="button">Show more models</button>
+    <span class="dt-shown">Showing {WINDOW} of {rows.length}</span>
+  </div>
+</section>
+
+<script>
+  import { initDataTable } from '../scripts/data-table';
+  initDataTable('models-database');
+</script>

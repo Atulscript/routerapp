@@ -1,4 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+/* Self-hosted variable fonts: no third-party request, so text paints without waiting on fonts.gstatic.com */
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/routerapp/fonts/google-sans.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/routerapp/fonts/jetbrains-mono.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @tailwind base;
 @tailwind components;
@@ -6,17 +22,50 @@
 
 @layer base {
   html {
-    font-family: 'Google Sans', 'Roboto', 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color-scheme: light;
     scroll-behavior: smooth;
+    /* Keep anchor targets clear of the sticky header */
+    scroll-padding-top: 7rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   body {
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
     background-color: #f8fafd;
     color: #202124;
     overflow-x: hidden;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /* One visible, consistent keyboard focus ring (WCAG 2.4.7 / 2.4.13) */
+  :focus-visible {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .dark :focus-visible {
+    outline-color: #8ab4f8;
+  }
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline-offset: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   .dark body {
@@ -48,6 +97,26 @@
 }
 
 @layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2.5 focus:rounded-full focus:bg-[#1a73e8] focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg;
+  }
+
+  /* AdSense marks slots it could not fill; don't leave an empty box behind.
+     Top-of-page leaderboards keep their space so the content below doesn't jump (CLS). */
+  .ad-slot:not([data-format="leaderboard"]):has(ins[data-ad-status="unfilled"]) {
+    display: none;
+  }
+
+  /* Copy button next to credentials; the global handler in BaseLayout swaps in "Copied" */
+  .g-copy-btn {
+    @apply flex-shrink-0 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-sm font-medium bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#1a73e8] dark:text-[#8ab4f8] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] active:scale-95 transition cursor-pointer whitespace-nowrap;
+  }
+
+  /* 40px round icon button: comfortably above the 24px WCAG 2.5.8 minimum target */
+  .icon-btn {
+    @apply w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] active:scale-95 transition cursor-pointer;
+  }
+
   /* Google Material 3 Surface Cards */
   .g-card {
     @apply bg-white dark:bg-[#292a2d] rounded-2xl sm:rounded-3xl border border-[#dadce0] dark:border-[#3c4043] shadow-card hover:shadow-card-hover transition-all duration-200;
@@ -98,3 +167,57 @@
     scrollbar-width: none;
   }
 }
+
+/* Tables that turn into stacked, labelled cards on phones: add .responsive-table and data-label on cells. */
+@media (max-width: 639px) {
+  .responsive-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .responsive-table,
+  .responsive-table tbody,
+  .responsive-table tr {
+    display: block;
+  }
+  .responsive-table tr {
+    padding: 0.875rem 1rem;
+  }
+  .responsive-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.3rem 0 !important;
+    text-align: right;
+  }
+  .responsive-table td:first-child {
+    display: block;
+    text-align: left;
+    padding-bottom: 0.5rem !important;
+  }
+  .responsive-table td[data-label]::before {
+    content: attr(data-label);
+    font-family: 'Google Sans', system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #5f6368;
+    text-align: left;
+  }
+  .dark .responsive-table td[data-label]::before {
+    color: #9aa0a6;
+  }
+  .responsive-table td[data-label=""]::before {
+    display: none;
+  }
+  .responsive-table td[data-label=""] {
+    padding-top: 0.5rem !important;
+  }
+  .responsive-table td[data-label=""] > * {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

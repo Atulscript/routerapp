@@ -1,443 +1,266 @@
 ---
-import { GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS, formatModelTitle } from '../lib/data-loader';
-
 interface Props {
   currentPath?: string;
 }
 const { currentPath = '/' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = currentPath.replace(base, '') || '/';
 
-// Navigation items with icons and Tools placed in the LAST position
 const navItems = [
-  { 
-    label: 'Home', 
-    href: `${base}/`, 
-    active: currentPath === '/' || currentPath === base || currentPath === `${base}/`,
-    icon: 'home'
-  },
-  { 
-    label: 'Brands', 
-    href: `${base}/brands`, 
-    active: currentPath.includes('brands'),
-    icon: 'tag'
-  },
-  { 
-    label: 'Gateway IPs', 
-    href: `${base}/ip-addresses`, 
-    active: currentPath.includes('ip-addresses'),
-    icon: 'globe'
-  },
-  { 
-    label: 'Router Models', 
-    href: `${base}/routers`, 
-    active: currentPath.includes('routers'),
-    icon: 'router'
-  },
-  { 
-    label: 'Default Passwords', 
-    href: `${base}/default-passwords`, 
-    active: currentPath.includes('default-passwords'),
-    icon: 'lock'
-  },
-  { 
-    label: 'Tools', 
-    href: `${base}/tools`, 
-    active: currentPath.includes('tools') || currentPath.includes('generator') || currentPath.includes('what-is-my-ip'),
-    icon: 'wrench'
-  }
-];
-
-// Search index for header live search
-const searchItems = [
-  // Gateway IPs
-  ...GATEWAY_IPS.map(ip => ({
-    name: ip.ip,
-    title: `${ip.ip} Router Login`,
-    category: 'Gateway IP',
-    url: ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`,
-    subtitle: `Default: ${ip.defaultUser} / ${ip.defaultPass}`,
-    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200'
-  })),
-  // Router Brands
-  ...BRANDS.map(b => ({
-    name: b.name,
-    title: `${b.name} Default Passwords`,
-    category: 'Brand',
-    url: `${base}/${b.slug}`,
-    subtitle: `Default IP: ${b.defaultIp}`,
-    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200'
-  })),
-  // Router Models - Dedicated Model Pages
-  ...ROUTER_MODELS.map(m => ({
-    name: `${m.brand} ${m.model} ${m.series || ''} ${m.wifiStandard || ''} ${m.category || ''} ${m.ip}`,
-    title: formatModelTitle(m.brand, m.model),
-    category: 'Model',
-    url: `${base}/${m.slug}`,
-    subtitle: `${m.wifiStandard ? m.wifiStandard.split(' ')[0] + ' · ' : ''}IP: ${m.ip} · ${m.speedRating || m.category || 'Router'}`,
-    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200'
-  })),
-  // ISPs
-  ...ISPS.map(isp => ({
-    name: isp.name,
-    title: `${isp.name} Setup Guide`,
-    category: 'ISP',
-    url: `${base}/${isp.slug}`,
-    subtitle: `Gateway: ${isp.defaultIp}`,
-    badgeColor: 'bg-amber-50 text-amber-700 border-amber-200'
-  })),
-  // Tools & Utilities
-  {
-    name: 'Internet Speed Test WiFi Ping Jitter Download Upload',
-    title: 'Internet Speed Test',
-    category: 'Tool',
-    url: `${base}/speed-test`,
-    subtitle: 'Measure WiFi Latency, Ping, Download & Upload',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'Subnet Calculator CIDR IP Network Host Range',
-    title: 'CIDR Subnet Calculator',
-    category: 'Tool',
-    url: `${base}/subnet-calculator`,
-    subtitle: 'IPv4 Subnetting, Host Ranges, Netmask & Wildcard',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'Public DNS Directory Servers Cloudflare Google Quad9 Benchmark',
-    title: 'Public DNS Directory',
-    category: 'Tool',
-    url: `${base}/dns-servers`,
-    subtitle: 'Fast & Secure DNS Resolvers (1.1.1.1, 8.8.8.8)',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'Port Forwarding Common Ports List Minecraft Steam Plex NAT Firewall',
-    title: 'Port Forwarding Guide',
-    category: 'Tool',
-    url: `${base}/port-forwarding`,
-    subtitle: '40+ Ports Directory & Router NAT Forwarding Rules',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'What Is My IP Public IPv4 IPv6 Address ISP Detector',
-    title: 'What Is My IP Address?',
-    category: 'Tool',
-    url: `${base}/what-is-my-ip`,
-    subtitle: 'Instant Public IP, ISP & Gateway Detector',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'WiFi QR Code Generator Scan Connect Password',
-    title: 'WiFi QR Code Generator',
-    category: 'Tool',
-    url: `${base}/wifi-qr-generator`,
-    subtitle: 'Generate Printable QR Code to Connect Instantly',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'Password Generator Secure High Entropy WPA3 Admin Key',
-    title: 'Secure Password Generator',
-    category: 'Tool',
-    url: `${base}/password-generator`,
-    subtitle: 'Cryptographic Passwords for Routers & WiFi',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  },
-  {
-    name: 'Default Router Passwords List Database',
-    title: 'Default Passwords DB',
-    category: 'Tool',
-    url: `${base}/default-passwords`,
-    subtitle: 'Master Catalog of Factory Router Passwords',
-    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200'
-  }
+  { label: 'Home', href: `${base}/`, active: path === '/' },
+  { label: 'Brands', href: `${base}/brands`, active: path.startsWith('/brands') },
+  { label: 'Gateway IPs', href: `${base}/ip-addresses`, active: path.startsWith('/ip-addresses') },
+  { label: 'Router Models', href: `${base}/routers`, active: path.startsWith('/routers') },
+  { label: 'ISPs', href: `${base}/isps`, active: path.startsWith('/isps') },
+  { label: 'Default Passwords', short: 'Passwords', href: `${base}/default-passwords`, active: path.startsWith('/default-passwords') },
+  { label: 'Tools', href: `${base}/tools`, active: path.startsWith('/tools') },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 dark:bg-[#202124]/95 backdrop-blur-md border-b border-[#dadce0] dark:border-[#3c4043] shadow-2xs transition-colors duration-200">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-    
-    <!-- Google Brand Logo with 4-Color Dots -->
-    <a href={`${base}/`} class="flex items-center gap-2.5 group flex-shrink-0 transition-transform active:scale-95 select-none">
-      <div class="flex items-center gap-1 bg-[#f1f3f4] dark:bg-[#303134] px-2.5 py-1.5 rounded-full border border-[#dadce0] dark:border-[#5f6368]">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#4285f4]"></span>
-        <span class="w-2.5 h-2.5 rounded-full bg-[#ea4335]"></span>
-        <span class="w-2.5 h-2.5 rounded-full bg-[#fbbc05]"></span>
-        <span class="w-2.5 h-2.5 rounded-full bg-[#34a853]"></span>
-      </div>
-      <div class="flex flex-col text-left leading-none">
-        <span class="font-bold text-base sm:text-lg text-[#202124] dark:text-white font-sans tracking-tight">
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#202124]/90 backdrop-blur-md border-b border-[#dadce0] dark:border-[#3c4043] transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-3">
+
+    <a href={`${base}/`} class="flex items-center gap-2.5 flex-shrink-0 rounded-full" aria-label="19216811.page home">
+      <span class="flex items-center gap-1 bg-[#f1f3f4] dark:bg-[#303134] px-2 py-1.5 rounded-full border border-[#dadce0] dark:border-[#5f6368]" aria-hidden="true">
+        <span class="w-2 h-2 rounded-full bg-[#4285f4]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#ea4335]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#fbbc05]"></span>
+        <span class="w-2 h-2 rounded-full bg-[#34a853]"></span>
+      </span>
+      <span class="flex flex-col leading-none">
+        <span class="font-bold text-base sm:text-lg text-[#202124] dark:text-white tracking-tight">
           19216811<span class="text-[#1a73e8] dark:text-[#8ab4f8]">.page</span>
         </span>
-        <span class="text-[9px] font-bold text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-widest mt-0.5">
-          Router Directory
-        </span>
-      </div>
+        <span class="hidden sm:block text-xs font-semibold text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-widest mt-1">Router Directory</span>
+      </span>
     </a>
 
-    <!-- Desktop Pill Navigation Tabs -->
-    <nav class="hidden md:flex items-center gap-1">
+    <nav class="hidden xl:flex items-center gap-0.5 ml-2" aria-label="Main">
+      {/* The logo already links home, so the wide nav skips "Home" to stay on one line */}
+      {navItems.filter(item => item.label !== 'Home').map(item => (
+        <a
+          href={item.href}
+          aria-current={item.active ? 'page' : undefined}
+          class={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+            item.active
+              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]'
+              : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
+          }`}
+        >
+          {item.short ?? item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="ml-auto flex items-center gap-1.5">
+      <!-- Search: inline field on md+, opens as a full-width panel on small screens -->
+      <div class="site-search relative" data-search-root>
+        <button
+          type="button"
+          class="md:hidden icon-btn"
+          aria-label="Search"
+          aria-expanded="false"
+          aria-controls="header-search-panel"
+          data-search-open
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+
+        <div
+          id="header-search-panel"
+          class="search-panel hidden md:block fixed md:static inset-x-0 top-16 md:top-auto p-3 md:p-0 bg-white dark:bg-[#202124] md:bg-transparent md:dark:bg-transparent border-b md:border-0 border-[#dadce0] dark:border-[#3c4043] shadow-lg md:shadow-none"
+        >
+          <div class="relative md:w-64 lg:w-72 xl:w-60">
+            <label for="header-search-input" class="sr-only">Search IPs, brands, models and tools</label>
+            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5f6368] dark:text-[#9aa0a6] pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input
+              id="header-search-input"
+              type="search"
+              inputmode="search"
+              placeholder="Search routers and IPs"
+              autocomplete="off"
+              spellcheck="false"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-controls="header-search-results"
+              class="w-full h-11 md:h-10 pl-10 pr-12 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-transparent focus:bg-white dark:focus:bg-[#303134] focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] text-base md:text-sm text-[#202124] dark:text-white placeholder-[#5f6368] dark:placeholder-[#9aa0a6] outline-none transition-colors"
+            />
+            <kbd class="hidden lg:flex absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[11px] font-mono text-[#5f6368] dark:text-[#9aa0a6] bg-white dark:bg-[#3c4043] border border-[#dadce0] dark:border-[#5f6368] rounded-md pointer-events-none" data-search-kbd>/</kbd>
+
+            <ul
+              id="header-search-results"
+              role="listbox"
+              aria-label="Search suggestions"
+              class="hidden absolute left-0 right-0 md:left-auto md:w-96 top-full mt-2 bg-white dark:bg-[#292a2d] rounded-2xl shadow-card-hover border border-[#dadce0] dark:border-[#3c4043] overflow-y-auto max-h-[70vh] py-1.5 z-50"
+            ></ul>
+          </div>
+        </div>
+      </div>
+
+      <button id="theme-toggle" type="button" class="icon-btn" aria-label="Switch to dark theme">
+        <svg class="w-5 h-5 hidden dark:block text-[#fbbc05]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Below xl: swipeable nav row, with a fade on the right edge hinting there is more -->
+  <nav class="hidden md:block xl:hidden relative border-t border-[#e8eaed] dark:border-[#3c4043]" aria-label="Main">
+    <div class="max-w-6xl mx-auto flex items-center gap-1.5 px-4 sm:px-6 py-2 overflow-x-auto no-scrollbar scroll-px-4">
       {navItems.map(item => (
-        <a 
-          href={item.href} 
-          class={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150 ${
-            item.active 
-              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] font-bold border border-[#d2e3fc] dark:border-[#1a73e8]' 
-              : 'text-[#5f6368] dark:text-[#e8eaed] hover:text-[#202124] dark:hover:text-white hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
+        <a
+          href={item.href}
+          aria-current={item.active ? 'page' : undefined}
+          class={`flex-shrink-0 px-3.5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+            item.active
+              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]'
+              : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
           }`}
         >
           {item.label}
         </a>
       ))}
-    </nav>
-
-    <!-- Search Bar & Theme Toggle Controls -->
-    <div class="flex items-center gap-2">
-      
-      <!-- Google Material 3 Search Bar -->
-      <div class="relative w-40 sm:w-56 md:w-60 lg:w-68" id="header-search-container">
-        <div class="relative flex items-center bg-white dark:bg-[#303134] hover:bg-[#f8fafd] dark:hover:bg-[#35373a] focus-within:bg-white dark:focus-within:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] focus-within:border-[#1a73e8] dark:focus-within:border-[#8ab4f8] focus-within:ring-2 focus-within:ring-[#1a73e8]/20 rounded-full transition-all shadow-2xs">
-          <div class="pl-3 pr-1.5 pointer-events-none text-[#5f6368] dark:text-[#9aa0a6] flex items-center">
-            <svg class="w-3.5 h-3.5 text-[#1a73e8] dark:text-[#8ab4f8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </div>
-          <input 
-            type="text" 
-            id="header-search-input" 
-            placeholder="Search IP, brand, model..." 
-            class="w-full py-1.5 pr-12 bg-transparent text-[#202124] dark:text-white placeholder-[#80868b] dark:placeholder-[#9aa0a6] outline-none text-xs font-medium"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <div class="absolute right-2.5 flex items-center gap-1">
-            <button 
-              id="header-search-clear" 
-              type="button" 
-              class="text-[#80868b] hover:text-[#202124] dark:hover:text-white hidden text-xs font-bold my-auto"
-              aria-label="Clear header search"
-            >
-              ✕
-            </button>
-            <kbd class="hidden lg:inline-flex items-center px-1.5 py-0.5 text-[9px] font-mono text-[#5f6368] dark:text-[#9aa0a6] bg-[#f1f3f4] dark:bg-[#3c4043] border border-[#dadce0] dark:border-[#5f6368] rounded-md">
-              ⌘K
-            </kbd>
-          </div>
-        </div>
-
-        <!-- Live Search Results Dropdown -->
-        <div 
-          id="header-search-results" 
-          class="absolute right-0 top-full mt-2 w-72 sm:w-84 bg-white dark:bg-[#292a2d] rounded-2xl shadow-card-hover border border-[#dadce0] dark:border-[#3c4043] overflow-hidden hidden z-50 max-h-80 overflow-y-auto divide-y divide-[#f1f3f4] dark:divide-[#3c4043] custom-scrollbar animate-fade-in"
-        >
-          <div id="header-results-list"></div>
-          <div class="px-3 py-2 bg-[#f8fafd] dark:bg-[#202124] border-t border-[#dadce0] dark:border-[#3c4043] text-[9px] text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-between">
-            <span><kbd class="px-1 py-0.2 bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded text-[8px]">↑↓</kbd> navigate</span>
-            <span><kbd class="px-1 py-0.2 bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded text-[8px]">Enter</kbd> select</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Google Material Theme Toggle -->
-      <button 
-        id="theme-toggle" 
-        type="button"
-        class="w-9 h-9 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#5f6368] dark:text-[#fbbc05] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] flex items-center justify-center transition-all duration-150 active:scale-95 shadow-2xs cursor-pointer flex-shrink-0"
-        aria-label="Toggle Dark Mode"
-        title="Toggle Theme"
-      >
-        <!-- Sun icon (shown when dark) -->
-        <svg id="theme-icon-sun" class="w-4 h-4 hidden dark:block text-[#fbbc05]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2"></path>
-          <path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path>
-          <path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
-        </svg>
-        <!-- Moon icon (shown when light) -->
-        <svg id="theme-icon-moon" class="w-4 h-4 block dark:hidden text-[#5f6368]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
-      </button>
-
     </div>
-  </div>
-</header>
-          <path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path>
-          <path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
-        </svg>
-        <!-- Moon icon (shown when light) -->
-        <svg id="theme-icon-moon" class="w-4 h-4 block dark:hidden text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>
-      </button>
-
-    </div>
-
-  </div>
-
-  <!-- Mobile Swipeable Nav Bar (Tools at last) -->
-  <div class="md:hidden flex items-center gap-1.5 px-4 py-2 bg-[#f8fafd] dark:bg-[#202124] border-t border-[#dadce0] dark:border-[#3c4043] overflow-x-auto no-scrollbar">
-    {navItems.map(item => (
-      <a 
-        href={item.href} 
-        class={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all flex-shrink-0 ${
-          item.active 
-            ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] font-bold border border-[#d2e3fc] dark:border-[#1a73e8]' 
-            : 'text-[#5f6368] dark:text-[#e8eaed] bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368]'
-        }`}
-      >
-        <span>{item.label}</span>
-      </a>
-    ))}
-  </div>
+    <span class="pointer-events-none absolute right-0 inset-y-0 w-10 bg-gradient-to-l from-white dark:from-[#202124] sm:hidden" aria-hidden="true"></span>
+  </nav>
 </header>
 
-<script define:vars={{ searchItems }}>
-  // Header Search Engine
-  const input = document.getElementById('header-search-input');
-  const resultsContainer = document.getElementById('header-search-results');
-  const resultsList = document.getElementById('header-results-list');
-  const clearBtn = document.getElementById('header-search-clear');
-  let selectedIndex = -1;
-  let currentMatches = [];
+<script define:vars={{ indexUrl: `${base}/search-index.json` }}>
+  (() => {
+    const input = document.getElementById('header-search-input');
+    const list = document.getElementById('header-search-results');
+    const panel = document.getElementById('header-search-panel');
+    const openBtn = document.querySelector('[data-search-open]');
+    const root = document.querySelector('[data-search-root]');
+    if (!input || !list || !panel) return;
 
-  function highlightMatch(text, query) {
-    if (!query) return text;
-    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return text.replace(regex, '<mark class="bg-amber-100 dark:bg-amber-900/80 text-amber-900 dark:text-amber-200 rounded-xs px-0.5 font-semibold">$1</mark>');
-  }
+    // The index is loaded on first use and cached for the session, so pages stay light.
+    let index = null;
+    let loading = null;
+    const loadIndex = () => loading ??= fetch(indexUrl).then(r => r.json()).then(data => (index = data)).catch(() => (index = []));
 
-  function renderResults(query) {
-    selectedIndex = -1;
-    if (!query.trim()) {
-      resultsContainer.classList.add('hidden');
-      clearBtn.classList.add('hidden');
-      currentMatches = [];
-      return;
+    const escapeHtml = (s) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const BADGE = {
+      'Gateway IP': 'bg-emerald-50 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200',
+      'Brand': 'bg-sky-50 text-sky-800 dark:bg-sky-900/40 dark:text-sky-200',
+      'Model': 'bg-violet-50 text-violet-800 dark:bg-violet-900/40 dark:text-violet-200',
+      'ISP': 'bg-amber-50 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200',
+      'Tool': 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200',
+    };
+
+    let matches = [];
+    let active = -1;
+
+    function search(q) {
+      const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+      const scored = [];
+      for (const item of index) {
+        const hay = `${item.title} ${item.k}`.toLowerCase();
+        if (!terms.every(t => hay.includes(t))) continue;
+        // Title matches first, then shorter titles.
+        const score = (item.title.toLowerCase().startsWith(terms[0]) ? 0 : item.title.toLowerCase().includes(terms[0]) ? 1 : 2) * 1000 + item.title.length;
+        scored.push([score, item]);
+      }
+      return scored.sort((a, b) => a[0] - b[0]).slice(0, 8).map(s => s[1]);
     }
 
-    clearBtn.classList.remove('hidden');
-    const q = query.toLowerCase().trim();
-    currentMatches = searchItems.filter(item => 
-      item.name.toLowerCase().includes(q) ||
-      item.title.toLowerCase().includes(q) ||
-      item.subtitle.toLowerCase().includes(q) ||
-      item.category.toLowerCase().includes(q)
-    ).slice(0, 8);
-
-    if (currentMatches.length === 0) {
-      resultsList.innerHTML = `
-        <div class="p-4 text-center text-xs text-[#80868b] dark:text-[#9aa0a6]">
-          No matches found for "<strong class="text-[#3c4043] dark:text-[#bdc1c6]">${query}</strong>"
-        </div>
-      `;
-    } else {
-      resultsList.innerHTML = currentMatches.map((item, idx) => `
-        <a 
-          href="${item.url}" 
-          data-index="${idx}"
-          class="header-search-item flex items-center justify-between p-2.5 hover:bg-[#f8fafd] dark:hover:bg-[#35373a] transition-colors group ${idx === 0 ? 'bg-slate-50/60 dark:bg-slate-800/60' : ''}"
-        >
-          <div class="flex items-center gap-2 min-w-0">
-            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded border ${item.badgeColor || 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'} flex-shrink-0">
-              ${item.category}
-            </span>
-            <div class="min-w-0">
-              <div class="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] truncate">${highlightMatch(item.title, q)}</div>
-              <div class="text-[10px] text-[#5f6368] dark:text-[#9aa0a6] truncate">${highlightMatch(item.subtitle, q)}</div>
-            </div>
-          </div>
-          <span class="text-xs text-slate-300 dark:text-slate-600 group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] font-semibold flex-shrink-0 ml-1.5">
-            →
-          </span>
-        </a>
-      `).join('');
-      selectedIndex = 0;
-      updateActiveItem();
+    function setOpen(open) {
+      list.classList.toggle('hidden', !open);
+      input.setAttribute('aria-expanded', String(open));
     }
 
-    resultsContainer.classList.remove('hidden');
-  }
+    async function render() {
+      const q = input.value.trim();
+      if (!q) { setOpen(false); return; }
+      if (!index) {
+        list.innerHTML = '<li class="px-4 py-3 text-sm text-[#5f6368] dark:text-[#9aa0a6]">Loading…</li>';
+        setOpen(true);
+        await loadIndex();
+        if (input.value.trim() !== q) return;
+      }
+      matches = search(q);
+      active = matches.length ? 0 : -1;
+      list.innerHTML = matches.length
+        ? matches.map((m, i) => `
+            <li role="option" id="hs-opt-${i}" aria-selected="${i === active}">
+              <a href="${m.url}" tabindex="-1" class="flex items-center gap-3 px-3 py-2.5 mx-1.5 rounded-xl hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] aria-selected:bg-[#e8f0fe]">
+                <span class="flex-shrink-0 text-[11px] font-semibold px-2 py-0.5 rounded-full ${BADGE[m.category] || ''}">${m.category}</span>
+                <span class="min-w-0">
+                  <span class="block text-sm font-medium text-[#202124] dark:text-white truncate">${escapeHtml(m.title)}</span>
+                  <span class="block text-xs text-[#5f6368] dark:text-[#9aa0a6] truncate">${escapeHtml(m.subtitle)}</span>
+                </span>
+              </a>
+            </li>`).join('')
+        : `<li class="px-4 py-3 text-sm text-[#5f6368] dark:text-[#9aa0a6]">No results for “${escapeHtml(q)}”. Try an IP like 192.168.0.1 or a brand name.</li>`;
+      highlight();
+      setOpen(true);
+    }
 
-  function updateActiveItem() {
-    const items = resultsList.querySelectorAll('.header-search-item');
-    items.forEach((item, idx) => {
-      if (idx === selectedIndex) {
-        item.classList.add('bg-brand-50/70', 'dark:bg-slate-800', 'ring-1', 'ring-brand-500/30');
-        item.scrollIntoView({ block: 'nearest' });
-      } else {
-        item.classList.remove('bg-brand-50/70', 'dark:bg-slate-800', 'ring-1', 'ring-brand-500/30');
+    function highlight() {
+      list.querySelectorAll('[role="option"]').forEach((el, i) => {
+        const on = i === active;
+        el.setAttribute('aria-selected', String(on));
+        el.firstElementChild.classList.toggle('bg-[#e8f0fe]', on);
+        el.firstElementChild.classList.toggle('dark:bg-[#1a3a60]', on);
+        if (on) el.scrollIntoView({ block: 'nearest' });
+      });
+      if (active >= 0) input.setAttribute('aria-activedescendant', `hs-opt-${active}`);
+      else input.removeAttribute('aria-activedescendant');
+    }
+
+    let timer;
+    input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(render, 80); });
+    input.addEventListener('focus', () => { loadIndex(); if (input.value.trim()) render(); });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (!matches.length) return;
+        e.preventDefault();
+        active = (active + (e.key === 'ArrowDown' ? 1 : -1) + matches.length) % matches.length;
+        highlight();
+      } else if (e.key === 'Enter' && matches[active]) {
+        e.preventDefault();
+        window.location.href = matches[active].url;
+      } else if (e.key === 'Escape') {
+        setOpen(false);
+        closeMobilePanel();
       }
     });
-  }
 
-  input?.addEventListener('input', (e) => renderResults(e.target.value));
-  input?.addEventListener('focus', () => {
-    if (input.value.trim()) renderResults(input.value);
-  });
+    function closeMobilePanel() {
+      if (!openBtn || getComputedStyle(openBtn).display === 'none') return;
+      panel.classList.add('hidden');
+      openBtn.setAttribute('aria-expanded', 'false');
+    }
+    openBtn?.addEventListener('click', () => {
+      const open = panel.classList.toggle('hidden') === false;
+      openBtn.setAttribute('aria-expanded', String(open));
+      if (open) input.focus();
+    });
 
-  clearBtn?.addEventListener('click', () => {
-    input.value = '';
-    renderResults('');
-    input.focus();
-  });
-
-  input?.addEventListener('keydown', (e) => {
-    if (resultsContainer.classList.contains('hidden')) return;
-
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      if (currentMatches.length > 0) {
-        selectedIndex = (selectedIndex + 1) % currentMatches.length;
-        updateActiveItem();
-      }
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (currentMatches.length > 0) {
-        selectedIndex = (selectedIndex - 1 + currentMatches.length) % currentMatches.length;
-        updateActiveItem();
-      }
-    } else if (e.key === 'Enter') {
-      if (selectedIndex >= 0 && currentMatches[selectedIndex]) {
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target)) { setOpen(false); closeMobilePanel(); }
+    });
+    document.addEventListener('keydown', (e) => {
+      const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '') || document.activeElement?.isContentEditable;
+      if ((e.key === '/' && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) {
         e.preventDefault();
-        window.location.href = currentMatches[selectedIndex].url;
+        if (openBtn && getComputedStyle(openBtn).display !== 'none') { panel.classList.remove('hidden'); openBtn.setAttribute('aria-expanded', 'true'); }
+        input.focus();
+        input.select();
       }
-    } else if (e.key === 'Escape') {
-      resultsContainer.classList.add('hidden');
-    }
-  });
+    });
 
-  document.addEventListener('click', (e) => {
-    if (!document.getElementById('header-search-container')?.contains(e.target)) {
-      resultsContainer.classList.add('hidden');
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      input?.focus();
-      input?.select();
-    }
-    if (e.key === 'Escape') {
-      resultsContainer.classList.add('hidden');
-      input?.blur();
-    }
-  });
-
-  // Theme Toggle Handler
-  const themeBtn = document.getElementById('theme-toggle');
-  themeBtn?.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.theme = isDark ? 'dark' : 'light';
-  });
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const syncThemeLabel = () => themeBtn?.setAttribute('aria-label', document.documentElement.classList.contains('dark') ? 'Switch to light theme' : 'Switch to dark theme');
+    syncThemeLabel();
+    themeBtn?.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+      syncThemeLabel();
+    });
+  })();
 </script>

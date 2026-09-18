@@ -170,27 +170,27 @@ const schema = [
   schema={schema}
   ogType="website"
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumbs -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium" aria-label="Breadcrumb">
       <a href={`${base}/`} class="hover:text-slate-900 transition-colors">Home</a>
       <span>/</span>
       <a href={`${base}/tools`} class="hover:text-slate-900 transition-colors">Tools</a>
       <span>/</span>
-      <span class="text-slate-800 font-semibold truncate">Public DNS Directory</span>
+      <span class="text-slate-800 dark:text-[#e8eaed] font-semibold truncate">Public DNS Directory</span>
     </nav>
 
     <!-- Header -->
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-brand-700 text-xs font-bold uppercase mb-2 border border-sky-200 shadow-2xs">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/80 text-brand-700 dark:text-sky-300 text-xs font-bold uppercase mb-2 border border-sky-200 shadow-2xs">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
         🌐 High-Performance Resolvers
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
         Free Public DNS Server Directory
       </h1>
-      <p class="text-xs sm:text-sm text-slate-600">
+      <p class="text-sm sm:text-base text-slate-600 dark:text-[#bdc1c6]">
         Upgrade your router or device with faster lookup speeds, malware protection, and ad blocking.
       </p>
     </header>
@@ -198,10 +198,10 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- Live Browser DNS Latency Benchmark Box -->
-    <div class="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 text-white rounded-3xl p-5 sm:p-7 border border-slate-800 shadow-card space-y-4">
+    <div class="bg-gradient-to-br from-slate-900 via-[#292a2d] to-slate-900 text-white rounded-3xl p-5 sm:p-7 border border-slate-800 shadow-card space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <span class="text-[10px] font-mono text-sky-400 font-bold uppercase tracking-widest">Real-Time Benchmark</span>
+          <span class="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest">Real-Time Benchmark</span>
           <h2 class="text-lg font-bold text-white mt-0.5">Test DNS Resolver Latency from Your Browser</h2>
         </div>
         <button 
@@ -216,19 +216,19 @@ const schema = [
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
         <div class="p-3 rounded-xl bg-white/5 border border-white/10">
           <div class="text-[11px] text-slate-300 font-semibold">Cloudflare (1.1.1.1)</div>
-          <div class="text-xl font-mono font-black text-amber-400 mt-1" id="lat-cf">-- <span class="text-xs font-normal text-[#80868b]">ms</span></div>
+          <div class="text-xl font-mono font-black text-amber-400 mt-1" id="lat-cf">-- <span class="text-xs font-normal text-[#5f6368]">ms</span></div>
         </div>
         <div class="p-3 rounded-xl bg-white/5 border border-white/10">
           <div class="text-[11px] text-slate-300 font-semibold">Google (8.8.8.8)</div>
-          <div class="text-xl font-mono font-black text-sky-400 mt-1" id="lat-google">-- <span class="text-xs font-normal text-[#80868b]">ms</span></div>
+          <div class="text-xl font-mono font-black text-sky-400 mt-1" id="lat-google">-- <span class="text-xs font-normal text-[#5f6368]">ms</span></div>
         </div>
         <div class="p-3 rounded-xl bg-white/5 border border-white/10">
           <div class="text-[11px] text-slate-300 font-semibold">Quad9 (9.9.9.9)</div>
-          <div class="text-xl font-mono font-black text-purple-400 mt-1" id="lat-quad9">-- <span class="text-xs font-normal text-[#80868b]">ms</span></div>
+          <div class="text-xl font-mono font-black text-purple-400 mt-1" id="lat-quad9">-- <span class="text-xs font-normal text-[#5f6368]">ms</span></div>
         </div>
         <div class="p-3 rounded-xl bg-white/5 border border-white/10">
           <div class="text-[11px] text-slate-300 font-semibold">AdGuard (94.140.14.14)</div>
-          <div class="text-xl font-mono font-black text-emerald-400 mt-1" id="lat-adguard">-- <span class="text-xs font-normal text-[#80868b]">ms</span></div>
+          <div class="text-xl font-mono font-black text-emerald-400 mt-1" id="lat-adguard">-- <span class="text-xs font-normal text-[#5f6368]">ms</span></div>
         </div>
       </div>
     </div>
@@ -243,12 +243,12 @@ const schema = [
               <h3 class="text-base font-extrabold text-[#202124] dark:text-white">
                 {provider.name}
               </h3>
-              <span class={`text-[10px] font-bold px-2 py-0.5 rounded-md border shadow-2xs ${provider.badgeColor} dark:bg-opacity-20`}>
+              <span class={`text-xs font-bold px-2 py-0.5 rounded-md border shadow-2xs ${provider.badgeColor} dark:bg-opacity-20`}>
                 {provider.badge}
               </span>
             </div>
             
-            <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mb-3">
+            <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] mb-3">
               {provider.tagline}
             </p>
 
@@ -256,20 +256,20 @@ const schema = [
             <div class="space-y-1.5 font-mono text-xs">
               <div class="p-2 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between">
                 <div>
-                  <span class="text-[9px] font-sans font-bold uppercase text-[#80868b] dark:text-[#9aa0a6] block">Primary IPv4</span>
+                  <span class="text-xs font-sans font-bold uppercase text-[#5f6368] dark:text-[#9aa0a6] block">Primary IPv4</span>
                   <span class="font-bold text-[#202124] dark:text-white">{provider.primaryIpv4}</span>
                 </div>
-                <button class="copy-dns-btn px-2 py-1 rounded bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 text-[10px] font-sans font-bold text-[#1a73e8] dark:text-[#8ab4f8] transition-colors cursor-pointer" data-val={provider.primaryIpv4}>
+                <button class="copy-dns-btn px-2 py-1 rounded bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 text-xs font-sans font-bold text-[#1a73e8] dark:text-[#8ab4f8] transition-colors cursor-pointer" data-val={provider.primaryIpv4}>
                   Copy
                 </button>
               </div>
 
               <div class="p-2 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between">
                 <div>
-                  <span class="text-[9px] font-sans font-bold uppercase text-[#80868b] dark:text-[#9aa0a6] block">Secondary IPv4</span>
+                  <span class="text-xs font-sans font-bold uppercase text-[#5f6368] dark:text-[#9aa0a6] block">Secondary IPv4</span>
                   <span class="font-bold text-[#3c4043] dark:text-[#bdc1c6]">{provider.secondaryIpv4}</span>
                 </div>
-                <button class="copy-dns-btn px-2 py-1 rounded bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 text-[10px] font-sans font-bold text-[#1a73e8] dark:text-[#8ab4f8] transition-colors cursor-pointer" data-val={provider.secondaryIpv4}>
+                <button class="copy-dns-btn px-2 py-1 rounded bg-white dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 text-xs font-sans font-bold text-[#1a73e8] dark:text-[#8ab4f8] transition-colors cursor-pointer" data-val={provider.secondaryIpv4}>
                   Copy
                 </button>
               </div>
@@ -278,7 +278,7 @@ const schema = [
             <!-- Features Chips -->
             <div class="flex flex-wrap gap-1.5 mt-3">
               {provider.features.map(f => (
-                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6]">
+                <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6]">
                   ✓ {f}
                 </span>
               ))}
@@ -286,8 +286,8 @@ const schema = [
           </div>
 
           <!-- IPv6 Accordion Preview -->
-          <div class="pt-2 border-t border-[#e8eaed] dark:border-[#3c4043] text-[10px] font-mono text-[#5f6368] dark:text-[#9aa0a6] truncate">
-            <span class="font-sans font-bold text-[#80868b] dark:text-[#9aa0a6]">IPv6:</span> {provider.primaryIpv6}
+          <div class="pt-2 border-t border-[#e8eaed] dark:border-[#3c4043] text-xs font-mono text-[#5f6368] dark:text-[#9aa0a6] truncate">
+            <span class="font-sans font-bold text-[#5f6368] dark:text-[#9aa0a6]">IPv6:</span> {provider.primaryIpv6}
           </div>
         </div>
       ))}
@@ -417,22 +417,22 @@ const schema = [
     if (!btnBench) return;
     btnBench.innerHTML = '<span>🔄</span> Testing...';
 
-    if (latCf) latCf.innerHTML = `... <span class="text-xs font-normal text-[#80868b]">ms</span>`;
-    if (latGoogle) latGoogle.innerHTML = `... <span class="text-xs font-normal text-[#80868b]">ms</span>`;
-    if (latQuad9) latQuad9.innerHTML = `... <span class="text-xs font-normal text-[#80868b]">ms</span>`;
-    if (latAdguard) latAdguard.innerHTML = `... <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (latCf) latCf.innerHTML = `... <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
+    if (latGoogle) latGoogle.innerHTML = `... <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
+    if (latQuad9) latQuad9.innerHTML = `... <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
+    if (latAdguard) latAdguard.innerHTML = `... <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
 
     const cfMs = await pingDohEndpoint('https://cloudflare-dns.com/dns-query');
-    if (latCf) latCf.innerHTML = `${cfMs} <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (latCf) latCf.innerHTML = `${cfMs} <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
 
     const googleMs = await pingDohEndpoint('https://dns.google/resolve');
-    if (latGoogle) latGoogle.innerHTML = `${googleMs} <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (latGoogle) latGoogle.innerHTML = `${googleMs} <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
 
     const quad9Ms = await pingDohEndpoint('https://dns.quad9.net/dns-query');
-    if (latQuad9) latQuad9.innerHTML = `${quad9Ms} <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (latQuad9) latQuad9.innerHTML = `${quad9Ms} <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
 
     const adguardMs = await pingDohEndpoint('https://dns.adguard-dns.com/resolve');
-    if (latAdguard) latAdguard.innerHTML = `${adguardMs} <span class="text-xs font-normal text-[#80868b]">ms</span>`;
+    if (latAdguard) latAdguard.innerHTML = `${adguardMs} <span class="text-xs font-normal text-[#5f6368]">ms</span>`;
 
     btnBench.innerHTML = '<span>⚡</span> Test Again';
   }

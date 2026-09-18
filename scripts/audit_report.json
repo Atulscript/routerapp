@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-09-18T04:03:41.356Z",
+  "metrics": {
+    "gatewayIps": 90,
+    "brands": 836,
+    "isps": 91,
+    "models": 2585
+  },
+  "findings": {
+    "criticalErrors": [],
+    "warnings": [],
+    "ipAnomalies": [],
+    "credentialAnomalies": [],
+    "specAnomalies": [],
+    "foreignKeyAnomalies": []
+  }
+}

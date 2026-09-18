@@ -1,0 +1,35 @@
+---
+// Small model thumbnail for table rows: the product photo when we have one,
+// otherwise a neutral router mark so every row looks complete.
+import { getModelPhoto } from '../lib/model-images';
+import RouterGlyph from './RouterGlyph.astro';
+
+interface Props {
+  slug?: string | null;
+  name: string;
+  class?: string;
+}
+
+const { slug, name, class: className = '' } = Astro.props;
+const photo = getModelPhoto(slug);
+---
+
+{photo ? (
+  <img
+    src={photo.url}
+    alt=""
+    width="44"
+    height="32"
+    loading="lazy"
+    decoding="async"
+    class={`w-11 h-8 object-contain rounded-lg bg-white border border-[#e8eaed] dark:border-[#5f6368] flex-shrink-0 ${className}`}
+  />
+) : (
+  <span
+    class={`w-11 h-8 rounded-lg bg-[#f1f3f4] dark:bg-[#303134] border border-[#e8eaed] dark:border-[#5f6368] text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-center flex-shrink-0 ${className}`}
+    role="img"
+    aria-label={`${name} (no photo available)`}
+  >
+    <RouterGlyph class="w-5 h-5" />
+  </span>
+)}

@@ -1,11 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import IpCard from '../components/IpCard.astro';
+import CardFilterBar from '../components/CardFilterBar.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { GATEWAY_IPS } from '../lib/data-loader';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Bucket each gateway by its RFC 1918 block, the same ranges the table further
+// down the page explains. Chips that teach something beat chips that only filter.
+function ipRange(ip: string): string {
+  if (ip.startsWith('192.168.')) return '192.168';
+  if (ip.startsWith('10.')) return '10';
+  const second = Number(ip.split('.')[1]);
+  if (ip.startsWith('172.') && second >= 16 && second <= 31) return '172';
+  return 'other';
+}
+
+const rangeLabels: Record<string, string> = {
+  '192.168': '192.168.x.x',
+  '10': '10.x.x.x',
+  '172': '172.16-31.x.x',
+  other: 'Other',
+};
+
+const rangeChips = ['192.168', '10', '172', 'other']
+  .filter(key => GATEWAY_IPS.some(item => ipRange(item.ip) === key))
+  .map(key => ({ value: key, label: rangeLabels[key] }));
 const title = "Default Router Gateway IP Addresses Directory | 19216811.page";
 const description = "Comprehensive directory of private default gateway IP addresses (192.168.1.1, 192.168.0.1, 10.0.0.1, 192.168.2.1). Step-by-step router admin login access and IP subnet classes.";
 const keywords = [
@@ -91,10 +113,10 @@ const schema = [
   schema={schema}
   ogType="website"
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium" aria-label="Breadcrumb">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
       <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">Gateway IPs</span>
@@ -108,7 +130,7 @@ const schema = [
       <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         Router IP Addresses
       </h1>
-      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6]">
         Browse common private IP addresses designated for local wireless router configuration panels.
       </p>
     </header>
@@ -116,18 +138,40 @@ const schema = [
     <AdBanner format="leaderboard" />
 
     <!-- IP Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-      {GATEWAY_IPS.map(item => (
-        <IpCard data={item} />
-      ))}
-    </div>
+    <section id="ip-index">
+      <CardFilterBar
+        chips={rangeChips}
+        placeholder="Filter by IP or brand…"
+        label="Filter gateway IP addresses by address or brand"
+        chipsLabel="Filter by private IP range"
+        total={GATEWAY_IPS.length}
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-4">
+        {GATEWAY_IPS.map(item => (
+          <div class="cf-item" data-k={ipRange(item.ip)}>
+            <IpCard data={item} />
+          </div>
+        ))}
+      </div>
+
+      <p class="cf-empty text-center text-sm text-[#5f6368] dark:text-[#9aa0a6] py-10" hidden>
+        No gateway IPs match that search.
+        <button type="button" class="cf-resetter text-[#1a73e8] dark:text-[#8ab4f8] font-semibold hover:underline cursor-pointer">Reset the filters</button>
+      </p>
+    </section>
+
+    <script>
+      import { initCardFilter } from '../scripts/card-filter';
+      initCardFilter('ip-index');
+    </script>
 
     <AdBanner format="horizontal" />
 
     <!-- Technical SEO Explanation Table -->
     <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3.5 transition-colors">
       <h2 class="text-lg font-bold text-[#202124] dark:text-white">Private IP Address Ranges Explained (RFC 1918)</h2>
-      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+      <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
         The Internet Engineering Task Force (IETF) reserved specific ranges of IPv4 addresses strictly for private local area networks (LAN). These addresses cannot be routed across the public internet:
       </p>
 
@@ -171,14 +215,14 @@ const schema = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
         <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <strong class="text-[#202124] dark:text-white block font-semibold text-xs">⚠️ Avoiding IP Conflicts on Two Routers</strong>
-          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+          <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             If connecting a secondary router, ensure both do not share the same IP (192.168.1.1). Change the secondary router to <strong>192.168.2.1</strong> or switch it to Access Point (AP) mode.
           </p>
         </div>
 
         <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <strong class="text-[#202124] dark:text-white block font-semibold text-xs">🛠️ Rescuing an Unresponsive Router</strong>
-          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+          <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             If DHCP fails, set a static IP like <code class="font-mono bg-white dark:bg-slate-700 px-1 py-0.5 rounded border dark:border-slate-600">192.168.1.50</code> with subnet <code class="font-mono bg-white dark:bg-slate-700 px-1 py-0.5 rounded border dark:border-slate-600">255.255.255.0</code> to reconnect.
           </p>
         </div>
