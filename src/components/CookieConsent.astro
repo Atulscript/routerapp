@@ -2,70 +2,50 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<div 
-  id="cookie-consent-banner" 
-  class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xl z-50 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none font-sans"
+<div
+  id="cookie-consent-banner"
+  role="dialog"
+  aria-live="polite"
+  aria-labelledby="cookie-consent-title"
+  aria-describedby="cookie-consent-text"
+  hidden
+  class="fixed z-50 inset-x-3 bottom-[5.5rem] md:bottom-3 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:max-w-sm bg-white dark:bg-[#292a2d] text-[#202124] dark:text-[#e8eaed] rounded-2xl border border-[#dadce0] dark:border-[#5f6368] shadow-2xl p-4 sm:p-5"
 >
-  <div class="flex items-start gap-3">
-    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-lg flex-shrink-0 shadow-2xs">
-      🍪
-    </div>
-    <div class="space-y-1.5 flex-1">
-      <h3 class="text-xs font-bold text-slate-900">Cookie & Privacy Notice</h3>
-      <p class="text-[11px] text-slate-600 leading-relaxed">
-        We use cookies and third-party advertising partners (such as Google AdSense) to serve relevant advertisements, measure performance, and deliver a personalized browsing experience.
-      </p>
-      <div class="flex items-center gap-2 pt-2">
-        <button 
-          id="accept-cookies-btn" 
-          type="button" 
-          class="px-3.5 py-1.5 bg-slate-900 hover:bg-[#1a73e8] text-white rounded-xl text-xs font-bold transition-all active:scale-95 shadow-2xs cursor-pointer"
-        >
-          Accept All
-        </button>
-        <button 
-          id="decline-cookies-btn" 
-          type="button" 
-          class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition-all active:scale-95 cursor-pointer"
-        >
-          Necessary Only
-        </button>
-        <a 
-          href={`${base}/privacy-policy`} 
-          class="text-[11px] font-semibold text-brand-600 hover:underline ml-auto"
-        >
-          Privacy Policy
-        </a>
-      </div>
-    </div>
+  <h2 id="cookie-consent-title" class="text-sm font-bold">Cookies on this site</h2>
+  <p id="cookie-consent-text" class="mt-1.5 text-sm leading-relaxed text-[#5f6368] dark:text-[#bdc1c6]">
+    We use cookies to show ads through Google AdSense and to measure how the site is used.
+    <a href={`${base}/privacy-policy`} class="font-medium text-[#1a73e8] dark:text-[#8ab4f8] underline underline-offset-2">Privacy policy</a>
+  </p>
+  <div class="mt-4 grid grid-cols-2 gap-2">
+    <button id="decline-cookies-btn" type="button" class="h-10 rounded-full text-sm font-medium bg-[#f1f3f4] dark:bg-[#3c4043] hover:bg-[#e8eaed] dark:hover:bg-[#4a4d51] transition-colors">
+      Necessary only
+    </button>
+    <button id="accept-cookies-btn" type="button" class="h-10 rounded-full text-sm font-medium bg-[#1a73e8] hover:bg-[#1557b0] text-white transition-colors">
+      Accept all
+    </button>
   </div>
 </div>
 
+<!-- Decide visibility before first paint, so the banner never pops in late -->
+<script is:inline>
+  try {
+    if (!localStorage.getItem('cookie_consent_19216811')) document.getElementById('cookie-consent-banner').hidden = false;
+  } catch (e) {}
+</script>
+
 <script>
-  function initCookieConsent() {
-    const banner = document.getElementById('cookie-consent-banner');
-    const acceptBtn = document.getElementById('accept-cookies-btn');
-    const declineBtn = document.getElementById('decline-cookies-btn');
-    
-    if (!banner) return;
+  const KEY = 'cookie_consent_19216811';
+  const banner = document.getElementById('cookie-consent-banner');
 
-    const consent = localStorage.getItem('cookie_consent_19216811');
-    if (!consent) {
-      setTimeout(() => {
-        banner.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-        banner.classList.add('translate-y-0', 'opacity-100');
-      }, 800);
-    }
+  let stored: string | null = null;
+  try { stored = localStorage.getItem(KEY); } catch {}
 
-    function hideBanner(value: string) {
-      localStorage.setItem('cookie_consent_19216811', value);
-      banner.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-      banner.classList.remove('translate-y-0', 'opacity-100');
-    }
-
-    acceptBtn?.addEventListener('click', () => hideBanner('accepted'));
-    declineBtn?.addEventListener('click', () => hideBanner('declined'));
+  if (banner && !stored) {
+    const choose = (value: string) => {
+      try { localStorage.setItem(KEY, value); } catch {}
+      banner.hidden = true;
+    };
+    document.getElementById('accept-cookies-btn')?.addEventListener('click', () => choose('accepted'));
+    document.getElementById('decline-cookies-btn')?.addEventListener('click', () => choose('declined'));
   }
-
-  document.addEventListener('DOMContentLoaded', initCookieConsent);
 </script>

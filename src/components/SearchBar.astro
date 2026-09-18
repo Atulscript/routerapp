@@ -111,7 +111,7 @@ const searchItems = [
 
 <div class="relative max-w-xl mx-auto w-full" id="search-container">
   <div class="relative flex items-center bg-white dark:bg-[#292a2d] rounded-2xl shadow-xs border border-[#dadce0] dark:border-[#3c4043] hover:border-slate-300 dark:hover:border-slate-700 focus-within:border-[#1a73e8] focus-within:ring-4 focus-within:ring-brand-500/10 transition-all duration-150">
-    <div class="pl-4 pr-2 pointer-events-none text-[#80868b] dark:text-[#9aa0a6] flex items-center">
+    <div class="pl-4 pr-2 pointer-events-none text-[#5f6368] dark:text-[#9aa0a6] flex items-center">
       <svg class="w-4 h-4 text-[#1a73e8] dark:text-[#8ab4f8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
       </svg>
@@ -128,12 +128,12 @@ const searchItems = [
       <button 
         id="search-clear" 
         type="button"
-        class="text-[#80868b] hover:text-slate-600 dark:hover:text-slate-300 hidden text-xs font-bold px-1.5 py-0.5 rounded hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] transition-colors"
+        class="text-[#5f6368] hover:text-slate-600 dark:hover:text-slate-300 hidden text-xs font-bold px-1.5 py-0.5 rounded hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] transition-colors"
         aria-label="Clear search"
       >
         ✕
       </button>
-      <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-semibold text-[#80868b] dark:text-[#9aa0a6] bg-[#f1f3f4] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded">
+      <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono font-semibold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f1f3f4] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] rounded">
         /
       </kbd>
     </div>
@@ -146,9 +146,9 @@ const searchItems = [
     role="listbox"
   >
     <div id="results-list"></div>
-    <div class="px-3 py-2 bg-slate-50 dark:bg-slate-850 border-t border-[#e8eaed] dark:border-[#3c4043] text-[10px] text-[#80868b] dark:text-[#9aa0a6] flex items-center justify-between">
-      <span>Use <kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-[9px]">↑</kbd> <kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-[9px]">↓</kbd> to navigate</span>
-      <span><kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-[9px]">Enter</kbd> to select · <kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-[9px]">Esc</kbd> to dismiss</span>
+    <div class="px-3 py-2 bg-slate-50 dark:bg-[#292a2d] border-t border-[#e8eaed] dark:border-[#3c4043] text-xs text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-between">
+      <span>Use <kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-xs">↑</kbd> <kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-xs">↓</kbd> to navigate</span>
+      <span><kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-xs">Enter</kbd> to select · <kbd class="px-1 py-0.5 bg-white dark:bg-slate-800 border dark:border-slate-700 rounded font-mono text-xs">Esc</kbd> to dismiss</span>
     </div>
   </div>
 </div>
@@ -189,7 +189,7 @@ const searchItems = [
       resultsList.innerHTML = `
         <div class="p-5 text-center text-xs text-[#5f6368] dark:text-[#9aa0a6] space-y-1">
           <p>No matches found for "<strong class="text-[#202124] dark:text-[#e8eaed]">${query}</strong>"</p>
-          <p class="text-[11px] text-[#80868b] dark:text-[#9aa0a6]">Try searching for "192.168.1.1", "TP-Link", "Speed Test", or "Subnet"</p>
+          <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">Try searching for "192.168.1.1", "TP-Link", "Speed Test", or "Subnet"</p>
         </div>
       `;
     } else {
@@ -200,7 +200,7 @@ const searchItems = [
           class="search-item flex items-center justify-between px-3.5 py-2.5 hover:bg-[#f8fafd] dark:hover:bg-[#35373a] transition-colors group ${idx === 0 ? 'bg-slate-50/60 dark:bg-slate-800/60' : ''}"
         >
           <div class="flex items-center gap-2.5 min-w-0">
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md border ${item.badgeColor || 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'} flex-shrink-0">
+            <span class="text-xs font-bold px-2 py-0.5 rounded-md border ${item.badgeColor || 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'} flex-shrink-0">
               ${item.category}
             </span>
             <div class="min-w-0">

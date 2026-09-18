@@ -125,7 +125,7 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium" aria-label="Breadcrumb">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
       <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">WiFi QR Generator</span>
@@ -140,7 +140,7 @@ const schema = [
       <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         WiFi QR Code Generator
       </h1>
-      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6]">
         Create a scannable QR code for your WiFi network so guests can connect instantly without typing passwords.
       </p>
     </header>
@@ -160,7 +160,7 @@ const schema = [
             type="text" 
             id="ssid-input" 
             placeholder="e.g. MyHome_WiFi_5G" 
-            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-semibold focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 focus:ring-2 focus:ring-[#1a73e8]/15 outline-none"
+            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-semibold focus:border-[#1a73e8] focus:bg-white dark:focus:bg-[#35373a] focus:ring-2 focus:ring-[#1a73e8]/15 outline-none"
             value="HomeNetwork_5G"
           />
         </div>
@@ -173,7 +173,7 @@ const schema = [
             type="text" 
             id="password-input" 
             placeholder="Enter your WiFi password" 
-            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-mono focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 focus:ring-2 focus:ring-[#1a73e8]/15 outline-none"
+            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-mono focus:border-[#1a73e8] focus:bg-white dark:focus:bg-[#35373a] focus:ring-2 focus:ring-[#1a73e8]/15 outline-none"
             value="SuperSecretPassword123"
           />
         </div>
@@ -184,7 +184,7 @@ const schema = [
           </label>
           <select 
             id="encryption-select" 
-            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-semibold focus:border-[#1a73e8] focus:bg-white dark:focus:bg-slate-750 outline-none cursor-pointer"
+            class="w-full px-3 py-2 bg-[#f8fafd] dark:bg-[#303134] border border-slate-300/80 dark:border-slate-700 rounded-xl text-[#202124] dark:text-white text-xs font-semibold focus:border-[#1a73e8] focus:bg-white dark:focus:bg-[#35373a] outline-none cursor-pointer"
           >
             <option value="WPA">WPA / WPA2 / WPA3 (Standard)</option>
             <option value="WEP">WEP (Older routers)</option>
@@ -221,7 +221,7 @@ const schema = [
         <div class="text-[11px] font-mono text-[#3c4043] dark:text-[#bdc1c6] font-bold truncate max-w-[180px]" id="preview-ssid">
           SSID: HomeNetwork_5G
         </div>
-        <p class="text-[10px] text-[#80868b] dark:text-[#9aa0a6] mt-0.5">Scan with iPhone Camera or Google Lens</p>
+        <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">Scan with iPhone Camera or Google Lens</p>
       </div>
 
     </div>

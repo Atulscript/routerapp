@@ -3,8 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PasswordTable from '../components/PasswordTable.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
-import RouterGuideCard from '../components/RouterGuideCard.astro';
-import { getAllSlugs, getBrandSlug, getIpSlug, getModelSlug, getModelsForIp, getModelsForBrand, formatModelTitle, GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
+import RouterChecker from '../components/RouterChecker.astro';
+import LoginStepper from '../components/LoginStepper.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+import ModelImage from '../components/ModelImage.astro';
+import { getAllSlugs, getBrandSlug, getIpSlug, getModelSlug, getModelsForIp, getModelsForBrand, getBrandsByPopularity, brandKey, formatModelTitle, GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
 import type { GatewayIp, Brand, Isp, RouterModel } from '../lib/types';
 
 export async function getStaticPaths() {
@@ -160,7 +163,7 @@ if (type === 'ip') {
       "@type": "HowTo",
       "name": `How to Configure ${brandData.name} Wireless Router`,
       "description": `Step-by-step setup and admin password guide for ${brandData.name} hardware.`,
-      "step": brandData.guide.map((step, idx) => ({
+      "step": (brandData.guide || (brandData as any).instructions || []).map((step: string, idx: number) => ({
         "@type": "HowToStep",
         "position": idx + 1,
         "name": `Step ${idx + 1}`,
@@ -412,10 +415,7 @@ if (type === 'ip') {
   canonical={currentCanonical}
   schema={schemas}
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
-
-    <!-- Top Leaderboard Ad Slot -->
-    <AdBanner format="leaderboard" />
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
 
     {/* ========================================================= */}
     {/* VIEW 1: GATEWAY IP PAGE */}
@@ -428,7 +428,7 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/ip-addresses`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">IP Gateways</a>
@@ -447,7 +447,7 @@ if (type === 'ip') {
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
                   {ipData.ip} Router Admin Login
                 </h1>
-                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1.5 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1.5 max-w-2xl leading-relaxed">
                   {ipData.description}
                 </p>
               </div>
@@ -459,7 +459,7 @@ if (type === 'ip') {
                   rel="noopener noreferrer"
                   class="g-btn-primary"
                 >
-                  <span>Open http://{ipData.ip}</span>
+                  <span>Open {`http://${ipData.ip}`}</span>
                   <span class="text-xs">↗</span>
                 </a>
               </div>
@@ -467,56 +467,79 @@ if (type === 'ip') {
 
             {/* Quick Metrics */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ipData.ip}</div>
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.ip}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={ipData.ip}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ipData.defaultUser || '(blank)'}</div>
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.defaultUser || '(blank)'}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={ipData.defaultUser}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ipData.defaultPass || '(blank)'}</div>
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.defaultPass || '(blank)'}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={ipData.defaultPass}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
             </div>
           </header>
 
-          {/* Universal 3-Step Setup Guide */}
-          <RouterGuideCard 
-            entityName={ipData.ip} 
-            ipAddress={ipData.ip}
-            brandName={ipData.commonBrands[0] || 'Router'} 
-          />
+          <AdBanner format="horizontal" />
+
+          {/* Which brands use this address */}
+          {ipData.commonBrands.length > 0 && (
+            <section class="g-card p-4 sm:p-5 space-y-3">
+              <h2 class="text-sm font-bold text-[#202124] dark:text-white">
+                Brands that use {ipData.ip}
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                {ipData.commonBrands.map(brandName => {
+                  const slug = getBrandSlug(brandName);
+                  return slug ? (
+                    <a href={`${base}/${slug}`} class="g-chip inline-flex items-center gap-1.5">
+                      <BrandLogo slug={slug} name={brandName} size="xs" />
+                      {brandName}
+                    </a>
+                  ) : (
+                    <span class="g-chip cursor-default">{brandName}</span>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* Guide and live check sit side by side on wide screens */}
+          <div class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
+            <LoginStepper ip={ipData.ip} user={ipData.defaultUser} pass={ipData.defaultPass} brandName={ipData.commonBrands[0]} class="xl:col-span-3" />
+            <RouterChecker focusIp={ipData.ip} limit={8} class="xl:col-span-2" />
+          </div>
 
           {/* Associated Router Models */}
           {associatedModels.length > 0 && (
@@ -527,7 +550,7 @@ if (type === 'ip') {
                     <span>📡</span>
                     Hardware Routers Using {ipData.ip} Gateway
                   </h2>
-                  <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+                  <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
                     Verified factory default credentials and model specifications
                   </p>
                 </div>
@@ -570,12 +593,21 @@ if (type === 'ip') {
       const brandModels = getModelsForBrand(brandData.slug);
       const finalModels = brandModels.length > 0 ? brandModels : brandData.models;
       const brandIpSlug = getIpSlug(brandData.defaultIp);
-      const otherBrands = BRANDS.filter(b => b.slug !== brandData.slug);
+      // defaultIp can list several addresses ("192.168.1.1 / tplinkwifi.net"); the button opens the first.
+      const brandPrimaryIp = brandData.defaultIp.split('/')[0].trim();
+      // 12 suggestions: up to 4 brands sharing this brand's gateway IP, then the brands with the most models.
+      const firstIp = (ip: string) => ip.split('/')[0].trim();
+      const byModels = getBrandsByPopularity();
+      const sameIp = byModels.filter(b => firstIp(b.defaultIp) === firstIp(brandData.defaultIp)).slice(0, 5);
+      const seen = new Set([brandKey(brandData.name)]);
+      const otherBrands = [...sameIp, ...byModels]
+        .filter(b => !seen.has(brandKey(b.name)) && seen.add(brandKey(b.name)))
+        .slice(0, 12);
 
       return (
         <article class="space-y-6">
           {/* Breadcrumbs */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/brands`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Brands</a>
@@ -586,10 +618,8 @@ if (type === 'ip') {
           {/* Hero Header Card */}
           <header class="g-card p-5 sm:p-7 space-y-5">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
-              <div class="flex items-start gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1a73e8] to-[#1557b0] text-white flex items-center justify-center text-lg font-bold shadow-xs flex-shrink-0">
-                  {brandData.name.slice(0, 2).toUpperCase()}
-                </div>
+              <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                <BrandLogo slug={brandData.slug} name={brandData.name} size="lg" />
                 <div>
                   <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
@@ -598,7 +628,7 @@ if (type === 'ip') {
                   <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
                     {brandData.name} Router Login & Default Passwords
                   </h1>
-                  <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                  <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
                     {brandData.description}
                   </p>
                 </div>
@@ -606,12 +636,12 @@ if (type === 'ip') {
 
               <div class="flex-shrink-0 flex items-center gap-2">
                 <a 
-                  href={`http://${brandData.defaultIp}`} 
+                  href={`http://${brandPrimaryIp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="g-btn-primary"
                 >
-                  <span>Open {brandData.defaultIp}</span>
+                  <span>Open {brandPrimaryIp}</span>
                   <span>↗</span>
                 </a>
               </div>
@@ -619,10 +649,10 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
                     {brandIpSlug ? (
                       <a href={`${base}/${brandIpSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                         {brandData.defaultIp}
@@ -634,46 +664,48 @@ if (type === 'ip') {
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={brandData.defaultIp}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
                     {brandData.defaultUser || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={brandData.defaultUser}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
                     {brandData.defaultPass || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={brandData.defaultPass}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
             </div>
           </header>
+
+          <AdBanner format="horizontal" />
 
           {/* Interactive Hardware Models Directory */}
           <section class="g-card p-5 sm:p-6 space-y-4">
@@ -683,7 +715,7 @@ if (type === 'ip') {
                   <span>📟</span>
                   {brandData.name} Hardware Models Catalog
                 </h2>
-                <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+                <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
                   Select any model below to view technical specs, port configuration, and setup guide
                 </p>
               </div>
@@ -707,7 +739,7 @@ if (type === 'ip') {
               </h2>
             </div>
             <ol class="space-y-3">
-              {brandData.guide.map((step, idx) => (
+              {(brandData.guide || (brandData as any).instructions || []).map((step: string, idx: number) => (
                 <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
                   <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
@@ -724,7 +756,7 @@ if (type === 'ip') {
               <span>🔄</span>
               <span>How to Hard Reset {brandData.name} Router to Factory Defaults</span>
             </div>
-            <p class="text-xs text-[#5f6368] dark:text-[#e8eaed] leading-relaxed">
+            <p class="text-sm text-[#5f6368] dark:text-[#e8eaed] leading-relaxed">
               If you forgot your customized admin password or cannot reach the web portal, locate the physical <strong>RESET</strong> pinhole button on the back of your {brandData.name} router. While powered on, press and hold the button with a paperclip for <strong>10 to 15 seconds</strong> until the power LED begins flashing. Release the button and wait 2 minutes for the unit to reboot with factory default credentials (<strong>User: {brandData.defaultUser || 'admin'} / Pass: {brandData.defaultPass || 'admin'}</strong>).
             </p>
           </section>
@@ -738,11 +770,15 @@ if (type === 'ip') {
               {otherBrands.map(b => (
                 <a 
                   href={`${base}/${b.slug}`}
-                  class="g-chip"
+                  class="g-chip inline-flex items-center gap-1.5"
                 >
+                  <BrandLogo slug={b.slug} name={b.name} size="xs" />
                   {b.name}
                 </a>
               ))}
+              <a href={`${base}/brands`} class="g-chip inline-flex items-center gap-1 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">
+                All {BRANDS.length} brands →
+              </a>
             </div>
           </section>
         </article>
@@ -761,7 +797,7 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] flex-wrap">
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] flex-wrap" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/routers`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Routers</a>
@@ -777,9 +813,15 @@ if (type === 'ip') {
 
           {/* Model Header Card */}
           <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
-              <div>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+              <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 flex-wrap mb-2.5">
+                  {brandSlug ? (
+                    <a href={`${base}/${brandSlug}`} class="inline-flex items-center gap-1.5 pr-2.5 py-0.5 rounded-full text-[11px] font-bold text-[#3c4043] dark:text-[#e8eaed] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]" title={`All ${model.brand} routers`}>
+                      <BrandLogo slug={brandSlug} name={model.brand} size="xs" />
+                      {model.brand}
+                    </a>
+                  ) : null}
                   <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8]">
                     {model.category}
                   </span>
@@ -798,30 +840,31 @@ if (type === 'ip') {
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
                   {model.brand} {model.model}
                 </h1>
-                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
                   {model.useCase}
                 </p>
+                <div class="mt-4">
+                  <a 
+                    href={`http://${model.ip}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="g-btn-primary"
+                  >
+                    <span>Open {`http://${model.ip}`}</span>
+                    <span class="text-xs">↗</span>
+                  </a>
+                </div>
               </div>
 
-              <div class="flex-shrink-0">
-                <a 
-                  href={`http://${model.ip}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="g-btn-primary"
-                >
-                  <span>Open http://{model.ip}</span>
-                  <span class="text-xs">↗</span>
-                </a>
-              </div>
+              <ModelImage model={model} eager class="w-full md:w-72 flex-shrink-0" />
             </div>
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
                     {ipSlug ? (
                       <a href={`${base}/${ipSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
                         {model.ip}
@@ -833,46 +876,48 @@ if (type === 'ip') {
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={model.ip}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Username</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
                     {model.username || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={model.username}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Password</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
                     {model.password || '(blank)'}
                   </div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={model.password}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
             </div>
           </header>
+
+          <AdBanner format="horizontal" />
 
           {/* Technical Specifications Matrix */}
           <section class="g-card p-5 sm:p-6 space-y-4">
@@ -930,16 +975,16 @@ if (type === 'ip') {
                     <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.throughput || 'Full Line-Rate Gigabit'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Operating System / Firmware</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.os || `${model.brand} Firmware`}</td>
-                  </tr>
-                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
                     <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Default Gateway URL</th>
                     <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
                       <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
-                        http://{model.ip} ↗
+                        {`http://${model.ip}`} ↗
                       </a>
                     </td>
+                  </tr>
+                  <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
+                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Operating System / Firmware</th>
+                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.os || `${model.brand} Firmware`}</td>
                   </tr>
                 </tbody>
               </table>
@@ -971,7 +1016,7 @@ if (type === 'ip') {
                   2
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8]">http://{model.ip}</code> into the address bar.
+                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8]">{`http://${model.ip}`}</code> into the address bar.
                 </span>
               </li>
               <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
@@ -1005,6 +1050,7 @@ if (type === 'ip') {
                     href={`${base}/${s.slug}`}
                     class="p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] border border-[#e8eaed] dark:border-[#3c4043] transition-colors block space-y-1.5"
                   >
+                    <ModelImage model={s} compact class="mb-2" />
                     <div class="text-xs font-bold text-[#202124] dark:text-white truncate">
                       {s.model}
                     </div>
@@ -1027,11 +1073,12 @@ if (type === 'ip') {
     {type === 'isp' && (() => {
       const ispData = data as Isp;
       const otherIsps = ISPS.filter(i => i.slug !== ispData.slug);
+      const ispPrimaryIp = ispData.defaultIp.split('/')[0].trim();
 
       return (
         <article class="space-y-6">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ispData.name}</span>
@@ -1040,27 +1087,30 @@ if (type === 'ip') {
           {/* Hero Header Card */}
           <header class="g-card p-5 sm:p-7 space-y-5">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
-              <div>
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
-                  Fiber Broadband Provider
+              <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                <BrandLogo slug={ispData.slug} name={ispData.name} size="lg" />
+                <div>
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
+                    Fiber Broadband Provider
+                  </div>
+                  <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
+                    {ispData.name} Router Login & Setup Guide
+                  </h1>
+                  <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                    {ispData.description}
+                  </p>
                 </div>
-                <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
-                  {ispData.name} Router Login & Setup Guide
-                </h1>
-                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
-                  {ispData.description}
-                </p>
               </div>
 
               <div class="flex-shrink-0">
                 <a 
-                  href={`http://${ispData.defaultIp}`} 
+                  href={`http://${ispPrimaryIp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="g-btn-primary"
                 >
-                  <span>Open http://{ispData.defaultIp}</span>
+                  <span>Open {ispPrimaryIp}</span>
                   <span class="text-xs">↗</span>
                 </a>
               </div>
@@ -1068,49 +1118,51 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ispData.defaultIp}</div>
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultIp}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={ispData.defaultIp}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default User</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ispData.defaultUser}</div>
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default User</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultUser}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={ispData.defaultUser}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Pass</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5">{ispData.defaultPass}</div>
+              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Pass</div>
+                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultPass}</div>
                 </div>
                 <button 
                   type="button" 
-                  class="copy-btn text-[11px] font-bold px-3 py-1 rounded-full bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-all cursor-pointer shadow-2xs"
+                  class="copy-btn g-copy-btn"
                   data-copy={ispData.defaultPass}
                 >
-                  📋 Copy
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                 </button>
               </div>
             </div>
           </header>
+
+          <AdBanner format="horizontal" />
 
           {/* Step-by-Step ONT Setup Guide */}
           <section class="g-card p-5 sm:p-6 space-y-4">
@@ -1165,7 +1217,7 @@ if (type === 'ip') {
           <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
             Frequently Asked Questions & Answers
           </h2>
-          <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+          <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
             Common troubleshooting solutions and login assistance
           </p>
         </div>
@@ -1188,7 +1240,7 @@ if (type === 'ip') {
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1221,7 +1273,7 @@ if (type === 'ip') {
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1254,7 +1306,7 @@ if (type === 'ip') {
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1287,7 +1339,7 @@ if (type === 'ip') {
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1299,25 +1351,3 @@ if (type === 'ip') {
   </div>
 </BaseLayout>
 
-<script>
-  // Single-click copy handler for buttons with data-copy attribute
-  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const textToCopy = button.getAttribute('data-copy');
-      if (!textToCopy) return;
-
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalText = button.innerHTML;
-        button.innerHTML = '✓ Copied';
-        button.classList.add('bg-[#34a853]', 'text-white', 'border-[#34a853]');
-        button.classList.remove('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]');
-
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.classList.remove('bg-[#34a853]', 'text-white', 'border-[#34a853]');
-          button.classList.add('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]');
-        }, 1500);
-      });
-    });
-  });
-</script>

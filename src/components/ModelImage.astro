@@ -1,0 +1,38 @@
+---
+// Product photo when scripts/fetch-model-images.mjs found one, otherwise the drawn illustration.
+import type { RouterModel } from '../lib/types';
+import { getModelPhoto } from '../lib/model-images';
+import RouterIllustration from './RouterIllustration.astro';
+
+interface Props {
+  model: Pick<RouterModel, 'brand' | 'brandSlug' | 'model' | 'slug' | 'category' | 'wifiStandard'>;
+  compact?: boolean;
+  eager?: boolean;
+  class?: string;
+}
+
+const { model, compact = false, eager = false, class: className = '' } = Astro.props;
+const photo = getModelPhoto(model.slug);
+---
+
+{photo ? (
+  <figure class={`relative overflow-hidden rounded-2xl border border-[#e8eaed] dark:border-[#3c4043] bg-white ${className}`}>
+    <img
+      src={photo.url}
+      alt={`${model.brand} ${model.model} ${model.category.toLowerCase()} router`}
+      width="600"
+      height="450"
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+      decoding="async"
+      class="w-full h-auto block aspect-[16/11] object-contain"
+    />
+    {!compact && photo.sourceHost && (
+      <figcaption class="px-3 py-1.5 text-right text-[11px] text-[#5f6368] border-t border-[#f1f3f4]">
+        Image: <a href={photo.sourcePage} target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">{photo.sourceHost}</a>
+      </figcaption>
+    )}
+  </figure>
+) : (
+  <RouterIllustration model={model} compact={compact} class={className} />
+)}

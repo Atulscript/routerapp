@@ -1,5 +1,6 @@
 ---
-import { GATEWAY_IPS, BRANDS, ISPS } from '../lib/data-loader';
+import { GATEWAY_IPS, BRANDS, ISPS, getBrandsByPopularity } from '../lib/data-loader';
+import BrandLogo from './BrandLogo.astro';
 
 interface Props {
   currentSlug?: string;
@@ -8,10 +9,17 @@ interface Props {
 const { currentSlug = '' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-// Filter out current item from lists if needed
-const otherBrands = BRANDS.filter(b => b.slug !== currentSlug);
-const otherIsps = ISPS.filter(i => i.slug !== currentSlug);
-const otherIps = GATEWAY_IPS.filter(i => i.slug !== currentSlug);
+// Short lists with "view all" links. The current page's item always stays in its list.
+const limitWithCurrent = <T extends { slug: string }>(items: T[], limit: number) => {
+  const top = items.slice(0, limit);
+  const current = items.find(i => i.slug === currentSlug);
+  return current && !top.includes(current) ? [current, ...top.slice(0, limit - 1)] : top;
+};
+
+// Counts are balanced so the four equal-height boxes fill evenly (2 tiles per row in each).
+const shownIps = limitWithCurrent(GATEWAY_IPS, 12);
+const shownBrands = limitWithCurrent(getBrandsByPopularity(), 10);
+const shownIsps = limitWithCurrent(ISPS, 12);
 
 const tools = [
   { title: 'Speed Test', slug: 'speed-test', icon: '⚡', desc: 'Ping, Jitter, Mbps' },
@@ -23,167 +31,162 @@ const tools = [
   { title: 'Password Generator', slug: 'password-generator', icon: '🛡️', desc: 'WPA3 / Admin Keys' },
   { title: 'Default Passwords', slug: 'default-passwords', icon: '🔑', desc: 'Master Password List' }
 ];
+
+const boxClass = 'h-full flex flex-col gap-2.5 bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card';
+const countBadge = 'text-xs font-semibold text-[#5f6368] dark:text-[#e8eaed] bg-[#f1f3f4] dark:bg-[#3c4043] px-2 py-0.5 rounded-full whitespace-nowrap';
+// Full-width button pinned to the bottom of each box (mt-auto), so the CTAs line up across equal-height boxes.
+const ctaClass = 'g-btn-outlined w-full mt-auto font-semibold';
+const currentTile = 'bg-slate-900 dark:bg-[#174ea6] text-white border-slate-900 dark:border-[#174ea6] shadow-2xs';
 ---
 
 <div class="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 font-sans transition-colors duration-200">
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
     <div>
-      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/80 text-brand-700 dark:text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1 border border-sky-200 dark:border-sky-800">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/80 text-brand-700 dark:text-sky-300 text-xs font-bold uppercase tracking-wider mb-1 border border-sky-200 dark:border-sky-800">
         🔗 Universal Router Directory Network
       </div>
       <h2 class="text-lg font-extrabold text-[#202124] dark:text-white tracking-tight">
         Explore Gateway IPs, Router Brands & Utilities
       </h2>
     </div>
-    <div class="flex items-center gap-2 text-xs">
-      <a href={`${base}/brands`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 font-semibold hover:underline">All Brands →</a>
-      <span class="text-slate-300 dark:text-slate-700">|</span>
-      <a href={`${base}/ip-addresses`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-brand-800 dark:hover:text-brand-300 font-semibold hover:underline">All IPs →</a>
+    <div class="flex items-center gap-2">
+      <a href={`${base}/brands`} class="g-btn-secondary">All Brands <span aria-hidden="true">→</span></a>
+      <a href={`${base}/ip-addresses`} class="g-btn-secondary">All IPs <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
-  <!-- Multi-Section Interlinking Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-    
-    <!-- Column 1: Gateway IPs & Network Tools (5 cols) -->
-    <div class="md:col-span-5 space-y-4">
-      
-      <!-- Gateway IPs -->
-      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            Popular Gateway IP Addresses
-          </h3>
-          <a href={`${base}/ip-addresses`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
-            View All ({GATEWAY_IPS.length}) →
-          </a>
-        </div>
+  <!-- 2x2 grid: equal widths, and md:auto-rows-fr makes every box as tall as the tallest -->
+  <div class="grid grid-cols-1 md:grid-cols-2 md:auto-rows-fr gap-4">
 
-        <div class="grid grid-cols-2 gap-1.5">
-          {GATEWAY_IPS.map(ip => {
-            const isCurrent = ip.slug === currentSlug;
-            const targetUrl = ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`;
-            return (
-              <a 
-                href={targetUrl} 
-                class={`p-2.5 rounded-xl border text-xs font-mono font-bold transition-all flex items-center justify-between ${
-                  isCurrent 
-                    ? 'bg-slate-900 dark:bg-[#1a73e8] text-white border-slate-900 dark:border-[#1a73e8] shadow-2xs' 
-                    : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-[#e8f0fe]/50 dark:hover:bg-[#35373a] border-slate-200/80 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-brand-600 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
-                }`}
-              >
-                <span>{ip.ip}</span>
-                <span class={`text-[9px] font-sans font-normal ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-[#80868b] dark:text-[#9aa0a6]'}`}>
-                  {isCurrent ? 'Current' : 'Guide →'}
-                </span>
-              </a>
-            );
-          })}
-        </div>
+    <!-- Gateway IPs -->
+    <div class={boxClass}>
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          Popular Gateway IP Addresses
+        </h3>
+        <span class={countBadge}>{shownIps.length} of {GATEWAY_IPS.length}</span>
       </div>
 
-      <!-- Free Utility Tools & Directories -->
-      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-            Network Tools & Databases
-          </h3>
-          <a href={`${base}/tools`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
-            Tools Hub →
-          </a>
-        </div>
-
-        <div class="grid grid-cols-2 gap-1.5">
-          {tools.map(tool => (
-            <a 
-              href={`${base}/${tool.slug}`} 
-              class="p-2 rounded-xl bg-[#f8fafd] dark:bg-[#303134] hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200/70 dark:border-slate-700 text-xs transition-all flex items-center gap-2 group"
+      <div class="grid grid-cols-2 gap-1.5 content-start">
+        {shownIps.map(ip => {
+          const isCurrent = ip.slug === currentSlug;
+          const targetUrl = ip.slug === '192-168-1-1' ? `${base}/` : `${base}/${ip.slug}`;
+          return (
+            <a
+              href={targetUrl}
+              class={`p-2.5 rounded-xl border text-xs font-mono font-bold transition-all flex items-center justify-between gap-2 ${
+                isCurrent
+                  ? currentTile
+                  : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-[#e8f0fe]/50 dark:hover:bg-[#35373a] border-slate-200/80 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-brand-600 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
+              }`}
             >
-              <span class="text-base group-hover:scale-110 transition-transform">{tool.icon}</span>
-              <div class="min-w-0">
-                <div class="text-[11px] font-bold text-[#202124] dark:text-[#e8eaed] group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] truncate">{tool.title}</div>
-                <div class="text-[9px] text-[#80868b] dark:text-[#9aa0a6] truncate">{tool.desc}</div>
-              </div>
+              <span class="truncate">{ip.ip}</span>
+              <span class={`flex-shrink-0 text-xs font-sans font-normal ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-[#5f6368] dark:text-[#9aa0a6]'}`}>
+                {isCurrent ? 'Current' : 'Guide →'}
+              </span>
             </a>
-          ))}
-        </div>
+          );
+        })}
       </div>
-
+      <a href={`${base}/ip-addresses`} class={ctaClass}>View all {GATEWAY_IPS.length} gateway IPs <span aria-hidden="true">→</span></a>
     </div>
 
-    <!-- Column 2: Router Brands & Fiber ISPs (7 cols) -->
-    <div class="md:col-span-7 space-y-4">
-      
-      <!-- Router Brands -->
-      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-sky-500"></span>
-            Router Manufacturers ({BRANDS.length})
-          </h3>
-          <a href={`${base}/brands`} class="text-[10px] font-bold text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
-            Full Brand Directory →
-          </a>
-        </div>
+    <!-- Router Brands -->
+    <div class={boxClass}>
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+          Top Router Manufacturers
+        </h3>
+        <span class={countBadge}>{shownBrands.length} of {BRANDS.length}</span>
+      </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-          {BRANDS.map(brand => {
-            const isCurrent = brand.slug === currentSlug;
-            return (
-              <a 
-                href={`${base}/${brand.slug}`} 
-                class={`p-2 rounded-xl border text-xs transition-all flex flex-col justify-between ${
-                  isCurrent 
-                    ? 'bg-slate-900 dark:bg-[#1a73e8] text-white border-slate-900 dark:border-[#1a73e8] shadow-2xs' 
-                    : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-sky-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-brand-700 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
-                }`}
-              >
+      <div class="grid grid-cols-2 gap-1.5 content-start">
+        {shownBrands.map(brand => {
+          const isCurrent = brand.slug === currentSlug;
+          return (
+            <a
+              href={`${base}/${brand.slug}`}
+              class={`p-2 rounded-xl border text-xs transition-all flex items-center gap-2 min-w-0 ${
+                isCurrent
+                  ? currentTile
+                  : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-sky-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-brand-700 dark:hover:text-brand-300 hover:border-sky-300 dark:hover:border-sky-600'
+              }`}
+            >
+              <BrandLogo slug={brand.slug} name={brand.name} size="sm" />
+              <span class="min-w-0 flex flex-col">
                 <span class="font-bold text-[11px] truncate">{brand.name}</span>
-                <span class={`text-[9px] font-mono mt-0.5 ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-[#80868b] dark:text-[#9aa0a6]'}`}>
+                <span class={`text-xs font-mono mt-0.5 truncate ${isCurrent ? 'text-sky-300 dark:text-sky-100' : 'text-[#5f6368] dark:text-[#9aa0a6]'}`}>
                   {brand.defaultIp.split('/')[0].trim()}
                 </span>
-              </a>
-            );
-          })}
-        </div>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+      <a href={`${base}/brands`} class={ctaClass}>Browse all {BRANDS.length} brands <span aria-hidden="true">→</span></a>
+    </div>
+
+    <!-- Network Tools -->
+    <div class={boxClass}>
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+          Network Tools & Databases
+        </h3>
+        <span class={countBadge}>{tools.length} tools</span>
       </div>
 
-      <!-- Fiber Broadband ISPs -->
-      <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-2.5">
-        <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            Fiber Broadband ISPs & ONT Modems
-          </h3>
-          <span class="text-[10px] text-[#80868b] dark:text-[#9aa0a6] font-medium">Optical Gateway Setups</span>
-        </div>
+      <div class="grid grid-cols-2 gap-1.5 content-start">
+        {tools.map(tool => (
+          <a
+            href={`${base}/${tool.slug}`}
+            class="p-3 rounded-xl bg-[#f8fafd] dark:bg-[#303134] hover:bg-slate-100 dark:hover:bg-[#35373a] border border-slate-200/70 dark:border-slate-700 text-xs transition-all flex items-center gap-2 group"
+          >
+            <span class="text-base group-hover:scale-110 transition-transform">{tool.icon}</span>
+            <div class="min-w-0">
+              <div class="text-[11px] font-bold text-[#202124] dark:text-[#e8eaed] group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] truncate">{tool.title}</div>
+              <div class="text-xs text-[#5f6368] dark:text-[#9aa0a6] truncate">{tool.desc}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href={`${base}/tools`} class={ctaClass}>Open the tools hub <span aria-hidden="true">→</span></a>
+    </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
-          {ISPS.map(isp => {
-            const isCurrent = isp.slug === currentSlug;
-            return (
-              <a 
-                href={`${base}/${isp.slug}`} 
-                class={`p-2 rounded-xl border text-xs transition-all flex items-center justify-between ${
-                  isCurrent 
-                    ? 'bg-slate-900 dark:bg-[#1a73e8] text-white border-slate-900 dark:border-[#1a73e8] shadow-2xs' 
-                    : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-emerald-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-300 dark:hover:border-emerald-700'
-                }`}
-              >
-                <span class="font-bold text-[11px] truncate">{isp.name}</span>
-                <span class={`text-[9px] font-mono px-1 rounded ${isCurrent ? 'bg-slate-800 text-emerald-400' : 'bg-emerald-100/70 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300'}`}>
-                  {isp.defaultIp}
-                </span>
-              </a>
-            );
-          })}
-        </div>
+    <!-- Fiber Broadband ISPs -->
+    <div class={boxClass}>
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-xs font-bold text-[#202124] dark:text-white flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          Fiber Broadband ISPs & ONT Modems
+        </h3>
+        <span class={countBadge}>{shownIsps.length} of {ISPS.length}</span>
       </div>
 
+      <div class="grid grid-cols-2 gap-1.5 content-start">
+        {shownIsps.map(isp => {
+          const isCurrent = isp.slug === currentSlug;
+          return (
+            <a
+              href={`${base}/${isp.slug}`}
+              class={`p-2.5 rounded-xl border text-xs transition-all flex items-center justify-between gap-2 min-w-0 ${
+                isCurrent
+                  ? currentTile
+                  : 'bg-[#f8fafd] dark:bg-[#303134] hover:bg-emerald-50/80 dark:hover:bg-slate-700 border-slate-200/70 dark:border-slate-700 text-[#202124] dark:text-[#e8eaed] hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-300 dark:hover:border-emerald-700'
+              }`}
+            >
+              <span class="font-bold text-[11px] truncate">{isp.name}</span>
+              <span class={`flex-shrink-0 whitespace-nowrap text-xs font-mono px-1 rounded ${isCurrent ? 'bg-slate-800 text-emerald-400' : 'bg-emerald-100/70 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300'}`}>
+                {isp.defaultIp.split('/')[0].trim()}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+      <a href={`${base}/isps`} class={ctaClass}>View all {ISPS.length} ISP guides <span aria-hidden="true">→</span></a>
     </div>
 
   </div>
 </div>
-

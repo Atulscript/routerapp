@@ -1,0 +1,2418 @@
+{
+  "2wire": {
+    "file": "images/brands/2wire.svg",
+    "source": "commons:2wire logo.svg"
+  },
+  "3com": {
+    "file": "images/brands/3com.svg",
+    "source": "commons:3com logo.svg"
+  },
+  "3onedata": {
+    "file": "images/brands/3onedata.png",
+    "source": "https://www.3onedata.com/static/upload/other/20240219/1708327833967169.ico"
+  },
+  "6wind": {
+    "file": "images/brands/6wind.png",
+    "source": "https://www.6wind.com/wp-content/uploads/2020/11/icon-6wind-114.png"
+  },
+  "8devices": {
+    "file": "images/brands/8devices.png",
+    "source": "https://www.8devices.com/wp-content/themes/bricks-child/assets/favicons/apple-touch-icon.png"
+  },
+  "a1-telekom-austria": {
+    "file": "images/brands/a1-telekom-austria.png",
+    "source": "apple-touch-icon"
+  },
+  "abb": {
+    "file": "images/brands/abb.png",
+    "source": "google-favicon:abb.com"
+  },
+  "acc": {
+    "file": "images/brands/acc.png",
+    "source": "https://acc.net/wp-content/themes/acc/favicon.png"
+  },
+  "accelerated-concepts": {
+    "file": "images/brands/accelerated-concepts.png",
+    "source": "google-favicon:acceleratedconcepts.com"
+  },
+  "accton": {
+    "file": "images/brands/accton.png",
+    "source": "https://www.accton.com/wp-content/uploads/2024/07/Accton-blue-circle-icon.png"
+  },
+  "accton-technology": {
+    "file": "images/brands/accton-technology.png",
+    "source": "https://www.accton.com/wp-content/uploads/2024/07/Accton-blue-circle-icon.png"
+  },
+  "acer": {
+    "file": "images/brands/acer.png",
+    "source": "google-favicon:acer.com"
+  },
+  "act-fibernet": {
+    "file": "images/brands/act-fibernet.png",
+    "source": "https://www.actcorp.in/sites/default/files/favicon_1.png"
+  },
+  "act-fibernet-cpe": {
+    "file": "images/brands/act-fibernet-cpe.png",
+    "source": "https://www.actcorp.in/sites/default/files/favicon_1.png"
+  },
+  "actiontec": {
+    "file": "images/brands/actiontec.png",
+    "source": "https://actiontec.com/wp-content/uploads/2025/11/cropped-favicon-1-180x180.png"
+  },
+  "adb-broadband": {
+    "file": "images/brands/adb-broadband.png",
+    "source": "https://www.adb.net/assets/img/logo.png"
+  },
+  "addvalue-technologies": {
+    "file": "images/brands/addvalue-technologies.png",
+    "source": "google-favicon:addvalue.com"
+  },
+  "adtran": {
+    "file": "images/brands/adtran.png",
+    "source": "https://www.adtran.com/images/icons/adtran/apple-touch-icon-114x114.png"
+  },
+  "adtran-holdings": {
+    "file": "images/brands/adtran-holdings.png",
+    "source": "https://www.adtran.com/images/icons/adtran/apple-touch-icon-114x114.png"
+  },
+  "adva-optical-networking": {
+    "file": "images/brands/adva-optical-networking.png",
+    "source": "commons:ADVA Logo.png"
+  },
+  "advantech": {
+    "file": "images/brands/advantech.ico",
+    "source": "https://www.advantech.com/favicon.ico"
+  },
+  "aerohive-networks": {
+    "file": "images/brands/aerohive-networks.svg",
+    "source": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/74bd9198c8264d88804e525399036cd3?v=36246f18"
+  },
+  "aethra": {
+    "file": "images/brands/aethra.ico",
+    "source": "https://www.aethra.com/skin/frontend/base/default/favicon.ico"
+  },
+  "airspan": {
+    "file": "images/brands/airspan.svg",
+    "source": "https://airspan.com/wp-content/uploads/2023/10/Logo-Airspan-2.3.favicon.svg"
+  },
+  "airtel": {
+    "file": "images/brands/airtel.svg",
+    "source": "simple-icons:airtel"
+  },
+  "airtel-xstream": {
+    "file": "images/brands/airtel-xstream.png",
+    "source": "apple-touch-icon"
+  },
+  "airties": {
+    "file": "images/brands/airties.ico",
+    "source": "https://airties.com/wp-content/uploads/2024/11/Airties_favicon.ico"
+  },
+  "alcatel": {
+    "file": "images/brands/alcatel.png",
+    "source": "https://alcatel.net/favicon.ico"
+  },
+  "alcatel-1": {
+    "file": "images/brands/alcatel-1.png",
+    "source": "https://alcatel.net/favicon.ico"
+  },
+  "alcatel-lucent": {
+    "file": "images/brands/alcatel-lucent.png",
+    "source": "https://web-assets.al-enterprise.com/-/media/assets/internet/images/ale-logo.png?h=138&amp;w=505&amp;v=1&amp;d=20260304T131421Z&amp;hash=4C4C6CA59CDC673746786B8B20789923"
+  },
+  "alibaba-cloud": {
+    "file": "images/brands/alibaba-cloud.png",
+    "source": "google-favicon:alibabacloud.com"
+  },
+  "alkira": {
+    "file": "images/brands/alkira.png",
+    "source": "google-favicon:alkira.com"
+  },
+  "alliance-broadband": {
+    "file": "images/brands/alliance-broadband.ico",
+    "source": "https://www.alliance.com/favicon.ico?favicon.0b3bf435.ico"
+  },
+  "allied-telesis": {
+    "file": "images/brands/allied-telesis.ico",
+    "source": "https://www.alliedtelesis.com/favicon.ico"
+  },
+  "allot": {
+    "file": "images/brands/allot.svg",
+    "source": "https://www.allot.com/wp-content/themes/allot/assets/new-homepage/img/site-header/logo.svg"
+  },
+  "alpha-networks": {
+    "file": "images/brands/alpha-networks.png",
+    "source": "https://www.enersys.com/apple-touch-icon.png"
+  },
+  "alphion": {
+    "file": "images/brands/alphion.svg",
+    "source": "https://www.alphion.in/favicon.svg"
+  },
+  "altai-technologies": {
+    "file": "images/brands/altai-technologies.png",
+    "source": "https://www.altai.com/wp-content/themes/sard-atlai-capital/img/favicon.ico"
+  },
+  "althea": {
+    "file": "images/brands/althea.png",
+    "source": "https://www.althea.net/apple-touch-icon.png"
+  },
+  "amazon-eero": {
+    "file": "images/brands/amazon-eero.png",
+    "source": "apple-touch-icon"
+  },
+  "amazon-web-services": {
+    "file": "images/brands/amazon-web-services.png",
+    "source": "https://a0.awsstatic.com/libra-css/images/site/touch-icon-ipad-144-smile.png"
+  },
+  "amit-wireless": {
+    "file": "images/brands/amit-wireless.png",
+    "source": "https://www.amitwireless.com/images/touch-icon/touch-icon-ipad-retina.png"
+  },
+  "amplifi": {
+    "file": "images/brands/amplifi.png",
+    "source": "https://www.amplifi.com/logo192.png"
+  },
+  "antaira": {
+    "file": "images/brands/antaira.jpg",
+    "source": "apple-touch-icon"
+  },
+  "antex": {
+    "file": "images/brands/antex.png",
+    "source": "google-favicon:antex.net"
+  },
+  "apple": {
+    "file": "images/brands/apple.svg",
+    "source": "simple-icons:apple"
+  },
+  "apple-airport": {
+    "file": "images/brands/apple-airport.png",
+    "source": "google-favicon:appleairport.com"
+  },
+  "aquario": {
+    "file": "images/brands/aquario.svg",
+    "source": "https://www.aqurio.com/images/logo/favicon.svg"
+  },
+  "arcadyan": {
+    "file": "images/brands/arcadyan.png",
+    "source": "https://www.arcadyan.com/static/images/favicons/apple-touch-icon.0d96da06ac96.png"
+  },
+  "archer": {
+    "file": "images/brands/archer.png",
+    "source": "https://www.archer.com/apple-touch-icon.png"
+  },
+  "argela": {
+    "file": "images/brands/argela.png",
+    "source": "google-favicon:argela.com"
+  },
+  "arista": {
+    "file": "images/brands/arista.ico",
+    "source": "https://www.arista.com/favicon.ico"
+  },
+  "arrcus": {
+    "file": "images/brands/arrcus.png",
+    "source": "https://arrcus.com/favicon.ico"
+  },
+  "arris": {
+    "file": "images/brands/arris.svg",
+    "source": "https://www.surfboard.com/contentassets/ed512078d7e54598a54f2819a43f5093/arris-logo.svg"
+  },
+  "arris-international": {
+    "file": "images/brands/arris-international.png",
+    "source": "https://webresources.vistancenetworks.com/images/assets/Aurora_Logo_TM_RGB_Primary.png/Zz04NzRlN2U2MjA5NjExMWYxYmQzM2QyNzJiODQzODc3YQ==?checkExpiry=false"
+  },
+  "arris-surfboard": {
+    "file": "images/brands/arris-surfboard.svg",
+    "source": "https://www.surfboard.com/contentassets/ed512078d7e54598a54f2819a43f5093/arris-logo.svg"
+  },
+  "aruba-networks": {
+    "file": "images/brands/aruba-networks.svg",
+    "source": "https://dq4bh2q7nd2al.cloudfront.net/webfiles/1738149069042/img/ata/aruba_logo.svg"
+  },
+  "aryaka-networks": {
+    "file": "images/brands/aryaka-networks.ico",
+    "source": "https://www.aryaka.com/favicon.ico?v=4.9"
+  },
+  "ascend-communications": {
+    "file": "images/brands/ascend-communications.svg",
+    "source": "commons:Ascend Communications logo.svg"
+  },
+  "askey": {
+    "file": "images/brands/askey.png",
+    "source": "https://www.askey.com.tw/images/touch-icon/apple-icon-152x152.png"
+  },
+  "asrock": {
+    "file": "images/brands/asrock.png",
+    "source": "apple-touch-icon"
+  },
+  "asus": {
+    "file": "images/brands/asus.svg",
+    "source": "simple-icons:asus"
+  },
+  "att": {
+    "file": "images/brands/att.svg",
+    "source": "simple-icons:atandt"
+  },
+  "att-fiber": {
+    "file": "images/brands/att-fiber.svg",
+    "source": "simple-icons:atandt"
+  },
+  "auerswald": {
+    "file": "images/brands/auerswald.png",
+    "source": "google-favicon:auerswald.com"
+  },
+  "aurora-networks": {
+    "file": "images/brands/aurora-networks.png",
+    "source": "https://www.vistancenetworks.com/contentassets/83651cdeb06e420095cc52e4967ef339/vistance_logo_horizontal_tm_rgb_primary.png"
+  },
+  "aussie-broadband": {
+    "file": "images/brands/aussie-broadband.png",
+    "source": "https://www.aussie.com/aussieFavicon.png"
+  },
+  "avaya": {
+    "file": "images/brands/avaya.jpg",
+    "source": "https://www.avaya.com/content/dam/aem-avaya-portal/de_de/about-avaya/newsroom-press-kit/avaya_red_logo_600x300.jpg"
+  },
+  "aviatrix": {
+    "file": "images/brands/aviatrix.webp",
+    "source": "https://aviatrix.ai/images/cropped-Aviatrix-Logo@2x-1-192x192.webp"
+  },
+  "avm": {
+    "file": "images/brands/avm.svg",
+    "source": "simple-icons:avm"
+  },
+  "avm-fritzbox": {
+    "file": "images/brands/avm-fritzbox.svg",
+    "source": "simple-icons:avm"
+  },
+  "axiomtek": {
+    "file": "images/brands/axiomtek.ico",
+    "source": "https://www.axiomtek.com/axiomtek.ico"
+  },
+  "baicells-technologies": {
+    "file": "images/brands/baicells-technologies.png",
+    "source": "https://www.baicells.com/hubfs/Baicells%20Badge%20Logo_Orange.png"
+  },
+  "baidu": {
+    "file": "images/brands/baidu.png",
+    "source": "google-favicon:baidu.com"
+  },
+  "banana-pi": {
+    "file": "images/brands/banana-pi.jpg",
+    "source": "https://www.banana-pi.org/web/userfiles/logo/logo.jpg"
+  },
+  "barracuda": {
+    "file": "images/brands/barracuda.png",
+    "source": "https://www.barracuda.com/touch-icon-iphone-retina.png"
+  },
+  "bdcom": {
+    "file": "images/brands/bdcom.png",
+    "source": "https://www.bdcom.com/img/favicon.png"
+  },
+  "beetel": {
+    "file": "images/brands/beetel.png",
+    "source": "https://www.beetel.in/wp-content/uploads/2021/06/favicon.png"
+  },
+  "beijer": {
+    "file": "images/brands/beijer.png",
+    "source": "https://www.beijer.com/wp-content/uploads/2018/06/cropped-favicon-1-180x180.png"
+  },
+  "belden": {
+    "file": "images/brands/belden.ico",
+    "source": "https://belden.net/favicon.ico?favicon.0x3dzn~oxb6tn.ico"
+  },
+  "belkin": {
+    "file": "images/brands/belkin.svg",
+    "source": "commons:Belkin logo 2024.svg"
+  },
+  "bell": {
+    "file": "images/brands/bell.ico",
+    "source": "https://www.bell.ca/styles/images/icons/favicon.ico"
+  },
+  "bell-canada": {
+    "file": "images/brands/bell-canada.jpg",
+    "source": "google-favicon:bellcanada.net"
+  },
+  "benq": {
+    "file": "images/brands/benq.png",
+    "source": "https://www.benq.com/favicon.ico"
+  },
+  "big-switch-networks": {
+    "file": "images/brands/big-switch-networks.png",
+    "source": "google-favicon:bigswitch.com"
+  },
+  "billion": {
+    "file": "images/brands/billion.jpg",
+    "source": "https://irp-cdn.multiscreensite.com/cd85d6ad/dms3rep/multi/_BILLION-LOGO-57_57.jpg"
+  },
+  "bivocom": {
+    "file": "images/brands/bivocom.png",
+    "source": "https://www.bivocom.com/wp-content/uploads/2019/11/cropped-favicon_1-180x180.png"
+  },
+  "bkav": {
+    "file": "images/brands/bkav.png",
+    "source": "google-favicon:bkav.net"
+  },
+  "bliiot": {
+    "file": "images/brands/bliiot.jpg",
+    "source": "google-favicon:bliiot.com"
+  },
+  "blue-sky-network": {
+    "file": "images/brands/blue-sky-network.png",
+    "source": "https://www.bluesky.com/cdn/shop/files/2020-Blue-Logo_no-dots.png?height=34&v=1695667225"
+  },
+  "broadcom": {
+    "file": "images/brands/broadcom.png",
+    "source": "https://www.broadcom.com/favicon-96x96.png"
+  },
+  "brocade": {
+    "file": "images/brands/brocade.png",
+    "source": "https://www.broadcom.com/favicon-96x96.png"
+  },
+  "brocade-communications": {
+    "file": "images/brands/brocade-communications.png",
+    "source": "https://www.broadcom.com/favicon-96x96.png"
+  },
+  "bsnl": {
+    "file": "images/brands/bsnl.png",
+    "source": "https://bsnl.co.in/assets/images/logo.png"
+  },
+  "bt": {
+    "file": "images/brands/bt.svg",
+    "source": "simple-icons:bt"
+  },
+  "bt-broadband": {
+    "file": "images/brands/bt-broadband.svg",
+    "source": "simple-icons:bt"
+  },
+  "buffalo": {
+    "file": "images/brands/buffalo.jpg",
+    "source": "https://buffaloamericas.com/images/uploads/BUFFALO_logo-highres-small.jpg"
+  },
+  "bulat": {
+    "file": "images/brands/bulat.png",
+    "source": "https://grails.replit.app/logo.png"
+  },
+  "c-data": {
+    "file": "images/brands/c-data.png",
+    "source": "google-favicon:cdata.com"
+  },
+  "c3tech": {
+    "file": "images/brands/c3tech.png",
+    "source": "https://c3tech.com/wp-content/uploads/2026/06/cropped-favicon-180x180.png"
+  },
+  "cabletron-systems": {
+    "file": "images/brands/cabletron-systems.png",
+    "source": "google-favicon:cabletron.com"
+  },
+  "caimore": {
+    "file": "images/brands/caimore.ico",
+    "source": "https://www.caimore.com/template/Index/Common/img/favicon.ico"
+  },
+  "calamp": {
+    "file": "images/brands/calamp.png",
+    "source": "https://www.calamp.com/wp-content/themes/kmdg/images/favicon/apple-touch-icon.png"
+  },
+  "calix": {
+    "file": "images/brands/calix.png",
+    "source": "https://www.calix.com/etc.clientlibs/calix-redesign/clientlibs/clientlib-site/resources/images/favicons/apple-touch-icon-152x152.png"
+  },
+  "cambium": {
+    "file": "images/brands/cambium.png",
+    "source": "https://cdn.prod.website-files.com/6a0d7934c77e30ed0675626d/6a0d915f9524eb3a14ebcba1_cambium-webclip.png"
+  },
+  "cameo": {
+    "file": "images/brands/cameo.png",
+    "source": "apple-touch-icon"
+  },
+  "casa-systems": {
+    "file": "images/brands/casa-systems.png",
+    "source": "https://www.vistancenetworks.com/contentassets/83651cdeb06e420095cc52e4967ef339/vistance_logo_horizontal_tm_rgb_primary.png"
+  },
+  "caspian-networks": {
+    "file": "images/brands/caspian-networks.png",
+    "source": "https://caspian.com/wp-content/uploads/2025/10/cropped-caspian-logo-512x512-1-1-180x180.png"
+  },
+  "caswell": {
+    "file": "images/brands/caswell.png",
+    "source": "google-favicon:caswell.com"
+  },
+  "cato-networks": {
+    "file": "images/brands/cato-networks.jpg",
+    "source": "https://www.allucent.com/wp-content/uploads/2024/06/cropped-allucent-logo-square-180x180.jpg"
+  },
+  "celestica": {
+    "file": "images/brands/celestica.ico",
+    "source": "https://www.celestica.com/static/icon/180x180-iPhone-6-Plus.ico"
+  },
+  "centec-networks": {
+    "file": "images/brands/centec-networks.ico",
+    "source": "https://www.centec.com/favicon.ico"
+  },
+  "century-systems": {
+    "file": "images/brands/century-systems.svg",
+    "source": "https://centuryaluminum.com/wp-content/uploads/2026/01/Century-Aluminum_Favicon.svg"
+  },
+  "centurylink": {
+    "file": "images/brands/centurylink.svg",
+    "source": "https://www.centurylink.com/assets/images/page-components/global-menu/corp_logo.svg"
+  },
+  "ceragon": {
+    "file": "images/brands/ceragon.png",
+    "source": "https://www.ceragon.com/hs-fs/hubfs/CRG_AND_30_proven%20logo_Blue%20copy.png?width=2000&amp;name=CRG_AND_30_proven%20logo_Blue%20copy.png"
+  },
+  "cerio": {
+    "file": "images/brands/cerio.png",
+    "source": "google-favicon:cerio.com"
+  },
+  "challenger-colombia": {
+    "file": "images/brands/challenger-colombia.png",
+    "source": "google-favicon:challenger.com"
+  },
+  "check-point": {
+    "file": "images/brands/check-point.png",
+    "source": "https://www.checkpoint.com/wp-content/themes/checkpoint-theme-v2/images/fav/apple-touch-icon.png"
+  },
+  "chiaro-networks": {
+    "file": "images/brands/chiaro-networks.png",
+    "source": "https://chiaro.com/image/catalog/favicon.png"
+  },
+  "china-mobile": {
+    "file": "images/brands/china-mobile.png",
+    "source": "https://www.chinamobileltd.com/apple-touch-icon.png"
+  },
+  "chunghwa-telecom": {
+    "file": "images/brands/chunghwa-telecom.png",
+    "source": "https://web-eshop.cdn.hinet.net/eShop%20Images/Consumer/Faicon/Faicon_logo_128x128.png"
+  },
+  "ciena": {
+    "file": "images/brands/ciena.png",
+    "source": "google-favicon:ciena.com"
+  },
+  "cisco": {
+    "file": "images/brands/cisco.svg",
+    "source": "simple-icons:cisco"
+  },
+  "cisco-systems": {
+    "file": "images/brands/cisco-systems.jpg",
+    "source": "https://www.cisco.com/content/dam/cisco-cdc/site/images/photography/homepage/2026/smart-switches-1600x900.jpg"
+  },
+  "claro-cpe": {
+    "file": "images/brands/claro-cpe.png",
+    "source": "https://www.claro.com/assets/img/icon-touch-144.png"
+  },
+  "claro-telecom": {
+    "file": "images/brands/claro-telecom.png",
+    "source": "https://www.claro.com/assets/img/icon-touch-144.png"
+  },
+  "clavister": {
+    "file": "images/brands/clavister.png",
+    "source": "https://www.clavister.com/wp-content/uploads/2025/11/clavister-favicon.png"
+  },
+  "clearos": {
+    "file": "images/brands/clearos.png",
+    "source": "https://clearos.com/Images/clearOS-logo.png"
+  },
+  "cloudgenix": {
+    "file": "images/brands/cloudgenix.png",
+    "source": "https://www.cloudgenix.net/assets/img/favicon.png"
+  },
+  "community-fibre": {
+    "file": "images/brands/community-fibre.png",
+    "source": "https://communityfibre.co.uk/apple-touch-icon.png"
+  },
+  "compal-broadband": {
+    "file": "images/brands/compal-broadband.png",
+    "source": "https://www.compal.com/static/favicon/favicon-180.6626dc1fd730.png"
+  },
+  "compex": {
+    "file": "images/brands/compex.png",
+    "source": "https://www.compex.com/cdn/shop/files/flat-logo.png?crop=center&amp;height=32&amp;v=1760517273&amp;width=32"
+  },
+  "comtrend": {
+    "file": "images/brands/comtrend.jpg",
+    "source": "https://www.comtrend.com/wp-content/themes/Comtrend/images/logo.jpg"
+  },
+  "conceptronic": {
+    "file": "images/brands/conceptronic.svg",
+    "source": "https://www.conceptronic.net/.within.website/x/cmd/anubis/static/img/logo.svg"
+  },
+  "connectedio": {
+    "file": "images/brands/connectedio.png",
+    "source": "apple-touch-icon"
+  },
+  "contec": {
+    "file": "images/brands/contec.png",
+    "source": "https://www.contec.com/layouts/Contec/common/images/favicon/apple-touch-icon.png"
+  },
+  "converge-ict": {
+    "file": "images/brands/converge-ict.svg",
+    "source": "https://d2etujs75nvebv.cloudfront.net/images/converge-logo.svg"
+  },
+  "corega": {
+    "file": "images/brands/corega.jpg",
+    "source": "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-haleon/en_US/global/icons/haleon.png?auto=format"
+  },
+  "coship": {
+    "file": "images/brands/coship.ico",
+    "source": "https://www.coship.com/favicon.ico"
+  },
+  "covr": {
+    "file": "images/brands/covr.png",
+    "source": "https://covrtech.com/wp-content/uploads/Covr-Logo-3.png"
+  },
+  "cox-panoramic": {
+    "file": "images/brands/cox-panoramic.svg",
+    "source": "commons:Cox Communications Logo.svg"
+  },
+  "cradlepoint": {
+    "file": "images/brands/cradlepoint.png",
+    "source": "https://cradlepoint.ericsson.com/apple-touch-icon.png"
+  },
+  "cts-system": {
+    "file": "images/brands/cts-system.png",
+    "source": "https://connection.net/wp-content/uploads/2025/07/pci_favicon_dark-300x300.png"
+  },
+  "cudy": {
+    "file": "images/brands/cudy.svg",
+    "source": "https://www.cudy.com/cdn/shop/files/Website_Favicon_logo-100.svg?crop=center&height=32&v=1719990657&width=32"
+  },
+  "cumulus-networks": {
+    "file": "images/brands/cumulus-networks.png",
+    "source": "google-favicon:cumulus.com"
+  },
+  "curtiss-wright": {
+    "file": "images/brands/curtiss-wright.svg",
+    "source": "https://curtisswright.com/sites/default/files/Home/CurtissWrightLogo_186C.svg"
+  },
+  "cyan-inc": {
+    "file": "images/brands/cyan-inc.png",
+    "source": "google-favicon:cyan.com"
+  },
+  "d-link": {
+    "file": "images/brands/d-link.png",
+    "source": "https://www.dlink.com/_include/redesign/images/apple-touch-icon-180x180.png"
+  },
+  "danos": {
+    "file": "images/brands/danos.png",
+    "source": "https://www.danos.com/icons/icon-512x512.png?v=07c8f48de05e64af7b3040e616db5af8"
+  },
+  "dasan-networks": {
+    "file": "images/brands/dasan-networks.ico",
+    "source": "https://www.dasannetworks.com/images/favicon.ico"
+  },
+  "datacom": {
+    "file": "images/brands/datacom.png",
+    "source": "google-favicon:datacom.com"
+  },
+  "datto": {
+    "file": "images/brands/datto.svg",
+    "source": "https://www.datto.com/wp-content/uploads/badge-datto.svg"
+  },
+  "deciso": {
+    "file": "images/brands/deciso.png",
+    "source": "https://www.deciso.com/wp-content/themes/template/assets/images/favicon/apple-icon-180x180.png"
+  },
+  "deco": {
+    "file": "images/brands/deco.png",
+    "source": "google-favicon:deco.net"
+  },
+  "dell-networking": {
+    "file": "images/brands/dell-networking.png",
+    "source": "apple-touch-icon"
+  },
+  "deutsche-telekom": {
+    "file": "images/brands/deutsche-telekom.svg",
+    "source": "simple-icons:deutschetelekom"
+  },
+  "devolo": {
+    "file": "images/brands/devolo.png",
+    "source": "https://www.devolo.com/media/1f/3e/54/1757691752/devolo_logo_schutzraum_grau.png?ts=1757692927"
+  },
+  "digi": {
+    "file": "images/brands/digi.svg",
+    "source": "commons:Digi 2024 Logo.svg"
+  },
+  "digi-cpe": {
+    "file": "images/brands/digi-cpe.png",
+    "source": "https://www.digi.com/images/apple-icon.png"
+  },
+  "digi-international": {
+    "file": "images/brands/digi-international.png",
+    "source": "https://www.digi.com/images/apple-icon.png"
+  },
+  "digicom": {
+    "file": "images/brands/digicom.png",
+    "source": "https://digicom.com/pro/wp-content/uploads/2016/12/apple-icon-152x152.png"
+  },
+  "digisol": {
+    "file": "images/brands/digisol.png",
+    "source": "https://www.digisol.com/wp-content/uploads/2020/02/unnamed-1.png"
+  },
+  "digital-china-networks": {
+    "file": "images/brands/digital-china-networks.png",
+    "source": "https://www.digitalchina.com/statics/zhsite/images/icon/logo.png"
+  },
+  "digma": {
+    "file": "images/brands/digma.png",
+    "source": "google-favicon:digma.com"
+  },
+  "dptech": {
+    "file": "images/brands/dptech.jpg",
+    "source": "https://dptech.com/fer/upimg/logo.jpg"
+  },
+  "dragino-technology": {
+    "file": "images/brands/dragino-technology.png",
+    "source": "https://www.dragino.com/images/system/logo.png"
+  },
+  "draytek": {
+    "file": "images/brands/draytek.png",
+    "source": "google-favicon:draytek.com"
+  },
+  "drivenets": {
+    "file": "images/brands/drivenets.png",
+    "source": "https://drivenets.com/wp-content/uploads/att-logo.png"
+  },
+  "dusun-iot": {
+    "file": "images/brands/dusun-iot.png",
+    "source": "https://www.dusuniot.com/wp-content/uploads/2022/06/Dusuniot-logo-R-400-e1669108867399.png"
+  },
+  "dynalink": {
+    "file": "images/brands/dynalink.png",
+    "source": "google-favicon:dynalink.com"
+  },
+  "dzs-inc": {
+    "file": "images/brands/dzs-inc.ico",
+    "source": "https://www.dzs.com/favicon.ico"
+  },
+  "dzs-zhone": {
+    "file": "images/brands/dzs-zhone.svg",
+    "source": "https://eikyknk75uf.exactdn.com/wp-content/uploads/Zhone-Logo-ColorSwoosh-512x512-1.svg"
+  },
+  "eaton": {
+    "file": "images/brands/eaton.jpg",
+    "source": "google-favicon:eaton.com"
+  },
+  "eci-telecom": {
+    "file": "images/brands/eci-telecom.svg",
+    "source": "https://www.eci.com/sites/default/files/2024/05/31/elastic-logo-vector.svg"
+  },
+  "edgecore": {
+    "file": "images/brands/edgecore.png",
+    "source": "https://cdn.prod.website-files.com/6972b8f321d798c728da6ef7/699891ed3d2993ee61315f58_webclip.png"
+  },
+  "edimax": {
+    "file": "images/brands/edimax.png",
+    "source": "https://www.edimax.com/edimax/mw/cufiles/images/web/logo.png"
+  },
+  "ee-broadband": {
+    "file": "images/brands/ee-broadband.png",
+    "source": "https://www.eeuk.net/images/coating-kings-logo.png"
+  },
+  "eero": {
+    "file": "images/brands/eero.png",
+    "source": "apple-touch-icon"
+  },
+  "efficient-networks": {
+    "file": "images/brands/efficient-networks.png",
+    "source": "https://a-us.storyblok.com/f/1022432/190x190/29d74dea5a/efficient-capital.png/m/180x180"
+  },
+  "elecom": {
+    "file": "images/brands/elecom.png",
+    "source": "https://elecomusa.com/cdn/shop/files/Favcom_ELECOM_2d8f99ea-3a59-49c5-a749-c6131ce26179.png?v=1695673247&width=180"
+  },
+  "elisa-finland": {
+    "file": "images/brands/elisa-finland.png",
+    "source": "apple-touch-icon"
+  },
+  "eltex": {
+    "file": "images/brands/eltex.png",
+    "source": "https://www.eltex.de/wp-content/themes/eltex/apple-touch-icon.png?v=2.8.12"
+  },
+  "eminent": {
+    "file": "images/brands/eminent.svg",
+    "source": "https://www.eminent.com/cdn/shop/files/Eminent_Logo-2.svg?v=1745859585&amp;width=280"
+  },
+  "endian": {
+    "file": "images/brands/endian.ico",
+    "source": "https://www.endian.com/favicons/light/favicon.ico"
+  },
+  "engenius": {
+    "file": "images/brands/engenius.png",
+    "source": "https://static.engeniuscdn.com/wp-content/uploads/2020/04/01174340/cropped-cropped-favicon_256-180x180.png"
+  },
+  "enterasys-networks": {
+    "file": "images/brands/enterasys-networks.png",
+    "source": "google-favicon:enterasys.com"
+  },
+  "ericsson": {
+    "file": "images/brands/ericsson.ico",
+    "source": "https://www.ericsson.com/favicon.ico"
+  },
+  "etisalat-uae": {
+    "file": "images/brands/etisalat-uae.png",
+    "source": "google-favicon:etisalatbyeand.com"
+  },
+  "eurotech": {
+    "file": "images/brands/eurotech.png",
+    "source": "https://www.eurotech.com/wp-content/uploads/2022/04/cropped-logo-sm-min-180x180.png"
+  },
+  "everest": {
+    "file": "images/brands/everest.png",
+    "source": "https://static.everest.com/media/favicon/default/android-chrome-512x512.png"
+  },
+  "excitel": {
+    "file": "images/brands/excitel.webp",
+    "source": "https://www.excitel.com/wp-content/uploads/2022/08/favicon1.webp"
+  },
+  "extreme-networks": {
+    "file": "images/brands/extreme-networks.svg",
+    "source": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/74bd9198c8264d88804e525399036cd3?v=36246f18"
+  },
+  "fast": {
+    "file": "images/brands/fast.png",
+    "source": "https://fast.com/assets/favicons/apple-icon-180x180.png"
+  },
+  "fast-networks": {
+    "file": "images/brands/fast-networks.png",
+    "source": "https://fast.com/assets/favicons/apple-icon-180x180.png"
+  },
+  "fastweb-cpe": {
+    "file": "images/brands/fastweb-cpe.png",
+    "source": "https://www.fastweb.com/nfs/fastweb/static/favicons/Icon-76@2x.png"
+  },
+  "fiberhome": {
+    "file": "images/brands/fiberhome.png",
+    "source": "https://www.fiberhome.com/r/cms/www/fenghuotongxin/images/public/logo.png"
+  },
+  "fiberhome-networks": {
+    "file": "images/brands/fiberhome-networks.png",
+    "source": "google-favicon:fiberhome.com"
+  },
+  "fibernet-israel": {
+    "file": "images/brands/fibernet-israel.jpg",
+    "source": "http://fibernet.com/fbticon.jpg"
+  },
+  "firewalla": {
+    "file": "images/brands/firewalla.png",
+    "source": "https://firewalla.com/cdn/shop/files/IconWithText_d42ff69c-682c-4a34-aff6-af4fe2e176ca_300x89.png?v=1644915499"
+  },
+  "force10-networks": {
+    "file": "images/brands/force10-networks.png",
+    "source": "https://www.force10.com/media/favicon/default/favicon_ENO_navy.png"
+  },
+  "fortinet": {
+    "file": "images/brands/fortinet.svg",
+    "source": "simple-icons:fortinet"
+  },
+  "foundry-networks": {
+    "file": "images/brands/foundry-networks.ico",
+    "source": "https://www.foundry.com/favicon.ico"
+  },
+  "four-faith": {
+    "file": "images/brands/four-faith.png",
+    "source": "https://www.fourfaith.com/assets/img/logo.png"
+  },
+  "franklin-wireless": {
+    "file": "images/brands/franklin-wireless.png",
+    "source": "https://franklinaccess.com/wp-content/themes/franklin-access/assets/apple-touch-icon.png?v=2"
+  },
+  "freebox": {
+    "file": "images/brands/freebox.svg",
+    "source": "https://www.free.fr/assets/energy/energy_ticket_A.svg"
+  },
+  "friendlyelec": {
+    "file": "images/brands/friendlyelec.png",
+    "source": "https://www.friendlyelec.com/image/catalog//logo_theme.png"
+  },
+  "frontech": {
+    "file": "images/brands/frontech.webp",
+    "source": "https://img.yfisher.com/m0/1681458876556-1/png100-t3-scale100.webp"
+  },
+  "frontier-cpe": {
+    "file": "images/brands/frontier-cpe.png",
+    "source": "https://frontier.com/frontier-com-marketing-assets/img/favicons/apple-touch-icon-iphone-retina.png"
+  },
+  "frontier-fiber": {
+    "file": "images/brands/frontier-fiber.png",
+    "source": "https://frontier.com/frontier-com-marketing-assets/img/favicons/apple-touch-icon-iphone-retina.png"
+  },
+  "frrouting": {
+    "file": "images/brands/frrouting.svg",
+    "source": "https://frrouting.org/img/frrouting.svg"
+  },
+  "fujitsu": {
+    "file": "images/brands/fujitsu.png",
+    "source": "google-favicon:fujitsu.net"
+  },
+  "funkwerk": {
+    "file": "images/brands/funkwerk.png",
+    "source": "https://funkwerk.com/wp-content/uploads/2025/12/cropped-funkwerk_icon_black-180x180.png"
+  },
+  "furukawa": {
+    "file": "images/brands/furukawa.png",
+    "source": "https://www.furukawaelectric.com/common/images/apple-touch-icon.png"
+  },
+  "furuno-electric": {
+    "file": "images/brands/furuno-electric.svg",
+    "source": "commons:Furuno company logo.svg"
+  },
+  "garderos": {
+    "file": "images/brands/garderos.svg",
+    "source": "https://garderos.com/wp-content/uploads/2025/01/garderos-logo-2.svg"
+  },
+  "gateworks": {
+    "file": "images/brands/gateworks.png",
+    "source": "https://www.gateworks.com/wp-content/uploads/2019/04/gwlogo_G-only-e1555103149587.png"
+  },
+  "ge-vernova": {
+    "file": "images/brands/ge-vernova.svg",
+    "source": "https://www.gevernova.com/themes/custom/ge_vernova_unified/logo.svg"
+  },
+  "gemtek": {
+    "file": "images/brands/gemtek.png",
+    "source": "https://gemtek.com/wp-content/uploads/2026/06/cropped-cropped-G-180x180-1-180x180.png"
+  },
+  "gemtek-technology": {
+    "file": "images/brands/gemtek-technology.png",
+    "source": "https://gemtek.com/wp-content/uploads/2026/06/cropped-cropped-G-180x180-1-180x180.png"
+  },
+  "genexis": {
+    "file": "images/brands/genexis.png",
+    "source": "https://genexis.eu/wp-content/themes/mybit-webshop-child/assets/images/apple-touch-icon.png"
+  },
+  "gigabyte": {
+    "file": "images/brands/gigabyte.png",
+    "source": "google-favicon:gigabyte.net"
+  },
+  "gigaset": {
+    "file": "images/brands/gigaset.svg",
+    "source": "https://www.gigaset.com/skin/frontend/gigaset/rebrush/images/logo.svg"
+  },
+  "gl-inet": {
+    "file": "images/brands/gl-inet.svg",
+    "source": "simple-icons:gldotinet"
+  },
+  "glinet": {
+    "file": "images/brands/glinet.svg",
+    "source": "simple-icons:gldotinet"
+  },
+  "globalscale": {
+    "file": "images/brands/globalscale.png",
+    "source": "https://www.divisionweightogo.com/img/logos/logo.png"
+  },
+  "globe-at-home": {
+    "file": "images/brands/globe-at-home.png",
+    "source": "google-favicon:globe.com.ph"
+  },
+  "glocalme": {
+    "file": "images/brands/glocalme.svg",
+    "source": "https://cdn.shopify.com/s/files/1/0711/9398/5311/files/tv-logo-black.svg?v=1734198411"
+  },
+  "google": {
+    "file": "images/brands/google.svg",
+    "source": "simple-icons:google"
+  },
+  "google-nest": {
+    "file": "images/brands/google-nest.svg",
+    "source": "simple-icons:google"
+  },
+  "grandstream": {
+    "file": "images/brands/grandstream.png",
+    "source": "https://www.grandstream.com/hs-fs/hubfs/raw_assets/public/Grandstream_Feb_2021/images/logo-grandstream-low-web.png?width=300&amp;height=102&amp;name=logo-grandstream-low-web.png"
+  },
+  "graphiant": {
+    "file": "images/brands/graphiant.svg",
+    "source": "https://cdn.prod.website-files.com/67d32c440becfce0b9a701db/67dd2887ed5458fc5f75fe9a_Webclip.svg"
+  },
+  "greenpacket": {
+    "file": "images/brands/greenpacket.png",
+    "source": "https://cdn.prod.website-files.com/613f31694fb0ec1fea2d866e/616e993d371da143805b016c_webclip-1x.png"
+  },
+  "greenwave": {
+    "file": "images/brands/greenwave.png",
+    "source": "https://images.squarespace-cdn.com/content/v1/60d1b1d68e446d1b3e73adf3/e39343ac-a121-492b-8d33-df376dc66fb8/favicon.ico?format=100w"
+  },
+  "gryphon": {
+    "file": "images/brands/gryphon.png",
+    "source": "google-favicon:gryphon.com"
+  },
+  "gx-earth": {
+    "file": "images/brands/gx-earth.png",
+    "source": "https://www.gxgroup.eu/logo192.png"
+  },
+  "gx-group": {
+    "file": "images/brands/gx-group.png",
+    "source": "https://www.gxgroup.eu/logo192.png"
+  },
+  "h3c": {
+    "file": "images/brands/h3c.ico",
+    "source": "https://www.h3c.com/favicon.ico"
+  },
+  "harmonic": {
+    "file": "images/brands/harmonic.png",
+    "source": "google-favicon:harmonic.com"
+  },
+  "hathway": {
+    "file": "images/brands/hathway.svg",
+    "source": "https://www.hathway.com/home_images/logo.svg"
+  },
+  "hathway-cpe": {
+    "file": "images/brands/hathway-cpe.svg",
+    "source": "https://www.hathway.com/home_images/logo.svg"
+  },
+  "hercules": {
+    "file": "images/brands/hercules.png",
+    "source": "https://www.hercules.com/wp-content/uploads/2018/09/cropped-Favicon_Hercules_512x512px_B-180x180.png"
+  },
+  "hfcl": {
+    "file": "images/brands/hfcl.jpg",
+    "source": "https://cdn.prod.website-files.com/69e0036b695965871f0524aa/69e0036b695965871f0525fe_webclip.jpg"
+  },
+  "hfr-networks": {
+    "file": "images/brands/hfr-networks.png",
+    "source": "https://www.hfr.com/wp-content/uploads/2026/08/cropped-hrr-white-square-logo-192x192.png"
+  },
+  "hirschmann": {
+    "file": "images/brands/hirschmann.png",
+    "source": "google-favicon:hirschmann.net"
+  },
+  "hitachi": {
+    "file": "images/brands/hitachi.png",
+    "source": "https://www.hitachi.com/content/dam/hitachi/common/image/hitachi-logo.png"
+  },
+  "hitron": {
+    "file": "images/brands/hitron.png",
+    "source": "https://hitrontech.com/wp-content/uploads/2020/07/cropped-favicon-hitron-2-180x180.png"
+  },
+  "hitron-technologies": {
+    "file": "images/brands/hitron-technologies.png",
+    "source": "google-favicon:hitron.com"
+  },
+  "hms-networks": {
+    "file": "images/brands/hms-networks.png",
+    "source": "https://hms.com/wp-content/uploads/2024/05/HMS_GW-green_no-tag_RGB_blk.png"
+  },
+  "hongdian": {
+    "file": "images/brands/hongdian.svg",
+    "source": "https://www.hongdian.com/en/static/upload/other/20230509/1683614254109358.svg"
+  },
+  "honor": {
+    "file": "images/brands/honor.png",
+    "source": "https://www.honor.com/etc/designs/honor-site/assets/apple-icon-v2.png"
+  },
+  "huawei": {
+    "file": "images/brands/huawei.svg",
+    "source": "simple-icons:huawei"
+  },
+  "huawei-technologies": {
+    "file": "images/brands/huawei-technologies.png",
+    "source": "https://www.huawei.com/-/media/htemplate-home/1.0.1.20251205144752/components/assets/img/apple-touch-icon-precomposed-180.png"
+  },
+  "hughes-network-systems": {
+    "file": "images/brands/hughes-network-systems.png",
+    "source": "https://www.hughes.com/wp-content/uploads/2025/12/cropped-favicon1-180x180.png"
+  },
+  "humax": {
+    "file": "images/brands/humax.png",
+    "source": "commons:Humax logo 1103.png"
+  },
+  "hunsn": {
+    "file": "images/brands/hunsn.webp",
+    "source": "https://www.hunsn.com/wp-content/uploads/2024/06/cropped-1457904175963885696-180x180.webp"
+  },
+  "hyperoptic": {
+    "file": "images/brands/hyperoptic.svg",
+    "source": "https://www.hyperoptic.com/img/logo_header.svg"
+  },
+  "iball": {
+    "file": "images/brands/iball.png",
+    "source": "https://iball.co.in/cdn/shop/files/iBall_-_Favicon.png?crop=center&height=32&v=1759146556&width=32"
+  },
+  "icp-das": {
+    "file": "images/brands/icp-das.ico",
+    "source": "https://www.icpdas.com/favicon.ico"
+  },
+  "ignitenet": {
+    "file": "images/brands/ignitenet.jpg",
+    "source": "https://wifi.edge-core.com/wp-content/uploads/cropped-F6615CC2-668E-420A-8DE8-D081206334B5-180x180.jpg"
+  },
+  "indihome-cpe": {
+    "file": "images/brands/indihome-cpe.jpg",
+    "source": "https://www.indihome.com/images/logo.jpg"
+  },
+  "infinera": {
+    "file": "images/brands/infinera.png",
+    "source": "google-favicon:infinera.com"
+  },
+  "inhand-networks": {
+    "file": "images/brands/inhand-networks.png",
+    "source": "https://www.inhand.com/wp-content/uploads/2025/08/cropped-inhandnetworks-logo-e1754287344945-180x180.png"
+  },
+  "inmarsat": {
+    "file": "images/brands/inmarsat.ico",
+    "source": "https://www.inmarsat.com/etc.clientlibs/viasat-base/clientlibs/clientlib-resources/resources/icons/inmarsat-favicon.ico"
+  },
+  "inseego": {
+    "file": "images/brands/inseego.png",
+    "source": "https://inseego.com/apple-touch-icon.png"
+  },
+  "intelbras": {
+    "file": "images/brands/intelbras.png",
+    "source": "google-favicon:intelbras.com"
+  },
+  "intellinet": {
+    "file": "images/brands/intellinet.webp",
+    "source": "https://fptsoftware.com/-/media/project/fpt-software/fso/uplift/home/logo_fpt_text_black.png?modified=20240111094946"
+  },
+  "inteno": {
+    "file": "images/brands/inteno.svg",
+    "source": "https://www.nuboserv.com/Themes/intenoUnify.nuboservTheme/Content/nuboserv/nuboserv-logo-95.svg"
+  },
+  "intex": {
+    "file": "images/brands/intex.png",
+    "source": "https://www.intex.com/assets/images/v2/webclip.png"
+  },
+  "intex-technologies": {
+    "file": "images/brands/intex-technologies.png",
+    "source": "https://www.intex.com/assets/images/v2/webclip.png"
+  },
+  "intracom-telecom": {
+    "file": "images/brands/intracom-telecom.png",
+    "source": "google-favicon:intracom.com"
+  },
+  "inventec": {
+    "file": "images/brands/inventec.svg",
+    "source": "https://www.inventec.com/themes/inventec/images/all/logo.svg"
+  },
+  "inventel": {
+    "file": "images/brands/inventel.png",
+    "source": "google-favicon:inventel.com"
+  },
+  "io-data": {
+    "file": "images/brands/io-data.png",
+    "source": "https://www.iodata.jp/shared/img/iodata-logo-2026-50th.png"
+  },
+  "iogear": {
+    "file": "images/brands/iogear.png",
+    "source": "https://iogear.com/cdn/shop/files/LOGO-256x256-IO.png?v=1715015750&width=180"
+  },
+  "ip-com": {
+    "file": "images/brands/ip-com.svg",
+    "source": "https://www.ipcom.net/favicon.svg"
+  },
+  "ip-infusion": {
+    "file": "images/brands/ip-infusion.png",
+    "source": "https://www.ipinfusion.com/wp-content/themes/blank-canvas/img/apple-touch-icon.png"
+  },
+  "ipfire": {
+    "file": "images/brands/ipfire.png",
+    "source": "https://www.ipfire.org/static/img/apple-touch-icon-180x180-precomposed.png?v=14796d60eaa79765353e582fdadf94651e4c647ef9fed9f44e7de52abddc430d3048afee04b3d4b0a0d7a69525235db883469fc4283261fc73dcfc467cd0a269"
+  },
+  "iridium": {
+    "file": "images/brands/iridium.png",
+    "source": "https://www.iridium.com/themes/custom/iridium/assets/pwa/icons/apple-touch-icon.png?v=20251218"
+  },
+  "iridium-communications": {
+    "file": "images/brands/iridium-communications.png",
+    "source": "https://www.iridium.com/themes/custom/iridium/assets/pwa/icons/apple-touch-icon.png?v=20251218"
+  },
+  "irz-electronics": {
+    "file": "images/brands/irz-electronics.png",
+    "source": "https://www.irz.com/wp-content/uploads/2022/10/FAV-Icon@2x.png"
+  },
+  "iskratel": {
+    "file": "images/brands/iskratel.png",
+    "source": "google-favicon:iskratel.com"
+  },
+  "jcg": {
+    "file": "images/brands/jcg.jpg",
+    "source": "https://images.squarespace-cdn.com/content/v1/54cf0f14e4b0728e9031fc0a/1422913996254-90F97M70C9L91CTUP1X8/favicon.ico?format=100w"
+  },
+  "jensen-scandinavia": {
+    "file": "images/brands/jensen-scandinavia.png",
+    "source": "https://jensenscandinavia.com/wp-content/uploads/2024/04/cropped-Jensen_of_Scandinavia_green-180x180.png"
+  },
+  "jio": {
+    "file": "images/brands/jio.svg",
+    "source": "simple-icons:jio"
+  },
+  "juniper": {
+    "file": "images/brands/juniper.svg",
+    "source": "simple-icons:junipernetworks"
+  },
+  "juniper-mist": {
+    "file": "images/brands/juniper-mist.jpg",
+    "source": "https://junipermist.com/cdn/shop/files/Juniper_Mist_Favicon_32x32.jpg?v=1619539883"
+  },
+  "juniper-networks": {
+    "file": "images/brands/juniper-networks.svg",
+    "source": "https://cards.barclaycardus.com/content/dam/bcuspublic/rebrand/logos/barclays_155x34.svg"
+  },
+  "kaon": {
+    "file": "images/brands/kaon.png",
+    "source": "https://kaon.com/wp-content/themes/nmc_kaon/favicon.png"
+  },
+  "kasda": {
+    "file": "images/brands/kasda.png",
+    "source": "google-favicon:kasda.com"
+  },
+  "keenetic": {
+    "file": "images/brands/keenetic.svg",
+    "source": "simple-icons:keenetic"
+  },
+  "kerala-vision": {
+    "file": "images/brands/kerala-vision.png",
+    "source": "google-favicon:keralavision.com"
+  },
+  "klas-telecom": {
+    "file": "images/brands/klas-telecom.png",
+    "source": "https://www.klas.com/images/homepage/KLAS-logo.png"
+  },
+  "kontron": {
+    "file": "images/brands/kontron.png",
+    "source": "https://www.kontron.com/favicon/apple-touch-icon.png"
+  },
+  "kroks": {
+    "file": "images/brands/kroks.png",
+    "source": "https://static.wixstatic.com/media/0a963c_394d8a6268ff4e8fb372b7ce1f41ab95%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/0a963c_394d8a6268ff4e8fb372b7ce1f41ab95%7Emv2.png"
+  },
+  "kyland-technology": {
+    "file": "images/brands/kyland-technology.png",
+    "source": "https://www.kyland.com/res/tpl/default/images/logo.png"
+  },
+  "lanner": {
+    "file": "images/brands/lanner.svg",
+    "source": "https://www.lanner.com/Assets/Lanner/Images/Twinn/RGB_HaskoningLogo_Colour.svg"
+  },
+  "lanpro": {
+    "file": "images/brands/lanpro.jpg",
+    "source": "https://www.lanpro.com/images/imag_Logo_Ppal.jpg"
+  },
+  "lantiq": {
+    "file": "images/brands/lantiq.jpg",
+    "source": "commons:LantiqLogo.jpg"
+  },
+  "lantronix": {
+    "file": "images/brands/lantronix.png",
+    "source": "https://cdn.lantronix.com/wp-content/themes/ltrx015201/img/apple-icon-180x180.png"
+  },
+  "lb-link": {
+    "file": "images/brands/lb-link.png",
+    "source": "https://ijrorwxhkqmllp5m-static.micyjz.com/cloud/ljBpoKqpljSRlkpljonjjp/1.png"
+  },
+  "lenovo": {
+    "file": "images/brands/lenovo.png",
+    "source": "google-favicon:lenovo.com"
+  },
+  "levelone": {
+    "file": "images/brands/levelone.svg",
+    "source": "https://www.level1.com/.within.website/x/cmd/anubis/static/img/logo.svg"
+  },
+  "lg-uplus": {
+    "file": "images/brands/lg-uplus.png",
+    "source": "google-favicon:lguplus.com"
+  },
+  "lg-uplus-cpe": {
+    "file": "images/brands/lg-uplus-cpe.png",
+    "source": "google-favicon:lguplus.com"
+  },
+  "ligowave": {
+    "file": "images/brands/ligowave.png",
+    "source": "https://www.ligowave.com/img/favicons/apple-touch-icon-180x180.png"
+  },
+  "linksys": {
+    "file": "images/brands/linksys.svg",
+    "source": "simple-icons:linksys"
+  },
+  "logitec": {
+    "file": "images/brands/logitec.png",
+    "source": "https://www.logitec.com/assets/favicon.ico"
+  },
+  "lucent-technologies": {
+    "file": "images/brands/lucent-technologies.png",
+    "source": "google-favicon:lucent.net"
+  },
+  "luma": {
+    "file": "images/brands/luma.png",
+    "source": "https://luma.com/apple-touch-icon.png"
+  },
+  "luxul": {
+    "file": "images/brands/luxul.svg",
+    "source": "https://res.cloudinary.com/avd/image/upload/v1633619187/Logos/Brand/legrandav_brand_logo.svg"
+  },
+  "lyra": {
+    "file": "images/brands/lyra.png",
+    "source": "google-favicon:lyra.com"
+  },
+  "marconi-communications": {
+    "file": "images/brands/marconi-communications.png",
+    "source": "https://marconi.com/wp-content/themes/bootscore-child-main/img/favicon/apple-touch-icon.png"
+  },
+  "maroc-telecom-cpe": {
+    "file": "images/brands/maroc-telecom-cpe.jpg",
+    "source": "https://maroc.com/favicon.png"
+  },
+  "marvell": {
+    "file": "images/brands/marvell.png",
+    "source": "google-favicon:marvell.com"
+  },
+  "masmovil": {
+    "file": "images/brands/masmovil.png",
+    "source": "google-favicon:masmovil.es"
+  },
+  "matrix-comsec": {
+    "file": "images/brands/matrix-comsec.png",
+    "source": "https://www.matrixcomsec.com/wp-content/uploads/2023/06/favicon-120.png"
+  },
+  "mb-connect-line": {
+    "file": "images/brands/mb-connect-line.png",
+    "source": "https://mbconnectline.com/wp-content/uploads/2021/05/cropped-Logo_BALL--180x180.png"
+  },
+  "medialink": {
+    "file": "images/brands/medialink.ico",
+    "source": "https://www.unitedtalent.com/favicon.ico"
+  },
+  "mediatek": {
+    "file": "images/brands/mediatek.ico",
+    "source": "https://www.mediatek.com/hubfs/fav-icon.ico"
+  },
+  "medion": {
+    "file": "images/brands/medion.svg",
+    "source": "https://media.medion.com/logo/MD_Logo_sb.svg"
+  },
+  "meo-cpe": {
+    "file": "images/brands/meo-cpe.png",
+    "source": "google-favicon:meo.com"
+  },
+  "meo-portugal": {
+    "file": "images/brands/meo-portugal.png",
+    "source": "https://conteudos.meo.pt/Style%20Library/consumo/images/favicons/favicon-180x180.png"
+  },
+  "meraki-go": {
+    "file": "images/brands/meraki-go.png",
+    "source": "https://www.meraki-go.com/wp-content/uploads/2021/05/cropped-favicon-180x180.png"
+  },
+  "mercury": {
+    "file": "images/brands/mercury.png",
+    "source": "https://mercury.com/apple-icon.png?e5cbb3efa4b20928"
+  },
+  "mercury-korea": {
+    "file": "images/brands/mercury-korea.png",
+    "source": "google-favicon:mercurykorea.com"
+  },
+  "meru-networks": {
+    "file": "images/brands/meru-networks.png",
+    "source": "https://getmeru.com/icons/icon-512x512.png?v=983cedbd2eb8918450213d359a44b58d"
+  },
+  "meta": {
+    "file": "images/brands/meta.jpg",
+    "source": "google-favicon:meta.com"
+  },
+  "micro-research": {
+    "file": "images/brands/micro-research.png",
+    "source": "google-favicon:microresearch.com"
+  },
+  "microdrive": {
+    "file": "images/brands/microdrive.webp",
+    "source": "https://images.squarespace-cdn.com/content/v1/667099ab8488787eff53104a/c090b2ea-9aba-492c-8620-4f866cb6338f/favicon.ico?format=100w"
+  },
+  "microsoft": {
+    "file": "images/brands/microsoft.ico",
+    "source": "https://www.microsoft.com/favicon.ico?v2"
+  },
+  "microsoft-broadband": {
+    "file": "images/brands/microsoft-broadband.ico",
+    "source": "https://www.microsoft.com/favicon.ico?v2"
+  },
+  "mikrotik": {
+    "file": "images/brands/mikrotik.svg",
+    "source": "simple-icons:mikrotik"
+  },
+  "mildef-group": {
+    "file": "images/brands/mildef-group.png",
+    "source": "https://mildef.com/app/uploads/2026/06/cropped-icon.png"
+  },
+  "milesight": {
+    "file": "images/brands/milesight.ico",
+    "source": "https://www.milesight.com/favicon.ico"
+  },
+  "mimosa": {
+    "file": "images/brands/mimosa.svg",
+    "source": "http://mimosa.co/themes/custom/mimosa/mimosa-logo-v3.svg"
+  },
+  "minisforum": {
+    "file": "images/brands/minisforum.jpg",
+    "source": "https://www.minisforum.com/cdn/shop/files/20250110-105633_8313de40-853a-4b15-9f43-12301dac88bc.jpg?crop=center&height=32&v=1736477954&width=32"
+  },
+  "mitrastar": {
+    "file": "images/brands/mitrastar.png",
+    "source": "https://www.mitrastar.com/images/logo.png"
+  },
+  "mitrastar-technology": {
+    "file": "images/brands/mitrastar-technology.png",
+    "source": "https://www.mitrastar.com/images/logo.png"
+  },
+  "mobily-cpe": {
+    "file": "images/brands/mobily-cpe.png",
+    "source": "google-favicon:mobily.net"
+  },
+  "mofi-network": {
+    "file": "images/brands/mofi-network.webp",
+    "source": "https://cdn11.bigcommerce.com/s-xemqnfru33/images/stencil/220x133/mofi_logo_220_black_1722354526__63933.original.png"
+  },
+  "motorola": {
+    "file": "images/brands/motorola.svg",
+    "source": "simple-icons:motorola"
+  },
+  "movistar-cpe": {
+    "file": "images/brands/movistar-cpe.png",
+    "source": "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoidGVsZWZvbmljYVwvYWNjb3VudHNcLzJkXC80MDAwNDcwXC9mYXZpY29uc1wvYzRcLzFcLzQ5MTliZTlhNDQxYWE1N2VlZjRlY2M4MmM1M2ZhNjVmLTE2MTkxNzczMzUucG5nIn0:telefonica:f1WW8WEiNAXO7Ttc8TjZokUZ2LVwPdFEo3CSJEVgV-A?width=196&amp;rect=0,0,800,800&amp;reference_width=800&amp;format=png"
+  },
+  "movistar-spain": {
+    "file": "images/brands/movistar-spain.png",
+    "source": "commons:Movistar isotype 2025.png"
+  },
+  "moxa": {
+    "file": "images/brands/moxa.png",
+    "source": "https://cdn-cms-frontdoor-dfc8ebanh6bkb3hs.a02.azurefd.net/App_Themes/Moxa/SiteMeta/apple-touch-icon.png"
+  },
+  "moxee": {
+    "file": "images/brands/moxee.svg",
+    "source": "https://www.moxee.com/assets/svg/favicon.svg"
+  },
+  "msi": {
+    "file": "images/brands/msi.png",
+    "source": "google-favicon:msi.com"
+  },
+  "mtn-cpe": {
+    "file": "images/brands/mtn-cpe.png",
+    "source": "https://www.mtn.com/wp-content/uploads/2022/02/cropped-cropped-favicon-siteIcon-512x512-1-1-2.png?w=180"
+  },
+  "mts-cpe": {
+    "file": "images/brands/mts-cpe.png",
+    "source": "https://www.mts.com/assets/images/favicons/apple-touch-icon.png"
+  },
+  "multi-tech-systems": {
+    "file": "images/brands/multi-tech-systems.webp",
+    "source": "https://multitech.com/wp-content/uploads/2023/05/cropped-multitech-systems-300x300.webp"
+  },
+  "multilaser": {
+    "file": "images/brands/multilaser.png",
+    "source": "https://x.com/favicon.ico"
+  },
+  "multitech": {
+    "file": "images/brands/multitech.webp",
+    "source": "https://multitech.com/wp-content/uploads/2023/05/cropped-multitech-systems-300x300.webp"
+  },
+  "nal-research": {
+    "file": "images/brands/nal-research.webp",
+    "source": "https://naltec.com/wp-content/uploads/2026/01/cropped-Favicon-180x180.webp"
+  },
+  "natec": {
+    "file": "images/brands/natec.png",
+    "source": "https://www.univ-chlef.dz/ar/wp-content/uploads/2016/10/cropped-cropped-logo-1-180x180.png"
+  },
+  "national-telecom-cpe": {
+    "file": "images/brands/national-telecom-cpe.png",
+    "source": "google-favicon:national.com"
+  },
+  "nec-aterm": {
+    "file": "images/brands/nec-aterm.svg",
+    "source": "simple-icons:nec"
+  },
+  "nec-corporation": {
+    "file": "images/brands/nec-corporation.png",
+    "source": "google-favicon:nec.com"
+  },
+  "netas": {
+    "file": "images/brands/netas.png",
+    "source": "https://netas.com.tr/storage/2020/12/cropped-netas-favicon-180x180.png"
+  },
+  "netberg": {
+    "file": "images/brands/netberg.png",
+    "source": "google-favicon:netberg.net"
+  },
+  "netcomm": {
+    "file": "images/brands/netcomm.ico",
+    "source": "https://www.netcommwireless.com/favicon.ico?favicon.14e55f49.ico"
+  },
+  "netcore": {
+    "file": "images/brands/netcore.png",
+    "source": "https://www.netcoretec.com/themes/cn/default/assets/images/favicon.ico"
+  },
+  "netduma": {
+    "file": "images/brands/netduma.png",
+    "source": "https://netduma.com/apple-icon.png?bfc0aff6ef2bc186"
+  },
+  "netfaster": {
+    "file": "images/brands/netfaster.png",
+    "source": "google-favicon:netfaster.net"
+  },
+  "netgate": {
+    "file": "images/brands/netgate.png",
+    "source": "https://www.netgate.com/hs-fs/hubfs/Netgate%20Logo%20PMS%20(horizontal)-01.png?width=926&amp;height=181&amp;name=Netgate%20Logo%20PMS%20(horizontal)-01.png"
+  },
+  "netgear": {
+    "file": "images/brands/netgear.svg",
+    "source": "simple-icons:netgear"
+  },
+  "netis": {
+    "file": "images/brands/netis.ico",
+    "source": "https://www.netis-systems.com/favicon.ico"
+  },
+  "netlink": {
+    "file": "images/brands/netlink.png",
+    "source": "https://netlink-india.com/images/logo.png"
+  },
+  "netmaster": {
+    "file": "images/brands/netmaster.png",
+    "source": "google-favicon:netmaster.com"
+  },
+  "nexcom": {
+    "file": "images/brands/nexcom.png",
+    "source": "https://www.nexcom.com/assets/brand/favicon_72x72.png"
+  },
+  "nexxt-solutions": {
+    "file": "images/brands/nexxt-solutions.png",
+    "source": "https://d1rdnyrx5i71py.cloudfront.net/template/favicon/nexxt/apple-touch-icon-180x180.png"
+  },
+  "nighthawk": {
+    "file": "images/brands/nighthawk.png",
+    "source": "google-favicon:nighthawk.com"
+  },
+  "nokia": {
+    "file": "images/brands/nokia.svg",
+    "source": "simple-icons:nokia"
+  },
+  "nomadix": {
+    "file": "images/brands/nomadix.svg",
+    "source": "https://nomadix.com/wp-content/uploads/2025/10/Nomadix-Endorsed.svg"
+  },
+  "nortel-networks": {
+    "file": "images/brands/nortel-networks.png",
+    "source": "https://www.nortel.net/images/favicon/apple-touch-icon.png"
+  },
+  "nos-portugal": {
+    "file": "images/brands/nos-portugal.png",
+    "source": "https://www.nos.pt/etc.clientlibs/nos/clientlibs/clientlib-site/resources/favicons/favicon_144.png"
+  },
+  "nuage-networks": {
+    "file": "images/brands/nuage-networks.png",
+    "source": "google-favicon:nuage.com"
+  },
+  "o2-germany": {
+    "file": "images/brands/o2-germany.svg",
+    "source": "commons:Telefónica Deutschland 2021 logo.svg"
+  },
+  "olitec": {
+    "file": "images/brands/olitec.jpg",
+    "source": "https://www.atom.com//story_images/sm_images/1710105876-webcraft.jpg"
+  },
+  "omada": {
+    "file": "images/brands/omada.ico",
+    "source": "https://www.omada.com/favicon.ico"
+  },
+  "oneaccess": {
+    "file": "images/brands/oneaccess.png",
+    "source": "https://www.oneaccess.com/images/apple-touch-icon-114x114.png"
+  },
+  "ooredoo": {
+    "file": "images/brands/ooredoo.png",
+    "source": "google-favicon:ooredoo.com"
+  },
+  "ooredoo-cpe": {
+    "file": "images/brands/ooredoo-cpe.png",
+    "source": "google-favicon:ooredoo.com"
+  },
+  "opengear": {
+    "file": "images/brands/opengear.webp",
+    "source": "https://opengear.com/wp-content/uploads/2026/03/Opengear-Red-Icon@3x-300x300.webp"
+  },
+  "openwrt": {
+    "file": "images/brands/openwrt.svg",
+    "source": "simple-icons:openwrt"
+  },
+  "opnsense": {
+    "file": "images/brands/opnsense.svg",
+    "source": "simple-icons:opnsense"
+  },
+  "optimum": {
+    "file": "images/brands/optimum.png",
+    "source": "google-favicon:optimum.com"
+  },
+  "optimum-cpe": {
+    "file": "images/brands/optimum-cpe.png",
+    "source": "google-favicon:optimum.com"
+  },
+  "optus-australia": {
+    "file": "images/brands/optus-australia.ico",
+    "source": "https://www.optus.com.au/favicon.ico"
+  },
+  "optus-cpe": {
+    "file": "images/brands/optus-cpe.png",
+    "source": "google-favicon:optus.com"
+  },
+  "orange-livebox": {
+    "file": "images/brands/orange-livebox.svg",
+    "source": "simple-icons:orange"
+  },
+  "orange-polska": {
+    "file": "images/brands/orange-polska.png",
+    "source": "https://www.orange.pl/static/fe/marketing/_next/static/media/apple-touch-icon.3ggtf_45xhw1e.png"
+  },
+  "orbcomm": {
+    "file": "images/brands/orbcomm.png",
+    "source": "google-favicon:orbcomm.com"
+  },
+  "orbi": {
+    "file": "images/brands/orbi.png",
+    "source": "https://orbi.ge/img/favicon/apple-touch-icon.png"
+  },
+  "orbic": {
+    "file": "images/brands/orbic.png",
+    "source": "https://www.orbic.com/wp-content/uploads/2021/11/cropped-Looping-blanc-2-180x180.png"
+  },
+  "packeteer": {
+    "file": "images/brands/packeteer.svg",
+    "source": "commons:Packeteer logo.svg"
+  },
+  "pacstar": {
+    "file": "images/brands/pacstar.png",
+    "source": "https://defense-solutions.curtisswright.com/themes/custom/curtiss/favicon.ico"
+  },
+  "pakedge": {
+    "file": "images/brands/pakedge.jpg",
+    "source": "https://cdn.prod.website-files.com/672521f9ba00f11eb7a833b4/68712fd35b39f67a37d2ec5e_Group%201.jpg"
+  },
+  "palo-alto": {
+    "file": "images/brands/palo-alto.svg",
+    "source": "simple-icons:paloaltonetworks"
+  },
+  "palo-alto-networks": {
+    "file": "images/brands/palo-alto-networks.png",
+    "source": "https://www.paloalto.com/apple-touch-icon.png"
+  },
+  "panasonic": {
+    "file": "images/brands/panasonic.svg",
+    "source": "commons:Panasonic Group logo.svg"
+  },
+  "patton": {
+    "file": "images/brands/patton.png",
+    "source": "https://www.patton.com/fav-icon-patton.png"
+  },
+  "pentagram": {
+    "file": "images/brands/pentagram.png",
+    "source": "https://www.pentagram.com/images/apple-touch-icon.png"
+  },
+  "peplink": {
+    "file": "images/brands/peplink.png",
+    "source": "https://imagedelivery.net/ELltIDciDa6C0z-Ffk6NgQ/www.peplink.com/2024/04/cropped-favicon.png/w=180,h=180,fit=crop"
+  },
+  "perle": {
+    "file": "images/brands/perle.png",
+    "source": "https://www.perle.com/images/logos/perle-logo.png"
+  },
+  "pfsense": {
+    "file": "images/brands/pfsense.svg",
+    "source": "simple-icons:pfsense"
+  },
+  "phoenix-contact": {
+    "file": "images/brands/phoenix-contact.png",
+    "source": "google-favicon:phoenixcontact.com"
+  },
+  "pica8": {
+    "file": "images/brands/pica8.png",
+    "source": "https://resource.fs.com/mall/generalImg/2026082817400526xaw1.png"
+  },
+  "piolink": {
+    "file": "images/brands/piolink.png",
+    "source": "https://www.piolink.com/kr/_img/comm/logo.png"
+  },
+  "pirelli-broadband": {
+    "file": "images/brands/pirelli-broadband.jpg",
+    "source": "https://binaries.pirelli.com/common/logo-pirelli2x.jpg"
+  },
+  "pirelli-broadband-solutions": {
+    "file": "images/brands/pirelli-broadband-solutions.jpg",
+    "source": "https://binaries.pirelli.com/common/logo-pirelli2x.jpg"
+  },
+  "planet-technology": {
+    "file": "images/brands/planet-technology.png",
+    "source": "google-favicon:planet.com"
+  },
+  "plathome": {
+    "file": "images/brands/plathome.png",
+    "source": "https://www.plathome.com/wp-content/uploads/2018/03/cropped-plathome_favicon-180x180.png"
+  },
+  "play-poland": {
+    "file": "images/brands/play-poland.png",
+    "source": "google-favicon:play.pl"
+  },
+  "pldt-home-fibr": {
+    "file": "images/brands/pldt-home-fibr.png",
+    "source": "https://www.pldthome.com/images/default-source/navbar-update-072023/pldt-logo-size-optimized.png"
+  },
+  "plume": {
+    "file": "images/brands/plume.png",
+    "source": "https://cdn.plume.com/05/d5/1977e7fb4924aa37195021ec6a63/plume-v3.png"
+  },
+  "pluris": {
+    "file": "images/brands/pluris.png",
+    "source": "https://pluris.com/wp-content/uploads/2023/07/pluris-300x300.png"
+  },
+  "portronics": {
+    "file": "images/brands/portronics.png",
+    "source": "https://www.portronics.com/cdn/shop/files/logo_f6f5e2d7-11ef-46f4-b9b8-4d4c99fe098f.png?v=1707295711&amp;width=600"
+  },
+  "portwell": {
+    "file": "images/brands/portwell.png",
+    "source": "google-favicon:portwell.com"
+  },
+  "poynting": {
+    "file": "images/brands/poynting.svg",
+    "source": "https://poynting.tech/wp-content/uploads/wsstructure/POYNTING-Antennas-Logo-and-Slogan.svg"
+  },
+  "procket-networks": {
+    "file": "images/brands/procket-networks.png",
+    "source": "google-favicon:procket.com"
+  },
+  "prolink": {
+    "file": "images/brands/prolink.png",
+    "source": "https://prolink.com/wp-content/themes/Divi/images/logo.png"
+  },
+  "protectli": {
+    "file": "images/brands/protectli.png",
+    "source": "https://protectli.com/wp-content/uploads/2019/11/Protectli-Favicon-191112-300x300.png"
+  },
+  "proteon": {
+    "file": "images/brands/proteon.png",
+    "source": "https://firelay.com/wp-content/uploads/2019/01/Firelay-flame.png"
+  },
+  "proxim-wireless": {
+    "file": "images/brands/proxim-wireless.png",
+    "source": "https://proxim.com/wp-content/uploads/2022/03/cropped-proxim-180x180.png"
+  },
+  "qihoo-360": {
+    "file": "images/brands/qihoo-360.png",
+    "source": "https://p1.ssl.qhimg.com/t01637a872d99b18896.png"
+  },
+  "qnap": {
+    "file": "images/brands/qnap.svg",
+    "source": "simple-icons:qnap"
+  },
+  "qtech": {
+    "file": "images/brands/qtech.png",
+    "source": "google-favicon:qtech.com"
+  },
+  "qualcomm": {
+    "file": "images/brands/qualcomm.png",
+    "source": "google-favicon:qualcomm.com"
+  },
+  "quanta-cloud-technology": {
+    "file": "images/brands/quanta-cloud-technology.png",
+    "source": "https://quantacloud.net/icon.png?icon.2yx-d8ohivwqw.png"
+  },
+  "racom": {
+    "file": "images/brands/racom.png",
+    "source": "https://www.racom.net/wp-content/uploads/2023/12/racom-icon.png"
+  },
+  "radwin": {
+    "file": "images/brands/radwin.ico",
+    "source": "https://www.radwin.org/favicon.ico"
+  },
+  "rain-cpe": {
+    "file": "images/brands/rain-cpe.png",
+    "source": "https://www.rain.com/apple-touch-icon_180x180.png"
+  },
+  "razer": {
+    "file": "images/brands/razer.png",
+    "source": "https://www.razer.com/favicon.png"
+  },
+  "realtek": {
+    "file": "images/brands/realtek.png",
+    "source": "https://www.realtek.com/imgs/realtek_logo.png"
+  },
+  "red-lion": {
+    "file": "images/brands/red-lion.png",
+    "source": "https://www.sonesta.com/icons/icon-512x512.png?v=d3a3bb9834c02b5ba4b22cafdb93cf25"
+  },
+  "redback-networks": {
+    "file": "images/brands/redback-networks.png",
+    "source": "https://redback.com/wp-content/uploads/2024/09/black-shield-red-spider-emblem.png"
+  },
+  "redmagic": {
+    "file": "images/brands/redmagic.png",
+    "source": "google-favicon:redmagic.com"
+  },
+  "renkforce": {
+    "file": "images/brands/renkforce.png",
+    "source": "google-favicon:renkforce.com"
+  },
+  "repotec": {
+    "file": "images/brands/repotec.png",
+    "source": "https://www.repotec.com/wp-content/uploads/cropped-icon-RP-180x180.png"
+  },
+  "riverbed-technology": {
+    "file": "images/brands/riverbed-technology.svg",
+    "source": "https://www.riverbed.com/riverbed-wp-content/themes/riverbed/dist/images/riverbed_logo.svg"
+  },
+  "riverstone-networks": {
+    "file": "images/brands/riverstone-networks.svg",
+    "source": "https://www.riverstone.com/images/logo.svg"
+  },
+  "robustel": {
+    "file": "images/brands/robustel.png",
+    "source": "https://robustel.com/wp-content/uploads/2025/08/cropped-Robustel-Favicon-180x180.png"
+  },
+  "rogers-ignite": {
+    "file": "images/brands/rogers-ignite.ico",
+    "source": "https://www.rogers.com/app/prod/assets/i/favicon.ico"
+  },
+  "rohde-schwarz": {
+    "file": "images/brands/rohde-schwarz.png",
+    "source": "google-favicon:rohdeandschwarz.com"
+  },
+  "rosewill": {
+    "file": "images/brands/rosewill.png",
+    "source": "https://c1.neweggimages.com/nws/media/image/e120669ca37abd89fcc087be924bd13f376d7da76ede8833d06997e2cd3c5279.png"
+  },
+  "rtbrick": {
+    "file": "images/brands/rtbrick.png",
+    "source": "https://www.rtbrick.com/android-chrome-512x512.png"
+  },
+  "ruckus": {
+    "file": "images/brands/ruckus.png",
+    "source": "google-favicon:ruckus.com"
+  },
+  "ruckus-networks": {
+    "file": "images/brands/ruckus-networks.png",
+    "source": "google-favicon:ruckus.com"
+  },
+  "ruggedcom": {
+    "file": "images/brands/ruggedcom.png",
+    "source": "google-favicon:ruggedcom.com"
+  },
+  "ruijie": {
+    "file": "images/brands/ruijie.svg",
+    "source": "https://eo-sgp-cos.ruijie.com/site_style/new_navs/fer/upimg/logo.svg"
+  },
+  "ruijie-networks": {
+    "file": "images/brands/ruijie-networks.svg",
+    "source": "https://eo-sgp-cos.ruijie.com/site_style/new_navs/fer/upimg/logo.svg"
+  },
+  "ruijie-reyee": {
+    "file": "images/brands/ruijie-reyee.svg",
+    "source": "https://eo-sgp-cos.ruijie.com/site_style/new_navs/fer/upimg/logo.svg"
+  },
+  "sagemcom": {
+    "file": "images/brands/sagemcom.png",
+    "source": "https://www.sagemcom.com/sites/default/files/metatags/favicon180x180.png"
+  },
+  "salt-fiber": {
+    "file": "images/brands/salt-fiber.png",
+    "source": "https://www.salt.ch/themes/custom/salt_details_base/images/favicons/apple-touch-icon.png"
+  },
+  "samsung": {
+    "file": "images/brands/samsung.svg",
+    "source": "simple-icons:samsung"
+  },
+  "samsung-electronics": {
+    "file": "images/brands/samsung-electronics.svg",
+    "source": "commons:Samsung wordmark.svg"
+  },
+  "sangfor-technologies": {
+    "file": "images/brands/sangfor-technologies.svg",
+    "source": "https://download.sangfor.com.cn/3828d7af9df8485ca1db76d29778f7d5.svg"
+  },
+  "schneider-electric": {
+    "file": "images/brands/schneider-electric.ico",
+    "source": "https://www.se.com/favicon.ico"
+  },
+  "secomea": {
+    "file": "images/brands/secomea.svg",
+    "source": "https://secomea.com/wp-content/uploads/2024/04/favicon.svg"
+  },
+  "securifi": {
+    "file": "images/brands/securifi.png",
+    "source": "https://www.securifi.com/wp-content/uploads/2015/08/cropped-high_res_logo_black-180x180.png"
+  },
+  "semtech": {
+    "file": "images/brands/semtech.png",
+    "source": "https://www.semtech.com/assets/img/apple-touch-icon-152x152.png"
+  },
+  "shiva-corporation": {
+    "file": "images/brands/shiva-corporation.png",
+    "source": "https://www.shiva.com/Files/Images/Do-Not-Delete/logo-shiva-notag-nocom.png"
+  },
+  "siemens": {
+    "file": "images/brands/siemens.svg",
+    "source": "https://www.siemens.com/img/favicon.svg"
+  },
+  "sierra-wireless": {
+    "file": "images/brands/sierra-wireless.svg",
+    "source": "https://www.sierrawireless.com/wp-content/uploads/2023/10/SEMTECH-R-326-SW-is-now-Semtech-Logo-F_Wave.svg?w=137"
+  },
+  "siklu": {
+    "file": "images/brands/siklu.png",
+    "source": "https://www.ceragon.com/hs-fs/hubfs/CRG_AND_30_proven%20logo_Blue%20copy.png?width=2000&amp;name=CRG_AND_30_proven%20logo_Blue%20copy.png"
+  },
+  "silicom": {
+    "file": "images/brands/silicom.png",
+    "source": "google-favicon:silicom.com"
+  },
+  "silicom-ltd": {
+    "file": "images/brands/silicom-ltd.png",
+    "source": "google-favicon:silicom.com"
+  },
+  "silver-peak": {
+    "file": "images/brands/silver-peak.jpg",
+    "source": "google-favicon:silverpeak.com"
+  },
+  "silvus-technologies": {
+    "file": "images/brands/silvus-technologies.jpg",
+    "source": "google-favicon:silvus.com"
+  },
+  "singtel-broadband": {
+    "file": "images/brands/singtel-broadband.svg",
+    "source": "https://cdn1.singteldigital.com/content/dam/singtel/personal/products-services/mobile/phones/singtel-favicon.svg"
+  },
+  "sino-telecom": {
+    "file": "images/brands/sino-telecom.png",
+    "source": "https://www.sino.com/favicon-196.png"
+  },
+  "sitecom": {
+    "file": "images/brands/sitecom.png",
+    "source": "https://www.sitecom.com/media/9c/60/7d/1685093674/favicon.png"
+  },
+  "sky-broadband": {
+    "file": "images/brands/sky-broadband.svg",
+    "source": "simple-icons:sky"
+  },
+  "skyworth": {
+    "file": "images/brands/skyworth.png",
+    "source": "https://cdn.plyr.io/static/icons/180x180.png"
+  },
+  "smartrg": {
+    "file": "images/brands/smartrg.png",
+    "source": "https://www.adtran.com/images/icons/adtran/apple-touch-icon-114x114.png"
+  },
+  "smoothwall": {
+    "file": "images/brands/smoothwall.png",
+    "source": "https://smoothwall.com/hs-fs/hubfs/Smoothwall%20by%20Qoria_Logo/smoothwall__byqoria_teal.png?width=250&amp;height=54&amp;name=smoothwall__byqoria_teal.png"
+  },
+  "softbank-broadband": {
+    "file": "images/brands/softbank-broadband.svg",
+    "source": "https://group.softbank/media/Project/sbg/sbg/themes/custom/sbg/sbg-logo.svg?iar=0"
+  },
+  "softbank-cpe": {
+    "file": "images/brands/softbank-cpe.svg",
+    "source": "https://group.softbank/media/Project/sbg/sbg/themes/custom/sbg/sbg-logo.svg?iar=0"
+  },
+  "solwise": {
+    "file": "images/brands/solwise.png",
+    "source": "google-favicon:solwise.com"
+  },
+  "sonic": {
+    "file": "images/brands/sonic.png",
+    "source": "https://www.sonic.com/themes/custom/sonic/images/favicon-320.png"
+  },
+  "sonicwall": {
+    "file": "images/brands/sonicwall.svg",
+    "source": "simple-icons:sonicwall"
+  },
+  "sophos": {
+    "file": "images/brands/sophos.svg",
+    "source": "commons:Sophos logo2.svg"
+  },
+  "spark-new-zealand": {
+    "file": "images/brands/spark-new-zealand.png",
+    "source": "https://www.spark.co.nz/favicon_128.png"
+  },
+  "spectrum": {
+    "file": "images/brands/spectrum.svg",
+    "source": "simple-icons:spectrum"
+  },
+  "spectrum-cpe": {
+    "file": "images/brands/spectrum-cpe.png",
+    "source": "google-favicon:spectrum.com"
+  },
+  "speedefy": {
+    "file": "images/brands/speedefy.jpg",
+    "source": "https://www.speedefy.com/wp-content/uploads/2020/07/speedy-wifi_logo-300x300.jpg"
+  },
+  "starlink": {
+    "file": "images/brands/starlink.svg",
+    "source": "commons:Starlink Logo 2024.svg"
+  },
+  "starlink-satellite": {
+    "file": "images/brands/starlink-satellite.ico",
+    "source": "https://starlink.com/assets/favicons/favicon.ico"
+  },
+  "stc-broadband": {
+    "file": "images/brands/stc-broadband.jpg",
+    "source": "https://www.stc.com/content/dam/stc/favicon/apple-touch-icon.png"
+  },
+  "stc-cpe": {
+    "file": "images/brands/stc-cpe.jpg",
+    "source": "https://www.stc.com/content/dam/stc/favicon/apple-touch-icon.png"
+  },
+  "sterlite": {
+    "file": "images/brands/sterlite.png",
+    "source": "google-favicon:stl.tech"
+  },
+  "stormshield": {
+    "file": "images/brands/stormshield.png",
+    "source": "https://www.stormshield.com/wp-content/uploads/2016/05/stormshield_favicon.png"
+  },
+  "strong": {
+    "file": "images/brands/strong.jpg",
+    "source": "google-favicon:strong.tv"
+  },
+  "suncomm": {
+    "file": "images/brands/suncomm.webp",
+    "source": "https://www.suncomm.com/uploads/image/20250303/SHENZHEN-SUNCOMM-INDUSTRIAL-CO.,-LTD.-Logo_20250303.webp"
+  },
+  "supermicro": {
+    "file": "images/brands/supermicro.svg",
+    "source": "commons:Super Micro Computer Logo.svg"
+  },
+  "synology": {
+    "file": "images/brands/synology.svg",
+    "source": "simple-icons:synology"
+  },
+  "syrotech": {
+    "file": "images/brands/syrotech.jpg",
+    "source": "https://static.wixstatic.com/media/05d24b_21cbb2584e17419b91b8468169c702e0%7Emv2.jpg/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/05d24b_21cbb2584e17419b91b8468169c702e0%7Emv2.jpg"
+  },
+  "systematic": {
+    "file": "images/brands/systematic.png",
+    "source": "google-favicon:systematic.com"
+  },
+  "talari-networks": {
+    "file": "images/brands/talari-networks.png",
+    "source": "google-favicon:talari.com"
+  },
+  "talktalk-broadband": {
+    "file": "images/brands/talktalk-broadband.ico",
+    "source": "https://www.talktalk.co.uk/assets/images/reskin_favicon.ico"
+  },
+  "talktalk-cpe": {
+    "file": "images/brands/talktalk-cpe.png",
+    "source": "https://talktalk.com/apple-touch-icon.png"
+  },
+  "tapo": {
+    "file": "images/brands/tapo.ico",
+    "source": "https://www.tapo.com/favicon.ico"
+  },
+  "tarana": {
+    "file": "images/brands/tarana.png",
+    "source": "google-favicon:taranawireless.com"
+  },
+  "targa": {
+    "file": "images/brands/targa.svg",
+    "source": "https://targa.com/static/images/icons/favicon.svg"
+  },
+  "tata-play-fiber": {
+    "file": "images/brands/tata-play-fiber.jpg",
+    "source": "https://www.tataplayfiber.com/themes/custom/tsbmobile/images/tata-sky-logo.png"
+  },
+  "tcl": {
+    "file": "images/brands/tcl.svg",
+    "source": "https://aws-obg-image-lb-2.tcl.com/content/dam/brandsite/it-resources/common/navigation/tcl-logo.svg"
+  },
+  "technicolor": {
+    "file": "images/brands/technicolor.png",
+    "source": "https://www.vantiva.com/app/uploads/2024/12/cropped-favicon-180x180.png"
+  },
+  "tejas-networks": {
+    "file": "images/brands/tejas-networks.png",
+    "source": "https://www.tejasnetworks.com/wp-content/uploads/2024/02/Tejas-Fav-Icon.png"
+  },
+  "telco-systems": {
+    "file": "images/brands/telco-systems.png",
+    "source": "https://www.telco.com/wp-content/uploads/2020/03/batm-favicon.png"
+  },
+  "teldat": {
+    "file": "images/brands/teldat.png",
+    "source": "https://www.teldat.com/wp-content/uploads/2022/06/cropped-Favicon-Teldat-180x180.png"
+  },
+  "telecom-argentina-cpe": {
+    "file": "images/brands/telecom-argentina-cpe.svg",
+    "source": "commons:Personal logo 2021.svg"
+  },
+  "telecom-egypt": {
+    "file": "images/brands/telecom-egypt.svg",
+    "source": "commons:We logo.svg"
+  },
+  "telenet-cpe": {
+    "file": "images/brands/telenet-cpe.png",
+    "source": "https://www2.telenet.be/etc/designs/aff-telenet-touch/media/icons/favicon/apple-touch-icon.png"
+  },
+  "telenor-cpe": {
+    "file": "images/brands/telenor-cpe.svg",
+    "source": "commons:Telenor Group Logo.svg"
+  },
+  "teleofis": {
+    "file": "images/brands/teleofis.png",
+    "source": "https://teleofis.ru/favicon/favicon-120x120.png"
+  },
+  "televes": {
+    "file": "images/brands/televes.ico",
+    "source": "https://global.televes.com/favicon.ico"
+  },
+  "telewell": {
+    "file": "images/brands/telewell.png",
+    "source": "https://telewell.fi/wp-content/uploads/2025/05/cropped-Telewell_20-e1746383607987-180x180.png"
+  },
+  "telia-broadband": {
+    "file": "images/brands/telia-broadband.png",
+    "source": "https://www.telia.se/apple-touch-icon.png"
+  },
+  "telia-cpe": {
+    "file": "images/brands/telia-cpe.png",
+    "source": "https://www.telia.se/apple-touch-icon.png"
+  },
+  "telkom-indihome": {
+    "file": "images/brands/telkom-indihome.png",
+    "source": "https://telkomindihome.com/ikon-indihome.png"
+  },
+  "tellabs": {
+    "file": "images/brands/tellabs.png",
+    "source": "https://b3219540.assetcdn.net/2.0/3219540/wp-content/uploads/2024/08/cropped-tellabs-favicon-180x180.png?lossy=2&strip=1&webp=1"
+  },
+  "telrad": {
+    "file": "images/brands/telrad.png",
+    "source": "https://telrad.com/wp-content/uploads/2018/06/favicon_114.png"
+  },
+  "telstra-australia": {
+    "file": "images/brands/telstra-australia.png",
+    "source": "https://www.telstra.com.au/etc/designs/telstra/images/t-logo-theme-brand-refresh-apple-touch.png"
+  },
+  "teltonika": {
+    "file": "images/brands/teltonika.svg",
+    "source": "https://static.wixstatic.com/shapes/f0bc7e_9401521e86c645688d256207a21aace0.svg"
+  },
+  "teltonika-networks": {
+    "file": "images/brands/teltonika-networks.png",
+    "source": "https://www.teltonika.com/img/teltonika-datasets.png"
+  },
+  "tencent": {
+    "file": "images/brands/tencent.png",
+    "source": "google-favicon:tencent.com"
+  },
+  "tenda": {
+    "file": "images/brands/tenda.png",
+    "source": "https://static.tenda.com.cn/public/logo.png?x-oss-process=image%2Fresize%2Cw_320"
+  },
+  "teracom": {
+    "file": "images/brands/teracom.jpg",
+    "source": "google-favicon:teracom.net"
+  },
+  "thales": {
+    "file": "images/brands/thales.svg",
+    "source": "https://www.thales.com/hubfs/Website-2025/Typography/full-logo.svg"
+  },
+  "think-technology": {
+    "file": "images/brands/think-technology.png",
+    "source": "google-favicon:think.net"
+  },
+  "tilgin": {
+    "file": "images/brands/tilgin.png",
+    "source": "https://genexis.eu/wp-content/themes/mybit-webshop-child/assets/images/apple-touch-icon.png"
+  },
+  "tim-cpe": {
+    "file": "images/brands/tim-cpe.png",
+    "source": "google-favicon:tim.net"
+  },
+  "tm-unifi": {
+    "file": "images/brands/tm-unifi.svg",
+    "source": "https://unifi.com.my/themes/unifi/img/newest2022/unifi.svg"
+  },
+  "tomato-firmware": {
+    "file": "images/brands/tomato-firmware.png",
+    "source": "https://www.freshtomato.org/icon-180x180.png"
+  },
+  "topcom": {
+    "file": "images/brands/topcom.png",
+    "source": "https://grails.replit.app/logo.png"
+  },
+  "topton": {
+    "file": "images/brands/topton.png",
+    "source": "google-favicon:topton.com"
+  },
+  "tosibox": {
+    "file": "images/brands/tosibox.png",
+    "source": "https://www.tosi.net/hubfs/Tosibox_2025/Images/android%20icon.png"
+  },
+  "totalplay-cpe": {
+    "file": "images/brands/totalplay-cpe.jpg",
+    "source": "commons:Totalplay.jpg"
+  },
+  "totolink": {
+    "file": "images/brands/totolink.svg",
+    "source": "https://www.totolink.net/logo.svg"
+  },
+  "tp-link": {
+    "file": "images/brands/tp-link.svg",
+    "source": "simple-icons:tplink"
+  },
+  "transition-networks": {
+    "file": "images/brands/transition-networks.png",
+    "source": "https://cdn.lantronix.com/wp-content/themes/ltrx015201/img/apple-icon-180x180.png"
+  },
+  "turkcell-superonline": {
+    "file": "images/brands/turkcell-superonline.svg",
+    "source": "https://ffo3gv1cf3ir.merlincdn.net/SiteAssets/Genel/logo/pasaj_logo.svg?20260917_03-113504"
+  },
+  "turris": {
+    "file": "images/brands/turris.ico",
+    "source": "https://www.turris.cz/static/img/favicon.ico"
+  },
+  "ubee-interactive": {
+    "file": "images/brands/ubee-interactive.svg",
+    "source": "https://www.ubeeinteractive.com/resources/_img/layout/loader-logo.svg"
+  },
+  "ubiquiti": {
+    "file": "images/brands/ubiquiti.svg",
+    "source": "simple-icons:ubiquiti"
+  },
+  "ubiquiti-networks": {
+    "file": "images/brands/ubiquiti-networks.png",
+    "source": "https://www.ubiquiti.com/assets/img/logo.png"
+  },
+  "unifi": {
+    "file": "images/brands/unifi.jpg",
+    "source": "https://unifi.com/uploads/assets/brand-logos/brand-logo-nike.jpg"
+  },
+  "unisphere-networks": {
+    "file": "images/brands/unisphere-networks.jpg",
+    "source": "http://dzceab466r34n.cloudfront.net/Images/Site_Images/102384-logo-ug-1.jpg-ORG.jpg"
+  },
+  "unisplendour": {
+    "file": "images/brands/unisplendour.png",
+    "source": "https://unisplendour.com/apple-touch-icon.png"
+  },
+  "untangle": {
+    "file": "images/brands/untangle.png",
+    "source": "https://edge.arista.com/wp-content/themes/untangle/favicon/apple-arista-etm-favicon-180x180.png"
+  },
+  "upvel": {
+    "file": "images/brands/upvel.svg",
+    "source": "https://upvel.com/wp-content/themes/upvel/img/logo.svg"
+  },
+  "us-robotics": {
+    "file": "images/brands/us-robotics.png",
+    "source": "https://www.usrobotics.com/images/usrobotics-avatar-x512.png?v=e3ca85464af9887c2e8a201cb0735e4b"
+  },
+  "usr-iot": {
+    "file": "images/brands/usr-iot.png",
+    "source": "google-favicon:usriot.com"
+  },
+  "usrobotics": {
+    "file": "images/brands/usrobotics.png",
+    "source": "https://www.usr.com/images/usr-avatar-x512.png?v=b775875ac9a48776b79e34e7751eea0f"
+  },
+  "utepo": {
+    "file": "images/brands/utepo.ico",
+    "source": "https://www.utepo.com/skin/ytp/images/favicon.ico"
+  },
+  "utstarcom": {
+    "file": "images/brands/utstarcom.png",
+    "source": "https://www.utstarcom.com/sites/default/files/2025-06/UT%20logo%2001.png"
+  },
+  "vantiva": {
+    "file": "images/brands/vantiva.png",
+    "source": "https://www.vantiva.com/app/uploads/2024/12/cropped-favicon-180x180.png"
+  },
+  "vecima-networks": {
+    "file": "images/brands/vecima-networks.png",
+    "source": "https://vecima.com/nitropack_static/nmFOomsMqlIYxQjhvcxBrwyNjAlCYEOe/assets/images/optimized/rev-0b6ab37/vecima.com/wp-content/uploads/2022/04/vecima.png"
+  },
+  "ventus": {
+    "file": "images/brands/ventus.png",
+    "source": "google-favicon:ventus.com"
+  },
+  "verizon": {
+    "file": "images/brands/verizon.svg",
+    "source": "simple-icons:verizon"
+  },
+  "verizon-fios": {
+    "file": "images/brands/verizon-fios.svg",
+    "source": "simple-icons:verizon"
+  },
+  "versa-networks": {
+    "file": "images/brands/versa-networks.ico",
+    "source": "https://assets.squarespace.com/universal/default-favicon.ico"
+  },
+  "vestel": {
+    "file": "images/brands/vestel.png",
+    "source": "https://www.vestel.com/cdn/shop/files/logo-v-2.avif?v=1765261446&width=180"
+  },
+  "viasat": {
+    "file": "images/brands/viasat.png",
+    "source": "https://www.viasat.com/etc.clientlibs/viasat-base/clientlibs/clientlib-resources/resources/icons/favicon.ico"
+  },
+  "viettel-high-tech": {
+    "file": "images/brands/viettel-high-tech.svg",
+    "source": "https://viettelhightech.com/storage/icon/logo2.svg"
+  },
+  "vilfo": {
+    "file": "images/brands/vilfo.svg",
+    "source": "https://www.vilfo.com/images/logo.svg"
+  },
+  "virgin-media": {
+    "file": "images/brands/virgin-media.svg",
+    "source": "simple-icons:virginmedia"
+  },
+  "virgin-media-uk": {
+    "file": "images/brands/virgin-media-uk.png",
+    "source": "https://virginmediauk.com/wp-content/uploads/2026/06/cropped-favicon_virginmediauk-2-180x180.png"
+  },
+  "vivo-cpe": {
+    "file": "images/brands/vivo-cpe.png",
+    "source": "https://www.vivo.com/favicon.ico"
+  },
+  "vnpt-technology": {
+    "file": "images/brands/vnpt-technology.png",
+    "source": "google-favicon:vnpt.net"
+  },
+  "vodacom-cpe": {
+    "file": "images/brands/vodacom-cpe.ico",
+    "source": "https://www.vodacom.com/images/favicon.ico"
+  },
+  "vodafone": {
+    "file": "images/brands/vodafone.svg",
+    "source": "simple-icons:vodafone"
+  },
+  "vodafone-station": {
+    "file": "images/brands/vodafone-station.svg",
+    "source": "simple-icons:vodafone"
+  },
+  "volans": {
+    "file": "images/brands/volans.png",
+    "source": "https://volans.com/wp-content/themes/volans/images/apple-touch-icon.png"
+  },
+  "volcengine": {
+    "file": "images/brands/volcengine.png",
+    "source": "https://portal.volccdn.com/obj/volcfe/misc/favicon.png"
+  },
+  "vonets": {
+    "file": "images/brands/vonets.png",
+    "source": "google-favicon:vonets.com"
+  },
+  "vsol": {
+    "file": "images/brands/vsol.png",
+    "source": "https://www.vsolcn.com/wp-content/cache/thumbnails/2025/11/cropped-vsol-website-logo-180x180.png"
+  },
+  "vvdn": {
+    "file": "images/brands/vvdn.svg",
+    "source": "https://www.vvdntech.com/images/vvdn_site_logo.svg"
+  },
+  "vyos": {
+    "file": "images/brands/vyos.png",
+    "source": "google-favicon:vyos.com"
+  },
+  "vyos-networks": {
+    "file": "images/brands/vyos-networks.png",
+    "source": "google-favicon:vyos.com"
+  },
+  "wago": {
+    "file": "images/brands/wago.ico",
+    "source": "https://www.wago.com/favicon.ico"
+  },
+  "watchguard": {
+    "file": "images/brands/watchguard.png",
+    "source": "https://www.watchguard.com/sites/default/files/favicons/apple-touch-icon.png"
+  },
+  "watchguard-technologies": {
+    "file": "images/brands/watchguard-technologies.png",
+    "source": "https://www.watchguard.com/sites/default/files/favicons/apple-touch-icon.png"
+  },
+  "wavlink": {
+    "file": "images/brands/wavlink.png",
+    "source": "google-favicon:wavlink.com"
+  },
+  "welotec": {
+    "file": "images/brands/welotec.png",
+    "source": "https://welotec.com/cdn/shop/files/favicon_small.png?v=1739451047"
+  },
+  "westell": {
+    "file": "images/brands/westell.png",
+    "source": "https://d1io3yog0oux5.cloudfront.net/_d042d6c553efc46947dbb40c4591d014/westell/files/theme/images/favicons/apple-touch-icon.png"
+  },
+  "westell-technologies": {
+    "file": "images/brands/westell-technologies.png",
+    "source": "https://d1io3yog0oux5.cloudfront.net/_d042d6c553efc46947dbb40c4591d014/westell/files/theme/images/favicons/apple-touch-icon.png"
+  },
+  "westermo": {
+    "file": "images/brands/westermo.png",
+    "source": "https://www.westermo.com/Static/Images/favicon.ico/apple-touch-icon-152x152.png"
+  },
+  "western-digital": {
+    "file": "images/brands/western-digital.ico",
+    "source": "https://www.westerndigital.com/content/dam/store/en-us/portal-assets/logos/wd-icon.ico"
+  },
+  "windstream-kinetic": {
+    "file": "images/brands/windstream-kinetic.png",
+    "source": "google-favicon:windstreamkinetic.com"
+  },
+  "wingtech-technology": {
+    "file": "images/brands/wingtech-technology.jpg",
+    "source": "http://www.wingtech.com/images/ow/wingtechlogo.jpg"
+  },
+  "xfinity": {
+    "file": "images/brands/xfinity.png",
+    "source": "google-favicon:xfinity.com"
+  },
+  "xiaomi": {
+    "file": "images/brands/xiaomi.svg",
+    "source": "simple-icons:xiaomi"
+  },
+  "xirrus": {
+    "file": "images/brands/xirrus.png",
+    "source": "https://www.cambiumnetworks.com/wp-content/uploads/2021/03/cropped-Cambium_Networks_favicon-180x180.png"
+  },
+  "yamaha": {
+    "file": "images/brands/yamaha.png",
+    "source": "google-favicon:yamaha.com"
+  },
+  "yeacomm": {
+    "file": "images/brands/yeacomm.png",
+    "source": "google-favicon:yeacomm.com"
+  },
+  "yeastar": {
+    "file": "images/brands/yeastar.svg",
+    "source": "https://www.yeastar.com/wp-content/uploads/svg/yeastar-logo.svg"
+  },
+  "youku": {
+    "file": "images/brands/youku.png",
+    "source": "google-favicon:youku.com"
+  },
+  "yuncore": {
+    "file": "images/brands/yuncore.png",
+    "source": "https://www.yuncore.com/dist/images/logo.png"
+  },
+  "zbtlink": {
+    "file": "images/brands/zbtlink.svg",
+    "source": "https://www.zbt.com/images/csgamelogo.svg"
+  },
+  "zebronics": {
+    "file": "images/brands/zebronics.png",
+    "source": "https://zebronics.com/cdn/shop/files/RX0iy6Z.png?v=1635142405&width=180"
+  },
+  "zelax": {
+    "file": "images/brands/zelax.png",
+    "source": "https://zelax.com/wp-content/themes/zelax-theme/assets/apple-touch-icon.png"
+  },
+  "zhone-technologies": {
+    "file": "images/brands/zhone-technologies.svg",
+    "source": "https://eikyknk75uf.exactdn.com/wp-content/uploads/Zhone-Logo-ColorSwoosh-512x512-1.svg"
+  },
+  "zte": {
+    "file": "images/brands/zte.png",
+    "source": "https://www.zte.com.cn/content/dam/zte-site/res-www-zte-com-cn/navigator/global/main/img/logo-en.png"
+  },
+  "zyxel": {
+    "file": "images/brands/zyxel.png",
+    "source": "https://www.zyxel.com/sites/zyxel/files/favicon/favicon.png"
+  }
+}

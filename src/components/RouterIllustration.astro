@@ -1,0 +1,218 @@
+---
+// Drawn device illustration for a router model. Shape comes from the category; antenna count, LEDs
+// and accent colour vary per brand/model so each page gets its own image without using product photos.
+import type { RouterModel } from '../lib/types';
+import { hashString, brandAccent } from '../lib/brand-logos';
+
+interface Props {
+  model: Pick<RouterModel, 'brand' | 'brandSlug' | 'model' | 'slug' | 'category' | 'wifiStandard'>;
+  compact?: boolean;
+  class?: string;
+}
+
+const { model, compact = false, class: className = '' } = Astro.props;
+const v = hashString(model.slug || `${model.brand}-${model.model}`);
+const accent = brandAccent(model.brandSlug || model.brand);
+const uid = `ri${v.toString(36)}`;
+const label = model.brand.replace(/\(.*?\)/g, '').trim().toUpperCase().slice(0, 14);
+const wifiBadge = model.wifiStandard?.startsWith('Wi-Fi') ? model.wifiStandard.split(' (')[0] : null;
+
+const DARK = { front: '#26282c', top: '#3a3d42', edge: '#4d5157', ink: '#9aa0a6' };
+const LIGHT = { front: '#e3e6ea', top: '#fbfcfd', edge: '#c4c9cf', ink: '#80868b' };
+
+// Front-above view of a box: returns the top face polygon for a front face at (x, y, w).
+const topFace = (x: number, y: number, w: number, depth = 16, inset = 12) =>
+  `${x},${y} ${x + w},${y} ${x + w - inset},${y - depth} ${x + inset},${y - depth}`;
+
+const range = (n: number) => Array.from({ length: n }, (_, i) => i);
+const ledCount = 3 + (v % 4);
+
+const KNOWN = ['Home Wi-Fi', 'Mesh', 'Gaming', 'Travel', 'Prosumer Gateway', 'SMB Router', 'Enterprise Core', 'SD-WAN', '4G/5G Cellular', 'FTTH ONT', 'Modem Gateway'];
+const cat = KNOWN.includes(model.category) ? model.category : 'Home Wi-Fi';
+const homeAntennas = [0, 2, 3, 4][v % 4];
+const gamingAntennas = 6 + ((v >>> 3) % 3);
+const meshNodes = 2 + ((v >>> 5) % 2);
+const lightBody = ['Mesh', 'FTTH ONT', 'Modem Gateway', '4G/5G Cellular'].includes(cat) ? true : ['Travel'].includes(cat) ? (v & 1) === 0 : (v % 5) === 0;
+const c = lightBody ? LIGHT : DARK;
+---
+
+<figure class={`relative overflow-hidden rounded-2xl border border-[#e8eaed] dark:border-[#3c4043] bg-gradient-to-br from-[#f8fafd] to-[#e8f0fe] dark:from-[#303134] dark:to-[#202124] ${className}`}>
+  <svg viewBox="0 0 320 220" class="w-full h-auto block" role="img" aria-label={`Illustration of the ${model.brand} ${model.model} (${model.category})`}>
+    <defs>
+      <radialGradient id={`${uid}-glow`} cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color={accent} stop-opacity="0.35" />
+        <stop offset="100%" stop-color={accent} stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id={`${uid}-front`} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color={c.front} />
+        <stop offset="100%" stop-color={lightBody ? '#cfd4da' : '#18191c'} />
+      </linearGradient>
+    </defs>
+
+    <circle cx="160" cy="110" r="110" fill={`url(#${uid}-glow)`} />
+    <ellipse cx="160" cy="186" rx="120" ry="10" fill="#000" opacity="0.12" />
+
+    {(cat === 'Home Wi-Fi' || cat === 'Gaming') && (() => {
+      const gaming = cat === 'Gaming';
+      const n = gaming ? gamingAntennas : homeAntennas;
+      if (!gaming && n === 0) {
+        // Upright internal-antenna router
+        return (
+          <g>
+            <path d="M120,182 L128,62 Q160,40 192,62 L200,182 Z" fill={`url(#${uid}-front)`} stroke={c.edge} />
+            <path d="M128,62 Q160,40 192,62 Q160,76 128,62 Z" fill={c.top} stroke={c.edge} />
+            {range(ledCount).map(i => <circle cx={160} cy={100 + i * 12} r="2.4" fill={accent} />)}
+            <text x="160" y="170" text-anchor="middle" font-size="8" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="1">{label}</text>
+          </g>
+        );
+      }
+      const x = 60, y = 128, w = 200, h = gaming ? 40 : 32;
+      return (
+        <g>
+          {range(n).map(i => {
+            const ax = x + 22 + (i * (w - 44)) / Math.max(n - 1, 1);
+            const tilt = gaming ? (ax - 160) / 6 : (i % 2 ? 5 : -5);
+            const len = gaming ? 84 : 72;
+            return (
+              <g transform={`rotate(${tilt} ${ax} ${y - 10})`}>
+                <rect x={ax - (gaming ? 6 : 4.5)} y={y - 10 - len} width={gaming ? 12 : 9} height={len} rx={gaming ? 3 : 4.5} fill={DARK.top} stroke={DARK.edge} />
+                {gaming && <rect x={ax - 1.5} y={y - 10 - len + 8} width="3" height={len - 20} rx="1.5" fill={accent} opacity="0.85" />}
+              </g>
+            );
+          })}
+          <polygon points={topFace(x, y, w, gaming ? 22 : 16, gaming ? 20 : 12)} fill={c.top} stroke={c.edge} />
+          {gaming && <polygon points={topFace(x + 50, y - 4, w - 100, 12, 12)} fill={accent} opacity="0.9" />}
+          <rect x={x} y={y} width={w} height={h} rx="6" fill={`url(#${uid}-front)`} stroke={c.edge} />
+          {range(ledCount).map(i => <circle cx={x + 24 + i * 12} cy={y + h / 2} r="2.4" fill={accent} />)}
+          <text x={x + w - 16} y={y + h / 2 + 3} text-anchor="end" font-size="8" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="1">{label}</text>
+        </g>
+      );
+    })()}
+
+    {cat === 'Mesh' && (
+      <g>
+        {range(meshNodes).map(i => {
+          const cx = meshNodes === 2 ? 125 + i * 70 : 95 + i * 65;
+          const hgt = i === 1 ? 118 : 96;
+          const top = 182 - hgt;
+          return (
+            <g>
+              <rect x={cx - 30} y={top} width="60" height={hgt} rx="26" fill={`url(#${uid}-front)`} stroke={c.edge} />
+              <ellipse cx={cx} cy={top + 14} rx="22" ry="6" fill={c.top} />
+              <circle cx={cx} cy={top + hgt - 22} r="3" fill={accent} />
+              {i === 1 && <text x={cx} y={top + hgt / 2 + 3} text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="0.8">{label.slice(0, 8)}</text>}
+            </g>
+          );
+        })}
+        <path d="M140,50 q20,-16 40,0 M148,58 q12,-9 24,0" fill="none" stroke={accent} stroke-width="3" stroke-linecap="round" />
+      </g>
+    )}
+
+    {cat === 'Travel' && (
+      <g>
+        <g transform="rotate(-24 118 116)"><rect x="113" y="56" width="10" height="60" rx="5" fill={DARK.top} stroke={DARK.edge} /></g>
+        <g transform="rotate(24 202 116)"><rect x="197" y="56" width="10" height="60" rx="5" fill={DARK.top} stroke={DARK.edge} /></g>
+        <polygon points={topFace(110, 132, 100, 12, 8)} fill={c.top} stroke={c.edge} />
+        <rect x="110" y="132" width="100" height="44" rx="10" fill={`url(#${uid}-front)`} stroke={c.edge} />
+        <rect x="124" y="148" width="16" height="10" rx="2" fill="#5f6368" />
+        <rect x="146" y="150" width="12" height="6" rx="3" fill="#5f6368" />
+        <circle cx="194" cy="153" r="3" fill={accent} />
+        <text x="160" y="171" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="700" fill={c.ink}>{label.slice(0, 10)}</text>
+      </g>
+    )}
+
+    {(cat === 'Prosumer Gateway' || cat === 'SMB Router' || cat === 'SD-WAN') && (() => {
+      const x = cat === 'SD-WAN' ? 85 : 55, w = cat === 'SD-WAN' ? 150 : 210, y = 120, h = 46;
+      const ports = cat === 'SD-WAN' ? 5 : cat === 'SMB Router' ? 8 : 6;
+      return (
+        <g>
+          {cat === 'SMB Router' && (v & 2) === 0 && [x + 20, x + w - 20].map(ax => (
+            <rect x={ax - 4} y={y - 86} width="8" height="72" rx="4" fill={DARK.top} stroke={DARK.edge} />
+          ))}
+          {cat === 'SD-WAN' && (
+            <g>
+              <path d="M120,64 a18,18 0 0 1 30,-16 a22,22 0 0 1 40,6 a14,14 0 0 1 2,28 h-68 a14,14 0 0 1 -4,-18 z" fill={accent} opacity="0.9" />
+              <path d="M160,84 v24 M130,84 l-12,24 M190,84 l12,24" stroke={accent} stroke-width="2" stroke-dasharray="4 4" />
+            </g>
+          )}
+          <polygon points={topFace(x, y, w, 18, 14)} fill={c.top} stroke={c.edge} />
+          {range(9).map(i => <line x1={x + 40 + i * ((w - 80) / 8)} y1={y - 13} x2={x + 36 + i * ((w - 80) / 8)} y2={y - 4} stroke={c.edge} stroke-width="2" />)}
+          <rect x={x} y={y} width={w} height={h} rx="5" fill={`url(#${uid}-front)`} stroke={c.edge} />
+          {range(ports).map(i => (
+            <g>
+              <rect x={x + 16 + i * 20} y={y + 20} width="15" height="12" rx="1.5" fill="#111" stroke="#5f6368" />
+              <rect x={x + 19 + i * 20} y={y + 22} width="3" height="2" fill={i === 0 ? '#fbbc04' : '#34a853'} />
+            </g>
+          ))}
+          {cat === 'Prosumer Gateway' && range(2).map(i => <rect x={x + w - 52 + i * 20} y={y + 20} width="15" height="12" rx="1.5" fill={accent} opacity="0.85" />)}
+          {range(Math.min(ledCount, 4)).map(i => <circle cx={x + 20 + i * 10} cy={y + 10} r="2" fill={accent} />)}
+          <text x={x + w - 12} y={y + 13} text-anchor="end" font-size="7" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="1">{label}</text>
+        </g>
+      );
+    })()}
+
+    {cat === 'Enterprise Core' && (
+      <g>
+        <rect x="26" y="106" width="16" height="56" rx="2" fill={DARK.top} stroke={DARK.edge} />
+        <rect x="278" y="106" width="16" height="56" rx="2" fill={DARK.top} stroke={DARK.edge} />
+        <polygon points={topFace(40, 110, 240, 26, 18)} fill={DARK.top} stroke={DARK.edge} />
+        <rect x="40" y="110" width="240" height="48" rx="3" fill={`url(#${uid}-front)`} stroke={DARK.edge} />
+        {range(2).map(row => range(12).map(i => (
+          <rect x={78 + i * 13} y={118 + row * 15} width="10" height="11" rx="1" fill="#0d0d0f" stroke="#5f6368" stroke-width="0.8" />
+        )))}
+        {range(4).map(i => <rect x={240 + (i % 2) * 17} y={118 + Math.floor(i / 2) * 15} width="14" height="11" rx="1" fill={accent} opacity="0.85" />)}
+        {range(3).map(i => <circle cx="56" cy={122 + i * 10} r="2.2" fill={i === 2 ? '#fbbc04' : accent} />)}
+      </g>
+    )}
+
+    {cat === '4G/5G Cellular' && (
+      <g>
+        <g transform="rotate(-10 124 104)"><rect x="112" y="30" width="24" height="80" rx="12" fill={DARK.top} stroke={DARK.edge} /></g>
+        <g transform="rotate(10 196 104)"><rect x="184" y="30" width="24" height="80" rx="12" fill={DARK.top} stroke={DARK.edge} /></g>
+        <polygon points={topFace(100, 108, 120, 14, 10)} fill={c.top} stroke={c.edge} />
+        <rect x="100" y="108" width="120" height="72" rx="10" fill={`url(#${uid}-front)`} stroke={c.edge} />
+        {range(4).map(i => <rect x={124 + i * 9} y={158 - i * 6} width="6" height={8 + i * 6} rx="1.5" fill={i < 2 + (v % 3) ? accent : '#bdc1c6'} />)}
+        <text x="196" y="170" text-anchor="middle" font-size="16" font-family="sans-serif" font-weight="800" fill={accent}>{(v & 1) ? '5G' : '4G'}</text>
+        <text x="160" y="128" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="1">{label}</text>
+      </g>
+    )}
+
+    {cat === 'FTTH ONT' && (
+      <g>
+        <path d="M240,150 C280,150 290,110 300,70" fill="none" stroke="#fbbc04" stroke-width="5" stroke-linecap="round" />
+        <rect x="226" y="142" width="18" height="16" rx="2" fill="#34a853" />
+        <polygon points={topFace(80, 118, 150, 16, 12)} fill={c.top} stroke={c.edge} />
+        <rect x="80" y="118" width="150" height="60" rx="8" fill={`url(#${uid}-front)`} stroke={c.edge} />
+        {['PWR', 'PON', 'LOS', 'LAN', 'WLAN'].map((t, i) => (
+          <g>
+            <circle cx={98 + i * 26} cy="138" r="3" fill={t === 'LOS' ? '#ea4335' : accent} opacity={t === 'LOS' ? 0.35 : 1} />
+            <text x={98 + i * 26} y="152" text-anchor="middle" font-size="6.5" font-family="sans-serif" font-weight="700" fill={c.ink}>{t}</text>
+          </g>
+        ))}
+        <text x="155" y="170" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="1">{label}</text>
+      </g>
+    )}
+
+    {cat === 'Modem Gateway' && (
+      <g>
+        <path d="M122,182 L122,44 L198,34 L198,182 Z" fill={`url(#${uid}-front)`} stroke={c.edge} />
+        <path d="M198,34 L214,44 L214,176 L198,182 Z" fill={c.top} stroke={c.edge} />
+        {range(6).map(row => range(5).map(i => <circle cx={138 + i * 11} cy={60 + row * 9} r="2" fill={c.edge} />))}
+        {range(ledCount).map(i => <circle cx="160" cy={124 + i * 10} r="2.6" fill={accent} />)}
+        <text x="160" y="172" text-anchor="middle" font-size="7" font-family="sans-serif" font-weight="700" fill={c.ink} letter-spacing="1">{label.slice(0, 10)}</text>
+      </g>
+    )}
+
+    {!compact && wifiBadge && (
+      <g>
+        <rect x="12" y="12" width={wifiBadge.length * 6.4 + 16} height="20" rx="10" fill={accent} />
+        <text x={20} y="26" font-size="10.5" font-family="sans-serif" font-weight="700" fill="#fff">{wifiBadge}</text>
+      </g>
+    )}
+  </svg>
+  {!compact && (
+    <figcaption class="absolute bottom-1.5 right-2.5 text-[11px] text-[#5f6368] dark:text-[#9aa0a6]">
+      Illustration, not a product photo
+    </figcaption>
+  )}
+</figure>

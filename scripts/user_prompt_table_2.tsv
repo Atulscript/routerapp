@@ -1,0 +1,572 @@
+Region	Parent company / owner	Segment(s)	Category	Status	Notes
+Europe	United Internet	ISP CPE	ISP CPE / broadband gateway	Brand-only	German ISP branded routers
+North America	HPE / Juniper	SD-WAN	Enterprise / SD-WAN	Brand retired	Acquired by Juniper 2020; now Session Smart Routing
+North America	Pace (2013), then Arris	Legacy ISP CPE	ISP CPE / broadband gateway	Defunct	AT&T U-verse gateway supplier
+North America	HPE (via the 2010 HP acquisition)	Legacy enterprise	Legacy / acquired	Defunct	Its Chinese JV became H3C, which survives under Unisplendour
+Asia-Pacific	Independent	Industrial	Industrial / IoT	Active	Industrial Ethernet switches and routers
+Europe	Independent	Virtual router	Enterprise / SD-WAN	Active	Turbo Router / VSR high-performance software routers
+Europe	Independent	Utility/SCADA; Industrial	Industrial / IoT	Active	Substation communication and grid routers
+Asia-Pacific	Independent	Consumer Wi-Fi; ODM	ODM / white-label	Active (niche)	Small Taiwanese Wi-Fi hardware maker
+North America	Ericsson (1998)	Legacy access routers	Legacy / acquired	Defunct	Remote access router maker
+North America	Digi International	Cellular	Cellular / 5G / mobile	Brand absorbed	Cellular router maker acquired by Digi 2018
+Asia-Pacific	Independent	ODM; Whitebox	ODM / white-label	Active	Networking ODM; parent of Edgecore and Arcadyan
+North America	Independent	ISP CPE; DSL/Fiber	ISP CPE / broadband gateway	Active	Major US ISP-gateway ODM (Verizon, CenturyLink, Frontier)
+Asia-Pacific	Independent	Satellite	Specialised (military / satellite / mobility)	Active	Inmarsat and Iridium terminal-routers
+North America	Independent (NASDAQ: ADTN)	SP access; BNG; Optical	Service provider	Active	Merged with Germany's ADVA in 2022
+Europe	Adtran Holdings	Optical transport	Service provider	Brand absorbed	Now Adtran Networks SE
+Asia-Pacific	Independent (TWSE: 2395)	Industrial; IoT; uCPE	Industrial / IoT	Active	Industrial LAN/cellular routers and edge gateways; owns B+B SmartWorx
+Asia-Pacific	Independent	uCPE / network appliances	Data centre / disaggregated / silicon	Active	FWA appliance platforms used by SD-WAN vendors
+Europe	Advantech	Industrial; Cellular	Industrial / IoT	Active	ICR-series routers, formerly the Czech Conel brand
+North America	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Budget US Wi-Fi brand
+Asia-Pacific	Bharti Airtel	ISP CPE	ISP CPE / broadband gateway	Brand-only	Airtel-branded routers OEM'd by Nokia, Huawei, ZTE
+Middle East & Africa	Providence Equity Partners	Managed Wi-Fi; Mesh; ISP CPE	ISP CPE / broadband gateway	Active	Turkish-founded managed Wi-Fi vendor with global ISP deals
+Asia-Pacific	AIS	ISP CPE	ISP CPE / broadband gateway	Brand-only	Thai ISP branded router
+Europe	Nokia (via Alcatel-Lucent, 2016)	Legacy SP	Legacy / acquired	Brand retired	Merged with Lucent 2006; Nokia acquired 2016
+Europe	TCL Communication	Travel; 4G/5G CPE	Cellular / 5G / mobile	Active	TCL-owned brand's hotspot and home LTE/5G router line
+Europe	China Huaxin	Enterprise branch; Campus	Enterprise / SD-WAN	Active	OmniSwitch/OmniAccess; spun out of Nokia 2014
+Asia-Pacific	Alibaba Group	Cloud DC in-house	Data centre / disaggregated / silicon	Active	Custom datacentre networking hardware and software
+North America	Independent	Cloud NaaS / virtual router	Enterprise / SD-WAN	Active	Network-as-a-service cloud backbone
+Asia-Pacific	Independent	Enterprise campus/branch	Enterprise / SD-WAN	Active	Global enterprise switch and router vendor
+Middle East & Africa	Independent	DPI / traffic management	Enterprise / SD-WAN	Active	Adjacent to routing; policy and DPI appliances
+Asia-Pacific	D-Link spinoff	ODM; ISP CPE	ODM / white-label	Active	Spun off from D-Link; supplies global telcos
+North America	Amazon	Cloud DC / WAN in-house	Data centre / disaggregated / silicon	Active	Custom networking hardware and Transit Gateway
+Asia-Pacific	Hon Hai / Foxconn	ODM; Cable CPE	ODM / white-label	Active	Cable modem and gateway ODM inside Foxconn
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	Industrial 4G/5G cellular routers, also an ODM
+North America	Independent	Consumer Wi-Fi; Range extenders	Consumer / retail	Active	US high-power Wi-Fi niche brand
+North America	Ubiquiti	Mesh	Consumer / retail	Winding down	Ubiquiti's consumer mesh sub-brand, largely deprioritised
+Asia-Pacific	Independent	Industrial	Industrial / IoT	Active	DIN-rail industrial Ethernet routers
+Russia & CIS	Independent	Cellular	Cellular / 5G / mobile	Active (niche)	Russian LTE router and antenna brand
+Asia-Pacific	Independent	Cellular	Cellular / 5G / mobile	Active	M2M cellular routers and modules
+North America	Apple	Consumer Wi-Fi	Consumer / retail	Defunct	AirPort Express/Extreme/Time Capsule; Apple exited routers 2018
+Asia-Pacific	Compal Group	ODM / ISP CPE	ODM / white-label	Active	Major ODM behind many ISP-branded gateways worldwide
+Asia-Pacific	TP-Link	Consumer Wi-Fi	Consumer / retail	Active	Sub-brand: TP-Link's flagship standalone router line
+Middle East & Africa	Türk Telekom	SP; SDN/NFV	Other	Active	Türk Telekom's networking R&D arm
+North America	Independent (NYSE: ANET)	Data centre routing; SD-WAN; Campus	Data centre / disaggregated / silicon	Active	Acquired the VeloCloud SD-WAN business from Broadcom in 2025
+North America	Independent	SP and DC disaggregated routing	Data centre / disaggregated / silicon	Active	ArcOS network operating system
+North America	CommScope (2019)	Legacy ISP CPE; Cable	ISP CPE / broadband gateway	Brand retained	Still used as a product brand by CommScope
+North America	CommScope	Retail cable modem-router	ISP CPE / broadband gateway	Active	Best-known US retail cable gateway brand
+North America	HPE (2015)	Enterprise WLAN	Enterprise / SD-WAN	Brand retained	Now HPE Aruba Networking
+North America	Independent	SD-WAN; SASE	Enterprise / SD-WAN	Active	Managed unified SASE/SD-WAN with private backbone
+Middle East & Africa	Koç Holding	Consumer electronics	Consumer / retail	Brand-only	Turkish appliance giant with limited gateway ventures
+North America	Lucent (1999)	Legacy access routers	Legacy / acquired	Defunct	MAX and TNT remote access concentrators
+Asia-Pacific	Independent (Asus-linked)	ODM / ISP CPE	ODM / white-label	Active	Taiwanese ODM for ISP gateways and 5G FWA
+Asia-Pacific	Independent (TWSE: 2357)	Consumer Wi-Fi; Gaming; Mesh	Consumer / retail	Active	Major Taiwanese PC maker with one of the widest router lineups
+North America	Community (Eric Sauvageau)	Open-source firmware	Enterprise / SD-WAN	Active	Enhanced fork of Asus stock firmware
+North America	AT&T	ISP CPE	ISP CPE / broadband gateway	Brand-only	AT&T fibre/DSL gateways from Arris and Humax
+Asia-Pacific	Independent	Industrial	Industrial / IoT	Active	Industrial networking and gateway devices
+North America	Extreme Networks (2017)	Legacy enterprise	Legacy / acquired	Acquired	Ex-Nortel ERS campus lines
+North America	Independent	Cloud / virtual router	Enterprise / SD-WAN	Active	Multi-cloud transit and network software
+North America	Dissolved	Legacy SP core	Legacy / acquired	Defunct	Early 2000s core router pioneer, became Soapstone
+Europe	Independent	DSL/Fiber CPE; Consumer Wi-Fi; Mesh	ISP CPE / broadband gateway	Active	Germany's leading retail + ISP router brand; FRITZ!Box line
+Asia-Pacific	Independent	Industrial; IoT	Industrial / IoT	Active	Embedded edge gateways and industrial routers
+Asia-Pacific	Independent	Consumer; DSL/Fiber CPE	ISP CPE / broadband gateway	Active	Singaporean networking brand, strong regionally
+North America	KKR	SD-WAN; SASE; SMB	Enterprise / SD-WAN	Active	SecureEdge and CloudGen WAN appliances
+Middle East & Africa	Independent (LSE: BVC)	Carrier Ethernet	Service provider	Active	Parent of Telco Systems
+North America	Nortel (1998)	Legacy enterprise	Legacy / acquired	Defunct	Formed 1994 from Wellfleet + SynOptics; absorbed by Nortel
+Asia-Pacific	Independent	SP access; Aggregation	Service provider	Active	Access and aggregation networking equipment, OLTs
+Asia-Pacific	Independent (ex-Bharti)	DSL/Fiber CPE	ISP CPE / broadband gateway	Active	Legacy Indian telecom device brand
+North America	Independent (NYSE: BDC)	Industrial	Industrial / IoT	Active	Parent of Hirschmann and GarrettCom
+North America	Foxconn Interconnect Technology	Consumer Wi-Fi; Accessories	Consumer / retail	Active (reduced)	Router line largely wound down; Linksys was divested to Fortinet
+North America	Arista Networks	Whitebox NOS	Data centre / disaggregated / silicon	Brand retired	SDN/whitebox NOS absorbed into Arista 2020
+Asia-Pacific	Independent	DSL/Fiber CPE; Industrial	ISP CPE / broadband gateway	Active (niche)	Taiwanese DSL/VDSL router brand
+Europe	Binatone Global	Consumer; ISP CPE	ISP CPE / broadband gateway	Active	UK-origin brand with a strong Indian CPE presence
+Europe	Teldat Group	Enterprise branch; SMB	Enterprise / SD-WAN	Active	German brand owned by Spain's Teldat
+Europe	Bitdefender	Security router	Consumer / retail	Defunct	Smart-home security appliance; hardware line retired
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	4G/5G IoT routers and gateways
+Asia-Pacific	Independent	Consumer; Security	Consumer / retail	Active (niche)	Vietnamese tech firm with networking products
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	4G IoT industrial routers
+North America	Independent	Satellite; Aviation; Marine	Specialised (military / satellite / mobility)	Active	Iridium and Inmarsat router terminals
+Europe	Bouygues Telecom	ISP CPE	ISP CPE / broadband gateway	Brand-only	French ISP branded gateway
+North America	Independent (NASDAQ: AVGO)	Router and switch silicon	Data centre / disaggregated / silicon	Active	The dominant silicon behind most consumer and DC routers
+North America	Broadcom (2017)	Legacy SP and DC	Legacy / acquired	Brand retired	IP networking sold on to Extreme and Arris
+Europe	BT Group	ISP CPE	ISP CPE / broadband gateway	Brand-only	UK's most-deployed home router line
+Asia-Pacific	Melco Holdings	Consumer Wi-Fi; NAS	Consumer / retail	Active	Leading Japanese retail Wi-Fi router brand (AirStation)
+Russia & CIS	Rostec (state)	Enterprise; SP	Enterprise / SD-WAN	Active	State-backed import-substitution networking vendor
+Asia-Pacific	ByteDance	Cloud DC in-house	Data centre / disaggregated / silicon	Active	Custom whitebox datacentre networking
+Asia-Pacific	Government of India	R&D; SP routing	Other	Active	State telecom R&D body designing indigenous routers
+North America	Split 2001	Legacy enterprise	Legacy / acquired	Defunct	Split into Enterasys, Riverstone, Aprisma and GlobalNetwork
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	Industrial cellular router manufacturer
+North America	Independent	Telematics; Vehicle	Specialised (military / satellite / mobility)	Active (distressed)	Telematics-focused cellular gateways
+North America	Independent (NYSE: CALX)	SP access; ISP CPE	ISP CPE / broadband gateway	Active	Broadband systems and GigaSpire gateways for US ISPs
+North America	Independent (NASDAQ: CMBM)	WISP; Enterprise	Enterprise / SD-WAN	Active (distressed)	Fixed wireless plus cnMatrix/cnPilot routing gear
+North America	Liquidated 2024	BNG; CCAP; FWA	Cellular / 5G / mobile	Defunct	Chapter 11 in April 2024; cable assets to CommScope/Vecima, NetComm to DZS
+North America	Wound down 2006	Legacy SP core	Legacy / acquired	Defunct	Flow-based routing startup
+Middle East & Africa	Independent	SD-WAN; SASE	Enterprise / SD-WAN	Active	Cloud-native SASE platform with its own PoP backbone
+North America	Independent (NYSE: CLS)	Whitebox ODM	ODM / white-label	Active	Datacentre and SP whitebox hardware
+Asia-Pacific	Independent	Whitebox silicon and switch-routers	Data centre / disaggregated / silicon	Active	Merchant-silicon whitebox vendor
+Asia-Pacific	Independent	SMB; Industrial; Cellular	Industrial / IoT	Active	FutureNet LTE/5G branch and industrial routers
+Middle East & Africa	Independent	Microwave backhaul (adjacent)	Other	Active	Wireless backhaul with integrated IP routing
+Middle East & Africa	Independent (NASDAQ: CHKP)	Enterprise branch; SD-WAN	Enterprise / SD-WAN	Active	Quantum gateways with SD-WAN routing
+North America	Wound down c.2006	Legacy SP core	Legacy / acquired	Defunct	Optical-switch-fabric terabit router startup
+Asia-Pacific	China Mobile	ISP CPE	ISP CPE / broadband gateway	Brand-only	Carrier-branded gateways from domestic ODMs
+Asia-Pacific	China Unicom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Carrier-branded gateways from domestic ODMs
+North America	Independent (NYSE: CIEN)	Packet-optical; SP routing	Service provider	Active	5000 series routers plus WaveLogic optical
+North America	Cisco Systems	Industrial; Utility/SCADA	Industrial / IoT	Active	IR1101, IR1800, IR8340 rugged routers
+North America	Cisco Systems	SD-WAN; Enterprise branch	Enterprise / SD-WAN	Active	Cloud-managed MX security/SD-WAN appliances; acquired 2012
+North America	Independent (NASDAQ: CSCO)	Enterprise branch; SP edge; SP core; Data centre; Industrial	Industrial / IoT	Active	Largest full-line router vendor; ISR, ASR, NCS, Catalyst 8000, 8000 series
+North America	Cisco Systems	SD-WAN	Enterprise / SD-WAN	Brand retired	Acquired 2017; now sold as Cisco Catalyst SD-WAN
+North America	Cloud Software Group	SD-WAN	Enterprise / SD-WAN	Active	Ex-CloudBridge enterprise WAN edge
+Latin America	América Móvil	ISP CPE	ISP CPE / broadband gateway	Brand-only	Regional operator branded router/ONT
+North America	Palo Alto Networks	SD-WAN	Enterprise / SD-WAN	Brand retired	Became Prisma SD-WAN
+Europe	One Equity Partners (as Satcom Global/Cobham)	Marine; Aviation; Satellite	Specialised (military / satellite / mobility)	Active	SAILOR and EXPLORER satcom routers
+North America	HP (2008)	Legacy enterprise WLAN	Legacy / acquired	Defunct	Wireless networking vendor
+Asia-Pacific	Independent	Prosumer Wi-Fi	SMB / prosumer	Active	Chinese Wi-Fi hardware export brand
+North America	Independent (NASDAQ: COMM)	ISP CPE; Cable access	ISP CPE / broadband gateway	Active	Owns Arris; major cable gateway and CPE supplier
+Asia-Pacific	Compal Electronics	ODM / ISP CPE	ODM / white-label	Active	Cable/DSL CPE ODM arm
+Asia-Pacific	Independent	Prosumer; Wi-Fi modules; Industrial	Industrial / IoT	Active (niche)	Singapore-based Wi-Fi hardware brand
+Asia-Pacific	Independent	DSL/Fiber CPE	ISP CPE / broadband gateway	Active	Taiwanese DSL/CPE brand, common in US ISP channels
+Europe	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Benelux value networking brand
+Asia-Pacific	Independent	IoT; Industrial	Industrial / IoT	Active	Edge computing and IoT gateway routers
+Asia-Pacific	Converge ICT Solutions	ISP CPE	ISP CPE / broadband gateway	Brand-only	Philippine ISP branded fibre gateway
+Asia-Pacific	Independent	Enterprise; SMB	Enterprise / SD-WAN	Active	Indian VoIP and networking equipment maker
+Asia-Pacific	Allied Telesis (brand)	Consumer Wi-Fi	Consumer / retail	Legacy	Legacy Japanese consumer networking brand
+Europe	Infinera / Nokia	Optical transport	Service provider	Brand retired	Ex-Nokia Siemens unit, folded into Infinera 2018
+North America	Cisco (2004)	Legacy routing technology	Legacy / acquired	Defunct	Router technology startup
+Asia-Pacific	Independent	ISP CPE; STB	ISP CPE / broadband gateway	Active (niche)	Chinese gateway/set-top maker
+Europe	Deutsche Telekom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Greek telco branded router
+Asia-Pacific	D-Link	Mesh	Consumer / retail	Active	Sub-brand: D-Link's mesh Wi-Fi line
+North America	Cox Communications	ISP CPE; Mesh	ISP CPE / broadband gateway	Brand-only	Cox branded mesh gateway system
+North America	Ericsson	5G; Cellular 5G; Public safety; Vehicle; Wireless WAN branch	Specialised (military / satellite / mobility)	Active	Leading 4G/5G branch and public-safety routers; Ericsson-owned since 2020
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Newer Chinese budget Wi-Fi brand, strong on Amazon
+North America	Nvidia	Whitebox NOS	Data centre / disaggregated / silicon	Brand absorbed	Cumulus Linux; acquired by Nvidia 2020
+North America	Curtiss-Wright (NYSE: CW)	Military; Vehicle	Specialised (military / satellite / mobility)	Active	DuraMAR rugged mobile access routers
+North America	Ciena (2015)	Legacy packet-optical	Legacy / acquired	Brand retired	Packet-optical and SDN vendor
+Asia-Pacific	Independent	ODM	ODM / white-label	Active	Long-time ODM for Linksys, Netgear and others
+Asia-Pacific	Independent (TWSE: 2332)	Consumer Wi-Fi; Mesh; DSL/Fiber CPE; SMB; 5G	ISP CPE / broadband gateway	Active	Major Taiwanese consumer + SMB networking brand
+Asia-Pacific	D-Link Corporation (Taiwan)	Regional consumer / SMB	SMB / prosumer	Active	Listed Indian JV assembling and distributing D-Link products
+North America	Linux Foundation Networking (originated at AT&T)	Open NOS	Data centre / disaggregated / silicon	Active	AT&T-originated disaggregated NOS
+Asia-Pacific	Independent	SP access	Service provider	Active	Korean access networking vendor
+Latin America	Independent	SP; Enterprise; OLT	Enterprise / SD-WAN	Active	Major Brazilian router and access equipment maker
+Asia-Pacific	Independent	ODM; ISP CPE	ODM / white-label	Active	Korean CPE maker for KT, SK Broadband and export
+Europe	NewMedia-NET GmbH	Open-source firmware	Enterprise / SD-WAN	Active	Long-running third-party router firmware
+Europe	Independent	Virtual router; SMB firewall	Enterprise / SD-WAN	Active	Open-source firewall/router distribution and appliances
+Asia-Pacific	TP-Link	Mesh	Consumer / retail	Active	Sub-brand: TP-Link's whole-home mesh Wi-Fi line
+North America	Dell Technologies	Data centre; Campus	Data centre / disaggregated / silicon	Active	PowerSwitch line, largely whitebox-friendly
+Asia-Pacific	Delta Electronics	Whitebox ODM	ODM / white-label	Active	ODM hardware partner for disaggregated routing
+Europe	Deutsche Telekom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Germany's biggest ISP router line, built by Arcadyan and others
+Europe	Digi Communications	ISP CPE	ISP CPE / broadband gateway	Brand-only	Romanian ISP branded router/ONT
+North America	Independent (NASDAQ: DGII)	Branch; Cellular; Industrial; IoT	Industrial / IoT	Active	TransPort and Digi IX/EX routers; owns Opengear
+Asia-Pacific	Smartlink Network Systems	Consumer; SMB; FTTH CPE	ISP CPE / broadband gateway	Active	Long-running Indian networking brand
+Asia-Pacific	Digital China Group	Enterprise; SP	Enterprise / SD-WAN	Active	DCN-branded routers and switches
+Asia-Pacific	Neusoft-linked	Enterprise security routing	Enterprise / SD-WAN	Active	Security-plus-routing convergence vendor
+Asia-Pacific	Independent	LoRaWAN; IoT	Industrial / IoT	Active	LoRaWAN gateways and edge IoT routers
+Asia-Pacific	Independent	SMB; SOHO; DSL/Fiber CPE	ISP CPE / broadband gateway	Active	Vigor series; strong VPN/multi-WAN following in EU and SE Asia
+Middle East & Africa	Independent	SP core; Disaggregated routing	Service provider	Active	Network Cloud DDC used by AT&T and others
+Middle East & Africa	EITC (du)	ISP CPE	ISP CPE / broadband gateway	Brand-only	UAE telco branded home gateways
+North America	Independent	SP access; BNG; FWA CPE	Cellular / 5G / mobile	Active	DASAN + Zhone merger; bought NetComm Wireless out of Casa's bankruptcy in 2024
+Middle East & Africa	e& (Etisalat Group)	ISP CPE	ISP CPE / broadband gateway	Brand-only	UAE telco branded home gateways
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	Rugged mobile and industrial cellular routers
+Europe	Independent	Utility/SCADA	Industrial / IoT	Active	Grid automation communication devices
+Middle East & Africa	Ribbon Communications	Optical; Packet transport	Service provider	Brand retired	Merged into Ribbon c.2020
+Asia-Pacific	Accton Technology	Whitebox switch-routers	Data centre / disaggregated / silicon	Active	Leading open networking hardware brand
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Taiwanese budget Wi-Fi brand
+North America	Amazon	Mesh	Consumer / retail	Active	Mesh Wi-Fi pioneer; acquired by Amazon 2019; large ISP channel
+North America	Siemens (2001)	Legacy DSL CPE	Legacy / acquired	Defunct	SpeedStream DSL CPE
+Europe	eir	ISP CPE	ISP CPE / broadband gateway	Brand-only	Irish incumbent branded router
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Japanese peripherals brand, budget/mid routers; owns Logitec
+Russia & CIS	Independent	Enterprise; SP access; ISP CPE; Industrial	ISP CPE / broadband gateway	Active	Russia's broadest domestic networking line
+North America	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Budget US networking brand
+North America	Independent	Cellular; Industrial	Industrial / IoT	Active (niche)	US cellular and VSAT router maker
+Asia-Pacific	Independent (Senao Networks)	Prosumer; SMB; Wi-Fi	SMB / prosumer	Active	Spans consumer to SMB/managed Wi-Fi
+North America	Extreme Networks (2013)	Legacy enterprise	Legacy / acquired	Acquired	Cabletron spinoff
+Europe	Independent (NASDAQ: ERIC)	Mobile transport; Enterprise WWAN	Service provider	Active	Router 6000 mobile transport line; exited SmartEdge IP routers c.2017
+Europe	Independent (BIT: ETH)	IoT edge	Industrial / IoT	Active	ReliaGATE IoT edge gateways
+Europe	HMS Networks	Industrial; Remote access	Industrial / IoT	Active	VPN remote-access industrial routers
+North America	Independent	Military; Embedded	Specialised (military / satellite / mobility)	Active	XPand rugged embedded routers and switches
+North America	Independent (NASDAQ: EXTR)	Enterprise campus/branch; SD-WAN	Enterprise / SD-WAN	Active	Absorbed Enterasys, Avaya Networking and Brocade's campus/DC lines
+Europe	WithSecure / F-Secure	Security router	Consumer / retail	Defunct	Security router reached end-of-sale
+Asia-Pacific	TP-Link	Consumer Wi-Fi	Consumer / retail	Active	China-domestic budget router sub-brand
+Europe	Swisscom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Italian ISP branded gateway
+North America	Independent	SD-WAN	Enterprise / SD-WAN	Active	Early SD-WAN/WAN-bonding pioneer, still independent
+Asia-Pacific	China Information & Communication Technologies Group (state)	SP edge; Optical; ISP CPE	ISP CPE / broadband gateway	Active	Optical transport plus IP routing and ONT CPE
+North America	Independent	Security router	Consumer / retail	Active (niche)	Smart firewall/router appliance
+North America	Dell (2011)	Legacy DC routing	Legacy / acquired	Brand retired	Became Dell Networking
+North America	Independent (NASDAQ: FTNT)	SD-WAN; Enterprise branch; SASE; Consumer (Linksys)	Enterprise / SD-WAN	Active	FortiGate Secure SD-WAN; also now owns Linksys outright
+North America	Brocade (2008), then Broadcom	Legacy SP and enterprise	Legacy / acquired	Defunct	NetIron and BigIron routers
+Asia-Pacific	Independent (SZSE: 300810)	Cellular; Industrial	Industrial / IoT	Active	Very broad 4G/5G industrial router range
+Asia-Pacific	Hon Hai Precision	Whitebox ODM	ODM / white-label	Active	ODM for hyperscaler routers and switches
+North America	Independent (NASDAQ: FKWL)	4G/5G CPE; Hotspots	Cellular / 5G / mobile	Active	Carrier-branded hotspot and CPE ODM
+Europe	Iliad / Free	ISP CPE	ISP CPE / broadband gateway	Active	French ISP's self-designed box, ODM manufactured
+Global / multi-country	Linux Foundation	Open routing stack	Other	Active	Underpins many commercial NOS products
+Asia-Pacific	Independent	SP edge; Optical	Service provider	Active	1FINITY packet-optical and routing platforms
+Asia-Pacific	Independent	SP access; Optical	Service provider	Active	Access and optical networking; owns Brazil's Furukawa Parks
+Asia-Pacific	Independent	Marine	Specialised (military / satellite / mobility)	Active	Marine electronics with satellite router integration
+Europe	MPL AG (Switzerland)	Industrial; Utility/SCADA	Industrial / IoT	Active	Secure Linux-based industrial routers
+North America	Community	Open-source firmware	Enterprise / SD-WAN	Active (niche)	OpenWrt-derived firmware focused on bandwidth control
+North America	Belden	Industrial; Utility/SCADA	Industrial / IoT	Brand absorbed	Substation-grade rugged routers under Belden
+North America	GE Vernova	Utility/SCADA; Industrial	Industrial / IoT	Active	Licensed and unlicensed radio routers for grid telemetry
+Asia-Pacific	Independent	ODM / ISP CPE; Consumer	ODM / white-label	Active	Router/CPE ODM with some own-brand sales
+North America	General Dynamics	Military	Specialised (military / satellite / mobility)	Active	TACLANE and tactical secure network routing
+North America	Motorola (2000)	Legacy cable CPE	ISP CPE / broadband gateway	Defunct	Cable modem and set-top pioneer
+Europe	Independent	ISP CPE; FTTH	ISP CPE / broadband gateway	Active	FTTH CPE and residential gateways, with Indian manufacturing
+Europe	Genexis	ISP CPE	ISP CPE / broadband gateway	Active	Acquired parts of the Nordic CPE market
+North America	Semtech (2012)	Networking silicon	Data centre / disaggregated / silicon	Brand retired	Analog and video ICs used in networking gear
+Europe	Independent	DSL/Fiber CPE; Smart home	ISP CPE / broadband gateway	Active (niche)	German DECT phone maker with routers and gateways
+Middle East & Africa	Independent	Satellite	Specialised (military / satellite / mobility)	Active	VSAT satellite routers and hubs
+Asia-Pacific	Independent	Travel; IoT; Prosumer	Industrial / IoT	Active	Leading travel/portable router brand; OpenWrt-based
+Asia-Pacific	Globe Telecom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Philippine ISP branded home router
+Asia-Pacific	UCloudlink	Travel hotspot	Cellular / 5G / mobile	Active	Global travel MiFi/eSIM hotspot brand
+North America	Independent (NASDAQ: GOGO)	Aviation	Specialised (military / satellite / mobility)	Active	Inflight connectivity routers and air-to-ground systems
+North America	Alphabet	Cloud DC / WAN in-house	Data centre / disaggregated / silicon	Active	Jupiter fabrics and B4 WAN, custom routing software
+North America	Alphabet	ISP CPE	ISP CPE / broadband gateway	Brand-only	Google Fiber branded gateway
+North America	Alphabet / Google	Mesh	Consumer / retail	Active	Google's current mesh Wi-Fi line (Nest Wifi Pro)
+North America	Alphabet / Google	Consumer Wi-Fi	Consumer / retail	Defunct	2015-16 Google-designed router built by TP-Link and Asus
+North America	Alphabet / Google	Mesh	Consumer / retail	Discontinued	Predecessor to Nest Wifi
+North America	Independent	NaaS / virtual router	Enterprise / SD-WAN	Active	Network Edge service positioned against MPLS routers
+Latin America	Independent	FTTH ONT/router	ISP CPE / broadband gateway	Active	Brazilian FTTH ONU/networking brand
+North America	Independent	Mesh; Parental controls	Consumer / retail	Active (niche)	Parental-control-focused mesh router brand
+Asia-Pacific	New H3C Group	Consumer Wi-Fi	Consumer / retail	Active	Consumer sub-brand of enterprise vendor H3C
+Asia-Pacific	Independent	Enterprise; SP	Enterprise / SD-WAN	Active	Korean networking equipment manufacturer
+North America	Independent (NASDAQ: HLIT)	vCMTS; BNG-adjacent	Service provider	Active	Virtualised cable access, CMTS/BNG functions
+North America	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Long-running budget US Wi-Fi brand
+North America	Independent (NYSE: HPE)	Enterprise; SD-WAN; Data centre	Data centre / disaggregated / silicon	Active	Now the umbrella for Aruba and Juniper
+Asia-Pacific	Independent	SP routing; Wi-Fi; BharatNet	Consumer / retail	Active	Indian router and Wi-Fi manufacturer, BharatNet supplier
+Asia-Pacific	Independent	Optical; SP access	Service provider	Active	Optical transport and access networking
+Europe	Belden	Industrial; Rail	Industrial / IoT	Active	EAGLE and BAT industrial secure routers
+Asia-Pacific	Independent	SP (legacy routing)	Legacy / acquired	Legacy	Historic IP router lines, now largely exited
+Asia-Pacific	Independent	Cable CPE	ISP CPE / broadband gateway	Active	Cable modem-router brand popular with North American ISPs
+Europe	Independent (STO: HMS)	Industrial; IoT	Industrial / IoT	Active	Owns the eWON remote-access router brand
+Asia-Pacific	Independent	ODM / EMS	ODM / white-label	Active	World's largest EMS; builds CPE for many brands
+Asia-Pacific	Independent	Cellular; Utility/SCADA	Industrial / IoT	Active	Routers for utility, oil and gas telemetry
+Asia-Pacific	Independent (Shenzhen Zhixin, spun off from Huawei 2020)	Consumer Wi-Fi	Consumer / retail	Active	Honor Router X series
+North America	Hewlett Packard Enterprise	Enterprise branch; SD-WAN	Enterprise / SD-WAN	Active	EdgeConnect SD-WAN (ex-Silver Peak); Aruba acquired by HP 2015
+Asia-Pacific	Independent (employee-owned)	Consumer Wi-Fi; ISP CPE; 5G CPE	ISP CPE / broadband gateway	Active	WS/AX-series home routers plus the world's largest ISP CPE business
+Asia-Pacific	Independent (employee-owned)	SP core; SP edge; Enterprise; Data centre; Industrial	Industrial / IoT	Active	NetEngine, AR, CloudEngine; #1 or #2 in global router revenue
+North America	EchoStar	Satellite	Specialised (military / satellite / mobility)	Active	HX and JUPITER satellite routers
+Asia-Pacific	Independent	ISP CPE; STB gateways	ISP CPE / broadband gateway	Active	Korean CPE/STB maker supplying operator gateways globally
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Japanese PC-peripheral maker with Wi-Fi router range
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Indian consumer electronics brand with budget routers
+Europe	Independent	Industrial; Cellular	Industrial / IoT	Active (niche)	European industrial cellular router maker
+Asia-Pacific	Independent	Industrial; IoT	Industrial / IoT	Active	IIoT gateways and routers for automation
+North America	Qualcomm (2015)	CPE silicon	Data centre / disaggregated / silicon	Defunct	DSL and VDSL chipsets
+Asia-Pacific	Telkom Indonesia	ISP CPE	ISP CPE / broadband gateway	Brand-only	State telco branded ONT-router
+North America	Nokia	Optical transport	Service provider	Brand absorbed	Nokia completed the $2.3bn acquisition in February 2025
+Asia-Pacific	Independent	Industrial; Cellular; IoT	Industrial / IoT	Active	IR and VG series industrial IoT routers
+North America	Independent (NASDAQ: INSG)	4G/5G CPE; Hotspots	Cellular / 5G / mobile	Active	Owns the MiFi trademark; ex-Novatel Wireless
+Asia-Pacific	Independent	Data centre networking	Data centre / disaggregated / silicon	Active	Primarily servers; some DC networking gear
+Europe	Independent	Industrial; Cellular	Industrial / IoT	Active	M2M/IIoT cellular routers, strong in German industry
+Latin America	Independent (B3: INTB3)	Consumer; Mesh; SMB; FTTH CPE	ISP CPE / broadband gateway	Active	Major Brazilian networking, security and telecom brand
+Asia-Pacific	Independent	Marine; Satellite	Specialised (military / satellite / mobility)	Active	Marine VSAT antennas with network routing
+Europe	IC Intracom	Consumer / Prosumer	SMB / prosumer	Active (niche)	IC Intracom sister networking brand
+Europe	Bankrupt 2019	ISP CPE	ISP CPE / broadband gateway	Defunct	Swedish CPE maker; Iopsys software lineage lives on
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Indian consumer electronics brand with routers
+Asia-Pacific	Independent	ODM / EMS	ODM / white-label	Active	Electronics ODM with networking lines
+North America	Independent	Consumer / Prosumer	SMB / prosumer	Active (niche)	KVM/peripherals brand with some router products
+North America	ACCESS Co.	Disaggregated NOS	Data centre / disaggregated / silicon	Active	OcNOS runs on many whitebox routers
+Asia-Pacific	Tenda group	Prosumer / SMB Wi-Fi	SMB / prosumer	Active	Chinese Wi-Fi networking export brand
+Europe	Community project	Open-source router/firewall	Enterprise / SD-WAN	Active	Hardened Linux firewall-router distribution
+Asia-Pacific	EFM Networks	Consumer Wi-Fi	Consumer / retail	Active	Dominant South Korean home router brand
+North America	Independent (NASDAQ: IRDM)	Satellite	Specialised (military / satellite / mobility)	Active	GO! and Certus router-hotspot terminals
+Russia & CIS	Independent	Cellular; Industrial	Industrial / IoT	Active	M2M and industrial LTE routers
+Asia-Pacific	Government of India (PSU)	SP; BharatNet	Other	Active	PSU manufacturer, BharatNet router partner with HFCL
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Chinese budget router brand
+Asia-Pacific	Reliance Jio	4G/5G CPE; FTTH CPE	ISP CPE / broadband gateway	Brand-only	Jio-branded hotspots and ONT-routers, OEM and in-house designs
+North America	Hewlett Packard Enterprise (acquired July 2025)	SP edge; SP core; Data centre; Enterprise	Service provider	Active	MX, PTX, ACX, SRX; HPE closed the $14bn acquisition 2 July 2025
+North America	HPE / Juniper	SD-WAN	Enterprise / SD-WAN	Active	Ex-128 Technology, acquired 2020
+Asia-Pacific	Independent	ODM; ISP CPE; STB	ODM / white-label	Active	Korean CPE and STB maker supplying global operators
+Asia-Pacific	Independent	Consumer / DSL CPE	Consumer / retail	Active (niche)	Chinese budget router/modem exporter
+Russia & CIS	Independent	Consumer Wi-Fi	Consumer / retail	Active	Spun out of Zyxel's Russian operations c.2019; dominant in Russia/CIS
+Europe	Independent	Military; Vehicle	Specialised (military / satellite / mobility)	Active	Voyager and TDMR modular tactical routers
+Europe	Kontron AG	Industrial; IoT	Industrial / IoT	Active	Edge computing gateways marketed as routers
+Asia-Pacific	Beijer Electronics	Industrial	Industrial / IoT	Active	DIN-rail industrial routers and switches
+Europe	KPN	ISP CPE	ISP CPE / broadband gateway	Brand-only	Dutch telco branded router
+Russia & CIS	Independent	Cellular	Cellular / 5G / mobile	Active	LTE routers with integrated modems and antennas
+North America	Independent	Marine; Satellite	Specialised (military / satellite / mobility)	Active	Marine VSAT with integrated IP routing
+Russia & CIS	Kyivstar / VEON	ISP CPE	ISP CPE / broadband gateway	Brand-only	Ukrainian ISP branded router
+Asia-Pacific	Independent (SSE: 300353)	Industrial; Rail	Industrial / IoT	Active	Industrial network routers and switches
+Europe	Rohde & Schwarz	Enterprise branch; SMB; SD-WAN	Enterprise / SD-WAN	Active	German enterprise VPN router vendor, strong public-sector base
+Asia-Pacific	Independent	uCPE / network appliances	Data centre / disaggregated / silicon	Active	Whitebox appliances widely used as SD-WAN routers
+Asia-Pacific	Independent	Industrial	Industrial / IoT	Active	Industrial Ethernet routers and switches
+Europe	Intel (2015), then MaxLinear (2020)	CPE silicon	Data centre / disaggregated / silicon	Brand retired	Infineon spinoff; DSL and gateway chipsets
+North America	Independent (NASDAQ: LTRX)	IoT; Industrial; Out-of-band	Industrial / IoT	Active	Cellular gateways and edge routers
+North America	Tellabs (2005)	Legacy SP edge	Legacy / acquired	Defunct	Edge router startup
+Asia-Pacific	Digital Data Communications	Consumer / SMB	SMB / prosumer	Active (niche)	German-managed, Taiwan-made value networking brand
+Global / multi-country	Community	Open-source firmware	Enterprise / SD-WAN	Active (niche)	FSF-endorsed fully free router firmware
+Asia-Pacific	Link3 Technologies	ISP CPE	ISP CPE / broadband gateway	Brand-only	Bangladeshi ISP branded routers
+North America	Fortinet (wholly owned since Jan 2025)	Consumer Wi-Fi; Mesh; SMB	SMB / prosumer	Active	Ownership chain: founders to Cisco (2003) to Belkin (2013) to Foxconn (2018) to Fortinet (2025)
+Asia-Pacific	Elecom Group	Consumer Wi-Fi	Legacy / acquired	Active	Japanese networking brand absorbed by Elecom
+North America	Nokia (via Alcatel-Lucent)	Legacy SP	Legacy / acquired	Brand retired	AT&T spinoff; merged into Alcatel-Lucent 2006
+North America	Wound down	Mesh	Consumer / retail	Defunct	Early crowdfunded mesh Wi-Fi startup
+Asia-Pacific	Asus	Mesh	Consumer / retail	Legacy	Sub-brand: earlier Asus mesh line, superseded by ZenWiFi
+Europe	Deutsche Telekom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Hungarian telco branded router
+Asia-Pacific	State-linked (Sichuan)	Enterprise; SP edge	Service provider	Active	Major Chinese domestic router and switch manufacturer
+Asia-Pacific	Independent	Utility/SCADA; Industrial	Industrial / IoT	Active	Power/utility wireless routers and RTUs
+Europe	IC Intracom	Consumer / Prosumer	SMB / prosumer	Active (niche)	IC Intracom house networking brand
+Europe	Ericsson (2006)	Legacy SP	Legacy / acquired	Defunct	Former GEC telecom arm
+Middle East & Africa	Maroc Telecom / e&	ISP CPE	ISP CPE / broadband gateway	Brand-only	Moroccan incumbent branded gateways
+North America	Independent	Router and switch silicon	Data centre / disaggregated / silicon	Active	Prestera and OCTEON networking silicon
+Asia-Pacific	Independent	Industrial; Cellular; Telecom	Industrial / IoT	Active	Indian telecom and security systems maker
+Europe	Independent	Cellular; Industrial	Industrial / IoT	Active	M2M router and gateway manufacturer
+Middle East & Africa	Mustek	Consumer Wi-Fi	Consumer / retail	Active (niche)	South African distributor house brands including networking
+North America	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Budget US retail Wi-Fi brand
+Asia-Pacific	Independent	Router silicon	Data centre / disaggregated / silicon	Active	Filogic Wi-Fi 6/7 router SoCs
+Europe	Altice Portugal	ISP CPE	ISP CPE / broadband gateway	Brand-only	Portuguese telco branded router/ONT
+Asia-Pacific	TP-Link	Consumer Wi-Fi	Consumer / retail	Active	TP-Link's China-domestic budget sub-brand
+Asia-Pacific	TP-Link	Consumer Wi-Fi	Consumer / retail	Active	Separate budget-tier brand for emerging markets
+North America	Fortinet (2015)	Legacy enterprise WLAN	Legacy / acquired	Defunct	Wi-Fi vendor
+North America	Meta Platforms	Cloud DC in-house	Data centre / disaggregated / silicon	Active	FBOSS software on OCP whitebox hardware
+Europe	Microsoft	Virtual networking software	Other	Brand absorbed	Acquired 2020
+Russia & CIS	Independent	Cellular; Industrial	Industrial / IoT	Active (niche)	Russian industrial cellular router maker
+North America	Microsoft	Cloud DC in-house; Open NOS	Data centre / disaggregated / silicon	Active	Created and open-sourced SONiC
+Europe	Independent	Enterprise; ISP; Prosumer; SMB	Enterprise / SD-WAN	Active	RouterOS; CCR and CHR very widely used by regional ISPs
+Europe	Independent (STO: MILDEF)	Military	Specialised (military / satellite / mobility)	Active	RM-series rugged tactical routers
+Asia-Pacific	Independent	IoT; Cellular; Industrial	Industrial / IoT	Active	IoT sensors plus cellular industrial routers
+North America	Independent (NASDAQ: MINM)	Retail modem-router; Software	Other	Active (distressed)	Holds the Motorola networking licence
+Asia-Pacific	Zyxel group spinoff	ODM / ISP CPE	ODM / white-label	Active	Builds gateways for global operators
+North America	Independent	4G/5G router	Cellular / 5G / mobile	Active (niche)	US cellular router brand popular with RV and rural users
+North America	Brand licensed to Minim / Zoom Telephonics	Retail cable modem-router	ISP CPE / broadband gateway	Active	Motorola-branded modems and routers sold under licence
+North America	Arris (2013), now CommScope	Legacy ISP CPE	ISP CPE / broadband gateway	Brand retired	Motorola's cable and CPE unit
+Latin America	Telefónica / America Movil	ISP CPE	ISP CPE / broadband gateway	Brand-only	Chilean ISP branded routers
+Europe	Telefónica	ISP CPE	ISP CPE / broadband gateway	Brand-only	Spanish telco branded router
+Asia-Pacific	Independent	Industrial; Utility/SCADA; Rail	Industrial / IoT	Active	Leading DIN-rail industrial secure router brand
+North America	Franklin Wireless (licensed brand)	4G/5G hotspots	Cellular / 5G / mobile	Active (niche)	T-Mobile-focused mobile hotspot brand
+Middle East & Africa	MTN Group	ISP CPE	ISP CPE / broadband gateway	Brand-only	Pan-African operator branded MiFi and home routers
+Russia & CIS	MTS	ISP CPE	ISP CPE / broadband gateway	Brand-only	Russian operator branded routers
+North America	Independent	Cellular; Industrial; IoT	Industrial / IoT	Active	MultiConnect M2M cellular routers and gateways
+Latin America	Independent	Consumer Wi-Fi	Consumer / retail	Active	Large Brazilian consumer electronics brand
+North America	Independent	Satellite; Military	Specialised (military / satellite / mobility)	Active	Iridium-based satellite router terminals
+Russia & CIS	Independent	SP access; Transport	Service provider	Active	Access and transport telecom equipment maker
+Asia-Pacific	National Telecom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Thai state telco branded CPE
+Asia-Pacific	NEC Platforms	Consumer Wi-Fi; ISP CPE	ISP CPE / broadband gateway	Active	NEC's long-running Japanese home router line
+Asia-Pacific	Independent	SP core; SP edge; Optical	Service provider	Active	IP/MPLS routers and optical transport
+Middle East & Africa	Independent	SP; Enterprise; Integration	Enterprise / SD-WAN	Active	Turkish telecom equipment maker and integrator
+Asia-Pacific	Independent	Whitebox hardware	Data centre / disaggregated / silicon	Active	Bare-metal switch/router hardware vendor
+Oceania	DZS Inc.	Fixed wireless; ISP CPE	ISP CPE / broadband gateway	Active	Sold out of Casa Systems' bankruptcy to DZS for $7m in 2024
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Established Chinese consumer networking brand
+North America	Independent	Virtual router; Firewall	Enterprise / SD-WAN	Active	pfSense Plus and TNSR software routers and appliances
+North America	Independent (NASDAQ: NTGR)	Consumer Wi-Fi; Mesh; SMB; 5G	Cellular / 5G / mobile	Active	Long-standing US networking brand; Nighthawk/Orbi sub-brands
+North America	Netgear	SMB	SMB / prosumer	Active	Sub-brand: Netgear's business networking line
+Asia-Pacific	Independent (Netcore group)	Consumer Wi-Fi	Consumer / retail	Active	Budget Chinese Wi-Fi brand, large in Russia and emerging markets
+Asia-Pacific	Independent	FTTH ONT/router; ISP CPE	ISP CPE / broadband gateway	Active	India-based CPE/ONU brand for regional broadband operators
+Middle East & Africa	Independent	Consumer / ISP CPE	ISP CPE / broadband gateway	Active	Turkish networking equipment brand
+Europe	Zollner Elektronik	Vehicle; Rail; Industrial	Specialised (military / satellite / mobility)	Active	Rugged routers for rail, transit and utilities
+North America	Motorola (2007)	Legacy DSL CPE	Legacy / acquired	Defunct	DSL gateway maker
+Asia-Pacific	Unisplendour (Tsinghua Unigroup)	Enterprise; SP; Data centre	Data centre / disaggregated / silicon	Active	Originated as the Huawei-3Com JV; HPE exited its stake in 2024
+Asia-Pacific	Lenovo-linked spinoff	Consumer Wi-Fi	Consumer / retail	Dormant	Lenovo-affiliated router brand, largely inactive
+Asia-Pacific	Independent	Industrial; IoT	Industrial / IoT	Active	IIoT gateways and network appliances
+North America	Netgear	Consumer Wi-Fi; Gaming; 5G	Cellular / 5G / mobile	Active	Sub-brand: Netgear's performance and gaming router line
+Europe	Independent (HEL: NOKIA)	SP core; SP edge; BNG; Data centre; ISP CPE	ISP CPE / broadband gateway	Active	7750 SR, 7250 IXR, 7220 IXR, SR Linux; consistently #2-3 globally
+Europe	Nokia	Data centre NOS	Data centre / disaggregated / silicon	Active	Open, model-driven NOS for datacentre routing
+North America	Liquidated 2009-11	Legacy SP and enterprise	Legacy / acquired	Defunct	Assets to Ericsson, Avaya, Ciena, Genband and others
+North America	Gen Digital (ex-Symantec)	Security router	Consumer / retail	Defunct	Security-focused consumer router, discontinued c.2020
+Europe	Nokia	SD-WAN; SDN	Enterprise / SD-WAN	Active	Nokia's SD-WAN and datacentre SDN unit
+Europe	PPF	ISP CPE	ISP CPE / broadband gateway	Brand-only	Czech telco branded router
+North America	Calix (2011)	Legacy SP access	Legacy / acquired	Defunct	Broadband access systems
+Asia-Pacific	TP-Link	Prosumer / SMB Wi-Fi	SMB / prosumer	Active	Sub-brand: TP-Link's cloud-managed SMB networking line
+Asia-Pacific	Independent	Industrial	Industrial / IoT	Active (niche)	Factory network routers and gateways
+Middle East & Africa	Ooredoo	ISP CPE	ISP CPE / broadband gateway	Brand-only	Gulf operator branded gateways
+Europe	Independent	Managed SD-WAN / SASE	Enterprise / SD-WAN	Active	Managed SASE service provider
+Oceania	Digi International	Out-of-band; Industrial	Industrial / IoT	Active	Console servers and cellular out-of-band routers
+Global / multi-country	Community (Software Freedom Conservancy)	Open-source firmware	Enterprise / SD-WAN	Active	The dominant third-party router firmware; also the OpenWrt One hardware
+Europe	Wound down	Cellular	Cellular / 5G / mobile	Defunct	Early 3G/4G router and modem maker
+Oceania	Singtel	ISP CPE	ISP CPE / broadband gateway	Brand-only	Australian telco branded gateway
+Europe	Orange	ISP CPE	ISP CPE / broadband gateway	Brand-only	Orange's branded gateway line across many countries
+Europe	Orange Polska	ISP CPE	ISP CPE / broadband gateway	Brand-only	Polish telco branded router
+North America	GI Partners	Satellite IoT	Specialised (military / satellite / mobility)	Active	Satellite IoT routers and terminals
+North America	Netgear	Mesh	Consumer / retail	Active	Sub-brand: Netgear's premium mesh Wi-Fi system line
+North America	Independent (licensed brand)	4G/5G CPE	Cellular / 5G / mobile	Active (niche)	Verizon-focused hotspot and CPE brand
+Asia-Pacific	Independent	Industrial; Rail	Industrial / IoT	Active	Rugged industrial Ethernet routers and switches
+Europe	Arris (2016), now CommScope	Legacy ISP CPE; STB	ISP CPE / broadband gateway	Brand retired	UK set-top and gateway maker
+North America	Blue Coat (2008)	Legacy WAN shaping	Legacy / acquired	Defunct	WAN traffic shaping appliances
+North America	Curtiss-Wright	Military	Specialised (military / satellite / mobility)	Active	PacStar 400/500 series tactical communication modules
+North America	Independent (NASDAQ: PANW)	SD-WAN; SASE	Enterprise / SD-WAN	Active	Prisma SD-WAN, ex-CloudGenix (2020)
+North America	Zhone (2005)	Legacy DSL CPE	Legacy / acquired	Defunct	DSL and modem pioneer
+Latin America	Furukawa Electric	SP access; ISP CPE	ISP CPE / broadband gateway	Active	Brazilian networking equipment brand
+Asia-Pacific	Independent	ODM / EMS	ODM / white-label	Active	Major ODM producing routers and CPE
+Asia-Pacific	Independent	SD-WAN; Branch; Mobile	Enterprise / SD-WAN	Active	SpeedFusion bonded SD-WAN routers
+Asia-Pacific	Independent	SD-WAN; Vehicle; Marine; Cellular	Specialised (military / satellite / mobility)	Active	SpeedFusion bonding; Pepwave is the mobile/marine sub-brand
+North America	Independent	Military; MANET	Specialised (military / satellite / mobility)	Active	MPU5 MANET radio-router
+Asia-Pacific	Wound down c.2019	Consumer Wi-Fi	Consumer / retail	Defunct	K2/K2P routers were hugely popular before the parent collapsed
+Europe	Independent	Industrial; Utility/SCADA	Industrial / IoT	Active	FL mGuard secure industrial routers
+North America	Independent	Whitebox NOS	Data centre / disaggregated / silicon	Active	PICOS network operating system
+Asia-Pacific	Independent	Enterprise; ADC	Enterprise / SD-WAN	Active	Application delivery and security-routing vendor
+Europe	Sold 2011, renamed Incaa Networks	Legacy ISP CPE	ISP CPE / broadband gateway	Defunct	Italian CPE maker used by Sky Italia and Telecom Italia
+Asia-Pacific	Independent (TWSE: 6263)	SMB; Industrial	Industrial / IoT	Active	Taiwanese networking brand across SMB and industrial
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Niche Japanese Wi-Fi/networking brand
+Asia-Pacific	PLDT	ISP CPE	ISP CPE / broadband gateway	Brand-only	Philippine ISP branded fibre router
+Europe	Absorbed into Marconi/Siemens	Legacy SP	Legacy / acquired	Defunct	British telecom equipment lineage
+North America	Independent	Managed Wi-Fi; Mesh	Consumer / retail	Active	Adaptive Wi-Fi platform sold direct and through ISPs
+North America	Wound down	Legacy SP core	Legacy / acquired	Defunct	Terabit router startup
+Europe	BT Group	ISP CPE	ISP CPE / broadband gateway	Brand-only	UK ISP branded router
+Latin America	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Brazilian PC maker with router products
+North America	Cisco (2004)	Legacy SP core	Legacy / acquired	Defunct	Core router startup absorbed by Cisco
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Southeast Asian budget/mid Wi-Fi brand
+Europe	Independent	Cellular	Cellular / 5G / mobile	Brand-only	Rebadged OEM 4G/5G routers for the UK market
+North America	Wound down late 1990s	Legacy enterprise	Legacy / acquired	Defunct	Token Ring era router pioneer
+Europe	Proximus	ISP CPE	ISP CPE / broadband gateway	Brand-only	Belgian telco branded router
+Asia-Pacific	PTCL / e&	ISP CPE	ISP CPE / broadband gateway	Brand-only	Pakistani incumbent branded gateways
+Asia-Pacific	Qihoo 360	Security router	Consumer / retail	Active (niche)	Chinese security company's consumer router line
+Asia-Pacific	QNAP Systems	Mesh; SMB	SMB / prosumer	Active (niche)	NAS maker's mesh and SD-WAN router line
+Russia & CIS	Independent	Enterprise; SP	Enterprise / SD-WAN	Active	Russian networking brand, largely OEM-sourced
+North America	Independent	Router silicon	Data centre / disaggregated / silicon	Active	Networking SoCs in a large share of consumer routers
+Asia-Pacific	Quanta Computer	Whitebox ODM	ODM / white-label	Active	ODM datacentre networking hardware
+Europe	Independent	Utility/SCADA; Industrial	Industrial / IoT	Active	RipEX radio routers for SCADA telemetry
+Middle East & Africa	Independent (RAD Group)	SP access; Enterprise edge; Industrial	Industrial / IoT	Active	Edge access devices and industrial cellular routers
+Middle East & Africa	Independent	Fixed wireless	Other	Active	Fixed wireless broadband CPE and routers
+Middle East & Africa	Rain	ISP CPE	ISP CPE / broadband gateway	Brand-only	South African 4G/5G ISP branded router
+Asia-Pacific	Independent	SP access; Aggregation	Service provider	Active	Carrier access and aggregation routers
+Asia-Pacific	Rakuten Mobile	4G/5G hotspot	Cellular / 5G / mobile	Brand-only	Rakuten Mobile's branded pocket Wi-Fi
+Asia-Pacific	Razer	Gaming Mesh	Consumer / retail	Defunct	Razer's short-lived gaming mesh router
+Asia-Pacific	Realme / BBK Electronics	Consumer Wi-Fi	Consumer / retail	Active (niche)	Smartphone maker's router line, sold in India/Indonesia
+Asia-Pacific	Independent	Router silicon	Data centre / disaggregated / silicon	Active	Low-cost router and switch SoCs
+North America	Spectris	Industrial; Utility/SCADA	Industrial / IoT	Active	Protocol gateways and rugged routers; owns Sixnet
+North America	Ericsson (2007)	Legacy SP edge / BNG	Legacy / acquired	Defunct	SmartEdge BRAS line; Ericsson exited c.2016
+Asia-Pacific	Xiaomi	Consumer Wi-Fi	Consumer / retail	Active	Xiaomi's budget router sub-brand
+Asia-Pacific	Ruijie Networks	Consumer / SMB Wi-Fi	SMB / prosumer	Active	Ruijie's consumer/SMB sub-brand
+North America	Independent (NASDAQ: RBBN)	IP optical; SP edge	Service provider	Active	Neptune and Apollo lines via the ECI merger
+North America	Vector Capital	SD-WAN; WAN optimisation	Enterprise / SD-WAN	Active	SteelConnect; legacy WAN optimisation heritage
+North America	Lucent (2006)	Legacy SP edge	Legacy / acquired	Defunct	Cabletron spinoff; assets went to Lucent
+Asia-Pacific	Independent	Cellular; Industrial; Utility/SCADA	Industrial / IoT	Active	Rugged M2M routers with SCADA protocol support
+Asia-Pacific	Asus	Gaming	Consumer / retail	Active	Sub-brand: Republic of Gamers gaming router line
+Europe	Independent	Military; Enterprise (Lancom)	Specialised (military / satellite / mobility)	Active	SecuROUTE tactical IP routers; owns Lancom
+North America	Newegg	Consumer Wi-Fi	Consumer / retail	Brand-only	Newegg house brand including basic routers
+Russia & CIS	Rostelecom	ISP CPE	ISP CPE / broadband gateway	Brand-only	State telco branded ONT-router from Eltex, Zyxel, Huawei
+Russia & CIS	Independent	Consumer; ISP CPE	ISP CPE / broadband gateway	Active (niche)	Russian home networking and CPE brand
+Europe	Independent	Disaggregated BNG	Service provider	Active	FullStack software for disaggregated broadband gateways
+North America	Siemens	Industrial; Utility/SCADA	Industrial / IoT	Active	Substation-hardened routers; IEEE 1613 / IEC 61850
+Asia-Pacific	Independent (SSE STAR: 301165)	Enterprise; SMB; Consumer	Enterprise / SD-WAN	Active	Major Chinese enterprise networking vendor
+Middle East & Africa	Safaricom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Kenyan operator branded routers
+Europe	Independent	ISP CPE	ISP CPE / broadband gateway	Active	Major European ISP-gateway ODM and own brand
+Asia-Pacific	Samsung Electronics	Mesh	Consumer / retail	Defunct	Plume-powered mesh Wi-Fi, discontinued
+Asia-Pacific	Samsung	Mobile transport; SP edge	Service provider	Active (niche)	Mainly RAN; some IP transport and edge routing
+Asia-Pacific	Independent	SD-WAN; Enterprise	Enterprise / SD-WAN	Active	SD-WAN and security appliance vendor
+Asia-Pacific	Independent	Satellite; Marine	Specialised (military / satellite / mobility)	Active	Satellite and microwave communication routers
+Europe	Independent	Utility/SCADA	Industrial / IoT	Active	Radio modems and routers for telemetry
+Europe	Schneider Electric	Industrial	Industrial / IoT	Active	ConneXium industrial routers and switches
+North America	Cisco (2006)	Legacy cable CPE	ISP CPE / broadband gateway	Defunct	Cable systems and CPE maker
+North America	Independent	Consumer Wi-Fi; Mesh	Consumer / retail	Active (niche)	Touchscreen Almond router line
+North America	Independent (NASDAQ: SMTC)	Cellular; IoT	Industrial / IoT	Active	Owns Sierra Wireless AirLink router line
+Asia-Pacific	Independent	ODM / ISP CPE	ODM / white-label	Active	ODM for many carrier and retail routers
+Europe	Altice France	ISP CPE	ISP CPE / broadband gateway	Brand-only	French ISP branded gateway
+Asia-Pacific	Independent	ODM / EMS	ODM / white-label	Active	Contract manufacturer for TP-Link, Xiaomi and others
+North America	Intel (1999)	Legacy remote access	Legacy / acquired	Defunct	Remote access and VPN router pioneer
+Europe	Nokia Siemens Networks JV (2007)	Legacy SP	Legacy / acquired	Divested	Carrier comms moved into the Nokia JV
+Europe	Siemens AG	Industrial; Cellular	Industrial / IoT	Active	Scalance M/S/SC industrial routers and firewalls
+North America	Semtech	Cellular; Vehicle; Industrial	Specialised (military / satellite / mobility)	Active	AirLink RV/MG/XR rugged routers; acquired by Semtech 2023
+Middle East & Africa	Independent	uCPE / network appliances	Data centre / disaggregated / silicon	Active	Edge networking appliances and SmartNICs
+North America	HPE Aruba	SD-WAN	Enterprise / SD-WAN	Brand retired	Acquired 2020; became Aruba EdgeConnect
+North America	Independent	Military; MANET	Specialised (military / satellite / mobility)	Active	StreamCaster MANET radio-routers
+Europe	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Dutch networking brand popular in Benelux
+North America	Red Lion / Spectris	Industrial; Utility/SCADA	Industrial / IoT	Brand absorbed	Rugged router line folded into Red Lion
+Europe	Sky / Comcast	ISP CPE	ISP CPE / broadband gateway	Brand-only	UK ISP branded router
+North America	Independent	Travel hotspot	Cellular / 5G / mobile	Active	Travel Wi-Fi hotspot brand marketed as Solis
+Asia-Pacific	Skyworth Group	ODM; ISP CPE; STB	ODM / white-label	Active	Supplies China Telecom/Mobile and exports gateways
+Asia-Pacific	Sri Lanka Telecom	ISP CPE	ISP CPE / broadband gateway	Brand-only	State telco branded ONT-routers
+North America	Wound down 2024	Aviation	Specialised (military / satellite / mobility)	Defunct	Air-to-ground connectivity, ceased operations
+North America	Dormant	Legacy consumer / SMB	Legacy / acquired	Brand-only	Historic US networking brand, largely inactive
+Russia & CIS	Independent	Enterprise; SP	Enterprise / SD-WAN	Active	SNR-branded routers and switches
+North America	Linux Foundation (originated at Microsoft)	Open NOS	Data centre / disaggregated / silicon	Active	Open-source NOS now the base for many DC routers
+North America	Francisco Partners	SMB/branch; SD-WAN	Enterprise / SD-WAN	Active	SMB firewall-router appliances
+Europe	Thoma Bravo	SMB/branch; SD-WAN	Enterprise / SD-WAN	Active	XGS firewall appliances with SD-WAN routing
+Oceania	Spark New Zealand	ISP CPE	ISP CPE / broadband gateway	Brand-only	NZ telco branded router
+Middle East & Africa	Spectranet	ISP CPE	ISP CPE / broadband gateway	Brand-only	Nigerian ISP branded LTE routers
+North America	Charter Communications	ISP CPE	ISP CPE / broadband gateway	Brand-only	Charter branded cable modem-router
+Europe	ST Engineering	Satellite	Specialised (military / satellite / mobility)	Active	VSAT satellite routers for enterprise and maritime
+North America	SpaceX	Satellite CPE	Specialised (military / satellite / mobility)	Active	Ships its own Wi-Fi router with every terminal
+North America	Starry Inc.	Consumer Wi-Fi	Consumer / retail	Defunct	Design-led touchscreen router, discontinued
+North America	Independent	Prosumer / Travel	Cellular / 5G / mobile	Active (niche)	Mostly connectivity; a few travel routers
+Middle East & Africa	stc Group	ISP CPE	ISP CPE / broadband gateway	Brand-only	Saudi telco branded routers and 5G CPE
+Asia-Pacific	Independent	SP access; Optical; FTTH CPE	ISP CPE / broadband gateway	Active	Optical fibre plus networking and Garuda routers
+Europe	Independent	Consumer Wi-Fi; STB	Consumer / retail	Active (niche)	Austrian consumer electronics brand, EU and Africa retail
+Europe	Sunrise	ISP CPE	ISP CPE / broadband gateway	Brand-only	Swiss ISP branded gateway
+Europe	Independent	Consumer Wi-Fi; STB	Consumer / retail	Dormant	Dutch budget electronics/networking brand
+Europe	Swisscom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Swiss ISP branded home gateway
+Asia-Pacific	Independent	Consumer Wi-Fi; Mesh	Consumer / retail	Active	NAS maker's RT/MR router line with SRM firmware
+North America	Merged into Bay Networks 1994	Legacy enterprise	Legacy / acquired	Defunct	Ethernet hub and router pioneer
+Asia-Pacific	Independent	FTTH ONT/router	ISP CPE / broadband gateway	Active	Popular Indian GPON ONU-router brand for local ISPs
+Europe	Independent	Military	Specialised (military / satellite / mobility)	Active	SitaWare tactical communications systems
+North America	T-Mobile US	5G FWA CPE	Cellular / 5G / mobile	Brand-only	5G home gateways from Arcadyan, Askey and Sagemcom
+Russia & CIS	Independent	Optical/DWDM with packet	Service provider	Active	Russian DWDM and packet-optical vendor
+North America	Oracle	SD-WAN	Enterprise / SD-WAN	Discontinued	Acquired by Oracle 2018; product later wound down
+Europe	TalkTalk	ISP CPE	ISP CPE / broadband gateway	Brand-only	UK ISP branded router
+Asia-Pacific	TP-Link	Consumer Wi-Fi; Smart home	Consumer / retail	Active	Sub-brand: budget smart-home and entry Wi-Fi devices
+Middle East & Africa	Telecommunication Company of Iran	ISP CPE	ISP CPE / broadband gateway	Brand-only	Iranian state telco branded modem-routers, locally assembled
+Europe	Independent (renamed Vantiva 2022-23)	ISP CPE	ISP CPE / broadband gateway	Active	One of the largest global CPE suppliers; ex-Thomson lineage
+Asia-Pacific	Tata Group (Panatone)	SP access; Optical; Routing	Service provider	Active	India's largest listed telecom equipment maker
+Middle East & Africa	BATM Advanced Communications	Carrier Ethernet; vCPE	Service provider	Active	Long-running BATM subsidiary
+Europe	Independent	Enterprise branch; SD-WAN	Enterprise / SD-WAN	Active	Spanish router and SD-WAN vendor; owns bintec elmeg
+Latin America	Telecom Argentina	ISP CPE	ISP CPE / broadband gateway	Brand-only	Argentine telco branded router
+Middle East & Africa	Telecom Egypt	ISP CPE	ISP CPE / broadband gateway	Brand-only	Egyptian incumbent branded router/ONT
+Europe	Telenet / Liberty Global	ISP CPE	ISP CPE / broadband gateway	Brand-only	Belgian cable branded gateway
+Europe	Telenor	ISP CPE	ISP CPE / broadband gateway	Brand-only	Nordic operator branded router
+Russia & CIS	Independent	Cellular; Utility/SCADA	Industrial / IoT	Active	Industrial cellular terminals and routers
+Europe	Telia Company	ISP CPE	ISP CPE / broadband gateway	Brand-only	Nordic incumbent branded router
+North America	Marlin Equity Partners	Optical LAN; Legacy routing	Legacy / acquired	Active (niche)	Once made 8600 MPLS routers; now optical LAN and PON
+Latin America	América Móvil / Grupo Televisa	ISP CPE	ISP CPE / broadband gateway	Brand-only	Mexican telco and cable branded CPE
+Europe	Dormant	Legacy ISP CPE	ISP CPE / broadband gateway	Defunct	Italian STB and CPE maker
+Oceania	Telstra	ISP CPE	ISP CPE / broadband gateway	Brand-only	Australian telco branded router
+Europe	Independent (Teltonika Group)	Industrial; Cellular 4G/5G; IoT	Industrial / IoT	Active	RUT/RUTX/TRB DIN-rail routers; one of the widest cellular SKU ranges
+Asia-Pacific	Independent (Shenzhen Tenda)	Consumer Wi-Fi; SMB; 4G/5G	Cellular / 5G / mobile	Active	Budget Chinese Wi-Fi brand strong across emerging markets
+Europe	Independent	Military; Satellite; Marine	Specialised (military / satellite / mobility)	Active	Tactical routers and VesseLINK satellite terminals
+Europe	Became Technicolor, then Vantiva	Legacy ISP CPE	ISP CPE / broadband gateway	Brand retired	SpeedTouch was one of Europe's most-deployed CPE lines
+Asia-Pacific	China Telecom	ISP CPE	ISP CPE / broadband gateway	Brand-only	State carrier branded ONT-routers, domestically sourced
+Europe	Wound down	Legacy ISP CPE	ISP CPE / broadband gateway	Defunct	Swedish home gateway vendor
+Europe	Telecom Italia	ISP CPE	ISP CPE / broadband gateway	Brand-only	Italian telco branded router
+Global / multi-country	Community	Open-source firmware	Enterprise / SD-WAN	Active	Broadcom-focused third-party firmware fork
+Europe	Independent	Industrial; Remote access	Industrial / IoT	Active	Plug-and-play secure remote-access routers
+Latin America	Grupo Salinas	ISP CPE	ISP CPE / broadband gateway	Brand-only	Mexican ISP branded router/ONT
+Asia-Pacific	Independent (Zioncom)	Consumer Wi-Fi	Consumer / retail	Active	Budget Chinese brand popular in SE Asia and global retail
+Asia-Pacific	Independent (TP-Link Systems Inc. for US/intl; TP-Link Technologies for China)	Consumer Wi-Fi; Mesh; SMB	SMB / prosumer	Active	World's #1 consumer WLAN CPE brand by unit share; Archer/Deco/Omada/Tapo sub-brands
+North America	Belden, then Juniper	Legacy enterprise WLAN	Legacy / acquired	Defunct	Wi-Fi controller vendor
+North America	Independent	Consumer Wi-Fi; SMB	SMB / prosumer	Active	Long-running value networking brand
+Asia-Pacific	Asus	Gaming	Consumer / retail	Active	Sub-brand: mid-tier Asus gaming router line
+Europe	CZ.NIC	Prosumer; Open-source	Enterprise / SD-WAN	Active (niche)	Czech domain registry's open-source secure router project
+Middle East & Africa	Türk Telekom	ISP CPE	ISP CPE / broadband gateway	Brand-only	Turkish incumbent branded router from AirTies, Zyxel
+Asia-Pacific	Wingtech Technology	ODM; Cable CPE	ODM / white-label	Active	Cable modem and gateway ODM
+North America	Independent (NYSE: UI)	Prosumer; SMB; Enterprise	Enterprise / SD-WAN	Active	UniFi and EdgeRouter lines bridge prosumer to enterprise
+North America	Independent (NYSE: UI)	SMB; Enterprise; Prosumer	Enterprise / SD-WAN	Active	EdgeRouter, UniFi Gateway, UniFi Dream Machine lines
+Asia-Pacific	Independent	SP access; Aggregation	Service provider	Active	Carrier Ethernet and access routers
+Asia-Pacific	Independent	Whitebox / disaggregated routers	Data centre / disaggregated / silicon	Active	Hardware behind many DriveNets and AT&T deployments
+Asia-Pacific	Telekom Malaysia	ISP CPE	ISP CPE / broadband gateway	Brand-only	Malaysian incumbent's branded router/ONT
+North America	Juniper Networks (2002)	Legacy SP edge	Legacy / acquired	Brand retired	Became Juniper's ERX/E-series edge routers
+Asia-Pacific	Tsinghua Unigroup	Holding company	Other	Active	Parent of New H3C
+Asia-Pacific	ASE Technology	ODM / EMS	ODM / white-label	Active	Broad electronics ODM including networking modules
+North America	Arista Networks	SMB router/firewall	SMB / prosumer	Active	Acquired 2022 as part of Arista's Edge Threat Management
+Russia & CIS	Independent	Consumer Wi-Fi	Consumer / retail	Active (niche)	Russian home networking brand
+North America	Independent	Consumer modem-router	Consumer / retail	Active (niche)	Historic US modem brand still selling networking gear
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	Serial-to-cellular gateways and industrial routers
+Asia-Pacific	Independent	Industrial; PoE	Industrial / IoT	Active	Industrial and PoE networking including routers
+Asia-Pacific	Independent	SP access; Legacy CPE	Legacy / acquired	Active (much reduced)	Once a major India and China CPE supplier
+North America	Independent (TSX: VCM)	Cable access; BNG-adjacent	Service provider	Active	Bought parts of Casa's cable business
+North America	Arista Networks	SD-WAN	Enterprise / SD-WAN	Active	VMware to Broadcom to Arista; one of the original SD-WAN leaders
+North America	Linksys / Fortinet	Mesh	Consumer / retail	Active	Sub-brand: Linksys mesh Wi-Fi system line
+North America	Digi International	Managed wireless WAN	Cellular / 5G / mobile	Active	Managed network services acquired by Digi 2021
+North America	Verizon	ISP CPE	ISP CPE / broadband gateway	Brand-only	Verizon branded fibre gateway from Actiontec and Askey
+North America	Independent	SD-WAN; SASE	Enterprise / SD-WAN	Active	Pure-play SD-WAN/SASE software vendor
+Middle East & Africa	Vestel Group / Zorlu Holding	Consumer electronics; CPE	Consumer / retail	Active (niche)	Turkish electronics conglomerate that also builds CPE
+North America	Independent (NASDAQ: VSAT)	Satellite; Military	Specialised (military / satellite / mobility)	Active	Satellite modems/routers and tactical networking
+Asia-Pacific	Viettel Group (state)	ISP CPE; Telecom equipment	ISP CPE / broadband gateway	Active	Vietnamese conglomerate's equipment unit
+Europe	Independent	Prosumer; VPN router	SMB / prosumer	Active (niche)	Swedish premium VPN-focused router brand
+Europe	Virgin Media O2	ISP CPE	ISP CPE / broadband gateway	Brand-only	UK cable branded gateway
+Asia-Pacific	VNPT Group (state)	ISP CPE; Telecom equipment	ISP CPE / broadband gateway	Active	Vietnam's state telco equipment arm, makes ONT-routers
+Europe	Vodafone Group	ISP CPE	ISP CPE / broadband gateway	Brand-only	Vodafone branded gateways across Europe
+Asia-Pacific	Independent	ODM; Enterprise and SP routers; IoT	ODM / white-label	Active	Large Indian ODM/EMS building routers for global brands
+North America	Brocade (2012), then AT&T (2017)	Legacy virtual router	Legacy / acquired	Defunct	Open-source software router; lineage feeds VyOS and DANOS
+North America	Independent	Virtual router	Enterprise / SD-WAN	Active	Commercial open-source network OS, Vyatta lineage
+North America	Vector Capital / Francisco Partners	SMB/branch	Enterprise / SD-WAN	Active	Firebox SMB firewall-routers
+Asia-Pacific	Wateen Telecom / Nayatel	ISP CPE	ISP CPE / broadband gateway	Brand-only	Pakistani broadband ISP branded devices
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Chinese export-focused budget Wi-Fi brand
+North America	Merged into Bay Networks 1994	Legacy enterprise	Legacy / acquired	Defunct	Early multiprotocol router pioneer
+Europe	Independent	Industrial; Utility	Industrial / IoT	Active	DIN-rail routers and IIoT gateways
+North America	Exited CPE c.2018	Legacy DSL CPE	Legacy / acquired	Defunct	Major US DSL CPE supplier
+Europe	Beijer Alma	Industrial; Rail; Utility/SCADA	Industrial / IoT	Active	Rugged rail and industrial Ethernet routers
+Asia-Pacific	Independent	ODM / EMS	ODM / white-label	Active	Chinese ODM giant; owns Ubee Interactive
+Asia-Pacific	Wistron	ODM / ISP CPE	ODM / white-label	Active	CPE and cellular router ODM
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active	Industrial 4G/5G routers and gateways
+North America	Comcast	ISP CPE	ISP CPE / broadband gateway	Brand-only	Comcast's branded cable gateway
+Asia-Pacific	Xiaomi Corporation	Consumer Wi-Fi; Mesh	Consumer / retail	Active	Very high volume in China; global sales via Mi ecosystem
+Asia-Pacific	Xiaomi	Consumer Wi-Fi	Consumer / retail	Active	Higher-end Xiaomi Wi-Fi 6/7 sub-line
+North America	Cambium Networks (2019)	Legacy enterprise WLAN	Legacy / acquired	Brand retired	High-density Wi-Fi vendor
+Asia-Pacific	Yamaha Corporation	SMB; Enterprise branch	Enterprise / SD-WAN	Active	RTX series branch routers, highly regarded in Japan
+Asia-Pacific	Independent	SMB; VoIP gateways	SMB / prosumer	Active	VoIP-centric SMB gateways and routers
+Middle East & Africa	Zain Group	ISP CPE	ISP CPE / broadband gateway	Brand-only	Gulf operator branded 5G CPE
+Asia-Pacific	Independent	Consumer Wi-Fi	Consumer / retail	Active	Indian electronics brand with a router lineup
+Asia-Pacific	Independent	Cellular; Industrial	Industrial / IoT	Active (niche)	Indian rugged cellular router makers
+Asia-Pacific	Asus	Mesh	Consumer / retail	Active	Sub-brand: Asus mesh Wi-Fi line
+North America	DZS Inc.	Legacy SP access	Legacy / acquired	Brand retired	Merged with DASAN 2016, renamed DZS 2020
+Asia-Pacific	Independent	ODM; STB/gateway	ODM / white-label	Active	Set-top and gateway ODM
+North America	Minim Inc.	Retail modem-router	Other	Active (niche)	Historic US modem brand, now part of Minim
+Asia-Pacific	Independent (state-linked, SZSE: 000063)	Consumer Wi-Fi; ISP CPE; 4G/5G CPE	ISP CPE / broadband gateway	Active	Major MiFi, ONT and home-router/CPE vendor
+Asia-Pacific	Independent (state-linked)	SP edge; SP core; Enterprise; ISP CPE	ISP CPE / broadband gateway	Active	ZXR10 and ZXCTN router families
+Asia-Pacific	Independent	Consumer Wi-Fi; DSL/Fiber CPE; SMB; 5G CPE	ISP CPE / broadband gateway	Active	Long-standing Taiwanese router/modem brand spanning retail and carrier
+

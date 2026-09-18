@@ -7,5 +7,7 @@ export default defineConfig({
   site: 'https://atulscript.github.io',
   base: '/routerapp',
   integrations: [tailwind(), sitemap()],
-  output: 'static'
+  output: 'static',
+  // One shared stylesheet cached across all pages, instead of a Tailwind copy per route
+  vite: { build: { cssCodeSplit: false } }
 });

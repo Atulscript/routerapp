@@ -1,5 +1,6 @@
 ---
 import type { Isp } from '../lib/types';
+import BrandLogo from './BrandLogo.astro';
 
 interface Props {
   data: Isp;
@@ -7,53 +8,47 @@ interface Props {
 
 const { data } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-// ISP specific brand accents
-const ispColors: Record<string, { bg: string; badge: string; text: string }> = {
-  'JioFiber': { bg: 'bg-[#00897b]', badge: 'bg-[#e0f2f1] text-[#00695c] border-[#80cbc4]', text: 'text-[#00695c]' },
-  'Airtel Xstream': { bg: 'bg-[#d93025]', badge: 'bg-[#fce8e6] text-[#c5221f] border-[#f28b82]', text: 'text-[#c5221f]' },
-  'BSNL Bharat Fiber': { bg: 'bg-[#f57c00]', badge: 'bg-[#fef7e0] text-[#e37400] border-[#fdd663]', text: 'text-[#e37400]' },
-  'ACT Fibernet': { bg: 'bg-[#188038]', badge: 'bg-[#e6f4ea] text-[#137333] border-[#81c995]', text: 'text-[#137333]' },
-  'Tata Play Fiber': { bg: 'bg-[#1a73e8]', badge: 'bg-[#e8f0fe] text-[#174ea6] border-[#8ab4f8]', text: 'text-[#174ea6]' },
-};
-
-const ispStyle = ispColors[data.name] || { bg: 'bg-[#1a73e8]', badge: 'bg-[#e8f0fe] text-[#174ea6] border-[#8ab4f8]', text: 'text-[#174ea6]' };
+const ips = data.defaultIp.split(/\s*\/\s*/).filter(Boolean);
 ---
 
-<a 
-  href={`${base}/${data.slug}`} 
+<a
+  href={`${base}/${data.slug}`}
   class="group g-card p-4 flex flex-col justify-between"
 >
   <div>
-    <div class="flex items-start justify-between gap-2 mb-3">
-      <div class="flex items-center gap-2.5">
-        <div class={`w-10 h-10 rounded-2xl ${ispStyle.bg} text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs group-hover:scale-105 transition-transform`}>
-          {data.name.slice(0, 2).toUpperCase()}
-        </div>
-        <div>
-          <h3 class="font-bold text-[#202124] dark:text-white text-sm group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors">
-            {data.name}
-          </h3>
-          <span class="inline-flex items-center gap-1 text-[11px] text-[#5f6368] dark:text-[#9aa0a6] font-medium">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
-            Fiber Broadband
-          </span>
-        </div>
+    <div class="flex items-center gap-3 mb-3">
+      <BrandLogo slug={data.slug} name={data.name} class="group-hover:scale-105 transition-transform" />
+      <div class="min-w-0 flex-1">
+        <h3 class="font-bold text-[#202124] dark:text-white text-sm truncate group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors" title={data.name}>
+          {data.name}
+        </h3>
+        <span class="inline-flex items-center gap-1 whitespace-nowrap text-[11px] text-[#5f6368] dark:text-[#9aa0a6] font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
+          Fiber Broadband
+        </span>
       </div>
-      <span class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-[#ceead6] dark:border-[#137333]/60 bg-[#e6f4ea] dark:bg-[#137333]/20 text-[#137333] dark:text-[#81c995] shadow-2xs">
-        {data.defaultIp}
-      </span>
     </div>
 
-    <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] line-clamp-2 leading-relaxed mb-3">
+    <div class="flex flex-wrap gap-1.5 mb-3">
+      {ips.map(ip => (
+        <span class="max-w-full truncate whitespace-nowrap text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-[#ceead6] dark:border-[#137333]/60 bg-[#e6f4ea] dark:bg-[#137333]/20 text-[#137333] dark:text-[#81c995] shadow-2xs">
+          {ip}
+        </span>
+      ))}
+    </div>
+
+    <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] line-clamp-2 leading-relaxed mb-3">
       {data.description}
     </p>
   </div>
 
-  <div class="pt-2.5 border-t border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6]">
-    <span class="font-mono text-[11px]">User: <strong class="text-[#202124] dark:text-white bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]">{data.defaultUser}</strong></span>
-    <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold flex items-center gap-0.5 text-xs group-hover:translate-x-0.5 transition-transform">
-      Setup Guide →
+  <div class="pt-2.5 border-t border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3 text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6]">
+    <span class="font-mono text-[11px] flex items-center gap-1 min-w-0">
+      <span class="flex-shrink-0">User:</span>
+      <strong class="truncate text-[#202124] dark:text-white bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]" title={data.defaultUser}>{data.defaultUser || '(blank)'}</strong>
+    </span>
+    <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] font-bold flex items-center justify-center text-sm group-hover:bg-[#1a73e8] group-hover:text-white dark:group-hover:bg-[#8ab4f8] dark:group-hover:text-[#202124] transition-colors" aria-hidden="true">
+      →
     </span>
   </div>
 </a>

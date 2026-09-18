@@ -97,7 +97,7 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 text-center">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium text-left">
+    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] font-medium text-left">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
       <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">What is My IP?</span>
@@ -110,7 +110,7 @@ const schema = [
       <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         What is My IP Address?
       </h1>
-      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6]">
         Check your current public IP address and discover your local router gateway.
       </p>
     </header>
@@ -119,11 +119,11 @@ const schema = [
 
     <!-- Compact IP Display Card -->
     <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-6 sm:p-8 max-w-md mx-auto shadow-card border border-[#dadce0] dark:border-[#3c4043] transition-colors">
-      <span class="text-[10px] uppercase font-bold text-[#80868b] dark:text-[#9aa0a6] tracking-wider">Your Public IPv4 Address</span>
+      <span class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Your Public IPv4 Address</span>
       <div id="ip-display" class="text-3xl sm:text-4xl font-mono font-extrabold text-[#202124] dark:text-white my-3 tracking-tight">
         Checking...
       </div>
-      <p id="ip-location" class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mb-4 font-medium">
+      <p id="ip-location" class="text-sm text-[#5f6368] dark:text-[#9aa0a6] mb-4 font-medium">
         Detecting Connection...
       </p>
       <button 
@@ -140,7 +140,7 @@ const schema = [
     <!-- Gateway Detection Info -->
     <div class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 text-left max-w-2xl mx-auto border border-[#dadce0] dark:border-[#3c4043] shadow-card transition-colors">
       <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] mb-1">💡 Looking for your Local Router IP instead?</h2>
-      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed mb-3">
+      <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed mb-3">
         Your <strong>Public IP</strong> (shown above) is what external websites see. Your <strong>Private Gateway IP</strong> is used to access your router settings at home:
       </p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono font-bold">

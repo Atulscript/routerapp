@@ -901,7 +901,1430 @@ export const GATEWAY_IPS: GatewayIp[] = [
             "question": "What is the default login for WD My Net at 192.168.16.1?",
             "answer": "Username: admin, Password: password."
       }
-]
+    ]
+  },
+  {
+    ip: '192.168.7.1',
+    slug: '192-168-7-1',
+    title: '192.168.7.1 Router Admin Login & Setup Guide',
+    description: 'Default IP address for Synology routers (RT6600ax, WRX560, RT2600ac, MR2200ac). Step-by-step Synology Router Manager (SRM) setup and default passwords.',
+    defaultUser: 'admin',
+    defaultPass: 'Set during SRM wizard',
+    commonBrands: ['Synology'],
+    steps: [
+      'Connect to your Synology router via Wi-Fi (Synology_xxxx) or Ethernet cable.',
+      'Open your web browser and navigate to http://192.168.7.1:8000 or http://router.synology.com.',
+      'Follow the Synology Router Manager (SRM) setup wizard to configure your network credentials.',
+      'Log into the SRM desktop interface to manage Safe Access, Threat Prevention, and VPN Plus.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for 192.168.7.1?',
+        answer: 'Synology routers do not have a hardcoded factory password. You set an administrator username and password during the initial SRM installation wizard.'
+      },
+      {
+        question: 'Why can’t I reach 192.168.7.1?',
+        answer: 'Ensure you are connected to the Synology local network and try accessing http://router.synology.com or port 8000 (http://192.168.7.1:8000).'
+      }
+    ]
+  },
+  {
+    ip: '192.168.50.1',
+    slug: '192-168-50-1',
+    title: '192.168.50.1 Router Admin Login & Setup Guide',
+    description: 'Default gateway IP for ASUS ZenWiFi mesh systems, ROG gaming router subnets, and Peplink Balance gateways.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Set during setup',
+    commonBrands: ['ASUS', 'Peplink'],
+    steps: [
+      'Connect your device to the ASUS ZenWiFi or Peplink Wi-Fi network.',
+      'Open your browser and enter http://192.168.50.1 or http://router.asus.com.',
+      'Enter the admin credentials set during initial setup or default admin/admin.',
+      'Configure AiMesh nodes, WAN failover, or AiProtection security settings.'
+    ],
+    faqs: [
+      {
+        question: 'Why does ASUS use 192.168.50.1 instead of 192.168.1.1?',
+        answer: 'ASUS ZenWiFi mesh systems and ROG routers use 192.168.50.1 by default to prevent IP conflict issues with ISP modems that typically use 192.168.1.1.'
+      },
+      {
+        question: 'How do I reset my 192.168.50.1 password?',
+        answer: 'Press and hold the Reset button on your ASUS router for 10 seconds until the power LED starts flashing to restore factory defaults.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.137.1',
+    slug: '192-168-137-1',
+    title: '192.168.137.1 Windows Mobile Hotspot & ICS Gateway Guide',
+    description: 'Default gateway IP address for Microsoft Windows 10 and Windows 11 Mobile Hotspot and Internet Connection Sharing (ICS).',
+    defaultUser: 'Windows User Account',
+    defaultPass: 'Configured on Host PC',
+    commonBrands: ['Microsoft', 'Windows'],
+    steps: [
+      'Connect your smartphone, console, or secondary PC to the Windows Mobile Hotspot Wi-Fi.',
+      'The host PC automatically assigns 192.168.137.1 as the virtual default gateway.',
+      'Access shared network folders or web services running on the host machine via http://192.168.137.1.',
+      'Configure hotspot network properties under Windows Settings > Network & Internet > Mobile Hotspot.'
+    ],
+    faqs: [
+      {
+        question: 'What is 192.168.137.1 used for?',
+        answer: 'It is the reserved static IP address that Microsoft Windows assigns to the host adapter when Internet Connection Sharing (ICS) or Mobile Hotspot is enabled.'
+      },
+      {
+        question: 'Can I change the 192.168.137.1 gateway address in Windows?',
+        answer: 'Yes, advanced users can modify the ICS gateway IP in the Windows Registry under HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.42.1',
+    slug: '192-168-42-1',
+    title: '192.168.42.1 Android USB Tethering Gateway Guide',
+    description: 'Default gateway IP address for Android USB tethering, RNDIS network interfaces, and mobile broadband tethering.',
+    defaultUser: 'Android System Managed',
+    defaultPass: 'N/A (Local USB Interface)',
+    commonBrands: ['Google', 'Android', 'Samsung', 'Xiaomi'],
+    steps: [
+      'Connect your Android smartphone to your PC or laptop via a USB data cable.',
+      'On your Android phone, enable USB Tethering under Settings > Connections > Mobile Hotspot and Tethering.',
+      'Your computer will automatically receive an IP in the 192.168.42.x subnet with 192.168.42.1 as default gateway.',
+      'No web login is required; cellular internet is routed directly through the USB RNDIS adapter.'
+    ],
+    faqs: [
+      {
+        question: 'Why is my gateway 192.168.42.1 or 192.168.42.129?',
+        answer: 'The Android OS kernel uses the 192.168.42.0/24 subnet for local USB tethering DHCP assignment across all certified Android devices.'
+      },
+      {
+        question: 'Is there an admin login page at 192.168.42.1?',
+        answer: 'No, Android does not host a web management page on 192.168.42.1. All hotspot and tethering controls are adjusted in your phone’s Settings menu.'
+      }
+    ]
+  },
+  {
+    ip: '10.10.10.1',
+    slug: '10-10-10-1',
+    title: '10.10.10.1 Enterprise Gateway & Management VLAN Guide',
+    description: 'Frequently configured Class A private gateway IP for enterprise management VLANs, SonicWall, pfSense, Fortinet, and UniFi networks.',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    commonBrands: ['SonicWall', 'pfSense', 'Fortinet', 'Ubiquiti', 'Cisco'],
+    steps: [
+      'Connect to your corporate network switch, management port, or authorized VLAN.',
+      'Open your browser and navigate to https://10.10.10.1 or http://10.10.10.1.',
+      'Log in with your administrator network credentials or firewall token.',
+      'Access firewall rules, VLAN tagging (802.1Q), and secure VPN gateways.'
+    ],
+    faqs: [
+      {
+        question: 'What network class is 10.10.10.1?',
+        answer: '10.10.10.1 is part of the RFC 1918 Class A private address space (10.0.0.0/8), widely adopted by network administrators for isolated management subnets.'
+      },
+      {
+        question: 'Why is 10.10.10.1 asking for HTTPS certificate approval?',
+        answer: 'Enterprise firewalls and switches use self-signed SSL certificates for web GUI management. You can safely accept the browser security prompt on local networks.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.124.1',
+    slug: '192-168-124-1',
+    title: '192.168.124.1 Router Admin Login & Setup Guide',
+    description: 'Default IP address for H3C Magic series consumer and enterprise Wi-Fi routers. Step-by-step moshujia.cn setup and login instructions.',
+    defaultUser: 'admin',
+    defaultPass: 'Set during initial setup',
+    commonBrands: ['H3C'],
+    steps: [
+      'Connect to your H3C Wi-Fi network (H3C_xxxx) or plug an Ethernet cable into a LAN port.',
+      'Open your web browser and enter http://192.168.124.1 or http://moshujia.cn.',
+      'Enter your administrator management password configured during setup.',
+      'Configure Wi-Fi SSID, Mesh interconnection, and game acceleration settings.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default password for 192.168.124.1?',
+        answer: 'H3C Magic routers do not have a default factory password. You configure an admin password when first connecting to http://192.168.124.1.'
+      },
+      {
+        question: 'Why can’t I reach 192.168.124.1?',
+        answer: 'Verify that your computer has obtained an IP in the 192.168.124.x subnet, or try navigating to http://moshujia.cn.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.36.1',
+    slug: '192-168-36-1',
+    title: '192.168.36.1 Alfa Network Admin Login & Repeater Setup',
+    description: 'Default gateway IP address for Alfa Network WiFi CampPro, Tube, and long-range outdoor wireless extender routers.',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    commonBrands: ['Alfa Network'],
+    steps: [
+      'Connect your PC or mobile device to the ALFA_WiFi or CampPro wireless network.',
+      'Open your internet browser and navigate to http://192.168.36.1.',
+      'Log in with default Username: admin and Password: admin.',
+      'Use the Site Survey wizard to scan and connect to campground or marina hotspot Wi-Fi.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default login for 192.168.36.1?',
+        answer: 'The default username is "admin" and the default password is "admin".'
+      },
+      {
+        question: 'Why does Alfa CampPro use 192.168.36.1?',
+        answer: 'Alfa Network uses 192.168.36.1 to prevent IP address collisions with public Wi-Fi hotspots, RV park networks, and marinas which almost always use 192.168.1.1 or 192.168.0.1.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.2.254',
+    slug: '192-168-2-254',
+    title: '192.168.2.254 KPN Box & Experia Box Login Guide',
+    description: 'Default gateway IP address for KPN Netherlands broadband routers, including KPN Box 12, Experia Box V10, and V10a.',
+    defaultUser: 'admin',
+    defaultPass: 'Password on router sticker / (blank)',
+    commonBrands: ['KPN', 'Sagemcom', 'ZTE'],
+    steps: [
+      'Connect your laptop or phone to your KPN home Wi-Fi network.',
+      'Open your web browser and navigate to http://192.168.2.254 or http://mijnmodem.kpn.',
+      'Log in with Username: admin and your unique device password found on the back of the modem.',
+      'Configure SuperWifi mesh points, parental controls, and port forwarding rules.'
+    ],
+    faqs: [
+      {
+        question: 'Where can I find the password for 192.168.2.254?',
+        answer: 'Look at the label on the back or bottom of your KPN Box 12 or Experia Box. For first-time setup on older models, leave the password blank.'
+      },
+      {
+        question: 'How do I reset 192.168.2.254 to factory settings?',
+        answer: 'Press and hold the Reset button on the back of the KPN Box for 10 seconds using a paperclip until the Power light turns red.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.127.254',
+    slug: '192-168-127-254',
+    title: '192.168.127.254 Moxa Industrial Router & Switch Login Guide',
+    description: 'Default factory IP address for Moxa industrial secure routers, Ethernet switches, and terminal servers. Access web console, IPsec VPN, and firewall settings.',
+    defaultUser: 'admin',
+    defaultPass: 'moxa',
+    commonBrands: ['Moxa', 'Moxa Industrial'],
+    steps: [
+      'Configure your PC Ethernet adapter with a static IP address on the same subnet (e.g., 192.168.127.10 / 255.255.255.0).',
+      'Connect an Ethernet cable from your computer to LAN port 1 or the management port of the Moxa device.',
+      'Open your web browser and navigate to https://192.168.127.254 (or http://192.168.127.254). Accept the self-signed SSL security certificate.',
+      'Log in using Username: admin and default Password: moxa (or blank on older models). Change the master password upon initial login.'
+    ],
+    faqs: [
+      {
+        question: 'Why can I not connect to 192.168.127.254?',
+        answer: 'Moxa industrial devices do not run a DHCP server out of the box. You must assign your computer a manual static IP such as 192.168.127.10 with subnet mask 255.255.255.0 to reach 192.168.127.254.'
+      },
+      {
+        question: 'What is the default password for Moxa 192.168.127.254?',
+        answer: 'The factory default password for modern Moxa industrial switches and routers is "moxa" (all lowercase). On legacy firmware versions, the password field is left blank.'
+      },
+      {
+        question: 'How do I factory reset a Moxa router to 192.168.127.254?',
+        answer: 'Depress and hold the hardware Reset button using a pointed object for 5 to 10 seconds until the Ready LED starts blinking rapidly, then release.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.13.31',
+    slug: '192-168-13-31',
+    title: '192.168.13.31 Sierra Wireless AirLink Gateway Login Guide',
+    description: 'Default IP address for Sierra Wireless AirLink cellular routers (MP70, RV50X, XR90, GX450, LX40). Access ACEmanager for vehicle fleet and industrial IoT telemetry.',
+    defaultUser: 'admin',
+    defaultPass: 'Unique password on label / 12345',
+    commonBrands: ['Sierra Wireless', 'AirLink'],
+    steps: [
+      'Connect your laptop via Ethernet to any LAN port of the AirLink gateway (or connect to the default Wi-Fi SSID printed on the unit label).',
+      'Open your web browser and navigate to http://192.168.13.31:9191 or https://192.168.13.31.',
+      'Log in with Username: admin and your unique device password printed on the bottom/back barcode label (older ALEOS firmware defaults to 12345).',
+      'Configure cellular APN, dual-SIM failover, GPS tracking, and IPsec/VPN security settings.'
+    ],
+    faqs: [
+      {
+        question: 'Why does Sierra Wireless use 192.168.13.31 by default?',
+        answer: 'Sierra Wireless ALEOS assigns 192.168.13.31 as the default router IP address so that it never conflicts with standard consumer subnets like 192.168.1.1 or enterprise corporate LANs during mobile fleet deployments.'
+      },
+      {
+        question: 'What port does ACEmanager use on 192.168.13.31?',
+        answer: 'ACEmanager web interface typically operates over HTTP port 9191 (http://192.168.13.31:9191) or secure HTTPS port 9443 / 443.'
+      },
+      {
+        question: 'How do I reset an AirLink router to 192.168.13.31?',
+        answer: 'Press and hold the Reset button on the gateway front panel for more than 7 seconds until the LEDs blink, then release to restore factory default configuration.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.210.1',
+    slug: '192-168-210-1',
+    title: '192.168.210.1 Digi International Router Web Login Guide',
+    description: 'Default IP address for Digi International enterprise and industrial cellular routers (TransPort WR, IX, TX Series). Access Digi Remote Manager and local WebUI.',
+    defaultUser: 'username / admin',
+    defaultPass: 'password / default',
+    commonBrands: ['Digi International', 'Digi TransPort'],
+    steps: [
+      'Connect your computer to Ethernet port 1 on your Digi cellular router.',
+      'Open a web browser and go to https://192.168.210.1 (or http://192.168.210.1).',
+      'Enter Username: username (or admin) and default Password: password (or default, or printed on the label of modern Digi Accelerated Linux DAL devices).',
+      'Configure LTE/5G APN parameters, cellular failover, and Digi Remote Manager (DRM) cloud synchronization.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default login for Digi routers at 192.168.210.1?',
+        answer: 'Older Digi TransPort WR devices use username: "username" and password: "password". Modern Digi DAL devices (IX/TX series) use username: "admin" with the unique password printed on the barcode label.'
+      },
+      {
+        question: 'Can I access Digi 192.168.210.1 via SSH?',
+        answer: 'Yes, Digi enterprise routers have SSH enabled by default on port 22. You can open a terminal and run "ssh username@192.168.210.1" for full command-line configuration.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.200.1',
+    slug: '192-168-200-1',
+    title: '192.168.200.1 D-Link DSR Series & Commercial Router Login Guide',
+    description: 'Default management IP address for D-Link DSR Unified Services VPN Routers (DSR-250, DSR-500, DSR-1000AC) and specialized commercial hardware appliances.',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    commonBrands: ['D-Link', 'D-Link Business'],
+    steps: [
+      'Connect an Ethernet cable from your PC to one of the numbered LAN ports (1 to 4) on the D-Link DSR router.',
+      'Open your web browser and go to https://192.168.200.1 (accept the security certificate warning).',
+      'Enter Username: admin and Password: admin.',
+      'Set up multi-WAN load balancing, IPsec/SSL VPN tunnels, and captive portal guest networks.'
+    ],
+    faqs: [
+      {
+        question: 'Why does D-Link DSR use 192.168.200.1 instead of 192.168.0.1?',
+        answer: 'D-Link DSR series are commercial SMB VPN routers designed to sit behind residential modems or fiber ONTs (which usually occupy 192.168.0.1 or 192.168.1.1), avoiding IP subnet collisions.'
+      },
+      {
+        question: 'What should I do if 192.168.200.1 does not load?',
+        answer: 'Ensure your computer Ethernet card is set to Obtain an IP address automatically (DHCP). If unreachable, hold the Reset button for 10 seconds to restore factory defaults.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.62.1',
+    slug: '192-168-62-1',
+    title: '192.168.62.1 Amped Wireless High Power Wi-Fi Setup Guide',
+    description: 'Default IP address for Amped Wireless high-power Wi-Fi routers, range extenders, and smart repeaters (TITAN, ATHENA, TAP series). Alternative to setup.ampedwireless.com.',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    commonBrands: ['Amped Wireless'],
+    steps: [
+      'Connect to the default Amped Wireless network (Amped_XXXX) via Wi-Fi or plug in via LAN Ethernet.',
+      'Open your web browser and navigate to http://192.168.62.1 or http://setup.ampedwireless.com.',
+      'Follow the Smart Setup Wizard to scan for your home Wi-Fi network and extend high-power coverage.',
+      'Log in with default Username: admin and Password: admin to access advanced RF power and channel settings.'
+    ],
+    faqs: [
+      {
+        question: 'What is the default web address for Amped Wireless?',
+        answer: 'You can access Amped Wireless setup using either http://192.168.62.1 or http://setup.ampedwireless.com.'
+      },
+      {
+        question: 'How do I factory reset an Amped Wireless range extender?',
+        answer: 'Locate the physical Reset button on the back or bottom panel. Press and hold it down for 10 seconds until the front LEDs flash off and on again.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.199.1',
+    slug: '192-168-199-1',
+    title: '192.168.199.1 Gee / HiWiFi Smart OpenWrt Router Login Guide',
+    description: 'Default gateway IP address for Gee / HiWiFi smart routers and customized OpenWrt router distributions. Access cloud dashboard and acceleration plugins.',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    commonBrands: ['HiWiFi', 'Gee', 'OpenWrt'],
+    steps: [
+      'Connect your laptop or smartphone to the HiWiFi Wi-Fi network (HiWiFi_XXXXXX) or use a LAN cable.',
+      'Open your internet browser and navigate to http://192.168.199.1 or http://hiwifi.com.',
+      'Follow the quick internet setup wizard to detect your broadband connection (PPPoE / DHCP).',
+      'Set an admin password and configure wireless encryption.'
+    ],
+    faqs: [
+      {
+        question: 'What is the web URL for 192.168.199.1?',
+        answer: 'You can access the router web dashboard using either http://192.168.199.1 or the local domain http://hiwifi.com.'
+      },
+      {
+        question: 'Can I flash OpenWrt or Padavan on a 192.168.199.1 router?',
+        answer: 'Yes, most routers using 192.168.199.1 are based on MediaTek MT7620/MT7621/MT7628 chipsets with extensive third-party OpenWrt and Padavan firmware support.'
+      }
+    ]
+  },
+  {
+    ip: '192.168.128.1',
+    slug: '192-168-128-1',
+    title: '192.168.128.1 Cisco Meraki MX Appliance Local Status Page Guide',
+    description: 'Default local management IP address for Cisco Meraki MX cloud-managed security appliances and Z-series teleworker gateways. Configure uplink IP, VLANs, and cloud pairing.',
+    defaultUser: 'admin / (serial number)',
+    defaultPass: '(blank) / serial number',
+    commonBrands: ['Cisco Meraki', 'Meraki'],
+    steps: [
+      'Connect an Ethernet cable from your computer to LAN port 2, 3, or 4 on the Cisco Meraki MX security appliance.',
+      'Open your web browser and navigate to http://192.168.128.1 or http://setup.meraki.com.',
+      'Log in to the local status page using Username: admin (or your Meraki appliance serial number in all caps) with a blank password.',
+      'Configure WAN uplink static IP or PPPoE credentials and verify cloud connectivity to the Meraki Dashboard.'
+    ],
+    faqs: [
+      {
+        question: 'Why does Cisco Meraki use 192.168.128.1 as default?',
+        answer: 'Cisco Meraki MX appliances use 192.168.128.1 on default LAN subnet 192.168.128.0/24 to ensure they never collide with upstream ISP modems, standard home routers (192.168.1.1/192.168.0.1), or common corporate subnets.'
+      },
+      {
+        question: 'What is the default password for 192.168.128.1?',
+        answer: 'By default, the password field is left completely blank. If prompted on newer firmware versions, enter the 12-character Meraki hardware serial number printed on the device barcode (format: Qxxx-xxxx-xxxx).'
+      },
+      {
+        question: 'What is the local web address for Cisco Meraki?',
+        answer: 'You can reach the appliance local status page using either http://192.168.128.1 or http://setup.meraki.com.'
+      }
+    ]
+  }
+,
+  {
+    "ip": "192.168.20.1",
+    "slug": "192-168-20-1",
+    "title": "192.168.20.1 NetComm, KuWFi & Ubiquiti EdgeMAX Login Guide",
+    "description": "Complete login and configuration guide for 192.168.20.1 default gateway IP used by NetComm Wireless NBN routers, Ubiquiti EdgeMAX setup wizards, KuWFi 4G LTE routers, and D-Link bridge units.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "NetComm Wireless",
+      "KuWFi",
+      "Ubiquiti (EdgeMAX)",
+      "D-Link"
+    ],
+    "steps": [
+      "Connect your computer or phone to the router via Ethernet cable or Wi-Fi network.",
+      "Open your web browser (Chrome, Edge, Safari, or Firefox) and navigate to http://192.168.20.1.",
+      "Enter default Username: admin and Password: admin (or check the physical sticker on your NetComm/KuWFi device).",
+      "Navigate to WAN Settings to configure your NBN/broadband connection or 4G LTE APN profile."
+    ],
+    "faqs": [
+      {
+        "question": "Which routers use 192.168.20.1 as default IP?",
+        "answer": "192.168.20.1 is standard on NetComm Wireless routers across Australia and New Zealand (widely deployed on NBN fiber and fixed wireless), Ubiquiti EdgeMAX/EdgeRouter initial setup interfaces, KuWFi cellular CPEs, and various D-Link wireless bridge appliances."
+      },
+      {
+        "question": "Why cannot I reach 192.168.20.1?",
+        "answer": "Ensure your device is connected directly to the router. If your computer does not automatically receive an IP in the 192.168.20.x range, temporarily configure your network adapter with a static IP such as 192.168.20.50 and subnet mask 255.255.255.0."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.188.1",
+    "slug": "192-168-188-1",
+    "title": "192.168.188.1 4G/5G Wireless CPE & Pocket Wi-Fi Login Guide",
+    "description": "Universal admin login and network settings guide for 192.168.188.1, the global default gateway IP for Qualcomm & MediaTek-based 4G/5G portable Wi-Fi routers, KuWFi, Yeacomm, Zbtlink, and OEM cellular CPEs.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "KuWFi",
+      "Yeacomm",
+      "Zbtlink",
+      "Suncomm",
+      "OEM 4G/5G Modems"
+    ],
+    "steps": [
+      "Insert an activated SIM card into your 4G/5G router and power on the device.",
+      "Connect to the default Wi-Fi SSID shown on the device label or plug an Ethernet cable into the LAN port.",
+      "Open http://192.168.188.1 in any web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure cellular APN profile, view signal strength (RSRP/RSRQ), and customize Wi-Fi security keys."
+    ],
+    "faqs": [
+      {
+        "question": "Why is 192.168.188.1 so common on 4G and 5G routers?",
+        "answer": "192.168.188.1 is the factory default IP adopted by major cellular modem firmware reference designs (including Qualcomm Snapdragon and MediaTek chipset platforms), utilized by brands like KuWFi, Yeacomm, Zbtlink, and hundreds of OEM cellular router manufacturers."
+      },
+      {
+        "question": "What should I do if the default password admin does not work on 192.168.188.1?",
+        "answer": "Some modern firmware revisions set the default password to the last 4 or 6 characters of the IMEI or MAC address, or require setting a new password on first login. Check the barcode label on the underside of your unit."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.249.1",
+    "slug": "192-168-249-1",
+    "title": "192.168.249.1 Franklin Wireless Hotspot Admin Login Guide",
+    "description": "Default administrator login guide for 192.168.249.1, the standard gateway IP used by Franklin Wireless mobile hotspots (T9, T10, RG2100, R717) on T-Mobile, Sprint, AT&T, and Boost Mobile.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Franklin Wireless",
+      "T-Mobile",
+      "Sprint",
+      "AT&T Hotspots"
+    ],
+    "steps": [
+      "Turn on your Franklin Wireless mobile hotspot and connect your phone or laptop to its Wi-Fi network.",
+      "Open your web browser and enter http://192.168.249.1 or http://mobile.hotspot in the URL address bar.",
+      "Click the Login button at the top right of the WebUI dashboard.",
+      "Enter default Password: admin (or the unique password displayed on the hotspot screen / battery label).",
+      "Manage connected devices, monitor monthly data usage, and update Wi-Fi SSID settings."
+    ],
+    "faqs": [
+      {
+        "question": "Which carriers use Franklin Wireless 192.168.249.1 hotspots?",
+        "answer": "192.168.249.1 is standard on millions of Franklin Wireless devices distributed by T-Mobile US, Sprint, AT&T, Mobile Citizen, PCs for People, and Boost Mobile (models include Franklin T9, T10, JEXtream RG2100 5G, and R717)."
+      },
+      {
+        "question": "How do I find my Franklin Wireless Wi-Fi and admin password?",
+        "answer": "Press the physical Power/Menu button on the Franklin device to cycle through display screens until the Wi-Fi Name, Wi-Fi Password, and Web Admin URL are displayed on the LCD."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.32.1",
+    "slug": "192-168-32-1",
+    "title": "192.168.32.1 TCL Linkhub & Alcatel 4G/5G Gateway Login Guide",
+    "description": "Step-by-step setup and administrator access guide for 192.168.32.1, the default IP for TCL Linkhub 5G CPE (HH500V), Linkhub 4G LTE (HH40, HH70), and Alcatel LINKZONE mobile routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "TCL",
+      "Alcatel Mobile",
+      "Vodafone",
+      "Orange"
+    ],
+    "steps": [
+      "Connect your computer or phone to your TCL Linkhub Wi-Fi network (or via Ethernet).",
+      "Open http://192.168.32.1 in your web browser.",
+      "Enter default Password: admin (or check the underside sticker for your unique carrier password).",
+      "Access the TCL Linkhub dashboard to configure mobile broadband APN, 5G band locking, and guest Wi-Fi."
+    ],
+    "faqs": [
+      {
+        "question": "What devices use 192.168.32.1?",
+        "answer": "192.168.32.1 is the dedicated management IP for TCL Linkhub series cellular gateways (HH40, HH70, HH500V 5G), Alcatel LINKZONE mobile hotspots, and various carrier-rebranded fixed wireless terminals provided by Vodafone, Orange, and Three."
+      },
+      {
+        "question": "Can I manage my TCL router using a mobile app?",
+        "answer": "Yes, in addition to the http://192.168.32.1 web portal, you can download the official TCL Connect or Alcatel WiFi Link app on Android and iOS."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.6.1",
+    "slug": "192-168-6-1",
+    "title": "192.168.6.1 Ubiquiti AmpliFi & Travel Router Login Guide",
+    "description": "Configuration and web administration guide for 192.168.6.1, the default subnet IP used by Ubiquiti AmpliFi Alien and AmpliFi HD mesh systems to avoid upstream ISP modem conflicts, as well as various travel routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Ubiquiti AmpliFi",
+      "KuWFi",
+      "Travel Routers"
+    ],
+    "steps": [
+      "Connect your client device to your AmpliFi mesh or travel router Wi-Fi network.",
+      "Open http://192.168.6.1 in your web browser.",
+      "Log in using your admin credentials (or launch the AmpliFi mobile app).",
+      "Configure Wi-Fi 6 mesh links, Teleport zero-config VPN, and parental time limits."
+    ],
+    "faqs": [
+      {
+        "question": "Why does AmpliFi switch to 192.168.6.1?",
+        "answer": "Ubiquiti AmpliFi routers automatically migrate to 192.168.6.1 or 192.168.7.1 when they detect an upstream modem or fiber ONT already using 192.168.1.1 or 192.168.0.1, preventing IP subnet collision and loss of internet access."
+      },
+      {
+        "question": "How do I access AmpliFi advanced settings?",
+        "answer": "You can navigate to http://192.168.6.1 in a desktop browser to access the local web administration console, or use the official AmpliFi WiFi app for iOS and Android."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.1.2",
+    "slug": "192-168-1-2",
+    "title": "192.168.1.2 Access Point & Secondary Router Setup Guide",
+    "description": "Universal configuration guide for 192.168.1.2, the most popular static IP and default management address for wireless access points, Wi-Fi extenders, and secondary routers operating in bridge mode (Netgear, TP-Link, ASUS, Beetel, D-Link).",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Netgear",
+      "TP-Link",
+      "ASUS",
+      "Beetel",
+      "D-Link"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your computer directly to the LAN port of your secondary router or access point.",
+      "Open http://192.168.1.2 in your web browser.",
+      "Log in with Username: admin and Password: admin (or password).",
+      "Disable DHCP Server on the secondary device if connecting it to an existing primary router network.",
+      "Configure matching Wi-Fi SSID and security credentials for seamless roaming."
+    ],
+    "faqs": [
+      {
+        "question": "Why is 192.168.1.2 used for secondary routers and APs?",
+        "answer": "When cascading two routers or deploying dedicated access points, 192.168.1.2 is conventionally assigned just outside the primary router DHCP pool (192.168.1.1), allowing easy administrative access without IP address conflicts."
+      },
+      {
+        "question": "What if I cannot reach 192.168.1.2?",
+        "answer": "Ensure your primary router DHCP pool does not accidentally assign 192.168.1.2 to another client device, or temporarily set your computer to static IP 192.168.1.50 with subnet mask 255.255.255.0 to log in directly."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.100.254",
+    "slug": "192-168-100-254",
+    "title": "192.168.100.254 FTTH GPON ONT & Industrial Switch Login Guide",
+    "description": "Comprehensive login and management guide for 192.168.100.254, the carrier diagnostic gateway IP for GPON/EPON optical network terminals (Skyworth, C-Data, Huawei) and industrial Ethernet switches.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Skyworth",
+      "C-Data",
+      "Huawei",
+      "Fiberhome",
+      "ZTE"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your computer to LAN port 1 on the optical fiber terminal or industrial switch.",
+      "Assign your computer a static IP address in the 192.168.100.x subnet (such as 192.168.100.50, subnet mask 255.255.255.0).",
+      "Open your web browser and go to http://192.168.100.254.",
+      "Enter Username: admin and Password: admin (or telephonic engineer credentials).",
+      "View optical power levels (Tx/Rx dBm), OMCI status, and VLAN configuration profiles."
+    ],
+    "faqs": [
+      {
+        "question": "What is 192.168.100.254 used for?",
+        "answer": "192.168.100.254 is commonly used as a diagnostic and secondary management gateway on optical network terminals (ONT/ONU) and industrial Ethernet managed switches, allowing technicians to inspect optical link budgets without disrupting customer traffic."
+      },
+      {
+        "question": "Do I need a static IP to open 192.168.100.254?",
+        "answer": "Yes, in bridge mode ONTs typically do not run an active DHCP server on management interfaces. You should configure your PC with IP 192.168.100.10 and subnet mask 255.255.255.0 to access the login page."
+      }
+    ]
+  }
+,
+  {
+    "ip": "192.168.1.100",
+    "slug": "192-168-1-100",
+    "title": "192.168.1.100 Pentagram & European Fiber ONT Diagnostic Guide",
+    "description": "Complete login and configuration guide for 192.168.1.100, the default gateway IP used by Pentagram (Cerberus series) routers in Poland and various European FTTH optical terminal diagnostic web interfaces.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Pentagram",
+      "Skyworth",
+      "European Fiber ONTs"
+    ],
+    "steps": [
+      "Connect an Ethernet cable between your computer and LAN port 1 on your router or fiber ONT.",
+      "Open your web browser and enter http://192.168.1.100 in the address bar.",
+      "Enter default Username: admin and Password: admin (or check the device label for Pentagram Cerberus).",
+      "Configure ADSL2+/VDSL2 broadband parameters, optical VLAN IDs, and local Wi-Fi encryption."
+    ],
+    "faqs": [
+      {
+        "question": "Which routers use 192.168.1.100 as default IP?",
+        "answer": "192.168.1.100 is the standard factory IP for Pentagram Cerberus ADSL and wireless routers in Poland and Central Europe, as well as secondary diagnostic interfaces on various European FTTH optical terminals."
+      },
+      {
+        "question": "What if I cannot reach 192.168.1.100?",
+        "answer": "Temporarily assign your computer a static IP address in the same subnet (such as 192.168.1.50 with subnet mask 255.255.255.0) and verify that your Ethernet cable is securely connected."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.240",
+    "slug": "192-168-0-240",
+    "title": "192.168.0.240 Auerswald Smart VoIP PBX Gateway Login Guide",
+    "description": "Administrator setup and web management guide for 192.168.0.240, the standard factory default IP used by German Auerswald COMpact series VoIP PBX telephone systems and small business router gateways.",
+    "defaultUser": "admin",
+    "defaultPass": "111111",
+    "commonBrands": [
+      "Auerswald"
+    ],
+    "steps": [
+      "Connect a network cable from your PC to the LAN Ethernet port of the Auerswald COMpact system.",
+      "Open your web browser and navigate to https://192.168.0.240.",
+      "Log in with default Username: admin and Password: admin (or default PIN 111111 on first commissioning).",
+      "Configure SIP VoIP carrier trunks, internal IP telephony extensions, and router firewall rules."
+    ],
+    "faqs": [
+      {
+        "question": "What devices use 192.168.0.240?",
+        "answer": "192.168.0.240 is the dedicated out-of-the-box management IP for German Auerswald COMpact 4000, COMpact 5200, and COMpact 5500 smart VoIP PBX router gateways."
+      },
+      {
+        "question": "How do I access Auerswald if my network is on 192.168.1.x?",
+        "answer": "Temporarily configure your laptop Ethernet interface to static IP 192.168.0.100 (subnet mask 255.255.255.0) to open the Auerswald Web-Configurator and assign it an IP in your permanent local subnet."
+      }
+    ]
+  }
+,
+  {
+    "ip": "192.168.216.1",
+    "slug": "192-168-216-1",
+    "title": "192.168.216.1 Dynalink Wi-Fi 6 Router Login & Setup Guide",
+    "description": "Complete configuration and default admin login guide for 192.168.216.1, the default LAN gateway IP address used by Dynalink DL-WRX36 and Askey high-performance mesh routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Dynalink",
+      "Askey"
+    ],
+    "steps": [
+      "Connect your computer or smartphone to the Dynalink router via Wi-Fi network or Ethernet cable.",
+      "Open your web browser (Chrome, Edge, Safari, or Firefox) and navigate to http://192.168.216.1.",
+      "Enter the default administrative Username: admin and Password: admin (or check the label on the router base).",
+      "Access the Dynalink management dashboard to configure Wi-Fi 6 channel widths, mesh backhauls, and guest network access."
+    ],
+    "faqs": [
+      {
+        "question": "Which routers use 192.168.216.1 as default gateway?",
+        "answer": "192.168.216.1 is the factory default IP address specifically assigned to Dynalink DL-WRX36 Wi-Fi 6 multi-gigabit mesh routers and select Askey telecommunications gateway products."
+      },
+      {
+        "question": "What should I do if 192.168.216.1 is not loading?",
+        "answer": "Verify that your client device has received an IP address in the 192.168.216.x subnet via DHCP. If necessary, assign a temporary static IP of 192.168.216.50 with subnet mask 255.255.255.0."
+      },
+      {
+        "question": "What is the default password for Dynalink 192.168.216.1?",
+        "answer": "The factory default username is admin and the default password is admin, or the unique randomly generated WPA/Admin key printed on the unit's product barcode sticker."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.252",
+    "slug": "192-168-0-252",
+    "title": "192.168.0.252 IP-COM Enterprise Router Login & Config Guide",
+    "description": "Administrative setup and login guide for 192.168.0.252, the default static gateway and access controller management IP used by IP-COM commercial multi-WAN routers and enterprise APs.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "IP-COM",
+      "Tenda Commercial"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your management PC to LAN port 1 on the IP-COM enterprise router.",
+      "Open your web browser and navigate to http://192.168.0.252.",
+      "Type default Username: admin and default Password: admin in the authentication prompt.",
+      "Access the IP-COM web interface to configure multi-WAN policy routing, captive portal vouchers, and AP management controllers."
+    ],
+    "faqs": [
+      {
+        "question": "What devices use 192.168.0.252 as default management IP?",
+        "answer": "192.168.0.252 is widely used by IP-COM enterprise multi-WAN routers (such as the M series and G series) and standalone commercial wireless access point management bridges."
+      },
+      {
+        "question": "Why is 192.168.0.252 not opening?",
+        "answer": "Ensure your computer network adapter is manually configured with a static IPv4 address in the 192.168.0.x range (such as 192.168.0.100, subnet mask 255.255.255.0), as some enterprise firmware does not enable DHCP by default."
+      },
+      {
+        "question": "What is the default login for IP-COM 192.168.0.252?",
+        "answer": "The default username is admin and the default password is admin on all standard IP-COM commercial router firmware."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.1.222",
+    "slug": "192-168-1-222",
+    "title": "192.168.1.222 Altai Technologies Super WiFi Base Station Login",
+    "description": "Step-by-step setup and default credential guide for 192.168.1.222, the default management IP address for Altai Technologies A8, A2, and Super WiFi outdoor wireless base stations and bridge routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Altai Technologies"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your management computer to the PoE injector data port connected to the Altai outdoor base station.",
+      "Set your computer with a static IP address in the 192.168.1.x subnet (e.g. 192.168.1.50).",
+      "Open your browser and navigate to https://192.168.1.222 (or http://192.168.1.222).",
+      "Log in using Username: admin and Password: admin to access the AltaiOS smart antenna configuration interface."
+    ],
+    "faqs": [
+      {
+        "question": "Which equipment defaults to 192.168.1.222?",
+        "answer": "192.168.1.222 is the standard factory management fallback IP address on Altai Technologies Super WiFi commercial outdoor base stations, including the A8-Ein, A8n, and A2 series."
+      },
+      {
+        "question": "How do I connect to 192.168.1.222 for initial setup?",
+        "answer": "Because the unit operates in bridge mode out of the box, configure your laptop with static IP 192.168.1.100 and subnet 255.255.255.0 to communicate with the base station."
+      },
+      {
+        "question": "What are the default credentials for 192.168.1.222?",
+        "answer": "The factory default login credentials are Username: admin and Password: admin."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.2.66",
+    "slug": "192-168-2-66",
+    "title": "192.168.2.66 LigoWave Outdoor Radio & AP Login Guide",
+    "description": "Complete login instructions, default passwords, and configuration guidelines for 192.168.2.66, the standard fallback management IP used by LigoWave wireless broadband radios and access points.",
+    "defaultUser": "admin",
+    "defaultPass": "admin01",
+    "commonBrands": [
+      "LigoWave"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your computer to the PoE injector connected to the LigoWave radio.",
+      "Configure your computer adapter with static IP 192.168.2.50 and subnet mask 255.255.255.0.",
+      "Open your web browser and visit https://192.168.2.66 (accept security certificate warning).",
+      "Enter default Username: admin and Password: admin01 to launch the W-Jet / InfinityOS control panel."
+    ],
+    "faqs": [
+      {
+        "question": "What routers and radios use 192.168.2.66?",
+        "answer": "192.168.2.66 is the factory default static fallback IP address across all LigoWave LigoPTP, LigoDLB outdoor subscriber units, and NFT series access points."
+      },
+      {
+        "question": "What is the default password for 192.168.2.66?",
+        "answer": "The default username is admin and the default password is admin01."
+      },
+      {
+        "question": "Why can't I access https://192.168.2.66?",
+        "answer": "Ensure your computer's IP address is explicitly set in the 192.168.2.x subnet, and verify that you are browsing using HTTPS rather than unencrypted HTTP."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.101",
+    "slug": "192-168-0-101",
+    "title": "192.168.0.101 Panasonic VoIP PBX & DECT Gateway Login",
+    "description": "Step-by-step setup and default credential guide for 192.168.0.101, the default management IP used by Panasonic KX-NS and KX-TGP smart hybrid VoIP PBX gateways and IP telephone base units.",
+    "defaultUser": "admin",
+    "defaultPass": "1234",
+    "commonBrands": [
+      "Panasonic"
+    ],
+    "steps": [
+      "Connect your computer via Ethernet cable to the LAN/MNT port of the Panasonic unit.",
+      "Open your web browser and enter https://192.168.0.101 in the URL address bar.",
+      "Enter default Username: admin and default Password: 1234 (or INSTALLER / 123456 on PBX maintenance consoles).",
+      "Configure SIP server accounts, extension routing tables, and IP network parameters."
+    ],
+    "faqs": [
+      {
+        "question": "What equipment uses 192.168.0.101 as default IP?",
+        "answer": "192.168.0.101 is the default maintenance interface IP address for Panasonic KX-NS series hybrid PBX phone systems and KX-TGP wireless DECT smart IP base gateways."
+      },
+      {
+        "question": "What is the default login for Panasonic 192.168.0.101?",
+        "answer": "The user management credentials are admin / 1234, while the full technician programming credentials are INSTALLER / 123456."
+      },
+      {
+        "question": "How do I reset 192.168.0.101 to factory defaults?",
+        "answer": "Locate the physical reset switch inside the maintenance cover, hold it while powering on the unit until the status LED flashes green."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.99.1",
+    "slug": "192-168-99-1",
+    "title": "192.168.99.1 Docker Machine, Travel Router & Gateway Login",
+    "description": "Comprehensive login guide for 192.168.99.1, commonly used as a default gateway by Docker Machine VM bridges, specialized 4G/5G travel routers, and multi-WAN edge routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Docker",
+      "GL.iNet",
+      "Various Cellular Gateways"
+    ],
+    "steps": [
+      "Connect to the router via Ethernet cable or Wi-Fi network.",
+      "Open a web browser and type http://192.168.99.1 in the address bar.",
+      "Enter default Username: admin and Password: admin (or check device base sticker).",
+      "Configure your upstream WAN connection, DHCP scope, and wireless encryption parameters."
+    ],
+    "faqs": [
+      {
+        "question": "Which routers use 192.168.99.1 as default gateway?",
+        "answer": "192.168.99.1 is frequently configured as an isolated non-conflicting default gateway on specialized portable cellular travel routers, virtual appliance routing bridges, and Docker Machine subnets."
+      },
+      {
+        "question": "What is the default password for 192.168.99.1?",
+        "answer": "Most hardware routers using this subnet default to admin / admin or admin / password."
+      },
+      {
+        "question": "Why is 192.168.99.1 preferred for secondary routers?",
+        "answer": "Subnet 192.168.99.0/24 is rarely used by standard ISP fiber/cable modems, preventing IP conflicts when cascading routers."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.77.1",
+    "slug": "192-168-77-1",
+    "title": "192.168.77.1 Outdoor 4G/5G Cellular CPE Gateway Login Guide",
+    "description": "Configuration and login guide for 192.168.77.1 default gateway IP address used by outdoor high-gain cellular CPEs, WISP customer premises equipment, and industrial wireless modems.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "KuWFi",
+      "ZBTlink",
+      "Four-Faith"
+    ],
+    "steps": [
+      "Connect your PC to the LAN port on the outdoor CPE's PoE power injector.",
+      "Open your web browser and navigate to http://192.168.77.1.",
+      "Log in using default Username: admin and Password: admin.",
+      "Review cellular signal reception metrics (RSRP, RSRQ, SINR) and configure APN data settings."
+    ],
+    "faqs": [
+      {
+        "question": "What devices use 192.168.77.1 as default gateway?",
+        "answer": "192.168.77.1 is used by various high-gain outdoor 4G LTE/5G CPE antennas, rural wireless routers, and embedded OpenWrt cellular gateways."
+      },
+      {
+        "question": "What is the default password for 192.168.77.1?",
+        "answer": "Default credentials are Username: admin and Password: admin."
+      },
+      {
+        "question": "How do I optimize signal when connected to 192.168.77.1?",
+        "answer": "Access the Cellular / Status page in the web GUI to monitor real-time dBm signal strength while physically aiming the outdoor antenna toward the nearest mobile tower."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.230.1",
+    "slug": "192-168-230-1",
+    "title": "192.168.230.1 SoftBank Air & Mobile Wi-Fi Router Login",
+    "description": "Step-by-step login instructions and default passwords for 192.168.230.1, the default LAN gateway IP used by SoftBank Air 5G terminal routers and Japanese Pocket Wi-Fi mobile devices.",
+    "defaultUser": "user",
+    "defaultPass": "user",
+    "commonBrands": [
+      "SoftBank",
+      "ZTE Japan",
+      "Huawei Japan"
+    ],
+    "steps": [
+      "Connect your smartphone or PC to the SoftBank Air or Pocket Wi-Fi wireless network.",
+      "Open your web browser and enter http://192.168.230.1 in the address bar.",
+      "Enter Username: user and Password: user (or check the device label on the bottom of the unit).",
+      "Configure 5G/4G network band locking, Wi-Fi 6 SSID names, and guest access settings."
+    ],
+    "faqs": [
+      {
+        "question": "What routers use 192.168.230.1?",
+        "answer": "192.168.230.1 is the primary default gateway for SoftBank Air Terminal 4/5 home 5G routers and various Japanese Pocket WiFi mobile hotspots."
+      },
+      {
+        "question": "What is the default password for 192.168.230.1?",
+        "answer": "SoftBank devices typically default to Username: user and Password: user, or admin / admin on enterprise firmware."
+      },
+      {
+        "question": "How do I check 5G signal status on 192.168.230.1?",
+        "answer": "Log into the web status page to view the 5G Sub-6 / LTE connection level, connected band, and base station ID."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.101.1",
+    "slug": "192-168-101-1",
+    "title": "192.168.101.1 Industrial Satellite & Telecom Gateway Login",
+    "description": "Configuration and default credential guide for 192.168.101.1, used as a primary default gateway by commercial marine satellite terminals, industrial telemetry routers, and specialized gateways.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Inmarsat",
+      "Iridium",
+      "Thuraya",
+      "Intellian"
+    ],
+    "steps": [
+      "Connect your laptop to the Ethernet LAN port of the satellite transceiver or industrial terminal.",
+      "Open your web browser and navigate to http://192.168.101.1.",
+      "Enter default administrative Username: admin and Password: admin.",
+      "Configure satellite beam acquisition parameters, data session profiles, and firewall bandwidth limits."
+    ],
+    "faqs": [
+      {
+        "question": "Which devices default to 192.168.101.1?",
+        "answer": "192.168.101.1 is standard across several commercial maritime BGAN satellite communication terminals, aeronautical routers, and industrial IoT modems."
+      },
+      {
+        "question": "What is the default login for 192.168.101.1?",
+        "answer": "Standard credentials are Username: admin and Password: admin."
+      },
+      {
+        "question": "Why is 192.168.101.1 chosen for satellite gateways?",
+        "answer": "To ensure separation from standard 192.168.1.1 and 192.168.0.1 shipboard ship-to-shore local area networks."
+      }
+    ]
+  },
+  {
+    "ip": "10.90.90.90",
+    "slug": "10-90-90-90",
+    "title": "10.90.90.90 D-Link Smart Managed Switch & Router Login Guide",
+    "description": "Complete setup and default login guide for 10.90.90.90, the iconic factory default IP address for D-Link DGS and DES Smart Managed switches and commercial edge routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "D-Link"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your PC directly to port 1 on the D-Link switch or router.",
+      "Set your computer's network card to static IP 10.90.90.100 with subnet mask 255.0.0.0 (or 255.255.255.0).",
+      "Open your browser and navigate to http://10.90.90.90.",
+      "Log in using Username: admin and Password: admin (or leave password blank on initial unmanaged state)."
+    ],
+    "faqs": [
+      {
+        "question": "What equipment uses 10.90.90.90 as default IP?",
+        "answer": "10.90.90.90 is the well-known factory default IP address across almost all D-Link Smart Managed and Layer 2/3 Gigabit switches, such as DGS-1100, DGS-1210, and DGS-1510 series."
+      },
+      {
+        "question": "Why can't I reach 10.90.90.90 automatically?",
+        "answer": "D-Link smart switches do not run a DHCP server by default. You must assign your computer a static IP such as 10.90.90.50 to communicate with the switch."
+      },
+      {
+        "question": "What is the default password for D-Link 10.90.90.90?",
+        "answer": "The default username is admin. On newer models the password is admin, while on older models the password field is left completely blank."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.35.1",
+    "slug": "192-168-35-1",
+    "title": "192.168.35.1 SK Broadband GiGA Wi-Fi Router Admin Login Guide",
+    "description": "Default router gateway address for SK Broadband GiGA WiFi Wave2, Wi-Fi 6, and HFR optical fiber ONTs across South Korea. Learn login credentials and configuration steps.",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on bottom barcode label",
+    "commonBrands": [
+      "SK Broadband",
+      "HFR",
+      "Dasan"
+    ],
+    "steps": [
+      "Connect your PC or smartphone to the SK Broadband Wi-Fi network or plug an Ethernet cable into a LAN port.",
+      "Open your web browser and navigate to http://192.168.35.1 in the address bar.",
+      "Enter default Username: admin and the factory password printed on the router bottom barcode sticker.",
+      "Navigate to Wireless LAN settings to configure 2.4GHz and 5GHz SSIDs, B tv set-top QoS, and firewall rules."
+    ],
+    "faqs": [
+      {
+        "question": "What is 192.168.35.1 used for?",
+        "answer": "192.168.35.1 is the dedicated private Class C subnet used by SK Broadband throughout South Korea for their GiGA WiFi home routers and optical network terminals."
+      },
+      {
+        "question": "Where do I find the default password for 192.168.35.1?",
+        "answer": "The password is unique to each unit and printed directly on the label beneath the router (typically labeled 'Web Access Password' or the last 6 digits of MAC address)."
+      },
+      {
+        "question": "What if 192.168.35.1 does not open?",
+        "answer": "Ensure your device is obtaining an IP via DHCP. You can also try navigating to http://192.168.0.1 or http://192.168.219.1 depending on your regional ONT model."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.1.200",
+    "slug": "192-168-1-200",
+    "title": "192.168.1.200 Wireless Access Point & Bridge Setup Guide",
+    "description": "Default management IP address for Cisco Small Business, D-Link, Netgear, and Hawking wireless access points, PoE range extenders, and outdoor Ethernet bridges.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Cisco",
+      "D-Link",
+      "Netgear",
+      "Hawking"
+    ],
+    "steps": [
+      "Connect your computer directly to the access point or PoE injector LAN port using an Ethernet cable.",
+      "Assign your computer a static IPv4 address in the same subnet, such as 192.168.1.210 with subnet mask 255.255.255.0.",
+      "Open your internet browser and navigate to http://192.168.1.200.",
+      "Log in with Username: admin and Password: admin (or password on Netgear units)."
+    ],
+    "faqs": [
+      {
+        "question": "Why do access points use 192.168.1.200?",
+        "answer": "192.168.1.200 sits outside typical residential DHCP pools (which commonly run from .100 to .199), preventing IP conflicts between the main router and extension APs."
+      },
+      {
+        "question": "Why can't I access 192.168.1.200 out of the box?",
+        "answer": "Because standalone access points often do not assign DHCP addresses when unconfigured. You must configure a temporary static IP on your PC."
+      },
+      {
+        "question": "Can I switch 192.168.1.200 to obtain IP dynamically?",
+        "answer": "Yes. Once inside the management GUI, navigate to Network / LAN Settings and change the IP Assignment mode from Static to DHCP Client."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.1.240",
+    "slug": "192-168-1-240",
+    "title": "192.168.1.240 DrayTek Vigor & Planet Technology Management Guide",
+    "description": "Access router and managed PoE switch admin consoles at 192.168.1.240. Default credentials, VLAN configuration, and multi-subnet routing instructions.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "DrayTek",
+      "Planet Technology",
+      "Senao"
+    ],
+    "steps": [
+      "Connect to the device LAN port with a Cat5e/Cat6 network patch cable.",
+      "Ensure your computer is configured with a static IP such as 192.168.1.241 / 255.255.255.0.",
+      "Navigate to http://192.168.1.240 in your web browser.",
+      "Enter default credentials: Username admin and Password admin."
+    ],
+    "faqs": [
+      {
+        "question": "Which networking devices use 192.168.1.240?",
+        "answer": "192.168.1.240 is frequently utilized as the secondary management interface on DrayTek Vigor multi-WAN routers and Planet Technology managed switches."
+      },
+      {
+        "question": "How do I reset a 192.168.1.240 switch to factory defaults?",
+        "answer": "Press and hold the hardware Reset button on the front panel for approximately 10 seconds until all port LEDs flash simultaneously."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.0.227",
+    "slug": "192-168-0-227",
+    "title": "192.168.0.227 EnGenius Outdoor Access Point Setup Guide",
+    "description": "Factory default IP address for EnGenius Technologies long-range outdoor wireless bridges, high-power access points, and Electron/EnStation hardware.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "EnGenius",
+      "Senao"
+    ],
+    "steps": [
+      "Connect your PC to the LAN port on the EnGenius PoE injector, and connect the PoE port to the outdoor AP.",
+      "Configure your PC with static IP address 192.168.0.228 and subnet mask 255.255.255.0.",
+      "Open your browser and enter http://192.168.0.227.",
+      "Enter Username: admin and Password: admin to access EnGenius EnOS setup."
+    ],
+    "faqs": [
+      {
+        "question": "Why does EnGenius use 192.168.0.227?",
+        "answer": "EnGenius sets 192.168.0.227 as the standard static factory fallback IP across their EnStation, ENS, and ENH outdoor PtP bridge and AP models."
+      },
+      {
+        "question": "What should I do after logging into 192.168.0.227?",
+        "answer": "Set your wireless operating mode (Access Point, Client Bridge, or WDS AP), configure WPA3/WPA2 security, and set an IP compatible with your local network."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.88.254",
+    "slug": "192-168-88-254",
+    "title": "192.168.88.254 MikroTik RouterOS Bridge Management Guide",
+    "description": "Secondary gateway and bridge management IP for MikroTik RouterBOARD devices, wireless wire bridges, and secondary VLAN interfaces.",
+    "defaultUser": "admin",
+    "defaultPass": "(blank / printed on sticker)",
+    "commonBrands": [
+      "MikroTik"
+    ],
+    "steps": [
+      "Connect your computer to ether2 or ether3 on the MikroTik RouterBOARD.",
+      "Set your network adapter to obtain an IP automatically or assign 192.168.88.200 / 24.",
+      "Open a browser to http://192.168.88.254 or open MikroTik WinBox utility.",
+      "Enter Login: admin with no password (or check the unit's unique sticker)."
+    ],
+    "faqs": [
+      {
+        "question": "How is 192.168.88.254 different from 192.168.88.1?",
+        "answer": "While 192.168.88.1 is the default primary router gateway, 192.168.88.254 is commonly used as the static management address for MikroTik bridges and slave AP units."
+      },
+      {
+        "question": "Can I connect using WinBox MAC address instead of IP?",
+        "answer": "Yes! MikroTik WinBox can discover and connect to MikroTik hardware via Layer 2 MAC address even if the IP configuration is mismatched."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.223.1",
+    "slug": "192-168-223-1",
+    "title": "192.168.223.1 Verizon FiOS Network Extender Admin Guide",
+    "description": "Default configuration interface for Verizon FiOS Wi-Fi Extenders (WCB6200Q, E3200) and MoCA 2.5 coaxial network expansion adapters.",
+    "defaultUser": "admin",
+    "defaultPass": "admin / printed on label",
+    "commonBrands": [
+      "Verizon",
+      "Actiontec"
+    ],
+    "steps": [
+      "Ensure the Verizon Wi-Fi Extender is powered on and connected via coax cable or Ethernet.",
+      "Connect your laptop or tablet to the extender's Wi-Fi network.",
+      "Open your web browser and go to http://192.168.223.1 (or http://myfiosgateway.com).",
+      "Enter the administrator username and password from the physical label on the extender back panel."
+    ],
+    "faqs": [
+      {
+        "question": "What is 192.168.223.1?",
+        "answer": "192.168.223.1 is the standalone fallback management IP address for Verizon FiOS Wi-Fi network extenders before they pair with the main FiOS Quantum or CR1000A router."
+      },
+      {
+        "question": "How does the extender sync settings with the main router?",
+        "answer": "Once connected to the main Verizon router via MoCA or Ethernet, the extender automatically mirrors the main router's SSID, Wi-Fi passwords, and security profiles."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.250.1",
+    "slug": "192-168-250-1",
+    "title": "192.168.250.1 Industrial Automation Router & PLC Gateway Guide",
+    "description": "Factory default IP address for Omron Industrial Automation controllers, Siemens Simatic communications processors, and DIN-rail machine gateways.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Omron",
+      "Siemens",
+      "Phoenix Contact"
+    ],
+    "steps": [
+      "Connect an industrial Ethernet patch cord from your engineering laptop to the PLC or gateway Ethernet port.",
+      "Set your computer's IP address to 192.168.250.10 with subnet mask 255.255.255.0.",
+      "Open your web browser and enter http://192.168.250.1.",
+      "Log in with manufacturer default administrator credentials to configure EtherNet/IP or PROFINET settings."
+    ],
+    "faqs": [
+      {
+        "question": "Why is 192.168.250.1 standard in industrial automation?",
+        "answer": "Omron and several factory automation vendors standardize on 192.168.250.1 for built-in EtherNet/IP and FINS communications modules on CJ2 and NX/NJ series controllers."
+      },
+      {
+        "question": "How do I change the IP address for plant integration?",
+        "answer": "You can change the IP via the internal web management page or using automation software like Omron Sysmac Studio or CX-Programmer."
+      }
+    ]
+  },
+  {
+    "ip": "10.0.0.2",
+    "slug": "10-0-0-2",
+    "title": "10.0.0.2 Broadband Voice Gateway & Cable Modem Admin Guide",
+    "description": "Secondary management IP address for Arris SURFboard, Motorola SVG, and Comcast commercial telephony broadband voice gateways.",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "commonBrands": [
+      "Arris",
+      "Motorola",
+      "Cisco"
+    ],
+    "steps": [
+      "Connect an Ethernet cable from your computer to LAN port 2 on the broadband voice gateway.",
+      "Ensure your device is assigned an IP in the 10.0.0.x subnet.",
+      "Type http://10.0.0.2 into your browser URL address bar and press Enter.",
+      "Sign in with default Username: admin and Password: password (or high-security passphrase on label)."
+    ],
+    "faqs": [
+      {
+        "question": "When is 10.0.0.2 used instead of 10.0.0.1?",
+        "answer": "10.0.0.2 is typically assigned to secondary embedded voice/eMTA controllers or bridge interfaces in dual-IP commercial cable modem gateways."
+      },
+      {
+        "question": "Can I access phone line diagnostics from 10.0.0.2?",
+        "answer": "Yes. Telephony status, loop current, call logs, and line registration are accessible through the 10.0.0.2 voice portal."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.16.254",
+    "slug": "192-168-16-254",
+    "title": "192.168.16.254 DrayTek Vigor Multi-VLAN Management Guide",
+    "description": "Default subnet gateway and VLAN management IP for DrayTek Vigor business routers, enterprise firewalls, and multi-SSID corporate networks.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "DrayTek"
+    ],
+    "steps": [
+      "Connect your device to the dedicated management LAN port or configured corporate VLAN port.",
+      "Configure your workstation network card with an IP address such as 192.168.16.10 / 255.255.255.0.",
+      "Open your browser and navigate to http://192.168.16.254.",
+      "Log into the DrayTek VigorOS management console with Username: admin and Password: admin."
+    ],
+    "faqs": [
+      {
+        "question": "Why do DrayTek routers feature 192.168.16.254?",
+        "answer": "DrayTek Vigor dual-WAN and multi-WAN routers often assign 192.168.16.254 to secondary subnet profiles (LAN 2 or Guest VLAN) to isolate administrative traffic."
+      },
+      {
+        "question": "Can I enable HTTPS on 192.168.16.254?",
+        "answer": "Yes. DrayTek Vigor routers allow binding SSL/TLS certificates and restricting admin access exclusively to HTTPS on port 443."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.4.254",
+    "slug": "192-168-4-254",
+    "title": "192.168.4.254 Moxa & Advantech Industrial Gateway Guide",
+    "description": "Factory default IP address for Moxa NPort device servers, Advantech EKI industrial cellular gateways, and serial-to-Ethernet secure routers.",
+    "defaultUser": "admin",
+    "defaultPass": "moxa",
+    "commonBrands": [
+      "Moxa",
+      "Advantech"
+    ],
+    "steps": [
+      "Connect an RJ45 Ethernet cable from your laptop directly to the Moxa/Advantech industrial gateway.",
+      "Set your network adapter to static IP 192.168.4.10 with subnet mask 255.255.255.0.",
+      "Open your web browser and navigate to http://192.168.4.254.",
+      "Log in with Username: admin and Password: moxa (or blank on older firmware)."
+    ],
+    "faqs": [
+      {
+        "question": "What equipment is accessed via 192.168.4.254?",
+        "answer": "192.168.4.254 is the default IP address used by Moxa NPort 5000/6000 serial device servers, OnCell cellular IP gateways, and Advantech industrial routers."
+      },
+      {
+        "question": "What if the default password 'moxa' does not work?",
+        "answer": "On newer firmware, you may be prompted to create a strong password on initial setup, or the password may be left blank. Press the reset button for 5 seconds to reset defaults."
+      }
+    ]
+  }
+,
+{
+    "ip": "192.168.190.1",
+    "slug": "192-168-190-1",
+    "title": "192.168.190.1 Router Admin Login & Setup Guide",
+    "description": "Access your Adtran NetVanta router or business IP gateway admin dashboard at 192.168.190.1. Step-by-step default credentials and network configuration.",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "commonBrands": [
+      "Adtran",
+      "NetVanta",
+      "AOS"
+    ],
+    "steps": [
+      "Connect your PC to the Ethernet LAN port on the Adtran NetVanta router.",
+      "Open your web browser and navigate to https://192.168.190.1 (or http://192.168.190.1).",
+      "Enter default Username: admin and Password: password.",
+      "Access the AOS web graphical management console to configure voice, WAN, and VLAN routing."
+    ],
+    "faqs": [
+      {
+        "question": "What devices use 192.168.190.1 as their default IP?",
+        "answer": "192.168.190.1 is standard across Adtran NetVanta multi-service access routers and enterprise VoIP gateways running AOS."
+      },
+      {
+        "question": "How can I access the command line if the web GUI is disabled?",
+        "answer": "Connect via SSH or console cable to 192.168.190.1 port 22 and log in with admin privileges."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.200.200",
+    "slug": "192-168-200-200",
+    "title": "192.168.200.200 Firewall & Gateway Admin Login Guide",
+    "description": "Default management IP address for Barracuda Networks CloudGen Firewalls, Spam & Virus Gateways, and security appliances.",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "commonBrands": [
+      "Barracuda Networks",
+      "CloudGen",
+      "CudaTel"
+    ],
+    "steps": [
+      "Connect your workstation to port 1 or the dedicated MGMT interface of the Barracuda appliance.",
+      "Set your client computer static IP to 192.168.200.201 with subnet mask 255.255.255.0.",
+      "Open your web browser and go to https://192.168.200.200:8000 (or https://192.168.200.200).",
+      "Log in with Username: admin and Password: admin."
+    ],
+    "faqs": [
+      {
+        "question": "Why won't 192.168.200.200 load in my browser?",
+        "answer": "Barracuda security appliances require a static IP in the 192.168.200.0/24 subnet and HTTPS with port 8000 specified."
+      },
+      {
+        "question": "What is the default password on newer Barracuda firmware?",
+        "answer": "Newer firmware defaults to 'admin', but prompts for an immediate credential change and serial number verification upon initial setup."
+      }
+    ]
+  },
+  {
+    "ip": "192.168.219.1",
+    "slug": "192-168-219-1",
+    "title": "192.168.219.1 LG Uplus & SK Broadband Router Login Guide",
+    "description": "Default gateway IP address used by South Korean ISPs including LG Uplus and SK Broadband for Giga Wi-Fi and GPON optical home routers.",
+    "defaultUser": "admin",
+    "defaultPass": "admin / MAC last 4 digits",
+    "commonBrands": [
+      "LG Uplus",
+      "SK Broadband",
+      "Dasan",
+      "HFR"
+    ],
+    "steps": [
+      "Connect your smartphone or PC to the LG Uplus Wi-Fi network (U+Net).",
+      "Open your web browser and navigate to http://192.168.219.1.",
+      "Enter Username: admin and the default password printed on the router bottom sticker (frequently the last 4 or 6 characters of the MAC address followed by #).",
+      "Configure your GiGA Wi-Fi SSID, channel bonding, and security settings."
+    ],
+    "faqs": [
+      {
+        "question": "How do I find the default password for 192.168.219.1?",
+        "answer": "Check the underside sticker of your LG Uplus router; the password typically combines the last 4 characters of the MAC address and specific symbols."
+      },
+      {
+        "question": "Can I enable bridge mode on 192.168.219.1?",
+        "answer": "Yes, under Network Settings > Operation Mode, you can switch from NAT Gateway mode to Bridge Mode to connect your own mesh router."
+      }
+    ]
+  },
+  {
+    "ip": "172.30.1.254",
+    "slug": "172-30-1-254",
+    "title": "172.30.1.254 KT Olleh GiGA Router Admin Login Guide",
+    "description": "Default management IP address for KT (Korea Telecom) Olleh GiGA Wi-Fi home routers and fiber optic terminal gateways.",
+    "defaultUser": "ktuser",
+    "defaultPass": "homehub / megaap",
+    "commonBrands": [
+      "KT",
+      "Korea Telecom",
+      "Olleh",
+      "GiGA WiFi"
+    ],
+    "steps": [
+      "Connect your device to the KT GiGA Wi-Fi network or plug an Ethernet cable into LAN port 1.",
+      "Open your web browser and type http://172.30.1.254 into the address bar.",
+      "Enter default Username: ktuser and Password: homehub (or megaap on older models).",
+      "Complete the captcha verification and access the KT Olleh GiGA setup dashboard."
+    ],
+    "faqs": [
+      {
+        "question": "Why does KT use a 172.30.1.254 Class B IP address?",
+        "answer": "KT standardizes on 172.30.1.254 to prevent subnet collisions with downstream 192.168.1.1 third-party routers and IPTV set-top boxes."
+      },
+      {
+        "question": "What if ktuser / homehub fails?",
+        "answer": "Newer KT GiGA Wave 2/Wi-Fi 6 models use the MAC address suffix as the password. Press the Reset button for 10 seconds to restore factory defaults."
+      }
+    ]
+  },
+  {
+    "ip": "169.254.128.132",
+    "slug": "169-254-128-132",
+    "title": "169.254.128.132 Proxim Wireless Admin Login & Bridge Setup Guide",
+    "description": "Default management fallback IP address for Proxim Tsunami, ORiNOCO, and point-to-point wireless outdoor bridge routers.",
+    "defaultUser": "admin",
+    "defaultPass": "public",
+    "commonBrands": [
+      "Proxim Wireless",
+      "Tsunami",
+      "ORiNOCO"
+    ],
+    "steps": [
+      "Connect your PC directly to the PoE injector LAN port of the Proxim wireless bridge unit.",
+      "Configure your PC with a static IPv4 address in the 169.254.128.0/24 subnet (e.g. 169.254.128.100).",
+      "Open your browser and navigate to http://169.254.128.132.",
+      "Log in with default Username: admin and Password: public (or community string 'public')."
+    ],
+    "faqs": [
+      {
+        "question": "When is 169.254.128.132 active?",
+        "answer": "169.254.128.132 is the persistent hardware fallback IP active on all Proxim Tsunami and ORiNOCO devices when DHCP is unassigned."
+      },
+      {
+        "question": "How do I align antenna signal strength via 169.254.128.132?",
+        "answer": "Navigate to the Status > Wireless Link menu to view real-time RSSI, SNR, and modulation rate during outdoor antenna alignment."
+      }
+    ]
   }
 ];
 
@@ -3654,7 +5077,19346 @@ export const BRANDS: Brand[] = [
       "Open http://192.168.1.1 in your browser.",
       "Log in with Username: admin and Password found on the device sticker.",
       "Configure Wi-Fi mesh pods and parental controls."
-]
+    ]
+  },
+  {
+    name: 'OpenWrt',
+    slug: 'openwrt',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'root',
+    defaultPass: '(blank)',
+    description: 'OpenWrt open-source Linux router firmware, LuCI web admin interface, and x86 / embedded gateway setup.',
+    models: [],
+    guide: [
+      'Connect your PC to the LAN port via Ethernet.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Log in with Username: root and leave Password empty.',
+      'Configure network interfaces and set an administrator password.'
+    ]
+  },
+  {
+    name: 'Beetel',
+    slug: 'beetel',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Beetel ADSL2+ modem routers and broadband subscriber terminal configuration guides.',
+    models: [],
+    guide: [
+      'Connect your computer to the Beetel modem via Ethernet or Wi-Fi.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Log in using admin for both username and password.',
+      'Configure ADSL VPI/VCI settings and Wi-Fi credentials.'
+    ]
+  },
+  {
+    name: 'Sterlite Technologies',
+    slug: 'sterlite',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'STL (Sterlite Technologies) 5G FWA CPE and optical fiber networking terminal setup guides.',
+    models: [],
+    guide: [
+      'Connect to the STL Wi-Fi network.',
+      'Open http://192.168.0.1 in your web browser.',
+      'Log in with username admin and default password admin.',
+      'Configure cellular APN and wireless parameters.'
+    ]
+  },
+  {
+    name: 'GX Earth',
+    slug: 'gx-earth',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'stdONUi0e1',
+    description: 'GX Earth XPON ONT optical terminal default logins, voice VoIP, and broadband fiber setup.',
+    models: [],
+    guide: [
+      'Connect your device to the GX Earth ONT LAN port or Wi-Fi.',
+      'Navigate to http://192.168.1.1 in your web browser.',
+      'Log in with Username admin and default password stdONUi0e1.',
+      'Configure WAN optical profiles and Wi-Fi security.'
+    ]
+  },
+  {
+    name: 'ipTIME',
+    slug: 'iptime',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'South Korea\'s #1 router brand by EFM Networks. Setup instructions, firmware recovery, and default logins for ipTIME Wi-Fi 6 & gigabit routers.',
+    models: [],
+    guide: [
+      'Connect to your ipTIME wireless network (iptime or iptime5G) or plug into an Ethernet LAN port.',
+      'Open your web browser and navigate to http://192.168.0.1 (or http://192.168.1.1).',
+      'Log in with default Username: admin and Password: admin, then solve the security captcha.',
+      'Navigate to Wireless Setup (무선 설정) to configure WPA2/WPA3 Wi-Fi passwords.'
+    ]
+  },
+  {
+    name: 'Elecom',
+    slug: 'elecom',
+    defaultIp: '192.168.2.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Elecom Japan WRC series Wi-Fi 6, gaming, and consumer broadband router setup guides and default admin passwords.',
+    models: [],
+    guide: [
+      'Connect your PC or mobile device to the Elecom Wi-Fi network.',
+      'Open http://192.168.2.1 in your browser address bar.',
+      'Enter Username: admin and Password: admin (or credentials printed on the Easy Setup Sheet).',
+      'Configure v6 Plus (MAP-E / DS-Lite) IPv6 internet connection parameters.'
+    ]
+  },
+  {
+    name: 'H3C',
+    slug: 'h3c',
+    defaultIp: '192.168.124.1',
+    defaultUser: 'admin',
+    defaultPass: 'Set during initial setup',
+    description: 'H3C Magic series Wi-Fi 6 and Wi-Fi 7 enterprise & consumer high-speed router administration and moshujia.cn setup.',
+    models: [],
+    guide: [
+      'Connect to your H3C Wi-Fi network.',
+      'Open http://192.168.124.1 or http://moshujia.cn in your browser.',
+      'Set an administrator management password on the initial welcome wizard.',
+      'Configure Mesh interconnection and high-performance game acceleration.'
+    ]
+  },
+  {
+    name: 'MERCURY',
+    slug: 'mercury',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Set during initial setup',
+    description: 'MERCURY (水星) high-value gigabit wireless and mesh routers. Melogin.cn setup guides and default gateway addresses.',
+    models: [],
+    guide: [
+      'Connect your device to the MERCURY Wi-Fi network or LAN port.',
+      'Open http://192.168.1.1 or http://melogin.cn in your browser.',
+      'Create a 6 to 15 character administrator password on first startup.',
+      'Configure broadband PPPoE or DHCP settings and Wi-Fi parameters.'
+    ]
+  },
+  {
+    name: 'LANCOM Systems',
+    slug: 'lancom',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'root',
+    defaultPass: '(blank) / Set during setup',
+    description: 'Germany\'s premier enterprise router and SD-WAN gateway manufacturer. LANCOM 1793, 1906, and LCOS setup instructions.',
+    models: [],
+    guide: [
+      'Connect your computer to a LAN port on the LANCOM router.',
+      'Open https://192.168.1.254 or launch LANconfig software.',
+      'Log in with Username: root and leave Password blank if unconfigured.',
+      'Configure VDSL Supervectoring, SFP fiber interfaces, and high-security IPsec VPNs.'
+    ]
+  },
+  {
+    name: 'Devolo',
+    slug: 'devolo',
+    defaultIp: '192.168.0.254',
+    defaultUser: 'admin',
+    defaultPass: 'Set during setup / (blank)',
+    description: 'German home networking and Powerline Wi-Fi mesh pioneer. Devolo WiFi 6 Router and Magic series setup instructions.',
+    models: [],
+    guide: [
+      'Connect to your Devolo Wi-Fi network.',
+      'Open http://192.168.0.254 or http://devolo.wifi in your web browser.',
+      'Follow the devolo Home Network assistant to configure encryption.',
+      'Set up mesh coordination between Powerline adapters and Wi-Fi access points.'
+    ]
+  },
+  {
+    name: 'Eltex',
+    slug: 'eltex',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'password',
+    description: 'Russia and CIS leading telecommunications hardware manufacturer. Eltex GPON ONT, RG, and ESR series enterprise router configuration.',
+    models: [],
+    guide: [
+      'Connect to the Eltex router LAN port via Ethernet or Wi-Fi.',
+      'Open http://192.168.1.1 in your browser.',
+      'Log in with Username: admin and Password: password (or user/user for subscriber mode).',
+      'Configure GPON optical parameters, VoIP SIP profiles, and local Wi-Fi.'
+    ]
+  },
+  {
+    name: 'Alfa Network',
+    slug: 'alfa-network',
+    defaultIp: '192.168.36.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Taiwanese pioneer of long-range high-gain wireless equipment, WiFi CampPro RV/marine extenders, and outdoor routers.',
+    models: [],
+    guide: [
+      'Connect to the Alfa CampPro Wi-Fi network.',
+      'Navigate to http://192.168.36.1 in your browser.',
+      'Enter Username: admin and Password: admin.',
+      'Use the Site Survey tool to link to remote campground Wi-Fi access points.'
+    ]
+  },
+  {
+    name: 'MoFi Network',
+    slug: 'mofi-network',
+    defaultIp: '192.168.10.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'North American high-power cellular 4G/5G LTE routers for RVs, rural homes, and commercial fleet deployments.',
+    models: [],
+    guide: [
+      'Insert your SIM card and connect to the MoFi Wi-Fi network.',
+      'Open http://192.168.10.1 in your web browser.',
+      'Log in with Username: admin and Password: admin.',
+      'Configure cellular APN, band locking, and multi-carrier failover.'
+    ]
+  },
+  {
+    name: 'Cambium Networks',
+    slug: 'cambium',
+    defaultIp: '192.168.11.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Enterprise wireless and fixed wireless broadband solutions. cnPilot home and enterprise Wi-Fi router setup.',
+    models: [],
+    guide: [
+      'Connect your PC to the LAN port on the cnPilot router.',
+      'Open http://192.168.11.1 in your browser.',
+      'Log in with default Username: admin and Password: admin.',
+      'Configure cnMaestro cloud management and wireless operational modes.'
+    ]
+  },
+  {
+    name: 'Intelbras',
+    slug: 'intelbras',
+    defaultIp: '10.0.0.1 / meuintebras.local',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default IP and credentials for Intelbras Wi-Fi routers, Twibi mesh, and fiber ONTs popular across Brazil and Latin America.',
+    models: [],
+    guide: [
+      'Connect to your Intelbras Wi-Fi network (Intelbras_XXXX) or use a network cable.',
+      'Open your web browser and go to http://10.0.0.1 or http://meuintelbras.local.',
+      'Enter the default username admin and password admin.',
+      'Configure Wi-Fi SSID, parental control, and remote management.'
+    ]
+  },
+  {
+    name: 'AirTies',
+    slug: 'airties',
+    defaultIp: '192.168.2.1 / airties.local',
+    defaultUser: 'admin',
+    defaultPass: '(blank) / admin',
+    description: 'Default IP and credentials for AirTies smart mesh routers and access points widely deployed across Europe and Turkiye.',
+    models: [],
+    guide: [
+      'Connect your device to the AirTies Wi-Fi network.',
+      'Open http://192.168.2.1 or http://airties.local in your browser.',
+      'Login with Username: admin and leave the password blank or use admin.',
+      'Configure your AirTies Smart Mesh network and channel steering.'
+    ]
+  },
+  {
+    name: 'Turris (CZ.NIC)',
+    slug: 'turris',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'root / admin',
+    defaultPass: 'Set during initial setup',
+    description: 'Open-source, highly secure modular routers developed by CZ.NIC in the Czech Republic, running Turris OS and reForis.',
+    models: [],
+    guide: [
+      'Connect your PC to any LAN port of your Turris Omnia or MOX router.',
+      'Open http://192.168.1.1 or https://192.168.1.1 in your browser.',
+      'Follow the reForis wizard to set your root password and configure automatic security updates.',
+      'Manage WireGuard VPN, Sentinel honeypot, and PaX firewall modules.'
+    ]
+  },
+  {
+    name: 'Honor',
+    slug: 'honor',
+    defaultIp: '192.168.3.1',
+    defaultUser: 'admin',
+    defaultPass: 'Created during setup',
+    description: 'Default IP and setup guide for Honor Router 3, Router 4, and mesh Wi-Fi 6 systems.',
+    models: [],
+    guide: [
+      'Connect your phone or laptop to the Honor Wi-Fi network.',
+      'Open your browser and navigate to http://192.168.3.1.',
+      'Follow the AI Life setup wizard or web quick configuration.',
+      'Configure dual-band Wi-Fi 6 and mobile gaming acceleration.'
+    ]
+  },
+  {
+    name: 'Qihoo 360',
+    slug: 'qihoo-360',
+    defaultIp: '192.168.0.1 / luyou.360.cn',
+    defaultUser: 'admin',
+    defaultPass: 'Created during setup',
+    description: 'Default IP and login instructions for 360 smart home routers, Wi-Fi 6 mesh nodes, and security gateways.',
+    models: [],
+    guide: [
+      'Connect to the 360 Wi-Fi network SSID.',
+      'Navigate to http://192.168.0.1 or http://luyou.360.cn in your browser.',
+      'Set your administrator password during the initial setup wizard.',
+      'Configure 360 Home Security Firewall and device anti-hacking protection.'
+    ]
+  },
+  {
+    name: 'Moxa',
+    slug: 'moxa',
+    defaultIp: '192.168.127.254',
+    defaultUser: 'admin',
+    defaultPass: 'moxa',
+    description: 'Default login credentials and static IP setup for Moxa industrial secure routers, switches, and remote access gateways.',
+    models: [],
+    guide: [
+      'Set your computer Ethernet adapter to static IP 192.168.127.10 (subnet 255.255.255.0).',
+      'Connect directly to the Moxa LAN or Management port.',
+      'Open https://192.168.127.254 in your web browser and accept the SSL certificate warning.',
+      'Login with Username: admin and Password: moxa.'
+    ]
+  },
+  {
+    name: 'Sitecom',
+    slug: 'sitecom',
+    defaultIp: '192.168.0.1 / sitecom.router',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (blank)',
+    description: 'Default IP and credentials for Sitecom home routers, Greyhound Wi-Fi systems, and network range extenders across Europe.',
+    models: [],
+    guide: [
+      'Connect to your Sitecom Wi-Fi network or plug an Ethernet cable into a LAN port.',
+      'Open http://192.168.0.1 or http://sitecom.router in your web browser.',
+      'Log in with default Username: admin and Password: admin (or WPA key printed on sticker).',
+      'Configure dual-band Wi-Fi, guest network, and parental access restrictions.'
+    ]
+  },
+  {
+    name: 'LevelOne',
+    slug: 'levelone',
+    defaultIp: '192.168.123.254 / 192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / password',
+    description: 'Default login credentials and setup instructions for LevelOne wireless broadband routers, PoE gateways, and industrial switches.',
+    models: [],
+    guide: [
+      'Connect your PC to any LAN port of the LevelOne router.',
+      'Open http://192.168.123.254 (or http://192.168.1.1) in your browser.',
+      'Enter Username: admin and Password: password (or admin).',
+      'Configure WAN connection settings, port forwarding, and firewall rules.'
+    ]
+  },
+  {
+    name: 'Multilaser',
+    slug: 'multilaser',
+    defaultIp: '192.168.1.1 / 192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default router IP and login passwords for Multilaser routers, Cosmo Mesh systems, and Wi-Fi repeaters popular across Brazil.',
+    models: [],
+    guide: [
+      'Connect to the Multilaser Wi-Fi SSID or connect via Ethernet cable.',
+      'Open http://192.168.1.1 or http://192.168.0.1 in your browser.',
+      'Log in with Username: admin and Password: admin.',
+      'Set up your PPPoE fiber connection credentials and Wi-Fi password.'
+    ]
+  },
+  {
+    name: 'Phicomm',
+    slug: 'phicomm',
+    defaultIp: '192.168.2.1 / p.to',
+    defaultUser: 'admin',
+    defaultPass: 'admin / Set during setup',
+    description: 'Default IP and setup guide for Phicomm K2P, K3, and K3C high-performance dual-band wireless gigabit routers.',
+    models: [],
+    guide: [
+      'Connect your device to the Phicomm Wi-Fi network.',
+      'Open http://192.168.2.1 or http://p.to in your web browser.',
+      'Follow the setup wizard to configure your WAN connection and Wi-Fi credentials.',
+      'Access hardware acceleration and advanced wireless transmission power controls.'
+    ]
+  },
+  {
+    name: 'BDCOM',
+    slug: 'bdcom',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'Default login credentials for BDCOM GPON ONUs, EPON optical terminals, and enterprise branch routers.',
+    models: [],
+    guide: [
+      'Connect an Ethernet cable from your computer to LAN port 1 on the BDCOM ONU.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Enter Username: admin and Password: admin.',
+      'Configure OMCI optical parameters, VLAN tags, and local Wi-Fi encryption.'
+    ]
+  }
+,
+  {
+    "name": "Cisco Meraki",
+    "slug": "meraki",
+    "defaultIp": "192.168.128.1 / setup.meraki.com",
+    "defaultUser": "admin / (serial number)",
+    "defaultPass": "(blank) / serial number",
+    "description": "Cisco Meraki cloud-managed security appliances, teleworker gateways, and enterprise wireless access points.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to LAN port 2, 3, or 4 on the Meraki appliance.",
+      "Open http://192.168.128.1 or http://setup.meraki.com in your browser.",
+      "Log in with Username: admin and leave the password blank (or enter the serial number).",
+      "Configure WAN uplinks, static IP addressing, and connect to the Cisco Meraki Dashboard."
+    ]
+  },
+  {
+    "name": "Firewalla",
+    "slug": "firewalla",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "Managed via Firewalla App",
+    "defaultPass": "Mobile App Paired",
+    "description": "Cybersecurity hardware firewalls and multi-gigabit smart home routers protecting homes and businesses against digital threats.",
+    "models": [],
+    "guide": [
+      "Connect the Firewalla WAN port to your ISP modem or ONT.",
+      "Download and open the Firewalla App on your iOS or Android mobile phone.",
+      "Scan the QR code printed on the bottom of the Firewalla hardware unit to pair.",
+      "Configure Router mode, Smart Queue Management (SQM), VPN server, and parental rules."
+    ]
+  },
+  {
+    "name": "Luxul",
+    "slug": "luxul",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-performance commercial and custom residential installation networking hardware designed for luxury smart homes and AV systems.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to any LAN port on the Luxul router.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure Roam Assist wireless handover, multi-WAN failover, and VLAN segmentation."
+    ]
+  },
+  {
+    "name": "Pakedge",
+    "slug": "pakedge",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "pakedge",
+    "defaultPass": "pakedger",
+    "description": "Enterprise-grade networking and high-throughput AV routers engineered by Snap One for smart homes and commercial automation.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your PC to LAN port 1 on the Pakedge router.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with default Username: pakedge and Password: pakedger (or admin / password).",
+      "Set up BakPak cloud management, AV traffic prioritization, and IGMP multicasting."
+    ]
+  },
+  {
+    "name": "Araknis Networks",
+    "slug": "araknis",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "araknis",
+    "defaultPass": "araknis",
+    "description": "Commercial-grade network routers, PoE switches, and wireless access points managed via the OvrC cloud management ecosystem.",
+    "models": [],
+    "guide": [
+      "Connect your PC to any LAN port on the Araknis router.",
+      "Navigate to http://192.168.1.1 in your web browser.",
+      "Log in using Username: araknis and Password: araknis.",
+      "Configure dual-WAN failover, OvrC cloud remote management, and VPN tunnels."
+    ]
+  },
+  {
+    "name": "SMC Networks",
+    "slug": "smc-networks",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "smcadmin / (blank)",
+    "description": "Historic pioneer in residential and small office networking equipment, famous for the Barricade broadband router series.",
+    "models": [],
+    "guide": [
+      "Connect your computer to a LAN port on the SMC Barricade router.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Enter Username: admin and Password: smcadmin (or leave password blank).",
+      "Configure WAN setup wizard, DHCP server ranges, and NAT firewall rules."
+    ]
+  },
+  {
+    "name": "Hawking Technologies",
+    "slug": "hawking",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "1234 / admin",
+    "description": "Specialized high-power Wi-Fi routers, directional antennas, and long-range wireless equipment.",
+    "models": [],
+    "guide": [
+      "Connect to your Hawking device via Ethernet cable or Wi-Fi network.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Enter default Username: admin and Password: 1234 (or admin).",
+      "Configure wireless transmission power and high-gain antenna booster modes."
+    ]
+  },
+  {
+    "name": "Casa Systems",
+    "slug": "casa-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / password",
+    "description": "Telecommunications provider of ultra-broadband cable gateways, 5G Fixed Wireless Access (FWA) CPEs, and cloud-native solutions.",
+    "models": [],
+    "guide": [
+      "Connect to the Casa Systems gateway Ethernet LAN port.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and default Password: admin.",
+      "Configure 5G cellular APN parameters, beamforming signal metrics, and local LAN routing."
+    ]
+  },
+  {
+    "name": "Mimosa Networks",
+    "slug": "mimosa",
+    "defaultIp": "192.168.1.20",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-capacity fixed wireless gigabit backhaul, Point-to-Multipoint (PTMP) access points, and cloud-managed client gateways.",
+    "models": [],
+    "guide": [
+      "Set your computer Ethernet adapter to static IP 192.168.1.50 (subnet 255.255.255.0).",
+      "Connect an Ethernet cable from your PC to the PoE injector LAN port.",
+      "Open http://192.168.1.20 in your browser.",
+      "Log in with Username: admin and Password: admin to unlock wireless link alignment."
+    ]
+  },
+  {
+    "name": "Aerohive",
+    "slug": "aerohive",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "aerohive",
+    "description": "Enterprise cloud-managed Wi-Fi access points and branch office routers featuring controller-less cooperative control architecture.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the LAN port on the Aerohive router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and default Password: aerohive.",
+      "Connect the device to ExtremeCloud IQ for automated corporate provisioning."
+    ]
+  },
+  {
+    "name": "Airspan",
+    "slug": "airspan",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Pioneering provider of 5G CBRS small cells, Fixed Wireless Access gateways, and Open RAN enterprise networks.",
+    "models": [],
+    "guide": [
+      "Connect your computer to the Airspan indoor unit LAN interface.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Verify CBRS SAS spectrum authorization and 5G cellular link status."
+    ]
+  },
+  {
+    "name": "Untangle",
+    "slug": "untangle",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Set during initial setup",
+    "description": "Arista Edge Threat Management NG Firewall appliances and multi-WAN SD-WAN edge security gateways for small-to-medium businesses.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Internal (LAN) network interface of the Untangle hardware.",
+      "Open https://192.168.1.1 in your browser.",
+      "Follow the Setup Wizard to establish your admin password and network interfaces.",
+      "Configure Web Filter, Application Control, Threat Prevention, and OpenVPN modules."
+    ]
+  },
+  {
+    "name": "IPFire",
+    "slug": "ipfire",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Set during initial setup",
+    "description": "Hardened open-source stateful firewall and secure Linux distribution running on dedicated enterprise security hardware.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Green (LAN) Ethernet port of the IPFire appliance.",
+      "Open https://192.168.1.1:444 in your web browser and accept the SSL certificate.",
+      "Log in with Username: admin and the web password created during console installation.",
+      "Manage Intrusion Prevention System (IPS), GeoIP blocking, and IPsec/WireGuard VPNs."
+    ]
+  },
+  {
+    "name": "Siemens",
+    "slug": "siemens",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global manufacturing leader providing SCALANCE industrial Ethernet security routers, cellular gateways, and railway networking hardware.",
+    "models": [],
+    "guide": [
+      "Set your PC Ethernet adapter to static IP 192.168.1.10 (subnet 255.255.255.0).",
+      "Connect directly to Port 1 on the Siemens SCALANCE router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin, then configure Web-Based Management (WBM)."
+    ]
+  },
+  {
+    "name": "Advantech",
+    "slug": "advantech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Global manufacturer of industrial IoT cellular routers, edge AI computing gateways, and remote automation hardware.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your laptop to ETH0 on the Advantech router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with default Username: root and Password: root.",
+      "Configure cellular APN, dual SIM automatic failover, and industrial protocol routing."
+    ]
+  },
+  {
+    "name": "InHand Networks",
+    "slug": "inhand-networks",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "adm",
+    "defaultPass": "123456",
+    "description": "Industrial IoT communication leader offering rugged cellular routers, vehicle gateways, and edge computing devices for smart grids and fleets.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN port on the InHand InRouter.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Log in using Username: adm and default Password: 123456.",
+      "Configure InCloud Manager platform connection, GPS tracking, and cellular backup."
+    ]
+  },
+  {
+    "name": "Westermo",
+    "slug": "westermo",
+    "defaultIp": "192.168.2.200",
+    "defaultUser": "admin",
+    "defaultPass": "westermo",
+    "description": "Robust industrial data communications and cyber security routers designed for extreme environments in rail, maritime, and utility grids.",
+    "models": [],
+    "guide": [
+      "Set your computer Ethernet adapter to static IP 192.168.2.100 (subnet 255.255.255.0).",
+      "Connect directly to LAN port 1 on the Westermo router.",
+      "Open https://192.168.2.200 in your browser and accept the SSL certificate.",
+      "Log in with Username: admin and Password: westermo into WeOS."
+    ]
+  },
+  {
+    "name": "Phoenix Contact",
+    "slug": "phoenix-contact",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "private",
+    "description": "German industrial automation specialist producing FL MGUARD cybersecurity routers, firewalls, and remote maintenance gateways.",
+    "models": [],
+    "guide": [
+      "Configure your PC Ethernet interface with IP 192.168.1.10.",
+      "Connect an Ethernet cable to the LAN port of the FL MGUARD.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and default Password: private."
+    ]
+  },
+  {
+    "name": "Lantronix",
+    "slug": "lantronix",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "PASS",
+    "description": "Smart IoT edge solutions, console servers, cellular routers, and out-of-band enterprise IT infrastructure management appliances.",
+    "models": [],
+    "guide": [
+      "Connect your computer to Ethernet port 1 on the Lantronix appliance.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with default Username: admin and Password: PASS (case sensitive).",
+      "Configure out-of-band console access, cellular modem failover, and ConsoleFlow management."
+    ]
+  },
+  {
+    "name": "Opengear",
+    "slug": "opengear",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "root",
+    "defaultPass": "default",
+    "description": "Smart Out-of-Band management routers and edge infrastructure appliances ensuring network resilience for global enterprise data centers.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your PC to the NET1 or Management LAN port.",
+      "Navigate to https://192.168.0.1 in your web browser.",
+      "Log in with Username: root and Password: default.",
+      "Configure cellular 4G/LTE failover, serial console ports, and Lighthouse centralized management."
+    ]
+  },
+  {
+    "name": "Hirschmann",
+    "slug": "hirschmann",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "private",
+    "description": "Belden industrial networking leader manufacturing mission-critical EAGLE security routers, rail switches, and firewall systems.",
+    "models": [],
+    "guide": [
+      "Set your computer to a static IP on 192.168.1.0/24.",
+      "Connect directly to the Hirschmann management interface.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in using Username: admin and Password: private to enter HiOS management."
+    ]
+  },
+  {
+    "name": "Red Lion",
+    "slug": "red-lion",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial automation and communication company manufacturing Sixnet RAM cellular RTUs and rugged industrial routers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Ethernet port on the Red Lion Sixnet router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Modbus gateway parameters, cellular carrier connection, and event alarms."
+    ]
+  },
+  {
+    "name": "Robustel",
+    "slug": "robustel",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading manufacturer of industrial IoT 4G/5G cellular routers, smart edge gateways, and cloud management software.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the ETH0/LAN port on the Robustel router.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure RobustOS, cellular SIM APN settings, and RobustCloud Manager (RCMS)."
+    ]
+  },
+  {
+    "name": "Eurotech",
+    "slug": "eurotech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Multinational embedded systems and IoT gateway company producing rugged edge computers and multiservice IoT routers for transport and energy.",
+    "models": [],
+    "guide": [
+      "Connect to the Eurotech ReliaGATE via LAN Ethernet cable.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Everyware Software Framework (ESF) and cloud telemetry."
+    ]
+  },
+  {
+    "name": "WAGO",
+    "slug": "wago",
+    "defaultIp": "192.168.1.17",
+    "defaultUser": "admin",
+    "defaultPass": "wago",
+    "description": "German industrial automation specialist providing compact telecontrol gateways, edge computers, and secure VPN routers.",
+    "models": [],
+    "guide": [
+      "Set your computer to static IP 192.168.1.100.",
+      "Connect an Ethernet cable to the X1 service port on the WAGO controller.",
+      "Open https://192.168.1.17 in your web browser.",
+      "Log in with Username: admin and Password: wago."
+    ]
+  },
+  {
+    "name": "WLINK",
+    "slug": "wlink",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial M2M cellular router developer specializing in rugged 4G/5G dual SIM gateways for ATMs, kiosks, and digital signage.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN port on the WLINK router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure dual SIM failover timers, APN profiles, and OpenVPN/IPsec."
+    ]
+  },
+  {
+    "name": "Four-Faith",
+    "slug": "four-faith",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Internet of Things communication equipment provider producing wireless industrial routers, RTUs, and smart city gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the Four-Faith router LAN port via network cable.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Set up cellular transmission, GPS tracking, and MQTT IoT telemetry."
+    ]
+  },
+  {
+    "name": "Bintec Elmeg",
+    "slug": "bintec-elmeg",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "bintec",
+    "description": "German telecommunications company offering corporate VPN routers, VDSL2/Supervectoring access gateways, and integrated ALL-IP PBX telephony.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN interface 1 on the Bintec router.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Log in with Username: admin and Password: bintec.",
+      "Configure VDSL Supervectoring bonding, IPsec corporate tunnels, and VoIP telephony."
+    ]
+  },
+  {
+    "name": "Teldat",
+    "slug": "teldat",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "European enterprise telecommunications hardware manufacturer specializing in SD-WAN routers, corporate branch gateways, and vehicle routers.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the Ethernet LAN port of the Teldat router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure CIT management console, multi-WAN load balancing, and MPLS backup."
+    ]
+  },
+  {
+    "name": "Inteno",
+    "slug": "inteno",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Nordic residential broadband gateway pioneer and developer of the IOWRT open-source carrier operating system.",
+    "models": [],
+    "guide": [
+      "Connect to your Inteno gateway Wi-Fi network or use an Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure IOWRT network settings, FTTH optical link, and smart home mesh."
+    ]
+  },
+  {
+    "name": "Connection Technology Systems (CTS)",
+    "slug": "cts-system",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Specialist manufacturer of Fiber-to-the-Home (FTTH) CPE customer switches, optical access gateways, and media converters across Europe.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to LAN port 1 on the CTS device.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure optical SFP uplink parameters, IPTV multicast VLANs, and rate limiting."
+    ]
+  },
+  {
+    "name": "Dovado",
+    "slug": "dovado",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Swedish innovator renowned for universal 4G/LTE USB mobile broadband routers with SmartHome home automation support.",
+    "models": [],
+    "guide": [
+      "Connect to the Dovado Wi-Fi network or plug into any LAN port.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Enter Username: admin and Password: password.",
+      "Configure USB cellular modem connection, SMS remote control, and failover."
+    ]
+  },
+  {
+    "name": "Sweex",
+    "slug": "sweex",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic Dutch consumer networking and PC peripheral brand widely distributed across Western European retail markets.",
+    "models": [],
+    "guide": [
+      "Connect your PC to any LAN port on the Sweex router.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Run the Quick Setup Wizard to establish your PPPoE or DHCP internet connection."
+    ]
+  },
+  {
+    "name": "Conceptronic",
+    "slug": "conceptronic",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "European consumer technology brand producing easy-to-use wireless routers, Wi-Fi travel hotspots, and network range extenders.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to a LAN port on the Conceptronic router.",
+      "Open http://192.168.1.1 (or http://192.168.0.1) in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure wireless network SSID, WPA2 encryption key, and firewall rules."
+    ]
+  },
+  {
+    "name": "Billionton",
+    "slug": "billionton",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Taiwanese and European manufacturer of compact wireless LAN travel routers, PC card network adapters, and Bluetooth equipment.",
+    "models": [],
+    "guide": [
+      "Connect to the Billionton Wi-Fi network.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure portable Wi-Fi hotspot mode, client mode, or AP bridge."
+    ]
+  },
+  {
+    "name": "BeWan",
+    "slug": "bewan",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "French telecommunications equipment manufacturer providing broadband carrier gateways and VoIP ADSL routers across France.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to the BeWan gateway.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure ADSL/VDSL connection parameters, SIP telephony, and Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Telsey",
+    "slug": "telsey",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic Italian telecommunications manufacturer of early optical FTTH CPE gateways and triple-play broadband modems for Fastweb.",
+    "models": [],
+    "guide": [
+      "Connect your PC to any LAN port on the Telsey modem.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Verify optical fiber alignment and telephony port mappings."
+    ]
+  },
+  {
+    "name": "ADB (Advanced Digital Broadcast)",
+    "slug": "adb-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Swiss and Italian provider of broadband CPE gateways, Epicentro router software, and set-top boxes for telecom carriers across Europe.",
+    "models": [],
+    "guide": [
+      "Connect to your ADB gateway Wi-Fi network or use an Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Manage VDSL2/GPON triple-play services, VoIP telephone lines, and Wi-Fi 6."
+    ]
+  },
+  {
+    "name": "NetFasteR",
+    "slug": "netfaster",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Widely deployed Integrated Access Device (IAD) router brand across Greece, featuring ADSL2+, PSTN/ISDN voice integration, and Wi-Fi.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 on the NetFasteR router.",
+      "Open http://192.168.2.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure Greek telecom ADSL credentials (PPPoE/PPPoA), VoIP SIP lines, and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Allnet",
+    "slug": "allnet",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "German network equipment developer specializing in enterprise VDSL2 Supervectoring and G.fast bridge modems, routers, and PoE infrastructure.",
+    "models": [],
+    "guide": [
+      "Connect to the Allnet device LAN port via Ethernet.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure modem operational mode (Modem Bridge or Full NAT Router)."
+    ]
+  },
+  {
+    "name": "Furukawa Electric",
+    "slug": "furukawa",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major Japanese technology corporation producing high-reliability FITELnet enterprise branch routers, IPsec VPN gateways, and optical systems.",
+    "models": [],
+    "guide": [
+      "Connect your computer to the LAN port on the FITELnet router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Japanese high-speed IPv6 IPoE services, IPsec tunnels, and VRRP redundancy."
+    ]
+  },
+  {
+    "name": "Century Systems",
+    "slug": "century-systems",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Japanese manufacturer of high-reliability FutureNet enterprise routers, multi-carrier cellular LTE gateways, and remote monitoring equipment.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN 1 on the FutureNet router.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Log in using Username: admin and Password: admin.",
+      "Configure NTT DoCoMo/KDDI cellular carrier failover and corporate VPNs."
+    ]
+  },
+  {
+    "name": "SunDenshi (Sunplus)",
+    "slug": "sundenshi",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Japanese electronic manufacturer famous for Rooster industrial M2M and IoT cellular routers operating across Japanese mobile carriers.",
+    "models": [],
+    "guide": [
+      "Connect to the Rooster router LAN interface.",
+      "Open http://192.168.10.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure Rooster mobile packet communication, auto-reboot watchdog, and VPN."
+    ]
+  },
+  {
+    "name": "Logitec Japan",
+    "slug": "logitec-japan",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Prominent Japanese computer peripheral and consumer networking manufacturer providing home Wi-Fi routers and range extenders.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Logitec Wi-Fi network.",
+      "Open http://192.168.1.1 (or http://192.168.2.1) in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the Japanese Easy Setup Wizard for broadband internet setup."
+    ]
+  },
+  {
+    "name": "Planex Communications",
+    "slug": "planex",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Japanese networking equipment manufacturer of consumer Wi-Fi routers, mobile travel access points, and network cameras.",
+    "models": [],
+    "guide": [
+      "Connect to your Planex router via Ethernet or Wi-Fi.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: password.",
+      "Configure wireless network encryption and Japanese optical fiber settings."
+    ]
+  },
+  {
+    "name": "Corega",
+    "slug": "corega",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "(blank) / corega",
+    "description": "Historic Japanese consumer and small business networking brand (Allied Telesis group) widely deployed across Japan.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to any LAN port on the Corega router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: root (or admin) and leave password blank (or corega).",
+      "Configure PPPoE or DHCP internet connection settings and Wi-Fi security."
+    ]
+  },
+  {
+    "name": "LB-LINK (B-LINK)",
+    "slug": "lb-link",
+    "defaultIp": "192.168.16.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-volume international manufacturer of affordable home Wi-Fi routers, long-range high-power wireless equipment, and repeaters.",
+    "models": [],
+    "guide": [
+      "Connect your smartphone or laptop to the LB-LINK Wi-Fi network.",
+      "Open http://192.168.16.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure high-power wireless transmission and PPPoE internet account."
+    ]
+  },
+  {
+    "name": "Kasda",
+    "slug": "kasda",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global OEM and consumer manufacturer of ADSL2+, VDSL2, and GPON subscriber modems and Wi-Fi 6 routers distributed worldwide.",
+    "models": [],
+    "guide": [
+      "Connect to the Kasda router LAN port via network cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the Quick Setup guide to select your DSL or Ethernet WAN connection."
+    ]
+  },
+  {
+    "name": "BaudTec",
+    "slug": "baudtec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "1234 / admin",
+    "description": "Taiwanese telecommunications equipment developer manufacturing broadband ADSL modems and wireless gateways for global telecom operators.",
+    "models": [],
+    "guide": [
+      "Connect your computer to the LAN port on the BaudTec modem.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: 1234 (or admin).",
+      "Configure telecom VPI/VCI parameters, PPPoE username, and wireless WPA2."
+    ]
+  },
+  {
+    "name": "Raisecom",
+    "slug": "raisecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "raisecom",
+    "description": "Leading carrier-grade telecommunications access equipment provider manufacturing optical GPON ONUs, multi-service routers, and demarcation units.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN interface 1 on the Raisecom device.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in using Username: admin and Password: raisecom.",
+      "Configure carrier VLAN tagging, optical fiber diagnostics, and QoS priority."
+    ]
+  },
+  {
+    "name": "Netcore (磊科)",
+    "slug": "netcore",
+    "defaultIp": "192.168.1.1 / leike.cc",
+    "defaultUser": "guest",
+    "defaultPass": "guest",
+    "description": "Major domestic Chinese networking brand known for high-traffic bandwidth management routers and home Wi-Fi equipment.",
+    "models": [],
+    "guide": [
+      "Connect to the Netcore Wi-Fi network or use a LAN cable.",
+      "Open http://192.168.1.1 or http://leike.cc in your web browser.",
+      "Enter Username: guest and Password: guest (or admin / admin).",
+      "Configure smart QoS traffic control and wireless network parameters."
+    ]
+  },
+  {
+    "name": "UTStarcom",
+    "slug": "utstarcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global telecom infrastructure company providing broadband access modems, optical transport, and wireless gateways to telecom carriers.",
+    "models": [],
+    "guide": [
+      "Connect to the UTStarcom modem LAN port via Ethernet.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure broadband connection settings, routing tables, and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Gongjin (T&W Electronics)",
+    "slug": "gongjin-tw",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "One of the world's largest OEM and ODM manufacturers of broadband gateways, 10G PON ONTs, and Wi-Fi 6/7 routers for Tier-1 telcos.",
+    "models": [],
+    "guide": [
+      "Connect your computer to the LAN port on the Gongjin T&W router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and default Password: admin.",
+      "Manage optical transceiver link status, Wi-Fi radios, and VoIP SIP lines."
+    ]
+  },
+  {
+    "name": "C-Data",
+    "slug": "c-data",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-tech enterprise focusing on optical access networks, FTTH GPON/EPON subscriber ONUs, and optical line terminals worldwide.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Gigabit LAN port on the C-Data ONU.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in using Username: admin and Password: admin.",
+      "Configure OMCI optical parameters, VLAN binding, and wireless settings."
+    ]
+  },
+  {
+    "name": "Sapido",
+    "slug": "sapido",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Taiwanese manufacturer of versatile smart home wireless routers, pocket travel hotspots, and high-power directional antennas.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN interface on the Sapido router.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Select router operating mode (Router, AP, or Wireless Client Bridge)."
+    ]
+  },
+  {
+    "name": "ZBT (ZBTlink)",
+    "slug": "zbtlink",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root / admin",
+    "defaultPass": "admin",
+    "description": "Extensively popular open-source hardware manufacturer producing OpenWrt-preinstalled 4G/5G cellular routers and embedded Linux gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the ZBT Wi-Fi network or connect via Ethernet.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: root (or admin) and default Password: admin.",
+      "Configure LuCI OpenWrt interface, cellular modem AT commands, and multi-WAN."
+    ]
+  },
+  {
+    "name": "Suncomm",
+    "slug": "suncomm",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-performance fixed wireless access hardware maker producing Sub-6GHz and mmWave 5G indoor and outdoor industrial CPE routers.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Suncomm 5G CPE LAN interface.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in using Username: admin and Password: admin.",
+      "Configure 5G NR band locking, cell tower locking, and Wi-Fi 6 parameters."
+    ]
+  },
+  {
+    "name": "Aquário",
+    "slug": "aquario",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Prominent Brazilian telecommunications manufacturer specializing in rural 4G cellular internet routers, high-gain antennas, and outdoor CPEs.",
+    "models": [],
+    "guide": [
+      "Connect to the Aquário Wi-Fi network or use an Ethernet cable.",
+      "Open http://192.168.0.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Verify cellular signal strength indicators and configure Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Greatek",
+    "slug": "greatek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Brazilian telecommunications brand providing optical fiber ONTs, gigabit Wi-Fi routers, and security networking solutions.",
+    "models": [],
+    "guide": [
+      "Connect to the Greatek router LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure FTTH broadband connection credentials and Wi-Fi network."
+    ]
+  },
+  {
+    "name": "Datacom",
+    "slug": "datacom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Latin America's premier developer and manufacturer of carrier-grade metro Ethernet routers, optical OLTs, and enterprise core switches.",
+    "models": [],
+    "guide": [
+      "Connect to the Datacom management Ethernet port.",
+      "Open https://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin into DmOS.",
+      "Configure MPLS, BGP/OSPF routing protocols, and enterprise VPNs."
+    ]
+  },
+  {
+    "name": "C3Tech",
+    "slug": "c3tech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Brazilian computer hardware and consumer networking brand offering cost-effective domestic wireless routers and network accessories.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to any LAN port on the C3Tech router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Set up your internet connection and wireless SSID password."
+    ]
+  },
+  {
+    "name": "Nexxt Solutions",
+    "slug": "nexxt-solutions",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading residential wireless and whole-home mesh networking manufacturer widely distributed across the Americas and Caribbean.",
+    "models": [],
+    "guide": [
+      "Connect to the Nexxt Wi-Fi network SSID.",
+      "Open http://192.168.0.1 in your web browser (or use the Nexxt Wireless App).",
+      "Log in using Username: admin and Password: admin.",
+      "Configure high-power AC wireless coverage, parental controls, and guest Wi-Fi."
+    ]
+  },
+  {
+    "name": "Greenpacket",
+    "slug": "greenpacket",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading global telecommunications company producing Fixed Wireless Access (FWA) 4G/5G broadband indoor CPEs and outdoor antennas.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Greenpacket CPE LAN port.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure cellular APN, carrier band aggregation, and Wi-Fi 6 settings."
+    ]
+  },
+  {
+    "name": "iBall",
+    "slug": "iball",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Indian consumer electronics and networking brand known for the Baton series of broadband Wi-Fi routers and range extenders.",
+    "models": [],
+    "guide": [
+      "Connect to your iBall Baton Wi-Fi network or connect via LAN cable.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Run the Quick Setup to configure your Indian broadband provider credentials."
+    ]
+  },
+  {
+    "name": "Intex",
+    "slug": "intex",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Prominent Indian consumer technology company producing affordable residential Wi-Fi routers and computer accessories.",
+    "models": [],
+    "guide": [
+      "Connect to the Intex router LAN interface via Ethernet.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Set your Wi-Fi SSID name and WPA2 security passphrase."
+    ]
+  }
+,
+  {
+    "name": "Acer",
+    "slug": "acer",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (Wi-Fi password)",
+    "description": "Global computer technology company manufacturing high-performance Predator gaming routers, 5G Fixed Wireless Access CPEs, and Wi-Fi 7 mesh systems.",
+    "models": [],
+    "guide": [
+      "Connect to your Acer Predator router via Wi-Fi or Ethernet cable to LAN port 1.",
+      "Open http://192.168.1.1 or http://acerconnect.com in your web browser.",
+      "Log in with Username: admin and default Password: admin (or password on device label).",
+      "Configure Hybrid QoS prioritizing game traffic and setup Intel Killer Prioritization."
+    ]
+  },
+  {
+    "name": "MSI",
+    "slug": "msi",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Micro-Star International (MSI) leading PC gaming hardware maker producing RadiX high-speed Wi-Fi 6E/7 gaming routers and Roamii mesh networking systems.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 on your MSI RadiX router.",
+      "Open http://192.168.10.1 or http://msirouter.login in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure AI QoS presets (Gaming, Streaming, WFH, AI Auto) and RGB lighting sync."
+    ]
+  },
+  {
+    "name": "Razer",
+    "slug": "razer",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Premier global gaming lifestyle brand producing high-performance gaming routers and wireless mesh systems with FasTrack dynamic QoS.",
+    "models": [],
+    "guide": [
+      "Connect your computer to any LAN port on the Razer Sila router.",
+      "Open http://192.168.8.1 or http://sila.razer.com in your browser.",
+      "Log in with Username: admin and Password: admin (or setup via Razer Sila mobile app).",
+      "Configure ZeroWait ZFS DFS radar avoidance and FasTrack gaming bandwidth prioritization."
+    ]
+  },
+  {
+    "name": "TCL",
+    "slug": "tcl",
+    "defaultIp": "192.168.32.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major multinational electronics corporation producing TCL Linkhub 5G/4G smart home routers, portable hotspots, and mesh Wi-Fi stations.",
+    "models": [],
+    "guide": [
+      "Connect to the TCL Linkhub router Wi-Fi network using credentials on device sticker.",
+      "Open http://192.168.32.1 in your browser.",
+      "Log in with default Password: admin.",
+      "Configure 5G/4G cellular APN parameters, network mode, and guest Wi-Fi network."
+    ]
+  },
+  {
+    "name": "FAST",
+    "slug": "fast-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (set on first login)",
+    "description": "Shenzhen Fast Technologies (FAST 迅捷网络) - One of China's top 3 domestic networking brands producing millions of high-performance residential wireless routers.",
+    "models": [],
+    "guide": [
+      "Connect to the FAST router LAN port via Ethernet or join default Wi-Fi SSID.",
+      "Open http://192.168.1.1 or http://falogin.cn in your browser.",
+      "Set an administrator management password on first prompt.",
+      "Configure broadband WAN connection (PPPoE/DHCP) and dual-band Wi-Fi settings."
+    ]
+  },
+  {
+    "name": "Lenovo",
+    "slug": "lenovo",
+    "defaultIp": "192.168.99.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "World's leading personal computing company manufacturing smart home routers (Newifi series, LeRouter) and ThinkSystem enterprise edge appliances.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to a LAN port on the Lenovo router.",
+      "Open http://192.168.99.1 or http://newifi.com in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure gigabit fiber WAN parameters and private cloud USB storage features."
+    ]
+  },
+  {
+    "name": "RedMagic",
+    "slug": "redmagic",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Nubia RedMagic high-performance esports brand producing cyberpunk-styled Wi-Fi 6 and Wi-Fi 7 gaming routers with dedicated mobile game acceleration.",
+    "models": [],
+    "guide": [
+      "Connect your gaming rig or phone to the RedMagic router Wi-Fi.",
+      "Open http://192.168.10.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Activate Esports Gaming Mode, Low-Latency Game Channel, and RGB LED controls."
+    ]
+  },
+  {
+    "name": "KuWFi",
+    "slug": "kuwfi",
+    "defaultIp": "192.168.188.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Globally bestselling e-commerce networking brand specializing in affordable 4G/5G LTE cellular routers, high-power outdoor Wi-Fi CPEs, and travel pocket hotspots.",
+    "models": [],
+    "guide": [
+      "Insert SIM card and connect to the KuWFi Wi-Fi SSID.",
+      "Open http://192.168.188.1 (or http://192.168.20.1 on select models) in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure cellular APN profile, view signal RSSI, and adjust Wi-Fi transmit power."
+    ]
+  },
+  {
+    "name": "Yeacomm",
+    "slug": "yeacomm",
+    "defaultIp": "192.168.188.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global wireless communication specialist engineering commercial 4G/5G enterprise cellular routers, outdoor Fixed Wireless Access CPEs, and industrial M2M gateways.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Yeacomm router PoE LAN port.",
+      "Open http://192.168.188.1 (or http://192.168.1.1) in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Set your carrier APN profile and align outdoor directional antennas for peak RSRP."
+    ]
+  },
+  {
+    "name": "Franklin Wireless",
+    "slug": "franklin-wireless",
+    "defaultIp": "192.168.249.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Prominent North American wireless solution provider producing widely deployed mobile broadband hotspots and 5G cellular gateways for major carriers.",
+    "models": [],
+    "guide": [
+      "Power on your Franklin mobile hotspot and connect to its Wi-Fi network.",
+      "Open http://192.168.249.1 or http://mobile.hotspot in your web browser.",
+      "Click Login and enter Password: admin (or password displayed on device screen).",
+      "Manage cellular data caps, battery saver profile, and Wi-Fi broadcast settings."
+    ]
+  },
+  {
+    "name": "VyOS",
+    "slug": "vyos",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "vyos",
+    "defaultPass": "vyos",
+    "description": "Leading open-source network operating system and virtual/hardware routing appliance providing enterprise BGP, OSPF, WireGuard, and IPsec capabilities.",
+    "models": [],
+    "guide": [
+      "Connect to the VyOS management interface via SSH or serial console.",
+      "Log in with Username: vyos and Password: vyos.",
+      "Enter configuration mode with command: configure.",
+      "Set interface addresses, routing protocols, firewall rules, and commit changes."
+    ]
+  },
+  {
+    "name": "Endian",
+    "slug": "endian",
+    "defaultIp": "192.168.0.15",
+    "defaultUser": "admin",
+    "defaultPass": "endian",
+    "description": "European cyber security innovator developing Unified Threat Management (UTM) firewall appliances, industrial IoT security gateways, and secure remote access platforms.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Green (LAN) Ethernet port on the Endian appliance.",
+      "Open https://192.168.0.15:10443 in your web browser.",
+      "Log in with Username: admin and Password: endian.",
+      "Run the Initial Setup Wizard to configure Red (WAN), Orange (DMZ), and VPN settings."
+    ]
+  },
+  {
+    "name": "Arista Networks",
+    "slug": "arista",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "(blank)",
+    "description": "Industry-leading cloud networking technology provider producing high-capacity datacenter switches, enterprise WAN routing systems, and EOS software appliances.",
+    "models": [],
+    "guide": [
+      "Connect a console cable to the RS-232/RJ45 Console port on the Arista router.",
+      "Open terminal emulator at 9600 baud, 8-N-1.",
+      "Log in with Username: admin and leave the password blank.",
+      "Type enable and configure terminal to define interfaces and EOS routing protocols."
+    ]
+  },
+  {
+    "name": "OneAccess",
+    "slug": "oneaccess",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Ekinops / OneAccess brand delivering carrier-grade multi-service enterprise routers, software-defined WAN (SD-WAN) platforms, and voice PBX gateways across Europe.",
+    "models": [],
+    "guide": [
+      "Connect your management laptop to LAN port 1 on the OneAccess router.",
+      "Open http://192.168.1.1 in your browser or connect via Telnet/SSH.",
+      "Enter Username: admin and Password: admin.",
+      "Configure carrier leased-line encapsulation, IPsec VPN tunnels, and QoS queues."
+    ]
+  },
+  {
+    "name": "Perle Systems",
+    "slug": "perle",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "superuser",
+    "description": "Global provider of reliable industrial 5G/LTE cellular routers, terminal servers, and Ethernet fiber converters engineered for mission-critical infrastructure.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to LAN port 1 on the Perle IRG router.",
+      "Open https://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: superuser.",
+      "Configure dual-SIM cellular failover, GPS telemetry tracking, and IPsec/WireGuard VPN."
+    ]
+  },
+  {
+    "name": "MultiTech",
+    "slug": "multitech",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading global manufacturer of industrial IoT communications equipment including MultiConnect rCell cellular routers and Conduit LoRaWAN programmable gateways.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your PC to the MultiTech rCell LAN interface.",
+      "Open https://192.168.2.1 in your web browser.",
+      "Log in with Username: admin and Password: admin (or serial number credential on label).",
+      "Configure cellular radio bands, keep-alive watchdog, and industrial Modbus routing."
+    ]
+  },
+  {
+    "name": "RAD Data Communications",
+    "slug": "rad",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "1234",
+    "description": "Global telecommunications pioneer delivering Carrier Ethernet demarcation routers, industrial IoT cyber security gateways, and mobile backhaul appliances.",
+    "models": [],
+    "guide": [
+      "Connect a management terminal to the Eth-Mngt port on the RAD device.",
+      "Open https://192.168.1.1 in your web browser or connect via SSH.",
+      "Log in with Username: admin and Password: 1234.",
+      "Configure Carrier Ethernet OAM, MEF 2.0 service tunnels, and industrial firewall rules."
+    ]
+  },
+  {
+    "name": "Telco Systems",
+    "slug": "telco-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global telecommunications equipment manufacturer providing multi-service Carrier Ethernet 2.0 demarcation routers and edge compute network virtualization systems.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable to the out-of-band management port.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure BiG-NSE network services, MPLS labels, and 10G/100G fiber uplinks."
+    ]
+  },
+  {
+    "name": "Skyworth",
+    "slug": "skyworth",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major multinational telecom ODM supplying Tier-1 carriers worldwide with FTTH GPON/XGS-PON optical terminals, Wi-Fi 6 mesh routers, and smart residential gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the Skyworth router LAN port with an RJ45 Ethernet cable.",
+      "Open http://192.168.1.1 (or http://192.168.100.1 on GPON models) in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure OMCI optical parameters, TR-069 profile, and high-speed Wi-Fi 6 SSID."
+    ]
+  },
+  {
+    "name": "Dusun IoT",
+    "slug": "dusun-iot",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Leading smart IoT hardware provider manufacturing OpenWrt-powered multiprotocol edge gateway routers supporting Zigbee, Z-Wave, BLE, cellular, and Wi-Fi.",
+    "models": [],
+    "guide": [
+      "Connect to the Dusun gateway Ethernet LAN port or Wi-Fi network.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: root and Password: root.",
+      "Access the OpenWrt LuCI dashboard to configure IoT protocol bridges and cloud MQTT broker."
+    ]
+  }
+,
+  {
+    "name": "Televes",
+    "slug": "televes",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading Spanish multinational telecommunications company based in Santiago de Compostela engineering professional FTTH optical terminals, CoaxData gateways, and Wi-Fi routers.",
+    "models": [],
+    "guide": [
+      "Connect to your Televes router LAN port with an Ethernet cable.",
+      "Open http://192.168.0.1 (or http://192.168.1.1) in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure optical GPON parameters, CoaxData bridging, and dual-band Wi-Fi settings."
+    ]
+  },
+  {
+    "name": "Jensen Scandinavia",
+    "slug": "jensen-scandinavia",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Prominent Scandinavian consumer networking brand based in Norway and Sweden producing high-performance Air:Link routers, Eagle series, and Omni whole-home mesh systems.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Jensen router Wi-Fi network or LAN port.",
+      "Open http://192.168.0.1 or http://jensen.router in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the Scandinavian Quick Setup Wizard to set your Nordic ISP connection."
+    ]
+  },
+  {
+    "name": "Clavister",
+    "slug": "clavister",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Renowned Swedish cyber security and enterprise firewall router manufacturer founded in Örnsköldsvik developing NetWall unified threat management appliances and industrial security gateways.",
+    "models": [],
+    "guide": [
+      "Connect a management workstation to port 1 (LAN) on the Clavister NetWall appliance.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Clavister cOS Core firewall policies, high-availability clusters, and IPsec VPNs."
+    ]
+  },
+  {
+    "name": "Digicom",
+    "slug": "digicom",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic Italian telecommunications and computer networking company producing residential ADSL2+ wireless gateways (Michelangelo, RAW series) and industrial cellular IoT routers.",
+    "models": [],
+    "guide": [
+      "Connect to your Digicom router via Ethernet cable to LAN port 1.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure Italian ADSL/VDSL VPI/VCI parameters and WPA2 wireless security."
+    ]
+  },
+  {
+    "name": "Atlantis Land",
+    "slug": "atlantis-land",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major Italian networking brand manufacturing residential and commercial broadband routers, WebShare ADSL gateways, and NetFly wireless solutions.",
+    "models": [],
+    "guide": [
+      "Connect your PC to any LAN port on the Atlantis Land router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Run the Italian Wizard setup to configure broadband PPPoE and Wi-Fi credentials."
+    ]
+  },
+  {
+    "name": "Gigaset",
+    "slug": "gigaset",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic German telecommunications pioneer based in Bocholt, Germany manufacturing residential wireless broadband routers, SE/SX series modems, and VoIP communication gateways.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to the Gigaset router.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Set up your German broadband DSL connection and DECT/VoIP telephony settings."
+    ]
+  },
+  {
+    "name": "Auerswald",
+    "slug": "auerswald",
+    "defaultIp": "192.168.0.240",
+    "defaultUser": "admin",
+    "defaultPass": "111111",
+    "description": "German engineering leader developing COMpact series smart VoIP PBX router gateways, ALL-IP communications systems, and unified communications hardware for SMBs.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the LAN port on the Auerswald COMpact system.",
+      "Open https://192.168.0.240 in your browser.",
+      "Enter Username: admin and Password: admin (or default PIN 111111).",
+      "Configure SIP trunking profiles for Deutsche Telekom or Vodafone and set internal extensions."
+    ]
+  },
+  {
+    "name": "Amper",
+    "slug": "amper",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic Spanish telecommunications engineering company producing ADSL2+ and VDSL2 residential gateways deployed across Spain and Latin America by Telefónica Movistar.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 on the Amper gateway.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin (or 1234 on older Movistar firmware).",
+      "Configure Spanish broadband VDSL2 lines, Movistar TV IPTV routing, and Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Pentagram",
+    "slug": "pentagram",
+    "defaultIp": "192.168.1.100",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Iconic Polish computer networking brand producing Cerberus series residential ADSL2+ modems, wireless broadband routers, and networking accessories across Central Europe.",
+    "models": [],
+    "guide": [
+      "Connect to the Pentagram Cerberus router via Ethernet cable.",
+      "Open http://192.168.1.100 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Polish telecom VPI/VCI settings (Orange Polska / Netia) and WPA2 wireless keys."
+    ]
+  },
+  {
+    "name": "Solwise",
+    "slug": "solwise",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Independent British broadband and networking equipment supplier delivering ADSL/VDSL broadband routers, long-range outdoor wireless bridges, and enterprise networking hardware.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your laptop to the Solwise router LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure UK broadband ADSL/VDSL settings and QoS traffic management."
+    ]
+  },
+  {
+    "name": "Inventel",
+    "slug": "inventel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic French telecommunications hardware manufacturer that designed the original iconic Livebox and Neufbox wireless gateway hardware for France Telecom and Neuf Cegetel.",
+    "models": [],
+    "guide": [
+      "Connect to the Inventel Livebox via Ethernet or join default Wi-Fi network.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure French ADSL triple-play voice, Orange TV IPTV decoders, and WEP/WPA encryption."
+    ]
+  }
+,
+  {
+    "name": "Siklu by Ceragon",
+    "slug": "siklu",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global leader in millimeter-wave (mmWave) wireless backhaul, MultiHaul 60GHz mesh nodes, and EtherHaul multi-gigabit routing gateways.",
+    "models": [],
+    "guide": [
+      "Connect a shielded Ethernet cable with PoE to the Siklu radio management interface.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure RF alignment, 60GHz/70GHz frequency channels, and Layer 2/3 bridge routing."
+    ]
+  },
+  {
+    "name": "Ceragon Networks",
+    "slug": "ceragon",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Premier wireless backhaul specialist engineering FibeAir IP-20 series carrier routing nodes, microwave radio gateways, and 5G transport networks.",
+    "models": [],
+    "guide": [
+      "Connect a management computer to the MGT port of the Ceragon FibeAir unit.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure carrier radio link parameters, ACM modulation, and Ethernet QoS."
+    ]
+  },
+  {
+    "name": "Tarana Wireless",
+    "slug": "tarana",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Next-generation Fixed Wireless Access (ngFWA) pioneer delivering G1 gigabit wireless broadband Base Nodes and Remote Nodes for service providers.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the PoE data injector of the Tarana Remote Node (RN).",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Align the antenna using real-time spatial interference cancellation diagnostics."
+    ]
+  },
+  {
+    "name": "IgniteNet",
+    "slug": "ignitenet",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "admin123",
+    "description": "Cloud-managed enterprise wireless and MetroLinq 60GHz multi-gigabit outdoor PtP/PtMP router gateway manufacturer.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN port on the IgniteNet PoE injector.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: root and Password: admin123.",
+      "Configure MetroLinq 60GHz wireless links and connect to IgniteNet Cloud controller."
+    ]
+  },
+  {
+    "name": "Althea Network",
+    "slug": "althea",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "althea",
+    "description": "Decentralized open-source pay-for-bandwidth mesh routing network providing high-speed rural and municipal wireless internet.",
+    "models": [],
+    "guide": [
+      "Connect to your Althea router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.10.1 or http://althea.net in your browser.",
+      "Log in with default Username: admin and Password: althea.",
+      "Fund your mesh billing wallet and view peer mesh connections."
+    ]
+  },
+  {
+    "name": "ReadyNet",
+    "slug": "readynet",
+    "defaultIp": "192.168.11.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "American ISP equipment manufacturer designing reliable smart home Wi-Fi routers, VoIP gateways, and 4G/5G LTE cellular routers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 on the ReadyNet router.",
+      "Open http://192.168.11.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure TR-069 ACS server settings, broadband WAN, and dual-band Wi-Fi."
+    ]
+  },
+  {
+    "name": "Compex Systems",
+    "slug": "compex",
+    "defaultIp": "192.168.168.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Leading OEM/ODM developer of wireless embedded boards, high-power RF modules, and NetPassage enterprise wireless routers.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to LAN port 1 on the Compex board.",
+      "Open http://192.168.168.1 in your browser.",
+      "Log in with Username: admin and Password: password.",
+      "Configure OpenWrt or Compex embedded firmware wireless radios and mesh routes."
+    ]
+  },
+  {
+    "name": "Zoom Telephonics",
+    "slug": "zoom-telephonics",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic Boston telecommunications pioneer manufacturing cable modem gateways, ADSL routers, and wireless networking hardware.",
+    "models": [],
+    "guide": [
+      "Connect your computer to any LAN port on the Zoom gateway.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure DOCSIS cable or ADSL connection parameters and Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Transition Networks",
+    "slug": "transition-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Enterprise and hardened industrial edge routing appliances, optical media converters, and managed Smart PoE gateways.",
+    "models": [],
+    "guide": [
+      "Connect a network cable to the management Ethernet port.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure VLAN segmentation, PoE auto-recovery, and Layer 3 static routing."
+    ]
+  },
+  {
+    "name": "Black Box",
+    "slug": "black-box",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global IT and enterprise network infrastructure leader providing commercial routers, console servers, and industrial IoT gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the console or LAN port of the Black Box gateway.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure enterprise routing protocols (OSPF, BGP) and out-of-band serial ports."
+    ]
+  },
+  {
+    "name": "Patton Electronics",
+    "slug": "patton",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "administrator",
+    "defaultPass": "(blank)",
+    "description": "American telecommunications manufacturer in Gaithersburg, Maryland developing SmartNode VoIP routers, enterprise session border controllers, and industrial network extenders.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the ETH 0/0 management port on the Patton SmartNode.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: administrator and leave password blank.",
+      "Configure SIP VoIP dial-plans, ISDN/PSTN fallbacks, and Trinity OS IP routing."
+    ]
+  },
+  {
+    "name": "Intellinet Network Solutions",
+    "slug": "intellinet",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global provider of commercial and SMB data networking products including gigabit wireless routers, PoE gateways, and network switches.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to LAN port 1.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure WAN connection settings, port forwarding, and WPA2/WPA3 Wi-Fi."
+    ]
+  },
+  {
+    "name": "Stormshield",
+    "slug": "stormshield",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Airbus CyberSecurity subsidiary delivering European trusted Next-Gen Unified Threat Management (UTM) firewalls and secure enterprise routers.",
+    "models": [],
+    "guide": [
+      "Connect your management laptop to the IN port of the Stormshield appliance.",
+      "Open https://192.168.1.254/admin in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Run the Stormshield Security Wizard to set firewall zones and IPS rules."
+    ]
+  },
+  {
+    "name": "AirLive / OvisLink",
+    "slug": "airlive",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "airlive",
+    "description": "European and global networking pioneer producing high-power N.Power wireless routers, outdoor CPEs, and PoE smart routing switches.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 on the AirLive router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: airlive (or admin).",
+      "Select operating mode (Router, AP, WISP, Client) and configure wireless settings."
+    ]
+  },
+  {
+    "name": "PLANET Technology",
+    "slug": "planet-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global enterprise and industrial networking leader providing multi-WAN VPN routers, optical fiber gateways, and IoT cellular routers.",
+    "models": [],
+    "guide": [
+      "Connect your computer to any LAN port on the PLANET router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure dual-WAN failover, IPsec/SSL VPN tunnels, and SPI firewall."
+    ]
+  },
+  {
+    "name": "Surecom",
+    "slug": "surecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic European and Asian computer networking vendor manufacturing residential broadband routers, ADSL gateways, and switches.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN port on the Surecom router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure PPPoE broadband credentials and NAT virtual server rules."
+    ]
+  },
+  {
+    "name": "Targa",
+    "slug": "targa",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "German consumer electronics and PC networking brand producing WR series VoIP DSL broadband routers for DACH region retailers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Targa router LAN port via Ethernet.",
+      "Open http://192.168.2.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure German DSL line parameters, VoIP SIP accounts, and WPA encryption."
+    ]
+  },
+  {
+    "name": "Topcom",
+    "slug": "topcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Belgian telecommunications company manufacturing Webr@cer and Skyr@cer residential wireless and ADSL broadband gateways.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the Topcom router LAN interface.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Belgian broadband settings and Wi-Fi security keys."
+    ]
+  },
+  {
+    "name": "Hercules",
+    "slug": "hercules",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Guillemot Corporation French hardware brand producing residential Wi-Fi routers and ePlug powerline home gateways.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Hercules router LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure internet connection and WiFi Station management utility."
+    ]
+  },
+  {
+    "name": "Olitec",
+    "slug": "olitec",
+    "defaultIp": "192.168.0.250",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Historic French telecommunications pioneer that produced early modem routers, WavePhone gateways, and SpeedCom residential units.",
+    "models": [],
+    "guide": [
+      "Connect to the Olitec router LAN port via network cable.",
+      "Open http://192.168.0.250 (or http://192.168.1.1) in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Set ADSL connection profiles and configure Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Pirelli Broadband",
+    "slug": "pirelli-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Legendary Italian telecommunications division of Pirelli that engineered the iconic Discus, Alice Gate, and Fastweb gateways across Europe.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to LAN port 1.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure ADSL/VDSL line parameters, VoIP SIP accounts, and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Renkforce",
+    "slug": "renkforce",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Conrad Electronic German brand producing affordable residential Wi-Fi routers, pocket travel gateways, and smart range extenders.",
+    "models": [],
+    "guide": [
+      "Connect to the Renkforce Wi-Fi SSID or plug into the LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Select router operating mode and configure wireless SSID and password."
+    ]
+  },
+  {
+    "name": "Medion",
+    "slug": "medion",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major German consumer electronics company producing Medion Life residential wireless routers, 4G LTE modems, and smart home gateways.",
+    "models": [],
+    "guide": [
+      "Connect to your Medion router via network cable or Wi-Fi.",
+      "Open http://192.168.1.1 or http://medion.router in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Run the German setup wizard to configure broadband internet."
+    ]
+  },
+  {
+    "name": "Funkwerk",
+    "slug": "funkwerk",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "funkwerk",
+    "description": "German enterprise telecommunications equipment maker that engineered robust TR series VPN routers and ALL-IP business gateways.",
+    "models": [],
+    "guide": [
+      "Connect a network cable to LAN port 1 on the Funkwerk router.",
+      "Open https://192.168.1.254 in your web browser.",
+      "Log in with Username: admin and Password: funkwerk.",
+      "Configure ISDN/VDSL leased line parameters and hardware IPsec tunnels."
+    ]
+  },
+  {
+    "name": "QTECH",
+    "slug": "qtech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading Russian telecommunications equipment developer supplying Rostelecom and enterprise with QSR edge routers and QBR home gateways.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 on the QTECH router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure PPPoE or IPoE WAN connection and IPTV multicast settings."
+    ]
+  },
+  {
+    "name": "Zelax",
+    "slug": "zelax",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Russian industrial telecommunications and cyber security router manufacturer producing MM and Z series industrial gateways for rail and utilities.",
+    "models": [],
+    "guide": [
+      "Connect via serial console or Ethernet management port.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure E1/G.SHDSL lines, IPsec encryption, and industrial routing."
+    ]
+  },
+  {
+    "name": "Iskratel",
+    "slug": "iskratel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "user",
+    "defaultPass": "user",
+    "description": "Slovenian European telecommunications titan engineering Innbox series optical FTTH GPON/XGS-PON gateways and VDSL2 home routers.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to LAN port 1 on the Innbox gateway.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: user and Password: user (or admin credentials on sticker).",
+      "Configure GPON OMCI parameters, voice FXS lines, and Wi-Fi 6."
+    ]
+  },
+  {
+    "name": "Natec",
+    "slug": "natec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Polish consumer technology and computer peripherals brand producing affordable residential wireless broadband routers across Eastern Europe.",
+    "models": [],
+    "guide": [
+      "Connect to the Natec router LAN port with an Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Set up your Polish broadband connection and configure Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Digma",
+    "slug": "digma",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Popular Eastern European consumer digital brand producing affordable D-WRP series residential wireless routers and repeaters.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Digma Wi-Fi network.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the quick setup wizard to configure broadband WAN and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Upvel",
+    "slug": "upvel",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Eastern European consumer and SMB networking equipment brand producing UR series wireless routers, 3G/4G gateways, and PLC adapters.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your PC to the Upvel LAN port.",
+      "Open http://192.168.10.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure your ISP connection (L2TP, PPTP, PPPoE) and Wi-Fi settings."
+    ]
+  },
+  {
+    "name": "Rotek",
+    "slug": "rotek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Carrier-grade FTTH and DSL telecommunications router vendor supplying Rostelecom and major network operators across Eastern Europe.",
+    "models": [],
+    "guide": [
+      "Connect your computer to LAN port 1 on the Rotek router.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure optical GPON connection, IPTV VLAN tagging, and Wi-Fi."
+    ]
+  },
+  {
+    "name": "SNR / NAG",
+    "slug": "snr-nag",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading Eastern European ISP hardware manufacturer producing SNR-CPE series high-performance residential and enterprise fiber routers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to any LAN port on the SNR-CPE router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure custom Wive-NG / OpenWrt firmware settings and optical SFP WAN."
+    ]
+  },
+  {
+    "name": "Aethra",
+    "slug": "aethra",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Italian and European enterprise telecommunications manufacturer developing multi-service access gateways, VoIP routers, and leased-line hardware.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable to the management port of the Aethra gateway.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure SHDSL/VDSL WAN connections and corporate IPsec VPN tunnels."
+    ]
+  },
+  {
+    "name": "Apresia Systems",
+    "slug": "apresia",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "(blank)",
+    "description": "Japanese enterprise networking equipment manufacturer spun out of Hitachi engineering ApresiaNP enterprise routers and secure switches.",
+    "models": [],
+    "guide": [
+      "Connect a console cable or Ethernet cable to the management port.",
+      "Open https://192.168.0.1 in your web browser or connect via SSH.",
+      "Log in with Username: admin and leave password blank.",
+      "Configure Japanese enterprise network authentication and VLAN routing."
+    ]
+  },
+  {
+    "name": "Alaxala Networks",
+    "slug": "alaxala",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "operator",
+    "defaultPass": "(blank)",
+    "description": "Premier Japanese mission-critical router and switch manufacturer founded by Hitachi and NEC producing high-availability AX series backbone routers.",
+    "models": [],
+    "guide": [
+      "Connect to the console port or management LAN interface.",
+      "Log in with Username: operator and press Enter.",
+      "Access command line interface to configure BGP, OSPF, and hardware routing.",
+      "Save running configuration to non-volatile flash memory."
+    ]
+  },
+  {
+    "name": "Micro Research",
+    "slug": "micro-research",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "(blank)",
+    "description": "Japanese router pioneer developing NetGenesis series high-reliability broadband and VPN routers for corporate and industrial networks in Japan.",
+    "models": [],
+    "guide": [
+      "Connect your computer to LAN port 1 on the NetGenesis router.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and leave password blank.",
+      "Configure Japanese NTT FLET'S optical line IPv6 IPoE connection."
+    ]
+  },
+  {
+    "name": "Plat'Home",
+    "slug": "plathome",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Japanese Linux appliance pioneer manufacturing OpenBlocks series ultra-compact, fanless IoT edge computing routers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the eth0 port on the OpenBlocks unit.",
+      "Open https://192.168.1.254 in your web browser.",
+      "Log in with Username: root and Password: root.",
+      "Configure Debian Linux network services and IoT sensor telemetry."
+    ]
+  },
+  {
+    "name": "Contec",
+    "slug": "contec",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Japanese industrial computing leader producing Conprosys series industrial IoT gateway routers and factory automation communication devices.",
+    "models": [],
+    "guide": [
+      "Connect to the LAN port on the Conprosys gateway.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure PLC Modbus mapping, cloud MQTT publishing, and cellular links."
+    ]
+  },
+  {
+    "name": "DASAN Networks",
+    "slug": "dasan-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "South Korea's premier telecommunications equipment giant supplying KT, SK Broadband, and LG U+ with FTTH GPON/10G-EPON optical routers.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable to LAN port 1 on the DASAN optical terminal.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Korean broadband GPON OMCI profile and high-speed Wi-Fi."
+    ]
+  },
+  {
+    "name": "Ubiquoss",
+    "slug": "ubiquoss",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "South Korean optical and carrier broadband routing pioneer manufacturing multi-gigabit switches, G.hn gateways, and enterprise routers.",
+    "models": [],
+    "guide": [
+      "Connect to the management port of the Ubiquoss router.",
+      "Open https://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure carrier VLANs, QoS rate-limiting, and optical fiber links."
+    ]
+  },
+  {
+    "name": "Mercury Corporation Korea",
+    "slug": "mercury-korea",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "ktadmin",
+    "defaultPass": "megaap",
+    "description": "Major South Korean domestic telecommunications manufacturer producing the official KT GiGA WiFi Home and GiGA WiFi Wave series routers.",
+    "models": [],
+    "guide": [
+      "Connect to your KT GiGA WiFi router via Ethernet or Wi-Fi.",
+      "Open http://192.168.0.1 (or http://homehub.kt.com) in your browser.",
+      "Log in with Username: ktadmin and Password: megaap (or password on label).",
+      "Configure KT IPTV multicast, 2.5G WAN link, and Wi-Fi 6 channels."
+    ]
+  },
+  {
+    "name": "Davolink",
+    "slug": "davolink",
+    "defaultIp": "192.168.123.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "South Korean wireless technology innovator developing smart home routers and carrier Wi-Fi gateways for Korean telecommunication operators.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN port on the Davolink router.",
+      "Open http://192.168.123.254 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure broadband WAN connection and wireless encryption parameters."
+    ]
+  },
+  {
+    "name": "Cerio Corporation",
+    "slug": "cerio",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Taiwanese enterprise wireless and industrial router maker delivering high-power outdoor Wi-Fi gateways and CenOS-powered access routers.",
+    "models": [],
+    "guide": [
+      "Connect to LAN port 1 on the Cerio router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure CenOS operating mode (AP/Router/WISP) and RF transmit power."
+    ]
+  },
+  {
+    "name": "AboCom",
+    "slug": "abocom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Taiwanese OEM/ODM wireless router manufacturer producing residential broadband routers and Wi-Fi equipment for global brands.",
+    "models": [],
+    "guide": [
+      "Connect to the AboCom router LAN interface via network cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure WAN connection settings and WPA2 wireless security."
+    ]
+  },
+  {
+    "name": "Cameo Communications",
+    "slug": "cameo",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Massive Taiwanese networking ODM that engineers and manufactures millions of wireless routers for leading global networking companies.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable to LAN port 1 on the Cameo gateway.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure broadband WAN settings, firewall SPI, and Wi-Fi parameters."
+    ]
+  },
+  {
+    "name": "SparkLAN",
+    "slug": "sparklan",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global wireless solution provider in Taiwan manufacturing embedded wireless boards, industrial IoT modules, and high-performance routers.",
+    "models": [],
+    "guide": [
+      "Connect to the SparkLAN router management port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure embedded wireless channels, regulatory domains, and routing."
+    ]
+  },
+  {
+    "name": "Edgecore Networks",
+    "slug": "edgecore",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Accton Technology subsidiary delivering enterprise open networking hardware, disaggregated whitebox routing switches, and carrier access routers.",
+    "models": [],
+    "guide": [
+      "Connect to the management port or serial console of the Edgecore router.",
+      "Open https://192.168.1.1 in your web browser or connect via SSH.",
+      "Log in with Username: admin and Password: admin.",
+      "Load Open Network Linux (ONL) or commercial NOS to configure routes."
+    ]
+  },
+  {
+    "name": "Lanner Electronics",
+    "slug": "lanner",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "World-leading Taiwanese manufacturer of enterprise whitebox network appliances, SD-WAN edge routers, and universal CPE (uCPE) hardware.",
+    "models": [],
+    "guide": [
+      "Connect to the IPMI management port or ETH0 on the Lanner appliance.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure virtualized network functions (VNF), SD-WAN, and hardware bypass."
+    ]
+  },
+  {
+    "name": "NEXCOM",
+    "slug": "nexcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Taiwanese industrial computing giant developing DNA series network security appliances, industrial IoT edge routers, and 5G edge appliances.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the management LAN port of the NEXCOM appliance.",
+      "Open https://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure industrial firewall rules, multi-WAN load balancing, and bypass."
+    ]
+  },
+  {
+    "name": "IEI Integration Corp",
+    "slug": "iei-world",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Taiwanese industrial computer and networking manufacturer developing Puzzle series enterprise network appliances and IoT gateway routers.",
+    "models": [],
+    "guide": [
+      "Connect to the management interface on the IEI Puzzle system.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure network interfaces, virtualization hypervisor, and hardware routing."
+    ]
+  },
+  {
+    "name": "Volcengine",
+    "slug": "volcengine",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "ByteDance cloud services and enterprise infrastructure division developing intelligent enterprise SD-WAN routers and hybrid cloud gateways.",
+    "models": [],
+    "guide": [
+      "Connect your management PC to the GE0/0 port on the Volcengine router.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Pair with Volcengine Cloud Console to enable automated SD-WAN mesh."
+    ]
+  },
+  {
+    "name": "Baidu",
+    "slug": "baidu",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Chinese artificial intelligence and internet giant developing Baidu Xiaodu smart home wireless routers and cloud network acceleration gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the Xiaodu router Wi-Fi network.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure broadband WAN parameters and enable Baidu AI smart home controls."
+    ]
+  },
+  {
+    "name": "Youku",
+    "slug": "youku",
+    "defaultIp": "192.168.11.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Alibaba / Youku Tudou digital media division that produced Youku Routing Treasure smart streaming and high-speed home routers.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Youku router Wi-Fi network.",
+      "Open http://192.168.11.1 or http://wifi.youku.com in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure video streaming acceleration and bind your Youku account."
+    ]
+  },
+  {
+    "name": "Tencent",
+    "slug": "tencent",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global tech giant developing Tencent smart home Wi-Fi routers and Tencent KingCard portable 4G/5G cellular wireless gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the Tencent router Wi-Fi network or LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure cellular APN profile, game acceleration, and Wi-Fi security."
+    ]
+  },
+  {
+    "name": "Maipu",
+    "slug": "maipu",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Leading Chinese enterprise telecom router vendor supplying banking, financial institutions, and government IP backbone networks.",
+    "models": [],
+    "guide": [
+      "Connect a console cable or network cable to port GE0/0.",
+      "Open https://192.168.1.1 in your browser or connect via SSH.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure MPOS operating system routing protocols, IPsec, and MPLS."
+    ]
+  },
+  {
+    "name": "Sino-Telecom",
+    "slug": "sino-telecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Optical telecommunications company manufacturing enterprise GPON/XGS-PON OLTs, carrier optical transmission nodes, and enterprise access routers.",
+    "models": [],
+    "guide": [
+      "Connect to the management Ethernet port on the Sino-Telecom router.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure optical wavelength parameters and Layer 3 IP routing."
+    ]
+  },
+  {
+    "name": "Quantum Hi-Tech",
+    "slug": "quantum-hitech",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Indian computer accessories and consumer networking brand producing affordable residential wireless routers and USB adapters.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your computer to the LAN port.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure PPPoE internet credentials and set Wi-Fi network name and key."
+    ]
+  },
+  {
+    "name": "Frontech",
+    "slug": "frontech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Prominent Indian consumer hardware company manufacturing residential broadband routers, ADSL modems, and network switches.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the Frontech router LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Run the setup wizard to configure broadband settings and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Teracom",
+    "slug": "teracom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Indian telecommunications equipment manufacturer that produced widely deployed ADSL2+ and Wi-Fi modems for BSNL Bharat Fiber/Dataone.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Teracom modem LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure BSNL broadband PPPoE credentials (VPI 0, VCI 35) and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Tejas Networks",
+    "slug": "tejas-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "India's premier telecom optical networking and routing pioneer (Tata Group subsidiary) developing carrier routers and FTTH GPON ONTs.",
+    "models": [],
+    "guide": [
+      "Connect to the management port on the Tejas TJ1400/TJ2100 system.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure optical GPON profiles, Carrier Ethernet, and IP routing."
+    ]
+  },
+  {
+    "name": "HFCL",
+    "slug": "hfcl",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Himachal Futuristic Communications Ltd - massive Indian telecom equipment manufacturer engineering io by HFCL enterprise Wi-Fi 6 routers and optical gateways.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the LAN port on the io by HFCL gateway.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure io cloud management controller and dual-band Wi-Fi 6."
+    ]
+  },
+  {
+    "name": "Coral Telecom",
+    "slug": "coral-telecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Indian enterprise telecommunications manufacturer developing converged voice PBX router systems and enterprise wireless gateways.",
+    "models": [],
+    "guide": [
+      "Connect a network cable to the Coral Telecom management port.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure enterprise IP telephony trunks and routing tables."
+    ]
+  },
+  {
+    "name": "VVDN Technologies",
+    "slug": "vvdn",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Premier Indian ODM/OEM technology innovator engineering 5G NR cellular gateways, Wi-Fi 6/7 access routers, and intelligent edge appliances.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the management interface of the VVDN gateway.",
+      "Open https://192.168.1.1 in your browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure 5G Sub-6GHz radio parameters, OpenWrt, and mesh settings."
+    ]
+  },
+  {
+    "name": "Prolink",
+    "slug": "prolink",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major Singaporean and Southeast Asian consumer networking brand producing PRC series Wi-Fi routers, 4G LTE CPEs, and portable travel hotspots.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Prolink Wi-Fi network or LAN port.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the setup wizard to configure broadband internet and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Aztech",
+    "slug": "aztech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Famous Singaporean telecommunications manufacturer engineering DSL gateways, optical fiber ONTs, and home networking routers across Asia.",
+    "models": [],
+    "guide": [
+      "Connect your computer to any LAN port on the Aztech router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure Singtel / StarHub / M1 fiber profiles and Wi-Fi settings."
+    ]
+  },
+  {
+    "name": "VNPT Technology",
+    "slug": "vnpt-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Vietnam's national telecom hardware manufacturer supplying millions of homes with iGate series optical GPON terminals and mesh Wi-Fi routers.",
+    "models": [],
+    "guide": [
+      "Connect to the VNPT iGate router LAN port via network cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin (or operator password on label).",
+      "Configure VNPT fiber broadband WAN parameters and Wi-Fi SSID."
+    ]
+  },
+  {
+    "name": "Viettel Technology",
+    "slug": "viettel-equipment",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Vietnam military telecommunications group technology arm producing domestic Wi-Fi 6 mesh routers and optical GPON subscriber terminals.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the Viettel Home Wi-Fi router.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin (or password on underside).",
+      "Manage Viettel fiber connection, TV 360 multicast, and mesh nodes."
+    ]
+  },
+  {
+    "name": "Inca",
+    "slug": "inca",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major Turkish computer networking and gaming brand manufacturing residential ADSL2+/VDSL2 routers, Wi-Fi gateways, and repeaters.",
+    "models": [],
+    "guide": [
+      "Connect to the Inca router via Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure Turk Telekom / Vodafone Turkiye broadband settings and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Everest",
+    "slug": "everest",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Bestselling Turkish consumer router and networking brand by Segment Bilgisayar providing affordable residential wireless broadband routers.",
+    "models": [],
+    "guide": [
+      "Connect your device to the Everest Wi-Fi network.",
+      "Open http://192.168.0.1 (or http://192.168.1.1) in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the Turkish Quick Setup wizard to set your connection."
+    ]
+  },
+  {
+    "name": "Dark",
+    "slug": "dark-hardware",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Turkish hardware brand producing RangeMAX high-power wireless routers, USB adapters, and residential networking gateways.",
+    "models": [],
+    "guide": [
+      "Connect to the Dark router LAN interface via network cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure operating mode (Router, Access Point, Repeater) and Wi-Fi key."
+    ]
+  },
+  {
+    "name": "Poynting",
+    "slug": "poynting",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "South African global leader in cellular and wireless engineering producing ruggedized integrated antenna and industrial IoT router enclosures.",
+    "models": [],
+    "guide": [
+      "Connect to the Poynting integrated CPE router LAN interface.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure high-gain cellular RF parameters and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Fibernet",
+    "slug": "fibernet-israel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Israeli fiber optic communications and secure networking company developing optical FTTH terminals, data diode gateways, and secure routers.",
+    "models": [],
+    "guide": [
+      "Connect to the management port on the Fibernet gateway.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure optical fiber parameters and cybersecurity diode protocols."
+    ]
+  },
+  {
+    "name": "Telrad Networks",
+    "slug": "telrad",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Israeli telecommunications pioneer delivering 4G/5G Fixed Wireless Access (FWA) base stations and BreezeCOMPACT outdoor CPE routing gateways.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the PoE injector of the Telrad CPE.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Align antenna beamforming and configure wireless carrier APN."
+    ]
+  },
+  {
+    "name": "Silicom",
+    "slug": "silicom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-performance edge computing, SD-WAN whitebox routing appliances, and bypass hardware gateway vendor for enterprise and telecom.",
+    "models": [],
+    "guide": [
+      "Connect to the management port on the Silicom appliance.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure multi-gigabit hardware bypass and edge routing VNFs."
+    ]
+  },
+  {
+    "name": "Allot",
+    "slug": "allot",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global intelligence and cybersecurity gateway manufacturer developing Service Gateway edge routers and deep packet inspection systems.",
+    "models": [],
+    "guide": [
+      "Connect a management workstation to the console/management port.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Layer 7 application shaping policies and security alerts."
+    ]
+  },
+  {
+    "name": "Positivo Tecnologia",
+    "slug": "positivo",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Brazil's largest domestic computer manufacturer developing Positivo Casa Inteligente Wi-Fi mesh routers and residential broadband gateways.",
+    "models": [],
+    "guide": [
+      "Connect to your Positivo router via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure Brazilian fiber broadband and sync with Casa Inteligente app."
+    ]
+  },
+  {
+    "name": "Overtek",
+    "slug": "overtek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Brazilian optical networking and telecommunications hardware brand manufacturing FTTH GPON ONUs, EPON terminals, and wireless routers.",
+    "models": [],
+    "guide": [
+      "Connect to LAN port 1 on the Overtek optical terminal.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Brazilian regional ISP PPPoE settings and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Think Technology",
+    "slug": "think-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Brazilian telecommunications ISP equipment manufacturer engineering high-performance FTTH optical ONUs and gigabit wireless routers.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your PC to the Think Technology router.",
+      "Open http://192.168.1.1 in your browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure GPON optical settings and local Wi-Fi encryption."
+    ]
+  },
+  {
+    "name": "Challenger",
+    "slug": "challenger-colombia",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major Colombian consumer electronics manufacturer producing residential wireless broadband routers and home networking accessories.",
+    "models": [],
+    "guide": [
+      "Connect to the Challenger router LAN port via network cable.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure Colombian ISP internet settings and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Lanpro",
+    "slug": "lanpro",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Major Latin American and Caribbean structured cabling and networking brand producing LP-AR series commercial wireless routers and switches.",
+    "models": [],
+    "guide": [
+      "Connect your computer to LAN port 1 on the Lanpro router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure broadband WAN mode and WPA2 wireless security."
+    ]
+  },
+  {
+    "name": "Tedge",
+    "slug": "tedge",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Mercado Libre's domestic consumer electronics brand across Brazil and Mexico delivering affordable residential Wi-Fi routers.",
+    "models": [],
+    "guide": [
+      "Connect your phone or laptop to the Tedge Wi-Fi network.",
+      "Open http://192.168.0.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Run the quick setup wizard to configure internet and Wi-Fi."
+    ]
+  },
+  {
+    "name": "Korenix",
+    "slug": "korenix",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial networking and rugged wireless computing router manufacturer (Beijer Electronics group) producing JetWave series industrial gateways.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the LAN port on the Korenix JetWave router.",
+      "Open https://192.168.10.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure industrial cellular failover, serial Modbus gateway, and VPN."
+    ]
+  },
+  {
+    "name": "Beijer Electronics",
+    "slug": "beijer",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Swedish industrial automation pioneer developing rugged BoX2 edge routers, CloudVPN gateways, and human-machine interface routing devices.",
+    "models": [],
+    "guide": [
+      "Connect to the Ethernet port on the Beijer BoX2 gateway.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure industrial CloudVPN connection and OT protocol conversion."
+    ]
+  },
+  {
+    "name": "Antaira Technologies",
+    "slug": "antaira",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial Ethernet and rugged wireless router manufacturer producing ARS and ARX series DIN-rail gateways for harsh environments.",
+    "models": [],
+    "guide": [
+      "Connect your PC to port 1 on the Antaira industrial router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure industrial NAT routing, redundant power inputs, and VPN."
+    ]
+  },
+  {
+    "name": "Ewon by HMS Networks",
+    "slug": "ewon-hms",
+    "defaultIp": "192.168.140.1",
+    "defaultUser": "adm",
+    "defaultPass": "adm",
+    "description": "Global market leader in industrial machine remote access producing Ewon Cosy and Ewon Flexy industrial VPN routers and edge telemetry gateways.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable from your laptop to the LAN port (port 1-3) of the Ewon unit.",
+      "Open http://192.168.140.1 in your web browser or use eCatcher / eBuddy software.",
+      "Log in with Username: adm and Password: adm.",
+      "Register the device with Talk2M cloud for zero-configuration machine tele-service."
+    ]
+  },
+  {
+    "name": "Tosibox",
+    "slug": "tosibox",
+    "defaultIp": "192.168.17.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Finnish industrial cyber security pioneer developing Tosibox Lock automated zero-trust OT networking routers and operational technology firewalls.",
+    "models": [],
+    "guide": [
+      "Insert the physical Tosibox Key into the Tosibox Lock USB port to serialize pairing.",
+      "Connect to the Lock LAN port and open http://192.168.17.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Deploy the Lock in your industrial cabinet for instant encrypted point-to-point tunnels."
+    ]
+  },
+  {
+    "name": "Secomea",
+    "slug": "secomea",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Danish industrial IoT communication leader producing SiteManager secure industrial gateways certified for remote machine maintenance.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the DEV port on the Secomea SiteManager.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Secomea GateManager cloud synchronization and PLC agent rules."
+    ]
+  },
+  {
+    "name": "MB connect line",
+    "slug": "mb-connect-line",
+    "defaultIp": "192.168.0.100",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "German industrial cybersecurity and remote maintenance leader developing mbNET and mbNET.mini industrial cellular and broadband routers.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the LAN interface of the mbNET router.",
+      "Open https://192.168.0.100 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Sync with the mbCONNECT24 portal for secure remote industrial access."
+    ]
+  },
+  {
+    "name": "Belden",
+    "slug": "belden",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "private",
+    "description": "Global enterprise and industrial signal transmission leader engineering rugged industrial cybersecurity routers and mission-critical network appliances.",
+    "models": [],
+    "guide": [
+      "Connect to the management port on the Belden router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: private.",
+      "Configure industrial Ethernet ring redundancy and firewall filtering."
+    ]
+  },
+  {
+    "name": "NetModule",
+    "slug": "netmodule",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Swiss manufacturer of rugged rolling-stock railway and in-vehicle cellular routers certified for public transit, trains, and emergency vehicles.",
+    "models": [],
+    "guide": [
+      "Connect to the M12 Ethernet port on the NetModule router.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure dual-cellular carrier aggregation, GPS dead reckoning, and passenger Wi-Fi."
+    ]
+  },
+  {
+    "name": "B+B SmartWorx",
+    "slug": "bb-smartworx",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Advantech B+B SmartWorx industrial cellular M2M router manufacturer producing Spectre and SmartFlex rugged industrial gateways.",
+    "models": [],
+    "guide": [
+      "Connect your computer to the ETH0 port on the router.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: root and Password: root.",
+      "Configure cellular APN, Node-RED apps, and industrial Modbus routing."
+    ]
+  },
+  {
+    "name": "CalAmp",
+    "slug": "calamp",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial wireless telematics and edge computing leader manufacturing Vanguard series rugged cellular routers for fleet and utility infrastructure.",
+    "models": [],
+    "guide": [
+      "Connect to the Vanguard router Ethernet port.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure GPS vehicle telematics, cellular carrier, and IPsec VPN."
+    ]
+  },
+  {
+    "name": "ConnectedIO",
+    "slug": "connectedio",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Cloud-managed cellular IoT and M2M router manufacturer delivering failover routers (CR42, ER2000) for retail kiosks and smart digital signage.",
+    "models": [],
+    "guide": [
+      "Connect to the ConnectedIO router LAN interface.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter Username: admin and Password: admin.",
+      "Configure cellular APN profile and cloud management monitoring."
+    ]
+  },
+  {
+    "name": "Matrix Comsec",
+    "slug": "matrix-comsec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Enterprise telecom and security solution provider manufacturing VoIP router gateways, multi-WAN communication appliances, and session controllers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the management LAN port of the Matrix gateway.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure SIP VoIP accounts, multi-WAN load balancing, and firewall."
+    ]
+  },
+  {
+    "name": "PC Engines",
+    "slug": "pc-engines",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Legendary Swiss/German embedded PC hardware manufacturer of the open-source APU series single-board computer routers (APU2, APU3, APU4).",
+    "models": [],
+    "guide": [
+      "Connect a null modem serial cable to the DB9 port at 115200 baud or connect via LAN.",
+      "Boot your chosen router OS (pfSense, OPNsense, OpenWrt, IPFire, VyOS).",
+      "Open http://192.168.1.1 in your browser once your OS is booted.",
+      "Complete initial setup and assign multi-gigabit Intel NIC interfaces."
+    ]
+  },
+  {
+    "name": "Protectli",
+    "slug": "protectli",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "pfsense / opnsense",
+    "description": "Globally celebrated hardware manufacturer of the Vault multi-NIC fanless security appliances designed specifically for open-source firewall routers.",
+    "models": [],
+    "guide": [
+      "Connect your PC to LAN port 1 (eth1) on the Protectli Vault.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with your firewall OS credentials (e.g. admin / pfsense or root / opnsense).",
+      "Configure coreCoreboot open-source BIOS and hardware-accelerated AES-NI crypto."
+    ]
+  },
+  {
+    "name": "Minisforum",
+    "slug": "minisforum",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Innovative computing manufacturer developing multi-NIC mini PCs and dedicated 10G workstation router appliances (MS-01) for home labs and virtualization.",
+    "models": [],
+    "guide": [
+      "Connect an Ethernet cable to 10G SFP+ or 2.5G RJ45 LAN port.",
+      "Boot your preferred hypervisor (Proxmox, ESXi) or router distribution (OPNsense/pfSense).",
+      "Open https://192.168.1.1 in your browser.",
+      "Configure multi-gigabit routing, VLANs, and virtualized firewall containers."
+    ]
+  },
+  {
+    "name": "Topton",
+    "slug": "topton",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Bestselling multi-port 2.5G and 10G fanless soft router and firewall hardware manufacturer popular with home lab and networking enthusiasts.",
+    "models": [],
+    "guide": [
+      "Connect to LAN port 1 (eth0/eth1) on the Topton mini router.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with your installed routing software credentials (OpenWrt/pfSense/iStoreOS).",
+      "Configure quad Intel I226-V 2.5G ports and high-speed NAT routing."
+    ]
+  },
+  {
+    "name": "Kingnovy",
+    "slug": "kingnovy",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Fanless multi-gigabit soft router appliance maker producing compact Intel N100/N305 4x 2.5G and dual 10G SFP+ micro server routers.",
+    "models": [],
+    "guide": [
+      "Connect your computer to LAN port 1 on the Kingnovy appliance.",
+      "Open http://192.168.1.1 in your browser.",
+      "Log in with your firewall operating system credentials.",
+      "Configure multi-port bridging, high-speed WireGuard VPN, and SQM."
+    ]
+  },
+  {
+    "name": "Hunsn",
+    "slug": "hunsn",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "pfsense",
+    "description": "Industrial fanless micro-server and multi-port firewall router appliance manufacturer engineered for enterprise security distributions.",
+    "models": [],
+    "guide": [
+      "Connect your laptop to the designated LAN port on the Hunsn appliance.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with your pre-loaded or custom firewall admin credentials.",
+      "Configure Gigabit/2.5G network interfaces and intrusion detection."
+    ]
+  },
+  {
+    "name": "Smoothwall",
+    "slug": "smoothwall",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "smoothwall",
+    "description": "Pioneering British/US cybersecurity company producing enterprise and educational Unified Threat Management (UTM) web security firewall appliances.",
+    "models": [],
+    "guide": [
+      "Connect a management PC to the Green interface on the Smoothwall hardware.",
+      "Open https://192.168.0.1:441 in your web browser.",
+      "Log in with Username: admin and Password: smoothwall.",
+      "Configure real-time content filtering, digital safety policies, and WAN routing."
+    ]
+  },
+  {
+    "name": "ClearOS",
+    "slug": "clearos",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "password",
+    "description": "ClearCenter enterprise Linux small business server and router gateway platform delivering unified gateway security and network storage.",
+    "models": [],
+    "guide": [
+      "Connect your PC to the LAN interface on the ClearOS appliance.",
+      "Open https://192.168.1.1:81 in your web browser.",
+      "Log in with Username: root and Password: password.",
+      "Configure multi-WAN gateway mode, intrusion prevention, and domain controller."
+    ]
+  },
+  {
+    "name": "Iridium",
+    "slug": "iridium",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "guest",
+    "defaultPass": "guest",
+    "description": "Global satellite communications giant operating 66 cross-linked satellites and producing Iridium GO! and Iridium GO! exec portable satellite Wi-Fi routers.",
+    "models": [],
+    "guide": [
+      "Flip up the integrated satellite antenna to power on your Iridium GO! device.",
+      "Connect your smartphone or laptop to the Iridium Wi-Fi network.",
+      "Open the Iridium GO! mobile app or navigate to http://192.168.0.1 in your browser.",
+      "Log in with Username: guest and Password: guest to make global SOS, voice calls, and data links anywhere on Earth."
+    ]
+  },
+  {
+    "name": "Inmarsat",
+    "slug": "inmarsat",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "1234",
+    "description": "Global mobile satellite communications leader engineering IsatHub and BGAN Explorer satellite broadband Wi-Fi router terminals.",
+    "models": [],
+    "guide": [
+      "Point the Inmarsat satellite antenna toward the equator using the audio signal beeper.",
+      "Connect to the satellite terminal Wi-Fi network.",
+      "Open http://192.168.1.1 in your web browser or open the Inmarsat Control app.",
+      "Log in with Username: admin and Password: 1234 to initiate BGAN global satellite broadband."
+    ]
+  },
+  {
+    "name": "Thuraya",
+    "slug": "thuraya",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Regional satellite telecommunications provider manufacturing the Thuraya WE dual-mode satellite and LTE Wi-Fi broadband router.",
+    "models": [],
+    "guide": [
+      "Rotate the Thuraya satellite antenna toward the orbital satellite position.",
+      "Connect your mobile device to the Thuraya WE Wi-Fi SSID.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and Password: password to activate satellite data mode."
+    ]
+  },
+  {
+    "name": "Solis / Skyroam",
+    "slug": "solis-skyroam",
+    "defaultIp": "192.168.43.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Global portable travel Wi-Fi hotspot provider utilizing patented Virtual SIM technology to deliver seamless 4G/5G mobile internet in 135+ countries.",
+    "models": [],
+    "guide": [
+      "Press and hold the power button on your Solis hotspot to boot the device.",
+      "Connect to the Solis Wi-Fi network using the password printed on the back.",
+      "Open http://192.168.43.1 or http://solis.hotspot in your web browser.",
+      "Activate your daily or monthly global roaming pass and manage connected clients."
+    ]
+  },
+  {
+    "name": "GlocalMe",
+    "slug": "glocalme",
+    "defaultIp": "192.168.43.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "UCloudlink globally popular SIM-less cloud Wi-Fi mobile hotspots and portable cellular routers providing high-speed global connectivity.",
+    "models": [],
+    "guide": [
+      "Power on your GlocalMe device and connect your smartphone to its Wi-Fi network.",
+      "Open http://192.168.43.1 or launch the GlocalMe mobile app.",
+      "Log in with default Username: admin and Password: admin.",
+      "Select local roaming networks, view data balance, and configure Wi-Fi security."
+    ]
+  }
+,
+  {
+    "name": "Comfast",
+    "slug": "comfast",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, admin IP addresses, and setup guides for Comfast wireless routers, outdoor CPE bridges, and high-power repeaters.",
+    "models": [
+      {
+        "brand": "Comfast",
+        "model": "CF-XR11 (Wi-Fi 6 AX1800 Gigabit Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Comfast",
+        "model": "CF-E312N (300Mbps 5GHz Outdoor CPE)",
+        "protocol": "HTTP",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Comfast",
+        "model": "CF-WR758AC (AC1200 Dual-Band Gigabit Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your computer or smartphone to the Comfast device via Ethernet cable or Wi-Fi.",
+      "Open a web browser and enter http://192.168.10.1 in the address bar.",
+      "Enter default Username: admin and Password: admin, then click Login.",
+      "Select your operating mode (Router, AP, or Bridge/Repeater) and configure your wireless settings."
+    ]
+  },
+  {
+    "name": "FriendlyElec",
+    "slug": "friendlyelec",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "root",
+    "defaultPass": "password",
+    "description": "Default login credentials, IP addresses, and setup guides for FriendlyElec NanoPi open-source ARM soft routers running OpenWrt and FriendlyWrt.",
+    "models": [
+      {
+        "brand": "FriendlyElec",
+        "model": "NanoPi R6S (Quad-Core Dual 2.5GbE Gateway)",
+        "protocol": "HTTP/HTTPS/SSH",
+        "ip": "192.168.2.1",
+        "username": "root",
+        "password": "password"
+      },
+      {
+        "brand": "FriendlyElec",
+        "model": "NanoPi R4S (Dual-GbE ARM Soft Router)",
+        "protocol": "HTTP/HTTPS/SSH",
+        "ip": "192.168.2.1",
+        "username": "root",
+        "password": "password"
+      },
+      {
+        "brand": "FriendlyElec",
+        "model": "NanoPi R2S (Dual Gigabit OpenWrt Micro Router)",
+        "protocol": "HTTP/HTTPS/SSH",
+        "ip": "192.168.2.1",
+        "username": "root",
+        "password": "password"
+      }
+    ],
+    "guide": [
+      "Connect an Ethernet cable from your computer to the LAN port of the NanoPi router.",
+      "Open your web browser and navigate to http://192.168.2.1 or http://friendlywrt/.",
+      "Log in using Username: root and Password: password (or leave blank if prompted on vanilla OpenWrt builds).",
+      "Navigate to Network -> Interfaces to set up your WAN PPPoE/DHCP and configure firewall zones."
+    ]
+  },
+  {
+    "name": "Banana Pi",
+    "slug": "banana-pi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Default login credentials and configuration instructions for Banana Pi open-source Wi-Fi 7 and Wi-Fi 6 router development boards.",
+    "models": [
+      {
+        "brand": "Banana Pi",
+        "model": "BPI-R4 (Wi-Fi 7 MediaTek MT7988A Router Board)",
+        "protocol": "HTTP/HTTPS/SSH",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "root"
+      },
+      {
+        "brand": "Banana Pi",
+        "model": "BPI-R3 (Wi-Fi 6 MediaTek MT7986 ARM Router Board)",
+        "protocol": "HTTP/HTTPS/SSH",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "root"
+      }
+    ],
+    "guide": [
+      "Connect your PC to LAN1 on the Banana Pi router board using a Cat6 Ethernet cable.",
+      "Open your browser and navigate to http://192.168.1.1 (or console via USB-UART debug header).",
+      "Log in with Username: root and Password: root (or configured OpenWrt / Debian credentials).",
+      "Configure 10G SFP+ WAN ports, Wi-Fi 7 / Wi-Fi 6 radios, and hardware NAT offloading in LuCI."
+    ]
+  },
+  {
+    "name": "EDUP",
+    "slug": "edup",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, IP addresses, and setup guides for EDUP wireless routers, 4G LTE cellular CPEs, and high-gain adapters.",
+    "models": [
+      {
+        "brand": "EDUP",
+        "model": "EP-2936 (AX1800 Wi-Fi 6 Gigabit Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "EDUP",
+        "model": "EP-R101 (4G LTE High-Gain SIM Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect to the EDUP default wireless network or plug an Ethernet cable into any LAN port.",
+      "Open your browser and type http://192.168.1.1 in the address bar.",
+      "Enter Username: admin and Password: admin to access the management interface.",
+      "Follow the Quick Setup wizard to configure your broadband connection and set a new Wi-Fi password."
+    ]
+  },
+  {
+    "name": "Radwin",
+    "slug": "radwin",
+    "defaultIp": "10.0.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Configuration instructions, IP parameters, and management procedures for Radwin carrier-grade point-to-point and point-to-multipoint wireless broadband radios.",
+    "models": [
+      {
+        "brand": "Radwin",
+        "model": "Radwin 2000 Alpha (Carrier PtP Wireless Broadband Radio)",
+        "protocol": "HTTPS/SNMP",
+        "ip": "10.0.0.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Radwin",
+        "model": "Radwin 5000 Jet (PtMP Beamforming Base Station)",
+        "protocol": "HTTPS/SNMP",
+        "ip": "10.0.0.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your management laptop to the PoE injector LAN port of the Radwin outdoor unit.",
+      "Set a static IP on your computer (such as 10.0.0.10, subnet mask 255.255.255.0).",
+      "Open your browser and navigate to https://10.0.0.1 or launch the RADWIN Manager suite.",
+      "Log in with Username: admin and Password: admin, then align the RF antenna using real-time RSSI tones."
+    ]
+  },
+  {
+    "name": "Milesight",
+    "slug": "milesight",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Default passwords, IP addresses, and setup steps for Milesight industrial 4G/5G cellular routers and LoRaWAN IoT edge gateways.",
+    "models": [
+      {
+        "brand": "Milesight",
+        "model": "UR32 (Industrial Dual-SIM 4G LTE Router)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "password"
+      },
+      {
+        "brand": "Milesight",
+        "model": "UR75 (Industrial High-Speed 5G Edge Gateway)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "password"
+      },
+      {
+        "brand": "Milesight",
+        "model": "UG65 (Semi-Industrial LoRaWAN Gateway)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "password"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the Ethernet LAN port of the Milesight industrial router.",
+      "Open a web browser and go to https://192.168.1.1.",
+      "Log in with Username: admin and Password: password (or the unique password on the device label).",
+      "Configure cellular APN settings, dual-SIM failover priority, and Python/Node-RED edge computing services."
+    ]
+  },
+  {
+    "name": "Elsys",
+    "slug": "elsys",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, IP addresses, and configuration guides for Elsys Amplimax 4G/5G outdoor cellular routers and smart Wi-Fi systems.",
+    "models": [
+      {
+        "brand": "Elsys",
+        "model": "Amplimax 4G (High-Gain Outdoor Cellular Gateway)",
+        "protocol": "HTTP",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Elsys",
+        "model": "Amplimax Ultra 5G (Outdoor Cellular Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Elsys",
+        "model": "Elsys Smart Wi-Fi (Dual-Band AC1200 Mesh Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your computer or phone to the POE LAN port or Elsys Wi-Fi network.",
+      "Open your browser and visit http://192.168.10.1.",
+      "Sign in using Username: admin and Password: admin.",
+      "Use the integrated antenna alignment tool and blind scan to lock onto the best cellular carrier frequency."
+    ]
+  },
+  {
+    "name": "Securifi",
+    "slug": "securifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Setup guides, default passwords, and IP addresses for Securifi Almond touchscreen smart home wireless routers and mesh nodes.",
+    "models": [
+      {
+        "brand": "Securifi",
+        "model": "Almond (Touchscreen Wireless Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Securifi",
+        "model": "Almond 3 (Smart Home Wi-Fi System)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Power on the Securifi Almond router and use the built-in color touchscreen.",
+      "Follow on-screen instructions to select Range Extender, Wireless Access Point, or Router mode.",
+      "For web management, connect via Ethernet/Wi-Fi and navigate to http://192.168.1.1.",
+      "Enter Username: admin and Password: admin to configure Zigbee/Z-Wave home automation rules."
+    ]
+  },
+  {
+    "name": "LigoWave",
+    "slug": "ligowave",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin01",
+    "description": "Default login credentials, IP addresses, and setup procedures for LigoWave carrier-grade fixed wireless broadband and outdoor PTP radios.",
+    "models": [
+      {
+        "brand": "LigoWave",
+        "model": "LigoPTP 5-23 RapidFire (High-Capacity Outdoor Radio)",
+        "protocol": "HTTPS",
+        "ip": "192.168.2.1",
+        "username": "admin",
+        "password": "admin01"
+      },
+      {
+        "brand": "LigoWave",
+        "model": "NFT 2AC (Dual-Band Enterprise Mesh Router)",
+        "protocol": "HTTPS",
+        "ip": "192.168.2.1",
+        "username": "admin",
+        "password": "admin01"
+      }
+    ],
+    "guide": [
+      "Connect an Ethernet cable from your management PC to the PoE data out port.",
+      "Set your computer network card to a static IP such as 192.168.2.50 (subnet 255.255.255.0).",
+      "Open a browser and visit https://192.168.2.1 (or https://192.168.2.66 for access points).",
+      "Enter Username: admin and Password: admin01 to access the W-Jet / InfinityOS control panel."
+    ]
+  },
+  {
+    "name": "Tellabs",
+    "slug": "tellabs",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, IP addresses, and management guides for Tellabs enterprise optical network terminals (ONT) and Passive Optical LAN (POL) routers.",
+    "models": [
+      {
+        "brand": "Tellabs",
+        "model": "Tellabs 120W (Enterprise Optical Network Terminal)",
+        "protocol": "HTTPS/CLI",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Tellabs",
+        "model": "Tellabs 140W (Tri-Mode Optical LAN Gateway)",
+        "protocol": "HTTPS/CLI",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your computer to Ethernet port 1 on the Tellabs ONT unit.",
+      "Open a web browser and navigate to https://192.168.1.1 (or use the Tellabs Panorama PON Manager).",
+      "Log in with Username: admin and Password: admin.",
+      "Verify optical link status, PON registration, and provision VLAN IDs for voice, data, and video."
+    ]
+  },
+  {
+    "name": "Weidm\u00fcller",
+    "slug": "weidmuller",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Configuration instructions, IP parameters, and setup guides for Weidm\u00fcller industrial DIN-rail security routers and u-link remote management gateways.",
+    "models": [
+      {
+        "brand": "Weidm\u00fcller",
+        "model": "IE-SR-2GT-LAN (Industrial Security Router)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Weidm\u00fcller",
+        "model": "IE-SR-2GT-UMTS (Industrial Cellular Gateway)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your laptop to the LAN Ethernet port of the Weidm\u00fcller industrial router.",
+      "Open a web browser and browse to https://192.168.1.1.",
+      "Sign in using Username: admin and Password: admin.",
+      "Configure industrial stateful firewall rules, IPsec/OpenVPN tunnels, and link to the u-link remote portal."
+    ]
+  },
+  {
+    "name": "Binatone",
+    "slug": "binatone",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, IP addresses, and setup steps for Binatone ADSL2+, VDSL2, and 4G LTE wireless home gateways.",
+    "models": [
+      {
+        "brand": "Binatone",
+        "model": "DT850W (ADSL2+ Wireless N Gateway)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Binatone",
+        "model": "WR1505N (150Mbps Wireless Home Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your device to the Binatone router using a LAN cable or the default wireless network.",
+      "Open your browser and enter http://192.168.1.1.",
+      "Enter default Username: admin and Password: admin.",
+      "Enter your ISP's VPI/VCI numbers and PPPoE broadband credentials in the WAN setup menu."
+    ]
+  },
+  {
+    "name": "Datto",
+    "slug": "datto",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Setup steps, default IP addresses, and management guidelines for Datto Networking cloud-managed edge routers and cellular failover appliances.",
+    "models": [
+      {
+        "brand": "Datto",
+        "model": "Datto Networking D200 (Multi-Gigabit Edge Router)",
+        "protocol": "HTTPS/Cloud",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Datto",
+        "model": "Datto DNA (LTE Failover Security Gateway)",
+        "protocol": "HTTPS/Cloud",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Plug the WAN port into your modem and connect your PC to LAN port 1.",
+      "Open your browser and navigate to http://192.168.1.1 or log into the Datto Cloud Management Portal.",
+      "Enter administrative credentials to access local diagnostic status.",
+      "Register the device MAC address to your Datto Partner Portal for cloud provisioning and automatic 4G LTE failover."
+    ]
+  },
+  {
+    "name": "Intracom Telecom",
+    "slug": "intracom-telecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "intracom",
+    "description": "Default IP addresses, configuration procedures, and credentials for Intracom Telecom carrier wireless hubs and microwave Ethernet routers.",
+    "models": [
+      {
+        "brand": "Intracom Telecom",
+        "model": "WiBAS G5 (Point-to-Multipoint Wireless Hub)",
+        "protocol": "HTTPS/SNMP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "intracom"
+      },
+      {
+        "brand": "Intracom Telecom",
+        "model": "OmniBAS-4W (High-Capacity Microwave Node)",
+        "protocol": "HTTPS/SNMP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "intracom"
+      }
+    ],
+    "guide": [
+      "Connect an Ethernet cable from your management workstation to the craft/maintenance port.",
+      "Configure your computer with an IP in the 192.168.1.x subnet.",
+      "Open a web browser and navigate to https://192.168.1.1.",
+      "Log in with Username: admin and Password: intracom to access the uniMS node management console."
+    ]
+  },
+  {
+    "name": "Altai Technologies",
+    "slug": "altai-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, IP addresses, and setup steps for Altai Technologies Super WiFi extreme long-range commercial outdoor base stations and bridge routers.",
+    "models": [
+      {
+        "brand": "Altai Technologies",
+        "model": "Altai A8-Ein (Super WiFi 8x8 MIMO Base Station)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Altai Technologies",
+        "model": "Altai A2 (Dual-Band WiFi Access Point & Bridge)",
+        "protocol": "HTTPS",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect the management Ethernet port to your switch or PC through the supplied PoE injector.",
+      "Set your PC with static IP 192.168.1.50 and open https://192.168.1.1.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure beamforming antenna patterns, virtual AP SSIDs, and Altai Care cloud controller registration."
+    ]
+  },
+  {
+    "name": "Speedefy",
+    "slug": "speedefy",
+    "defaultIp": "192.168.3.1",
+    "defaultUser": "admin",
+    "defaultPass": "Set on First Login",
+    "description": "Default login credentials, IP addresses, and setup guides for Speedefy consumer Wi-Fi 6 and AC gigabit routers.",
+    "models": [
+      {
+        "brand": "Speedefy",
+        "model": "Speedefy KX450 (AX1800 Wi-Fi 6 Gigabit Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.3.1",
+        "username": "admin",
+        "password": "Set on First Login"
+      },
+      {
+        "brand": "Speedefy",
+        "model": "Speedefy K7 (AC2100 Smart Dual-Band Wireless Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.3.1",
+        "username": "admin",
+        "password": "Set on First Login"
+      }
+    ],
+    "guide": [
+      "Connect your phone or PC to the Speedefy Wi-Fi network (Speedefy_XXXX) printed on the label.",
+      "Open a web browser and go to http://192.168.3.1 or http://speedwifi.com.",
+      "Set a strong new administrative password on initial setup.",
+      "Select your internet connection type (DHCP/PPPoE) and customize your 2.4 GHz and 5 GHz wireless networks."
+    ]
+  },
+  {
+    "name": "Rockspace",
+    "slug": "rockspace",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "Set on First Login",
+    "description": "Default login credentials, IP addresses, and setup steps for Rockspace smart dual-band Wi-Fi 6 and AC gigabit routers.",
+    "models": [
+      {
+        "brand": "Rockspace",
+        "model": "Rockspace RSD0619 (AX1800 Wi-Fi 6 Smart Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "Set on First Login"
+      },
+      {
+        "brand": "Rockspace",
+        "model": "Rockspace RSD0614 (AC2100 Dual-Band Gigabit Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "Set on First Login"
+      }
+    ],
+    "guide": [
+      "Connect to the rockspace wireless network or plug into any LAN port.",
+      "Open your browser and navigate to http://192.168.0.1 or http://re.rockspace.local.",
+      "Create an administrative management password when prompted.",
+      "Follow the setup wizard to configure internet connection parameters and wireless SSID security."
+    ]
+  },
+  {
+    "name": "Gryphon",
+    "slug": "gryphon",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "Gryphon App",
+    "defaultPass": "Gryphon Account",
+    "description": "Setup procedures, mobile app pairing, and default configurations for Gryphon mesh Wi-Fi security and parental control routers.",
+    "models": [
+      {
+        "brand": "Gryphon",
+        "model": "Gryphon AX (Tri-Band Wi-Fi 6 Mesh Security Router)",
+        "protocol": "Gryphon App",
+        "ip": "192.168.1.1",
+        "username": "Gryphon App",
+        "password": "Gryphon Account"
+      },
+      {
+        "brand": "Gryphon",
+        "model": "Gryphon Tower (High-Power AC3000 Mesh Gateway)",
+        "protocol": "Gryphon App",
+        "ip": "192.168.1.1",
+        "username": "Gryphon App",
+        "password": "Gryphon Account"
+      },
+      {
+        "brand": "Gryphon",
+        "model": "Gryphon Guardian (Compact Mesh Wi-Fi Security Node)",
+        "protocol": "Gryphon App",
+        "ip": "192.168.1.1",
+        "username": "Gryphon App",
+        "password": "Gryphon Account"
+      }
+    ],
+    "guide": [
+      "Download and install the Gryphon Connect app from Google Play or the Apple App Store.",
+      "Power on your Gryphon router and connect the WAN port to your internet modem.",
+      "Scan the QR code printed on the bottom of the Gryphon unit using your phone camera.",
+      "Follow the in-app guide to create parental control profiles, enable ESET malware protection, and tune mesh nodes."
+    ]
+  },
+  {
+    "name": "Vilo",
+    "slug": "vilo",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "Vilo App",
+    "defaultPass": "Vilo Account",
+    "description": "Default configurations, app setup instructions, and IP addresses for Vilo living room mesh Wi-Fi systems.",
+    "models": [
+      {
+        "brand": "Vilo",
+        "model": "Vilo 6 (Wi-Fi 6 Whole Home Mesh System)",
+        "protocol": "Vilo App",
+        "ip": "192.168.1.1",
+        "username": "Vilo App",
+        "password": "Vilo Account"
+      },
+      {
+        "brand": "Vilo",
+        "model": "Vilo 5 (Dual-Band AC1200 Mesh Wi-Fi Node)",
+        "protocol": "Vilo App",
+        "ip": "192.168.1.1",
+        "username": "Vilo App",
+        "password": "Vilo Account"
+      }
+    ],
+    "guide": [
+      "Download the Vilo Home mobile app on iOS or Android.",
+      "Plug the main Vilo node into your modem via Ethernet cable and power it on.",
+      "Open the Vilo app and tap Add Vilo to scan the base QR code.",
+      "Name your Wi-Fi network and plug in secondary sub-nodes; they will automatically pair and form a seamless mesh."
+    ]
+  },
+  {
+    "name": "IP-COM",
+    "slug": "ip-com",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, IP addresses, and setup steps for IP-COM commercial multi-WAN load-balancing routers and enterprise gateways.",
+    "models": [
+      {
+        "brand": "IP-COM",
+        "model": "IP-COM M50 (Multi-WAN Enterprise Gigabit Router)",
+        "protocol": "HTTP",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "IP-COM",
+        "model": "IP-COM G3 (Cloud-Managed Gigabit Gateway)",
+        "protocol": "HTTP",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your computer to LAN port 1 on the IP-COM enterprise router.",
+      "Open a web browser and type http://192.168.0.1 (or http://192.168.0.252 on select firmware).",
+      "Enter default Username: admin and Password: admin to sign in.",
+      "Configure multi-WAN policy routing, captive portal authentication, and AP management controllers."
+    ]
+  },
+  {
+    "name": "Axiomtek",
+    "slug": "axiomtek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Setup guides, default passwords, and IP addresses for Axiomtek industrial DIN-rail IoT gateways and cyber-defense network appliances.",
+    "models": [
+      {
+        "brand": "Axiomtek",
+        "model": "Axiomtek iNA100 (DIN-Rail Industrial Security Gateway)",
+        "protocol": "HTTPS/SSH",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Axiomtek",
+        "model": "Axiomtek NA345 (Fanless Desktop Network Appliance)",
+        "protocol": "HTTPS/SSH",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the management Ethernet port on the Axiomtek appliance.",
+      "Access the web interface at https://192.168.1.1 or connect a console cable to the RJ-45 COM port (115200 baud).",
+      "Log in with Username: admin and Password: admin.",
+      "Configure network interfaces, bypass pairs, and deploy your preferred firewall or SD-WAN software."
+    ]
+  },
+  {
+    "name": "Strong",
+    "slug": "strong",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, IP addresses, and setup steps for Strong Atria Wi-Fi mesh systems, 4G LTE routers, and residential gateways.",
+    "models": [
+      {
+        "brand": "Strong",
+        "model": "Strong Atria Wi-Fi Mesh 1200 (Gigabit System)",
+        "protocol": "HTTP/Strong App",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Strong",
+        "model": "Strong 4G LTE Router 300 (SIM Gateway)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      },
+      {
+        "brand": "Strong",
+        "model": "Strong Router AX3000 (Dual-Band Wi-Fi 6 Gateway)",
+        "protocol": "HTTP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect to the Strong router using an Ethernet cable or the Wi-Fi credentials on the unit's base sticker.",
+      "Open a web browser and go to http://192.168.1.1.",
+      "Enter Username: admin and Password: admin (or check device label).",
+      "Run the Quick Start Wizard to complete broadband or 4G LTE SIM configuration."
+    ]
+  },
+  {
+    "name": "Dynalink",
+    "slug": "dynalink",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, IP addresses, and setup procedures for Dynalink high-speed Wi-Fi 6 multi-gigabit mesh routers.",
+    "models": [
+      {
+        "brand": "Dynalink",
+        "model": "Dynalink DL-WRX36 (AX3600 Wi-Fi 6 Multi-Gigabit Mesh Router)",
+        "protocol": "HTTPS/Dynalink App",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+    "guide": [
+      "Connect your modem to the 2.5GbE WAN port and connect your computer to LAN port 1.",
+      "Open your web browser and navigate to http://192.168.1.1 (or http://192.168.216.1).",
+      "Sign in using Username: admin and Password: admin (or the unique password printed on the base).",
+      "Configure Wi-Fi 6 channel parameters, guest network, and Mesh backhaul settings."
+    ]
+  },
+  {
+    "name": "Alvarion",
+    "slug": "alvarion",
+    "defaultIp": "10.0.0.1",
+    "defaultUser": "installer",
+    "defaultPass": "installer",
+    "description": "Configuration instructions, IP addresses, and management procedures for legacy Alvarion BreezeACCESS and BreezeNET fixed wireless subscriber and bridge units.",
+    "models": [
+      {
+        "brand": "Alvarion",
+        "model": "Alvarion BreezeACCESS VL (5GHz Carrier Subscriber Unit)",
+        "protocol": "Telnet/HTTP/SNMP",
+        "ip": "10.0.0.1",
+        "username": "installer",
+        "password": "installer"
+      },
+      {
+        "brand": "Alvarion",
+        "model": "Alvarion BreezeNET B (High-Capacity Wireless Bridge)",
+        "protocol": "Telnet/HTTP/SNMP",
+        "ip": "10.0.0.1",
+        "username": "installer",
+        "password": "installer"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the data port on the Alvarion universal indoor unit (IDU).",
+      "Assign your computer an IP address in the 10.0.0.x subnet (e.g. 10.0.0.15).",
+      "Connect via Telnet to 10.0.0.1 or open http://10.0.0.1 in your browser.",
+      "Enter Username: installer and Password: installer to enter the AlvariSTAR maintenance menus."
+    ]
+  },
+  {
+    "name": "Panasonic",
+    "slug": "panasonic",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "1234",
+    "description": "Default credentials, IP addresses, and configuration instructions for Panasonic smart hybrid VoIP PBX gateways and IP telephone base units.",
+    "models": [
+      {
+        "brand": "Panasonic",
+        "model": "Panasonic KX-NS500 (Smart Hybrid VoIP PBX Router Gateway)",
+        "protocol": "HTTPS",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "1234"
+      },
+      {
+        "brand": "Panasonic",
+        "model": "Panasonic KX-TGP600 (Smart IP Wireless Base Gateway)",
+        "protocol": "HTTP",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "1234"
+      }
+    ],
+    "guide": [
+      "Connect your computer directly to the MNT or LAN port of the Panasonic unit.",
+      "Open a web browser and navigate to https://192.168.0.1 (or http://192.168.0.101).",
+      "Enter Username: admin and Password: 1234 (or INSTALLER / 123456 on PBX maintenance).",
+      "Configure SIP server credentials, extension routing tables, and IP network settings."
+    ]
+  },
+  {
+    "name": "Supermicro",
+    "slug": "supermicro",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "ADMIN",
+    "defaultPass": "ADMIN",
+    "description": "Super Micro Computer, Inc. (Supermicro) is a global technology leader in enterprise edge computing, high-performance network security appliances, and fanless IoT firewall gateways running pfSense, OPNsense, and VyOS.",
+    "guide": [
+      "Connect an Ethernet cable from your workstation to the dedicated IPMI or LAN1 management port.",
+      "Open your web browser and navigate to https://192.168.1.1 (or IPMI IP assigned via DHCP).",
+      "Log in with Username: ADMIN and Password: ADMIN (or the unique BMC password on the system label).",
+      "Configure edge networking interfaces, multi-gigabit routing tables, and hardware firewall rules."
+    ],
+    "models": [
+      {
+        "brand": "Supermicro",
+        "model": "IoT Gateway SYS-E100-9S",
+        "ip": "192.168.1.1",
+        "username": "ADMIN",
+        "password": "ADMIN",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Supermicro",
+        "model": "Edge SuperServer SYS-E300-9D",
+        "ip": "192.168.1.1",
+        "username": "ADMIN",
+        "password": "ADMIN",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "TeleWell",
+    "slug": "telewell",
+    "defaultIp": "192.168.0.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "TeleWell is a prominent Finnish telecommunications and networking equipment manufacturer, developing high-performance VDSL2, 4G/5G LTE cellular, and FTTH optical fiber routers tailored for Nordic operators.",
+    "guide": [
+      "Connect your PC to any yellow LAN port on the TeleWell router.",
+      "Open your internet browser and go to http://192.168.0.254.",
+      "Log in with Username: admin and Password: admin.",
+      "Navigate to Broadband / WAN settings to configure fiber optical connection, 4G SIM APN, or VDSL profile."
+    ],
+    "models": [
+      {
+        "brand": "TeleWell",
+        "model": "TW-EAV510 AC VDSL2/Fiber Gateway",
+        "ip": "192.168.0.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "TeleWell",
+        "model": "TW-LTE 4G v2 Industrial Router",
+        "ip": "192.168.0.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Tilgin",
+    "slug": "tilgin",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Tilgin (part of Genexis Group) is a Swedish developer of high-end FTTH residential fiber gateways, IP-telephony routers, and smart triple-play home management solutions widely deployed by European telecom operators.",
+    "guide": [
+      "Connect your device to the Tilgin gateway via Wi-Fi or Ethernet cable.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "Enter default Username: admin and Password: admin (or user / user for customer access).",
+      "Manage FTTH optical WAN parameters, VoIP SIP profiles, and 2.4/5GHz Wi-Fi settings."
+    ],
+    "models": [
+      {
+        "brand": "Tilgin",
+        "model": "HG2301 Gigabit FTTH Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Tilgin",
+        "model": "HG1311 Triple-Play Home Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Compal Broadband Networks",
+    "slug": "compal-broadband",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Compal Broadband Networks (CBN) is a premier global ODM/OEM manufacturer of DOCSIS 3.0/3.1 cable gateways, Wi-Fi 6 wireless home routers, and multi-gigabit optical fiber modems deployed by tier-1 telecom operators.",
+    "guide": [
+      "Connect to the CBN gateway via Wi-Fi or plug into a Gigabit LAN port.",
+      "Open your browser and navigate to http://192.168.0.1 (or http://192.168.100.1).",
+      "Log in using Username: admin and the default password printed on the router label.",
+      "Configure your cable downstream/upstream channels, Wi-Fi 6 wireless radios, and guest network."
+    ],
+    "models": [
+      {
+        "brand": "Compal Broadband Networks",
+        "model": "CBN CH7465LG DOCSIS 3.0 Cable Gateway",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Compal Broadband Networks",
+        "model": "CBN CH8568 Wi-Fi 6 DOCSIS 3.1 Gateway",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Gemtek",
+    "slug": "gemtek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Gemtek Technology is a world-class Taiwanese wireless broadband pioneer and premier ODM partner, manufacturing 4G/5G Fixed Wireless Access (FWA) CPEs, enterprise wireless gateways, and carrier optical ONTs.",
+    "guide": [
+      "Connect to the Gemtek router Wi-Fi or plug an Ethernet cable into the LAN port.",
+      "Navigate to http://192.168.1.1 (or http://192.168.15.1 on outdoor cellular units) in your browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Check 5G/LTE cellular signal strength (RSRP/SINR), APN settings, and local Wi-Fi encryption."
+    ],
+    "models": [
+      {
+        "brand": "Gemtek",
+        "model": "WLTMS-110 Outdoor 5G CPE",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Gemtek",
+        "model": "WLTFGT-152GN Dual-Band LTE Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Ubee Interactive",
+    "slug": "ubee-interactive",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Ubee Interactive is a leading global supplier of broadband wireless home gateways, DOCSIS 3.1 cable modems, and optical network terminals serving major telecommunications operators across North America, Europe, and Asia.",
+    "guide": [
+      "Connect to the Ubee gateway network via Wi-Fi or Ethernet cable.",
+      "Open your web browser and navigate to http://192.168.0.1 (or http://192.168.100.1).",
+      "Enter Username: admin and Password: admin (or WPA key printed on modem base).",
+      "Customize Wi-Fi network names (SSIDs), parental control filters, and port forwarding rules."
+    ],
+    "models": [
+      {
+        "brand": "Ubee Interactive",
+        "model": "Ubee UBC1326 Wi-Fi 6 DOCSIS 3.1 Gateway",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Ubee Interactive",
+        "model": "Ubee DVW32CB Wireless Voice Gateway",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "CastleNet",
+    "slug": "castlenet",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "CastleNet Technology is an established Taiwanese developer of broadband communication devices, high-speed cable DOCSIS modems, Wi-Fi 6 whole-home mesh systems, and VoIP gateways.",
+    "guide": [
+      "Connect to CastleNet wireless network or plug into any LAN port.",
+      "Navigate to http://192.168.0.1 in your web browser.",
+      "Enter default Username: admin and Password: password.",
+      "Manage wireless channel allocation, DOCSIS RF signal levels, and LAN DHCP range."
+    ],
+    "models": [
+      {
+        "brand": "CastleNet",
+        "model": "CastleNet CBV383Z4 DOCSIS 3.0 Gateway",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "password",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "CastleNet",
+        "model": "CastleNet EBM552 Wi-Fi 6 Mesh Router",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "password",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "SmartRG",
+    "slug": "smartrg",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "SmartRG (an Adtran company) specializes in high-reliability carrier-grade broadband gateways, VDSL2/bonding routers, and open-platform OpenWrt customer premises equipment for independent service providers.",
+    "guide": [
+      "Connect your PC to the SmartRG gateway LAN port via Ethernet.",
+      "Open your web browser and go to http://192.168.1.1.",
+      "Log in with default Username: admin and Password: admin.",
+      "Access SmartOS broadband diagnostics, xDSL line synchronization, and dual-band Wi-Fi settings."
+    ],
+    "models": [
+      {
+        "brand": "SmartRG",
+        "model": "SmartRG SR516ac VDSL2 Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "SmartRG",
+        "model": "SmartRG SR616ac Wi-Fi 6 Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "CASwell",
+    "slug": "caswell",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "CASwell Inc. is a leading Taiwanese designer and manufacturer of high-performance network security appliances, 1U/2U rackmount UTM firewall servers, and multi-gigabit SD-WAN edge platforms.",
+    "guide": [
+      "Connect an Ethernet cable from your configuration terminal to the dedicated MGMT or ETH0 port.",
+      "Open your browser and navigate to https://192.168.1.1.",
+      "Log in using Username: admin and Password: admin.",
+      "Configure network bypass segments, multi-port link aggregation, and firewall appliance software."
+    ],
+    "models": [
+      {
+        "brand": "CASwell",
+        "model": "CAR-3080 1U Rackmount Appliance",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "CASwell",
+        "model": "CAF-0262 Fanless Desktop Firewall",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Portwell",
+    "slug": "portwell",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Portwell is an international innovator in industrial computing, manufacturing carrier-grade network appliances, modular SD-WAN appliances, and rugged DIN-rail IoT security gateways.",
+    "guide": [
+      "Connect your computer to the Portwell appliance management port.",
+      "Open your web browser and navigate to https://192.168.1.1.",
+      "Enter default credentials Username: admin and Password: admin.",
+      "Configure bypass ports, hardware watchdog timers, and virtual network functions."
+    ],
+    "models": [
+      {
+        "brand": "Portwell",
+        "model": "ANS-8A64 Compact SD-WAN Appliance",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Portwell",
+        "model": "NAR-5620 1U Network Appliance",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Volans",
+    "slug": "volans",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Volans (\u98de\u8baf / \u98de\u9c7c\u661f) is an established Asian enterprise multi-WAN VPN router and enterprise wireless brand widely deployed in corporate branch offices, educational campuses, and hotels.",
+    "guide": [
+      "Connect your workstation to any LAN port on the Volans router.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure multi-WAN load balancing, bandwidth QoS limits, and IPsec/PPTP VPN tunnels."
+    ],
+    "models": [
+      {
+        "brand": "Volans",
+        "model": "VE602G Gigabit Multi-WAN Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Volans",
+        "model": "VE982W High-Speed VPN Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Tianyi Broadband",
+    "slug": "tianyi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "useradmin",
+    "defaultPass": "Printed on modem sticker",
+    "description": "Tianyi Broadband (\u5929\u7ffc\u7f51\u5173) is China Telecom's official residential and enterprise smart optical gateway brand, deployed to over 150 million optical fiber FTTH households across China.",
+    "guide": [
+      "Connect your device to the Tianyi gateway Wi-Fi network or plug into Gigabit LAN1.",
+      "Open your browser and navigate to http://192.168.1.1.",
+      "Enter default Username: useradmin and the password printed on the bottom sticker (or telecomadmin for superadmin).",
+      "Manage optical fiber registration (LOID), local Wi-Fi 6 wireless credentials, and IPTV bridging."
+    ],
+    "models": [
+      {
+        "brand": "Tianyi Broadband",
+        "model": "TEWA-708E Gigabit GPON ONT",
+        "ip": "192.168.1.1",
+        "username": "useradmin",
+        "password": "Printed on modem sticker",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Tianyi Broadband",
+        "model": "TEWA-1000G Wi-Fi 6 Smart Terminal",
+        "ip": "192.168.1.1",
+        "username": "useradmin",
+        "password": "Printed on modem sticker",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Tamura",
+    "slug": "tamura",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Tamura Corporation is a renowned Japanese electronics and communications equipment manufacturer, supplying industrial IoT communication gateways, secure telemetry routers, and optical transmission equipment.",
+    "guide": [
+      "Connect your PC to the Tamura industrial gateway LAN port.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure industrial serial-to-IP encapsulation, cellular backup, and LAN security filters."
+    ],
+    "models": [
+      {
+        "brand": "Tamura",
+        "model": "T-Net TR-100 Industrial Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Tamura",
+        "model": "GP-200 GPON Optical Network Unit",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Netduma",
+    "slug": "netduma",
+    "defaultIp": "192.168.77.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Netduma is a pioneer of latency-eliminating gaming router software and hardware, creating the acclaimed DumaOS operating system with Geo-Filter, Ping Heatmap, and Congestion Control technology.",
+    "guide": [
+      "Connect your gaming PC or console to the Netduma router via Ethernet or Wi-Fi.",
+      "Open your browser and navigate to http://192.168.77.1 (or http://dumaos).",
+      "Enter default Username: admin and Password: password.",
+      "Configure DumaOS Geo-Filtering to lock into nearby gaming servers and set bandwidth allocation."
+    ],
+    "models": [
+      {
+        "brand": "Netduma",
+        "model": "Netduma R2 DumaOS Gigabit Gaming Router",
+        "ip": "192.168.77.1",
+        "username": "admin",
+        "password": "password",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Netduma",
+        "model": "Netduma R3 Wi-Fi 6E DumaOS Gaming Router",
+        "ip": "192.168.77.1",
+        "username": "admin",
+        "password": "password",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Avaya",
+    "slug": "avaya",
+    "defaultIp": "192.168.42.1",
+    "defaultUser": "Administrator",
+    "defaultPass": "Administrator",
+    "description": "Avaya is a global leader in enterprise communication systems, producing secure branch office VPN routers, IP Office convergence voice gateways, and multi-service business access routers.",
+    "guide": [
+      "Connect your computer to LAN port 1 on the Avaya gateway.",
+      "Open your web browser and navigate to https://192.168.42.1.",
+      "Log in with Username: Administrator and Password: Administrator.",
+      "Configure IP Office SIP trunking, VoIP extension routing, and branch-to-headquarters VPN tunnels."
+    ],
+    "models": [
+      {
+        "brand": "Avaya",
+        "model": "Secure Router 1004 VPN Gateway",
+        "ip": "192.168.42.1",
+        "username": "Administrator",
+        "password": "Administrator",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Avaya",
+        "model": "IP Office 500 V2 Branch Gateway",
+        "ip": "192.168.42.1",
+        "username": "Administrator",
+        "password": "Administrator",
+        "protocol": "HTTPS"
+      }
+    ]
+  }
+,
+{
+    "name": "Accton",
+    "slug": "accton",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login passwords, management portals, and hardware setup guides for Accton Technology and Cheetah enterprise SOHO routers.",
+    "models": [
+      {
+        "brand": "Accton",
+        "model": "Cheetah SOHO Gigabit Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Accton",
+        "model": "Edgecore ES3528M Managed Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the Accton router LAN port using an RJ-45 Ethernet cable.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "Enter default Username: admin and Password: admin.",
+      "Access the web management dashboard to configure WAN, VLANs, and firewall rules."
+    ]
+  },
+  {
+    "name": "Airlink101",
+    "slug": "airlink101",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, wireless security configuration, and setup guides for Airlink101 Super G and Wireless-N broadband routers.",
+    "models": [
+      {
+        "brand": "Airlink101",
+        "model": "AR430W Wireless Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Airlink101",
+        "model": "AR670W Wireless N300 Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your device to the Airlink101 router via Ethernet or default Wi-Fi SSID.",
+      "Open your web browser and type http://192.168.1.1 into the address bar.",
+      "Enter Username: admin and Password: admin (or leave password blank on older revisions).",
+      "Set up WPA2 wireless encryption and change the administrator password."
+    ]
+  },
+  {
+    "name": "AMIT Wireless",
+    "slug": "amit-wireless",
+    "defaultIp": "192.168.123.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial IoT, 4G LTE, and outdoor 5G cellular gateway router default credentials and configuration instructions for AMIT Wireless.",
+    "models": [
+      {
+        "brand": "AMIT Wireless",
+        "model": "IDG761 Industrial 4G LTE Gateway",
+        "ip": "192.168.123.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "AMIT Wireless",
+        "model": "BKG892 Outdoor 5G Cellular Router",
+        "ip": "192.168.123.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the AMIT industrial gateway LAN port.",
+      "Open your browser and navigate to https://192.168.123.254.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure SIM APN settings, cellular failover, and IPsec VPN tunnels."
+    ]
+  },
+  {
+    "name": "ASRock",
+    "slug": "asrock",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Setup tutorials, gaming QoS configuration, and default passwords for ASRock G10 and X10 smart gaming and IoT routers.",
+    "models": [
+      {
+        "brand": "ASRock",
+        "model": "G10 AC2600 Gaming Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "ASRock",
+        "model": "X10 Smart IoT Gateway Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your PC or mobile device to the ASRock router network.",
+      "Open http://192.168.1.1 (or http://asrock.router) in your browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Enable Gaming Boost QoS prioritisation and configure high-performance 5GHz Wi-Fi."
+    ]
+  },
+  {
+    "name": "BenQ",
+    "slug": "benq",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, firmware configuration, and troubleshooting guides for legacy BenQ AWL and ER series broadband routers.",
+    "models": [
+      {
+        "brand": "BenQ",
+        "model": "AWL700 Wireless Broadband Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "BenQ",
+        "model": "ER200 Ethernet Broadband Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect an Ethernet cable from your computer to port 1 on the BenQ router.",
+      "Launch your web browser and open http://192.168.1.1.",
+      "Log in using Username: admin and Password: admin.",
+      "Configure PPPoE or Dynamic IP internet connection settings."
+    ]
+  },
+  {
+    "name": "Card King",
+    "slug": "card-king",
+    "defaultIp": "192.168.10.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Configuration guides, long-range Wi-Fi setup, and default admin passwords for Card King high-power outdoor CPE and indoor routers.",
+    "models": [
+      {
+        "brand": "Card King",
+        "model": "KW-3006N High-Power Wireless Router",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Card King",
+        "model": "300M Outdoor CPE Bridge Router",
+        "ip": "192.168.10.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect to the Card King Wi-Fi network or plug into the LAN port.",
+      "Navigate to http://192.168.10.1 in your browser.",
+      "Type Username: admin and Password: admin to sign in.",
+      "Set your high-gain transmission power and wireless security passphrase."
+    ]
+  },
+  {
+    "name": "CC&C Technologies",
+    "slug": "ccc-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords and web portal setup guides for CC&C Technologies wireless broadband routers and outdoor CPE equipment.",
+    "models": [
+      {
+        "brand": "CC&C Technologies",
+        "model": "WA-6202 Wireless-N Broadband Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "CC&C Technologies",
+        "model": "WL-2204 Outdoor CPE Wireless Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the CC&C device via Ethernet cable.",
+      "Open your browser and navigate to http://192.168.1.1.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure wireless bridge or router mode according to your network deployment."
+    ]
+  },
+  {
+    "name": "CyberTAN",
+    "slug": "cybertan",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, firmware setup, and carrier gateway guides for CyberTAN Technology broadband gateways and optical ONTs.",
+    "models": [
+      {
+        "brand": "CyberTAN",
+        "model": "WR3000 Broadband Wi-Fi 6 Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "CyberTAN",
+        "model": "GPON Wi-Fi 6 Optical Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your device to the CyberTAN gateway LAN port.",
+      "Open your web browser and go to http://192.168.1.1.",
+      "Enter Username: admin and Password: admin.",
+      "Configure broadband WAN, Wi-Fi 6 radio parameters, and port forwarding."
+    ]
+  },
+  {
+    "name": "Dell Networking",
+    "slug": "dell-networking",
+    "defaultIp": "192.168.168.168",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Default credentials, SonicOS/DNOS configuration, and security setup guides for Dell SonicWALL and PowerConnect networking routers.",
+    "models": [
+      {
+        "brand": "Dell Networking",
+        "model": "SonicWALL TZ370 Security Router",
+        "ip": "192.168.168.168",
+        "username": "admin",
+        "password": "password",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Dell Networking",
+        "model": "PowerConnect W-IAP205 Wireless Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the X0 LAN management port of the Dell SonicWALL/PowerConnect device.",
+      "Assign your computer static IP 192.168.168.169 (mask 255.255.255.0).",
+      "Open https://192.168.168.168 in your browser.",
+      "Log in with Username: admin and Password: password to configure firewall policies and routing."
+    ]
+  },
+  {
+    "name": "Eminent",
+    "slug": "eminent",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, Wi-Fi configuration, and troubleshooting instructions for Eminent European consumer and SOHO routers.",
+    "models": [
+      {
+        "brand": "Eminent",
+        "model": "EM4510 Dual Band AC1200 Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Eminent",
+        "model": "EM4570 Gigabit Concurrent Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect to the Eminent Wi-Fi network or plug into an Ethernet port.",
+      "Open http://192.168.8.1 in your internet browser.",
+      "Log in using Username: admin and Password: admin.",
+      "Run the Quick Installation Wizard to configure your broadband connection."
+    ]
+  },
+  {
+    "name": "Encore Electronics",
+    "slug": "encore-electronics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Login credentials, default IP addresses, and setup guides for Encore Electronics ENHWI wireless and broadband routers.",
+    "models": [
+      {
+        "brand": "Encore Electronics",
+        "model": "ENHWI-2AN3 Wireless N300 Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Encore Electronics",
+        "model": "ENHWI-G3 802.11g Broadband Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the Encore router LAN port.",
+      "Open your browser and enter http://192.168.1.1.",
+      "Type default Username: admin and Password: admin.",
+      "Configure wireless network SSID and security encryption."
+    ]
+  },
+  {
+    "name": "Gateworks",
+    "slug": "gateworks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Embedded OpenWrt/Linux single-board computer router configuration, SSH access, and default settings for Gateworks Venice and Newport boards.",
+    "models": [
+      {
+        "brand": "Gateworks",
+        "model": "Venice GW7300 Industrial Router Board",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "root",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Gateworks",
+        "model": "Newport GW6400 Edge Router SBC",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "root",
+        "protocol": "SSH"
+      }
+    ],
+    "guide": [
+      "Connect to the Gateworks board via Ethernet or serial console port.",
+      "Open a terminal and connect via SSH: ssh root@192.168.1.1.",
+      "Enter default Password: root (or empty password on stock OpenWrt images).",
+      "Use UCI commands or LuCI web interface at http://192.168.1.1 to configure network interfaces."
+    ]
+  },
+  {
+    "name": "Gigabyte",
+    "slug": "gigabyte",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, AirCruiser setup guides, and configuration portals for Gigabyte Technology wireless and broadband routers.",
+    "models": [
+      {
+        "brand": "Gigabyte",
+        "model": "AirCruiser GN-B49G Wireless Router",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Gigabyte",
+        "model": "GN-BR01G Broadband Turbo Gateway",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to LAN port 1 on the Gigabyte router.",
+      "Open your web browser and navigate to http://192.168.1.254.",
+      "Enter Username: admin and Password: admin.",
+      "Configure your WAN connection settings and Wi-Fi security parameters."
+    ]
+  },
+  {
+    "name": "GlobalScale",
+    "slug": "globalscale",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "root",
+    "description": "Configuration guides, OpenWrt flashing, and default logins for GlobalScale ESPRESSObin and SheevaPlug network appliances.",
+    "models": [
+      {
+        "brand": "GlobalScale",
+        "model": "ESPRESSObin V7 Networking Router",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "root",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "GlobalScale",
+        "model": "SheevaPlug Edge Gateway Router",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "root",
+        "protocol": "SSH"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the LAN interface on the ESPRESSObin board.",
+      "Open an SSH client and connect to 192.168.1.1 with Username: root and Password: root.",
+      "Access the LuCI web interface at http://192.168.1.1 if installed.",
+      "Configure multi-gigabit switch ports, routing tables, and firewall rules."
+    ]
+  },
+  {
+    "name": "HooToo",
+    "slug": "hootoo",
+    "defaultIp": "10.10.10.254",
+    "defaultUser": "admin",
+    "defaultPass": "(blank)",
+    "description": "TripMate portable wireless travel router login credentials, hotel Wi-Fi bridging, and storage sharing setup guides for HooToo.",
+    "models": [
+      {
+        "brand": "HooToo",
+        "model": "TripMate Titan HT-TM05 Travel Router",
+        "ip": "10.10.10.254",
+        "username": "admin",
+        "password": "(blank)",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "HooToo",
+        "model": "TripMate Elite HT-TM04 Wireless Router",
+        "ip": "10.10.10.254",
+        "username": "admin",
+        "password": "(blank)",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Power on the TripMate router and connect to its Wi-Fi network (TripMate-XXXX).",
+      "Open your mobile or desktop browser and navigate to http://10.10.10.254.",
+      "Enter default Username: admin and leave Password blank.",
+      "Use Network Settings to bridge existing hotel Wi-Fi or plug into an Ethernet jack."
+    ]
+  },
+  {
+    "name": "JCG",
+    "slug": "jcg",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, smart management portal instructions, and setup guides for JCG JYR and Q-series smart home routers.",
+    "models": [
+      {
+        "brand": "JCG",
+        "model": "JYR-AC680 Smart Gigabit Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "JCG",
+        "model": "Q20 Wi-Fi 6 Mesh Smart Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect to the JCG wireless SSID or plug into a LAN port.",
+      "Open your browser and navigate to http://192.168.1.1.",
+      "Log in with Username: admin and Password: admin.",
+      "Set your internet connection type and create a secure Wi-Fi passphrase."
+    ]
+  },
+  {
+    "name": "Luma Home",
+    "slug": "luma-home",
+    "defaultIp": "192.168.55.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Whole-home intelligent Surround Wi-Fi mesh setup guides, cloud management, and local gateway login for Luma Home mesh nodes.",
+    "models": [
+      {
+        "brand": "Luma Home",
+        "model": "Luma Whole Home Surround Wi-Fi Mesh Node",
+        "ip": "192.168.55.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Luma Home",
+        "model": "Luma Plus Dual-Band Intelligent Mesh Router",
+        "ip": "192.168.55.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your first Luma node to your modem via the IN Ethernet port.",
+      "Use the Luma mobile app or connect via browser to http://192.168.55.1.",
+      "Sign in with your account or default Username: admin and Password: admin.",
+      "Follow the mesh placement guide to add additional nodes and optimize coverage."
+    ]
+  },
+  {
+    "name": "Medialink",
+    "slug": "medialink",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, web portal navigation, and setup tutorials for Medialink MWN and AC1200 wireless home routers.",
+    "models": [
+      {
+        "brand": "Medialink",
+        "model": "MWN-WBR300N Wireless-N Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Medialink",
+        "model": "AC1200 Wireless Gigabit Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the Medialink router using an Ethernet cable.",
+      "Open your browser and type http://192.168.8.1 into the address bar.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure your wireless network name (SSID), WPA2 key, and router security settings."
+    ]
+  },
+  {
+    "name": "Microsoft Broadband",
+    "slug": "microsoft-broadband",
+    "defaultIp": "192.168.2.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, setup utilities, and hardware troubleshooting for legacy Microsoft Broadband Networking MN-500 and MN-700 base stations.",
+    "models": [
+      {
+        "brand": "Microsoft Broadband",
+        "model": "MN-500 Wireless Base Station",
+        "ip": "192.168.2.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Microsoft Broadband",
+        "model": "MN-700 Wireless-G Broadband Router",
+        "ip": "192.168.2.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to a LAN port on the Microsoft base station.",
+      "Open your browser and navigate to http://192.168.2.1.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure PPPoE or DHCP internet connection and wireless encryption."
+    ]
+  },
+  {
+    "name": "Netopia",
+    "slug": "netopia",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, Cayman/Motorola firmware management, and setup guides for Netopia 3300-series DSL and enterprise routers.",
+    "models": [
+      {
+        "brand": "Netopia",
+        "model": "Netopia 3347-Series VDSL Business Gateway",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Netopia",
+        "model": "Netopia R9100 Enterprise Access Router",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "Telnet"
+      }
+    ],
+    "guide": [
+      "Connect to the Netopia router LAN port via Ethernet.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure DSL line parameters, static IP addresses, and NAT routing."
+    ]
+  },
+  {
+    "name": "Netstar",
+    "slug": "netstar",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Industrial M2M cellular routers and VPN gateway configuration guides, default IP addresses, and logins for Netstar.",
+    "models": [
+      {
+        "brand": "Netstar",
+        "model": "Netstar IR-3000 Industrial 4G Cellular Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Netstar",
+        "model": "Netstar NR-200 Enterprise VPN Gateway Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the Netstar router LAN port.",
+      "Navigate to https://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure industrial serial-to-IP forwarding, cellular APN, and OpenVPN client."
+    ]
+  },
+  {
+    "name": "OpenMesh",
+    "slug": "openmesh",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "CloudTrax cloud management, fallback local dashboard, and setup guides for OpenMesh OM2P and OM5P cloud-managed access routers.",
+    "models": [
+      {
+        "brand": "OpenMesh",
+        "model": "OpenMesh OM2P Cloud-Managed Access Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "OpenMesh",
+        "model": "OpenMesh OM5P-AC Dual Band Cloud Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect the OpenMesh unit to your local network switch with Internet access.",
+      "Log in to the CloudTrax / Datto Networking portal to pair the MAC address.",
+      "For local diagnostic fallback, navigate to http://192.168.1.1 in your browser.",
+      "Enter default Username: admin and Password: admin to inspect link state."
+    ]
+  },
+  {
+    "name": "Plume",
+    "slug": "plume",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "plumeadmin",
+    "defaultPass": "plume123",
+    "description": "Adaptive HomePass cloud Wi-Fi mesh configuration, HomePass mobile app setup, and gateway login for Plume SuperPod and PowerPod devices.",
+    "models": [
+      {
+        "brand": "Plume",
+        "model": "Plume SuperPod Wi-Fi 6 Adaptive Mesh Node",
+        "ip": "192.168.1.1",
+        "username": "plumeadmin",
+        "password": "plume123",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Plume",
+        "model": "Plume PowerPod Smart Tri-Band Mesh Pod",
+        "ip": "192.168.1.1",
+        "username": "plumeadmin",
+        "password": "plume123",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Plug the first Plume SuperPod into your modem using the provided Ethernet cable.",
+      "Download and open the Plume HomePass application on iOS or Android.",
+      "Follow on-screen instructions to register your account and configure your SSID.",
+      "For carrier-integrated firmware, access the local gateway at https://192.168.1.1."
+    ]
+  },
+  {
+    "name": "PRO-NETS",
+    "slug": "pro-nets",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, ADSL modem router configuration, and wireless settings for PRO-NETS Generation network devices.",
+    "models": [
+      {
+        "brand": "PRO-NETS",
+        "model": "PRO-NETS AR-804V ADSL2+ Firewall Router",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "PRO-NETS",
+        "model": "PRO-NETS WR-544G 802.11g Broadband Router",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the PRO-NETS router via an Ethernet cable.",
+      "Open your web browser and navigate to http://192.168.1.254.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure ADSL VPI/VCI values and wireless encryption."
+    ]
+  },
+  {
+    "name": "Proxim Wireless",
+    "slug": "proxim-wireless",
+    "defaultIp": "169.254.128.132",
+    "defaultUser": "admin",
+    "defaultPass": "public",
+    "description": "Point-to-point wireless bridge configuration, Tsunami and ORiNOCO setup guides, and fallback IP credentials for Proxim Wireless.",
+    "models": [
+      {
+        "brand": "Proxim Wireless",
+        "model": "Proxim Tsunami QB-820 Point-to-Point Wireless Bridge",
+        "ip": "169.254.128.132",
+        "username": "admin",
+        "password": "public",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Proxim Wireless",
+        "model": "Proxim ORiNOCO AP-9100 Enterprise Router Gateway",
+        "ip": "169.254.128.132",
+        "username": "admin",
+        "password": "public",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your laptop to the PoE injector LAN port of the Proxim unit.",
+      "Set your laptop static IP to 169.254.128.100 (mask 255.255.255.0).",
+      "Open your browser and navigate to http://169.254.128.132.",
+      "Log in with Username: admin and Password: public to configure wireless backhaul links."
+    ]
+  },
+  {
+    "name": "Repotec",
+    "slug": "repotec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, web management configuration, and setup guides for Repotec SOHO broadband routers and access points.",
+    "models": [
+      {
+        "brand": "Repotec",
+        "model": "Repotec RP-WR5441 300Mbps Wireless-N Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Repotec",
+        "model": "Repotec RP-WR1440 SOHO Broadband Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the Repotec router LAN port.",
+      "Open your browser and enter http://192.168.1.1.",
+      "Log in with Username: admin and Password: admin.",
+      "Follow the Quick Setup Wizard to establish your internet connection."
+    ]
+  },
+  {
+    "name": "Rosewill",
+    "slug": "rosewill",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, wireless network security setup, and troubleshooting guides for Rosewill RNX dual-band and wireless-N routers.",
+    "models": [
+      {
+        "brand": "Rosewill",
+        "model": "Rosewill RNX-AC1200RT Dual Band Wireless Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Rosewill",
+        "model": "Rosewill RNX-N300RT Wireless-N Gigabit Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to a Rosewill LAN port via Ethernet cable.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "Enter default Username: admin and Password: admin.",
+      "Configure your Wi-Fi SSID, WPA2/WPA3 password, and guest network settings."
+    ]
+  },
+  {
+    "name": "Brocade",
+    "slug": "brocade",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Carrier Ethernet edge router, Vyatta virtual router, and NetIron enterprise core setup tutorials and default logins for Brocade.",
+    "models": [
+      {
+        "brand": "Brocade",
+        "model": "Brocade Vyatta 5400 vRouter Virtual Appliance",
+        "ip": "192.168.1.1",
+        "username": "vyatta",
+        "password": "vyatta",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Brocade",
+        "model": "Brocade NetIron CER 2000 Carrier Edge Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "password",
+        "protocol": "SSH"
+      }
+    ],
+    "guide": [
+      "Connect to the Brocade router via serial console or management Ethernet port.",
+      "Open an SSH session to 192.168.1.1 with Username: admin (or vyatta) and Password: password.",
+      "Enter enable mode and execute configure terminal to configure BGP, OSPF, and VLAN routing.",
+      "Write running configuration to startup-config before rebooting."
+    ]
+  },
+  {
+    "name": "Ericsson",
+    "slug": "ericsson",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Enterprise 5G edge routers, Cradlepoint NetCloud cellular gateways, and carrier telecom routing setup guides for Ericsson.",
+    "models": [
+      {
+        "brand": "Ericsson",
+        "model": "Ericsson Cradlepoint R1900 5G Ruggedized Router",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "Printed on sticker",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Ericsson",
+        "model": "Ericsson Enterprise E3000 Cellular Edge Router",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "Printed on sticker",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your laptop to the LAN1 port on the Ericsson Cradlepoint router.",
+      "Open your web browser and navigate to https://192.168.0.1.",
+      "Log in with Username: admin and the unique Default Password printed on the product label.",
+      "Pair the router with Ericsson Cradlepoint NetCloud Manager for centralized zero-touch orchestration."
+    ]
+  },
+  {
+    "name": "Meru Networks",
+    "slug": "meru-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default credentials, virtual cell wireless controller configuration, and setup guides for Meru Networks (Fortinet) enterprise controllers.",
+    "models": [
+      {
+        "brand": "Meru Networks",
+        "model": "Meru MC1500 Enterprise Wireless Controller Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Meru Networks",
+        "model": "Meru AP832 Dual-Radio 802.11ac Controller AP",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your computer to the Meru controller management interface.",
+      "Open https://192.168.1.1 in your browser.",
+      "Log in with Username: admin and Password: admin.",
+      "Configure Virtual Cell single-channel RF architecture and 802.1X corporate authentication."
+    ]
+  },
+  {
+    "name": "Xirrus",
+    "slug": "xirrus",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "High-density Wi-Fi array routers, multi-radio enterprise edge gateways, and XMS-Cloud setup instructions for Xirrus (Cambium Networks).",
+    "models": [
+      {
+        "brand": "Xirrus",
+        "model": "Xirrus XR-620 High-Density Wireless Array Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Xirrus",
+        "model": "Xirrus XD2 High-Performance Wi-Fi Array Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ],
+    "guide": [
+      "Connect your management computer to the Gigabit PoE port of the Xirrus Wi-Fi array.",
+      "Open https://192.168.1.1 in your web browser.",
+      "Log in with default Username: admin and Password: admin.",
+      "Configure multi-radio directional beamforming, SSID profiles, and guest access portal."
+    ]
+  },
+  {
+    "name": "Coship",
+    "slug": "coship",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default passwords, GPON optical terminal configuration, and cable gateway setup guides for Coship Electronics.",
+    "models": [
+      {
+        "brand": "Coship",
+        "model": "Coship CC8800 GPON Optical Terminal Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Coship",
+        "model": "Coship CD7000 DOCSIS 3.0 Cable Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your PC to the LAN port on the Coship terminal.",
+      "Open your browser and type http://192.168.1.1.",
+      "Log in using Username: admin and Password: admin.",
+      "Configure your GPON OMCI provisioning, WAN connection, and local Wi-Fi encryption."
+    ]
+  },
+  {
+    "name": "DD-WRT",
+    "slug": "dd-wrt",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "admin",
+    "description": "Complete setup guides, wireless QoS, OpenVPN client configuration, and default access credentials for DD-WRT open-source router firmware.",
+    "models": [
+      {
+        "brand": "DD-WRT",
+        "model": "DD-WRT Firmware Netgear Nighthawk R7000 Gateway",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "DD-WRT",
+        "model": "DD-WRT Linksys WRT54GL Classic Flashed Router",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to any LAN port on the DD-WRT flashed router.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "On first boot, DD-WRT prompts you to choose an Administrator Username and Password.",
+      "For SSH/Telnet access, use Username: root and your newly created admin password."
+    ]
+  },
+  {
+    "name": "Tomato Firmware",
+    "slug": "tomato-firmware",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "root",
+    "defaultPass": "admin",
+    "description": "Default credentials, bandwidth monitoring graphs, and advanced QoS setup tutorials for FreshTomato and Shibby Tomato firmware platforms.",
+    "models": [
+      {
+        "brand": "Tomato Firmware",
+        "model": "Tomato Firmware ASUS RT-N66U Gateway",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Tomato Firmware",
+        "model": "Tomato Shibby Netgear R6400 AC1750 Flashed Router",
+        "ip": "192.168.1.1",
+        "username": "root",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ],
+    "guide": [
+      "Connect your computer to a LAN port on the Tomato-flashed router via Ethernet.",
+      "Open your web browser and go to http://192.168.1.1.",
+      "Log in with default Username: root (or admin) and Password: admin.",
+      "Explore real-time SVG bandwidth monitors, configure OpenVPN, and adjust transmit power."
+    ]
+  }
+,
+{
+    "name": "1&1 / United Internet CPE",
+    "slug": "1-1",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for 1&1 / United Internet CPE (Germany) isp cpe network devices. German ISP branded routers.",
+    "guide": [
+      "Connect your computer to the 1&1 / United Internet CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "1&1 / United Internet CPE",
+        "model": "1&1 Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "1&1 / United Internet CPE",
+        "model": "1&1 Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "128 Technology",
+    "slug": "128-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for 128 Technology (USA) sd-wan network devices. Acquired by Juniper 2020; now Session Smart Routing.",
+    "guide": [
+      "Connect your computer to the 128 Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "128 Technology",
+        "model": "128 Technology SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "128 Technology",
+        "model": "128 Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "3onedata",
+    "slug": "3onedata",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for 3onedata (China) industrial network devices. Industrial Ethernet switches and routers.",
+    "guide": [
+      "Connect your computer to the 3onedata LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "3onedata",
+        "model": "3onedata SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "3onedata",
+        "model": "3onedata Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "6WIND",
+    "slug": "6wind",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for 6WIND (France) virtual router network devices. Turbo Router / VSR high-performance software routers.",
+    "guide": [
+      "Connect your computer to the 6WIND LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "6WIND",
+        "model": "6WIND SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "6WIND",
+        "model": "6WIND Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "8devices",
+    "slug": "8devices",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for 8devices (Lithuania) embedded routerboards; industrial network devices. Embedded Wi-Fi routerboards used by WISPs and integrators.",
+    "guide": [
+      "Connect your computer to the 8devices LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "8devices",
+        "model": "8devices SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "8devices",
+        "model": "8devices Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ABB",
+    "slug": "abb",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ABB (Switzerland / Sweden) utility/scada; industrial network devices. Substation communication and grid routers.",
+    "guide": [
+      "Connect your computer to the ABB LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ABB",
+        "model": "ABB SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "ABB",
+        "model": "ABB Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "AboCom Systems",
+    "slug": "abocom-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for AboCom Systems (Taiwan) consumer wi-fi; odm network devices. Small Taiwanese Wi-Fi hardware maker.",
+    "guide": [
+      "Connect your computer to the AboCom Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "AboCom Systems",
+        "model": "AboCom Systems Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "AboCom Systems",
+        "model": "AboCom Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "ACC (Advanced Computer Communications)",
+    "slug": "acc",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ACC (Advanced Computer Communications) (USA) legacy access routers network devices. Remote access router maker.",
+    "guide": [
+      "Connect your computer to the ACC (Advanced Computer Communications) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ACC (Advanced Computer Communications)",
+        "model": "ACC Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "ACC (Advanced Computer Communications)",
+        "model": "ACC Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Accelerated Concepts",
+    "slug": "accelerated-concepts",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Accelerated Concepts (USA) cellular network devices. Cellular router maker acquired by Digi 2018.",
+    "guide": [
+      "Connect your computer to the Accelerated Concepts LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Accelerated Concepts",
+        "model": "Accelerated Concepts 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Accelerated Concepts",
+        "model": "Accelerated Concepts Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Accton Technology",
+    "slug": "accton-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Accton Technology (Taiwan) odm; whitebox network devices. Networking ODM; parent of Edgecore and Arcadyan.",
+    "guide": [
+      "Connect your computer to the Accton Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Accton Technology",
+        "model": "Accton Technology Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Accton Technology",
+        "model": "Accton Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "ACT Fibernet CPE",
+    "slug": "act-fibernet-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ACT Fibernet CPE (India) isp cpe network devices. Major Indian FTTH ISP's branded ONT-router.",
+    "guide": [
+      "Connect your computer to the ACT Fibernet CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ACT Fibernet CPE",
+        "model": "ACT Fibernet CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "ACT Fibernet CPE",
+        "model": "ACT Fibernet CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Addvalue Technologies",
+    "slug": "addvalue-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Addvalue Technologies (Singapore) satellite network devices. Inmarsat and Iridium terminal-routers.",
+    "guide": [
+      "Connect your computer to the Addvalue Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Addvalue Technologies",
+        "model": "Addvalue Technologies Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Addvalue Technologies",
+        "model": "Addvalue Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Adtran Holdings",
+    "slug": "adtran-holdings",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Adtran Holdings (USA) sp access; bng; optical network devices. Merged with Germany's ADVA in 2022.",
+    "guide": [
+      "Connect your computer to the Adtran Holdings LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Adtran Holdings",
+        "model": "Adtran Holdings Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Adtran Holdings",
+        "model": "Adtran Holdings Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "ADVA Optical Networking",
+    "slug": "adva-optical-networking",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ADVA Optical Networking (Germany) optical transport network devices. Now Adtran Networks SE.",
+    "guide": [
+      "Connect your computer to the ADVA Optical Networking LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ADVA Optical Networking",
+        "model": "ADVA Optical Networking Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "ADVA Optical Networking",
+        "model": "ADVA Optical Networking Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Advantech B+B SmartWorx (Conel)",
+    "slug": "advantech-b-b-smartworx",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Advantech B+B SmartWorx (Conel) (Czechia / USA) industrial; cellular network devices. ICR-series routers, formerly the Czech Conel brand.",
+    "guide": [
+      "Connect your computer to the Advantech B+B SmartWorx (Conel) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Advantech B+B SmartWorx (Conel)",
+        "model": "Advantech B+B SmartWorx SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Advantech B+B SmartWorx (Conel)",
+        "model": "Advantech B+B SmartWorx Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Aerohive Networks",
+    "slug": "aerohive-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Aerohive Networks (USA) legacy enterprise wlan network devices. Cloud-managed Wi-Fi vendor absorbed by Extreme in 2019.",
+    "guide": [
+      "Connect your computer to the Aerohive Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Aerohive Networks",
+        "model": "Aerohive Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Aerohive Networks",
+        "model": "Aerohive Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Airtel Xstream",
+    "slug": "airtel-xstream",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Airtel Xstream (India) isp cpe network devices. Airtel-branded routers OEM'd by Nokia, Huawei, ZTE.",
+    "guide": [
+      "Connect your computer to the Airtel Xstream LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Airtel Xstream",
+        "model": "Airtel Xstream Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Airtel Xstream",
+        "model": "Airtel Xstream Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "AIS Fibre CPE",
+    "slug": "ais-fibre-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for AIS Fibre CPE (Thailand) isp cpe network devices. Thai ISP branded router.",
+    "guide": [
+      "Connect your computer to the AIS Fibre CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "AIS Fibre CPE",
+        "model": "AIS Fibre CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "AIS Fibre CPE",
+        "model": "AIS Fibre CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Alcatel",
+    "slug": "alcatel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Alcatel (France) legacy sp network devices. Merged with Lucent 2006; Nokia acquired 2016.",
+    "guide": [
+      "Connect your computer to the Alcatel LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Alcatel",
+        "model": "Alcatel Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Alcatel",
+        "model": "Alcatel Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Alcatel (LinkZone / LinkHub)",
+    "slug": "alcatel-1",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Alcatel (LinkZone / LinkHub) (France (brand) / China) travel; 4g/5g cpe network devices. TCL-owned brand's hotspot and home LTE/5G router line.",
+    "guide": [
+      "Connect your computer to the Alcatel (LinkZone / LinkHub) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Alcatel (LinkZone / LinkHub)",
+        "model": "Alcatel 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Alcatel (LinkZone / LinkHub)",
+        "model": "Alcatel Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Alcatel-Lucent Enterprise (ALE)",
+    "slug": "alcatel-lucent-enterprise",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Alcatel-Lucent Enterprise (ALE) (France) enterprise branch; campus network devices. OmniSwitch/OmniAccess; spun out of Nokia 2014.",
+    "guide": [
+      "Connect your computer to the Alcatel-Lucent Enterprise (ALE) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Alcatel-Lucent Enterprise (ALE)",
+        "model": "Alcatel-Lucent Enterprise SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Alcatel-Lucent Enterprise (ALE)",
+        "model": "Alcatel-Lucent Enterprise Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Alibaba Cloud",
+    "slug": "alibaba-cloud",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Alibaba Cloud (China) cloud dc in-house network devices. Custom datacentre networking hardware and software.",
+    "guide": [
+      "Connect your computer to the Alibaba Cloud LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Alibaba Cloud",
+        "model": "Alibaba Cloud Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Alibaba Cloud",
+        "model": "Alibaba Cloud Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Alkira",
+    "slug": "alkira",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Alkira (USA) cloud naas / virtual router network devices. Network-as-a-service cloud backbone.",
+    "guide": [
+      "Connect your computer to the Alkira LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Alkira",
+        "model": "Alkira SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Alkira",
+        "model": "Alkira Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Alpha Networks",
+    "slug": "alpha-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Alpha Networks (Taiwan) odm; isp cpe network devices. Spun off from D-Link; supplies global telcos.",
+    "guide": [
+      "Connect your computer to the Alpha Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Alpha Networks",
+        "model": "Alpha Networks Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Alpha Networks",
+        "model": "Alpha Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Amazon Web Services",
+    "slug": "amazon-web-services",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Amazon Web Services (USA) cloud dc / wan in-house network devices. Custom networking hardware and Transit Gateway.",
+    "guide": [
+      "Connect your computer to the Amazon Web Services LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Amazon Web Services",
+        "model": "Amazon Web Services Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Amazon Web Services",
+        "model": "Amazon Web Services Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Ambit Microsystems",
+    "slug": "ambit-microsystems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ambit Microsystems (Taiwan) odm; cable cpe network devices. Cable modem and gateway ODM inside Foxconn.",
+    "guide": [
+      "Connect your computer to the Ambit Microsystems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ambit Microsystems",
+        "model": "Ambit Microsystems Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Ambit Microsystems",
+        "model": "Ambit Microsystems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "AmpliFi",
+    "slug": "amplifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for AmpliFi (USA) mesh network devices. Ubiquiti's consumer mesh sub-brand, largely deprioritised.",
+    "guide": [
+      "Connect your computer to the AmpliFi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "AmpliFi",
+        "model": "AmpliFi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "AmpliFi",
+        "model": "AmpliFi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Antex",
+    "slug": "antex",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Antex (Russia) cellular network devices. Russian LTE router and antenna brand.",
+    "guide": [
+      "Connect your computer to the Antex LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Antex",
+        "model": "Antex 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Antex",
+        "model": "Antex Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "AnyDATA",
+    "slug": "anydata",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for AnyDATA (South Korea) cellular network devices. M2M cellular routers and modules.",
+    "guide": [
+      "Connect your computer to the AnyDATA LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "AnyDATA",
+        "model": "AnyDATA 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "AnyDATA",
+        "model": "AnyDATA Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Apple AirPort",
+    "slug": "apple-airport",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Apple AirPort (USA) consumer wi-fi network devices. AirPort Express/Extreme/Time Capsule; Apple exited routers 2018.",
+    "guide": [
+      "Connect your computer to the Apple AirPort LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Apple AirPort",
+        "model": "Apple AirPort Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Apple AirPort",
+        "model": "Apple AirPort Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Archer",
+    "slug": "archer",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Archer (China) consumer wi-fi network devices. Sub-brand: TP-Link's flagship standalone router line.",
+    "guide": [
+      "Connect your computer to the Archer LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Archer",
+        "model": "Archer Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Archer",
+        "model": "Archer Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Argela",
+    "slug": "argela",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Argela (Turkey) sp; sdn/nfv network devices. T\u00fcrk Telekom's networking R&D arm.",
+    "guide": [
+      "Connect your computer to the Argela LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Argela",
+        "model": "Argela Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Argela",
+        "model": "Argela Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Arrcus",
+    "slug": "arrcus",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Arrcus (USA) sp and dc disaggregated routing network devices. ArcOS network operating system.",
+    "guide": [
+      "Connect your computer to the Arrcus LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Arrcus",
+        "model": "Arrcus Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Arrcus",
+        "model": "Arrcus Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Arris International",
+    "slug": "arris-international",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Arris International (USA) legacy isp cpe; cable network devices. Cable CPE and set-top giant; bought by CommScope 2019, then broken up.",
+    "guide": [
+      "Connect your computer to the Arris International LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Arris International",
+        "model": "Arris International Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Arris International",
+        "model": "Arris International Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Arris SURFboard",
+    "slug": "arris-surfboard",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Arris SURFboard (USA) retail cable modem-router network devices. Retail cable gateway brand; moved to Vantiva with CommScope Home Networks in 2024.",
+    "guide": [
+      "Connect your computer to the Arris SURFboard LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Arris SURFboard",
+        "model": "Arris SURFboard Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Arris SURFboard",
+        "model": "Arris SURFboard Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Aruba Instant On",
+    "slug": "aruba-instant-on",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Aruba Instant On (USA) smb wi-fi; switching network devices. HPE's cloud-managed small-business sub-brand.",
+    "guide": [
+      "Connect your computer to the Aruba Instant On LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Aruba Instant On",
+        "model": "Aruba Instant On SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Aruba Instant On",
+        "model": "Aruba Instant On Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Aruba Networks",
+    "slug": "aruba-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Aruba Networks (USA) enterprise wlan network devices. Now HPE Aruba Networking.",
+    "guide": [
+      "Connect your computer to the Aruba Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Aruba Networks",
+        "model": "Aruba Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Aruba Networks",
+        "model": "Aruba Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Aryaka Networks",
+    "slug": "aryaka-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Aryaka Networks (USA) sd-wan; sase network devices. Managed unified SASE/SD-WAN with private backbone.",
+    "guide": [
+      "Connect your computer to the Aryaka Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Aryaka Networks",
+        "model": "Aryaka Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Aryaka Networks",
+        "model": "Aryaka Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Ar\u00e7elik",
+    "slug": "ar-elik",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ar\u00e7elik (Turkey) consumer electronics network devices. Turkish appliance giant with limited gateway ventures.",
+    "guide": [
+      "Connect your computer to the Ar\u00e7elik LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ar\u00e7elik",
+        "model": "Ar\u00e7elik Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Ar\u00e7elik",
+        "model": "Ar\u00e7elik Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Ascend Communications",
+    "slug": "ascend-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ascend Communications (USA) legacy access routers network devices. MAX and TNT remote access concentrators.",
+    "guide": [
+      "Connect your computer to the Ascend Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ascend Communications",
+        "model": "Ascend Communications Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Ascend Communications",
+        "model": "Ascend Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "AsusWRT-Merlin",
+    "slug": "asuswrt-merlin",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for AsusWRT-Merlin (Canada) open-source firmware network devices. Enhanced fork of Asus stock firmware.",
+    "guide": [
+      "Connect your computer to the AsusWRT-Merlin LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "AsusWRT-Merlin",
+        "model": "AsusWRT-Merlin SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "AsusWRT-Merlin",
+        "model": "AsusWRT-Merlin Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "AT&T BGW gateways",
+    "slug": "at-t-bgw-gateways",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for AT&T BGW gateways (USA) isp cpe network devices. AT&T fibre/DSL gateways from Arris and Humax.",
+    "guide": [
+      "Connect your computer to the AT&T BGW gateways LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "AT&T BGW gateways",
+        "model": "AT&T BGW gateways Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "AT&T BGW gateways",
+        "model": "AT&T BGW gateways Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Atop Technologies",
+    "slug": "atop-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Atop Technologies (Taiwan) industrial network devices. Industrial networking and gateway devices.",
+    "guide": [
+      "Connect your computer to the Atop Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Atop Technologies",
+        "model": "Atop Technologies SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Atop Technologies",
+        "model": "Atop Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Aurora Networks",
+    "slug": "aurora-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Aurora Networks (USA) cable access network devices. Rebranded Access Network Solutions unit of the former CommScope.",
+    "guide": [
+      "Connect your computer to the Aurora Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Aurora Networks",
+        "model": "Aurora Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Aurora Networks",
+        "model": "Aurora Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Avaya Networking",
+    "slug": "avaya-networking",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Avaya Networking (USA) legacy enterprise network devices. Ex-Nortel ERS campus lines.",
+    "guide": [
+      "Connect your computer to the Avaya Networking LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Avaya Networking",
+        "model": "Avaya Networking Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Avaya Networking",
+        "model": "Avaya Networking Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Aviatrix",
+    "slug": "aviatrix",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Aviatrix (USA) cloud / virtual router network devices. Multi-cloud transit and network software.",
+    "guide": [
+      "Connect your computer to the Aviatrix LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Aviatrix",
+        "model": "Aviatrix SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Aviatrix",
+        "model": "Aviatrix Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Avici Systems",
+    "slug": "avici-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Avici Systems (USA) legacy sp core network devices. Early 2000s core router pioneer, became Soapstone.",
+    "guide": [
+      "Connect your computer to the Avici Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Avici Systems",
+        "model": "Avici Systems Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Avici Systems",
+        "model": "Avici Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Baicells Technologies",
+    "slug": "baicells-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Baicells Technologies (China / USA) private lte/5g; wisp cpe network devices. Private-network base stations plus subscriber CPE routers.",
+    "guide": [
+      "Connect your computer to the Baicells Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Baicells Technologies",
+        "model": "Baicells Technologies Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Baicells Technologies",
+        "model": "Baicells Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "BATM Advanced Communications",
+    "slug": "batm-advanced-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for BATM Advanced Communications (Israel) carrier ethernet network devices. Parent of Telco Systems.",
+    "guide": [
+      "Connect your computer to the BATM Advanced Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "BATM Advanced Communications",
+        "model": "BATM Advanced Communications Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "BATM Advanced Communications",
+        "model": "BATM Advanced Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Bay Networks",
+    "slug": "bay-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Bay Networks (USA) legacy enterprise network devices. Formed 1994 from Wellfleet + SynOptics; absorbed by Nortel.",
+    "guide": [
+      "Connect your computer to the Bay Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Bay Networks",
+        "model": "Bay Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Bay Networks",
+        "model": "Bay Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Beetel Teletech",
+    "slug": "beetel-teletech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Beetel Teletech (India) dsl/fiber cpe network devices. Legacy Indian telecom device brand.",
+    "guide": [
+      "Connect your computer to the Beetel Teletech LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Beetel Teletech",
+        "model": "Beetel Teletech Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Beetel Teletech",
+        "model": "Beetel Teletech Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Bell Home Hub",
+    "slug": "bell-home-hub",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Bell Home Hub (Canada) isp cpe network devices. Canadian telco's branded fibre and DSL gateway.",
+    "guide": [
+      "Connect your computer to the Bell Home Hub LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Bell Home Hub",
+        "model": "Bell Home Hub Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Bell Home Hub",
+        "model": "Bell Home Hub Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Big Switch Networks",
+    "slug": "big-switch-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Big Switch Networks (USA) whitebox nos network devices. SDN/whitebox NOS absorbed into Arista 2020.",
+    "guide": [
+      "Connect your computer to the Big Switch Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Big Switch Networks",
+        "model": "Big Switch Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Big Switch Networks",
+        "model": "Big Switch Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Billion Electric",
+    "slug": "billion-electric",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Billion Electric (Taiwan) dsl/fiber cpe; industrial network devices. Taiwanese DSL/VDSL router brand.",
+    "guide": [
+      "Connect your computer to the Billion Electric LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Billion Electric",
+        "model": "Billion Electric Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Billion Electric",
+        "model": "Billion Electric Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Bitdefender BOX",
+    "slug": "bitdefender-box",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Bitdefender BOX (Romania) security router network devices. Smart-home security appliance; hardware line retired.",
+    "guide": [
+      "Connect your computer to the Bitdefender BOX LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Bitdefender BOX",
+        "model": "Bitdefender BOX Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Bitdefender BOX",
+        "model": "Bitdefender BOX Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Bivocom",
+    "slug": "bivocom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Bivocom (China) cellular; industrial network devices. 4G/5G IoT routers and gateways.",
+    "guide": [
+      "Connect your computer to the Bivocom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Bivocom",
+        "model": "Bivocom SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Bivocom",
+        "model": "Bivocom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Bkav",
+    "slug": "bkav",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Bkav (Vietnam) consumer; security network devices. Vietnamese tech firm with networking products.",
+    "guide": [
+      "Connect your computer to the Bkav LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Bkav",
+        "model": "Bkav Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Bkav",
+        "model": "Bkav Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "BLIiot",
+    "slug": "bliiot",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for BLIiot (China) cellular; industrial network devices. 4G IoT industrial routers.",
+    "guide": [
+      "Connect your computer to the BLIiot LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "BLIiot",
+        "model": "BLIiot SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "BLIiot",
+        "model": "BLIiot Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Blue Sky Network",
+    "slug": "blue-sky-network",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Blue Sky Network (USA) satellite; aviation; marine network devices. Iridium and Inmarsat router terminals.",
+    "guide": [
+      "Connect your computer to the Blue Sky Network LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Blue Sky Network",
+        "model": "Blue Sky Network Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Blue Sky Network",
+        "model": "Blue Sky Network Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Broadcom",
+    "slug": "broadcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Broadcom (USA) router and switch silicon network devices. The dominant silicon behind most consumer and DC routers.",
+    "guide": [
+      "Connect your computer to the Broadcom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Broadcom",
+        "model": "Broadcom Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Broadcom",
+        "model": "Broadcom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Brocade Communications",
+    "slug": "brocade-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Brocade Communications (USA) legacy sp and dc network devices. IP networking sold on to Extreme and Arris.",
+    "guide": [
+      "Connect your computer to the Brocade Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Brocade Communications",
+        "model": "Brocade Communications Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Brocade Communications",
+        "model": "Brocade Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "BSNL CPE",
+    "slug": "bsnl-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for BSNL CPE (India) isp cpe network devices. State telecom's branded ONT-routers for FTTH broadband.",
+    "guide": [
+      "Connect your computer to the BSNL CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "BSNL CPE",
+        "model": "BSNL CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "BSNL CPE",
+        "model": "BSNL CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "BT Smart Hub",
+    "slug": "bt-smart-hub",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for BT Smart Hub (UK) isp cpe network devices. UK's most-deployed home router line.",
+    "guide": [
+      "Connect your computer to the BT Smart Hub LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "BT Smart Hub",
+        "model": "BT Smart Hub Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "BT Smart Hub",
+        "model": "BT Smart Hub Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Bulat (OPK Bulat)",
+    "slug": "bulat",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Bulat (OPK Bulat) (Russia) enterprise; sp network devices. State-backed import-substitution networking vendor.",
+    "guide": [
+      "Connect your computer to the Bulat (OPK Bulat) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Bulat (OPK Bulat)",
+        "model": "Bulat SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Bulat (OPK Bulat)",
+        "model": "Bulat Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ByteDance",
+    "slug": "bytedance",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ByteDance (China) cloud dc in-house network devices. Custom whitebox datacentre networking.",
+    "guide": [
+      "Connect your computer to the ByteDance LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ByteDance",
+        "model": "ByteDance Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "ByteDance",
+        "model": "ByteDance Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "C-DOT",
+    "slug": "c-dot",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for C-DOT (India) r&d; sp routing network devices. State telecom R&D body designing indigenous routers.",
+    "guide": [
+      "Connect your computer to the C-DOT LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "C-DOT",
+        "model": "C-DOT Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "C-DOT",
+        "model": "C-DOT Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Cabletron Systems",
+    "slug": "cabletron-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cabletron Systems (USA) legacy enterprise network devices. Split into Enterasys, Riverstone, Aprisma and GlobalNetwork.",
+    "guide": [
+      "Connect your computer to the Cabletron Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cabletron Systems",
+        "model": "Cabletron Systems Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Cabletron Systems",
+        "model": "Cabletron Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Caimore",
+    "slug": "caimore",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Caimore (China) cellular; industrial network devices. Industrial cellular router manufacturer.",
+    "guide": [
+      "Connect your computer to the Caimore LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Caimore",
+        "model": "Caimore SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Caimore",
+        "model": "Caimore Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Caspian Networks",
+    "slug": "caspian-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Caspian Networks (USA) legacy sp core network devices. Flow-based routing startup.",
+    "guide": [
+      "Connect your computer to the Caspian Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Caspian Networks",
+        "model": "Caspian Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Caspian Networks",
+        "model": "Caspian Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Cato Networks",
+    "slug": "cato-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cato Networks (Israel) sd-wan; sase network devices. Cloud-native SASE platform with its own PoP backbone.",
+    "guide": [
+      "Connect your computer to the Cato Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cato Networks",
+        "model": "Cato Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Cato Networks",
+        "model": "Cato Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Celestica",
+    "slug": "celestica",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Celestica (Canada) whitebox odm network devices. Datacentre and SP whitebox hardware.",
+    "guide": [
+      "Connect your computer to the Celestica LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Celestica",
+        "model": "Celestica Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Celestica",
+        "model": "Celestica Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Centec Networks",
+    "slug": "centec-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Centec Networks (China) whitebox silicon and switch-routers network devices. Merchant-silicon whitebox vendor.",
+    "guide": [
+      "Connect your computer to the Centec Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Centec Networks",
+        "model": "Centec Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Centec Networks",
+        "model": "Centec Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Check Point Software",
+    "slug": "check-point-software",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Check Point Software (Israel) enterprise branch; sd-wan network devices. Quantum gateways with SD-WAN routing.",
+    "guide": [
+      "Connect your computer to the Check Point Software LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Check Point Software",
+        "model": "Check Point Software SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Check Point Software",
+        "model": "Check Point Software Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Chiaro Networks",
+    "slug": "chiaro-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Chiaro Networks (USA) legacy sp core network devices. Optical-switch-fabric terabit router startup.",
+    "guide": [
+      "Connect your computer to the Chiaro Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Chiaro Networks",
+        "model": "Chiaro Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Chiaro Networks",
+        "model": "Chiaro Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "China Broadnet CPE",
+    "slug": "china-broadnet-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for China Broadnet CPE (China) isp cpe; 5g cpe network devices. China's newest state broadband and 5G operator's branded CPE.",
+    "guide": [
+      "Connect your computer to the China Broadnet CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "China Broadnet CPE",
+        "model": "China Broadnet CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "China Broadnet CPE",
+        "model": "China Broadnet CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "China Mobile CPE",
+    "slug": "china-mobile-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for China Mobile CPE (China) isp cpe network devices. Carrier-branded gateways from domestic ODMs.",
+    "guide": [
+      "Connect your computer to the China Mobile CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "China Mobile CPE",
+        "model": "China Mobile CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "China Mobile CPE",
+        "model": "China Mobile CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "China Unicom CPE",
+    "slug": "china-unicom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for China Unicom CPE (China) isp cpe network devices. Carrier-branded gateways from domestic ODMs.",
+    "guide": [
+      "Connect your computer to the China Unicom CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "China Unicom CPE",
+        "model": "China Unicom CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "China Unicom CPE",
+        "model": "China Unicom CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Chunghwa Telecom (HiNet) CPE",
+    "slug": "chunghwa-telecom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Chunghwa Telecom (HiNet) CPE (Taiwan) isp cpe network devices. Taiwan's largest telco branded fibre gateway.",
+    "guide": [
+      "Connect your computer to the Chunghwa Telecom (HiNet) CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Chunghwa Telecom (HiNet) CPE",
+        "model": "Chunghwa Telecom  CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Chunghwa Telecom (HiNet) CPE",
+        "model": "Chunghwa Telecom  CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Ciena",
+    "slug": "ciena",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ciena (USA) packet-optical; sp routing network devices. 5000 series routers plus WaveLogic optical.",
+    "guide": [
+      "Connect your computer to the Ciena LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ciena",
+        "model": "Ciena Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Ciena",
+        "model": "Ciena Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Cisco Catalyst IR / IE",
+    "slug": "cisco-catalyst-ir",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cisco Catalyst IR / IE (USA) industrial; utility/scada network devices. IR1101, IR1800, IR8340 rugged routers.",
+    "guide": [
+      "Connect your computer to the Cisco Catalyst IR / IE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cisco Catalyst IR / IE",
+        "model": "Cisco Catalyst IR SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Cisco Catalyst IR / IE",
+        "model": "Cisco Catalyst IR Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Cisco Systems",
+    "slug": "cisco-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cisco Systems (USA) enterprise branch; sp edge; sp core; data centre; industrial network devices. Largest full-line router vendor; ISR, ASR, NCS, Catalyst 8000, 8000 series.",
+    "guide": [
+      "Connect your computer to the Cisco Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cisco Systems",
+        "model": "Cisco Systems SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Cisco Systems",
+        "model": "Cisco Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Cisco Viptela",
+    "slug": "cisco-viptela",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cisco Viptela (USA) sd-wan network devices. Acquired 2017; now sold as Cisco Catalyst SD-WAN.",
+    "guide": [
+      "Connect your computer to the Cisco Viptela LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cisco Viptela",
+        "model": "Cisco Viptela SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Cisco Viptela",
+        "model": "Cisco Viptela Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Citrix SD-WAN",
+    "slug": "citrix-sd-wan",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Citrix SD-WAN (USA) sd-wan network devices. Ex-CloudBridge enterprise WAN edge.",
+    "guide": [
+      "Connect your computer to the Citrix SD-WAN LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Citrix SD-WAN",
+        "model": "Citrix SD-WAN SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Citrix SD-WAN",
+        "model": "Citrix SD-WAN Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Claro CPE",
+    "slug": "claro-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Claro CPE (Colombia / LatAm) isp cpe network devices. Regional operator branded router/ONT.",
+    "guide": [
+      "Connect your computer to the Claro CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Claro CPE",
+        "model": "Claro CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Claro CPE",
+        "model": "Claro CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "CloudGenix",
+    "slug": "cloudgenix",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for CloudGenix (USA) sd-wan network devices. Became Prisma SD-WAN.",
+    "guide": [
+      "Connect your computer to the CloudGenix LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "CloudGenix",
+        "model": "CloudGenix SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "CloudGenix",
+        "model": "CloudGenix Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Cobham SATCOM",
+    "slug": "cobham-satcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cobham SATCOM (Denmark) marine; aviation; satellite network devices. SAILOR and EXPLORER satcom routers; sold by Cobham Group to Solix in August 2025.",
+    "guide": [
+      "Connect your computer to the Cobham SATCOM LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cobham SATCOM",
+        "model": "Cobham SATCOM Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Cobham SATCOM",
+        "model": "Cobham SATCOM Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Colubris Networks",
+    "slug": "colubris-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Colubris Networks (Canada) legacy enterprise wlan network devices. Wireless networking vendor.",
+    "guide": [
+      "Connect your computer to the Colubris Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Colubris Networks",
+        "model": "Colubris Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Colubris Networks",
+        "model": "Colubris Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Converge ICT",
+    "slug": "converge-ict",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Converge ICT (Philippines) isp cpe network devices. Philippine ISP branded fibre gateway.",
+    "guide": [
+      "Connect your computer to the Converge ICT LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Converge ICT",
+        "model": "Converge ICT Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Converge ICT",
+        "model": "Converge ICT Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Coriant",
+    "slug": "coriant",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Coriant (Germany) optical transport network devices. Ex-Nokia Siemens unit, folded into Infinera 2018.",
+    "guide": [
+      "Connect your computer to the Coriant LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Coriant",
+        "model": "Coriant Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Coriant",
+        "model": "Coriant Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Corriente Networks",
+    "slug": "corriente-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Corriente Networks (USA) legacy routing technology network devices. Router technology startup.",
+    "guide": [
+      "Connect your computer to the Corriente Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Corriente Networks",
+        "model": "Corriente Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Corriente Networks",
+        "model": "Corriente Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Cosmote / OTE CPE",
+    "slug": "cosmote",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cosmote / OTE CPE (Greece) isp cpe network devices. Greek telco branded router.",
+    "guide": [
+      "Connect your computer to the Cosmote / OTE CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cosmote / OTE CPE",
+        "model": "Cosmote Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Cosmote / OTE CPE",
+        "model": "Cosmote Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "COVR",
+    "slug": "covr",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for COVR (Taiwan) mesh network devices. Sub-brand: D-Link's mesh Wi-Fi line.",
+    "guide": [
+      "Connect your computer to the COVR LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "COVR",
+        "model": "COVR Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "COVR",
+        "model": "COVR Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Cox Panoramic Wifi",
+    "slug": "cox-panoramic-wifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cox Panoramic Wifi (USA) isp cpe; mesh network devices. Cox branded mesh gateway system.",
+    "guide": [
+      "Connect your computer to the Cox Panoramic Wifi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cox Panoramic Wifi",
+        "model": "Cox Panoramic Wifi Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Cox Panoramic Wifi",
+        "model": "Cox Panoramic Wifi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Cumulus Networks",
+    "slug": "cumulus-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cumulus Networks (USA) whitebox nos network devices. Cumulus Linux; acquired by Nvidia 2020.",
+    "guide": [
+      "Connect your computer to the Cumulus Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cumulus Networks",
+        "model": "Cumulus Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Cumulus Networks",
+        "model": "Cumulus Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Curtiss-Wright (Parvus)",
+    "slug": "curtiss-wright",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Curtiss-Wright (Parvus) (USA) military; vehicle network devices. DuraMAR rugged mobile access routers.",
+    "guide": [
+      "Connect your computer to the Curtiss-Wright (Parvus) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Curtiss-Wright (Parvus)",
+        "model": "Curtiss-Wright Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Curtiss-Wright (Parvus)",
+        "model": "Curtiss-Wright Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Cyan Inc.",
+    "slug": "cyan-inc",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Cyan Inc. (USA) legacy packet-optical network devices. Packet-optical and SDN vendor.",
+    "guide": [
+      "Connect your computer to the Cyan Inc. LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Cyan Inc.",
+        "model": "Cyan Inc. Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Cyan Inc.",
+        "model": "Cyan Inc. Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "CyberTAN Technology",
+    "slug": "cybertan-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for CyberTAN Technology (Taiwan) odm network devices. Long-time ODM for Linksys, Netgear and others.",
+    "guide": [
+      "Connect your computer to the CyberTAN Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "CyberTAN Technology",
+        "model": "CyberTAN Technology Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "CyberTAN Technology",
+        "model": "CyberTAN Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "D-Link India",
+    "slug": "d-link-india",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for D-Link India (India) regional consumer / smb network devices. Listed Indian JV assembling and distributing D-Link products.",
+    "guide": [
+      "Connect your computer to the D-Link India LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "D-Link India",
+        "model": "D-Link India SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "D-Link India",
+        "model": "D-Link India Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "DANOS",
+    "slug": "danos",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for DANOS (USA) open nos network devices. AT&T-originated disaggregated NOS.",
+    "guide": [
+      "Connect your computer to the DANOS LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "DANOS",
+        "model": "DANOS Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "DANOS",
+        "model": "DANOS Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "DASAN Network Solutions",
+    "slug": "dasan-network-solutions",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for DASAN Network Solutions (South Korea) sp access network devices. Korean access networking vendor.",
+    "guide": [
+      "Connect your computer to the DASAN Network Solutions LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "DASAN Network Solutions",
+        "model": "DASAN Network Solutions Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "DASAN Network Solutions",
+        "model": "DASAN Network Solutions Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Datto Networking",
+    "slug": "datto-networking",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Datto Networking (USA) smb; msp networking network devices. MSP-focused cloud-managed networking hardware.",
+    "guide": [
+      "Connect your computer to the Datto Networking LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Datto Networking",
+        "model": "Datto Networking SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Datto Networking",
+        "model": "Datto Networking Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Deciso (OPNsense)",
+    "slug": "deciso",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Deciso (OPNsense) (Netherlands) virtual router; smb firewall network devices. Open-source firewall/router distribution and appliances.",
+    "guide": [
+      "Connect your computer to the Deciso (OPNsense) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Deciso (OPNsense)",
+        "model": "Deciso SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Deciso (OPNsense)",
+        "model": "Deciso Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Deco",
+    "slug": "deco",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Deco (China) mesh network devices. Sub-brand: TP-Link's whole-home mesh Wi-Fi line.",
+    "guide": [
+      "Connect your computer to the Deco LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Deco",
+        "model": "Deco Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Deco",
+        "model": "Deco Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Delta Networks / Delta Electronics",
+    "slug": "delta-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Delta Networks / Delta Electronics (Taiwan) whitebox odm network devices. ODM hardware partner for disaggregated routing.",
+    "guide": [
+      "Connect your computer to the Delta Networks / Delta Electronics LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Delta Networks / Delta Electronics",
+        "model": "Delta Networks Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Delta Networks / Delta Electronics",
+        "model": "Delta Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Deutsche Telekom Speedport",
+    "slug": "deutsche-telekom-speedport",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Deutsche Telekom Speedport (Germany) isp cpe network devices. Germany's biggest ISP router line, built by Arcadyan and others.",
+    "guide": [
+      "Connect your computer to the Deutsche Telekom Speedport LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Deutsche Telekom Speedport",
+        "model": "Deutsche Telekom Speedport Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Deutsche Telekom Speedport",
+        "model": "Deutsche Telekom Speedport Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Digi (RCS&RDS) CPE",
+    "slug": "digi-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Digi (RCS&RDS) CPE (Romania) isp cpe network devices. Romanian ISP branded router/ONT.",
+    "guide": [
+      "Connect your computer to the Digi (RCS&RDS) CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Digi (RCS&RDS) CPE",
+        "model": "Digi  CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Digi (RCS&RDS) CPE",
+        "model": "Digi  CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Digital China Networks (DCN)",
+    "slug": "digital-china-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Digital China Networks (DCN) (China) enterprise; sp network devices. DCN-branded routers and switches.",
+    "guide": [
+      "Connect your computer to the Digital China Networks (DCN) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Digital China Networks (DCN)",
+        "model": "Digital China Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Digital China Networks (DCN)",
+        "model": "Digital China Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "DPtech (Hangzhou DPtech)",
+    "slug": "dptech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for DPtech (Hangzhou DPtech) (China) enterprise security routing network devices. Security-plus-routing convergence vendor.",
+    "guide": [
+      "Connect your computer to the DPtech (Hangzhou DPtech) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "DPtech (Hangzhou DPtech)",
+        "model": "DPtech SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "DPtech (Hangzhou DPtech)",
+        "model": "DPtech Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Dragino Technology",
+    "slug": "dragino-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Dragino Technology (China) lorawan; iot network devices. LoRaWAN gateways and edge IoT routers.",
+    "guide": [
+      "Connect your computer to the Dragino Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Dragino Technology",
+        "model": "Dragino Technology SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Dragino Technology",
+        "model": "Dragino Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "DriveNets",
+    "slug": "drivenets",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for DriveNets (Israel) sp core; disaggregated routing network devices. Network Cloud DDC used by AT&T and others.",
+    "guide": [
+      "Connect your computer to the DriveNets LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "DriveNets",
+        "model": "DriveNets Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "DriveNets",
+        "model": "DriveNets Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "du CPE",
+    "slug": "du-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for du CPE (UAE) isp cpe network devices. UAE telco branded home gateways.",
+    "guide": [
+      "Connect your computer to the du CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "du CPE",
+        "model": "du CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "du CPE",
+        "model": "du CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "DZS Inc.",
+    "slug": "dzs-inc",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for DZS Inc. (USA / South Korea) sp access; bng; fwa cpe network devices. DASAN + Zhone merger; bought NetComm Wireless out of Casa's bankruptcy in 2024.",
+    "guide": [
+      "Connect your computer to the DZS Inc. LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "DZS Inc.",
+        "model": "DZS Inc. 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "DZS Inc.",
+        "model": "DZS Inc. Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "e& / Etisalat CPE",
+    "slug": "e",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for e& / Etisalat CPE (UAE) isp cpe network devices. UAE telco branded home gateways.",
+    "guide": [
+      "Connect your computer to the e& / Etisalat CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "e& / Etisalat CPE",
+        "model": "e& Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "e& / Etisalat CPE",
+        "model": "e& Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "E-Lins Technology",
+    "slug": "e-lins-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for E-Lins Technology (China) cellular; industrial network devices. Rugged mobile and industrial cellular routers.",
+    "guide": [
+      "Connect your computer to the E-Lins Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "E-Lins Technology",
+        "model": "E-Lins Technology SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "E-Lins Technology",
+        "model": "E-Lins Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Eaton",
+    "slug": "eaton",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Eaton (Ireland / USA) utility/scada network devices. Grid automation communication devices.",
+    "guide": [
+      "Connect your computer to the Eaton LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Eaton",
+        "model": "Eaton SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Eaton",
+        "model": "Eaton Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ECI Telecom",
+    "slug": "eci-telecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ECI Telecom (Israel) optical; packet transport network devices. Merged into Ribbon c.2020.",
+    "guide": [
+      "Connect your computer to the ECI Telecom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ECI Telecom",
+        "model": "ECI Telecom Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "ECI Telecom",
+        "model": "ECI Telecom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Efficient Networks",
+    "slug": "efficient-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Efficient Networks (USA) legacy dsl cpe network devices. SpeedStream DSL CPE.",
+    "guide": [
+      "Connect your computer to the Efficient Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Efficient Networks",
+        "model": "Efficient Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Efficient Networks",
+        "model": "Efficient Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "eir CPE",
+    "slug": "eir-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for eir CPE (Ireland) isp cpe network devices. Irish incumbent branded router.",
+    "guide": [
+      "Connect your computer to the eir CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "eir CPE",
+        "model": "eir CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "eir CPE",
+        "model": "eir CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Encore Networks",
+    "slug": "encore-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Encore Networks (USA) cellular; industrial network devices. US cellular and VSAT router maker.",
+    "guide": [
+      "Connect your computer to the Encore Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Encore Networks",
+        "model": "Encore Networks SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Encore Networks",
+        "model": "Encore Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Enterasys Networks",
+    "slug": "enterasys-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Enterasys Networks (USA) legacy enterprise network devices. Cabletron spinoff.",
+    "guide": [
+      "Connect your computer to the Enterasys Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Enterasys Networks",
+        "model": "Enterasys Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Enterasys Networks",
+        "model": "Enterasys Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "eWON",
+    "slug": "ewon",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for eWON (Belgium) industrial; remote access network devices. VPN remote-access industrial routers.",
+    "guide": [
+      "Connect your computer to the eWON LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "eWON",
+        "model": "eWON SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "eWON",
+        "model": "eWON Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Extreme Engineering Solutions (X-ES)",
+    "slug": "extreme-engineering-solutions",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Extreme Engineering Solutions (X-ES) (USA) military; embedded network devices. XPand rugged embedded routers and switches.",
+    "guide": [
+      "Connect your computer to the Extreme Engineering Solutions (X-ES) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Extreme Engineering Solutions (X-ES)",
+        "model": "Extreme Engineering Solutions Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Extreme Engineering Solutions (X-ES)",
+        "model": "Extreme Engineering Solutions Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "F-Secure SENSE",
+    "slug": "f-secure-sense",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for F-Secure SENSE (Finland) security router network devices. Security router reached end-of-sale.",
+    "guide": [
+      "Connect your computer to the F-Secure SENSE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "F-Secure SENSE",
+        "model": "F-Secure SENSE Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "F-Secure SENSE",
+        "model": "F-Secure SENSE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "FAST (\u8fc5\u6377 / Melogic)",
+    "slug": "fast",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for FAST (\u8fc5\u6377 / Melogic) (China) consumer wi-fi network devices. China-domestic budget router sub-brand.",
+    "guide": [
+      "Connect your computer to the FAST (\u8fc5\u6377 / Melogic) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "FAST (\u8fc5\u6377 / Melogic)",
+        "model": "FAST Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "FAST (\u8fc5\u6377 / Melogic)",
+        "model": "FAST Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Fastweb CPE",
+    "slug": "fastweb-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Fastweb CPE (Italy) isp cpe network devices. Italian ISP branded gateway.",
+    "guide": [
+      "Connect your computer to the Fastweb CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Fastweb CPE",
+        "model": "Fastweb CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Fastweb CPE",
+        "model": "Fastweb CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "FatPipe Networks",
+    "slug": "fatpipe-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for FatPipe Networks (USA) sd-wan network devices. Early SD-WAN/WAN-bonding pioneer, still independent.",
+    "guide": [
+      "Connect your computer to the FatPipe Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "FatPipe Networks",
+        "model": "FatPipe Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "FatPipe Networks",
+        "model": "FatPipe Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "FiberHome Networks",
+    "slug": "fiberhome-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for FiberHome Networks (China) sp edge; optical; isp cpe network devices. Optical transport plus IP routing and ONT CPE.",
+    "guide": [
+      "Connect your computer to the FiberHome Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "FiberHome Networks",
+        "model": "FiberHome Networks Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "FiberHome Networks",
+        "model": "FiberHome Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Fon Wireless",
+    "slug": "fon-wireless",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Fon Wireless (Spain / UK) community wi-fi network devices. Pioneering Wi-Fi-sharing router brand, largely inactive.",
+    "guide": [
+      "Connect your computer to the Fon Wireless LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Fon Wireless",
+        "model": "Fon Wireless Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Fon Wireless",
+        "model": "Fon Wireless Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Force10 Networks",
+    "slug": "force10-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Force10 Networks (USA) legacy dc routing network devices. Became Dell Networking.",
+    "guide": [
+      "Connect your computer to the Force10 Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Force10 Networks",
+        "model": "Force10 Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Force10 Networks",
+        "model": "Force10 Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Foundry Networks",
+    "slug": "foundry-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Foundry Networks (USA) legacy sp and enterprise network devices. NetIron and BigIron routers.",
+    "guide": [
+      "Connect your computer to the Foundry Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Foundry Networks",
+        "model": "Foundry Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Foundry Networks",
+        "model": "Foundry Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Foxconn / Ingrasys",
+    "slug": "foxconn",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Foxconn / Ingrasys (Taiwan) whitebox odm network devices. ODM for hyperscaler routers and switches.",
+    "guide": [
+      "Connect your computer to the Foxconn / Ingrasys LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Foxconn / Ingrasys",
+        "model": "Foxconn Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Foxconn / Ingrasys",
+        "model": "Foxconn Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Frontier CPE",
+    "slug": "frontier-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Frontier CPE (USA) isp cpe network devices. US fibre ISP branded gateway.",
+    "guide": [
+      "Connect your computer to the Frontier CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Frontier CPE",
+        "model": "Frontier CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Frontier CPE",
+        "model": "Frontier CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "FRRouting (FRR)",
+    "slug": "frrouting",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for FRRouting (FRR) (International) open routing stack network devices. Underpins many commercial NOS products.",
+    "guide": [
+      "Connect your computer to the FRRouting (FRR) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "FRRouting (FRR)",
+        "model": "FRRouting Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "FRRouting (FRR)",
+        "model": "FRRouting Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Fujitsu",
+    "slug": "fujitsu",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Fujitsu (Japan) sp edge; optical network devices. 1FINITY packet-optical and routing platforms.",
+    "guide": [
+      "Connect your computer to the Fujitsu LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Fujitsu",
+        "model": "Fujitsu Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Fujitsu",
+        "model": "Fujitsu Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Furuno Electric",
+    "slug": "furuno-electric",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Furuno Electric (Japan) marine network devices. Marine electronics with satellite router integration.",
+    "guide": [
+      "Connect your computer to the Furuno Electric LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Furuno Electric",
+        "model": "Furuno Electric Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Furuno Electric",
+        "model": "Furuno Electric Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Garderos",
+    "slug": "garderos",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Garderos (Germany) industrial; utility/scada network devices. Secure Linux-based industrial routers.",
+    "guide": [
+      "Connect your computer to the Garderos LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Garderos",
+        "model": "Garderos SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Garderos",
+        "model": "Garderos Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Gargoyle",
+    "slug": "gargoyle",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Gargoyle (USA) open-source firmware network devices. OpenWrt-derived firmware focused on bandwidth control.",
+    "guide": [
+      "Connect your computer to the Gargoyle LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Gargoyle",
+        "model": "Gargoyle SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Gargoyle",
+        "model": "Gargoyle Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "GarrettCom",
+    "slug": "garrettcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for GarrettCom (USA) industrial; utility/scada network devices. Substation-grade rugged routers under Belden.",
+    "guide": [
+      "Connect your computer to the GarrettCom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "GarrettCom",
+        "model": "GarrettCom SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "GarrettCom",
+        "model": "GarrettCom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "GE Vernova (MDS Orbit)",
+    "slug": "ge-vernova",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for GE Vernova (MDS Orbit) (USA) utility/scada; industrial network devices. Licensed and unlicensed radio routers for grid telemetry.",
+    "guide": [
+      "Connect your computer to the GE Vernova (MDS Orbit) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "GE Vernova (MDS Orbit)",
+        "model": "GE Vernova SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "GE Vernova (MDS Orbit)",
+        "model": "GE Vernova Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Gemtek Technology",
+    "slug": "gemtek-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Gemtek Technology (Taiwan) odm / isp cpe; consumer network devices. Router/CPE ODM with some own-brand sales.",
+    "guide": [
+      "Connect your computer to the Gemtek Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Gemtek Technology",
+        "model": "Gemtek Technology Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Gemtek Technology",
+        "model": "Gemtek Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "General Dynamics Mission Systems",
+    "slug": "general-dynamics-mission-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for General Dynamics Mission Systems (USA) military network devices. TACLANE and tactical secure network routing.",
+    "guide": [
+      "Connect your computer to the General Dynamics Mission Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "General Dynamics Mission Systems",
+        "model": "General Dynamics Mission Systems Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "General Dynamics Mission Systems",
+        "model": "General Dynamics Mission Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "General Instrument",
+    "slug": "general-instrument",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for General Instrument (USA) legacy cable cpe network devices. Cable modem and set-top pioneer.",
+    "guide": [
+      "Connect your computer to the General Instrument LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "General Instrument",
+        "model": "General Instrument Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "General Instrument",
+        "model": "General Instrument Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Genexis Sweden",
+    "slug": "genexis-sweden",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Genexis Sweden (Sweden) isp cpe network devices. Acquired parts of the Nordic CPE market.",
+    "guide": [
+      "Connect your computer to the Genexis Sweden LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Genexis Sweden",
+        "model": "Genexis Sweden Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Genexis Sweden",
+        "model": "Genexis Sweden Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Gennum",
+    "slug": "gennum",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Gennum (Canada) networking silicon network devices. Analog and video ICs used in networking gear.",
+    "guide": [
+      "Connect your computer to the Gennum LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Gennum",
+        "model": "Gennum Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Gennum",
+        "model": "Gennum Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Gilat Satellite Networks",
+    "slug": "gilat-satellite-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Gilat Satellite Networks (Israel) satellite network devices. VSAT satellite routers and hubs.",
+    "guide": [
+      "Connect your computer to the Gilat Satellite Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Gilat Satellite Networks",
+        "model": "Gilat Satellite Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Gilat Satellite Networks",
+        "model": "Gilat Satellite Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Gogo",
+    "slug": "gogo",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Gogo (USA) aviation network devices. Inflight connectivity routers and air-to-ground systems.",
+    "guide": [
+      "Connect your computer to the Gogo LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Gogo",
+        "model": "Gogo Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Gogo",
+        "model": "Gogo Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Google Fiber Wi-Fi",
+    "slug": "google-fiber-wi-fi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Google Fiber Wi-Fi (USA) isp cpe network devices. Google Fiber branded gateway.",
+    "guide": [
+      "Connect your computer to the Google Fiber Wi-Fi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Google Fiber Wi-Fi",
+        "model": "Google Fiber Wi-Fi Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Google Fiber Wi-Fi",
+        "model": "Google Fiber Wi-Fi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Google Nest Wifi",
+    "slug": "google-nest-wifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Google Nest Wifi (USA) mesh network devices. Google's current mesh Wi-Fi line (Nest Wifi Pro).",
+    "guide": [
+      "Connect your computer to the Google Nest Wifi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Google Nest Wifi",
+        "model": "Google Nest Wifi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Google Nest Wifi",
+        "model": "Google Nest Wifi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Google OnHub",
+    "slug": "google-onhub",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Google OnHub (USA) consumer wi-fi network devices. 2015-16 Google-designed router built by TP-Link and Asus.",
+    "guide": [
+      "Connect your computer to the Google OnHub LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Google OnHub",
+        "model": "Google OnHub Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Google OnHub",
+        "model": "Google OnHub Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Google Wifi",
+    "slug": "google-wifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Google Wifi (USA) mesh network devices. Predecessor to Nest Wifi.",
+    "guide": [
+      "Connect your computer to the Google Wifi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Google Wifi",
+        "model": "Google Wifi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Google Wifi",
+        "model": "Google Wifi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Graphiant",
+    "slug": "graphiant",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Graphiant (USA) naas / virtual router network devices. Network Edge service positioned against MPLS routers.",
+    "guide": [
+      "Connect your computer to the Graphiant LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Graphiant",
+        "model": "Graphiant SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Graphiant",
+        "model": "Graphiant Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "H3C Magic",
+    "slug": "h3c-magic",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for H3C Magic (China) consumer wi-fi network devices. Consumer sub-brand of enterprise vendor H3C.",
+    "guide": [
+      "Connect your computer to the H3C Magic LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "H3C Magic",
+        "model": "H3C Magic Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "H3C Magic",
+        "model": "H3C Magic Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Handreamnet",
+    "slug": "handreamnet",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Handreamnet (South Korea) enterprise; sp network devices. Korean networking equipment manufacturer.",
+    "guide": [
+      "Connect your computer to the Handreamnet LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Handreamnet",
+        "model": "Handreamnet SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Handreamnet",
+        "model": "Handreamnet Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Harmonic",
+    "slug": "harmonic",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Harmonic (USA) vcmts; bng-adjacent network devices. Virtualised cable access, CMTS/BNG functions.",
+    "guide": [
+      "Connect your computer to the Harmonic LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Harmonic",
+        "model": "Harmonic Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Harmonic",
+        "model": "Harmonic Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Hathway CPE",
+    "slug": "hathway-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hathway CPE (India) isp cpe network devices. Indian cable broadband ISP branded gateway.",
+    "guide": [
+      "Connect your computer to the Hathway CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hathway CPE",
+        "model": "Hathway CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Hathway CPE",
+        "model": "Hathway CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Hawking Technology",
+    "slug": "hawking-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hawking Technology (USA) consumer wi-fi network devices. Long-running budget US Wi-Fi brand.",
+    "guide": [
+      "Connect your computer to the Hawking Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hawking Technology",
+        "model": "Hawking Technology Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Hawking Technology",
+        "model": "Hawking Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Hewlett Packard Enterprise (HPE Networking)",
+    "slug": "hewlett-packard-enterprise",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hewlett Packard Enterprise (HPE Networking) (USA) enterprise; sd-wan; data centre network devices. Now the umbrella for Aruba and Juniper.",
+    "guide": [
+      "Connect your computer to the Hewlett Packard Enterprise (HPE Networking) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hewlett Packard Enterprise (HPE Networking)",
+        "model": "Hewlett Packard Enterprise Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Hewlett Packard Enterprise (HPE Networking)",
+        "model": "Hewlett Packard Enterprise Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "HFCL Limited",
+    "slug": "hfcl-limited",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for HFCL Limited (India) sp routing; wi-fi; bharatnet network devices. Indian router and Wi-Fi manufacturer, BharatNet supplier.",
+    "guide": [
+      "Connect your computer to the HFCL Limited LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "HFCL Limited",
+        "model": "HFCL Limited Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "HFCL Limited",
+        "model": "HFCL Limited Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "HFR Networks",
+    "slug": "hfr-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for HFR Networks (South Korea) optical; sp access network devices. Optical transport and access networking.",
+    "guide": [
+      "Connect your computer to the HFR Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "HFR Networks",
+        "model": "HFR Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "HFR Networks",
+        "model": "HFR Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Hitachi",
+    "slug": "hitachi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hitachi (Japan) sp (legacy routing) network devices. Historic IP router lines, now largely exited.",
+    "guide": [
+      "Connect your computer to the Hitachi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hitachi",
+        "model": "Hitachi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Hitachi",
+        "model": "Hitachi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Hitron Technologies",
+    "slug": "hitron-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hitron Technologies (Taiwan / Canada) cable cpe network devices. Cable modem-router brand popular with North American ISPs.",
+    "guide": [
+      "Connect your computer to the Hitron Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hitron Technologies",
+        "model": "Hitron Technologies Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Hitron Technologies",
+        "model": "Hitron Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "HMS Networks",
+    "slug": "hms-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for HMS Networks (Sweden) industrial; iot network devices. Owns the eWON remote-access router brand.",
+    "guide": [
+      "Connect your computer to the HMS Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "HMS Networks",
+        "model": "HMS Networks SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "HMS Networks",
+        "model": "HMS Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Hon Hai / Foxconn",
+    "slug": "hon-hai",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hon Hai / Foxconn (Taiwan) odm / ems network devices. World's largest EMS; builds CPE for many brands.",
+    "guide": [
+      "Connect your computer to the Hon Hai / Foxconn LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hon Hai / Foxconn",
+        "model": "Hon Hai Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Hon Hai / Foxconn",
+        "model": "Hon Hai Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Hongdian",
+    "slug": "hongdian",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hongdian (China) cellular; utility/scada network devices. Routers for utility, oil and gas telemetry.",
+    "guide": [
+      "Connect your computer to the Hongdian LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hongdian",
+        "model": "Hongdian SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Hongdian",
+        "model": "Hongdian Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "HPE Aruba Networking",
+    "slug": "hpe-aruba-networking",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for HPE Aruba Networking (USA) enterprise branch; sd-wan network devices. EdgeConnect SD-WAN (ex-Silver Peak); Aruba acquired by HP 2015.",
+    "guide": [
+      "Connect your computer to the HPE Aruba Networking LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "HPE Aruba Networking",
+        "model": "HPE Aruba Networking SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "HPE Aruba Networking",
+        "model": "HPE Aruba Networking Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Huawei Technologies",
+    "slug": "huawei-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Huawei Technologies (China) sp core; sp edge; enterprise; data centre; industrial network devices. NetEngine, AR, CloudEngine; #1 or #2 in global router revenue.",
+    "guide": [
+      "Connect your computer to the Huawei Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Huawei Technologies",
+        "model": "Huawei Technologies SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Huawei Technologies",
+        "model": "Huawei Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Hughes Network Systems",
+    "slug": "hughes-network-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Hughes Network Systems (USA) satellite network devices. HX and JUPITER satellite routers.",
+    "guide": [
+      "Connect your computer to the Hughes Network Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Hughes Network Systems",
+        "model": "Hughes Network Systems Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Hughes Network Systems",
+        "model": "Hughes Network Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Icon SI",
+    "slug": "icon-si",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Icon SI (Slovenia) industrial; cellular network devices. European industrial cellular router maker.",
+    "guide": [
+      "Connect your computer to the Icon SI LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Icon SI",
+        "model": "Icon SI SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Icon SI",
+        "model": "Icon SI Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ICP DAS",
+    "slug": "icp-das",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ICP DAS (Taiwan) industrial; iot network devices. IIoT gateways and routers for automation.",
+    "guide": [
+      "Connect your computer to the ICP DAS LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ICP DAS",
+        "model": "ICP DAS SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "ICP DAS",
+        "model": "ICP DAS Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Ikanos Communications",
+    "slug": "ikanos-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ikanos Communications (USA) cpe silicon network devices. DSL and VDSL chipsets.",
+    "guide": [
+      "Connect your computer to the Ikanos Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ikanos Communications",
+        "model": "Ikanos Communications Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Ikanos Communications",
+        "model": "Ikanos Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "IndiHome CPE",
+    "slug": "indihome-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for IndiHome CPE (Indonesia) isp cpe network devices. State telco branded ONT-router.",
+    "guide": [
+      "Connect your computer to the IndiHome CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "IndiHome CPE",
+        "model": "IndiHome CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "IndiHome CPE",
+        "model": "IndiHome CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Infinera",
+    "slug": "infinera",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Infinera (USA) optical transport network devices. Nokia completed the $2.3bn acquisition in February 2025.",
+    "guide": [
+      "Connect your computer to the Infinera LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Infinera",
+        "model": "Infinera Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Infinera",
+        "model": "Infinera Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Inspur",
+    "slug": "inspur",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Inspur (China) data centre networking network devices. Primarily servers; some DC networking gear.",
+    "guide": [
+      "Connect your computer to the Inspur LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Inspur",
+        "model": "Inspur Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Inspur",
+        "model": "Inspur Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Insys icom",
+    "slug": "insys-icom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Insys icom (Germany) industrial; cellular network devices. M2M/IIoT cellular routers, strong in German industry.",
+    "guide": [
+      "Connect your computer to the Insys icom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Insys icom",
+        "model": "Insys icom SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Insys icom",
+        "model": "Insys icom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Intellian Technologies",
+    "slug": "intellian-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Intellian Technologies (South Korea) marine; satellite network devices. Marine VSAT antennas with network routing.",
+    "guide": [
+      "Connect your computer to the Intellian Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Intellian Technologies",
+        "model": "Intellian Technologies Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Intellian Technologies",
+        "model": "Intellian Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Intex Technologies",
+    "slug": "intex-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Intex Technologies (India) consumer wi-fi network devices. Indian consumer electronics brand with routers.",
+    "guide": [
+      "Connect your computer to the Intex Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Intex Technologies",
+        "model": "Intex Technologies Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Intex Technologies",
+        "model": "Intex Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Inventec",
+    "slug": "inventec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Inventec (Taiwan) odm / ems network devices. Electronics ODM with networking lines.",
+    "guide": [
+      "Connect your computer to the Inventec LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Inventec",
+        "model": "Inventec Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Inventec",
+        "model": "Inventec Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "IOGear",
+    "slug": "iogear",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for IOGear (USA) consumer / prosumer network devices. KVM/peripherals brand with some router products.",
+    "guide": [
+      "Connect your computer to the IOGear LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "IOGear",
+        "model": "IOGear SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "IOGear",
+        "model": "IOGear Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "IP Infusion",
+    "slug": "ip-infusion",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for IP Infusion (USA / Japan) disaggregated nos network devices. OcNOS runs on many whitebox routers.",
+    "guide": [
+      "Connect your computer to the IP Infusion LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "IP Infusion",
+        "model": "IP Infusion Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "IP Infusion",
+        "model": "IP Infusion Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Iridium Communications",
+    "slug": "iridium-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Iridium Communications (USA) satellite network devices. GO! and Certus router-hotspot terminals.",
+    "guide": [
+      "Connect your computer to the Iridium Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Iridium Communications",
+        "model": "Iridium Communications Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Iridium Communications",
+        "model": "Iridium Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "iRZ Electronics",
+    "slug": "irz-electronics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for iRZ Electronics (Russia) cellular; industrial network devices. M2M and industrial LTE routers.",
+    "guide": [
+      "Connect your computer to the iRZ Electronics LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "iRZ Electronics",
+        "model": "iRZ Electronics SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "iRZ Electronics",
+        "model": "iRZ Electronics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ITI Limited",
+    "slug": "iti-limited",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ITI Limited (India) sp; bharatnet network devices. PSU manufacturer, BharatNet router partner with HFCL.",
+    "guide": [
+      "Connect your computer to the ITI Limited LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ITI Limited",
+        "model": "ITI Limited Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "ITI Limited",
+        "model": "ITI Limited Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "JioFi / JioFiber CPE",
+    "slug": "jiofi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for JioFi / JioFiber CPE (India) 4g/5g cpe; ftth cpe network devices. Jio-branded hotspots and ONT-routers, OEM and in-house designs.",
+    "guide": [
+      "Connect your computer to the JioFi / JioFiber CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "JioFi / JioFiber CPE",
+        "model": "JioFi Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "JioFi / JioFiber CPE",
+        "model": "JioFi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Juniper Mist",
+    "slug": "juniper-mist",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Juniper Mist (USA) enterprise wlan; ai-driven networking network devices. AI-native Wi-Fi brand acquired by Juniper in 2019.",
+    "guide": [
+      "Connect your computer to the Juniper Mist LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Juniper Mist",
+        "model": "Juniper Mist SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Juniper Mist",
+        "model": "Juniper Mist Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Juniper Networks",
+    "slug": "juniper-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Juniper Networks (USA) sp edge; sp core; data centre; enterprise network devices. MX, PTX, ACX, SRX; HPE closed the $14bn acquisition 2 July 2025.",
+    "guide": [
+      "Connect your computer to the Juniper Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Juniper Networks",
+        "model": "Juniper Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Juniper Networks",
+        "model": "Juniper Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Juniper Session Smart Routing",
+    "slug": "juniper-session-smart-routing",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Juniper Session Smart Routing (USA) sd-wan network devices. Ex-128 Technology, acquired 2020.",
+    "guide": [
+      "Connect your computer to the Juniper Session Smart Routing LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Juniper Session Smart Routing",
+        "model": "Juniper Session Smart Routing SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Juniper Session Smart Routing",
+        "model": "Juniper Session Smart Routing Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Kaon Media",
+    "slug": "kaon-media",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Kaon Media (South Korea) odm; isp cpe; stb network devices. Korean CPE and STB maker supplying global operators.",
+    "guide": [
+      "Connect your computer to the Kaon Media LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Kaon Media",
+        "model": "Kaon Media Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Kaon Media",
+        "model": "Kaon Media Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Klas Telecom",
+    "slug": "klas-telecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Klas Telecom (Ireland / USA) military; vehicle network devices. Voyager and TDMR modular tactical routers.",
+    "guide": [
+      "Connect your computer to the Klas Telecom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Klas Telecom",
+        "model": "Klas Telecom Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Klas Telecom",
+        "model": "Klas Telecom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Kontron",
+    "slug": "kontron",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Kontron (Germany / Austria) industrial; iot network devices. Edge computing gateways marketed as routers.",
+    "guide": [
+      "Connect your computer to the Kontron LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Kontron",
+        "model": "Kontron SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Kontron",
+        "model": "Kontron Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Korenix Technology",
+    "slug": "korenix-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Korenix Technology (Taiwan) industrial network devices. DIN-rail industrial routers and switches.",
+    "guide": [
+      "Connect your computer to the Korenix Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Korenix Technology",
+        "model": "Korenix Technology SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Korenix Technology",
+        "model": "Korenix Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "KPN Experia Box",
+    "slug": "kpn-experia-box",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for KPN Experia Box (Netherlands) isp cpe network devices. Dutch telco branded router.",
+    "guide": [
+      "Connect your computer to the KPN Experia Box LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "KPN Experia Box",
+        "model": "KPN Experia Box Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "KPN Experia Box",
+        "model": "KPN Experia Box Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Kroks",
+    "slug": "kroks",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Kroks (Russia) cellular network devices. LTE routers with integrated modems and antennas.",
+    "guide": [
+      "Connect your computer to the Kroks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Kroks",
+        "model": "Kroks 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Kroks",
+        "model": "Kroks Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "KT CPE",
+    "slug": "kt-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for KT CPE (South Korea) isp cpe network devices. Korean incumbent branded gigabit gateway.",
+    "guide": [
+      "Connect your computer to the KT CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "KT CPE",
+        "model": "KT CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "KT CPE",
+        "model": "KT CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "KVH Industries",
+    "slug": "kvh-industries",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for KVH Industries (USA) marine; satellite network devices. Marine VSAT with integrated IP routing.",
+    "guide": [
+      "Connect your computer to the KVH Industries LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "KVH Industries",
+        "model": "KVH Industries Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "KVH Industries",
+        "model": "KVH Industries Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Kyivstar CPE",
+    "slug": "kyivstar-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Kyivstar CPE (Ukraine) isp cpe network devices. Ukrainian ISP branded router.",
+    "guide": [
+      "Connect your computer to the Kyivstar CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Kyivstar CPE",
+        "model": "Kyivstar CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Kyivstar CPE",
+        "model": "Kyivstar CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Kyland Technology",
+    "slug": "kyland-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Kyland Technology (China) industrial; rail network devices. Industrial network routers and switches.",
+    "guide": [
+      "Connect your computer to the Kyland Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Kyland Technology",
+        "model": "Kyland Technology SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Kyland Technology",
+        "model": "Kyland Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Lantech Communications Global",
+    "slug": "lantech-communications-global",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Lantech Communications Global (Taiwan) industrial network devices. Industrial Ethernet routers and switches.",
+    "guide": [
+      "Connect your computer to the Lantech Communications Global LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Lantech Communications Global",
+        "model": "Lantech Communications Global SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Lantech Communications Global",
+        "model": "Lantech Communications Global Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Lantiq",
+    "slug": "lantiq",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Lantiq (Germany) cpe silicon network devices. Infineon spinoff; DSL and gateway chipsets.",
+    "guide": [
+      "Connect your computer to the Lantiq LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Lantiq",
+        "model": "Lantiq Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Lantiq",
+        "model": "Lantiq Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Laurel Networks",
+    "slug": "laurel-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Laurel Networks (USA) legacy sp edge network devices. Edge router startup.",
+    "guide": [
+      "Connect your computer to the Laurel Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Laurel Networks",
+        "model": "Laurel Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Laurel Networks",
+        "model": "Laurel Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "LG Uplus CPE",
+    "slug": "lg-uplus-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for LG Uplus CPE (South Korea) isp cpe network devices. Korean telco branded home gateway.",
+    "guide": [
+      "Connect your computer to the LG Uplus CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "LG Uplus CPE",
+        "model": "LG Uplus CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "LG Uplus CPE",
+        "model": "LG Uplus CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "LibreCMC",
+    "slug": "librecmc",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for LibreCMC (International) open-source firmware network devices. FSF-endorsed fully free router firmware.",
+    "guide": [
+      "Connect your computer to the LibreCMC LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "LibreCMC",
+        "model": "LibreCMC SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "LibreCMC",
+        "model": "LibreCMC Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Link3 CPE",
+    "slug": "link3-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Link3 CPE (Bangladesh) isp cpe network devices. Bangladeshi ISP branded routers.",
+    "guide": [
+      "Connect your computer to the Link3 CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Link3 CPE",
+        "model": "Link3 CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Link3 CPE",
+        "model": "Link3 CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Logitec",
+    "slug": "logitec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Logitec (Japan) consumer wi-fi network devices. Japanese networking brand absorbed by Elecom.",
+    "guide": [
+      "Connect your computer to the Logitec LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Logitec",
+        "model": "Logitec Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Logitec",
+        "model": "Logitec Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Lucent Technologies",
+    "slug": "lucent-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Lucent Technologies (USA) legacy sp network devices. AT&T spinoff; merged into Alcatel-Lucent 2006.",
+    "guide": [
+      "Connect your computer to the Lucent Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Lucent Technologies",
+        "model": "Lucent Technologies Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Lucent Technologies",
+        "model": "Lucent Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Luma",
+    "slug": "luma",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Luma (USA) mesh network devices. Early crowdfunded mesh Wi-Fi startup.",
+    "guide": [
+      "Connect your computer to the Luma LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Luma",
+        "model": "Luma Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Luma",
+        "model": "Luma Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Lumen / CenturyLink CPE",
+    "slug": "lumen",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Lumen / CenturyLink CPE (USA) isp cpe network devices. US telco branded modem-router.",
+    "guide": [
+      "Connect your computer to the Lumen / CenturyLink CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Lumen / CenturyLink CPE",
+        "model": "Lumen Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Lumen / CenturyLink CPE",
+        "model": "Lumen Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Lyra",
+    "slug": "lyra",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Lyra (Taiwan) mesh network devices. Sub-brand: earlier Asus mesh line, superseded by ZenWiFi.",
+    "guide": [
+      "Connect your computer to the Lyra LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Lyra",
+        "model": "Lyra Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Lyra",
+        "model": "Lyra Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Magyar Telekom CPE",
+    "slug": "magyar-telekom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Magyar Telekom CPE (Hungary) isp cpe network devices. Hungarian telco branded router.",
+    "guide": [
+      "Connect your computer to the Magyar Telekom CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Magyar Telekom CPE",
+        "model": "Magyar Telekom CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Magyar Telekom CPE",
+        "model": "Magyar Telekom CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Maipu Communication Technology",
+    "slug": "maipu-communication-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Maipu Communication Technology (China) enterprise; sp edge network devices. Major Chinese domestic router and switch manufacturer.",
+    "guide": [
+      "Connect your computer to the Maipu Communication Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Maipu Communication Technology",
+        "model": "Maipu Communication Technology Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Maipu Communication Technology",
+        "model": "Maipu Communication Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Maiwe Communication",
+    "slug": "maiwe-communication",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Maiwe Communication (China) utility/scada; industrial network devices. Power/utility wireless routers and RTUs.",
+    "guide": [
+      "Connect your computer to the Maiwe Communication LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Maiwe Communication",
+        "model": "Maiwe Communication SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Maiwe Communication",
+        "model": "Maiwe Communication Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Manhattan",
+    "slug": "manhattan",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Manhattan (Ireland) consumer / prosumer network devices. IC Intracom house networking brand.",
+    "guide": [
+      "Connect your computer to the Manhattan LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Manhattan",
+        "model": "Manhattan SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Manhattan",
+        "model": "Manhattan Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Marconi Communications",
+    "slug": "marconi-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Marconi Communications (UK) legacy sp network devices. Former GEC telecom arm.",
+    "guide": [
+      "Connect your computer to the Marconi Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Marconi Communications",
+        "model": "Marconi Communications Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Marconi Communications",
+        "model": "Marconi Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Maroc Telecom CPE",
+    "slug": "maroc-telecom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Maroc Telecom CPE (Morocco) isp cpe network devices. Moroccan incumbent branded gateways.",
+    "guide": [
+      "Connect your computer to the Maroc Telecom CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Maroc Telecom CPE",
+        "model": "Maroc Telecom CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Maroc Telecom CPE",
+        "model": "Maroc Telecom CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Marvell",
+    "slug": "marvell",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Marvell (USA) router and switch silicon network devices. Prestera and OCTEON networking silicon.",
+    "guide": [
+      "Connect your computer to the Marvell LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Marvell",
+        "model": "Marvell Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Marvell",
+        "model": "Marvell Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "MC Technologies",
+    "slug": "mc-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MC Technologies (Germany) cellular; industrial network devices. M2M router and gateway manufacturer.",
+    "guide": [
+      "Connect your computer to the MC Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MC Technologies",
+        "model": "MC Technologies SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "MC Technologies",
+        "model": "MC Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Mecer / Volkano",
+    "slug": "mecer",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Mecer / Volkano (South Africa) consumer wi-fi network devices. South African distributor house brands including networking.",
+    "guide": [
+      "Connect your computer to the Mecer / Volkano LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Mecer / Volkano",
+        "model": "Mecer Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Mecer / Volkano",
+        "model": "Mecer Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "MediaTek",
+    "slug": "mediatek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MediaTek (Taiwan) router silicon network devices. Filogic Wi-Fi 6/7 router SoCs.",
+    "guide": [
+      "Connect your computer to the MediaTek LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MediaTek",
+        "model": "MediaTek Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "MediaTek",
+        "model": "MediaTek Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "MEO CPE",
+    "slug": "meo-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MEO CPE (Portugal) isp cpe network devices. Portuguese telco branded router/ONT.",
+    "guide": [
+      "Connect your computer to the MEO CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MEO CPE",
+        "model": "MEO CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "MEO CPE",
+        "model": "MEO CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Meraki Go",
+    "slug": "meraki-go",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Meraki Go (USA) smb wi-fi network devices. Cisco Meraki's simplified small-business line.",
+    "guide": [
+      "Connect your computer to the Meraki Go LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Meraki Go",
+        "model": "Meraki Go SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Meraki Go",
+        "model": "Meraki Go Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Meshforce",
+    "slug": "meshforce",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Meshforce (China / USA) consumer mesh network devices. Budget mesh Wi-Fi brand popular on Amazon.",
+    "guide": [
+      "Connect your computer to the Meshforce LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Meshforce",
+        "model": "Meshforce Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Meshforce",
+        "model": "Meshforce Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Meta",
+    "slug": "meta",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Meta (USA) cloud dc in-house network devices. FBOSS software on OCP whitebox hardware.",
+    "guide": [
+      "Connect your computer to the Meta LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Meta",
+        "model": "Meta Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Meta",
+        "model": "Meta Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Metaswitch Networks",
+    "slug": "metaswitch-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Metaswitch Networks (UK) virtual networking software network devices. Acquired 2020.",
+    "guide": [
+      "Connect your computer to the Metaswitch Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Metaswitch Networks",
+        "model": "Metaswitch Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Metaswitch Networks",
+        "model": "Metaswitch Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Microdrive",
+    "slug": "microdrive",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Microdrive (Russia) cellular; industrial network devices. Russian industrial cellular router maker.",
+    "guide": [
+      "Connect your computer to the Microdrive LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Microdrive",
+        "model": "Microdrive SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Microdrive",
+        "model": "Microdrive Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Microsoft",
+    "slug": "microsoft",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Microsoft (USA) cloud dc in-house; open nos network devices. Created and open-sourced SONiC.",
+    "guide": [
+      "Connect your computer to the Microsoft LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Microsoft",
+        "model": "Microsoft Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Microsoft",
+        "model": "Microsoft Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "MilDef Group",
+    "slug": "mildef-group",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MilDef Group (Sweden) military network devices. RM-series rugged tactical routers.",
+    "guide": [
+      "Connect your computer to the MilDef Group LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MilDef Group",
+        "model": "MilDef Group Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "MilDef Group",
+        "model": "MilDef Group Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Minim / FiEE",
+    "slug": "minim",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Minim / FiEE (USA) retail modem-router; software network devices. Delisted from Nasdaq in 2024 and merged into FiEE; held the Motorola networking licence.",
+    "guide": [
+      "Connect your computer to the Minim / FiEE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Minim / FiEE",
+        "model": "Minim Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Minim / FiEE",
+        "model": "Minim Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "MitraStar Technology",
+    "slug": "mitrastar-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MitraStar Technology (Taiwan) odm / isp cpe network devices. Builds gateways for global operators.",
+    "guide": [
+      "Connect your computer to the MitraStar Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MitraStar Technology",
+        "model": "MitraStar Technology Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "MitraStar Technology",
+        "model": "MitraStar Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Mobily CPE",
+    "slug": "mobily-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Mobily CPE (Saudi Arabia) isp cpe network devices. Saudi operator branded 5G and fibre CPE.",
+    "guide": [
+      "Connect your computer to the Mobily CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Mobily CPE",
+        "model": "Mobily CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Mobily CPE",
+        "model": "Mobily CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Motorola Home",
+    "slug": "motorola-home",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Motorola Home (USA) legacy isp cpe network devices. Motorola's cable and CPE unit; the lineage now sits inside Vantiva.",
+    "guide": [
+      "Connect your computer to the Motorola Home LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Motorola Home",
+        "model": "Motorola Home Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Motorola Home",
+        "model": "Motorola Home Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Movistar / VTR CPE",
+    "slug": "movistar",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Movistar / VTR CPE (Chile) isp cpe network devices. Chilean ISP branded routers.",
+    "guide": [
+      "Connect your computer to the Movistar / VTR CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Movistar / VTR CPE",
+        "model": "Movistar Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Movistar / VTR CPE",
+        "model": "Movistar Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Movistar CPE",
+    "slug": "movistar-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Movistar CPE (Spain) isp cpe network devices. Spanish telco branded router.",
+    "guide": [
+      "Connect your computer to the Movistar CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Movistar CPE",
+        "model": "Movistar CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Movistar CPE",
+        "model": "Movistar CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Moxee",
+    "slug": "moxee",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Moxee (USA) 4g/5g hotspots network devices. T-Mobile-focused mobile hotspot brand.",
+    "guide": [
+      "Connect your computer to the Moxee LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Moxee",
+        "model": "Moxee 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Moxee",
+        "model": "Moxee Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "MTN CPE",
+    "slug": "mtn-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MTN CPE (South Africa) isp cpe network devices. Pan-African operator branded MiFi and home routers.",
+    "guide": [
+      "Connect your computer to the MTN CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MTN CPE",
+        "model": "MTN CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "MTN CPE",
+        "model": "MTN CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "MTNL CPE",
+    "slug": "mtnl-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MTNL CPE (India) isp cpe network devices. State telecom CPE for the Delhi and Mumbai circles.",
+    "guide": [
+      "Connect your computer to the MTNL CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MTNL CPE",
+        "model": "MTNL CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "MTNL CPE",
+        "model": "MTNL CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "MTS CPE",
+    "slug": "mts-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for MTS CPE (Russia) isp cpe network devices. Russian operator branded routers.",
+    "guide": [
+      "Connect your computer to the MTS CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "MTS CPE",
+        "model": "MTS CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "MTS CPE",
+        "model": "MTS CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Multi-Tech Systems",
+    "slug": "multi-tech-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Multi-Tech Systems (USA) cellular; industrial; iot network devices. MultiConnect M2M cellular routers and gateways.",
+    "guide": [
+      "Connect your computer to the Multi-Tech Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Multi-Tech Systems",
+        "model": "Multi-Tech Systems SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Multi-Tech Systems",
+        "model": "Multi-Tech Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "NAL Research",
+    "slug": "nal-research",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for NAL Research (USA) satellite; military network devices. Iridium-based satellite router terminals.",
+    "guide": [
+      "Connect your computer to the NAL Research LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "NAL Research",
+        "model": "NAL Research Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "NAL Research",
+        "model": "NAL Research Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Nateks",
+    "slug": "nateks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Nateks (Russia) sp access; transport network devices. Access and transport telecom equipment maker.",
+    "guide": [
+      "Connect your computer to the Nateks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Nateks",
+        "model": "Nateks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Nateks",
+        "model": "Nateks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "National Telecom (NT) CPE",
+    "slug": "national-telecom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for National Telecom (NT) CPE (Thailand) isp cpe network devices. Thai state telco branded CPE.",
+    "guide": [
+      "Connect your computer to the National Telecom (NT) CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "National Telecom (NT) CPE",
+        "model": "National Telecom  CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "National Telecom (NT) CPE",
+        "model": "National Telecom  CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "NEC Corporation",
+    "slug": "nec-corporation",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for NEC Corporation (Japan) sp core; sp edge; optical network devices. IP/MPLS routers and optical transport.",
+    "guide": [
+      "Connect your computer to the NEC Corporation LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "NEC Corporation",
+        "model": "NEC Corporation Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "NEC Corporation",
+        "model": "NEC Corporation Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Netas",
+    "slug": "netas",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Netas (Turkey) sp; enterprise; integration network devices. Turkish telecom equipment maker and integrator.",
+    "guide": [
+      "Connect your computer to the Netas LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Netas",
+        "model": "Netas SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Netas",
+        "model": "Netas Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Netberg",
+    "slug": "netberg",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Netberg (Taiwan) whitebox hardware network devices. Bare-metal switch/router hardware vendor.",
+    "guide": [
+      "Connect your computer to the Netberg LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Netberg",
+        "model": "Netberg Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Netberg",
+        "model": "Netberg Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Netgear ProSAFE / Insight",
+    "slug": "netgear-prosafe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Netgear ProSAFE / Insight (USA) smb network devices. Sub-brand: Netgear's business networking line.",
+    "guide": [
+      "Connect your computer to the Netgear ProSAFE / Insight LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Netgear ProSAFE / Insight",
+        "model": "Netgear ProSAFE SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Netgear ProSAFE / Insight",
+        "model": "Netgear ProSAFE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Netmaster",
+    "slug": "netmaster",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Netmaster (Turkey) consumer / isp cpe network devices. Turkish networking equipment brand.",
+    "guide": [
+      "Connect your computer to the Netmaster LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Netmaster",
+        "model": "Netmaster Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Netmaster",
+        "model": "Netmaster Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "New H3C Group",
+    "slug": "new-h3c-group",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for New H3C Group (China) enterprise; sp; data centre network devices. Originated as the Huawei-3Com JV; HPE exited its stake in 2024.",
+    "guide": [
+      "Connect your computer to the New H3C Group LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "New H3C Group",
+        "model": "New H3C Group Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "New H3C Group",
+        "model": "New H3C Group Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Newifi",
+    "slug": "newifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Newifi (China) consumer wi-fi network devices. Lenovo-affiliated router brand, largely inactive.",
+    "guide": [
+      "Connect your computer to the Newifi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Newifi",
+        "model": "Newifi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Newifi",
+        "model": "Newifi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Nighthawk",
+    "slug": "nighthawk",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Nighthawk (USA) consumer wi-fi; gaming; 5g network devices. Sub-brand: Netgear's performance and gaming router line.",
+    "guide": [
+      "Connect your computer to the Nighthawk LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Nighthawk",
+        "model": "Nighthawk 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Nighthawk",
+        "model": "Nighthawk Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Nokia SR Linux",
+    "slug": "nokia-sr-linux",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Nokia SR Linux (Finland) data centre nos network devices. Open, model-driven NOS for datacentre routing.",
+    "guide": [
+      "Connect your computer to the Nokia SR Linux LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Nokia SR Linux",
+        "model": "Nokia SR Linux Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Nokia SR Linux",
+        "model": "Nokia SR Linux Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Nomadix",
+    "slug": "nomadix",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Nomadix (USA) hospitality / mdu gateway network devices. Leading hotel and guest-network gateway brand; acquired 2024.",
+    "guide": [
+      "Connect your computer to the Nomadix LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Nomadix",
+        "model": "Nomadix Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Nomadix",
+        "model": "Nomadix Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Nortel Networks",
+    "slug": "nortel-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Nortel Networks (Canada) legacy sp and enterprise network devices. Assets to Ericsson, Avaya, Ciena, Genband and others.",
+    "guide": [
+      "Connect your computer to the Nortel Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Nortel Networks",
+        "model": "Nortel Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Nortel Networks",
+        "model": "Nortel Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Norton Core",
+    "slug": "norton-core",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Norton Core (USA) security router network devices. Security-focused consumer router, discontinued c.2020.",
+    "guide": [
+      "Connect your computer to the Norton Core LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Norton Core",
+        "model": "Norton Core Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Norton Core",
+        "model": "Norton Core Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "NTT Flet's CPE",
+    "slug": "ntt-flet-s-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for NTT Flet's CPE (Japan) isp cpe network devices. Japan's largest fibre ISP's branded home gateway.",
+    "guide": [
+      "Connect your computer to the NTT Flet's CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "NTT Flet's CPE",
+        "model": "NTT Flet's CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "NTT Flet's CPE",
+        "model": "NTT Flet's CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Nuage Networks",
+    "slug": "nuage-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Nuage Networks (France / USA) sd-wan; sdn network devices. Nokia's SD-WAN and datacentre SDN unit.",
+    "guide": [
+      "Connect your computer to the Nuage Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Nuage Networks",
+        "model": "Nuage Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Nuage Networks",
+        "model": "Nuage Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "O2 Czech CPE",
+    "slug": "o2-czech-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for O2 Czech CPE (Czechia) isp cpe network devices. Czech telco branded router.",
+    "guide": [
+      "Connect your computer to the O2 Czech CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "O2 Czech CPE",
+        "model": "O2 Czech CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "O2 Czech CPE",
+        "model": "O2 Czech CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Occam Networks",
+    "slug": "occam-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Occam Networks (USA) legacy sp access network devices. Broadband access systems.",
+    "guide": [
+      "Connect your computer to the Occam Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Occam Networks",
+        "model": "Occam Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Occam Networks",
+        "model": "Occam Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Oi CPE",
+    "slug": "oi-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Oi CPE (Brazil) isp cpe network devices. Brazilian telco branded home gateway.",
+    "guide": [
+      "Connect your computer to the Oi CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Oi CPE",
+        "model": "Oi CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Oi CPE",
+        "model": "Oi CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Omada",
+    "slug": "omada",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Omada (China) prosumer / smb wi-fi network devices. Sub-brand: TP-Link's cloud-managed SMB networking line.",
+    "guide": [
+      "Connect your computer to the Omada LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Omada",
+        "model": "Omada SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Omada",
+        "model": "Omada Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "OMRON",
+    "slug": "omron",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for OMRON (Japan) industrial network devices. Factory network routers and gateways.",
+    "guide": [
+      "Connect your computer to the OMRON LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "OMRON",
+        "model": "OMRON SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "OMRON",
+        "model": "OMRON Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Ooredoo CPE",
+    "slug": "ooredoo-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ooredoo CPE (Qatar) isp cpe network devices. Gulf operator branded gateways.",
+    "guide": [
+      "Connect your computer to the Ooredoo CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ooredoo CPE",
+        "model": "Ooredoo CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Ooredoo CPE",
+        "model": "Ooredoo CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Open Systems AG",
+    "slug": "open-systems-ag",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Open Systems AG (Switzerland) managed sd-wan / sase network devices. Managed SASE service provider.",
+    "guide": [
+      "Connect your computer to the Open Systems AG LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Open Systems AG",
+        "model": "Open Systems AG SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Open Systems AG",
+        "model": "Open Systems AG Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Optimum CPE",
+    "slug": "optimum-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Optimum CPE (USA) isp cpe network devices. US cable operator branded gateway.",
+    "guide": [
+      "Connect your computer to the Optimum CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Optimum CPE",
+        "model": "Optimum CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Optimum CPE",
+        "model": "Optimum CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Option NV",
+    "slug": "option-nv",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Option NV (Belgium) cellular network devices. Early 3G/4G router and modem maker.",
+    "guide": [
+      "Connect your computer to the Option NV LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Option NV",
+        "model": "Option NV 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Option NV",
+        "model": "Option NV Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Optus CPE",
+    "slug": "optus-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Optus CPE (Australia) isp cpe network devices. Australian telco branded gateway.",
+    "guide": [
+      "Connect your computer to the Optus CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Optus CPE",
+        "model": "Optus CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Optus CPE",
+        "model": "Optus CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Orange Polska CPE",
+    "slug": "orange-polska-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Orange Polska CPE (Poland) isp cpe network devices. Polish telco branded router.",
+    "guide": [
+      "Connect your computer to the Orange Polska CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Orange Polska CPE",
+        "model": "Orange Polska CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Orange Polska CPE",
+        "model": "Orange Polska CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Orbcomm",
+    "slug": "orbcomm",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Orbcomm (USA) satellite iot network devices. Satellite IoT routers and terminals.",
+    "guide": [
+      "Connect your computer to the Orbcomm LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Orbcomm",
+        "model": "Orbcomm Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Orbcomm",
+        "model": "Orbcomm Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Orbi",
+    "slug": "orbi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Orbi (USA) mesh network devices. Sub-brand: Netgear's premium mesh Wi-Fi system line.",
+    "guide": [
+      "Connect your computer to the Orbi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Orbi",
+        "model": "Orbi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Orbi",
+        "model": "Orbi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Orbic",
+    "slug": "orbic",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Orbic (USA) 4g/5g cpe network devices. Verizon-focused hotspot and CPE brand.",
+    "guide": [
+      "Connect your computer to the Orbic LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Orbic",
+        "model": "Orbic 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Orbic",
+        "model": "Orbic Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ORing Industrial Networking",
+    "slug": "oring-industrial-networking",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ORing Industrial Networking (Taiwan) industrial; rail network devices. Rugged industrial Ethernet routers and switches.",
+    "guide": [
+      "Connect your computer to the ORing Industrial Networking LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ORing Industrial Networking",
+        "model": "ORing Industrial Networking SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "ORing Industrial Networking",
+        "model": "ORing Industrial Networking Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Pace plc",
+    "slug": "pace-plc",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Pace plc (UK) legacy isp cpe; stb network devices. UK set-top and gateway maker.",
+    "guide": [
+      "Connect your computer to the Pace plc LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Pace plc",
+        "model": "Pace plc Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Pace plc",
+        "model": "Pace plc Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Packeteer",
+    "slug": "packeteer",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Packeteer (USA) legacy wan shaping network devices. WAN traffic shaping appliances.",
+    "guide": [
+      "Connect your computer to the Packeteer LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Packeteer",
+        "model": "Packeteer Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Packeteer",
+        "model": "Packeteer Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "PacStar",
+    "slug": "pacstar",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for PacStar (USA) military network devices. PacStar 400/500 series tactical communication modules.",
+    "guide": [
+      "Connect your computer to the PacStar LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "PacStar",
+        "model": "PacStar Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "PacStar",
+        "model": "PacStar Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Palo Alto Networks",
+    "slug": "palo-alto-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Palo Alto Networks (USA) sd-wan; sase network devices. Prisma SD-WAN, ex-CloudGenix (2020).",
+    "guide": [
+      "Connect your computer to the Palo Alto Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Palo Alto Networks",
+        "model": "Palo Alto Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Palo Alto Networks",
+        "model": "Palo Alto Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Paradyne Networks",
+    "slug": "paradyne-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Paradyne Networks (USA) legacy dsl cpe network devices. DSL and modem pioneer.",
+    "guide": [
+      "Connect your computer to the Paradyne Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Paradyne Networks",
+        "model": "Paradyne Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Paradyne Networks",
+        "model": "Paradyne Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Parks (Furukawa Parks)",
+    "slug": "parks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Parks (Furukawa Parks) (Brazil) sp access; isp cpe network devices. Brazilian networking equipment brand.",
+    "guide": [
+      "Connect your computer to the Parks (Furukawa Parks) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Parks (Furukawa Parks)",
+        "model": "Parks Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Parks (Furukawa Parks)",
+        "model": "Parks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Pegatron",
+    "slug": "pegatron",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Pegatron (Taiwan) odm / ems network devices. Major ODM producing routers and CPE.",
+    "guide": [
+      "Connect your computer to the Pegatron LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Pegatron",
+        "model": "Pegatron Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Pegatron",
+        "model": "Pegatron Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Persistent Systems",
+    "slug": "persistent-systems",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Persistent Systems (USA) military; manet network devices. MPU5 MANET radio-router.",
+    "guide": [
+      "Connect your computer to the Persistent Systems LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Persistent Systems",
+        "model": "Persistent Systems Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Persistent Systems",
+        "model": "Persistent Systems Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Pica8",
+    "slug": "pica8",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Pica8 (USA) whitebox nos network devices. PICOS network operating system.",
+    "guide": [
+      "Connect your computer to the Pica8 LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Pica8",
+        "model": "Pica8 Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Pica8",
+        "model": "Pica8 Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Piolink",
+    "slug": "piolink",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Piolink (South Korea) enterprise; adc network devices. Application delivery and security-routing vendor.",
+    "guide": [
+      "Connect your computer to the Piolink LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Piolink",
+        "model": "Piolink SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Piolink",
+        "model": "Piolink Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Pirelli Broadband Solutions",
+    "slug": "pirelli-broadband-solutions",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Pirelli Broadband Solutions (Italy) legacy isp cpe network devices. Italian CPE maker used by Sky Italia and Telecom Italia.",
+    "guide": [
+      "Connect your computer to the Pirelli Broadband Solutions LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Pirelli Broadband Solutions",
+        "model": "Pirelli Broadband Solutions Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Pirelli Broadband Solutions",
+        "model": "Pirelli Broadband Solutions Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Plessey / GPT",
+    "slug": "plessey",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Plessey / GPT (UK) legacy sp network devices. British telecom equipment lineage.",
+    "guide": [
+      "Connect your computer to the Plessey / GPT LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Plessey / GPT",
+        "model": "Plessey Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Plessey / GPT",
+        "model": "Plessey Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Pluris",
+    "slug": "pluris",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Pluris (USA) legacy sp core network devices. Terabit router startup.",
+    "guide": [
+      "Connect your computer to the Pluris LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Pluris",
+        "model": "Pluris Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Pluris",
+        "model": "Pluris Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Plusnet Hub",
+    "slug": "plusnet-hub",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Plusnet Hub (UK) isp cpe network devices. UK ISP branded router.",
+    "guide": [
+      "Connect your computer to the Plusnet Hub LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Plusnet Hub",
+        "model": "Plusnet Hub Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Plusnet Hub",
+        "model": "Plusnet Hub Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Portronics",
+    "slug": "portronics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Portronics (India) consumer wi-fi; accessories network devices. Indian consumer electronics brand with routers and extenders.",
+    "guide": [
+      "Connect your computer to the Portronics LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Portronics",
+        "model": "Portronics Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Portronics",
+        "model": "Portronics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Procket Networks",
+    "slug": "procket-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Procket Networks (USA) legacy sp core network devices. Core router startup absorbed by Cisco.",
+    "guide": [
+      "Connect your computer to the Procket Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Procket Networks",
+        "model": "Procket Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Procket Networks",
+        "model": "Procket Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Proroute",
+    "slug": "proroute",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Proroute (UK) cellular network devices. Rebadged OEM 4G/5G routers for the UK market.",
+    "guide": [
+      "Connect your computer to the Proroute LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Proroute",
+        "model": "Proroute 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Proroute",
+        "model": "Proroute Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Proteon",
+    "slug": "proteon",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Proteon (USA) legacy enterprise network devices. Token Ring era router pioneer.",
+    "guide": [
+      "Connect your computer to the Proteon LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Proteon",
+        "model": "Proteon Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Proteon",
+        "model": "Proteon Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Proximus CPE",
+    "slug": "proximus-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Proximus CPE (Belgium) isp cpe network devices. Belgian telco branded router.",
+    "guide": [
+      "Connect your computer to the Proximus CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Proximus CPE",
+        "model": "Proximus CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Proximus CPE",
+        "model": "Proximus CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "PTCL CPE",
+    "slug": "ptcl-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for PTCL CPE (Pakistan) isp cpe network devices. Pakistani incumbent branded gateways.",
+    "guide": [
+      "Connect your computer to the PTCL CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "PTCL CPE",
+        "model": "PTCL CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "PTCL CPE",
+        "model": "PTCL CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Qualcomm (Atheros)",
+    "slug": "qualcomm",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Qualcomm (Atheros) (USA) router silicon network devices. Networking SoCs in a large share of consumer routers.",
+    "guide": [
+      "Connect your computer to the Qualcomm (Atheros) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Qualcomm (Atheros)",
+        "model": "Qualcomm Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Qualcomm (Atheros)",
+        "model": "Qualcomm Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Quanta Cloud Technology (QCT)",
+    "slug": "quanta-cloud-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Quanta Cloud Technology (QCT) (Taiwan) whitebox odm network devices. ODM datacentre networking hardware.",
+    "guide": [
+      "Connect your computer to the Quanta Cloud Technology (QCT) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Quanta Cloud Technology (QCT)",
+        "model": "Quanta Cloud Technology Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Quanta Cloud Technology (QCT)",
+        "model": "Quanta Cloud Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Racom",
+    "slug": "racom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Racom (Czechia) utility/scada; industrial network devices. RipEX radio routers for SCADA telemetry.",
+    "guide": [
+      "Connect your computer to the Racom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Racom",
+        "model": "Racom SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Racom",
+        "model": "Racom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Rain CPE",
+    "slug": "rain-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Rain CPE (South Africa) isp cpe network devices. South African 4G/5G ISP branded router.",
+    "guide": [
+      "Connect your computer to the Rain CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Rain CPE",
+        "model": "Rain CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Rain CPE",
+        "model": "Rain CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Raisecom Technology",
+    "slug": "raisecom-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Raisecom Technology (China) sp access; aggregation network devices. Carrier access and aggregation routers.",
+    "guide": [
+      "Connect your computer to the Raisecom Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Raisecom Technology",
+        "model": "Raisecom Technology Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Raisecom Technology",
+        "model": "Raisecom Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Rakuten WiFi Pocket",
+    "slug": "rakuten-wifi-pocket",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Rakuten WiFi Pocket (Japan) 4g/5g hotspot network devices. Rakuten Mobile's branded pocket Wi-Fi.",
+    "guide": [
+      "Connect your computer to the Rakuten WiFi Pocket LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Rakuten WiFi Pocket",
+        "model": "Rakuten WiFi Pocket 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Rakuten WiFi Pocket",
+        "model": "Rakuten WiFi Pocket Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Razer Sila",
+    "slug": "razer-sila",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Razer Sila (Singapore / USA) gaming mesh network devices. Razer's short-lived gaming mesh router.",
+    "guide": [
+      "Connect your computer to the Razer Sila LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Razer Sila",
+        "model": "Razer Sila Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Razer Sila",
+        "model": "Razer Sila Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Realme Router",
+    "slug": "realme-router",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Realme Router (China) consumer wi-fi network devices. Smartphone maker's router line, sold in India/Indonesia.",
+    "guide": [
+      "Connect your computer to the Realme Router LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Realme Router",
+        "model": "Realme Router Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Realme Router",
+        "model": "Realme Router Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Realtek",
+    "slug": "realtek",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Realtek (Taiwan) router silicon network devices. Low-cost router and switch SoCs.",
+    "guide": [
+      "Connect your computer to the Realtek LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Realtek",
+        "model": "Realtek Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Realtek",
+        "model": "Realtek Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Red Lion Controls",
+    "slug": "red-lion-controls",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Red Lion Controls (USA) industrial; utility/scada network devices. Protocol gateways and rugged routers; owns Sixnet.",
+    "guide": [
+      "Connect your computer to the Red Lion Controls LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Red Lion Controls",
+        "model": "Red Lion Controls SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Red Lion Controls",
+        "model": "Red Lion Controls Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Redback Networks",
+    "slug": "redback-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Redback Networks (USA) legacy sp edge / bng network devices. SmartEdge BRAS line; Ericsson exited c.2016.",
+    "guide": [
+      "Connect your computer to the Redback Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Redback Networks",
+        "model": "Redback Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Redback Networks",
+        "model": "Redback Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Redmi Router",
+    "slug": "redmi-router",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Redmi Router (China) consumer wi-fi network devices. Xiaomi's budget router sub-brand.",
+    "guide": [
+      "Connect your computer to the Redmi Router LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Redmi Router",
+        "model": "Redmi Router Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Redmi Router",
+        "model": "Redmi Router Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Reyee",
+    "slug": "reyee",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Reyee (China) consumer / smb wi-fi network devices. Ruijie's consumer/SMB sub-brand.",
+    "guide": [
+      "Connect your computer to the Reyee LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Reyee",
+        "model": "Reyee SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Reyee",
+        "model": "Reyee Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Ribbon Communications",
+    "slug": "ribbon-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ribbon Communications (USA) ip optical; sp edge network devices. Neptune and Apollo lines via the ECI merger.",
+    "guide": [
+      "Connect your computer to the Ribbon Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ribbon Communications",
+        "model": "Ribbon Communications Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Ribbon Communications",
+        "model": "Ribbon Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Riverbed Technology",
+    "slug": "riverbed-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Riverbed Technology (USA) sd-wan; wan optimisation network devices. SteelConnect; legacy WAN optimisation heritage.",
+    "guide": [
+      "Connect your computer to the Riverbed Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Riverbed Technology",
+        "model": "Riverbed Technology SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Riverbed Technology",
+        "model": "Riverbed Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Riverstone Networks",
+    "slug": "riverstone-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Riverstone Networks (USA) legacy sp edge network devices. Cabletron spinoff; assets went to Lucent.",
+    "guide": [
+      "Connect your computer to the Riverstone Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Riverstone Networks",
+        "model": "Riverstone Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Riverstone Networks",
+        "model": "Riverstone Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "ROG Rapture",
+    "slug": "rog-rapture",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ROG Rapture (Taiwan) gaming network devices. Sub-brand: Republic of Gamers gaming router line.",
+    "guide": [
+      "Connect your computer to the ROG Rapture LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ROG Rapture",
+        "model": "ROG Rapture Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "ROG Rapture",
+        "model": "ROG Rapture Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Rogers Ignite CPE",
+    "slug": "rogers-ignite-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Rogers Ignite CPE (Canada) isp cpe network devices. Canadian cable operator's branded gateway.",
+    "guide": [
+      "Connect your computer to the Rogers Ignite CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Rogers Ignite CPE",
+        "model": "Rogers Ignite CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Rogers Ignite CPE",
+        "model": "Rogers Ignite CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Rohde & Schwarz",
+    "slug": "rohde-schwarz",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Rohde & Schwarz (Germany) military; enterprise (lancom) network devices. SecuROUTE tactical IP routers; owns Lancom.",
+    "guide": [
+      "Connect your computer to the Rohde & Schwarz LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Rohde & Schwarz",
+        "model": "Rohde & Schwarz Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Rohde & Schwarz",
+        "model": "Rohde & Schwarz Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Rostelecom CPE",
+    "slug": "rostelecom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Rostelecom CPE (Russia) isp cpe network devices. State telco branded ONT-router from Eltex, Zyxel, Huawei.",
+    "guide": [
+      "Connect your computer to the Rostelecom CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Rostelecom CPE",
+        "model": "Rostelecom CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Rostelecom CPE",
+        "model": "Rostelecom CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "RtBrick",
+    "slug": "rtbrick",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for RtBrick (Germany / USA) disaggregated bng network devices. FullStack software for disaggregated broadband gateways.",
+    "guide": [
+      "Connect your computer to the RtBrick LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "RtBrick",
+        "model": "RtBrick Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "RtBrick",
+        "model": "RtBrick Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Ruckus Networks",
+    "slug": "ruckus-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ruckus Networks (USA) enterprise wi-fi; campus networking network devices. Brocade to Arris to CommScope to Vistance to Belden, for $1.85bn in 2026.",
+    "guide": [
+      "Connect your computer to the Ruckus Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ruckus Networks",
+        "model": "Ruckus Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Ruckus Networks",
+        "model": "Ruckus Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "RuggedCom",
+    "slug": "ruggedcom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for RuggedCom (Canada) industrial; utility/scada network devices. Substation-hardened routers; IEEE 1613 / IEC 61850.",
+    "guide": [
+      "Connect your computer to the RuggedCom LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "RuggedCom",
+        "model": "RuggedCom SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "RuggedCom",
+        "model": "RuggedCom Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Ruijie Networks",
+    "slug": "ruijie-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ruijie Networks (China) enterprise; smb; consumer network devices. Major Chinese enterprise networking vendor.",
+    "guide": [
+      "Connect your computer to the Ruijie Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ruijie Networks",
+        "model": "Ruijie Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Ruijie Networks",
+        "model": "Ruijie Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Safaricom Home CPE",
+    "slug": "safaricom-home-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Safaricom Home CPE (Kenya) isp cpe network devices. Kenyan operator branded routers.",
+    "guide": [
+      "Connect your computer to the Safaricom Home CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Safaricom Home CPE",
+        "model": "Safaricom Home CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Safaricom Home CPE",
+        "model": "Safaricom Home CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Samsung Connect Home",
+    "slug": "samsung-connect-home",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Samsung Connect Home (South Korea) mesh network devices. Plume-powered mesh Wi-Fi, discontinued.",
+    "guide": [
+      "Connect your computer to the Samsung Connect Home LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Samsung Connect Home",
+        "model": "Samsung Connect Home Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Samsung Connect Home",
+        "model": "Samsung Connect Home Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Samsung Electronics (Networks)",
+    "slug": "samsung-electronics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Samsung Electronics (Networks) (South Korea) mobile transport; sp edge network devices. Mainly RAN; some IP transport and edge routing.",
+    "guide": [
+      "Connect your computer to the Samsung Electronics (Networks) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Samsung Electronics (Networks)",
+        "model": "Samsung Electronics Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Samsung Electronics (Networks)",
+        "model": "Samsung Electronics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Sangfor Technologies",
+    "slug": "sangfor-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Sangfor Technologies (China) sd-wan; enterprise network devices. SD-WAN and security appliance vendor.",
+    "guide": [
+      "Connect your computer to the Sangfor Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Sangfor Technologies",
+        "model": "Sangfor Technologies SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Sangfor Technologies",
+        "model": "Sangfor Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Sanwa Newtec",
+    "slug": "sanwa-newtec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Sanwa Newtec (Japan) satellite; marine network devices. Satellite and microwave communication routers.",
+    "guide": [
+      "Connect your computer to the Sanwa Newtec LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Sanwa Newtec",
+        "model": "Sanwa Newtec Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Sanwa Newtec",
+        "model": "Sanwa Newtec Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Satel Oy",
+    "slug": "satel-oy",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Satel Oy (Finland) utility/scada network devices. Radio modems and routers for telemetry.",
+    "guide": [
+      "Connect your computer to the Satel Oy LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Satel Oy",
+        "model": "Satel Oy SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Satel Oy",
+        "model": "Satel Oy Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Schneider Electric (ConneXium)",
+    "slug": "schneider-electric",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Schneider Electric (ConneXium) (France) industrial network devices. ConneXium industrial routers and switches.",
+    "guide": [
+      "Connect your computer to the Schneider Electric (ConneXium) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Schneider Electric (ConneXium)",
+        "model": "Schneider Electric SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Schneider Electric (ConneXium)",
+        "model": "Schneider Electric Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Scientific Atlanta",
+    "slug": "scientific-atlanta",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Scientific Atlanta (USA) legacy cable cpe network devices. Cable systems and CPE maker.",
+    "guide": [
+      "Connect your computer to the Scientific Atlanta LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Scientific Atlanta",
+        "model": "Scientific Atlanta Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Scientific Atlanta",
+        "model": "Scientific Atlanta Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Semtech",
+    "slug": "semtech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Semtech (USA) cellular; iot network devices. Owns Sierra Wireless AirLink router line.",
+    "guide": [
+      "Connect your computer to the Semtech LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Semtech",
+        "model": "Semtech SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Semtech",
+        "model": "Semtech Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Shenzhen Gongjin Electronics (T&W)",
+    "slug": "shenzhen-gongjin-electronics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Shenzhen Gongjin Electronics (T&W) (China) odm / ems network devices. Contract manufacturer for TP-Link, Xiaomi and others.",
+    "guide": [
+      "Connect your computer to the Shenzhen Gongjin Electronics (T&W) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Shenzhen Gongjin Electronics (T&W)",
+        "model": "Shenzhen Gongjin Electronics Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Shenzhen Gongjin Electronics (T&W)",
+        "model": "Shenzhen Gongjin Electronics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Shiva Corporation",
+    "slug": "shiva-corporation",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Shiva Corporation (USA) legacy remote access network devices. Remote access and VPN router pioneer.",
+    "guide": [
+      "Connect your computer to the Shiva Corporation LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Shiva Corporation",
+        "model": "Shiva Corporation Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Shiva Corporation",
+        "model": "Shiva Corporation Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Silicom Ltd",
+    "slug": "silicom-ltd",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Silicom Ltd (Israel) ucpe / network appliances network devices. Edge networking appliances and SmartNICs.",
+    "guide": [
+      "Connect your computer to the Silicom Ltd LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Silicom Ltd",
+        "model": "Silicom Ltd Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Silicom Ltd",
+        "model": "Silicom Ltd Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Silver Peak",
+    "slug": "silver-peak",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Silver Peak (USA) sd-wan network devices. Acquired 2020; became Aruba EdgeConnect.",
+    "guide": [
+      "Connect your computer to the Silver Peak LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Silver Peak",
+        "model": "Silver Peak SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Silver Peak",
+        "model": "Silver Peak Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Silvus Technologies",
+    "slug": "silvus-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Silvus Technologies (USA) military; manet network devices. StreamCaster MANET radio-routers.",
+    "guide": [
+      "Connect your computer to the Silvus Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Silvus Technologies",
+        "model": "Silvus Technologies Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Silvus Technologies",
+        "model": "Silvus Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Sixnet",
+    "slug": "sixnet",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Sixnet (USA) industrial; utility/scada network devices. Rugged router line folded into Red Lion.",
+    "guide": [
+      "Connect your computer to the Sixnet LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Sixnet",
+        "model": "Sixnet SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Sixnet",
+        "model": "Sixnet Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "SK Broadband CPE",
+    "slug": "sk-broadband-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SK Broadband CPE (South Korea) isp cpe network devices. Korean ISP branded router.",
+    "guide": [
+      "Connect your computer to the SK Broadband CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SK Broadband CPE",
+        "model": "SK Broadband CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "SK Broadband CPE",
+        "model": "SK Broadband CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Sky Broadband Hub",
+    "slug": "sky-broadband-hub",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Sky Broadband Hub (UK) isp cpe network devices. UK ISP branded router.",
+    "guide": [
+      "Connect your computer to the Sky Broadband Hub LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Sky Broadband Hub",
+        "model": "Sky Broadband Hub Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Sky Broadband Hub",
+        "model": "Sky Broadband Hub Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Skyroam / Solis",
+    "slug": "skyroam",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Skyroam / Solis (USA) travel hotspot network devices. Travel Wi-Fi hotspot brand marketed as Solis.",
+    "guide": [
+      "Connect your computer to the Skyroam / Solis LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Skyroam / Solis",
+        "model": "Skyroam 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Skyroam / Solis",
+        "model": "Skyroam Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Skyworth Digital",
+    "slug": "skyworth-digital",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Skyworth Digital (China) odm; isp cpe; stb network devices. Supplies China Telecom/Mobile and exports gateways.",
+    "guide": [
+      "Connect your computer to the Skyworth Digital LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Skyworth Digital",
+        "model": "Skyworth Digital Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Skyworth Digital",
+        "model": "Skyworth Digital Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "SLT-Mobitel CPE",
+    "slug": "slt-mobitel-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SLT-Mobitel CPE (Sri Lanka) isp cpe network devices. State telco branded ONT-routers.",
+    "guide": [
+      "Connect your computer to the SLT-Mobitel CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SLT-Mobitel CPE",
+        "model": "SLT-Mobitel CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "SLT-Mobitel CPE",
+        "model": "SLT-Mobitel CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "SmartSky Networks",
+    "slug": "smartsky-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SmartSky Networks (USA) aviation network devices. Air-to-ground connectivity, ceased operations.",
+    "guide": [
+      "Connect your computer to the SmartSky Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SmartSky Networks",
+        "model": "SmartSky Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "SmartSky Networks",
+        "model": "SmartSky Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "SNR / NAG Group",
+    "slug": "snr",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SNR / NAG Group (Russia) enterprise; sp network devices. SNR-branded routers and switches.",
+    "guide": [
+      "Connect your computer to the SNR / NAG Group LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SNR / NAG Group",
+        "model": "SNR SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "SNR / NAG Group",
+        "model": "SNR Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "SoftBank CPE",
+    "slug": "softbank-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SoftBank CPE (Japan) isp cpe network devices. Japanese telco branded home router.",
+    "guide": [
+      "Connect your computer to the SoftBank CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SoftBank CPE",
+        "model": "SoftBank CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "SoftBank CPE",
+        "model": "SoftBank CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "SONiC",
+    "slug": "sonic",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SONiC (USA) open nos network devices. Open-source NOS now the base for many DC routers.",
+    "guide": [
+      "Connect your computer to the SONiC LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SONiC",
+        "model": "SONiC Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "SONiC",
+        "model": "SONiC Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Spark NZ CPE",
+    "slug": "spark-nz-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Spark NZ CPE (New Zealand) isp cpe network devices. NZ telco branded router.",
+    "guide": [
+      "Connect your computer to the Spark NZ CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Spark NZ CPE",
+        "model": "Spark NZ CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Spark NZ CPE",
+        "model": "Spark NZ CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Spectranet CPE",
+    "slug": "spectranet-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Spectranet CPE (Nigeria) isp cpe network devices. Nigerian ISP branded LTE routers.",
+    "guide": [
+      "Connect your computer to the Spectranet CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Spectranet CPE",
+        "model": "Spectranet CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Spectranet CPE",
+        "model": "Spectranet CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Spectrum CPE",
+    "slug": "spectrum-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Spectrum CPE (USA) isp cpe network devices. Charter branded cable modem-router.",
+    "guide": [
+      "Connect your computer to the Spectrum CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Spectrum CPE",
+        "model": "Spectrum CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Spectrum CPE",
+        "model": "Spectrum CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "ST Engineering iDirect",
+    "slug": "st-engineering-idirect",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ST Engineering iDirect (Belgium / USA) satellite network devices. VSAT satellite routers for enterprise and maritime.",
+    "guide": [
+      "Connect your computer to the ST Engineering iDirect LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ST Engineering iDirect",
+        "model": "ST Engineering iDirect Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "ST Engineering iDirect",
+        "model": "ST Engineering iDirect Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Starry Station",
+    "slug": "starry-station",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Starry Station (USA) consumer wi-fi network devices. Design-led touchscreen router, discontinued.",
+    "guide": [
+      "Connect your computer to the Starry Station LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Starry Station",
+        "model": "Starry Station Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Starry Station",
+        "model": "Starry Station Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "StarTech.com",
+    "slug": "startech-com",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for StarTech.com (Canada) prosumer / travel network devices. Mostly connectivity; a few travel routers.",
+    "guide": [
+      "Connect your computer to the StarTech.com LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "StarTech.com",
+        "model": "StarTech.com 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "StarTech.com",
+        "model": "StarTech.com Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "stc CPE",
+    "slug": "stc-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for stc CPE (Saudi Arabia) isp cpe network devices. Saudi telco branded routers and 5G CPE.",
+    "guide": [
+      "Connect your computer to the stc CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "stc CPE",
+        "model": "stc CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "stc CPE",
+        "model": "stc CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Sterlite Technologies (STL)",
+    "slug": "sterlite-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Sterlite Technologies (STL) (India) sp access; optical; ftth cpe network devices. Optical fibre plus networking and Garuda routers.",
+    "guide": [
+      "Connect your computer to the Sterlite Technologies (STL) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Sterlite Technologies (STL)",
+        "model": "Sterlite Technologies Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Sterlite Technologies (STL)",
+        "model": "Sterlite Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Sunrise CPE",
+    "slug": "sunrise-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Sunrise CPE (Switzerland) isp cpe network devices. Swiss ISP branded gateway.",
+    "guide": [
+      "Connect your computer to the Sunrise CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Sunrise CPE",
+        "model": "Sunrise CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Sunrise CPE",
+        "model": "Sunrise CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Swisscom Internet-Box",
+    "slug": "swisscom-internet-box",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Swisscom Internet-Box (Switzerland) isp cpe network devices. Swiss ISP branded home gateway.",
+    "guide": [
+      "Connect your computer to the Swisscom Internet-Box LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Swisscom Internet-Box",
+        "model": "Swisscom Internet-Box Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Swisscom Internet-Box",
+        "model": "Swisscom Internet-Box Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "SynOptics",
+    "slug": "synoptics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for SynOptics (USA) legacy enterprise network devices. Ethernet hub and router pioneer.",
+    "guide": [
+      "Connect your computer to the SynOptics LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "SynOptics",
+        "model": "SynOptics Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "SynOptics",
+        "model": "SynOptics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Systematic",
+    "slug": "systematic",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Systematic (Denmark) military network devices. SitaWare tactical communications systems.",
+    "guide": [
+      "Connect your computer to the Systematic LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Systematic",
+        "model": "Systematic Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Systematic",
+        "model": "Systematic Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "T-Mobile Home Internet Gateway",
+    "slug": "t-mobile-home-internet-gateway",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for T-Mobile Home Internet Gateway (USA) 5g fwa cpe network devices. 5G home gateways from Arcadyan, Askey and Sagemcom.",
+    "guide": [
+      "Connect your computer to the T-Mobile Home Internet Gateway LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "T-Mobile Home Internet Gateway",
+        "model": "T-Mobile Home Internet Gateway 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "T-Mobile Home Internet Gateway",
+        "model": "T-Mobile Home Internet Gateway Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "T8",
+    "slug": "t8",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for T8 (Russia) optical/dwdm with packet network devices. Russian DWDM and packet-optical vendor.",
+    "guide": [
+      "Connect your computer to the T8 LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "T8",
+        "model": "T8 Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "T8",
+        "model": "T8 Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Talari Networks",
+    "slug": "talari-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Talari Networks (USA) sd-wan network devices. Acquired by Oracle 2018; product later wound down.",
+    "guide": [
+      "Connect your computer to the Talari Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Talari Networks",
+        "model": "Talari Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Talari Networks",
+        "model": "Talari Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "TalkTalk CPE",
+    "slug": "talktalk-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for TalkTalk CPE (UK) isp cpe network devices. UK ISP branded router.",
+    "guide": [
+      "Connect your computer to the TalkTalk CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "TalkTalk CPE",
+        "model": "TalkTalk CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "TalkTalk CPE",
+        "model": "TalkTalk CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Tapo",
+    "slug": "tapo",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Tapo (China) consumer wi-fi; smart home network devices. Sub-brand: budget smart-home and entry Wi-Fi devices.",
+    "guide": [
+      "Connect your computer to the Tapo LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Tapo",
+        "model": "Tapo Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Tapo",
+        "model": "Tapo Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "TCI / Mokhaberat CPE",
+    "slug": "tci",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for TCI / Mokhaberat CPE (Iran) isp cpe network devices. Iranian state telco branded modem-routers, locally assembled.",
+    "guide": [
+      "Connect your computer to the TCI / Mokhaberat CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "TCI / Mokhaberat CPE",
+        "model": "TCI Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "TCI / Mokhaberat CPE",
+        "model": "TCI Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telecom Argentina CPE",
+    "slug": "telecom-argentina-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telecom Argentina CPE (Argentina) isp cpe network devices. Argentine telco branded router.",
+    "guide": [
+      "Connect your computer to the Telecom Argentina CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telecom Argentina CPE",
+        "model": "Telecom Argentina CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telecom Argentina CPE",
+        "model": "Telecom Argentina CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telecom Egypt (WE)",
+    "slug": "telecom-egypt",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telecom Egypt (WE) (Egypt) isp cpe network devices. Egyptian incumbent branded router/ONT.",
+    "guide": [
+      "Connect your computer to the Telecom Egypt (WE) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telecom Egypt (WE)",
+        "model": "Telecom Egypt Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telecom Egypt (WE)",
+        "model": "Telecom Egypt Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telenet CPE",
+    "slug": "telenet-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telenet CPE (Belgium) isp cpe network devices. Belgian cable branded gateway.",
+    "guide": [
+      "Connect your computer to the Telenet CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telenet CPE",
+        "model": "Telenet CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telenet CPE",
+        "model": "Telenet CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telenor CPE",
+    "slug": "telenor-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telenor CPE (Norway) isp cpe network devices. Nordic operator branded router.",
+    "guide": [
+      "Connect your computer to the Telenor CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telenor CPE",
+        "model": "Telenor CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telenor CPE",
+        "model": "Telenor CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Teleofis",
+    "slug": "teleofis",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Teleofis (Russia) cellular; utility/scada network devices. Industrial cellular terminals and routers.",
+    "guide": [
+      "Connect your computer to the Teleofis LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Teleofis",
+        "model": "Teleofis SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Teleofis",
+        "model": "Teleofis Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Telia CPE",
+    "slug": "telia-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telia CPE (Sweden / Nordics) isp cpe network devices. Nordic incumbent branded router.",
+    "guide": [
+      "Connect your computer to the Telia CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telia CPE",
+        "model": "Telia CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telia CPE",
+        "model": "Telia CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telkom SA CPE",
+    "slug": "telkom-sa-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telkom SA CPE (South Africa) isp cpe network devices. South African incumbent branded router.",
+    "guide": [
+      "Connect your computer to the Telkom SA CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telkom SA CPE",
+        "model": "Telkom SA CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telkom SA CPE",
+        "model": "Telkom SA CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telmex / izzi CPE",
+    "slug": "telmex",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telmex / izzi CPE (Mexico) isp cpe network devices. Mexican telco and cable branded CPE.",
+    "guide": [
+      "Connect your computer to the Telmex / izzi CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telmex / izzi CPE",
+        "model": "Telmex Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telmex / izzi CPE",
+        "model": "Telmex Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telsey Telecommunications",
+    "slug": "telsey-telecommunications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telsey Telecommunications (Italy) legacy isp cpe network devices. Italian STB and CPE maker.",
+    "guide": [
+      "Connect your computer to the Telsey Telecommunications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telsey Telecommunications",
+        "model": "Telsey Telecommunications Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telsey Telecommunications",
+        "model": "Telsey Telecommunications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Telstra Smart Modem",
+    "slug": "telstra-smart-modem",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telstra Smart Modem (Australia) isp cpe network devices. Australian telco branded router.",
+    "guide": [
+      "Connect your computer to the Telstra Smart Modem LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telstra Smart Modem",
+        "model": "Telstra Smart Modem Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telstra Smart Modem",
+        "model": "Telstra Smart Modem Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Teltonika Networks",
+    "slug": "teltonika-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Teltonika Networks (Lithuania) industrial; cellular 4g/5g; iot network devices. RUT/RUTX/TRB DIN-rail routers; one of the widest cellular SKU ranges.",
+    "guide": [
+      "Connect your computer to the Teltonika Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Teltonika Networks",
+        "model": "Teltonika Networks SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Teltonika Networks",
+        "model": "Teltonika Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Telus CPE",
+    "slug": "telus-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Telus CPE (Canada) isp cpe network devices. Canadian telco branded home gateway.",
+    "guide": [
+      "Connect your computer to the Telus CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Telus CPE",
+        "model": "Telus CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Telus CPE",
+        "model": "Telus CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Thales",
+    "slug": "thales",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Thales (France) military; satellite; marine network devices. Tactical routers and VesseLINK satellite terminals.",
+    "guide": [
+      "Connect your computer to the Thales LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Thales",
+        "model": "Thales Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Thales",
+        "model": "Thales Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Thomson / SpeedTouch",
+    "slug": "thomson",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Thomson / SpeedTouch (France) legacy isp cpe network devices. SpeedTouch was one of Europe's most-deployed CPE lines.",
+    "guide": [
+      "Connect your computer to the Thomson / SpeedTouch LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Thomson / SpeedTouch",
+        "model": "Thomson Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Thomson / SpeedTouch",
+        "model": "Thomson Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "TIM Brasil CPE",
+    "slug": "tim-brasil-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for TIM Brasil CPE (Brazil) isp cpe network devices. Brazilian mobile and fibre operator branded router.",
+    "guide": [
+      "Connect your computer to the TIM Brasil CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "TIM Brasil CPE",
+        "model": "TIM Brasil CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "TIM Brasil CPE",
+        "model": "TIM Brasil CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "TIM CPE",
+    "slug": "tim-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for TIM CPE (Italy) isp cpe network devices. Italian telco branded router.",
+    "guide": [
+      "Connect your computer to the TIM CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "TIM CPE",
+        "model": "TIM CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "TIM CPE",
+        "model": "TIM CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Tomato / FreshTomato",
+    "slug": "tomato",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Tomato / FreshTomato (International) open-source firmware network devices. Broadcom-focused third-party firmware fork.",
+    "guide": [
+      "Connect your computer to the Tomato / FreshTomato LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Tomato / FreshTomato",
+        "model": "Tomato SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Tomato / FreshTomato",
+        "model": "Tomato Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Totalplay CPE",
+    "slug": "totalplay-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Totalplay CPE (Mexico) isp cpe network devices. Mexican ISP branded router/ONT.",
+    "guide": [
+      "Connect your computer to the Totalplay CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Totalplay CPE",
+        "model": "Totalplay CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Totalplay CPE",
+        "model": "Totalplay CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Trapeze Networks",
+    "slug": "trapeze-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Trapeze Networks (USA) legacy enterprise wlan network devices. Wi-Fi controller vendor.",
+    "guide": [
+      "Connect your computer to the Trapeze Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Trapeze Networks",
+        "model": "Trapeze Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Trapeze Networks",
+        "model": "Trapeze Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "TUF Gaming (networking)",
+    "slug": "tuf-gaming",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for TUF Gaming (networking) (Taiwan) gaming network devices. Sub-brand: mid-tier Asus gaming router line.",
+    "guide": [
+      "Connect your computer to the TUF Gaming (networking) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "TUF Gaming (networking)",
+        "model": "TUF Gaming Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "TUF Gaming (networking)",
+        "model": "TUF Gaming Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "T\u00fcrk Telekom CPE",
+    "slug": "t-rk-telekom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for T\u00fcrk Telekom CPE (Turkey) isp cpe network devices. Turkish incumbent branded router from AirTies, Zyxel.",
+    "guide": [
+      "Connect your computer to the T\u00fcrk Telekom CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "T\u00fcrk Telekom CPE",
+        "model": "T\u00fcrk Telekom CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "T\u00fcrk Telekom CPE",
+        "model": "T\u00fcrk Telekom CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Ubiquiti Networks",
+    "slug": "ubiquiti-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ubiquiti Networks (USA) smb; enterprise; prosumer network devices. EdgeRouter, UniFi Gateway, UniFi Dream Machine lines.",
+    "guide": [
+      "Connect your computer to the Ubiquiti Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ubiquiti Networks",
+        "model": "Ubiquiti Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Ubiquiti Networks",
+        "model": "Ubiquiti Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "UfiSpace",
+    "slug": "ufispace",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for UfiSpace (Taiwan) whitebox / disaggregated routers network devices. Hardware behind many DriveNets and AT&T deployments.",
+    "guide": [
+      "Connect your computer to the UfiSpace LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "UfiSpace",
+        "model": "UfiSpace Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "UfiSpace",
+        "model": "UfiSpace Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Unifi (TM)",
+    "slug": "unifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Unifi (TM) (Malaysia) isp cpe network devices. Malaysian incumbent's branded router/ONT.",
+    "guide": [
+      "Connect your computer to the Unifi (TM) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Unifi (TM)",
+        "model": "Unifi Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Unifi (TM)",
+        "model": "Unifi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Unisphere Networks",
+    "slug": "unisphere-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Unisphere Networks (USA) legacy sp edge network devices. Became Juniper's ERX/E-series edge routers.",
+    "guide": [
+      "Connect your computer to the Unisphere Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Unisphere Networks",
+        "model": "Unisphere Networks Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Unisphere Networks",
+        "model": "Unisphere Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Unisplendour (UNIS)",
+    "slug": "unisplendour",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Unisplendour (UNIS) (China) holding company network devices. Parent of New H3C.",
+    "guide": [
+      "Connect your computer to the Unisplendour (UNIS) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Unisplendour (UNIS)",
+        "model": "Unisplendour Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Unisplendour (UNIS)",
+        "model": "Unisplendour Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "Universal Global Scientific (USI)",
+    "slug": "universal-global-scientific",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Universal Global Scientific (USI) (Taiwan) odm / ems network devices. Broad electronics ODM including networking modules.",
+    "guide": [
+      "Connect your computer to the Universal Global Scientific (USI) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Universal Global Scientific (USI)",
+        "model": "Universal Global Scientific Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Universal Global Scientific (USI)",
+        "model": "Universal Global Scientific Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "US Robotics",
+    "slug": "us-robotics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for US Robotics (USA) consumer modem-router network devices. Historic US modem brand still selling networking gear.",
+    "guide": [
+      "Connect your computer to the US Robotics LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "US Robotics",
+        "model": "US Robotics Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "US Robotics",
+        "model": "US Robotics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "USR IOT (Jinan USR / PUSR)",
+    "slug": "usr-iot",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for USR IOT (Jinan USR / PUSR) (China) cellular; industrial network devices. Serial-to-cellular gateways and industrial routers.",
+    "guide": [
+      "Connect your computer to the USR IOT (Jinan USR / PUSR) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "USR IOT (Jinan USR / PUSR)",
+        "model": "USR IOT SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "USR IOT (Jinan USR / PUSR)",
+        "model": "USR IOT Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Utepo",
+    "slug": "utepo",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Utepo (China) industrial; poe network devices. Industrial and PoE networking including routers.",
+    "guide": [
+      "Connect your computer to the Utepo LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Utepo",
+        "model": "Utepo SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Utepo",
+        "model": "Utepo Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "V-SOL",
+    "slug": "v-sol",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for V-SOL (China) ftth ont/router network devices. Widely exported GPON ONU-router brand for regional ISPs.",
+    "guide": [
+      "Connect your computer to the V-SOL LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "V-SOL",
+        "model": "V-SOL Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "V-SOL",
+        "model": "V-SOL Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Vecima Networks",
+    "slug": "vecima-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vecima Networks (Canada) cable access; bng-adjacent network devices. Cable access and video delivery systems; was the backup bidder for Casa's cable assets.",
+    "guide": [
+      "Connect your computer to the Vecima Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vecima Networks",
+        "model": "Vecima Networks Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      },
+      {
+        "brand": "Vecima Networks",
+        "model": "Vecima Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "SSH"
+      }
+    ]
+  },
+  {
+    "name": "VeloCloud",
+    "slug": "velocloud",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for VeloCloud (USA) sd-wan network devices. VMware to Broadcom to Arista; one of the original SD-WAN leaders.",
+    "guide": [
+      "Connect your computer to the VeloCloud LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "VeloCloud",
+        "model": "VeloCloud SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "VeloCloud",
+        "model": "VeloCloud Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Velop",
+    "slug": "velop",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Velop (USA) mesh network devices. Sub-brand: Linksys mesh Wi-Fi system line.",
+    "guide": [
+      "Connect your computer to the Velop LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Velop",
+        "model": "Velop Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Velop",
+        "model": "Velop Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Ventus",
+    "slug": "ventus",
+    "defaultIp": "192.168.8.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Ventus (USA) managed wireless wan network devices. Managed network services acquired by Digi 2021.",
+    "guide": [
+      "Connect your computer to the Ventus LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.8.1 (or https://192.168.8.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Ventus",
+        "model": "Ventus 4G/5G Cellular Pro Gateway",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Ventus",
+        "model": "Ventus Gigabit Multi-Service Router",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Verizon Fios Router",
+    "slug": "verizon-fios-router",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Verizon Fios Router (USA) isp cpe network devices. Verizon branded fibre gateway from Actiontec and Askey.",
+    "guide": [
+      "Connect your computer to the Verizon Fios Router LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Verizon Fios Router",
+        "model": "Verizon Fios Router Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Verizon Fios Router",
+        "model": "Verizon Fios Router Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Versa Networks",
+    "slug": "versa-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Versa Networks (USA) sd-wan; sase network devices. Pure-play SD-WAN/SASE software vendor.",
+    "guide": [
+      "Connect your computer to the Versa Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Versa Networks",
+        "model": "Versa Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Versa Networks",
+        "model": "Versa Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Vestel",
+    "slug": "vestel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vestel (Turkey) consumer electronics; cpe network devices. Turkish electronics conglomerate that also builds CPE.",
+    "guide": [
+      "Connect your computer to the Vestel LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vestel",
+        "model": "Vestel Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Vestel",
+        "model": "Vestel Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Vi (Vodafone Idea) CPE",
+    "slug": "vi-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vi (Vodafone Idea) CPE (India) 4g/5g cpe; ftth cpe network devices. Indian telco branded home routers and hotspots.",
+    "guide": [
+      "Connect your computer to the Vi (Vodafone Idea) CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vi (Vodafone Idea) CPE",
+        "model": "Vi  CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Vi (Vodafone Idea) CPE",
+        "model": "Vi  CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Viasat",
+    "slug": "viasat",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Viasat (USA) satellite; military network devices. Satellite modems/routers and tactical networking.",
+    "guide": [
+      "Connect your computer to the Viasat LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Viasat",
+        "model": "Viasat Enterprise Core Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Viasat",
+        "model": "Viasat Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Viettel High Tech",
+    "slug": "viettel-high-tech",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Viettel High Tech (Vietnam) isp cpe; telecom equipment network devices. Vietnamese conglomerate's equipment unit.",
+    "guide": [
+      "Connect your computer to the Viettel High Tech LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Viettel High Tech",
+        "model": "Viettel High Tech Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Viettel High Tech",
+        "model": "Viettel High Tech Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Vilfo",
+    "slug": "vilfo",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vilfo (Sweden) prosumer; vpn router network devices. Swedish premium VPN-focused router brand.",
+    "guide": [
+      "Connect your computer to the Vilfo LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vilfo",
+        "model": "Vilfo SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Vilfo",
+        "model": "Vilfo Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Virgin Media Hub",
+    "slug": "virgin-media-hub",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Virgin Media Hub (UK) isp cpe network devices. UK cable branded gateway.",
+    "guide": [
+      "Connect your computer to the Virgin Media Hub LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Virgin Media Hub",
+        "model": "Virgin Media Hub Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Virgin Media Hub",
+        "model": "Virgin Media Hub Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Vistance Networks (ex-CommScope)",
+    "slug": "vistance-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vistance Networks (ex-CommScope) (USA) cable access; enterprise wi-fi network devices. CommScope name went to Amphenol with the cable business in Jan 2026; remainder renamed Vistance.",
+    "guide": [
+      "Connect your computer to the Vistance Networks (ex-CommScope) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vistance Networks (ex-CommScope)",
+        "model": "Vistance Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Vistance Networks (ex-CommScope)",
+        "model": "Vistance Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Vivo CPE",
+    "slug": "vivo-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vivo CPE (Brazil) isp cpe network devices. Brazil's largest telco branded ONT-router.",
+    "guide": [
+      "Connect your computer to the Vivo CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vivo CPE",
+        "model": "Vivo CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Vivo CPE",
+        "model": "Vivo CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Vodacom CPE",
+    "slug": "vodacom-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vodacom CPE (South Africa) isp cpe; 5g cpe network devices. Leading South African operator branded CPE.",
+    "guide": [
+      "Connect your computer to the Vodacom CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vodacom CPE",
+        "model": "Vodacom CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Vodacom CPE",
+        "model": "Vodacom CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Vonets",
+    "slug": "vonets",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vonets (China) wi-fi bridge; iot modules network devices. Wi-Fi bridge and mini-router module maker.",
+    "guide": [
+      "Connect your computer to the Vonets LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vonets",
+        "model": "Vonets SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Vonets",
+        "model": "Vonets Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Vyatta",
+    "slug": "vyatta",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Vyatta (USA) legacy virtual router network devices. Open-source software router; lineage feeds VyOS and DANOS.",
+    "guide": [
+      "Connect your computer to the Vyatta LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Vyatta",
+        "model": "Vyatta Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Vyatta",
+        "model": "Vyatta Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "VyOS Networks",
+    "slug": "vyos-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for VyOS Networks (USA / Estonia) virtual router network devices. Commercial open-source network OS, Vyatta lineage.",
+    "guide": [
+      "Connect your computer to the VyOS Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "VyOS Networks",
+        "model": "VyOS Networks SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "VyOS Networks",
+        "model": "VyOS Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "WatchGuard Technologies",
+    "slug": "watchguard-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for WatchGuard Technologies (USA) smb/branch network devices. Firebox SMB firewall-routers.",
+    "guide": [
+      "Connect your computer to the WatchGuard Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "WatchGuard Technologies",
+        "model": "WatchGuard Technologies SD-WAN Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "WatchGuard Technologies",
+        "model": "WatchGuard Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Wateen / Nayatel CPE",
+    "slug": "wateen",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Wateen / Nayatel CPE (Pakistan) isp cpe network devices. Pakistani broadband ISP branded devices.",
+    "guide": [
+      "Connect your computer to the Wateen / Nayatel CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Wateen / Nayatel CPE",
+        "model": "Wateen Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Wateen / Nayatel CPE",
+        "model": "Wateen Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Wellfleet Communications",
+    "slug": "wellfleet-communications",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Wellfleet Communications (USA) legacy enterprise network devices. Early multiprotocol router pioneer.",
+    "guide": [
+      "Connect your computer to the Wellfleet Communications LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Wellfleet Communications",
+        "model": "Wellfleet Communications Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Wellfleet Communications",
+        "model": "Wellfleet Communications Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Welotec",
+    "slug": "welotec",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Welotec (Germany) industrial; utility network devices. DIN-rail routers and IIoT gateways.",
+    "guide": [
+      "Connect your computer to the Welotec LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Welotec",
+        "model": "Welotec SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Welotec",
+        "model": "Welotec Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Westell Technologies",
+    "slug": "westell-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Westell Technologies (USA) legacy dsl cpe network devices. Major US DSL CPE supplier.",
+    "guide": [
+      "Connect your computer to the Westell Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Westell Technologies",
+        "model": "Westell Technologies Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Westell Technologies",
+        "model": "Westell Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Wingtech Technology",
+    "slug": "wingtech-technology",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Wingtech Technology (China) odm / ems network devices. Chinese ODM giant; owns Ubee Interactive.",
+    "guide": [
+      "Connect your computer to the Wingtech Technology LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Wingtech Technology",
+        "model": "Wingtech Technology Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Wingtech Technology",
+        "model": "Wingtech Technology Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Wistron NeWeb (WNC)",
+    "slug": "wistron-neweb",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Wistron NeWeb (WNC) (Taiwan) odm / isp cpe network devices. CPE and cellular router ODM.",
+    "guide": [
+      "Connect your computer to the Wistron NeWeb (WNC) LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Wistron NeWeb (WNC)",
+        "model": "Wistron NeWeb Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Wistron NeWeb (WNC)",
+        "model": "Wistron NeWeb Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Wlink Networks",
+    "slug": "wlink-networks",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Wlink Networks (China) cellular; industrial network devices. Industrial 4G/5G routers and gateways.",
+    "guide": [
+      "Connect your computer to the Wlink Networks LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Wlink Networks",
+        "model": "Wlink Networks SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Wlink Networks",
+        "model": "Wlink Networks Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Xfinity xFi Gateway",
+    "slug": "xfinity-xfi-gateway",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Xfinity xFi Gateway (USA) isp cpe network devices. Comcast's branded cable gateway.",
+    "guide": [
+      "Connect your computer to the Xfinity xFi Gateway LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Xfinity xFi Gateway",
+        "model": "Xfinity xFi Gateway Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Xfinity xFi Gateway",
+        "model": "Xfinity xFi Gateway Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Xiaomi AIoT Router",
+    "slug": "xiaomi-aiot-router",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Xiaomi AIoT Router (China) consumer wi-fi network devices. Higher-end Xiaomi Wi-Fi 6/7 sub-line.",
+    "guide": [
+      "Connect your computer to the Xiaomi AIoT Router LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Xiaomi AIoT Router",
+        "model": "Xiaomi AIoT Router Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Xiaomi AIoT Router",
+        "model": "Xiaomi AIoT Router Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Yeastar",
+    "slug": "yeastar",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Yeastar (China) smb; voip gateways network devices. VoIP-centric SMB gateways and routers.",
+    "guide": [
+      "Connect your computer to the Yeastar LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Yeastar",
+        "model": "Yeastar SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Yeastar",
+        "model": "Yeastar Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "YunCore",
+    "slug": "yuncore",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for YunCore (China) wisp; outdoor cpe network devices. Outdoor CPE maker common in OpenWrt hardware listings.",
+    "guide": [
+      "Connect your computer to the YunCore LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "YunCore",
+        "model": "YunCore SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "YunCore",
+        "model": "YunCore Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Zain CPE",
+    "slug": "zain-cpe",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Zain CPE (Kuwait) isp cpe network devices. Gulf operator branded 5G CPE.",
+    "guide": [
+      "Connect your computer to the Zain CPE LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Zain CPE",
+        "model": "Zain CPE Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Zain CPE",
+        "model": "Zain CPE Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Zebronics",
+    "slug": "zebronics",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Zebronics (India) consumer wi-fi network devices. Indian electronics brand with a router lineup.",
+    "guide": [
+      "Connect your computer to the Zebronics LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Zebronics",
+        "model": "Zebronics Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Zebronics",
+        "model": "Zebronics Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Zeetel / IOT Industrial",
+    "slug": "zeetel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Zeetel / IOT Industrial (India) cellular; industrial network devices. Indian rugged cellular router makers.",
+    "guide": [
+      "Connect your computer to the Zeetel / IOT Industrial LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Zeetel / IOT Industrial",
+        "model": "Zeetel SMB Router Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      },
+      {
+        "brand": "Zeetel / IOT Industrial",
+        "model": "Zeetel Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "ZenWiFi",
+    "slug": "zenwifi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ZenWiFi (Taiwan) mesh network devices. Sub-brand: Asus mesh Wi-Fi line.",
+    "guide": [
+      "Connect your computer to the ZenWiFi LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ZenWiFi",
+        "model": "ZenWiFi Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "ZenWiFi",
+        "model": "ZenWiFi Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Zhone Technologies",
+    "slug": "zhone-technologies",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Zhone Technologies (USA) legacy sp access network devices. Merged with DASAN 2016, renamed DZS 2020.",
+    "guide": [
+      "Connect your computer to the Zhone Technologies LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Zhone Technologies",
+        "model": "Zhone Technologies Home Wi-Fi Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Zhone Technologies",
+        "model": "Zhone Technologies Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Zinwell Corporation",
+    "slug": "zinwell-corporation",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Default login credentials, management portal IP, and technical setup guide for Zinwell Corporation (Taiwan) odm; stb/gateway network devices. Set-top and gateway ODM.",
+    "guide": [
+      "Connect your computer to the Zinwell Corporation LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: admin.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "Zinwell Corporation",
+        "model": "Zinwell Corporation Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Zinwell Corporation",
+        "model": "Zinwell Corporation Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "ZTE Corporation",
+    "slug": "zte-corporation",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "Default login credentials, management portal IP, and technical setup guide for ZTE Corporation (China) sp edge; sp core; enterprise; isp cpe network devices. ZXR10 and ZXCTN router families.",
+    "guide": [
+      "Connect your computer to the ZTE Corporation LAN port via Ethernet cable or wireless SSID.",
+      "Open your web browser and navigate to http://192.168.1.1 (or https://192.168.1.1).",
+      "Enter the default Username: admin and Password: Printed on router base.",
+      "Configure your network parameters, WAN connection, and administrative security settings."
+    ],
+    "models": [
+      {
+        "brand": "ZTE Corporation",
+        "model": "ZTE Corporation Modem Gateway Pro Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "ZTE Corporation",
+        "model": "ZTE Corporation Gigabit Multi-Service Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
   }
 ];
 
@@ -3744,7 +24506,7 @@ export const ISPS: Isp[] = [
   },
   {
     name: 'Xfinity Comcast',
-    slug: 'xfinity',
+    slug: 'xfinity-isp',
     defaultIp: '10.0.0.1',
     defaultUser: 'admin',
     defaultPass: 'password',
@@ -3772,7 +24534,7 @@ export const ISPS: Isp[] = [
   },
   {
     name: 'Spectrum Internet',
-    slug: 'spectrum',
+    slug: 'spectrum-isp',
     defaultIp: '192.168.1.1',
     defaultUser: 'admin',
     defaultPass: 'admin / password',
@@ -3786,7 +24548,7 @@ export const ISPS: Isp[] = [
   },
   {
     name: 'Virgin Media UK',
-    slug: 'virgin-media',
+    slug: 'virgin-media-uk',
     defaultIp: '192.168.0.1',
     defaultUser: 'admin',
     defaultPass: 'Settings password on hub base',
@@ -3937,12 +24699,1278 @@ export const ISPS: Isp[] = [
       "Open http://192.168.0.1 in your web browser.",
       "Enter Username: admin and Password: password.",
       "Manage advanced networking features, MoCA coax, and bridge mode."
-]
+    ]
+  },
+  {
+    name: 'Starlink (SpaceX)',
+    slug: 'starlink-satellite',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'Starlink App Account',
+    defaultPass: 'Configured during setup',
+    description: 'Starlink Gen 2 & Gen 3 Standard Wi-Fi router login, Bypass (Bridge) Mode configuration, and dish alignment guide.',
+    instructions: [
+      'Connect to your Starlink Wi-Fi network (STARLINK or custom SSID).',
+      'Open http://192.168.1.1 in a web browser or launch the official Starlink mobile app (iOS / Android).',
+      'Monitor real-time dish telemetry, satellite obstruction maps, and download latency metrics.',
+      'To use your own router, navigate to Settings > Advanced and enable Bypass Mode.'
+    ]
+  },
+  {
+    name: 'Bell Canada',
+    slug: 'bell-canada',
+    defaultIp: '192.168.2.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (Serial number on sticker)',
+    description: 'Bell Canada Giga Hub, Home Hub 4000, and Home Hub 3000 optical fiber modem gateway admin login and PPPoE passthrough.',
+    instructions: [
+      'Connect to Bell Wi-Fi or plug into an Ethernet LAN port on your Giga Hub.',
+      'Open http://192.168.2.1 or http://home in your browser.',
+      'Log in with Username: admin and your admin password printed on the sticker (or configured upon first setup).',
+      'Manage 10G/5G multi-gig WAN parameters, Wi-Fi pods, and DMZ/PPPoE credentials.'
+    ]
+  },
+  {
+    name: 'Telus Canada',
+    slug: 'telus-canada',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on router sticker',
+    description: 'Telus PureFibre Wi-Fi Hub, Boost Wi-Fi 6, and Arcadyan Network Access Hub (NAH) login and bridge port configuration.',
+    instructions: [
+      'Connect your PC or mobile phone to your Telus Wi-Fi network.',
+      'Open http://192.168.1.254 in your web browser.',
+      'Enter the admin password printed on the label on the bottom of your Telus Hub.',
+      'Configure port 10G LAN bridge mode to connect third-party mesh hardware.'
+    ]
+  },
+  {
+    name: 'CenturyLink / Quantum Fiber',
+    slug: 'centurylink-quantum',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'Admin Security Key on sticker',
+    description: 'CenturyLink & Quantum Fiber C4000XG, C3000Z modem gateway login, Transparent Bridging, and VLAN 201 tagging guide.',
+    instructions: [
+      'Connect to your CenturyLink / Quantum Fiber Wi-Fi network.',
+      'Navigate to http://192.168.0.1 in your browser.',
+      'Log in with Username: admin and the Admin Security Key located on the modem label.',
+      'Set WAN configuration to Transparent Bridging with 802.1Q VLAN 201 when using external routers.'
+    ]
+  },
+  {
+    name: 'Frontier Fiber',
+    slug: 'frontier-fiber',
+    defaultIp: '192.168.254.254',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on gateway sticker',
+    description: 'Frontier Fiber broadband Arris NVG589, Sagemcom Fast 5260, and eero Pro 6E ONT gateway setup.',
+    instructions: [
+      'Connect to your Frontier wireless network or plug into an Ethernet LAN jack.',
+      'Open http://192.168.254.254 in your web browser.',
+      'Enter the administrator password printed on the device label.',
+      'Adjust firewall rules, DHCP reservations, and local DNS server settings.'
+    ]
+  },
+  {
+    name: 'Free (Freebox) France',
+    slug: 'free-france',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Configured on Freebox screen',
+    description: 'Freebox Ultra Wi-Fi 7, Freebox Pop, and Freebox Delta optical gateway admin dashboard and Bridge Mode settings.',
+    instructions: [
+      'Connect to your Freebox Wi-Fi network.',
+      'Open http://192.168.1.254 or http://mafreebox.freebox.fr in your web browser.',
+      'When prompted, press the physical navigation arrow on the Freebox front panel to authorize first-time access.',
+      'Configure 10G-EPON fiber optical speeds, Wi-Fi 7 6GHz bands, and Bridge Mode.'
+    ]
+  },
+  {
+    name: 'KPN Netherlands',
+    slug: 'kpn-netherlands',
+    defaultIp: '192.168.2.254',
+    defaultUser: 'admin',
+    defaultPass: 'Password on router sticker / KPN App',
+    description: 'KPN Box 12 and Experia Box V10 fiber modem setup, admin login, and SuperWifi mesh configuration at 192.168.2.254.',
+    instructions: [
+      'Connect your device to KPN Wi-Fi or connect via LAN cable.',
+      'Open http://192.168.2.254 in your web browser.',
+      'Log in with Username: admin and the default password printed on the back of your KPN Box.',
+      'Configure IPv6 routing, port forwarding, and KPN SuperWifi mesh nodes.'
+    ]
+  },
+  {
+    name: 'Movistar Spain (Telefónica)',
+    slug: 'movistar-spain',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'Access key on router bottom',
+    description: 'Movistar Spain Smart WiFi HGU (Home Gateway Unit) router login, ONT fiber optical parameters, and single-user bridge mode.',
+    instructions: [
+      'Connect your laptop or mobile to Movistar_xxxx Wi-Fi.',
+      'Open http://192.168.1.1 in any web browser.',
+      'Enter the 8-character access password printed under "Datos de acceso al router" on the bottom label.',
+      'Configure dual-band Wi-Fi channels or switch to Mono-Puesto (Bridge) mode.'
+    ]
+  },
+  {
+    name: 'TIM Italy (Telecom Italia)',
+    slug: 'tim-italy',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (Printed on TIM label)',
+    description: 'TIM HUB+ Executive (ZTE / Technicolor) Wi-Fi 6 optical fiber gateway login and FTTH voice SIP settings.',
+    instructions: [
+      'Connect to your TIM HUB Wi-Fi network.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Enter Username: admin and the password printed on the back of the TIM HUB+.',
+      'Manage EasyMesh repeaters, optical link statistics, and parental control.'
+    ]
+  },
+  {
+    name: 'TPG Telecom Australia',
+    slug: 'tpg-australia',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin',
+    description: 'TPG Telecom NBN TP-Link Archer VR1600v, Huawei HG659, and 5G Home Broadband gateway setup.',
+    instructions: [
+      'Connect to your TPG Wi-Fi network.',
+      'Open http://192.168.1.1 or http://tplinkmodem.net in your browser.',
+      'Log in with Username: admin and Password: admin.',
+      'Configure NBN PPPoE/IPoE settings, VoIP telephone credentials, and Wi-Fi security.'
+    ]
+  },
+  {
+    name: 'PLDT Home Fibr',
+    slug: 'pldt-home-fibr',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'adminpldt / admin',
+    defaultPass: '1234567890 / 1234',
+    description: 'Default admin login credentials and optical ONT configuration for PLDT Home Fibr (Fiberhome, Huawei, BaudTec) in the Philippines.',
+    instructions: [
+      'Connect to your PLDT Home Fibr Wi-Fi network or plug an Ethernet cable into LAN 1.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Log in with Username: adminpldt (or admin) and Password: 1234567890 (or 1234, or printed on modem bottom).',
+      'Manage Wi-Fi 2.4GHz / 5GHz passwords, band steering, and port forwarding.'
+    ]
+  },
+  {
+    name: 'Globe At Home',
+    slug: 'globe-at-home',
+    defaultIp: '192.168.254.254',
+    defaultUser: 'user / admin',
+    defaultPass: '@l03e1t3 / admin',
+    description: 'Globe At Home prepaid Wi-Fi, Postpaid LTE, and Fiber modem login instructions (Huawei B310, B312, ZTE F670L) in the Philippines.',
+    instructions: [
+      'Connect to your Globe At Home Wi-Fi network.',
+      'Open http://192.168.254.254 in your web browser.',
+      'Enter default Username: user and Password: @l03e1t3 (or admin / admin, or printed on label).',
+      'Check signal strength bars, data balance, and change Wi-Fi SSID and password.'
+    ]
+  },
+  {
+    name: 'Telkom IndiHome',
+    slug: 'telkom-indihome',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin / user',
+    defaultPass: 'admin / Telkomdso123',
+    description: 'Telkom Indonesia IndiHome fiber ONT default IP address and administrator credentials (ZTE F609, Huawei HG8245A/H, Fiberhome AN5506).',
+    instructions: [
+      'Connect to your IndiHome Wi-Fi connection.',
+      'Navigate to http://192.168.1.1 in your internet browser.',
+      'Enter Username: admin and Password: admin (or user / user, or admin / Telkomdso123 on recent firmware).',
+      'Configure UseeTV IPTV port binding, wireless security, and DHCP leases.'
+    ]
+  },
+  {
+    name: 'Singtel Broadband',
+    slug: 'singtel-broadband',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'admin',
+    defaultPass: 'Printed on router label / (blank)',
+    description: 'Singtel Fibre Broadband Wi-Fi 6 Optical Network Router (ONR) and Askey smart mesh access point configuration in Singapore.',
+    instructions: [
+      'Connect your PC or mobile phone to your Singtel home Wi-Fi network.',
+      'Open http://192.168.1.254 in your web browser.',
+      'Log in with Username: admin and the admin password printed on the sticker underneath the ONR.',
+      'Manage Singtel TV VLAN priority, guest Wi-Fi, and Singtel Mesh Wi-Fi extenders.'
+    ]
+  },
+  {
+    name: 'TM Unifi',
+    slug: 'tm-unifi',
+    defaultIp: '192.168.0.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / unifi',
+    description: 'Telekom Malaysia (TM) Unifi Home Fibre router and GPON modem default login guide (D-Link DIR-850L, ZTE F609, TP-Link Archer C1200).',
+    instructions: [
+      'Connect your laptop to the Unifi Wi-Fi network.',
+      'Open http://192.168.0.1 (or http://192.168.1.1 depending on router model) in your browser.',
+      'Log in with default Username: admin and Password: admin (or unifi).',
+      'Configure Unifi PPPoE credentials, Unifi TV (HyppTV) VLAN tagging, and Wi-Fi security.'
+    ]
+  },
+  {
+    name: 'Telmex Infinitum',
+    slug: 'telmex-infinitum',
+    defaultIp: '192.168.1.254',
+    defaultUser: 'TELMEX',
+    defaultPass: 'WPA network key printed on modem label',
+    description: 'Default IP address and modem login instructions for Telmex Infinitum fiber and VDSL modems (Sercomm, Huawei HG658d, Arcadyan) across Mexico.',
+    instructions: [
+      'Connect to your Infinitum Wi-Fi network (INFINITUMxxxx).',
+      'Open http://192.168.1.254 in your web browser.',
+      'Enter Username: TELMEX (uppercase) and Password: the default WPA security key printed on your modem label.',
+      'Configure your 2.4 GHz and 5 GHz wireless networks, port forwarding, and DNS servers.'
+    ]
+  },
+  {
+    name: 'Vivo Fibra',
+    slug: 'vivo-fibra',
+    defaultIp: '192.168.15.1',
+    defaultUser: 'admin',
+    defaultPass: 'Password printed on equipment label',
+    description: 'Telefônica Brasil Vivo Fibra HGU Wi-Fi 6 router configuration, default IP 192.168.15.1, and optical terminal settings in Brazil.',
+    instructions: [
+      'Connect to your Vivo Fibra Wi-Fi network (Vivo-xxxx).',
+      'Open http://192.168.15.1 in your web browser.',
+      'Enter Username: admin and Password: the unique password printed on the bottom label of your Vivo HGU modem.',
+      'Configure Wi-Fi SSID, Vivo TV set-top box prioritization, and Bridge mode.'
+    ]
+  },
+  {
+    name: 'STC Broadband',
+    slug: 'stc-broadband',
+    defaultIp: '192.168.8.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / (Printed on router base)',
+    description: 'Saudi Telecom Company (STC) 5G CPE router, Baity Fiber FTTH, and Huawei/ZTE broadband gateway configuration in Saudi Arabia.',
+    instructions: [
+      'Connect to your STC Wi-Fi network or plug into a LAN port.',
+      'Open http://192.168.8.1 (for 5G CPEs) or http://192.168.100.1 (for Baity Fiber ONTs) in your browser.',
+      'Log in with Username: admin and Password: admin (or password printed on the bottom sticker).',
+      'Manage 5G network bands, parental controls, and Wi-Fi 6 channels.'
+    ]
+  },
+  {
+    name: 'Etisalat by e&',
+    slug: 'etisalat-uae',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'admin',
+    defaultPass: 'admin / etisalat',
+    description: 'Etisalat by e& elife fiber broadband router setup, default admin credentials, and Wi-Fi configuration in the United Arab Emirates.',
+    instructions: [
+      'Connect your device to your eLife Wi-Fi network.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Log in with Username: admin and Password: admin (or etisalat).',
+      'Configure dual-band Wi-Fi, eLife TV box settings, and home network passwords.'
+    ]
+  },
+  {
+    name: 'Telia Broadband',
+    slug: 'telia-broadband',
+    defaultIp: '192.168.1.1',
+    defaultUser: 'Administrator / admin',
+    defaultPass: 'Password on router label',
+    description: 'Telia Company broadband router configuration (Telia WiFi Router Plus, Sagemcom Fast 5370, Technicolor TG799vac) across Sweden, Finland, and Norway.',
+    instructions: [
+      'Connect to your Telia Wi-Fi network (Telia-xxxxxx) or via network cable.',
+      'Open http://192.168.1.1 in your web browser.',
+      'Log in with Username: Administrator (or admin) and the default password printed on the bottom of the Telia router.',
+      'Configure Telia Smart Control, Telia TV multicast, and guest Wi-Fi network.'
+    ]
+  }
+,
+  {
+    "name": "SFR Box France",
+    "slug": "sfr-box",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "WPA key on router label",
+    "description": "SFR (Altice France) #2 national telecom operator in France with ~7 million broadband subscribers deploying SFR Box 8 (Wi-Fi 6) and SFR Box 7 fiber/DSL gateways.",
+    "instructions": [
+      "Connect your computer or smartphone to your SFR Wi-Fi network (SFR-xxxx) or via Ethernet cable.",
+      "Open http://192.168.1.1 or http://monmodem in your web browser.",
+      "Press the physical WPS button on your SFR Box for 5 seconds when prompted for security authentication.",
+      "Log in with default Username: admin and the default password printed on the underside of the box.",
+      "Configure SFR Wi-Fi 6 Smart Wi-Fi, port forwarding rules, and SFR TV decoders."
+    ]
+  },
+  {
+    "name": "Bouygues Telecom France",
+    "slug": "bouygues-bbox",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "Set during initial setup",
+    "description": "Bouygues Telecom #3 national telecommunications operator in France with ~5 million broadband subscribers deploying Bbox Ultym (Wi-Fi 6E/7) and Bbox Must fiber gateways.",
+    "instructions": [
+      "Connect to your Bbox network via Wi-Fi or Ethernet cable.",
+      "Open http://192.168.1.254 or http://mabbox.bytel.fr in your web browser.",
+      "Press the push button on the front of your Bbox or follow the on-screen LCD prompt to confirm identity.",
+      "Define an administrator password during the initial setup wizard.",
+      "Configure Bbox Wi-Fi 6E frequency bands, parental controls, and connected smart home devices."
+    ]
+  },
+  {
+    "name": "Fastweb Italy",
+    "slug": "fastweb-italia",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (Wi-Fi password)",
+    "description": "Fastweb major Italian telecommunications provider pioneering ultra-broadband FTTH with the flagship FASTGate and Fastweb NeXXt Wi-Fi 6 smart gateway with Alexa.",
+    "instructions": [
+      "Connect your PC or phone to the Fastweb FASTGate or NeXXt Wi-Fi network.",
+      "Open http://192.168.1.254 or http://myfastgate in your web browser.",
+      "Log in with default Username: admin and Password: admin (or check MyFastweb app for authentication).",
+      "Configure Fastweb WOW FI community hotspot, dual-band Wi-Fi channels, and port forwarding."
+    ]
+  },
+  {
+    "name": "WindTre Italy",
+    "slug": "windtre-italia",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (password on label)",
+    "description": "Wind Tre top Italian mobile and fixed broadband operator deploying WindTre Home&Life Hub (Zyxel/D-Link) and Super Internet 4G/5G residential gateways.",
+    "instructions": [
+      "Connect to your WindTre Home&Life Hub via Wi-Fi or Ethernet cable to LAN port 1.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and the unique password printed on the router label.",
+      "Manage fiber FTTH connection speeds, SIP VoIP phone accounts, and guest wireless networks."
+    ]
+  },
+  {
+    "name": "Iliadbox Italy",
+    "slug": "iliad-italia",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "Set on first connection",
+    "description": "Iliad Italia disruptive telecommunications operator delivering 5 Gbps symmetrical optical fiber with the distinctive circular Iliadbox Wi-Fi 6 and Wi-Fi 7 gateways.",
+    "instructions": [
+      "Connect to your Iliadbox Wi-Fi network or plug into the 2.5G/1G LAN port.",
+      "Open http://192.168.1.254 or http://iliadboxos.iliad.it in your web browser.",
+      "Confirm physical pairing by tapping the front circular display screen on your Iliadbox.",
+      "Set an administrator password to access the Iliadbox OS management console.",
+      "Manage EPON fiber diagnostics, Wi-Fi 6/7 radio schedules, and Iliad Connect app settings."
+    ]
+  },
+  {
+    "name": "Swisscom Switzerland",
+    "slug": "swisscom-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (set on first setup)",
+    "description": "Swisscom #1 national telecommunications provider in Switzerland deploying industry-leading Swisscom Internet-Box 4 (10G XGS-PON) and Internet-Box 3 gateways.",
+    "instructions": [
+      "Connect to your Swisscom Wi-Fi network or plug an Ethernet cable into any LAN port.",
+      "Open http://192.168.1.1 or http://internetbox.home in your web browser.",
+      "Press the Plus (+) button on your Swisscom Internet-Box to authorize admin access.",
+      "Set your personal administrator password on first login.",
+      "Configure Swisscom blue TV streaming, DECT cordless phones, and DynDNS remote access."
+    ]
+  },
+  {
+    "name": "Sunrise Switzerland",
+    "slug": "sunrise-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (password on label)",
+    "description": "Sunrise major Swiss telecommunications provider (merger with UPC) delivering gigabit cable and optical fiber broadband via Sunrise Connect Box 3 and Internet Box.",
+    "instructions": [
+      "Connect to the Sunrise Connect Box Wi-Fi network or via network cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Enter default Username: admin and the password printed on the bottom label.",
+      "Configure Sunrise TV prioritization, 2.4/5GHz Wi-Fi settings, and parental controls."
+    ]
+  },
+  {
+    "name": "Proximus Belgium",
+    "slug": "proximus-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "User / admin",
+    "defaultPass": "Password printed on sticker",
+    "description": "Proximus #1 national telecom operator in Belgium deploying Proximus Internet Box (Wi-Fi 6 with 10G XGS-PON) and B-Box 3 / 3V+ VDSL2 residential gateways.",
+    "instructions": [
+      "Connect to your Proximus Internet Box Wi-Fi network or plug into LAN port 1.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: User and the unique modem access password printed on the sticker.",
+      "Manage Pickx TV decoders, Proximus Smart Wi-Fi roaming, and port forwarding profiles."
+    ]
+  },
+  {
+    "name": "Telenet Belgium",
+    "slug": "telenet-broadband",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "Managed via My Telenet",
+    "defaultPass": "My Telenet Account",
+    "description": "Telenet leading cable broadband and fiber service provider in Belgium providing high-speed DOCSIS 3.1 wireless modems and smart Wi-Fi pods.",
+    "instructions": [
+      "Connect to your Telenet Wi-Fi network.",
+      "Open http://192.168.0.1 in your browser or log into http://mijn.telenet.be.",
+      "Authenticate using your My Telenet customer username and password.",
+      "Customize your Wi-Fi network name, security password, and port forwarding rules."
+    ]
+  },
+  {
+    "name": "Ziggo Netherlands",
+    "slug": "ziggo-broadband",
+    "defaultIp": "192.168.178.1",
+    "defaultUser": "admin",
+    "defaultPass": "Password on modem label",
+    "description": "VodafoneZiggo #1 cable broadband provider in the Netherlands serving millions of homes with Ziggo Connectbox Giga DOCSIS 3.1 and SmartWifi modems.",
+    "instructions": [
+      "Connect to your Ziggo Wi-Fi network or connect via network cable.",
+      "Open http://192.168.178.1 in your web browser.",
+      "Enter the administrator password printed on the sticker on the bottom of your Ziggo modem.",
+      "Configure Ziggo SmartWifi mesh pods, dual-band Wi-Fi channels, and port forwarding rules."
+    ]
+  },
+  {
+    "name": "A1 Telekom Austria",
+    "slug": "a1-telekom-austria",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (password on label)",
+    "description": "A1 Telekom Austria #1 national telecommunications provider deploying A1 WLAN Box (Technicolor/ZTE) and A1 Hybrid Box (bonded DSL + 4G LTE) across Austria.",
+    "instructions": [
+      "Connect to your A1 WLAN Box Wi-Fi network or plug an Ethernet cable into LAN 1.",
+      "Open http://192.168.0.1 (or http://10.0.0.138 on older firmware) in your web browser.",
+      "Log in with Username: admin and the password printed on the A1 device label.",
+      "Manage A1 Xplore TV decoders, hybrid cellular bonding speeds, and guest Wi-Fi."
+    ]
+  },
+  {
+    "name": "Orange Polska",
+    "slug": "orange-polska",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "First 8 chars of WPA key",
+    "description": "Orange Polska #1 optical fiber broadband operator in Poland serving millions of subscribers with the flagship FunBox 6 (Wi-Fi 6), FunBox 10, and FunBox 3.0 gateways.",
+    "instructions": [
+      "Connect your laptop or mobile phone to your Orange FunBox Wi-Fi network.",
+      "Open http://192.168.1.1 or http://funbox.home in your browser.",
+      "Enter default Username: admin and Password: the first 8 characters of your factory Wi-Fi key.",
+      "Configure Orange Światłowód FTTH parameters, Smart Wi-Fi 6 channels, and Orange TV decoders."
+    ]
+  },
+  {
+    "name": "Play Poland",
+    "slug": "play-poland",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Password on router sticker",
+    "description": "Play (P4 / UPC Polska) leading mobile and fixed broadband operator in Poland deploying Play Box Net (Wi-Fi 6 FTTH) and Play Homebox 5G wireless routers.",
+    "instructions": [
+      "Connect to your Play Box Net Wi-Fi network or via LAN cable.",
+      "Open http://192.168.1.1 in your web browser.",
+      "Log in with Username: admin and the password printed on the sticker on the back of the device.",
+      "Configure Play NOW TV prioritization, 5GHz Wi-Fi 6 bands, and firewall rules."
+    ]
+  },
+  {
+    "name": "Telenor Nordics",
+    "slug": "telenor-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Password on router label",
+    "description": "Telenor multinational Nordic telecommunications giant delivering fiber and 5G wireless broadband across Norway, Sweden, Denmark, and Finland via Telenor Wi-Fi Ruter.",
+    "instructions": [
+      "Connect to your Telenor Wi-Fi network or plug an Ethernet cable into LAN port 1.",
+      "Open http://192.168.1.1 (or http://10.0.0.138) in your web browser.",
+      "Enter default Username: admin and the admin password on the device label.",
+      "Manage T-We television streaming, Trådløst Bredbånd 5G settings, and security filters."
+    ]
+  },
+  {
+    "name": "Elisa Finland",
+    "slug": "elisa-finland",
+    "defaultIp": "192.168.100.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (password on label)",
+    "description": "Elisa #1 telecommunications and digital services company in Finland providing Elisa Kotiboksi (Wi-Fi 6) and Elisa 5G Kotinetti fixed wireless outdoor CPEs.",
+    "instructions": [
+      "Connect to your Elisa Kotiboksi Wi-Fi network or via network cable.",
+      "Open http://192.168.100.1 (or http://192.168.1.1) in your web browser.",
+      "Log in with Username: admin and the password printed on your Kotiboksi label.",
+      "Configure Elisa Viihde TV streaming, 5G external antenna signal strength, and mesh nodes."
+    ]
+  },
+  {
+    "name": "MEO Portugal",
+    "slug": "meo-portugal",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "Administrator / meo",
+    "defaultPass": "3!nfr@red / meo",
+    "description": "MEO (Altice Portugal) leading Portuguese telecommunications provider deploying the high-speed MEO FiberGateway (Wi-Fi 6) and GR241AG optical terminals.",
+    "instructions": [
+      "Connect to your MEO FiberGateway Wi-Fi network or plug into LAN 1.",
+      "Open http://192.168.1.254 in your web browser.",
+      "Log in with Username: Administrator and Password: the unique password on the router sticker (or 3!nfr@red).",
+      "Manage MEO TV box priority, 5 GHz Wi-Fi 6 wireless channels, and guest networks."
+    ]
+  },
+  {
+    "name": "NOS Portugal",
+    "slug": "nos-portugal",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / (password on label)",
+    "description": "NOS major Portuguese telecommunications operator delivering gigabit cable and fiber broadband with the flagship NOS GiGA Router Wi-Fi 6 and GiGA Router 5.0.",
+    "instructions": [
+      "Connect to your NOS GiGA Router Wi-Fi network or via Ethernet cable.",
+      "Open http://192.168.1.1 or http://nos.router in your web browser.",
+      "Log in with default Username: admin and the password printed on the router label.",
+      "Configure UMA TV decoder multicast, Wi-Fi 6 band steering, and port forwarding rules."
+    ]
+  },
+  {
+    "name": "EE Broadband UK",
+    "slug": "ee-broadband",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "Admin password on keep-me card",
+    "description": "EE (BT Group) UK's largest mobile and home broadband network deploying the flagship EE Smart Hub Plus (Wi-Fi 6) and EE Smart 5G Hub routers.",
+    "instructions": [
+      "Connect your computer or phone to your EE Wi-Fi network (EE-xxxxxx).",
+      "Open http://192.168.1.254 or http://ee.hub in your web browser.",
+      "Enter default Username: admin and the Admin Password printed on your EE Keep-Me card or hub label.",
+      "Configure EE Smart WiFi mesh discs, Game Mode latency booster, and cyber shield security."
+    ]
+  },
+  {
+    "name": "Plusnet UK",
+    "slug": "plusnet-broadband",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "Admin password on router card",
+    "description": "Plusnet (BT Group) major UK consumer broadband provider delivering reliable VDSL2 and full fiber connections via Plusnet Hub Two (Wi-Fi 5/6) and Hub One.",
+    "instructions": [
+      "Connect your device to your Plusnet Wi-Fi network or plug into any yellow LAN port.",
+      "Open http://192.168.1.254 or http://plusnet.hub in your web browser.",
+      "Click on any setting and enter Username: admin and the Admin Password from the pull-out router card.",
+      "Manage Full Fibre WAN settings, separate 2.4GHz and 5GHz wireless channels, and firewall rules."
+    ]
+  },
+  {
+    "name": "Excitel Broadband",
+    "slug": "excitel",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Excitel Broadband is one of India's fastest growing high-speed FTTH fiber providers, deploying dual-band Gigabit and Wi-Fi 6 GPON ONTs across major metropolitan cities.",
+    "instructions": [
+      "Connect your device to your Excitel Wi-Fi network or plug an Ethernet cable into the Excitel fiber router LAN port.",
+      "Open your web browser and navigate to http://192.168.1.1 (or http://192.168.100.1 on select Syrotech/Optilink ONTs).",
+      "Enter default Username: admin and Password: admin (or check the physical sticker on your ONT base).",
+      "Access Network Settings to view fiber optical power (Rx/Tx dBm) and customize your 2.4 GHz and 5 GHz Wi-Fi credentials."
+    ]
+  },
+  {
+    "name": "Hathway Broadband",
+    "slug": "hathway",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Hathway Broadband (subsidiary of Reliance Jio) delivers high-speed residential fiber-to-the-home and DOCSIS 3.0/3.1 broadband services across millions of Indian households.",
+    "instructions": [
+      "Connect your PC or mobile phone to the Hathway router's Wi-Fi network.",
+      "Open your browser and type http://192.168.1.1 (or http://192.168.0.1 on select DOCSIS gateways).",
+      "Enter default Username: admin and Password: admin (or password).",
+      "Verify WAN connection status and configure your local Wi-Fi network name (SSID) and security password."
+    ]
+  },
+  {
+    "name": "Railwire RailTel",
+    "slug": "railwire",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Railwire is the flagship retail broadband service of RailTel Corporation of India (Ministry of Railways), delivering pan-India high-speed optical fiber internet to urban and rural areas.",
+    "instructions": [
+      "Connect your computer to the Railwire GPON ONT router via Ethernet cable or Wi-Fi.",
+      "Open your browser and navigate to http://192.168.1.1.",
+      "Enter default Username: admin and Password: admin to sign in.",
+      "Configure your PPPoE broadband username and password provided by your local Railwire network access partner."
+    ]
+  },
+  {
+    "name": "Kerala Vision Broadband",
+    "slug": "kerala-vision",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Kerala Vision Broadband (KCCL) is one of Kerala's largest FTTH internet service providers, delivering gigabit fiber access through widespread local cable operators across South India.",
+    "instructions": [
+      "Connect to the Kerala Vision Wi-Fi router network or connect via LAN port.",
+      "Open a browser and navigate to http://192.168.1.1 (or http://192.168.100.1 on Huawei ONTs).",
+      "Log in using Username: admin and Password: admin (or epuser / useradmin).",
+      "Enter your Kerala Vision customer PPPoE credentials and configure dual-band Wi-Fi settings."
+    ]
+  },
+  {
+    "name": "Alliance Broadband",
+    "slug": "alliance-broadband",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Alliance Broadband is East India's premier high-speed true-unlimited FTTH broadband service provider, with massive fiber market share across Kolkata and West Bengal.",
+    "instructions": [
+      "Connect your PC or mobile device to the Alliance Broadband ONU router.",
+      "Open your web browser and go to http://192.168.1.1 or visit the Alliance Client Login portal at http://10.254.254.254.",
+      "Sign in with your administrative credentials to configure local Wi-Fi.",
+      "Authenticate using your Alliance Broadband account username and password to start your high-speed internet session."
+    ]
+  },
+  {
+    "name": "T-Mobile 5G Home Internet",
+    "slug": "t-mobile-home-internet",
+    "defaultIp": "192.168.12.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on gateway label",
+    "description": "T-Mobile 5G Home Internet delivers high-speed nationwide fixed wireless broadband across the United States using cutting-edge 5G Sub-6GHz indoor gateways from Arcadyan, Sagemcom, and Sercomm.",
+    "instructions": [
+      "Connect your smartphone to the T-Mobile 5G Gateway's Wi-Fi network printed on the bottom label.",
+      "Download the T-Mobile Internet mobile app or open http://192.168.12.1 in your browser.",
+      "Sign in using the admin password printed on the back/bottom sticker of your gateway unit.",
+      "Use the signal direction tool to rotate your gateway toward the nearest T-Mobile 5G Ultra Capacity cell tower."
+    ]
+  },
+  {
+    "name": "Verizon 5G Home Internet",
+    "slug": "verizon-5g-home-internet",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on gateway label",
+    "description": "Verizon 5G Home Internet provides multi-gigabit ultra-wideband wireless internet across American metropolitan homes using advanced mmWave and C-band fixed wireless access gateways.",
+    "instructions": [
+      "Connect your device to the Verizon 5G Home Internet Wi-Fi network.",
+      "Open your web browser and navigate to http://192.168.0.1 (or http://192.168.1.1 on select models).",
+      "Enter default Username: admin and enter the unique administrative password printed on the router label.",
+      "Adjust gateway position near an exterior window to maximize Verizon 5G Ultra Wideband signal reception."
+    ]
+  },
+  {
+    "name": "Optimum",
+    "slug": "optimum",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "password",
+    "description": "Optimum (Altice USA) is a major American broadband provider delivering multi-gigabit 100% fiber internet and DOCSIS 3.1 cable services across New York, New Jersey, Connecticut, and western states.",
+    "instructions": [
+      "Connect your computer or phone to your Optimum Gateway Wi-Fi network.",
+      "Open your web browser and navigate to http://192.168.1.1 or visit http://router.optimum.net.",
+      "Log in using your Optimum account ID and password (or admin / password on local gateway panels).",
+      "Customize your Wi-Fi network name, enable Smart Wi-Fi band steering, and set up port forwarding rules."
+    ]
+  },
+  {
+    "name": "Hyperoptic",
+    "slug": "hyperoptic",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router label",
+    "description": "Hyperoptic is the UK's leading pioneer in gigabit full-fiber broadband, offering symmetrical 1 Gbps internet speeds to residential residential complexes and commercial buildings across Britain.",
+    "instructions": [
+      "Connect your device to the Hyperoptic router via Wi-Fi or Ethernet cable.",
+      "Open your web browser and visit http://192.168.1.1.",
+      "Log in using Username: admin and the unique admin password printed on the router's base sticker.",
+      "Configure dual-band Wi-Fi channels, guest wireless access, and local network IP allocations."
+    ]
+  },
+  {
+    "name": "Community Fibre",
+    "slug": "community-fibre",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router label",
+    "description": "Community Fibre is London's fastest 100% full-fibre broadband provider, delivering up to 3 Gbps symmetrical internet connectivity to London homes and businesses with Linksys Wi-Fi 6 mesh routers.",
+    "instructions": [
+      "Connect to your Community Fibre Linksys Velop Wi-Fi network.",
+      "Open your browser and navigate to http://192.168.1.1 or use the Linksys mobile app.",
+      "Enter default Username: admin and the recovery password printed on the base of the Linksys unit.",
+      "Optimize Linksys Intelligent Mesh node positions and configure high-priority streaming devices."
+    ]
+  },
+  {
+    "name": "Salt Fiber",
+    "slug": "salt-fiber",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Salt Fiber is a pioneering Swiss telecommunications provider renowned for launching Switzerland's first 10 Gbps symmetrical fiber broadband service powered by the Salt Fiber Box v2.",
+    "instructions": [
+      "Connect your computer or phone to the Salt Fiber Box via 10GbE LAN port or Wi-Fi.",
+      "Open your browser and navigate to http://192.168.1.1 or http://salt.box.",
+      "Enter default Username: admin and Password: admin (or custom password chosen during first setup).",
+      "Configure 10-Gigabit optical routing, DECT cordless telephones, and media sharing services."
+    ]
+  },
+  {
+    "name": "Digi Communications",
+    "slug": "digi",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Digi Communications (Digi Mobil / RCS & RDS) is one of Europe's largest multi-gigabit fiber telecommunications operators, providing ultra-affordable 10G fiber across Spain, Romania, Italy, and Portugal.",
+    "instructions": [
+      "Connect to the Digi Wi-Fi network or plug into LAN port 1 on your Digi optical router.",
+      "Open your browser and enter http://192.168.1.1 (or http://192.168.100.1 on Huawei ONTs).",
+      "Log in using default Username: user / admin and Password: user / admin (or printed on bottom sticker).",
+      "Configure dual-band Wi-Fi 6 parameters, parental controls, and DNS server settings."
+    ]
+  },
+  {
+    "name": "M\u00e1sM\u00f3vil",
+    "slug": "masmovil",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "1234",
+    "defaultPass": "1234",
+    "description": "M\u00e1sM\u00f3vil (part of the MasOrange group) is Spain's largest telecommunications operator by customer volume, delivering high-speed optical fiber and 5G connectivity nationwide.",
+    "instructions": [
+      "Connect your smartphone or computer to the M\u00e1sM\u00f3vil router Wi-Fi network.",
+      "Open your web browser and visit http://192.168.1.1.",
+      "Enter Username: 1234 (or admin) and Password: 1234 (or the password on the base sticker).",
+      "Customize your Wi-Fi SSID names and verify fiber internet upstream and downstream connectivity."
+    ]
+  },
+  {
+    "name": "O2 Germany",
+    "slug": "o2-germany",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router label",
+    "description": "O2 Germany (Telef\u00f3nica Deutschland) provides millions of German homes with high-speed VDSL, cable, and 5G HomeSpot fixed wireless broadband with high-performance O2 HomeBox routers.",
+    "instructions": [
+      "Connect to your O2 HomeBox or O2 HomeSpot via Wi-Fi or LAN cable.",
+      "Open your web browser and visit http://o2.box or http://192.168.1.1.",
+      "Enter the router PIN or administrative password printed on the back of the O2 unit.",
+      "Run the step-by-step setup wizard to activate your broadband connection and set up DECT VoIP telephony."
+    ]
+  },
+  {
+    "name": "NTT FLET'S Hikari",
+    "slug": "ntt-flets",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "user",
+    "defaultPass": "user",
+    "description": "NTT FLET'S Hikari (NTT East & NTT West) is Japan's national fiber telecommunications backbone, powering tens of millions of optical gigabit and 10-gigabit home internet lines nationwide.",
+    "instructions": [
+      "Connect your PC to the LAN port on the NTT Home Gateway (PR-500MI / PR-600KI).",
+      "Open your web browser and go to http://192.168.1.1 or http://ntt.setup.",
+      "On initial login, choose an administrative password. For subsequent logins use Username: user and your password.",
+      "Configure your ISP's IPoE (IPv4 over IPv6 / v6\u30d7\u30e9\u30b9) or PPPoE credentials."
+    ]
+  },
+  {
+    "name": "au Hikari",
+    "slug": "au-hikari",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "au Hikari (KDDI) is one of Japan's most popular high-speed fiber broadband networks, offering dedicated 1 Gbps, 5 Gbps, and 10 Gbps fiber lines with home gateways from NEC and Aterm.",
+    "instructions": [
+      "Connect your device to the au Home Gateway (BL1000HW / BL3000HM) via Wi-Fi or LAN cable.",
+      "Open your web browser and navigate to http://192.168.0.1 or http://quicksetup.kddi.",
+      "Log in using the administrative credentials configured during setup.",
+      "Configure 10-Gigabit LAN port settings, Wi-Fi 6 wireless parameters, and au home phone service."
+    ]
+  },
+  {
+    "name": "SoftBank Broadband",
+    "slug": "softbank-broadband",
+    "defaultIp": "192.168.3.1",
+    "defaultUser": "user",
+    "defaultPass": "user",
+    "description": "SoftBank Broadband delivers fixed fiber internet (SoftBank Hikari) and high-speed plug-and-play 5G fixed wireless broadband (SoftBank Air) to millions of households across Japan.",
+    "instructions": [
+      "Connect to the SoftBank BB Unit or SoftBank Air 5G Wi-Fi network.",
+      "Open your browser and navigate to http://192.168.3.1 (for BB Unit) or http://192.168.230.1 (for SoftBank Air).",
+      "Enter Username: user and Password: user (or check the device serial label).",
+      "Verify IPv6 High-Speed IPoE connection status and configure your local Wi-Fi passwords."
+    ]
+  },
+  {
+    "name": "NURO Hikari",
+    "slug": "nuro-hikari",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "NURO Hikari (Sony Network Communications) is Japan's renowned ultra-high-speed fiber provider, delivering standard 2 Gbps and 10 Gbps GPON/XGS-PON broadband to residential gamers and creators.",
+    "instructions": [
+      "Connect your computer to the NURO optical home gateway (ZTE F660T / Sony NSD-G1000T) via LAN port.",
+      "Open your browser and navigate to http://192.168.1.1.",
+      "Log in with Username: admin and Password: admin (or printed on router label).",
+      "Access the Wi-Fi and LAN settings to enable 2.5G/10G port forwarding and Wi-Fi 6 multi-stream routing."
+    ]
+  },
+  {
+    "name": "KT Olleh GiGA",
+    "slug": "kt-giga",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "ktuser",
+    "defaultPass": "homehub",
+    "description": "KT (Korea Telecom) is South Korea's largest telecommunications corporation, delivering blazing fast 1 Gbps, 2.5 Gbps, and 10 Gbps GiGA internet across the country.",
+    "instructions": [
+      "Connect to the KT GiGA WiFi Home router network via Wi-Fi or Ethernet cable.",
+      "Open your web browser and navigate to http://192.168.0.1 (or http://homehub.kt.com).",
+      "Enter Username: ktuser and Password: homehub (or the password printed on the router label).",
+      "Configure KT GiGA WiFi 6 roaming settings, IPTV set-top box QoS, and parental access schedules."
+    ]
+  },
+  {
+    "name": "SK Broadband",
+    "slug": "sk-broadband",
+    "defaultIp": "192.168.35.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on bottom label",
+    "description": "SK Broadband is a leading South Korean telecommunications operator providing high-speed optical fiber and B tv media services through advanced GiGA WiFi Wave2 and Wi-Fi 6 gateways.",
+    "instructions": [
+      "Connect your device to the SK Broadband Wi-Fi router network.",
+      "Open your web browser and navigate to http://192.168.35.1 (or http://192.168.0.1).",
+      "Log in using Username: admin and the default password printed on the router barcode label.",
+      "Configure your GiGA Wi-Fi wireless channels, B tv set-top box bridging, and guest network access."
+    ]
+  },
+  {
+    "name": "Windstream Kinetic",
+    "slug": "windstream-kinetic",
+    "defaultIp": "192.168.254.254",
+    "defaultUser": "admin",
+    "defaultPass": "Admin password on router label",
+    "description": "Windstream Kinetic delivers high-speed residential fiber-to-the-home and bonded DSL internet services across 18 US states using Actiontec and Sagemcom gigabit gateways.",
+    "instructions": [
+      "Connect to your Kinetic Wi-Fi network or plug an Ethernet cable into any yellow LAN port.",
+      "Open your browser and navigate to http://192.168.254.254.",
+      "Log in using Username: admin and the Admin Password printed on the modem label.",
+      "Configure Wi-Fi network security, view fiber optical WAN link status, and setup port forwarding."
+    ],
+    "models": [
+      {
+        "brand": "Windstream Kinetic",
+        "model": "Kinetic Actiontec T3200 Modem Gateway",
+        "ip": "192.168.254.254",
+        "username": "admin",
+        "password": "Admin password on router label",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Windstream Kinetic",
+        "model": "Kinetic Actiontec T3260 Wi-Fi 6 Gateway",
+        "ip": "192.168.254.254",
+        "username": "admin",
+        "password": "Admin password on router label",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Spark New Zealand",
+    "slug": "spark-new-zealand",
+    "defaultIp": "192.168.1.254",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Spark New Zealand is the country's leading telecommunications and digital services provider, delivering gigabit UFB fiber, 5G wireless broadband, and Spark Smart Modem routers nationwide.",
+    "instructions": [
+      "Connect your device to the Spark Smart Modem Wi-Fi network or via Ethernet cable.",
+      "Open your internet browser and navigate to http://192.168.1.254.",
+      "Log in with Username: admin and Password: admin (or wireless security key on bottom).",
+      "Manage 5G cellular signal diagnostics, UFB fiber VLAN settings, and Spark Wi-Fi mesh nodes."
+    ],
+    "models": [
+      {
+        "brand": "Spark New Zealand",
+        "model": "Spark Smart Modem 2 VRV9517 Gateway",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Spark New Zealand",
+        "model": "Spark 5G Smart Modem Wireless Gateway",
+        "ip": "192.168.1.254",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Aussie Broadband",
+    "slug": "aussie-broadband",
+    "defaultIp": "192.168.20.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Aussie Broadband is Australia's premier award-winning NBN telecommunications carrier, known for high-speed performance, congestion-free bandwidth, and NetComm/eero Wi-Fi 6 hardware deployments.",
+    "instructions": [
+      "Connect your computer or smartphone to your Aussie Broadband router Wi-Fi or LAN port.",
+      "Open your browser and navigate to http://192.168.20.1 (or http://192.168.1.1 on select NetComm models).",
+      "Enter default Username: admin and Password: admin (or the unique password on the gateway card).",
+      "Configure NBN WAN connection type (IPoE/DHCP or PPPoE), Wi-Fi bands, and parental controls."
+    ],
+    "models": [
+      {
+        "brand": "Aussie Broadband",
+        "model": "NetComm NF18MESH Gigabit Gateway",
+        "ip": "192.168.20.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Aussie Broadband",
+        "model": "eero Pro 6 Tri-Band Wi-Fi 6 Router",
+        "ip": "192.168.4.1",
+        "username": "admin",
+        "password": "Managed via eero mobile app",
+        "protocol": "HTTPS"
+      }
+    ]
+  },
+  {
+    "name": "Chunghwa Telecom",
+    "slug": "chunghwa-telecom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "cht",
+    "defaultPass": "chtnxxxx (MAC based)",
+    "description": "Chunghwa Telecom (\u4e2d\u83ef\u96fb\u4fe1 HiNet) is Taiwan's dominant telecommunications operator, delivering multi-gigabit FTTH fiber broadband services via Zyxel and D-Link optical network units.",
+    "instructions": [
+      "Connect your PC to the Chunghwa Telecom fiber modem via LAN cable or Wi-Fi.",
+      "Open your browser and go to http://192.168.1.1.",
+      "Log in with Username: cht and Password: chtn plus the last 4 characters of the MAC address (or user / user).",
+      "Manage HiNet PPPoE credentials, optical fiber link power, and Wi-Fi 6 wireless encryption."
+    ],
+    "models": [
+      {
+        "brand": "Chunghwa Telecom",
+        "model": "Zyxel PMG4502 GPON Optical Gateway",
+        "ip": "192.168.1.1",
+        "username": "cht",
+        "password": "chtnxxxx (MAC based)",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Chunghwa Telecom",
+        "model": "D-Link DWR-981 Wi-Fi 6 Fiber Gateway",
+        "ip": "192.168.1.1",
+        "username": "cht",
+        "password": "chtnxxxx (MAC based)",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Totalplay",
+    "slug": "totalplay-mexico",
+    "defaultIp": "192.168.100.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin",
+    "description": "Totalplay Telecomunicaciones is Mexico's leading 100% fiber-optic triple-play telecommunications provider, supplying multi-gigabit FTTH broadband via ZTE and Huawei Wi-Fi 6 ONTs.",
+    "instructions": [
+      "Connect to the Totalplay Wi-Fi network or connect an Ethernet cable to LAN1.",
+      "Open your web browser and navigate to http://192.168.100.1.",
+      "Enter default Username: admin and Password: admin (or Totalplay password on rear label).",
+      "Configure Wi-Fi 6 wireless channels, guest network access, and Totalplay TV set-top box bridging."
+    ],
+    "models": [
+      {
+        "brand": "Totalplay",
+        "model": "Totalplay ZTE ZXHN F670L GPON Gateway",
+        "ip": "192.168.100.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Totalplay",
+        "model": "Totalplay Huawei HG8145X6 Wi-Fi 6 Gateway",
+        "ip": "192.168.100.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "YouSee",
+    "slug": "yousee-denmark",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "Printed on router base",
+    "description": "YouSee (part of Nuuday / TDC Group) is Denmark's largest provider of broadband, cable, and high-speed fiber services, deploying Sagemcom DOCSIS 3.1 gateways and intelligent Wi-Fi mesh boosters.",
+    "instructions": [
+      "Connect your device to your YouSee wireless home network.",
+      "Open your web browser and navigate to http://192.168.1.1 (or http://my.router).",
+      "Enter default Username: admin and the Admin Password printed on the modem label.",
+      "Configure high-speed internet settings, guest Wi-Fi network, and connected YouSee mesh extenders."
+    ],
+    "models": [
+      {
+        "brand": "YouSee",
+        "model": "YouSee Sagemcom Fast 3890 Cable Router",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "YouSee",
+        "model": "YouSee Wi-Fi Booster Smart Mesh Node",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "Printed on router base",
+        "protocol": "HTTP"
+      }
+    ]
+  }
+,
+{
+    "name": "LG Uplus",
+    "slug": "lg-uplus",
+    "defaultIp": "192.168.219.1",
+    "defaultUser": "admin",
+    "defaultPass": "admin / MAC last 4 digits",
+    "description": "LG Uplus (U+) is one of South Korea's premier telecommunications providers, offering multi-gigabit GiGA Wi-Fi fiber optic broadband and smart home gateways across the nation.",
+    "instructions": [
+      "Connect your smartphone or PC to the LG Uplus Wi-Fi network (U+Net_XXXX).",
+      "Open your web browser and navigate to http://192.168.219.1.",
+      "Enter default Username: admin and the factory password printed on the router bottom sticker.",
+      "Manage GiGA Wi-Fi 6 frequency bands, IPTV port assignments, and guest access."
+    ],
+    "models": [
+      {
+        "brand": "LG Uplus",
+        "model": "LG Uplus Giga Wi-Fi 6 Home Gateway",
+        "ip": "192.168.219.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "LG Uplus",
+        "model": "LG Uplus HFR GPON Optical Terminal",
+        "ip": "192.168.219.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "China Mobile",
+    "slug": "china-mobile",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "CMCCAdmin",
+    "defaultPass": "aDm8H%MdA",
+    "description": "China Mobile is the world's largest telecom carrier by subscriber base, deploying high-speed GPON and XG-PON Wi-Fi 6 smart home fiber gateways to hundreds of millions of households.",
+    "instructions": [
+      "Connect your device to your China Mobile fiber gateway via Ethernet or home Wi-Fi.",
+      "Open your browser and navigate to http://192.168.1.1.",
+      "Log in with administrator Username: CMCCAdmin and the management password printed on the bottom label.",
+      "Configure broadband PPPoE credentials, 2.4G/5G dual-band Wi-Fi, and optical link diagnostics."
+    ],
+    "models": [
+      {
+        "brand": "China Mobile",
+        "model": "China Mobile GPON Wi-Fi 6 Home Gateway",
+        "ip": "192.168.1.1",
+        "username": "CMCCAdmin",
+        "password": "aDm8H%MdA",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "China Mobile",
+        "model": "China Mobile FiberHome AN5506 Smart ONT",
+        "ip": "192.168.1.1",
+        "username": "CMCCAdmin",
+        "password": "aDm8H%MdA",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "China Unicom",
+    "slug": "china-unicom",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "CUAdmin",
+    "defaultPass": "CUAdmin",
+    "description": "China Unicom provides expansive nationwide fiber-to-the-home broadband through its WO Home brand, utilizing gigabit ZTE and Huawei GPON optical gateways.",
+    "instructions": [
+      "Connect your PC to the China Unicom optical modem LAN1 Gigabit port.",
+      "Open your web browser and go to http://192.168.1.1 (or http://192.168.0.1).",
+      "Enter default Username: CUAdmin and Password: CUAdmin (or user credentials from the device sticker).",
+      "Manage your WO Home wireless networks, optical link status, and IPTV routing."
+    ],
+    "models": [
+      {
+        "brand": "China Unicom",
+        "model": "China Unicom WO Home GPON Wi-Fi 6 ONT",
+        "ip": "192.168.1.1",
+        "username": "CUAdmin",
+        "password": "CUAdmin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "China Unicom",
+        "model": "China Unicom ZTE F677 Gigabit Fiber Gateway",
+        "ip": "192.168.1.1",
+        "username": "CUAdmin",
+        "password": "CUAdmin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Claro Telecom",
+    "slug": "claro-telecom",
+    "defaultIp": "192.168.0.1",
+    "defaultUser": "admin",
+    "defaultPass": "claro123 / MAC address",
+    "description": "Claro (subsidiary of Am\u00e9rica M\u00f3vil) is the leading telecommunications and broadband operator in Latin America, serving millions across Brazil, Colombia, Mexico, Peru, and Argentina.",
+    "instructions": [
+      "Connect your device to your Claro Wi-Fi network (Claro_XXXX).",
+      "Open your browser and navigate to http://192.168.0.1 (or http://192.168.1.1).",
+      "Log in with Username: admin and Password: claro123 or the custom network key printed on the label.",
+      "Configure your dual-band wireless security, firewall rules, and connected home devices."
+    ],
+    "models": [
+      {
+        "brand": "Claro Telecom",
+        "model": "Claro Huawei OptiXstar HG8145V5 Dual-Band ONT",
+        "ip": "192.168.100.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Claro Telecom",
+        "model": "Claro Technicolor TC7300 DOCSIS 3.0 Gateway",
+        "ip": "192.168.0.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Ooredoo",
+    "slug": "ooredoo",
+    "defaultIp": "192.168.100.1",
+    "defaultUser": "telecomadmin",
+    "defaultPass": "admintelecom",
+    "description": "Ooredoo is an international telecommunications company headquartered in Qatar, delivering high-speed optical fiber and 5G Home Broadband across the Middle East, North Africa, and Southeast Asia.",
+    "instructions": [
+      "Connect to the Ooredoo Fibre Wi-Fi network or plug into the LAN port.",
+      "Open your web browser and navigate to http://192.168.100.1.",
+      "Log in with Username: telecomadmin and Password: admintelecom.",
+      "Configure high-speed internet settings, Wi-Fi 6 network credentials, and VoIP services."
+    ],
+    "models": [
+      {
+        "brand": "Ooredoo",
+        "model": "Ooredoo Fibre Home Broadband Optical Gateway",
+        "ip": "192.168.100.1",
+        "username": "telecomadmin",
+        "password": "admintelecom",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Ooredoo",
+        "model": "Ooredoo 5G Smart Home Wi-Fi 6 CPE",
+        "ip": "192.168.8.1",
+        "username": "admin",
+        "password": "admin",
+        "protocol": "HTTP"
+      }
+    ]
+  },
+  {
+    "name": "Turkcell Superonline",
+    "slug": "turkcell-superonline",
+    "defaultIp": "192.168.1.1",
+    "defaultUser": "admin",
+    "defaultPass": "superonline",
+    "description": "Turkcell Superonline is Turkey's leading innovative fiber optic internet provider, deploying Wi-Fi 6 Huawei and ZTE gigabit gateways across major metropolitan regions.",
+    "instructions": [
+      "Connect to your Turkcell Superonline Wi-Fi network.",
+      "Open your web browser and navigate to http://192.168.1.1.",
+      "Enter default Username: admin and Password: superonline.",
+      "Update your wireless network name and password, set parental controls, and monitor connected devices."
+    ],
+    "models": [
+      {
+        "brand": "Turkcell Superonline",
+        "model": "Turkcell Superonline Huawei HG8245X6 Wi-Fi 6 Gateway",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "superonline",
+        "protocol": "HTTP"
+      },
+      {
+        "brand": "Turkcell Superonline",
+        "model": "Turkcell Superonline ZTE F680 Gigabit GPON ONT",
+        "ip": "192.168.1.1",
+        "username": "admin",
+        "password": "superonline",
+        "protocol": "HTTP"
+      }
+    ]
   }
 ];
 
 export { ROUTER_MODELS } from './router-models-data';
 import { ROUTER_MODELS } from './router-models-data';
+
+// Auto-populate inline models for any Brand or ISP that doesn't have them
+BRANDS.forEach(b => {
+  if (!b.models || b.models.length === 0) {
+    b.models = ROUTER_MODELS
+      .filter(m => m.brandSlug === b.slug)
+      .map(m => ({
+        brand: m.brand,
+        model: m.model,
+        ip: m.ip,
+        username: m.username,
+        password: m.password,
+        protocol: m.protocol,
+        slug: m.slug,
+        brandSlug: m.brandSlug,
+        category: m.category,
+        wifiStandard: m.wifiStandard
+      }));
+  }
+});
+
+ISPS.forEach(i => {
+  if (!i.models || i.models.length === 0) {
+    i.models = ROUTER_MODELS
+      .filter(m => m.brandSlug === i.slug)
+      .map(m => ({
+        brand: m.brand,
+        model: m.model,
+        ip: m.ip,
+        username: m.username,
+        password: m.password,
+        protocol: m.protocol,
+        slug: m.slug,
+        brandSlug: m.brandSlug,
+        category: m.category,
+        wifiStandard: m.wifiStandard
+      }));
+  }
+});
+
+// Ensure all Gateway IPs have at least 2 comprehensive FAQs
+GATEWAY_IPS.forEach(g => {
+  if (!g.faqs) g.faqs = [];
+  if (g.faqs.length < 2) {
+    g.faqs.push({
+      question: `How do I reset my router if ${g.ip} is not reachable?`,
+      answer: `Check that your device is directly connected via Ethernet or Wi-Fi to the router. If you cannot reach ${g.ip}, press and hold the physical Reset button on the back of the router for 10-15 seconds using a pin or paperclip to restore factory default settings and IP address.`
+    });
+  }
+});
 
 export async function getAllSlugs() {
   const ipSlugs = GATEWAY_IPS
@@ -4008,6 +26036,19 @@ export function getModelsForIp(targetIp: string): RouterModel[] {
 
 export function getModelsForBrand(brandSlug: string): RouterModel[] {
   return ROUTER_MODELS.filter(m => m.brandSlug === brandSlug);
+}
+
+// BRANDS lists a few brands twice under different slugs (GL.iNet, AVM, eero); this key matches them.
+export function brandKey(name: string): string {
+  return name.toLowerCase().replace(/\(.*?\)/g, '').replace(/^amazon\s*/, '').replace(/[^a-z0-9]/g, '');
+}
+
+// Brands with the most models first, one entry per brand.
+export function getBrandsByPopularity(): Brand[] {
+  const seen = new Set<string>();
+  return [...BRANDS]
+    .sort((a, b) => getModelsForBrand(b.slug).length - getModelsForBrand(a.slug).length)
+    .filter(b => !seen.has(brandKey(b.name)) && seen.add(brandKey(b.name)));
 }
 
 export function getModelSlug(brand?: string | null, model?: string | null): string | null {

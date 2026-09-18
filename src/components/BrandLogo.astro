@@ -1,0 +1,50 @@
+---
+import { getBrandLogoUrl, brandAccent } from '../lib/brand-logos';
+import RouterGlyph from './RouterGlyph.astro';
+
+interface Props {
+  slug: string;
+  name: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { slug, name, size = 'md', class: className = '' } = Astro.props;
+const logoUrl = getBrandLogoUrl(slug);
+
+const sizes = {
+  xs: { box: 'w-5 h-5 rounded-md p-0.5', text: 'text-xs', px: 20 },
+  sm: { box: 'w-8 h-8 rounded-xl p-1', text: 'text-xs', px: 32 },
+  md: { box: 'w-10 h-10 rounded-2xl p-1', text: 'text-xs', px: 40 },
+  lg: { box: 'w-14 h-14 rounded-2xl p-1.5', text: 'text-lg', px: 56 },
+};
+const s = sizes[size];
+const initials = name.replace(/\(.*?\)/g, '').replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase();
+---
+
+{logoUrl ? (
+  // Logos are drawn for light backgrounds, so the tile stays white in dark mode too.
+  <span class={`${s.box} bg-white border border-[#e8eaed] dark:border-[#5f6368] flex items-center justify-center flex-shrink-0 overflow-hidden shadow-2xs ${className}`}>
+    <img
+      src={logoUrl}
+      alt={`${name} logo`}
+      width={s.px}
+      height={s.px}
+      loading="lazy"
+      decoding="async"
+      class="w-full h-full object-contain"
+    />
+  </span>
+) : (
+  // No logo for this brand: a router mark on the brand's own accent colour, with the
+  // initials kept as the accessible name so the brand is still identifiable.
+  <span
+    class={`${s.box} text-white flex items-center justify-center flex-shrink-0 shadow-2xs ${className}`}
+    style={`background:${brandAccent(slug)}`}
+    role="img"
+    aria-label={`${name} logo`}
+    title={name}
+  >
+    <RouterGlyph class="w-3/5 h-3/5" />
+  </span>
+)}

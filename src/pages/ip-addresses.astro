@@ -91,10 +91,10 @@ const schema = [
   schema={schema}
   ogType="website"
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#80868b] font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium" aria-label="Breadcrumb">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
       <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">Gateway IPs</span>
@@ -108,7 +108,7 @@ const schema = [
       <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
         Router IP Addresses
       </h1>
-      <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6]">
         Browse common private IP addresses designated for local wireless router configuration panels.
       </p>
     </header>
@@ -127,7 +127,7 @@ const schema = [
     <!-- Technical SEO Explanation Table -->
     <section class="bg-white dark:bg-[#292a2d] rounded-2xl p-4 sm:p-6 border border-[#dadce0] dark:border-[#3c4043] shadow-card space-y-3.5 transition-colors">
       <h2 class="text-lg font-bold text-[#202124] dark:text-white">Private IP Address Ranges Explained (RFC 1918)</h2>
-      <p class="text-xs text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+      <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
         The Internet Engineering Task Force (IETF) reserved specific ranges of IPv4 addresses strictly for private local area networks (LAN). These addresses cannot be routed across the public internet:
       </p>
 
@@ -171,14 +171,14 @@ const schema = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
         <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <strong class="text-[#202124] dark:text-white block font-semibold text-xs">⚠️ Avoiding IP Conflicts on Two Routers</strong>
-          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+          <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             If connecting a secondary router, ensure both do not share the same IP (192.168.1.1). Change the secondary router to <strong>192.168.2.1</strong> or switch it to Access Point (AP) mode.
           </p>
         </div>
 
         <div class="p-3.5 rounded-xl bg-[#f8fafd] dark:bg-[#303134]/60 border border-[#e8eaed] dark:border-[#3c4043] space-y-1">
           <strong class="text-[#202124] dark:text-white block font-semibold text-xs">🛠️ Rescuing an Unresponsive Router</strong>
-          <p class="text-[11px] text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
+          <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#bdc1c6] leading-relaxed">
             If DHCP fails, set a static IP like <code class="font-mono bg-white dark:bg-slate-700 px-1 py-0.5 rounded border dark:border-slate-600">192.168.1.50</code> with subnet <code class="font-mono bg-white dark:bg-slate-700 px-1 py-0.5 rounded border dark:border-slate-600">255.255.255.0</code> to reconnect.
           </p>
         </div>

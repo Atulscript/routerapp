@@ -1,5 +1,6 @@
 ---
 import { BRANDS, ROUTER_MODELS, formatModelTitle } from '../lib/data-loader';
+import photos from '../lib/model-images.json';
 
 // Collect all models with brand, model, slug, and protocol
 const allModels = ROUTER_MODELS.length > 0 ? ROUTER_MODELS.map(m => ({
@@ -29,6 +30,7 @@ const allModels = ROUTER_MODELS.length > 0 ? ROUTER_MODELS.map(m => ({
 );
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const photoMap = Object.fromEntries(Object.entries(photos as Record<string, { file: string }>).map(([slug, v]) => [slug, v.file]));
 const brandNames = Array.from(new Set(allModels.map(b => b.brand))).sort((a, b) => a.localeCompare(b));
 const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'MikroTik', 'Linksys', 'D-Link', 'Xiaomi', 'GL.iNet'];
 
@@ -78,7 +80,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
           <button 
             type="button" 
             id="clear-search-btn" 
-            class="hidden absolute right-2.5 inset-y-0 text-[#80868b] hover:text-[#202124] dark:hover:text-white text-xs font-bold my-auto"
+            class="hidden absolute right-2.5 inset-y-0 text-[#5f6368] hover:text-[#202124] dark:hover:text-white text-xs font-bold my-auto"
           >
             ✕
           </button>
@@ -89,7 +91,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
 
     <!-- Quick Brand Filter Chips -->
     <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs">
-      <span class="text-[#80868b] dark:text-[#9aa0a6] font-medium text-[11px] mr-1">Quick:</span>
+      <span class="text-[#5f6368] dark:text-[#9aa0a6] font-medium text-[11px] mr-1">Quick:</span>
       <button type="button" class="brand-pill g-chip text-[11px] font-medium" data-brand="ALL">
         All
       </button>
@@ -106,7 +108,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
   </div>
 
   <!-- Material 3 Styled Table Container -->
-  <div class="overflow-x-auto border border-[#dadce0] dark:border-[#3c4043] rounded-2xl shadow-card bg-white dark:bg-[#202124] max-h-96 overflow-y-auto custom-scrollbar">
+  <div class="overflow-x-auto border border-[#dadce0] dark:border-[#3c4043] rounded-2xl shadow-card bg-white dark:bg-[#202124] h-96 overflow-y-auto custom-scrollbar">
     <table class="w-full text-left border-collapse" id="models-table">
       <thead class="sticky top-0 z-10 bg-[#f8fafd] dark:bg-[#303134] text-[#5f6368] dark:text-[#e8eaed] text-[11px] font-bold uppercase tracking-wider border-b border-[#dadce0] dark:border-[#3c4043] shadow-2xs">
         <tr>
@@ -127,13 +129,15 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
   <!-- Footer Status Bar -->
   <div class="flex flex-col sm:flex-row justify-between items-center mt-3 text-xs text-[#5f6368] dark:text-[#9aa0a6] gap-1 px-1">
     <span id="model-count-text" class="font-medium text-[11px] text-[#3c4043] dark:text-[#e8eaed]">Loading models...</span>
-    <span class="text-[11px] text-[#80868b] dark:text-[#9aa0a6]">
+    <span class="text-[11px] text-[#5f6368] dark:text-[#9aa0a6]">
       💡 Click any brand or IP to open dedicated setup instructions
     </span>
   </div>
 </div>
 
-<script define:vars={{ allModels, base }}>
+<script define:vars={{ modelsUrl: `${base}/models.json`, base, photoMap }}>
+  let allModels = [];
+  const escapeHtml = (v) => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const select = document.getElementById('brand-select');
   const searchInput = document.getElementById('table-search-input');
   const clearBtn = document.getElementById('clear-search-btn');
@@ -145,20 +149,6 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     if (ip === '192.168.1.1') return `${base}/`;
     return `${base}/${ip.replace(/\./g, '-')}`;
   }
-
-  function copyPassword(pw, btn) {
-    navigator.clipboard.writeText(pw);
-    const origHtml = btn.innerHTML;
-    btn.innerHTML = '✓ Copied';
-    btn.classList.remove('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
-    btn.classList.add('bg-[#34a853]', 'text-white', 'border-[#34a853]');
-    setTimeout(() => {
-      btn.innerHTML = origHtml;
-      btn.classList.remove('bg-[#34a853]', 'text-white', 'border-[#34a853]');
-      btn.classList.add('bg-white', 'dark:bg-[#303134]', 'text-[#3c4043]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
-    }, 1500);
-  }
-  window.copyPassword = copyPassword;
 
   function updatePillActive(currentBrand) {
     pills.forEach(pill => {
@@ -208,7 +198,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     if (filtered.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="6" class="py-8 text-center text-[#80868b] dark:text-[#9aa0a6] italic bg-[#f8fafd]/50 dark:bg-[#202124]/50">
+          <td colspan="6" class="py-8 text-center text-[#5f6368] dark:text-[#9aa0a6] italic bg-[#f8fafd]/50 dark:bg-[#202124]/50">
             No matching router models found. Try clearing your search query.
           </td>
         </tr>
@@ -225,42 +215,50 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
       const modelHref = item.slug ? `${base}/${item.slug}` : (item.brandSlug ? `${base}/${item.brandSlug}` : null);
       const modelCellHtml = modelHref ? `
         <a href="${modelHref}" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:text-[#1557b0] dark:hover:text-[#a8c7fa] hover:underline font-bold inline-flex items-center gap-1">
-          <span>${item.model}</span>
-          <span class="text-[10px] opacity-75">→</span>
+          <span>${escapeHtml(item.model)}</span>
+          <span class="text-xs opacity-75">→</span>
         </a>
-      ` : `<span>${item.model}</span>`;
+      ` : `<span>${escapeHtml(item.model)}</span>`;
+
+      const photoFile = photoMap[item.slug];
+      const thumb = photoFile
+        ? `<img src="${base}/${photoFile}" alt="" width="44" height="32" loading="lazy" decoding="async" class="w-11 h-8 object-contain rounded-lg bg-white border border-[#e8eaed] dark:border-[#5f6368] flex-shrink-0">`
+        : `<span class="w-11 h-8 rounded-lg bg-[#f1f3f4] dark:bg-[#303134] border border-[#e8eaed] dark:border-[#5f6368] text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="14" width="18" height="6.5" rx="2"/><path d="M7 17.2h.01M10 17.2h.01"/><path d="M12 14v-2.5"/><path d="M9.2 9.3a4 4 0 0 1 5.6 0"/><path d="M6.6 6.6a7.7 7.7 0 0 1 10.8 0"/></svg>
+           </span>`;
 
       return `
         <tr class="${bgClass} hover:bg-[#e8f0fe]/70 dark:hover:bg-[#303134]/80 transition-colors">
           <td class="py-2.5 px-4 font-bold text-[#202124] dark:text-white whitespace-nowrap text-xs">
             <a href="${brandHref}" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline inline-flex items-center gap-1">
-              ${item.brand}
+              ${escapeHtml(item.brand)}
             </a>
           </td>
           <td class="py-2.5 px-4 font-medium text-[#202124] dark:text-[#e8eaed] whitespace-nowrap text-xs">
-            ${modelCellHtml}
+            <span class="flex items-center gap-2.5">${thumb}${modelCellHtml}</span>
           </td>
           <td class="py-2.5 px-4 font-mono font-bold whitespace-nowrap text-xs">
             <div class="inline-flex items-center gap-1.5">
               <a href="${ipHref}" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline" title="View ${cleanIp} guide">
                 ${cleanIp}
               </a>
-              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#80868b] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]" title="Open http://${cleanIp} in new tab">
+              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm text-[#5f6368] dark:text-[#9aa0a6] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]" title="Open http://${cleanIp} in a new tab" aria-label="Open ${cleanIp} in a new tab">
                 ↗
               </a>
             </div>
           </td>
           <td class="py-2.5 px-4 text-[#5f6368] dark:text-[#9aa0a6] whitespace-nowrap text-[11px]">
-            <span class="px-2 py-0.5 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] font-mono text-[10px] font-bold">${item.protocol}</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] font-mono text-xs font-bold">${item.protocol}</span>
           </td>
-          <td class="py-2.5 px-4 font-mono text-[#3c4043] dark:text-[#e8eaed] whitespace-nowrap text-xs">${item.username}</td>
+          <td class="py-2.5 px-4 font-mono text-[#3c4043] dark:text-[#e8eaed] whitespace-nowrap text-xs">${escapeHtml(item.username)}</td>
           <td class="py-2.5 px-4 font-mono font-bold text-[#202124] dark:text-white whitespace-nowrap text-xs text-right">
             <div class="inline-flex items-center justify-end gap-2">
-              <span class="truncate max-w-[90px] sm:max-w-[130px] font-mono">${item.password}</span>
+              <span class="truncate max-w-[90px] sm:max-w-[130px] font-mono" title="${escapeHtml(item.password)}">${escapeHtml(item.password)}</span>
               <button 
                 type="button" 
-                onclick="window.copyPassword('${item.password}', this)"
-                class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] text-[#3c4043] dark:text-[#e8eaed] font-sans border border-[#dadce0] dark:border-[#5f6368] transition-all active:scale-95 cursor-pointer shadow-2xs"
+                data-copy="${escapeHtml(item.password)}"
+                aria-label="Copy password for ${escapeHtml(item.model)}"
+                class="copy-btn "text-xs font-bold px-2.5 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] text-[#3c4043] dark:text-[#e8eaed] font-sans border border-[#dadce0] dark:border-[#5f6368] transition-all active:scale-95 cursor-pointer shadow-2xs"
               >
                 Copy
               </button>
@@ -276,8 +274,20 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     select.value = 'TP-Link';
   }
 
-  // Initial render
-  renderTable();
+  // Load the model list once the table is close to the viewport, then render.
+  const container = document.getElementById('router-lookup-container');
+  const loadModels = () => fetch(modelsUrl).then(r => r.json()).then(data => { allModels = data; renderTable(); }).catch(() => {
+    tbody.innerHTML = '<tr><td colspan="6" class="py-8 text-center text-sm text-[#5f6368]">Could not load the model list. Please refresh the page.</td></tr>';
+  });
+  tbody.innerHTML = '<tr><td colspan="6" class="py-8 text-center text-sm text-[#5f6368] dark:text-[#9aa0a6]">Loading router models…</td></tr>';
+  if ('IntersectionObserver' in window && container) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { observer.disconnect(); loadModels(); }
+    }, { rootMargin: '600px' });
+    observer.observe(container);
+  } else {
+    loadModels();
+  }
 
   select?.addEventListener('change', renderTable);
   searchInput?.addEventListener('input', renderTable);

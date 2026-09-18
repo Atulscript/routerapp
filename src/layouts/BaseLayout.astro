@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import BottomNav from '../components/BottomNav.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -28,9 +29,17 @@ const {
 
 const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const siteUrl = "https://atulscript.github.io/routerapp";
+const siteUrl = Astro.site ? new URL(base, Astro.site).href.replace(/\/$/, '') : "https://atulscript.github.io/routerapp";
 const socialImage = ogImage || `${siteUrl}/og-image.svg`;
 const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords;
+
+// Automatic Indexing Control:
+// Blocks all search engines on GitHub Pages (*.github.io) staging/preview.
+// Automatically allows indexing when deployed to a live custom domain.
+// Can be manually overridden with PUBLIC_ALLOW_INDEXING=true
+const isGitHubPages = Astro.site?.hostname.includes('github.io') || siteUrl.includes('github.io');
+const allowIndexing = import.meta.env.PUBLIC_ALLOW_INDEXING === 'true';
+const shouldNoIndex = (noindex || isGitHubPages) && !allowIndexing;
 
 // Base Organization and WebSite Schema for rich snippets
 const globalSchema = {
@@ -103,12 +112,18 @@ if (schema) {
   <meta name="keywords" content={keywordsString} />
   <meta name="author" content="19216811.page Editorial Team" />
   <meta name="publisher" content="19216811.page" />
-  <meta name="theme-color" content="#1a73e8" />
+  <meta name="theme-color" content="#f8fafd" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#202124" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Self-hosted fonts, preloaded so headings paint in the right font straight away -->
+  <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/google-sans.woff2`} crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/jetbrains-mono.woff2`} crossorigin />
   <link rel="canonical" href={canonical} />
 
   <!-- Search Engine Robots Directive -->
-  {noindex ? (
-    <meta name="robots" content="noindex, follow" />
+  {shouldNoIndex ? (
+    <meta name="robots" content="noindex, nofollow" />
   ) : (
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   )}
@@ -143,14 +158,41 @@ if (schema) {
   <!-- Schema.org JSON-LD Structured Data Graph -->
   <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#1a73e8] selection:text-white font-sans bg-[#f8fafd] dark:bg-[#202124] text-[#202124] dark:text-[#e8eaed] transition-colors duration-200">
+<body data-base={base} class="min-h-screen flex flex-col justify-between selection:bg-[#1a73e8] selection:text-white font-sans bg-[#f8fafd] dark:bg-[#202124] text-[#202124] dark:text-[#e8eaed] transition-colors duration-200">
   <Header currentPath={currentPath} />
   
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow pb-20 md:pb-0" tabindex="-1">
     <slot />
   </main>
 
   <Footer />
+  <BottomNav currentPath={currentPath} />
   <CookieConsent />
+
+  <!-- Screen-reader announcements (e.g. "Copied") -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite"></div>
+
+  <script>
+    // Copy buttons anywhere on the site: <button class="copy-btn" data-copy="text">
+    document.addEventListener('click', async (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>('.copy-btn');
+      const text = button?.dataset.copy;
+      if (!button || !text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        return;
+      }
+      const original = button.innerHTML;
+      button.innerHTML = '✓ Copied';
+      button.classList.add('!bg-[#34a853]', '!text-white', '!border-[#34a853]');
+      const announcer = document.getElementById('sr-announcer');
+      if (announcer) announcer.textContent = `Copied ${text}`;
+      setTimeout(() => {
+        button.innerHTML = original;
+        button.classList.remove('!bg-[#34a853]', '!text-white', '!border-[#34a853]');
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
