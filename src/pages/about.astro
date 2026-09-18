@@ -58,22 +58,22 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8 font-sans">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium">
+    <nav class="flex items-center gap-1.5 text-xs text-ink-muted font-medium">
       <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
       <span>/</span>
-      <span class="text-[#202124] dark:text-[#e8eaed] font-medium truncate">About Us</span>
+      <span class="text-ink font-medium truncate">About Us</span>
     </nav>
 
     <!-- Header -->
-    <header class="space-y-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-6">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold uppercase border border-[#d2e3fc] dark:border-[#1a73e8] shadow-2xs">
+    <header class="space-y-2 border-b border-line-subtle pb-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-bold uppercase border border-[#d2e3fc] dark:border-[#1a73e8] shadow-2xs">
         <span class="w-1.5 h-1.5 rounded-full bg-[#1a73e8]"></span>
         Who We Are & Why We Built This
       </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
         About RouterSync.com
       </h1>
-      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed max-w-2xl">
+      <p class="text-sm sm:text-base text-ink-muted leading-relaxed max-w-2xl">
         A fast, clutter-free reference directory and browser toolkit built for anyone trying to fix, configure, or secure their home Wi-Fi network.
       </p>
     </header>
@@ -82,48 +82,48 @@ const schema = [
     <div class="space-y-6 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] leading-relaxed g-card p-6 sm:p-8">
       
       <section class="space-y-3">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">Why We Built This Site</h2>
+        <h2 class="text-base sm:text-lg font-bold text-ink">Why We Built This Site</h2>
         <p>
-          If you have ever tried to look up your router's default login or figure out why <code class="font-mono bg-[#f1f3f4] dark:bg-[#303134] text-[#202124] dark:text-white px-1.5 py-0.5 rounded text-xs">192.168.1.1</code> wouldn't open, you probably landed on websites filled with intrusive popups, fake download buttons, and outdated information.
+          If you have ever tried to look up your router's default login or figure out why <code class="font-mono bg-surface-muted text-ink px-1.5 py-0.5 rounded text-xs">192.168.1.1</code> wouldn't open, you probably landed on websites filled with intrusive popups, fake download buttons, and outdated information.
         </p>
         <p>
           We created <strong>RouterSync.com</strong> to be the exact opposite: an uncluttered, fast-loading, and practical reference site. Whether you are changing your Wi-Fi password, setting up parental controls, or helping family members troubleshoot a disconnected modem, our goal is to give you the exact IP, factory credentials, and step-by-step setup guide in seconds.
         </p>
       </section>
 
-      <section class="space-y-3 pt-4 border-t border-[#e8eaed] dark:border-[#3c4043]">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">What Makes Us Different</h2>
+      <section class="space-y-3 pt-4 border-t border-line-subtle">
+        <h2 class="text-base sm:text-lg font-bold text-ink">What Makes Us Different</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="p-4 rounded-2xl bg-surface-sunken border border-line-subtle space-y-2">
             <span class="text-xl">📋</span>
-            <h3 class="font-bold text-[#202124] dark:text-white text-sm">Verified Credentials</h3>
-            <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
+            <h3 class="font-bold text-ink text-sm">Verified Credentials</h3>
+            <p class="text-ink-muted leading-relaxed">
               Every default username, password, and IP address in our database is cross-checked against official manufacturer documentation and actual hardware labels.
             </p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="p-4 rounded-2xl bg-surface-sunken border border-line-subtle space-y-2">
             <span class="text-xl">🔒</span>
-            <h3 class="font-bold text-[#202124] dark:text-white text-sm">Privacy by Default</h3>
-            <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
+            <h3 class="font-bold text-ink text-sm">Privacy by Default</h3>
+            <p class="text-ink-muted leading-relaxed">
               All of our utilities—including the Password Generator and Wi-Fi QR code creator—run entirely in your browser. Your sensitive keys never touch any server.
             </p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] space-y-2">
+          <div class="p-4 rounded-2xl bg-surface-sunken border border-line-subtle space-y-2">
             <span class="text-xl">⚡</span>
-            <h3 class="font-bold text-[#202124] dark:text-white text-sm">No Bloat or Deception</h3>
-            <p class="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
+            <h3 class="font-bold text-ink text-sm">No Bloat or Deception</h3>
+            <p class="text-ink-muted leading-relaxed">
               No misleading "scan now" software ads, no required registrations, and no endless click-through pages. Just clean, direct technical facts.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="space-y-3 pt-4 border-t border-[#e8eaed] dark:border-[#3c4043]">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">Got a Suggestion or Found a Typo?</h2>
+      <section class="space-y-3 pt-4 border-t border-line-subtle">
+        <h2 class="text-base sm:text-lg font-bold text-ink">Got a Suggestion or Found a Typo?</h2>
         <p>
-          Hardware revisions happen all the time, and internet service providers occasionally push custom firmware that alters default credentials. If you spot a model we missed or a credential that needs updating, we welcome your input! Drop us a message via our <a href={`${base}/contact`} class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold underline">Contact Page</a>.
+          Hardware revisions happen all the time, and internet service providers occasionally push custom firmware that alters default credentials. If you spot a model we missed or a credential that needs updating, we welcome your input! Drop us a message via our <a href={`${base}/contact`} class="text-accent font-bold underline">Contact Page</a>.
         </p>
       </section>
 

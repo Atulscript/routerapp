@@ -40,7 +40,7 @@ Four further problems follow from these:
 ## Constraint
 
 Every URL stays. No page is deleted, no body copy or FAQ is removed, no ad slot
-is dropped. The site earns its traffic from 3,622 indexed pages and the work must
+is dropped. The site earns its traffic from 3,626 indexed pages and the work must
 not put that at risk. Everything below changes what is *on* a page, never which
 pages exist or what they are about.
 
@@ -301,7 +301,7 @@ Changes from today:
 
 Verified against a real build, not assumed:
 
-- All 3,622 pages build; the page count and the full URL list are identical
+- All 3,626 pages build; the page count and the full URL list are identical
   before and after.
 - Ad slot count per page type unchanged.
 - Exactly one `h1` per page.

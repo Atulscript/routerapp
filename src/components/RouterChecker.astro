@@ -33,15 +33,15 @@ const hiddenCount = GATEWAY_IPS.length - candidates.length;
 
 <section id={uid} class={`router-checker g-card p-5 sm:p-6 flex flex-col gap-4 ${className}`} aria-labelledby={`${uid}-title`} data-router-checker>
   <div class="flex items-start gap-3">
-    <span class="w-11 h-11 rounded-2xl bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+    <span class="w-11 h-11 rounded-2xl bg-accent-soft text-accent flex items-center justify-center flex-shrink-0" aria-hidden="true">
       <!-- radar -->
       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M16.24 7.76A6 6 0 1 0 18 12"/><circle cx="12" cy="12" r="2"/><path d="m13.4 10.6 6.2-6.2"/></svg>
     </span>
     <div class="min-w-0">
-      <h2 id={`${uid}-title`} class="text-lg font-bold text-[#202124] dark:text-white">
+      <h2 id={`${uid}-title`} class="text-lg font-bold text-ink">
         {focusIp ? `Is ${focusIp} your router?` : 'Find my router'}
       </h2>
-      <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-0.5">
+      <p class="text-sm text-ink-muted mt-0.5">
         Checks {candidates.length} common router addresses from this browser. Connect to your home Wi-Fi first.
       </p>
     </div>
@@ -52,14 +52,14 @@ const hiddenCount = GATEWAY_IPS.length - candidates.length;
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
       <span data-scan-label>{focusIp ? `Check ${focusIp}` : 'Scan my network'}</span>
     </button>
-    <span class="text-xs text-[#5f6368] dark:text-[#9aa0a6] flex items-center gap-1.5">
+    <span class="text-xs text-ink-muted flex items-center gap-1.5">
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
       Runs in your browser. Nothing is sent to our servers.
     </span>
   </div>
 
   <!-- Material linear progress -->
-  <div class="h-1 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] overflow-hidden opacity-0 transition-opacity" data-progress-track aria-hidden="true">
+  <div class="h-1 rounded-full bg-accent-soft overflow-hidden opacity-0 transition-opacity" data-progress-track aria-hidden="true">
     <div class="h-full w-0 bg-[#1a73e8] dark:bg-[#8ab4f8] rounded-full transition-[width] duration-300" data-progress-bar></div>
   </div>
 
@@ -69,7 +69,7 @@ const hiddenCount = GATEWAY_IPS.length - candidates.length;
   <ul class={`grid grid-cols-1 ${wide ? "sm:grid-cols-2" : ""} gap-2 content-start`} data-list>
     {candidates.map((c, i) => (
       <li
-        class={`checker-row flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 transition-colors ${c.ip === focusIp ? 'border-[#1a73e8]/40 dark:border-[#8ab4f8]/40 bg-[#f8fafd] dark:bg-[#202124]' : 'border-[#e8eaed] dark:border-[#3c4043]'}`}
+        class={`checker-row flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 transition-colors ${c.ip === focusIp ? 'border-[#1a73e8]/40 dark:border-[#8ab4f8]/40 bg-surface-sunken' : 'border-line-subtle'}`}
         data-ip={c.ip}
         data-href={c.href}
         data-user={c.user}
@@ -77,14 +77,14 @@ const hiddenCount = GATEWAY_IPS.length - candidates.length;
       >
         <span class="status-dot w-2.5 h-2.5 rounded-full bg-[#dadce0] dark:bg-[#5f6368] flex-shrink-0" aria-hidden="true"></span>
         <span class="min-w-0 flex-1">
-          <a href={c.href} class="block truncate font-mono text-sm font-bold text-[#202124] dark:text-white hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]">{c.ip}</a>
-          <span class="block text-xs text-[#5f6368] dark:text-[#9aa0a6] truncate" data-status-text>{c.brands}</span>
+          <a href={c.href} class="block truncate font-mono text-sm font-bold text-ink hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]">{c.ip}</a>
+          <span class="block text-xs text-ink-muted truncate" data-status-text>{c.brands}</span>
         </span>
         <a
           href={`http://${c.ip}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-shrink-0 inline-flex items-center gap-1 h-9 px-3 rounded-full text-sm font-medium text-[#1a73e8] dark:text-[#8ab4f8] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] transition-colors"
+          class="flex-shrink-0 inline-flex items-center gap-1 h-9 px-3 rounded-full text-sm font-medium text-accent hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] transition-colors"
           aria-label={`Open ${c.ip} in a new tab`}
         >
           Open <span aria-hidden="true">↗</span>
@@ -94,7 +94,7 @@ const hiddenCount = GATEWAY_IPS.length - candidates.length;
   </ul>
 
   {hiddenCount > 0 && (
-    <a href={`${base}/ip-addresses`} class="mt-auto text-sm font-medium text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+    <a href={`${base}/ip-addresses`} class="mt-auto text-sm font-medium text-accent hover:underline">
       See all {GATEWAY_IPS.length} gateway addresses →
     </a>
   )}
@@ -161,7 +161,7 @@ const hiddenCount = GATEWAY_IPS.length - candidates.length;
     const showSummary = (tone: 'success' | 'info' | 'warning', html: string) => {
       const tones = {
         success: 'bg-[#e6f4ea] dark:bg-[#133e24] text-[#0d652d] dark:text-[#ceead6]',
-        info: 'bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#e8eaed]',
+        info: 'bg-surface-muted text-[#3c4043] dark:text-[#e8eaed]',
         warning: 'bg-[#fef7e0] dark:bg-[#332a00] text-[#7a4a00] dark:text-[#fdd663]',
       };
       summary.className = `rounded-2xl p-4 text-sm leading-relaxed ${tones[tone]}`;

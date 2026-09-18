@@ -9,6 +9,23 @@ export default {
         mono: ['"JetBrains Mono"', '"Roboto Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       colors: {
+        // Semantic tokens. Values live in src/styles/tokens.css and flip for
+        // dark mode there, so components need no dark: variant for colour.
+        surface: 'var(--surface)',
+        'surface-sunken': 'var(--surface-sunken)',
+        'surface-muted': 'var(--surface-muted)',
+        'surface-raised': 'var(--surface-raised)',
+        ink: 'var(--ink)',
+        'ink-muted': 'var(--ink-muted)',
+        'ink-subtle': 'var(--ink-subtle)',
+        line: 'var(--line)',
+        'line-subtle': 'var(--line-subtle)',
+        accent: 'var(--accent)',
+        'accent-hover': 'var(--accent-hover)',
+        'accent-soft': 'var(--accent-soft)',
+        'accent-ink': 'var(--accent-ink)',
+        ok: 'var(--ok)',
+        'ok-soft': 'var(--ok-soft)',
         google: {
           blue: '#1a73e8',
           'blue-hover': '#1557b0',

@@ -428,26 +428,26 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/ip-addresses`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">IP Gateways</a>
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ipData.ip}</span>
+            <span class="text-ink font-medium">{ipData.ip}</span>
           </nav>
 
           {/* Hero Header Card (Google OneBox Style) */}
           <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] mb-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] mb-2">
                   <span class="w-2 h-2 rounded-full bg-[#34a853] animate-pulse"></span>
                   Default Gateway IP
                 </div>
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
                   {ipData.ip} Router Admin Login
                 </h1>
-                <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1.5 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-base text-ink-muted mt-1.5 max-w-2xl leading-relaxed">
                   {ipData.description}
                 </p>
               </div>
@@ -467,10 +467,10 @@ if (type === 'ip') {
 
             {/* Quick Metrics */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.ip}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ipData.ip}</div>
                 </div>
                 <button 
                   type="button" 
@@ -481,10 +481,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.defaultUser || '(blank)'}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Username</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ipData.defaultUser || '(blank)'}</div>
                 </div>
                 <button 
                   type="button" 
@@ -495,10 +495,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.defaultPass || '(blank)'}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Password</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ipData.defaultPass || '(blank)'}</div>
                 </div>
                 <button 
                   type="button" 
@@ -516,7 +516,7 @@ if (type === 'ip') {
           {/* Which brands use this address */}
           {ipData.commonBrands.length > 0 && (
             <section class="g-card p-4 sm:p-5 space-y-3">
-              <h2 class="text-sm font-bold text-[#202124] dark:text-white">
+              <h2 class="text-sm font-bold text-ink">
                 Brands that use {ipData.ip}
               </h2>
               <div class="flex flex-wrap gap-2">
@@ -544,17 +544,17 @@ if (type === 'ip') {
           {/* Associated Router Models */}
           {associatedModels.length > 0 && (
             <section class="g-card p-5 sm:p-6 space-y-4">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line-subtle pb-3">
                 <div>
-                  <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
+                  <h2 class="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
                     <span>📡</span>
                     Hardware Routers Using {ipData.ip} Gateway
                   </h2>
-                  <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+                  <p class="text-sm text-ink-muted">
                     Verified factory default credentials and model specifications
                   </p>
                 </div>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] w-fit">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] w-fit">
                   {associatedModels.length} Models
                 </span>
               </div>
@@ -567,7 +567,7 @@ if (type === 'ip') {
 
           {/* Other Gateway IP Addresses Grid */}
           <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
               Other Popular Router Gateway IP Addresses
             </h2>
             <div class="flex flex-wrap gap-2">
@@ -607,17 +607,17 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumbs */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/brands`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Brands</a>
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{brandData.name}</span>
+            <span class="text-ink font-medium">{brandData.name}</span>
           </nav>
 
           {/* Hero Header Card */}
           <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                 <BrandLogo slug={brandData.slug} name={brandData.name} size="lg" />
                 <div>
@@ -625,10 +625,10 @@ if (type === 'ip') {
                     <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
                     Verified Manufacturer Hub
                   </div>
-                  <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
+                  <h1 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
                     {brandData.name} Router Login & Default Passwords
                   </h1>
-                  <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                  <p class="text-sm sm:text-base text-ink-muted mt-1 max-w-2xl leading-relaxed">
                     {brandData.description}
                   </p>
                 </div>
@@ -649,12 +649,12 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {brandIpSlug ? (
-                      <a href={`${base}/${brandIpSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                      <a href={`${base}/${brandIpSlug}`} class="text-accent hover:underline">
                         {brandData.defaultIp}
                       </a>
                     ) : (
@@ -671,10 +671,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Username</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {brandData.defaultUser || '(blank)'}
                   </div>
                 </div>
@@ -687,10 +687,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Password</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {brandData.defaultPass || '(blank)'}
                   </div>
                 </div>
@@ -709,13 +709,13 @@ if (type === 'ip') {
 
           {/* Interactive Hardware Models Directory */}
           <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line-subtle pb-3">
               <div>
-                <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
+                <h2 class="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
                   <span>📟</span>
                   {brandData.name} Hardware Models Catalog
                 </h2>
-                <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+                <p class="text-sm text-ink-muted">
                   Select any model below to view technical specs, port configuration, and setup guide
                 </p>
               </div>
@@ -732,15 +732,15 @@ if (type === 'ip') {
 
           {/* Step-by-Step Configuration Guide */}
           <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+            <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
               <span class="text-lg">📋</span>
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
                 How to Log In & Configure Your {brandData.name} Router
               </h2>
             </div>
             <ol class="space-y-3">
               {(brandData.guide || (brandData as any).instructions || []).map((step: string, idx: number) => (
-                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                   <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
                   </span>
@@ -763,7 +763,7 @@ if (type === 'ip') {
 
           {/* Other Popular Brands Grid */}
           <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
               Other Popular Router Brands
             </h2>
             <div class="flex flex-wrap gap-2">
@@ -776,7 +776,7 @@ if (type === 'ip') {
                   {b.name}
                 </a>
               ))}
-              <a href={`${base}/brands`} class="g-chip inline-flex items-center gap-1 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">
+              <a href={`${base}/brands`} class="g-chip inline-flex items-center gap-1 font-bold text-accent">
                 All {BRANDS.length} brands →
               </a>
             </div>
@@ -797,7 +797,7 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] flex-wrap" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted flex-wrap" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/routers`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Routers</a>
@@ -808,12 +808,12 @@ if (type === 'ip') {
               <span>{model.brand}</span>
             )}
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{model.model}</span>
+            <span class="text-ink font-medium">{model.model}</span>
           </nav>
 
           {/* Model Header Card */}
           <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-line-subtle pb-4">
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 flex-wrap mb-2.5">
                   {brandSlug ? (
@@ -837,10 +837,10 @@ if (type === 'ip') {
                   )}
                 </div>
 
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
                   {model.brand} {model.model}
                 </h1>
-                <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-base text-ink-muted mt-1 max-w-2xl leading-relaxed">
                   {model.useCase}
                 </p>
                 <div class="mt-4">
@@ -861,12 +861,12 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {ipSlug ? (
-                      <a href={`${base}/${ipSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                      <a href={`${base}/${ipSlug}`} class="text-accent hover:underline">
                         {model.ip}
                       </a>
                     ) : (
@@ -883,10 +883,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Factory Username</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {model.username || '(blank)'}
                   </div>
                 </div>
@@ -899,10 +899,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Factory Password</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {model.password || '(blank)'}
                   </div>
                 </div>
@@ -921,24 +921,24 @@ if (type === 'ip') {
 
           {/* Technical Specifications Matrix */}
           <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center justify-between border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
+            <div class="flex items-center justify-between border-b border-line-subtle pb-3">
+              <h2 class="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
                 <span>⚙️</span>
                 Technical Hardware Specifications
               </h2>
-              <span class="text-xs font-semibold text-[#5f6368] dark:text-[#9aa0a6]">
+              <span class="text-xs font-semibold text-ink-muted">
                 {model.series || `${model.brand} Hardware`}
               </span>
             </div>
 
-            <div class="overflow-x-auto rounded-2xl border border-[#e8eaed] dark:border-[#3c4043]">
+            <div class="overflow-x-auto rounded-2xl border border-line-subtle">
               <table class="w-full text-xs text-left">
                 <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043]">
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] w-1/3 bg-[#f8fafd] dark:bg-[#202124]">Manufacturer</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
+                    <th class="py-3 px-4 font-bold text-ink-muted w-1/3 bg-surface-sunken">Manufacturer</th>
+                    <td class="py-3 px-4 font-semibold text-ink">
                       {brandSlug ? (
-                        <a href={`${base}/${brandSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                        <a href={`${base}/${brandSlug}`} class="text-accent hover:underline">
                           {model.brand}
                         </a>
                       ) : (
@@ -947,44 +947,44 @@ if (type === 'ip') {
                     </td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Product Series</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.series || `${model.brand} Series`}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Product Series</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.series || `${model.brand} Series`}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Device Class / Category</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
-                      <span class="px-2.5 py-0.5 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#e8eaed] font-medium">
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Device Class / Category</th>
+                    <td class="py-3 px-4 font-semibold text-ink">
+                      <span class="px-2.5 py-0.5 rounded-full bg-surface-muted text-[#3c4043] dark:text-[#e8eaed] font-medium">
                         {model.category}
                       </span>
                     </td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Wireless Standard</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.wifiStandard || 'N/A (Wired Gateway)'}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Wireless Standard</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.wifiStandard || 'N/A (Wired Gateway)'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Speed Rating</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.speedRating || 'Gigabit Class'}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Speed Rating</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.speedRating || 'Gigabit Class'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Ethernet & Fiber Ports</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.ports}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Ethernet & Fiber Ports</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.ports}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Routing / Firewall Throughput</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.throughput || 'Full Line-Rate Gigabit'}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Routing / Firewall Throughput</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.throughput || 'Full Line-Rate Gigabit'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Default Gateway URL</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
-                      <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Default Gateway URL</th>
+                    <td class="py-3 px-4 font-semibold text-ink">
+                      <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
                         {`http://${model.ip}`} ↗
                       </a>
                     </td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Operating System / Firmware</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.os || `${model.brand} Firmware`}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Operating System / Firmware</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.os || `${model.brand} Firmware`}</td>
                   </tr>
                 </tbody>
               </table>
@@ -996,14 +996,14 @@ if (type === 'ip') {
 
           {/* Setup Walkthrough */}
           <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+            <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
               <span class="text-lg">📖</span>
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
                 How to Log In & Set Up Your {model.brand} {model.model}
               </h2>
             </div>
             <ol class="space-y-3">
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                 <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   1
                 </span>
@@ -1011,23 +1011,23 @@ if (type === 'ip') {
                   <strong>Connect Your Device:</strong> Plug your PC into any LAN port on the <strong>{model.brand} {model.model}</strong> using an Ethernet cable, or connect to the default Wi-Fi SSID printed on the router label.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                 <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   2
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-blue-600 dark:text-cyan-400">{`http://${model.ip}`}</code> into the address bar.
+                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-line font-mono text-xs font-bold text-blue-600 dark:text-cyan-400">{`http://${model.ip}`}</code> into the address bar.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                 <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   3
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Enter Factory Credentials:</strong> Enter username <strong class="font-mono text-[#202124] dark:text-white">"{model.username}"</strong> and password <strong class="font-mono text-[#202124] dark:text-white">"{model.password}"</strong>, then click Login.
+                  <strong>Enter Factory Credentials:</strong> Enter username <strong class="font-mono text-ink">"{model.username}"</strong> and password <strong class="font-mono text-ink">"{model.password}"</strong>, then click Login.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                 <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   4
                 </span>
@@ -1041,22 +1041,22 @@ if (type === 'ip') {
           {/* Sibling Hardware Models Interlink */}
           {siblingModels.length > 0 && (
             <section class="g-card p-4 sm:p-5 space-y-3">
-              <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
+              <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
                 Related {model.brand} Hardware Models
               </h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {siblingModels.map(s => (
                   <a 
                     href={`${base}/${s.slug}`}
-                    class="p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] border border-[#e8eaed] dark:border-[#3c4043] transition-colors block space-y-1.5"
+                    class="p-3.5 rounded-2xl bg-surface-sunken hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] border border-line-subtle transition-colors block space-y-1.5"
                   >
                     <ModelImage model={s} compact class="mb-2" />
-                    <div class="text-xs font-bold text-[#202124] dark:text-white truncate">
+                    <div class="text-xs font-bold text-ink truncate">
                       {s.model}
                     </div>
-                    <div class="text-[11px] text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-between">
+                    <div class="text-[11px] text-ink-muted flex items-center justify-between">
                       <span class="truncate max-w-[120px]">{s.category}</span>
-                      <span class="font-mono text-[#1a73e8] dark:text-[#8ab4f8] font-bold">{s.ip}</span>
+                      <span class="font-mono text-accent font-bold">{s.ip}</span>
                     </div>
                   </a>
                 ))}
@@ -1078,15 +1078,15 @@ if (type === 'ip') {
       return (
         <article class="space-y-6">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ispData.name}</span>
+            <span class="text-ink font-medium">{ispData.name}</span>
           </nav>
 
           {/* Hero Header Card */}
           <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                 <BrandLogo slug={ispData.slug} name={ispData.name} size="lg" />
                 <div>
@@ -1094,10 +1094,10 @@ if (type === 'ip') {
                     <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
                     Fiber Broadband Provider
                   </div>
-                  <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
+                  <h1 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
                     {ispData.name} Router Login & Setup Guide
                   </h1>
-                  <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                  <p class="text-sm sm:text-base text-ink-muted mt-1 max-w-2xl leading-relaxed">
                     {ispData.description}
                   </p>
                 </div>
@@ -1118,10 +1118,10 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultIp}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ispData.defaultIp}</div>
                 </div>
                 <button 
                   type="button" 
@@ -1132,10 +1132,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default User</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultUser}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default User</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ispData.defaultUser}</div>
                 </div>
                 <button 
                   type="button" 
@@ -1146,10 +1146,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Pass</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultPass}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Pass</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ispData.defaultPass}</div>
                 </div>
                 <button 
                   type="button" 
@@ -1166,15 +1166,15 @@ if (type === 'ip') {
 
           {/* Step-by-Step ONT Setup Guide */}
           <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+            <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
               <span class="text-lg">🛠️</span>
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
                 Step-by-Step {ispData.name} ONT Setup Guide
               </h2>
             </div>
             <ol class="space-y-3">
               {ispData.instructions.map((step, idx) => (
-                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                   <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#34a853] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
                   </span>
@@ -1186,7 +1186,7 @@ if (type === 'ip') {
 
           {/* Other Fiber Broadband Providers Grid */}
           <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
               Other Fiber Broadband Providers
             </h2>
             <div class="flex flex-wrap gap-2">
@@ -1211,13 +1211,13 @@ if (type === 'ip') {
     {/* FAQ ACCORDION SECTION (STRICTLY JUST ABOVE FOOTER) */}
     {/* ========================================================= */}
     <section class="g-card p-5 sm:p-7 space-y-4">
-      <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+      <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
         <span class="text-lg">❓</span>
         <div>
-          <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+          <h2 class="text-base sm:text-lg font-bold text-ink">
             Frequently Asked Questions & Answers
           </h2>
-          <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+          <p class="text-sm text-ink-muted">
             Common troubleshooting solutions and login assistance
           </p>
         </div>
@@ -1232,15 +1232,15 @@ if (type === 'ip') {
           ];
 
           return faqsList.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
+                  <span class="text-accent font-bold">Q.</span>
                   {faq.question}
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1265,15 +1265,15 @@ if (type === 'ip') {
           ];
 
           return brandFaqs.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
+                  <span class="text-accent font-bold">Q.</span>
                   {faq.question}
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1298,15 +1298,15 @@ if (type === 'ip') {
           ];
 
           return modelFaqs.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
+                  <span class="text-accent font-bold">Q.</span>
                   {faq.question}
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
                 {faq.answer}
               </p>
             </details>
@@ -1331,15 +1331,15 @@ if (type === 'ip') {
           ];
 
           return ispFaqs.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
+            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
                 <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
+                  <span class="text-accent font-bold">Q.</span>
                   {faq.question}
                 </span>
                 <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
               </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
+              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
                 {faq.answer}
               </p>
             </details>

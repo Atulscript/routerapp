@@ -1,3 +1,5 @@
+@import './tokens.css';
+
 /* Self-hosted variable fonts: no third-party request, so text paints without waiting on fonts.gstatic.com */
 @font-face {
   font-family: 'Google Sans';
@@ -109,7 +111,7 @@
 
   /* Copy button next to credentials; the global handler in BaseLayout swaps in "Copied" */
   .g-copy-btn {
-    @apply flex-shrink-0 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-sm font-medium bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[#1a73e8] dark:text-[#8ab4f8] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] active:scale-95 transition cursor-pointer whitespace-nowrap;
+    @apply flex-shrink-0 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-sm font-medium bg-white dark:bg-[#303134] border border-[var(--line)] text-accent hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] active:scale-95 transition cursor-pointer whitespace-nowrap;
   }
 
   /* 40px round icon button: comfortably above the 24px WCAG 2.5.8 minimum target */
@@ -119,11 +121,11 @@
 
   /* Google Material 3 Surface Cards */
   .g-card {
-    @apply bg-white dark:bg-[#292a2d] rounded-2xl sm:rounded-3xl border border-[#dadce0] dark:border-[#3c4043] shadow-card hover:shadow-card-hover transition-all duration-200;
+    @apply bg-surface rounded-2xl sm:rounded-3xl border border-[var(--line)] shadow-card hover:shadow-card-hover transition-all duration-200;
   }
 
   .g-card-flat {
-    @apply bg-white dark:bg-[#292a2d] rounded-2xl border border-[#e8eaed] dark:border-[#3c4043] transition-all duration-200;
+    @apply bg-surface rounded-2xl border border-[var(--line-subtle)] transition-all duration-200;
   }
 
   /* Google Search Box */
@@ -141,21 +143,21 @@
   }
 
   .g-btn-outlined {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#292a2d] hover:bg-[#f8f9fa] dark:hover:bg-[#35373a] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#dadce0] dark:border-[#5f6368] font-medium text-xs sm:text-sm active:scale-95 transition-all duration-150;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-surface hover:bg-[#f8f9fa] dark:hover:bg-[#35373a] text-accent border border-[var(--line)] font-medium text-xs sm:text-sm active:scale-95 transition-all duration-150;
   }
 
   /* Google Chips & Pills */
   .g-chip {
-    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[#dadce0] dark:border-[#5f6368] bg-white dark:bg-[#292a2d] text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors cursor-pointer select-none;
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[var(--line)] bg-surface text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors cursor-pointer select-none;
   }
 
   .g-chip-active {
-    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] transition-colors cursor-pointer select-none;
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] transition-colors cursor-pointer select-none;
   }
 
   /* OneBox Knowledge Widget */
   .g-onebox {
-    @apply bg-white dark:bg-[#292a2d] rounded-2xl sm:rounded-3xl border border-[#dadce0] dark:border-[#3c4043] shadow-card p-5 sm:p-7;
+    @apply bg-surface rounded-2xl sm:rounded-3xl border border-[var(--line)] shadow-card p-5 sm:p-7;
   }
 
   /* Horizontal swipeable chip scrollbar hide */

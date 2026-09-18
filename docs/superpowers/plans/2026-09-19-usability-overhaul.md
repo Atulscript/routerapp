@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- **Every URL stays.** The built page count is 3,622 and the full URL set must be byte-identical before and after. Guarded by `npm run test:ui`.
+- **Every URL stays.** The built page count is 3,626 and the full URL set must be byte-identical before and after. Guarded by `npm run test:ui`.
 - **No content removal.** Body copy, FAQs, model rows and links stay in the served HTML. Collapsing is a visibility change only; collapsed content must still be present in the page source.
 - **Ad slots preserved.** Slot count, `format` values and `slotId` values unchanged per page type. Placement may move.
 - **Type families unchanged.** No edits to the `fontFamily` block of `tailwind.config.mjs`.
@@ -29,6 +29,7 @@
 **Create:**
 - `src/styles/tokens.css` — the single source of colour
 - `scripts/codemod-tokens.mjs` — one-off pair-to-token migration
+- `scripts/verify-tokens.mjs` — asserts tokens resolve to their original values
 - `scripts/test/credentials.test.mjs` — unit tests for credential classification
 - `scripts/verify-ui.mjs` — build-output guard (URLs, content, ads, h1, heights)
 - `scripts/ui-baseline.json` — generated baseline, committed
@@ -67,6 +68,7 @@ fifteen values.
 **Files:**
 - Create: `src/styles/tokens.css`
 - Create: `scripts/codemod-tokens.mjs`
+- Create: `scripts/verify-tokens.mjs`
 - Modify: `tailwind.config.mjs`, `src/styles/global.css`
 
 **Interfaces:**
@@ -74,21 +76,15 @@ fifteen values.
   `bg-surface-sunken`, `bg-surface-muted`, `text-ink`, `text-ink-muted`,
   `border-line`, `border-line-subtle`, `text-accent`, `bg-accent-soft`.
 
-- [ ] **Step 1: Capture the before state**
+- [ ] **Step 1: Note the current colour literals**
 
-```bash
-npm run build && npx astro preview --port 4341 &
-sleep 5
-CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-for p in "" brands tp-link routers; do
-  "$CHROME" --headless=new --disable-gpu --screenshot=/tmp/before-${p:-home}.png \
-    --window-size=1280,900 --hide-scrollbars --virtual-time-budget=6000 \
-    "http://localhost:4341/routerapp/$p"
-done
-md5 /tmp/before-*.png
-```
+No "before" capture is needed. The tokens below take the exact values they
+replace, so correctness is checked by asserting each token resolves to its
+original hex (Step 6) rather than by comparing renders.
 
-Keep these hashes. They are the proof the refactor changed nothing.
+Do not try to verify this with screenshot hashes. It was tried and does not
+work: two captures of the *same* build produce different hashes, because the
+pages load ad iframes whose timing varies between runs.
 
 - [ ] **Step 2: Write the tokens**
 
@@ -226,28 +222,30 @@ console.log(`${edits} replacements across ${files} files`);
 - [ ] **Step 5: Run it**
 
 Run: `node scripts/codemod-tokens.mjs`
-Expected: 1,243 replacements across 43 files (dry-run measured 2026-09-19). If it reports under 500, the
+Expected: 1,316 replacements across 47 files (measured on execution). If it reports under 500, the
 patterns do not match the real formatting — inspect a file and fix the regexes
 rather than proceeding.
 
-- [ ] **Step 6: Prove nothing changed visually**
+- [ ] **Step 6: Prove every token resolves to the colour it replaced**
 
 ```bash
-npm run build && npx astro preview --port 4341 &
-sleep 5
-CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-for p in "" brands tp-link routers; do
-  "$CHROME" --headless=new --disable-gpu --screenshot=/tmp/after-${p:-home}.png \
-    --window-size=1280,900 --hide-scrollbars --virtual-time-budget=6000 \
-    "http://localhost:4341/routerapp/$p"
-done
-md5 /tmp/after-*.png
+npm run build > /tmp/build.log 2>&1 && tail -2 /tmp/build.log
+npx astro preview --port 4343 > /dev/null 2>&1 &
+sleep 6
+node scripts/verify-tokens.mjs
 ```
 
-Expected: hashes identical to Step 1. Token values equal the previous literals,
-so any visual difference is a bug in the codemod. If a hash differs, open both
-PNGs and compare before continuing — do not proceed on a difference you have not
-explained.
+Expected: `PASS: all 29 token values resolve as expected in both themes.`
+
+This loads a real page over HTTP and compares every custom property against the
+literal it replaced, in light and in dark. It must be HTTP: the stylesheet is
+referenced by an absolute path, so `file://` loads the page with no CSS and every
+token reads as empty.
+
+**Never pipe `npm run build` through `head` or `grep -m`.** Doing so SIGPIPEs the
+build, which leaves an orphaned `astro build` process rewriting `dist/` underneath
+later commands. That produced spurious `ENOENT` and `Cannot find module` failures
+during this work. Redirect to a log and `tail` it instead.
 
 - [ ] **Step 7: Check the remaining hexes are the genuinely one-off ones**
 
@@ -406,7 +404,7 @@ In `package.json` `"scripts"`, add:
 
 Run: `npm run build && npm run test:ui:save`
 
-Expected output includes `baseline saved: 3622 pages` and per-sample heights roughly matching the spec: `tp-link` ~29,600px, `192-168-0-1` ~81,900px.
+Expected output includes `baseline saved: 3626 pages` and per-sample heights roughly matching the spec: `tp-link` ~29,600px, `192-168-0-1` ~81,900px.
 
 - [ ] **Step 4: Prove the guard fails when content is lost**
 

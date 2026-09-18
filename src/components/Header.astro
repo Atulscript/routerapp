@@ -19,7 +19,7 @@ const navItems = [
 
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#202124]/90 backdrop-blur-md border-b border-[#dadce0] dark:border-[#3c4043] transition-colors">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#202124]/90 backdrop-blur-md border-b border-line transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-3">
 
     <a href={`${base}/`} class="flex items-center gap-2.5 flex-shrink-0 group" aria-label="RouterSync.com home">
@@ -52,7 +52,7 @@ const navItems = [
           aria-current={item.active ? 'page' : undefined}
           class={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
             item.active
-              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]'
+              ? 'bg-accent-soft text-accent'
               : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
           }`}
         >
@@ -77,11 +77,11 @@ const navItems = [
 
         <div
           id="header-search-panel"
-          class="search-panel hidden md:block fixed md:static inset-x-0 top-16 md:top-auto p-3 md:p-0 bg-white dark:bg-[#202124] md:bg-transparent md:dark:bg-transparent border-b md:border-0 border-[#dadce0] dark:border-[#3c4043] shadow-lg md:shadow-none"
+          class="search-panel hidden md:block fixed md:static inset-x-0 top-16 md:top-auto p-3 md:p-0 bg-white dark:bg-[#202124] md:bg-transparent md:dark:bg-transparent border-b md:border-0 border-line shadow-lg md:shadow-none"
         >
           <div class="relative md:w-64 lg:w-72 xl:w-60">
             <label for="header-search-input" class="sr-only">Search IPs, brands, models and tools</label>
-            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5f6368] dark:text-[#9aa0a6] pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-muted pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <input
               id="header-search-input"
               type="search"
@@ -93,15 +93,15 @@ const navItems = [
               aria-autocomplete="list"
               aria-expanded="false"
               aria-controls="header-search-results"
-              class="w-full h-11 md:h-10 pl-10 pr-12 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-transparent focus:bg-white dark:focus:bg-[#303134] focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] text-base md:text-sm text-[#202124] dark:text-white placeholder-[#5f6368] dark:placeholder-[#9aa0a6] outline-none transition-colors"
+              class="w-full h-11 md:h-10 pl-10 pr-12 rounded-full bg-surface-muted border border-transparent focus:bg-white dark:focus:bg-[#303134] focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] text-base md:text-sm text-ink placeholder-[#5f6368] dark:placeholder-[#9aa0a6] outline-none transition-colors"
             />
-            <kbd class="hidden lg:flex absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[11px] font-mono text-[#5f6368] dark:text-[#9aa0a6] bg-white dark:bg-[#3c4043] border border-[#dadce0] dark:border-[#5f6368] rounded-md pointer-events-none" data-search-kbd>/</kbd>
+            <kbd class="hidden lg:flex absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[11px] font-mono text-ink-muted bg-white dark:bg-[#3c4043] border border-line rounded-md pointer-events-none" data-search-kbd>/</kbd>
 
             <ul
               id="header-search-results"
               role="listbox"
               aria-label="Search suggestions"
-              class="hidden absolute left-0 right-0 md:left-auto md:w-96 top-full mt-2 bg-white dark:bg-[#292a2d] rounded-2xl shadow-card-hover border border-[#dadce0] dark:border-[#3c4043] overflow-y-auto max-h-[70vh] py-1.5 z-50"
+              class="hidden absolute left-0 right-0 md:left-auto md:w-96 top-full mt-2 bg-surface rounded-2xl shadow-card-hover border border-line overflow-y-auto max-h-[70vh] py-1.5 z-50"
             ></ul>
           </div>
         </div>
@@ -115,7 +115,7 @@ const navItems = [
   </div>
 
   <!-- Below xl: swipeable nav row, with a fade on the right edge hinting there is more -->
-  <nav class="hidden md:block xl:hidden relative border-t border-[#e8eaed] dark:border-[#3c4043]" aria-label="Main">
+  <nav class="hidden md:block xl:hidden relative border-t border-line-subtle" aria-label="Main">
     <div class="max-w-6xl mx-auto flex items-center gap-1.5 px-4 sm:px-6 py-2 overflow-x-auto no-scrollbar scroll-px-4">
       {navItems.map(item => (
         <a
@@ -123,7 +123,7 @@ const navItems = [
           aria-current={item.active ? 'page' : undefined}
           class={`flex-shrink-0 px-3.5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
             item.active
-              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]'
+              ? 'bg-accent-soft text-accent'
               : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
           }`}
         >
@@ -183,7 +183,7 @@ const navItems = [
       const q = input.value.trim();
       if (!q) { setOpen(false); return; }
       if (!index) {
-        list.innerHTML = '<li class="px-4 py-3 text-sm text-[#5f6368] dark:text-[#9aa0a6]">Loading…</li>';
+        list.innerHTML = '<li class="px-4 py-3 text-sm text-ink-muted">Loading…</li>';
         setOpen(true);
         await loadIndex();
         if (input.value.trim() !== q) return;
@@ -196,12 +196,12 @@ const navItems = [
               <a href="${m.url}" tabindex="-1" class="flex items-center gap-3 px-3 py-2.5 mx-1.5 rounded-xl hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] aria-selected:bg-[#e8f0fe]">
                 <span class="flex-shrink-0 text-[11px] font-semibold px-2 py-0.5 rounded-full ${BADGE[m.category] || ''}">${m.category}</span>
                 <span class="min-w-0">
-                  <span class="block text-sm font-medium text-[#202124] dark:text-white truncate">${escapeHtml(m.title)}</span>
-                  <span class="block text-xs text-[#5f6368] dark:text-[#9aa0a6] truncate">${escapeHtml(m.subtitle)}</span>
+                  <span class="block text-sm font-medium text-ink truncate">${escapeHtml(m.title)}</span>
+                  <span class="block text-xs text-ink-muted truncate">${escapeHtml(m.subtitle)}</span>
                 </span>
               </a>
             </li>`).join('')
-        : `<li class="px-4 py-3 text-sm text-[#5f6368] dark:text-[#9aa0a6]">No results for “${escapeHtml(q)}”. Try an IP like 192.168.0.1 or a brand name.</li>`;
+        : `<li class="px-4 py-3 text-sm text-ink-muted">No results for “${escapeHtml(q)}”. Try an IP like 192.168.0.1 or a brand name.</li>`;
       highlight();
       setOpen(true);
     }
