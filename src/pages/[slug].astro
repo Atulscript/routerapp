@@ -33,7 +33,7 @@ const currentCanonical = `${siteUrl}/${data.slug}`;
 
 if (type === 'ip') {
   const ipData = data as GatewayIp;
-  pageTitle = `${ipData.ip} Router Admin Login, Passwords & Setup Guide | 19216811.page`;
+  pageTitle = `${ipData.ip} Router Admin Login, Passwords & Setup Guide | RouterSync.com`;
   pageDescription = `Access router admin dashboard at ${ipData.ip}. Default login usernames, factory passwords, WiFi security configuration, and troubleshooting for ${ipData.commonBrands.slice(0, 4).join(', ')}.`;
   keywords = [
     ipData.ip,
@@ -105,7 +105,7 @@ if (type === 'ip') {
       "url": currentCanonical,
       "author": {
         "@type": "Organization",
-        "name": "19216811.page Network Research"
+        "name": "RouterSync Network Research"
       },
       "articleBody": ipData.steps.join(' ')
     },
@@ -123,7 +123,7 @@ if (type === 'ip') {
   ];
 } else if (type === 'brand') {
   const brandData = data as Brand;
-  pageTitle = `${brandData.name} Router Default Passwords & Admin Login Guide | 19216811.page`;
+  pageTitle = `${brandData.name} Router Default Passwords & Admin Login Guide | RouterSync.com`;
   pageDescription = `Default router passwords, factory usernames, and admin dashboard login IP (${brandData.defaultIp}) for ${brandData.name} wireless routers, modems, and mesh systems.`;
   keywords = [
     brandData.name,
@@ -178,7 +178,7 @@ if (type === 'ip') {
       "url": currentCanonical,
       "author": {
         "@type": "Organization",
-        "name": "19216811.page Network Research"
+        "name": "RouterSync Network Research"
       },
       "articleBody": brandData.description
     },
@@ -214,7 +214,7 @@ if (type === 'ip') {
   ];
 } else if (type === 'isp') {
   const ispData = data as Isp;
-  pageTitle = `${ispData.name} Router Admin Login, Default Password & FTTH Setup | 19216811.page`;
+  pageTitle = `${ispData.name} Router Admin Login, Default Password & FTTH Setup | RouterSync.com`;
   pageDescription = `Complete setup guide for ${ispData.name} optical fiber home gateways. Default login credentials, IP address (${ispData.defaultIp}), optical power troubleshooting, and Wi-Fi security.`;
   keywords = [
     ispData.name,
@@ -263,7 +263,7 @@ if (type === 'ip') {
       "url": currentCanonical,
       "author": {
         "@type": "Organization",
-        "name": "19216811.page Network Research"
+        "name": "RouterSync Network Research"
       },
       "articleBody": ispData.description
     },
@@ -299,7 +299,7 @@ if (type === 'ip') {
   ];
 } else if (type === 'model') {
   const modelData = data as RouterModel;
-  pageTitle = `${modelData.brand} ${modelData.model} Default Password, Admin Login & Specs | 19216811.page`;
+  pageTitle = `${modelData.brand} ${modelData.model} Default Password, Admin Login & Specs | RouterSync.com`;
   pageDescription = `Factory default login credentials, IP address (${modelData.ip}), Wi-Fi specs, port configuration, and setup guide for ${modelData.brand} ${modelData.model} (${modelData.category}).`;
   keywords = [
     modelData.model,
@@ -751,8 +751,8 @@ if (type === 'ip') {
           </section>
 
           {/* Factory Reset Instructions */}
-          <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#fef7e0] dark:bg-[#332a00]/40 border border-[#fbbc04]/60 dark:border-[#fbbc04]/30 space-y-3">
-            <div class="flex items-center gap-2 text-[#b06000] dark:text-[#fdd663] font-bold text-sm sm:text-base">
+          <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 space-y-3">
+            <div class="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-sm sm:text-base">
               <span>🔄</span>
               <span>How to Hard Reset {brandData.name} Router to Factory Defaults</span>
             </div>
@@ -822,16 +822,16 @@ if (type === 'ip') {
                       {model.brand}
                     </a>
                   ) : null}
-                  <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8]">
+                  <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-cyan-300 border border-blue-200 dark:border-blue-900/60">
                     {model.category}
                   </span>
                   {model.wifiStandard && (
-                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#fce8e6] dark:bg-[#4c1d1a] text-[#ea4335] dark:text-[#f28b82] border border-[#fad2cf] dark:border-[#ea4335]">
+                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-900/60">
                       {model.wifiStandard}
                     </span>
                   )}
                   {model.speedRating && (
-                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853]">
+                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                       {model.speedRating}
                     </span>
                   )}
@@ -1004,7 +1004,7 @@ if (type === 'ip') {
             </div>
             <ol class="space-y-3">
               <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   1
                 </span>
                 <span class="pt-0.5 leading-relaxed">
@@ -1012,15 +1012,15 @@ if (type === 'ip') {
                 </span>
               </li>
               <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#34a853] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   2
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8]">{`http://${model.ip}`}</code> into the address bar.
+                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-blue-600 dark:text-cyan-400">{`http://${model.ip}`}</code> into the address bar.
                 </span>
               </li>
               <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#f9ab00] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   3
                 </span>
                 <span class="pt-0.5 leading-relaxed">
@@ -1028,7 +1028,7 @@ if (type === 'ip') {
                 </span>
               </li>
               <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#ea4335] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   4
                 </span>
                 <span class="pt-0.5 leading-relaxed">

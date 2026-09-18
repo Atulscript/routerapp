@@ -4,7 +4,7 @@ import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const title = "Internet Speed Test - Test Wi-Fi Ping, Latency, Download & Upload | 19216811.page";
+const title = "Internet Speed Test - Test Wi-Fi Ping, Latency, Download & Upload | RouterSync.com";
 const description = "Free, accurate client-side internet speed test. Measure your real-time broadband download speed, upload speed, ping latency, and jitter with router diagnostics.";
 const keywords = [
   "internet speed test",
@@ -560,7 +560,7 @@ const schema = [
     const down = metricDownload?.innerText || '';
     const up = metricUpload?.innerText || '';
 
-    const text = `🌐 19216811.page Speed Test Results:\n- Download: ${down}\n- Upload: ${up}\n- Ping: ${ping}\n- Jitter: ${jitter}\nTested at: https://atulscript.github.io/routerapp/speed-test`;
+    const text = `🌐 RouterSync.com Speed Test Results:\n- Download: ${down}\n- Upload: ${up}\n- Ping: ${ping}\n- Jitter: ${jitter}\nTested at: https://atulscript.github.io/routerapp/speed-test`;
 
     navigator.clipboard.writeText(text).then(() => {
       const orig = btnCopy.innerHTML;

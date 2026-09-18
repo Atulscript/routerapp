@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const letterChips = [...new Set(ISPS.map(isp => getIndexLetter(isp.name)))]
   .sort((a, b) => (a === '0-9' ? -1 : b === '0-9' ? 1 : a.localeCompare(b)))
   .map(letter => ({ value: letter, label: letter }));
-const title = "Broadband ISP Router Login Directory | 19216811.page";
+const title = "Broadband ISP Router Login Directory | RouterSync.com";
 const description = `Router and ONT login guides for ${ISPS.length} broadband providers, including JioFiber, Airtel, BSNL, AT&T, Xfinity and Verizon Fios. Default gateway IPs and admin usernames.`;
 const keywords = [
   "isp router login",

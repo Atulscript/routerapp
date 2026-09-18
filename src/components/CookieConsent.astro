@@ -29,12 +29,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <!-- Decide visibility before first paint, so the banner never pops in late -->
 <script is:inline>
   try {
-    if (!localStorage.getItem('cookie_consent_19216811')) document.getElementById('cookie-consent-banner').hidden = false;
+    if (!localStorage.getItem('cookie_consent_routersync')) document.getElementById('cookie-consent-banner').hidden = false;
   } catch (e) {}
 </script>
 
 <script>
-  const KEY = 'cookie_consent_19216811';
+  const KEY = 'cookie_consent_routersync';
   const banner = document.getElementById('cookie-consent-banner');
 
   let stored: string | null = null;
