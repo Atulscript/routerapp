@@ -8,6 +8,7 @@ export default defineConfig({
   base: '/routerapp',
   integrations: [tailwind(), sitemap()],
   output: 'static',
+  server: { host: true },
   // One shared stylesheet cached across all pages, instead of a Tailwind copy per route
   vite: { build: { cssCodeSplit: false } }
 });
