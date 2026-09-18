@@ -1,0 +1,49 @@
+---
+interface Props {
+  /** Button text when collapsed, e.g. "Show all 280 models" */
+  label: string;
+  /** Button text when expanded */
+  lessLabel?: string;
+  /** Clamp height in px */
+  collapsedHeight?: number;
+}
+
+const { label, lessLabel = 'Show less', collapsedHeight = 320 } = Astro.props;
+---
+
+<div class="dc" data-h={collapsedHeight}>
+  <div class="dc-region"><slot /></div>
+  <button type="button" class="dc-btn" hidden aria-expanded="true" data-less={lessLabel}>{label}</button>
+</div>
+
+<style is:global>
+  .dc-region { position: relative; overflow: hidden; }
+  /* Fade the cut so it reads as "there is more", not "the content ends here". */
+  .dc-region.dc-clipped::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, transparent, var(--surface-sunken));
+    pointer-events: none;
+  }
+  .dc-btn {
+    display: block;
+    margin: 0.75rem auto 0;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    background: var(--surface);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+  }
+  .dc-btn:hover { background: var(--accent-soft); }
+</style>
+
+<script>
+  import { initDisclosures } from '../scripts/disclosure';
+  initDisclosures();
+</script>

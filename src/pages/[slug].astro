@@ -5,6 +5,7 @@ import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import RouterChecker from '../components/RouterChecker.astro';
 import LoginStepper from '../components/LoginStepper.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 import BrandLogo from '../components/BrandLogo.astro';
 import ModelImage from '../components/ModelImage.astro';
 import { getAllSlugs, getBrandSlug, getIpSlug, getModelSlug, getModelsForIp, getModelsForBrand, getBrandsByPopularity, brandKey, formatModelTitle, GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
@@ -22,6 +23,44 @@ type Props =
 
 const { type, data } = Astro.props as Props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+/**
+ * The page's FAQs, built once. These were previously assembled inside four
+ * separate render branches, each followed by its own hand-written <details>
+ * markup, which let the visible FAQ drift from the FAQPage schema built above.
+ */
+function buildFaqs(): { question: string; answer: string }[] {
+  if (type === 'ip') {
+    const ip = data as GatewayIp;
+    return ip.faqs && ip.faqs.length > 0 ? ip.faqs : [
+      { question: `What is the default login for ${ip.ip}?`, answer: `The default username is typically "${ip.defaultUser}" and password is "${ip.defaultPass}".` },
+      { question: `Why is ${ip.ip} not loading in my browser?`, answer: `Make sure your device is directly connected to the router via Wi-Fi or Ethernet, and verify that mobile data or VPNs are turned off.` }
+    ];
+  }
+  if (type === 'brand') {
+    const brand = data as Brand;
+    return [
+      { question: `What is the default IP address for ${brand.name} routers?`, answer: `Most ${brand.name} routers use ${brand.defaultIp} as their factory default gateway management address.` },
+      { question: `What is the factory default login password for ${brand.name}?`, answer: `The standard factory username is "${brand.defaultUser}" and default password is "${brand.defaultPass}". Check your physical router label if these don't work.` },
+      { question: `How do I factory reset my ${brand.name} router if I forgot the password?`, answer: `Press and hold the physical RESET pinhole button on the back of your ${brand.name} device with a paperclip for 10-15 seconds until all LED lights blink, restoring default credentials.` }
+    ];
+  }
+  if (type === 'model') {
+    const model = data as RouterModel;
+    return [
+      { question: `What is the default login for ${model.brand} ${model.model}?`, answer: `The default IP address is http://${model.ip}, default username is "${model.username}", and default password is "${model.password}".` },
+      { question: `What ports and speeds does ${model.brand} ${model.model} support?`, answer: `The ${model.brand} ${model.model} is equipped with ${model.ports} with an overall speed rating of ${model.speedRating || 'Gigabit Class'}.` },
+      { question: `How do I reset my ${model.brand} ${model.model} to factory settings?`, answer: `Press and hold the physical Reset button on the ${model.brand} ${model.model} for 10 to 15 seconds until the power LED blinks, resetting all settings to factory default.` }
+    ];
+  }
+  const isp = data as Isp;
+  return [
+    { question: `How do I log in to my ${isp.name} fiber router admin portal?`, answer: `Connect to your ${isp.name} Wi-Fi network, navigate to http://${isp.defaultIp} in your browser, and enter username "${isp.defaultUser}" and password "${isp.defaultPass}".` },
+    { question: `What should I do if the LOS light on my ${isp.name} router is blinking red?`, answer: `A blinking red LOS (Loss of Signal) light indicates an optical fiber cable disconnection or an ISP outage. Verify the thin yellow fiber cable is firmly seated, and contact ${isp.name} support if the issue persists.` },
+    { question: `How can I change my ${isp.name} Wi-Fi password and network name?`, answer: `Log in to http://${isp.defaultIp}, go to Network/WLAN -> 2.4G/5G Settings, update the SSID and WPA Pre-Shared Key, then click Apply.` }
+  ];
+}
+const pageFaqs = buildFaqs();
 
 // Dynamic title, description, keywords, and schemas based on page type
 let pageTitle = "";
@@ -1207,146 +1246,10 @@ if (type === 'ip') {
     {/* 2-Column Cross Linking Grid (Placed Before FAQ) */}
     <RelatedLinksGrid currentSlug={data.slug} />
 
-    {/* ========================================================= */}
-    {/* FAQ ACCORDION SECTION (STRICTLY JUST ABOVE FOOTER) */}
-    {/* ========================================================= */}
-    <section class="g-card p-5 sm:p-7 space-y-4">
-      <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
-        <span class="text-lg">❓</span>
-        <div>
-          <h2 class="text-base sm:text-lg font-bold text-ink">
-            Frequently Asked Questions & Answers
-          </h2>
-          <p class="text-sm text-ink-muted">
-            Common troubleshooting solutions and login assistance
-          </p>
-        </div>
-      </div>
-
-      <div class="space-y-3">
-        {type === 'ip' && (() => {
-          const ip = data as GatewayIp;
-          const faqsList = ip.faqs && ip.faqs.length > 0 ? ip.faqs : [
-            { question: `What is the default login for ${ip.ip}?`, answer: `The default username is typically "${ip.defaultUser}" and password is "${ip.defaultPass}".` },
-            { question: `Why is ${ip.ip} not loading in my browser?`, answer: `Make sure your device is directly connected to the router via Wi-Fi or Ethernet, and verify that mobile data or VPNs are turned off.` }
-          ];
-
-          return faqsList.map(faq => (
-            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-accent font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-
-        {type === 'brand' && (() => {
-          const brand = data as Brand;
-          const brandFaqs = [
-            {
-              question: `What is the default IP address for ${brand.name} routers?`,
-              answer: `Most ${brand.name} routers use ${brand.defaultIp} as their factory default gateway management address.`
-            },
-            {
-              question: `What is the factory default login password for ${brand.name}?`,
-              answer: `The standard factory username is "${brand.defaultUser}" and default password is "${brand.defaultPass}". Check your physical router label if these don't work.`
-            },
-            {
-              question: `How do I factory reset my ${brand.name} router if I forgot the password?`,
-              answer: `Press and hold the physical RESET pinhole button on the back of your ${brand.name} device with a paperclip for 10-15 seconds until all LED lights blink, restoring default credentials.`
-            }
-          ];
-
-          return brandFaqs.map(faq => (
-            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-accent font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-
-        {type === 'model' && (() => {
-          const model = data as RouterModel;
-          const modelFaqs = [
-            {
-              question: `What is the default login for ${model.brand} ${model.model}?`,
-              answer: `The default IP address is http://${model.ip}, default username is "${model.username}", and default password is "${model.password}".`
-            },
-            {
-              question: `What ports and speeds does ${model.brand} ${model.model} support?`,
-              answer: `The ${model.brand} ${model.model} is equipped with ${model.ports} with an overall speed rating of ${model.speedRating || 'Gigabit Class'}.`
-            },
-            {
-              question: `How do I reset my ${model.brand} ${model.model} to factory settings?`,
-              answer: `Press and hold the physical Reset button on the ${model.brand} ${model.model} for 10 to 15 seconds until the power LED blinks, resetting all settings to factory default.`
-            }
-          ];
-
-          return modelFaqs.map(faq => (
-            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-accent font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-
-        {type === 'isp' && (() => {
-          const isp = data as Isp;
-          const ispFaqs = [
-            {
-              question: `How do I log in to my ${isp.name} fiber router admin portal?`,
-              answer: `Connect to your ${isp.name} Wi-Fi network, navigate to http://${isp.defaultIp} in your browser, and enter username "${isp.defaultUser}" and password "${isp.defaultPass}".`
-            },
-            {
-              question: `What should I do if the LOS light on my ${isp.name} router is blinking red?`,
-              answer: `A blinking red LOS (Loss of Signal) light indicates an optical fiber cable disconnection or an ISP outage. Verify the thin yellow fiber cable is firmly seated, and contact ${isp.name} support if the issue persists.`
-            },
-            {
-              question: `How can I change my ${isp.name} Wi-Fi password and network name?`,
-              answer: `Log in to http://${isp.defaultIp}, go to Network/WLAN -> 2.4G/5G Settings, update the SSID and WPA Pre-Shared Key, then click Apply.`
-            }
-          ];
-
-          return ispFaqs.map(faq => (
-            <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-accent font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-      </div>
-    </section>
+    <FaqAccordion
+      title="Frequently asked questions"
+      faqs={pageFaqs}
+    />
 
   </div>
 </BaseLayout>
