@@ -1,7 +1,8 @@
 # Usability overhaul: answer-first pages and task-based navigation
 
 Date: 2026-09-19
-Status: awaiting review
+Status: awaiting review (revised: visual scope widened to a LinkedIn-inspired
+information-density pass, at the owner's request)
 
 ## Problem
 
@@ -43,11 +44,41 @@ is dropped. The site earns its traffic from 3,622 indexed pages and the work mus
 not put that at risk. Everything below changes what is *on* a page, never which
 pages exist or what they are about.
 
+## Measured baseline
+
+Rendered page height at 390px phone width, cookie banner dismissed. One phone
+screen is taken as 900px.
+
+| Page | Height | Phone screens |
+| --- | --- | --- |
+| `/192-168-0-1` (ip) | 81,913px | 91 |
+| `/tp-link` (brand) | 29,602px | 32 |
+| model page | 7,665px | 8 |
+| ISP page | 6,545px | 7 |
+
+The IP page carries 280 table rows and 898 links; at phone width the responsive
+table stacks every row into a block, which is where 91 screens comes from. These
+numbers, not taste, are what the density and disclosure work is aimed at.
+
+Target: no page type over 8 phone screens (~7,200px), which is a ~90% cut on the
+worst case, with no content removed from the HTML.
+
+## Visual direction
+
+The owner asked for design inspiration from LinkedIn, explicitly not a copy. Of
+the qualities on offer, two were chosen: **dense professional information style**
+and **progressive disclosure**. The three-column shell and the warm canvas were
+considered and declined, so the existing single-column layout and palette stay.
+
+Identity stays our own. LinkedIn's accent, typography and card chrome are not
+imported; taking them would only trade looking like a Google property for looking
+like a LinkedIn one. What is borrowed is how LinkedIn organises dense
+information, not how it looks.
+
 ## Non-goals
 
-- No palette, typography or component restyle. The problem identified is
-  usability, not identity, and repainting a coherent system adds risk without
-  addressing the cause.
+- No change to the palette, the type families or the layout shell. The chosen
+  LinkedIn qualities are about density and disclosure, not colour or structure.
 - No URL changes, redirects or new hub pages.
 - The `public/fonts/google-sans.woff2` licensing question is tracked separately
   (see Open questions) and is not addressed here.
@@ -137,7 +168,44 @@ The leaderboard currently sits between the page header and the content. It moves
 to directly below the LoginCard. The slot count, formats and IDs are unchanged,
 so inventory is unchanged; only the order of the answer and the ad changes.
 
-### 5. Secondary fixes
+### 5. Information density
+
+Applied to the shared components, so all ~3,600 deep pages inherit it.
+
+- **Sections become divided regions of one card, not a stack of separate cards.**
+  Today each section is its own `rounded-2xl` card with its own padding and its
+  own margin, so every section pays for two borders, two paddings and a gap. One
+  card with internal dividers removes that per-section overhead. This is the
+  single biggest contributor to the current heights.
+- **Weight carries hierarchy instead of size.** Headings step down in weight and
+  colour more than in font size, so a section header stops consuming a full line
+  of display type. The type families and the palette do not change.
+- **Compact rows.** Credential rows, model rows and link lists use a tighter
+  vertical rhythm, consistent across page types.
+- **Emoji are dropped from section headings.** `📡 Hardware Routers Using...`
+  and similar become plain text headings. They read as decoration, they render
+  inconsistently across platforms, and they are noise in a reference document.
+
+### 6. Progressive disclosure
+
+The rule: content is always in the HTML, only its initial visibility changes.
+Collapsed content is still indexed, so nothing is hidden from crawlers and this
+is not cloaking. Nothing is removed.
+
+- **Long model tables** on IP and brand pages show the first 20 rows with a
+  "Show all N models" control, reusing the windowing already written for
+  `scripts/data-table.ts`. This alone takes the 280-row IP table from ~60 phone
+  screens to about 4.
+- **The SEO body copy** on deep pages shows its first paragraph with a "Read
+  more" control.
+- **Secondary link grids** (`RelatedLinksGrid`, "Other popular gateways") collapse
+  behind a single control.
+- **FAQs** already use `<details>` and keep that behaviour.
+
+Every disclosure control is a real `<button>` with `aria-expanded`, and every
+collapsed region is reachable by keyboard.
+
+### 7. Secondary fixes
 
 - **Cookie consent** becomes a compact single-line bottom bar. Same consent
   behaviour, far less screen taken on mobile.
@@ -161,6 +229,12 @@ Verified against a real build, not assumed:
 - Headless screenshots at 500px and 1280px for one page of each type.
 - Above-the-fold check: the password is within the first 900px at phone width on
   brand and model pages.
+- Rendered page height re-measured for all four page types against the baseline
+  table above; none over 8 phone screens.
+- Collapsed content is present in the served HTML: the full model row count and
+  the full SEO copy still appear in the page source when collapsed.
+- Every disclosure control is a button with `aria-expanded`, and its region is
+  reachable by keyboard.
 
 ## Open questions
 
