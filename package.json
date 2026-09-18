@@ -10,7 +10,12 @@
     "astro": "astro",
     "fetch:logos": "node scripts/fetch-brand-logos.mjs",
     "fetch:photos": "node scripts/fetch-model-images.mjs",
-    "test:data": "node scripts/validate-data.mjs"
+    "test:data": "node scripts/validate-data.mjs",
+    "test:ui": "node scripts/verify-ui.mjs",
+    "test:ui:save": "node scripts/verify-ui.mjs --save",
+    "test:tokens": "node scripts/verify-tokens.mjs",
+    "test:unit": "node --test scripts/test/",
+    "test:ui:strict": "node scripts/verify-ui.mjs --strict"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

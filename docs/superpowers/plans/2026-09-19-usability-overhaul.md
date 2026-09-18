@@ -12,7 +12,10 @@
 
 ## Global Constraints
 
-- **Every URL stays.** The built page count is 3,626 and the full URL set must be byte-identical before and after. Guarded by `npm run test:ui`.
+- **Every URL stays.** The built page count is 3,625 `index.html` files (plus `404.html`) and the full URL set must be identical before and after. Guarded by `npm run test:ui`.
+- **The guard has two modes.** `npm run test:ui` checks regressions only (URLs, links, rows, ad slots, one h1) and requires heights to be no worse than baseline. `npm run test:ui:strict` additionally enforces the 7,200px depth target and is expected to fail until Tasks 7-12 land. Run the plain form after every task; run the strict form at the end.
+- **Never pipe `npm run build` through `head` or `grep -m`.** SIGPIPE leaves an orphaned `astro build` rewriting `dist/` under later commands, which produces spurious `ENOENT` and `Cannot find module` errors. Redirect to a log and `tail` it.
+- **The preview server must be running** for `test:ui` and `test:tokens`: `npx astro preview --port 4343 &`. Both measure over HTTP because `file://` cannot resolve the stylesheet's absolute path.
 - **No content removal.** Body copy, FAQs, model rows and links stay in the served HTML. Collapsing is a visibility change only; collapsed content must still be present in the page source.
 - **Ad slots preserved.** Slot count, `format` values and `slotId` values unchanged per page type. Placement may move.
 - **Type families unchanged.** No edits to the `fontFamily` block of `tailwind.config.mjs`.
