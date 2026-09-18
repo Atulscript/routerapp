@@ -1,11 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrandCard from '../components/BrandCard.astro';
+import BrandIndex from '../components/BrandIndex.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import { BRANDS } from '../lib/data-loader';
+import { getFeaturedBrands, getBrandGroups } from '../lib/brand-index';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Two tiers: the most-stocked brands get a card, everything else gets a compact
+// link in the A-Z index below, so all 800+ brand pages stay linked from this URL.
+const featuredBrands = getFeaturedBrands(60);
+const letters = getBrandGroups().map(group => group.letter);
 const title = "Router Brands & Manufacturers Login Directory | 19216811.page";
 const description = "Complete directory of router manufacturers. Find factory default IP addresses, passwords, firmware guides, and model databases for TP-Link, Netgear, ASUS, Cisco, and more.";
 const keywords = [
@@ -45,7 +52,9 @@ const schema = [
     "@type": "ItemList",
     "name": "Major Wireless Router Brands & Manufacturers",
     "description": "Directory of wireless networking hardware manufacturers and default login credentials.",
-    "itemListElement": BRANDS.map((brand, idx) => ({
+    // Only the featured brands. Listing all 836 added 100KB of JSON-LD for no gain:
+    // the crawlable links in the A-Z index below are what get every brand page discovered.
+    "itemListElement": featuredBrands.map((brand, idx) => ({
       "@type": "ListItem",
       "position": idx + 1,
       "name": `${brand.name} Routers`,
@@ -109,35 +118,91 @@ const schema = [
         Router Brands Directory
       </h1>
       <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6]">
-        Explore default IP addresses, passwords, firmware guides, and model databases for {BRANDS.length} top router manufacturers.
+        Default IP addresses, passwords, firmware guides, and model databases for all {BRANDS.length} router manufacturers we track.
       </p>
     </header>
 
     <AdBanner format="leaderboard" />
 
-    <!-- Alphabet Filter -->
-    <div class="flex flex-wrap items-center justify-center gap-1 p-2.5 bg-white dark:bg-[#292a2d] rounded-2xl border border-[#dadce0] dark:border-[#3c4043] shadow-2xs text-xs font-semibold text-[#3c4043] dark:text-[#bdc1c6] transition-colors">
-      <span class="text-[#5f6368] dark:text-[#9aa0a6] mr-1 font-mono text-[11px]">Filter:</span>
-      <button class="px-2.5 py-0.5 rounded-full bg-slate-900 dark:bg-[#1a73e8] text-white text-[11px] font-semibold cursor-pointer" id="filter-all-btn">ALL</button>
-      {['0-9', 'A', 'B', 'C', 'D', 'H', 'L', 'M', 'N', 'S', 'T', 'U', 'Z'].map(letter => (
-        <button 
-          class="px-2.5 py-0.5 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] text-[11px] font-semibold text-[#3c4043] dark:text-[#bdc1c6] filter-letter-btn transition-colors cursor-pointer"
-          data-letter={letter}
+    <!-- Filter bar: type-to-filter plus an A-Z rail, sticky under the h-16 site header -->
+    <div class="sticky top-16 z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 pt-2 pb-2.5 bg-[#f8fafd]/95 dark:bg-[#202124]/95 backdrop-blur-md border-b border-[#dadce0] dark:border-[#3c4043] space-y-2">
+
+      <!-- The running count lives inside the field, so the control reads as one object -->
+      <div class="g-search-bar h-11 sm:h-10 pl-4 pr-2">
+        <svg class="w-4 h-4 text-[#5f6368] dark:text-[#9aa0a6] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path>
+        </svg>
+        <label for="brand-filter" class="sr-only">Filter router brands by name</label>
+        <input
+          id="brand-filter"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Filter brands by name…"
+          class="min-w-0 flex-1 bg-transparent border-0 outline-none px-3 text-base sm:text-sm text-[#202124] dark:text-white placeholder-[#5f6368] dark:placeholder-[#9aa0a6]"
+        />
+        <button
+          type="button"
+          id="clear-filter"
+          class="hidden icon-btn w-7 h-7 flex-shrink-0"
+          aria-label="Clear the brand filter"
         >
-          {letter}
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
         </button>
-      ))}
+        <span
+          id="brand-count"
+          class="flex-shrink-0 ml-1 mr-1.5 pl-2.5 border-l border-[#dadce0] dark:border-[#5f6368] text-[11px] font-semibold tabular-nums text-[#5f6368] dark:text-[#9aa0a6] whitespace-nowrap"
+          aria-live="polite"
+        >{BRANDS.length}</span>
+      </div>
+
+      <!-- Index rail: one row that scrolls sideways on phones rather than wrapping to four -->
+      <div class="letter-rail -mx-1 px-1">
+        <div
+          class="no-scrollbar flex items-center gap-1 overflow-x-auto p-1 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-[#e8eaed] dark:border-[#3c4043]"
+          role="group"
+          aria-label="Jump to brands by first letter"
+        >
+          <button
+            class="letter-chip flex-shrink-0 h-7 px-3 rounded-full text-[11px] font-bold tracking-wide bg-[#1a73e8] text-white cursor-pointer transition-colors"
+            data-letter="ALL"
+            aria-pressed="true"
+          >ALL</button>
+          {letters.map(letter => (
+            <button
+              class="letter-chip flex-shrink-0 h-7 min-w-[1.75rem] px-2 rounded-full font-mono text-xs font-bold text-[#3c4043] dark:text-[#bdc1c6] hover:bg-white dark:hover:bg-[#3c4043] cursor-pointer transition-colors"
+              data-letter={letter}
+              aria-pressed="false"
+            >{letter}</button>
+          ))}
+        </div>
+      </div>
     </div>
 
-    <!-- Brands Grid -->
-    <h2 class="sr-only">All router brands</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="brands-grid">
-      {BRANDS.map(item => (
-        <div class="brand-item" data-name={item.name}>
+    <!-- Tier 1: full cards for the brands with the deepest model coverage -->
+    <section id="featured-section" class="space-y-3">
+      <h2 class="text-base font-bold text-[#202124] dark:text-white flex items-center gap-2">
+        Most stocked brands
+        <span class="text-[11px] font-medium text-[#5f6368] dark:text-[#9aa0a6]">— ranked by models we have on file</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {featuredBrands.map(item => (
           <BrandCard data={item} />
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Tier 2: every brand, compact and crawlable -->
+    <section class="space-y-3" id="index-section">
+      <h2 class="text-base font-bold text-[#202124] dark:text-white">All brands A–Z</h2>
+      <BrandIndex />
+    </section>
+
+    <p id="no-results" class="hidden text-center text-sm text-[#5f6368] dark:text-[#9aa0a6] py-10">
+      No brands match that name. Try a shorter search, or pick <button type="button" class="text-[#1a73e8] dark:text-[#8ab4f8] font-semibold hover:underline cursor-pointer" id="reset-filter">ALL</button> to see every brand.
+    </p>
 
     <AdBanner format="horizontal" />
 
@@ -239,32 +304,128 @@ const schema = [
   </div>
 </BaseLayout>
 
-<script>
-  function setupBrandFilters() {
-    const allBtn = document.getElementById('filter-all-btn');
-    const letterBtns = document.querySelectorAll('.filter-letter-btn');
-    const brandItems = document.querySelectorAll('.brand-item');
+<style>
+  /* On phones the rail scrolls, so both edges fade to show there is more alphabet
+     past the cut. On wider screens every letter fits and the mask would be a lie. */
+  @media (max-width: 640px) {
+    .letter-rail {
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+      mask-image: linear-gradient(to right, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+    }
+  }
 
-    function filterBrands(letter: string) {
-      brandItems.forEach((item) => {
-        const name = (item as HTMLElement).getAttribute('data-name') || '';
-        if (letter === 'ALL') {
-          (item as HTMLElement).style.display = '';
-        } else if (letter === '0-9') {
-          (item as HTMLElement).style.display = /^[0-9]/.test(name) ? '' : 'none';
-        } else {
-          (item as HTMLElement).style.display = name.toUpperCase().startsWith(letter) ? '' : 'none';
+  .letter-chip:focus-visible {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .letter-chip {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const IDLE_CHIP = ['text-[#3c4043]', 'dark:text-[#bdc1c6]', 'hover:bg-[#e8eaed]', 'dark:hover:bg-[#35373a]'];
+
+  function setupBrandFilters() {
+    const input = document.getElementById('brand-filter') as HTMLInputElement | null;
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.letter-chip'));
+    const groups = Array.from(document.querySelectorAll<HTMLElement>('.brand-group'));
+    const featured = document.getElementById('featured-section');
+    const indexSection = document.getElementById('index-section');
+    const countEl = document.getElementById('brand-count');
+    const noResults = document.getElementById('no-results');
+    const resetBtn = document.getElementById('reset-filter');
+    const clearBtn = document.getElementById('clear-filter');
+
+    if (!input || groups.length === 0) return;
+
+    // Each link's name is read once from its own text; the markup carries no
+    // duplicate data-name attribute, which is what keeps the index small.
+    const entries = groups.map(group => ({
+      group,
+      counter: group.querySelector('.group-count'),
+      links: Array.from(group.querySelectorAll<HTMLElement>('.brand-link')).map(el => ({
+        row: el.parentElement as HTMLElement,
+        name: (el.textContent || '').trim().toLowerCase(),
+      })),
+    }));
+    const total = entries.reduce((sum, entry) => sum + entry.links.length, 0);
+
+    let activeLetter = 'ALL';
+
+    function apply() {
+      const query = input!.value.trim().toLowerCase();
+      const filtering = query !== '' || activeLetter !== 'ALL';
+      let visible = 0;
+
+      for (const entry of entries) {
+        const letterMatches = activeLetter === 'ALL' || entry.group.dataset.letter === activeLetter;
+        let shown = 0;
+
+        for (const link of entry.links) {
+          const match = letterMatches && (query === '' || link.name.includes(query));
+          link.row.hidden = !match;
+          if (match) shown++;
         }
+
+        entry.group.hidden = shown === 0;
+        if (entry.counter) entry.counter.textContent = `${shown} brand${shown === 1 ? '' : 's'}`;
+        visible += shown;
+      }
+
+      // The featured cards are a browsing shortcut, not a second set of results,
+      // so they step aside while a filter is active rather than filtering in parallel.
+      featured?.toggleAttribute('hidden', filtering);
+      indexSection?.toggleAttribute('hidden', visible === 0);
+      noResults?.classList.toggle('hidden', visible > 0);
+      clearBtn?.classList.toggle('hidden', query === '');
+      if (countEl) countEl.textContent = filtering ? `${visible}/${total}` : String(total);
+    }
+
+    function setLetter(letter: string) {
+      activeLetter = letter;
+      for (const chip of chips) {
+        const on = chip.dataset.letter === letter;
+        chip.setAttribute('aria-pressed', String(on));
+        chip.classList.toggle('bg-[#1a73e8]', on);
+        chip.classList.toggle('text-white', on);
+        for (const cls of IDLE_CHIP) chip.classList.toggle(cls, !on);
+      }
+      apply();
+    }
+
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        const letter = chip.dataset.letter || 'ALL';
+        // The chip says ALL, so it means all: a typed filter is dropped too,
+        // otherwise ALL can sit highlighted above a handful of search results.
+        if (letter === 'ALL') {
+          reset();
+          return;
+        }
+        setLetter(letter);
+        // The featured grid collapses on filter, so bring the results into view.
+        indexSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     }
 
-    allBtn?.addEventListener('click', () => filterBrands('ALL'));
-    letterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const letter = btn.getAttribute('data-letter') || 'ALL';
-        filterBrands(letter);
-      });
+    function reset() {
+      input!.value = '';
+      setLetter('ALL');
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Escape') reset();
     });
+    clearBtn?.addEventListener('click', () => {
+      reset();
+      input.focus();
+    });
+    resetBtn?.addEventListener('click', reset);
   }
 
   setupBrandFilters();
