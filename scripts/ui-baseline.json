@@ -3632,36 +3632,36 @@
       "adSlots": 2,
       "h1": 1,
       "links": 63,
-      "tableRows": 5,
-      "height": 10007
+      "tableRows": 0,
+      "height": 9250
     },
     "brand": {
       "adSlots": 2,
       "h1": 1,
       "links": 166,
       "tableRows": 102,
-      "height": 29634
+      "height": 6047
     },
     "ip": {
       "adSlots": 2,
       "h1": 1,
       "links": 425,
       "tableRows": 280,
-      "height": 81801
+      "height": 7891
     },
     "isp": {
       "adSlots": 1,
       "h1": 1,
       "links": 140,
       "tableRows": 0,
-      "height": 6577
+      "height": 6585
     },
     "model": {
       "adSlots": 2,
       "h1": 1,
       "links": 67,
       "tableRows": 9,
-      "height": 7697
+      "height": 6122
     }
   }
 }

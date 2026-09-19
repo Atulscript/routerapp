@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import RouterLookupTable from '../components/RouterLookupTable.astro';
 import BrandCard from '../components/BrandCard.astro';
 import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
@@ -94,7 +93,7 @@ const schema = [
   <!-- ========================================================= -->
   <!-- 1. GOOGLE HERO & LIVE INTERACTIVE SEARCH SECTION -->
   <!-- ========================================================= -->
-  <section class="relative pt-8 sm:pt-12 pb-10 sm:pb-14 border-b border-line bg-gradient-to-b from-white via-[#f8fafd] to-white dark:from-[#202124] dark:via-[#292a2d]/40 dark:to-[#202124]">
+  <section class="relative pt-5 sm:pt-7 pb-6 sm:pb-8 border-b border-line">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
       
       <!-- RouterSync Network Badge -->
@@ -411,28 +410,25 @@ const schema = [
     </section>
 
     <!-- ========================================================= -->
-    <!-- 4. MASTER HARDWARE CATALOG & LOOKUP TABLE -->
+    <!-- 4. LINK TO THE FULL MODEL DATABASE -->
     <!-- ========================================================= -->
-    <section class="g-card p-5 sm:p-7 space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line-subtle pb-4">
-        <div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#fef7e0] dark:bg-[#4d3800] text-[#f9ab00] dark:text-[#fdd663] text-xs font-bold mb-1">
-            📟 Master Database
-          </div>
-          <h2 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
-            Router Models & Password Finder
-          </h2>
-          <p class="text-sm text-ink-muted mt-0.5">
-            Search {ROUTER_MODELS.length} home, mesh, gaming and business routers
-          </p>
-        </div>
-        <a href={`${base}/routers`} class="g-btn-secondary w-fit text-xs font-bold">
-          <span>View All Models</span>
-          <span>→</span>
-        </a>
+    {/* This used to embed a second copy of the /routers lookup widget.
+        /routers is now a properly filterable table, so the homepage points
+        at it rather than shipping the same widget twice. */}
+    <section class="g-card p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
+          Router models &amp; password finder
+        </h2>
+        <p class="text-sm text-ink-muted mt-1">
+          Search {ROUTER_MODELS.length} home, mesh, gaming and business routers by name,
+          gateway IP, username or password.
+        </p>
       </div>
-
-      <RouterLookupTable />
+      <a href={`${base}/routers`} class="g-btn-primary w-fit flex-shrink-0">
+        <span>Open the model database</span>
+        <span>→</span>
+      </a>
     </section>
 
     <!-- Mid In-Content Ad Banner -->
