@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrandCard from '../components/BrandCard.astro';
 import AdBanner from '../components/AdBanner.astro';
+import Disclosure from '../components/Disclosure.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import RouterChecker from '../components/RouterChecker.astro';
 import LoginStepper from '../components/LoginStepper.astro';
@@ -267,10 +268,10 @@ const schema = [
   <!-- Top Leaderboard Ad Slot -->
   <AdBanner format="leaderboard" />
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-9">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-5 sm:py-6 space-y-5">
 
     <!-- ========================================================= -->
-    <!-- 2. GOOGLE MATERIAL 3 DIAGNOSTIC TOOLS GRID -->
+    <!-- 2. DIAGNOSTIC TOOLS GRID (collapsed on load) -->
     <!-- ========================================================= -->
     <section class="space-y-4">
       <div class="flex items-center justify-between">
@@ -291,6 +292,7 @@ const schema = [
         </a>
       </div>
 
+      <Disclosure label="Show all tools" collapsedHeight={260}>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
         <!-- Speed Test Tool Card (RouterSync Blue) -->
@@ -378,6 +380,7 @@ const schema = [
         </a>
 
       </div>
+    </Disclosure>
     </section>
 
     <!-- ========================================================= -->
@@ -402,11 +405,13 @@ const schema = [
         </a>
       </div>
 
+      <Disclosure label="Show more brands" collapsedHeight={320}>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
         {popularBrands.map(brand => (
           <BrandCard data={brand} />
         ))}
       </div>
+    </Disclosure>
     </section>
 
     <!-- ========================================================= -->
@@ -415,7 +420,7 @@ const schema = [
     {/* This used to embed a second copy of the /routers lookup widget.
         /routers is now a properly filterable table, so the homepage points
         at it rather than shipping the same widget twice. */}
-    <section class="g-card p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <section class="g-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <h2 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
           Router models &amp; password finder
@@ -442,7 +447,7 @@ const schema = [
     <!-- ========================================================= -->
     <!-- 7. GOOGLE SEARCH STYLE FAQ ACCORDION (JUST ABOVE FOOTER) -->
     <!-- ========================================================= -->
-    <section class="g-card p-5 sm:p-7 space-y-4">
+    <section class="g-card p-4 sm:p-5 space-y-3">
       <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
         <span class="text-lg">❓</span>
         <div>

@@ -99,6 +99,14 @@
 }
 
 @layer components {
+  /* One card with internal dividers, instead of a stack of separate cards.
+     Every standalone card pays for two borders, two paddings and a gap; this
+     removes that per-section overhead, which is the largest single contributor
+     to page height. */
+  .stack { @apply bg-surface rounded-2xl border border-line; }
+  .stack > * + * { @apply border-t border-line-subtle; }
+  .stack > * { @apply p-4 sm:p-5; }
+
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2.5 focus:rounded-full focus:bg-[#1a73e8] focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg;
   }

@@ -560,7 +560,7 @@ if (type === 'ip') {
       const otherIps = GATEWAY_IPS.filter(i => i.ip !== ipData.ip);
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumb */}
           <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
@@ -571,7 +571,7 @@ if (type === 'ip') {
           </nav>
 
           {/* Hero Header Card (Google OneBox Style) */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
+          <header class="g-card p-4 sm:p-5 space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] mb-2">
@@ -635,12 +635,16 @@ if (type === 'ip') {
           {/* Guide and live check sit side by side on wide screens */}
           <div id="steps" class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
             <LoginStepper ip={ipData.ip} user={ipData.defaultUser} pass={ipData.defaultPass} brandName={ipData.commonBrands[0]} class="xl:col-span-3" />
-            <RouterChecker focusIp={ipData.ip} limit={8} class="xl:col-span-2" />
+            <div class="xl:col-span-2">
+              <Disclosure label="Check if this is your router" collapsedHeight={0}>
+                <RouterChecker focusIp={ipData.ip} limit={8} />
+              </Disclosure>
+            </div>
           </div>
 
           {/* Associated Router Models */}
           {associatedModels.length > 0 && (
-            <section id="models" class="g-card p-5 sm:p-6 space-y-4">
+            <section id="models" class="g-card p-4 sm:p-5 space-y-3">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line-subtle pb-3">
                 <div>
                   <h2 class="text-base sm:text-lg font-bold text-ink">
@@ -684,7 +688,7 @@ if (type === 'ip') {
         .slice(0, 12);
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumbs */}
           <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
@@ -695,7 +699,7 @@ if (type === 'ip') {
           </nav>
 
           {/* Hero Header Card */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
+          <header class="g-card p-4 sm:p-5 space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                 <BrandLogo slug={brandData.slug} name={brandData.name} size="lg" />
@@ -731,7 +735,7 @@ if (type === 'ip') {
           <AdBanner format="horizontal" class="lg:hidden" />
 
           {/* Interactive Hardware Models Directory */}
-          <section id="models" class="g-card p-5 sm:p-6 space-y-4">
+          <section id="models" class="g-card p-4 sm:p-5 space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line-subtle pb-3">
               <div>
                 <h2 class="text-base sm:text-lg font-bold text-ink">
@@ -752,7 +756,7 @@ if (type === 'ip') {
           </section>
 
           {/* Step-by-Step Configuration Guide */}
-          <section id="steps" class="g-card p-5 sm:p-6 space-y-4">
+          <section id="steps" class="g-card p-4 sm:p-5 space-y-3">
             <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
               <h2 class="text-base sm:text-lg font-bold text-ink">
                 How to log in to your {brandData.name} router
@@ -795,7 +799,7 @@ if (type === 'ip') {
       const siblingModels = ROUTER_MODELS.filter(m => m.brandSlug === model.brandSlug && m.slug !== model.slug).slice(0, 6);
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumb Navigation */}
           <nav class="flex items-center gap-1.5 text-xs text-ink-muted flex-wrap" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
@@ -812,7 +816,7 @@ if (type === 'ip') {
           </nav>
 
           {/* Model Header Card */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
+          <header class="g-card p-4 sm:p-5 space-y-4">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-line-subtle pb-4">
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 flex-wrap mb-2.5">
@@ -920,7 +924,7 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           {/* Technical Specifications Matrix */}
-          <section id="specs" class="g-card p-5 sm:p-6 space-y-4">
+          <section id="specs" class="g-card p-4 sm:p-5 space-y-3">
             <div class="flex items-center justify-between border-b border-line-subtle pb-3">
               <h2 class="text-base sm:text-lg font-bold text-ink">
                 Technical specifications
@@ -991,7 +995,7 @@ if (type === 'ip') {
           </section>
 
           {/* Setup Walkthrough */}
-          <section id="steps" class="g-card p-5 sm:p-6 space-y-4">
+          <section id="steps" class="g-card p-4 sm:p-5 space-y-3">
             <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
               <h2 class="text-base sm:text-lg font-bold text-ink">
                 How to log in to your {model.brand} {model.model}
@@ -1073,7 +1077,7 @@ if (type === 'ip') {
       const ispPrimaryIp = ispData.defaultIp.split('/')[0].trim();
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumb Navigation */}
           <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
@@ -1082,7 +1086,7 @@ if (type === 'ip') {
           </nav>
 
           {/* Hero Header Card */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
+          <header class="g-card p-4 sm:p-5 space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                 <BrandLogo slug={ispData.slug} name={ispData.name} size="lg" />
@@ -1162,7 +1166,7 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           {/* Step-by-Step ONT Setup Guide */}
-          <section id="steps" class="g-card p-5 sm:p-6 space-y-4">
+          <section id="steps" class="g-card p-4 sm:p-5 space-y-3">
             <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
               <h2 class="text-base sm:text-lg font-bold text-ink">
                 How to set up your {ispData.name} router
