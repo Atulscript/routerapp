@@ -713,17 +713,8 @@ if (type === 'ip') {
                 </div>
               </div>
 
-              <div class="flex-shrink-0 flex items-center gap-2">
-                <a 
-                  href={`http://${brandPrimaryIp}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="g-btn-primary"
-                >
-                  <span>Open {brandPrimaryIp}</span>
-                  <span>↗</span>
-                </a>
-              </div>
+              {/* The Open action lives on the LoginCard below; a second one
+                  here only pushed the password further down the first screen. */}
             </div>
 
             {/* One row per value, one copy button per value. The block this
