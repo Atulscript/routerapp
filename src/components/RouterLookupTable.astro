@@ -50,7 +50,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
         <div class="relative">
           <select 
             id="brand-select" 
-            class="w-full pl-3.5 pr-8 py-2.5 bg-white dark:bg-[#303134] hover:bg-[#f8fafd] dark:hover:bg-[#35373a] border border-line rounded-xl text-ink text-xs font-bold shadow-2xs focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] focus:ring-2 focus:ring-[#1a73e8]/20 outline-none cursor-pointer appearance-none transition-all"
+            class="w-full pl-3.5 pr-8 py-2.5 bg-surface border border-line rounded-xl text-ink text-xs font-bold shadow-2xs focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none cursor-pointer appearance-none transition-all"
           >
             <option value="ALL">-- All Brands ({allModels.length} Models) --</option>
             {brandNames.map(brand => (
@@ -75,12 +75,12 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
             type="text" 
             id="table-search-input" 
             placeholder="Filter model, IP, username..." 
-            class="w-full pl-3.5 pr-8 py-2.5 bg-white dark:bg-[#303134] hover:bg-[#f8fafd] dark:hover:bg-[#35373a] border border-line rounded-xl text-xs font-medium text-ink placeholder-[#80868b] dark:placeholder-[#9aa0a6] focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] focus:ring-2 focus:ring-[#1a73e8]/20 outline-none shadow-2xs transition-all"
+            class="w-full pl-3.5 pr-8 py-2.5 bg-surface border border-line rounded-xl text-xs font-medium text-ink placeholder-ink-subtle focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none shadow-2xs transition-all"
           />
           <button 
             type="button" 
             id="clear-search-btn" 
-            class="hidden absolute right-2.5 inset-y-0 text-[#5f6368] hover:text-[#202124] dark:hover:text-white text-xs font-bold my-auto"
+            class="hidden absolute right-2.5 inset-y-0 text-ink-muted hover:text-ink text-xs font-bold my-auto"
           >
             ✕
           </button>
@@ -107,10 +107,10 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     </div>
   </div>
 
-  <!-- Material 3 Styled Table Container -->
-  <div class="overflow-x-auto border border-line rounded-2xl shadow-card bg-white dark:bg-[#202124] h-96 overflow-y-auto custom-scrollbar">
+  <!-- Table Container -->
+  <div class="overflow-x-auto border border-line rounded-2xl shadow-card bg-surface h-96 overflow-y-auto custom-scrollbar">
     <table class="w-full text-left border-collapse" id="models-table">
-      <thead class="sticky top-0 z-10 bg-surface-muted text-[#5f6368] dark:text-[#e8eaed] text-[11px] font-bold uppercase tracking-wider border-b border-line shadow-2xs">
+      <thead class="sticky top-0 z-10 bg-surface-muted text-ink-muted text-[11px] font-bold uppercase tracking-wider border-b border-line shadow-2xs">
         <tr>
           <th class="py-3 px-4 whitespace-nowrap">Manufacturer</th>
           <th class="py-3 px-4 whitespace-nowrap">Hardware Model</th>
@@ -120,7 +120,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
           <th class="py-3 px-4 whitespace-nowrap text-right">Default Password</th>
         </tr>
       </thead>
-      <tbody id="table-body" class="divide-y divide-[#f1f3f4] dark:divide-[#3c4043] text-xs text-ink font-sans">
+      <tbody id="table-body" class="divide-y divide-line-subtle text-xs text-ink font-sans">
         <!-- Filled dynamically -->
       </tbody>
     </table>
@@ -128,7 +128,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
 
   <!-- Footer Status Bar -->
   <div class="flex flex-col sm:flex-row justify-between items-center mt-3 text-xs text-ink-muted gap-1 px-1">
-    <span id="model-count-text" class="font-medium text-[11px] text-[#3c4043] dark:text-[#e8eaed]">Loading models...</span>
+    <span id="model-count-text" class="font-medium text-[11px] text-ink">Loading models...</span>
     <span class="text-[11px] text-ink-muted">
       💡 Click any brand or IP to open dedicated setup instructions
     </span>
@@ -154,11 +154,11 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     pills.forEach(pill => {
       const b = pill.getAttribute('data-brand');
       if (b === currentBrand || (b === 'ALL' && currentBrand === 'ALL')) {
-        pill.classList.remove('bg-white', 'dark:bg-[#292a2d]', 'text-[#3c4043]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
-        pill.classList.add('bg-[#e8f0fe]', 'dark:bg-[#1a3a60]', 'text-[#1a73e8]', 'dark:text-[#8ab4f8]', 'border-[#d2e3fc]', 'dark:border-[#1a73e8]', 'font-bold');
+        pill.classList.remove('g-chip');
+        pill.classList.add('g-chip-active', 'font-bold');
       } else {
-        pill.classList.remove('bg-[#e8f0fe]', 'dark:bg-[#1a3a60]', 'text-[#1a73e8]', 'dark:text-[#8ab4f8]', 'border-[#d2e3fc]', 'dark:border-[#1a73e8]', 'font-bold');
-        pill.classList.add('bg-white', 'dark:bg-[#292a2d]', 'text-[#3c4043]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
+        pill.classList.remove('g-chip-active', 'font-bold');
+        pill.classList.add('g-chip');
       }
     });
   }
@@ -198,7 +198,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     if (filtered.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="6" class="py-8 text-center text-ink-muted italic bg-[#f8fafd]/50 dark:bg-[#202124]/50">
+          <td colspan="6" class="py-8 text-center text-ink-muted italic bg-surface-sunken/40">
             No matching router models found. Try clearing your search query.
           </td>
         </tr>
@@ -207,14 +207,14 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
     }
 
     tbody.innerHTML = filtered.map((item, index) => {
-      const bgClass = index % 2 === 0 ? 'bg-[#f8fafd]/60 dark:bg-[#202124]/40' : 'bg-surface/80';
+      const bgClass = index % 2 === 0 ? 'bg-surface-sunken/40' : 'bg-surface';
       const cleanIp = item.ip || '192.168.1.1';
       const ipHref = getIpPath(cleanIp);
       const brandHref = `${base}/${item.brandSlug}`;
 
       const modelHref = item.slug ? `${base}/${item.slug}` : (item.brandSlug ? `${base}/${item.brandSlug}` : null);
       const modelCellHtml = modelHref ? `
-        <a href="${modelHref}" class="text-accent hover:text-[#1557b0] dark:hover:text-[#a8c7fa] hover:underline font-bold inline-flex items-center gap-1">
+        <a href="${modelHref}" class="text-accent hover:text-accent-hover hover:underline font-bold inline-flex items-center gap-1">
           <span>${escapeHtml(item.model)}</span>
           <span class="text-xs opacity-75">→</span>
         </a>
@@ -222,13 +222,13 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
 
       const photoFile = photoMap[item.slug];
       const thumb = photoFile
-        ? `<img src="${base}/${photoFile}" alt="" width="44" height="32" loading="lazy" decoding="async" class="w-11 h-8 object-contain rounded-lg bg-white border border-[#e8eaed] dark:border-[#5f6368] flex-shrink-0">`
-        : `<span class="w-11 h-8 rounded-lg bg-surface-muted border border-[#e8eaed] dark:border-[#5f6368] text-ink-muted flex items-center justify-center flex-shrink-0" aria-hidden="true">
+        ? `<img src="${base}/${photoFile}" alt="" width="44" height="32" loading="lazy" decoding="async" class="w-11 h-8 object-contain rounded-lg bg-surface border border-line-subtle flex-shrink-0">`
+        : `<span class="w-11 h-8 rounded-lg bg-surface-muted border border-line-subtle text-ink-muted flex items-center justify-center flex-shrink-0" aria-hidden="true">
              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="14" width="18" height="6.5" rx="2"/><path d="M7 17.2h.01M10 17.2h.01"/><path d="M12 14v-2.5"/><path d="M9.2 9.3a4 4 0 0 1 5.6 0"/><path d="M6.6 6.6a7.7 7.7 0 0 1 10.8 0"/></svg>
            </span>`;
 
       return `
-        <tr class="${bgClass} hover:bg-[#e8f0fe]/70 dark:hover:bg-[#303134]/80 transition-colors">
+        <tr class="${bgClass} hover:bg-accent-soft/30 transition-colors">
           <td class="py-2.5 px-4 font-bold text-ink whitespace-nowrap text-xs">
             <a href="${brandHref}" class="text-accent hover:underline inline-flex items-center gap-1">
               ${escapeHtml(item.brand)}
@@ -242,15 +242,15 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
               <a href="${ipHref}" class="text-accent hover:underline" title="View ${cleanIp} guide">
                 ${cleanIp}
               </a>
-              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm text-ink-muted hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8]" title="Open http://${cleanIp} in a new tab" aria-label="Open ${cleanIp} in a new tab">
+              <a href="http://${cleanIp}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm text-ink-muted hover:bg-accent-soft hover:text-accent" title="Open http://${cleanIp} in a new tab" aria-label="Open ${cleanIp} in a new tab">
                 ↗
               </a>
             </div>
           </td>
           <td class="py-2.5 px-4 text-ink-muted whitespace-nowrap text-[11px]">
-            <span class="px-2 py-0.5 rounded-full bg-surface-muted border border-line text-[#3c4043] dark:text-[#e8eaed] font-mono text-xs font-bold">${item.protocol}</span>
+            <span class="px-2 py-0.5 rounded-full bg-surface-muted border border-line text-ink font-mono text-xs font-bold">${item.protocol}</span>
           </td>
-          <td class="py-2.5 px-4 font-mono text-[#3c4043] dark:text-[#e8eaed] whitespace-nowrap text-xs">${escapeHtml(item.username)}</td>
+          <td class="py-2.5 px-4 font-mono text-ink-muted whitespace-nowrap text-xs">${escapeHtml(item.username)}</td>
           <td class="py-2.5 px-4 font-mono font-bold text-ink whitespace-nowrap text-xs text-right">
             <div class="inline-flex items-center justify-end gap-2">
               <span class="truncate max-w-[90px] sm:max-w-[130px] font-mono" title="${escapeHtml(item.password)}">${escapeHtml(item.password)}</span>
@@ -258,7 +258,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
                 type="button" 
                 data-copy="${escapeHtml(item.password)}"
                 aria-label="Copy password for ${escapeHtml(item.model)}"
-                class="copy-btn "text-xs font-bold px-2.5 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] text-[#3c4043] dark:text-[#e8eaed] font-sans border border-line transition-all active:scale-95 cursor-pointer shadow-2xs"
+                class="copy-btn text-xs font-semibold px-2.5 py-1 rounded-full bg-surface hover:bg-surface-raised text-ink font-sans border border-line transition-all active:scale-95 cursor-pointer shadow-2xs"
               >
                 Copy
               </button>
@@ -277,7 +277,7 @@ const popularBrands = ['TP-Link', 'Netgear', 'ASUS', 'Ubiquiti', 'Cisco', 'Mikro
   // Load the model list once the table is close to the viewport, then render.
   const container = document.getElementById('router-lookup-container');
   const loadModels = () => fetch(modelsUrl).then(r => r.json()).then(data => { allModels = data; renderTable(); }).catch(() => {
-    tbody.innerHTML = '<tr><td colspan="6" class="py-8 text-center text-sm text-[#5f6368]">Could not load the model list. Please refresh the page.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" class="py-8 text-center text-sm text-ink-muted">Could not load the model list. Please refresh the page.</td></tr>';
   });
   tbody.innerHTML = '<tr><td colspan="6" class="py-8 text-center text-sm text-ink-muted">Loading router models…</td></tr>';
   if ('IntersectionObserver' in window && container) {

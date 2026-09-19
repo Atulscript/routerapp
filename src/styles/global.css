@@ -79,7 +79,7 @@
     color: var(--ink);
   }
 
-  /* Google-Style Clean Slim Scrollbar */
+  /* Clean Slim Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -88,17 +88,17 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #dadce0;
+    background: var(--line);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #bdc1c6;
+    background: var(--ink-subtle);
   }
   .dark ::-webkit-scrollbar-thumb {
-    background: #3c4043;
+    background: var(--line);
   }
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #5f6368;
+    background: var(--ink-subtle);
   }
 }
 
@@ -112,7 +112,7 @@
   .stack > * { @apply p-4 sm:p-5; }
 
   .skip-link {
-    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2.5 focus:rounded-full focus:bg-[#1a73e8] focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg;
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2.5 focus:rounded-full focus:bg-accent focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg;
   }
 
   /* AdSense marks slots it could not fill; don't leave an empty box behind.
@@ -123,53 +123,54 @@
 
   /* Copy button next to credentials; the global handler in BaseLayout swaps in "Copied" */
   .g-copy-btn {
-    @apply flex-shrink-0 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-sm font-medium bg-white dark:bg-[#303134] border border-[var(--line)] text-accent hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] active:scale-95 transition cursor-pointer whitespace-nowrap;
+    @apply flex-shrink-0 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-sm font-medium bg-surface border border-line text-accent hover:bg-accent-soft active:scale-95 transition cursor-pointer whitespace-nowrap;
   }
 
   /* 40px round icon button: comfortably above the 24px WCAG 2.5.8 minimum target */
   .icon-btn {
-    @apply w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] active:scale-95 transition cursor-pointer;
+    @apply w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-ink-muted hover:bg-surface-raised hover:text-ink active:scale-95 transition cursor-pointer;
   }
 
-  /* Google Material 3 Surface Cards */
+  /* RouterSync Surface Cards */
   .g-card {
-    @apply bg-surface rounded-xl border border-[var(--line)] transition-colors duration-150;
+    @apply bg-surface rounded-xl border border-line transition-colors duration-150;
   }
 
   .g-card-flat {
-    @apply bg-surface rounded-xl border border-[var(--line-subtle)] transition-colors duration-150;
+    @apply bg-surface rounded-xl border border-line-subtle transition-colors duration-150;
   }
 
-  /* Google Search Box */
+  /* Search Box */
   .g-search-bar {
-    @apply flex items-center bg-white dark:bg-[#303134] rounded-full border border-[#dfe1e5] dark:border-[#5f6368] shadow-google-search hover:shadow-google-search-hover focus-within:shadow-google-search-hover focus-within:border-transparent transition-all duration-150;
+    @apply flex items-center bg-surface rounded-full border border-line shadow-card hover:border-accent focus-within:border-accent focus-within:ring-2 transition-all duration-150;
+    --tw-ring-color: var(--accent-soft);
   }
 
-  /* Google Buttons */
+  /* Buttons */
   .g-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#1a73e8] hover:bg-[#1557b0] active:scale-95 text-white font-medium text-xs sm:text-sm shadow-xs hover:shadow-sm transition-all duration-150;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-accent hover:bg-accent-hover active:scale-95 text-white font-medium text-xs sm:text-sm shadow-xs hover:shadow-sm transition-all duration-150;
   }
 
   .g-btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#f1f3f4] dark:bg-[#3c4043] hover:bg-[#e8eaed] dark:hover:bg-[#4a4d51] text-[#3c4043] dark:text-[#e8eaed] font-medium text-xs sm:text-sm active:scale-95 transition-all duration-150;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-surface-raised hover:bg-surface-muted text-ink font-medium text-xs sm:text-sm active:scale-95 transition-all duration-150;
   }
 
   .g-btn-outlined {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-surface hover:bg-[#f8f9fa] dark:hover:bg-[#35373a] text-accent border border-[var(--line)] font-medium text-xs sm:text-sm active:scale-95 transition-all duration-150;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-surface hover:bg-surface-raised text-accent border border-line font-medium text-xs sm:text-sm active:scale-95 transition-all duration-150;
   }
 
-  /* Google Chips & Pills */
+  /* Chips & Pills */
   .g-chip {
-    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-[var(--line)] bg-surface text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors cursor-pointer select-none;
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium border border-line bg-surface text-ink-muted hover:bg-surface-raised hover:text-ink transition-colors cursor-pointer select-none;
   }
 
   .g-chip-active {
-    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] transition-colors cursor-pointer select-none;
+    @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-accent-soft text-accent border border-line transition-colors cursor-pointer select-none;
   }
 
   /* OneBox Knowledge Widget */
   .g-onebox {
-    @apply bg-surface rounded-2xl sm:rounded-3xl border border-[var(--line)] shadow-card p-5 sm:p-7;
+    @apply bg-surface rounded-2xl sm:rounded-3xl border border-line shadow-card p-5 sm:p-7;
   }
 
   /* Horizontal swipeable chip scrollbar hide */
@@ -214,14 +215,14 @@
   }
   .responsive-table td[data-label]::before {
     content: attr(data-label);
-    font-family: 'Google Sans', system-ui, sans-serif;
+    font-family: inherit;
     font-size: 0.8125rem;
-    font-weight: 500;
-    color: #5f6368;
+    font-weight: 600;
+    color: var(--ink-muted);
     text-align: left;
   }
   .dark .responsive-table td[data-label]::before {
-    color: #9aa0a6;
+    color: var(--ink-muted);
   }
   .responsive-table td[data-label=""]::before {
     display: none;
