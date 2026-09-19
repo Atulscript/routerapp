@@ -600,49 +600,12 @@ if (type === 'ip') {
             </div>
 
             {/* Quick Metrics */}
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ipData.ip}</div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={ipData.ip}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ipData.defaultUser || '(blank)'}</div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={ipData.defaultUser}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ipData.defaultPass || '(blank)'}</div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={ipData.defaultPass}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-            </div>
+            <LoginCard
+              gateways={[ipData.ip]}
+              username={ipData.defaultUser}
+              password={ipData.defaultPass}
+              label={ipData.ip}
+            />
           </header>
 
           <AdBanner format="horizontal" class="lg:hidden" />
@@ -763,62 +726,15 @@ if (type === 'ip') {
               </div>
             </div>
 
-            {/* Default Login Credentials Action Grid */}
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
-                    {brandIpSlug ? (
-                      <a href={`${base}/${brandIpSlug}`} class="text-accent hover:underline">
-                        {brandData.defaultIp}
-                      </a>
-                    ) : (
-                      brandData.defaultIp
-                    )}
-                  </div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={brandData.defaultIp}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
-                    {brandData.defaultUser || '(blank)'}
-                  </div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={brandData.defaultUser}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
-                    {brandData.defaultPass || '(blank)'}
-                  </div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={brandData.defaultPass}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-            </div>
+            {/* One row per value, one copy button per value. The block this
+                replaced put three gateway addresses in a single field behind
+                one Copy button, with nothing to say which it copied. */}
+            <LoginCard
+              gateways={splitGatewayValues(brandData.defaultIp)}
+              username={brandData.defaultUser}
+              password={brandData.defaultPass}
+              label={brandData.name}
+            />
           </header>
 
           <AdBanner format="horizontal" class="lg:hidden" />
