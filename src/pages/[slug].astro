@@ -592,17 +592,8 @@ if (type === 'ip') {
                 </p>
               </div>
 
-              <div class="flex-shrink-0">
-                <a 
-                  href={`http://${ipData.ip}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="g-btn-primary"
-                >
-                  <span>Open {`http://${ipData.ip}`}</span>
-                  <span class="text-xs">↗</span>
-                </a>
-              </div>
+              {/* The Open action is on the LoginCard below; a second one here
+                  only pushed the credentials further down the first screen. */}
             </div>
 
             {/* Quick Metrics */}
@@ -638,14 +629,14 @@ if (type === 'ip') {
             </section>
           )}
 
-          {/* Guide and live check sit side by side on wide screens */}
-          <div id="steps" class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
-            <LoginStepper ip={ipData.ip} user={ipData.defaultUser} pass={ipData.defaultPass} brandName={ipData.commonBrands[0]} class="xl:col-span-3" />
-            <div class="xl:col-span-2">
-              <Disclosure label="Check if this is your router" collapsedHeight={0}>
-                <RouterChecker focusIp={ipData.ip} limit={8} />
-              </Disclosure>
-            </div>
+          {/* Both blocks run the full width of the main column. They used to sit
+              in a 3/2 split, which inside the shell's narrower column left the
+              checker's side almost empty once it collapsed on load. */}
+          <div id="steps" class="space-y-4">
+            <LoginStepper ip={ipData.ip} user={ipData.defaultUser} pass={ipData.defaultPass} brandName={ipData.commonBrands[0]} />
+            <Disclosure label="Check if this is your router" collapsedHeight={0}>
+              <RouterChecker focusIp={ipData.ip} limit={8} />
+            </Disclosure>
           </div>
 
           {/* Associated Router Models */}
