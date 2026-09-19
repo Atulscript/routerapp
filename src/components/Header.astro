@@ -6,52 +6,96 @@ const { currentPath = '/' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const path = currentPath.replace(base, '') || '/';
 
-const navItems = [
-  { label: 'Home', href: `${base}/`, active: path === '/' },
-  { label: 'Brands', href: `${base}/brands`, active: path.startsWith('/brands') },
+/**
+ * Every category page the header used to link to directly. They keep their
+ * links, and so their internal link equity, but stop being the only way in.
+ */
+const browseItems = [
+  { label: 'Router brands', href: `${base}/brands`, active: path.startsWith('/brands') },
+  { label: 'Router models', href: `${base}/routers`, active: path.startsWith('/routers') },
   { label: 'Gateway IPs', href: `${base}/ip-addresses`, active: path.startsWith('/ip-addresses') },
-  { label: 'Router Models', href: `${base}/routers`, active: path.startsWith('/routers') },
-  { label: 'ISPs', href: `${base}/isps`, active: path.startsWith('/isps') },
-  { label: 'Default Passwords', short: 'Passwords', href: `${base}/default-passwords`, active: path.startsWith('/default-passwords') },
-  { label: 'Tools', href: `${base}/tools`, active: path.startsWith('/tools') },
+  { label: 'Internet providers', href: `${base}/isps`, active: path.startsWith('/isps') },
+  { label: 'Default passwords', href: `${base}/default-passwords`, active: path.startsWith('/default-passwords') },
 ];
+
+const browseActive = browseItems.some(item => item.active);
 ---
 
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#202124]/90 backdrop-blur-md border-b border-[#dadce0] dark:border-[#3c4043] transition-colors">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-[#202124]/90 backdrop-blur-md border-b border-line transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-3">
 
-    <a href={`${base}/`} class="flex items-center gap-2.5 flex-shrink-0 rounded-full" aria-label="19216811.page home">
-      <span class="flex items-center gap-1 bg-[#f1f3f4] dark:bg-[#303134] px-2 py-1.5 rounded-full border border-[#dadce0] dark:border-[#5f6368]" aria-hidden="true">
-        <span class="w-2 h-2 rounded-full bg-[#4285f4]"></span>
-        <span class="w-2 h-2 rounded-full bg-[#ea4335]"></span>
-        <span class="w-2 h-2 rounded-full bg-[#fbbc05]"></span>
-        <span class="w-2 h-2 rounded-full bg-[#34a853]"></span>
-      </span>
+    <a href={`${base}/`} class="flex items-center gap-2.5 flex-shrink-0 group" aria-label="RouterSync.com home">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-cyan-500 p-0.5 shadow-sm flex-shrink-0 group-hover:scale-105 transition-transform" aria-hidden="true">
+        <div class="w-full h-full bg-[#0f172a] rounded-[10px] flex items-center justify-center">
+          <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="13" width="20" height="8" rx="2"></rect>
+            <path d="M6 13v-4"></path>
+            <path d="M18 13v-4"></path>
+            <path d="M10 5a3.5 3.5 0 0 1 4 0"></path>
+            <path d="M7.5 2.5a7.5 7.5 0 0 1 9 0"></path>
+            <circle cx="7" cy="17" r="1" fill="currentColor"></circle>
+            <circle cx="12" cy="17" r="1" fill="currentColor"></circle>
+          </svg>
+        </div>
+      </div>
       <span class="flex flex-col leading-none">
-        <span class="font-bold text-base sm:text-lg text-[#202124] dark:text-white tracking-tight">
-          19216811<span class="text-[#1a73e8] dark:text-[#8ab4f8]">.page</span>
+        <span class="font-bold text-lg text-[#111827] dark:text-white tracking-tight font-sans flex items-center">
+          Router<span class="text-blue-600 dark:text-cyan-400">Sync</span><span class="text-xs font-mono text-gray-400 dark:text-gray-500 font-normal ml-0.5">.com</span>
         </span>
-        <span class="hidden sm:block text-xs font-semibold text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-widest mt-1">Router Directory</span>
+        <span class="hidden sm:block text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-0.5">Hardware & Gateway Directory</span>
       </span>
     </a>
 
-    <nav class="hidden xl:flex items-center gap-0.5 ml-2" aria-label="Main">
-      {/* The logo already links home, so the wide nav skips "Home" to stay on one line */}
-      {navItems.filter(item => item.label !== 'Home').map(item => (
-        <a
-          href={item.href}
-          aria-current={item.active ? 'page' : undefined}
-          class={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-            item.active
-              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]'
+    {/*
+      Five of the old top-level links were different doors into one room:
+      "what are my router's login details?". Visitors had to classify their own
+      problem into our taxonomy before they could start. They now live behind
+      Browse, so every link is still present and still crawled, but search leads.
+    */}
+    <nav class="hidden lg:flex items-center gap-0.5 ml-2" aria-label="Main">
+      <details class="browse relative">
+        <summary
+          class={`list-none cursor-pointer px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors flex items-center gap-1.5 ${
+            browseActive
+              ? 'bg-accent-soft text-accent'
               : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
           }`}
         >
-          {item.short ?? item.label}
-        </a>
-      ))}
+          Browse
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="browse-menu absolute left-0 top-full mt-1.5 w-56 p-1.5 rounded-2xl bg-surface border border-line shadow-card-hover z-50">
+          {browseItems.map(item => (
+            <a
+              href={item.href}
+              aria-current={item.active ? 'page' : undefined}
+              class={`block px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
+                item.active
+                  ? 'bg-accent-soft text-accent'
+                  : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </details>
+
+      <a
+        href={`${base}/tools`}
+        aria-current={path.startsWith('/tools') ? 'page' : undefined}
+        class={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+          path.startsWith('/tools')
+            ? 'bg-accent-soft text-accent'
+            : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
+        }`}
+      >
+        Tools
+      </a>
     </nav>
 
     <div class="ml-auto flex items-center gap-1.5">
@@ -70,11 +114,11 @@ const navItems = [
 
         <div
           id="header-search-panel"
-          class="search-panel hidden md:block fixed md:static inset-x-0 top-16 md:top-auto p-3 md:p-0 bg-white dark:bg-[#202124] md:bg-transparent md:dark:bg-transparent border-b md:border-0 border-[#dadce0] dark:border-[#3c4043] shadow-lg md:shadow-none"
+          class="search-panel hidden md:block fixed md:static inset-x-0 top-16 md:top-auto p-3 md:p-0 bg-white dark:bg-[#202124] md:bg-transparent md:dark:bg-transparent border-b md:border-0 border-line shadow-lg md:shadow-none"
         >
           <div class="relative md:w-64 lg:w-72 xl:w-60">
             <label for="header-search-input" class="sr-only">Search IPs, brands, models and tools</label>
-            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5f6368] dark:text-[#9aa0a6] pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-muted pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <input
               id="header-search-input"
               type="search"
@@ -86,15 +130,15 @@ const navItems = [
               aria-autocomplete="list"
               aria-expanded="false"
               aria-controls="header-search-results"
-              class="w-full h-11 md:h-10 pl-10 pr-12 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-transparent focus:bg-white dark:focus:bg-[#303134] focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] text-base md:text-sm text-[#202124] dark:text-white placeholder-[#5f6368] dark:placeholder-[#9aa0a6] outline-none transition-colors"
+              class="w-full h-11 md:h-10 pl-10 pr-12 rounded-full bg-surface-muted border border-transparent focus:bg-white dark:focus:bg-[#303134] focus:border-[#1a73e8] dark:focus:border-[#8ab4f8] text-base md:text-sm text-ink placeholder-[#5f6368] dark:placeholder-[#9aa0a6] outline-none transition-colors"
             />
-            <kbd class="hidden lg:flex absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[11px] font-mono text-[#5f6368] dark:text-[#9aa0a6] bg-white dark:bg-[#3c4043] border border-[#dadce0] dark:border-[#5f6368] rounded-md pointer-events-none" data-search-kbd>/</kbd>
+            <kbd class="hidden lg:flex absolute right-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 text-[11px] font-mono text-ink-muted bg-white dark:bg-[#3c4043] border border-line rounded-md pointer-events-none" data-search-kbd>/</kbd>
 
             <ul
               id="header-search-results"
               role="listbox"
               aria-label="Search suggestions"
-              class="hidden absolute left-0 right-0 md:left-auto md:w-96 top-full mt-2 bg-white dark:bg-[#292a2d] rounded-2xl shadow-card-hover border border-[#dadce0] dark:border-[#3c4043] overflow-y-auto max-h-[70vh] py-1.5 z-50"
+              class="hidden absolute left-0 right-0 md:left-auto md:w-96 top-full mt-2 bg-surface rounded-2xl shadow-card-hover border border-line overflow-y-auto max-h-[70vh] py-1.5 z-50"
             ></ul>
           </div>
         </div>
@@ -107,16 +151,16 @@ const navItems = [
     </div>
   </div>
 
-  <!-- Below xl: swipeable nav row, with a fade on the right edge hinting there is more -->
-  <nav class="hidden md:block xl:hidden relative border-t border-[#e8eaed] dark:border-[#3c4043]" aria-label="Main">
+  <!-- Tablet range: swipeable row, with a fade on the right edge hinting there is more -->
+  <nav class="hidden md:block lg:hidden relative border-t border-line-subtle" aria-label="Main">
     <div class="max-w-6xl mx-auto flex items-center gap-1.5 px-4 sm:px-6 py-2 overflow-x-auto no-scrollbar scroll-px-4">
-      {navItems.map(item => (
+      {[...browseItems, { label: 'Tools', href: `${base}/tools`, active: path.startsWith('/tools') }].map(item => (
         <a
           href={item.href}
           aria-current={item.active ? 'page' : undefined}
           class={`flex-shrink-0 px-3.5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
             item.active
-              ? 'bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]'
+              ? 'bg-accent-soft text-accent'
               : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
           }`}
         >
@@ -176,7 +220,7 @@ const navItems = [
       const q = input.value.trim();
       if (!q) { setOpen(false); return; }
       if (!index) {
-        list.innerHTML = '<li class="px-4 py-3 text-sm text-[#5f6368] dark:text-[#9aa0a6]">Loading…</li>';
+        list.innerHTML = '<li class="px-4 py-3 text-sm text-ink-muted">Loading…</li>';
         setOpen(true);
         await loadIndex();
         if (input.value.trim() !== q) return;
@@ -189,12 +233,12 @@ const navItems = [
               <a href="${m.url}" tabindex="-1" class="flex items-center gap-3 px-3 py-2.5 mx-1.5 rounded-xl hover:bg-[#f1f3f4] dark:hover:bg-[#35373a] aria-selected:bg-[#e8f0fe]">
                 <span class="flex-shrink-0 text-[11px] font-semibold px-2 py-0.5 rounded-full ${BADGE[m.category] || ''}">${m.category}</span>
                 <span class="min-w-0">
-                  <span class="block text-sm font-medium text-[#202124] dark:text-white truncate">${escapeHtml(m.title)}</span>
-                  <span class="block text-xs text-[#5f6368] dark:text-[#9aa0a6] truncate">${escapeHtml(m.subtitle)}</span>
+                  <span class="block text-sm font-medium text-ink truncate">${escapeHtml(m.title)}</span>
+                  <span class="block text-xs text-ink-muted truncate">${escapeHtml(m.subtitle)}</span>
                 </span>
               </a>
             </li>`).join('')
-        : `<li class="px-4 py-3 text-sm text-[#5f6368] dark:text-[#9aa0a6]">No results for “${escapeHtml(q)}”. Try an IP like 192.168.0.1 or a brand name.</li>`;
+        : `<li class="px-4 py-3 text-sm text-ink-muted">No results for “${escapeHtml(q)}”. Try an IP like 192.168.0.1 or a brand name.</li>`;
       highlight();
       setOpen(true);
     }
@@ -263,4 +307,27 @@ const navItems = [
       syncThemeLabel();
     });
   })();
+</script>
+
+<style is:global>
+  /* The menu is a <details>, so it opens and closes without JS. */
+  .browse > summary { list-style: none; }
+  .browse > summary::-webkit-details-marker { display: none; }
+  .browse[open] > summary svg { transform: rotate(180deg); }
+  .browse > summary svg { transition: transform 0.15s ease; }
+</style>
+
+<script>
+  // Close the Browse menu on outside click or Escape, which <details> alone does not do.
+  document.addEventListener('click', event => {
+    for (const menu of document.querySelectorAll<HTMLDetailsElement>('details.browse[open]')) {
+      if (!menu.contains(event.target as Node)) menu.open = false;
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    for (const menu of document.querySelectorAll<HTMLDetailsElement>('details.browse[open]')) {
+      menu.open = false;
+    }
+  });
 </script>

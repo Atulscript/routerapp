@@ -1,0 +1,150 @@
+---
+import { isLiteralCredential, credentialNote } from '../lib/credentials';
+
+interface Props {
+  /** Gateway addresses, most useful first. The first gets the Open action. */
+  gateways: string[];
+  username: string;
+  password: string;
+  /** Names the subject in copy-button labels, e.g. "TP-Link" */
+  label: string;
+}
+
+const { gateways, username, password, label } = Astro.props;
+const [primary, ...alternates] = gateways;
+
+const rows = [
+  { key: 'Username', value: username },
+  { key: 'Password', value: password },
+];
+---
+
+<section class="lc" aria-label={`${label} default login details`}>
+  {primary && (
+    <div class="lc-row">
+      <span class="lc-k">Go to</span>
+      <code class="lc-v">{primary}</code>
+      <a class="lc-open" href={`http://${primary}`} target="_blank" rel="noopener noreferrer">
+        Open<span class="sr-only"> {primary} in a new tab</span>
+      </a>
+    </div>
+  )}
+
+  {rows.map(row => (
+    <div class="lc-row">
+      <span class="lc-k">{row.key}</span>
+      {isLiteralCredential(row.value) ? (
+        <>
+          <code class="lc-v">{row.value}</code>
+          <button
+            type="button"
+            class="lc-copy"
+            data-c={row.value}
+            aria-label={`Copy ${label} ${row.key.toLowerCase()}`}
+          >Copy</button>
+        </>
+      ) : (
+        <span class="lc-note">{credentialNote(row.value)}</span>
+      )}
+    </div>
+  ))}
+
+  {alternates.length > 0 && (
+    <p class="lc-alt">
+      <span class="lc-k">Also works</span>
+      {alternates.map((a, i) => <><>{i > 0 ? ' · ' : ''}</><code>{a}</code></>)}
+    </p>
+  )}
+</section>
+
+<style is:global>
+  .lc {
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .lc-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--line-subtle);
+  }
+  .lc-row:first-child { border-top: 0; }
+  .lc-k {
+    flex: 0 0 5.5rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+  }
+  .lc-v {
+    flex: 1;
+    min-width: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+  .lc-note { flex: 1; font-size: 0.875rem; color: var(--ink-muted); }
+  .lc-copy, .lc-open {
+    flex-shrink: 0;
+    height: 2rem;
+    padding: 0 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+  .lc-copy {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--accent);
+  }
+  .lc-copy:hover { background: var(--accent-soft); }
+  .lc-copy.done {
+    background: var(--ok-soft);
+    color: var(--ok);
+    border-color: var(--ok-soft);
+  }
+  .lc-open { background: var(--accent); color: #fff; }
+  .lc-open:hover { background: var(--accent-hover); }
+  .lc-alt {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1rem;
+    border-top: 1px solid var(--line-subtle);
+    font-size: 0.8125rem;
+    color: var(--ink-muted);
+  }
+  .lc-alt code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  // One delegated listener for every LoginCard on the page.
+  document.addEventListener('click', async event => {
+    const btn = (event.target as HTMLElement).closest<HTMLElement>('.lc-copy');
+    if (!btn) return;
+    try {
+      await navigator.clipboard.writeText(btn.dataset.c || '');
+      const original = btn.textContent;
+      btn.classList.add('done');
+      btn.textContent = 'Copied';
+      setTimeout(() => {
+        btn.classList.remove('done');
+        btn.textContent = original;
+      }, 1200);
+    } catch {
+      /* clipboard blocked; the value is on screen to copy by hand */
+    }
+  });
+</script>

@@ -19,10 +19,10 @@ const ips = data.defaultIp.split(/\s*\/\s*/).filter(Boolean);
     <div class="flex items-center gap-3 mb-3">
       <BrandLogo slug={data.slug} name={data.name} class="group-hover:scale-105 transition-transform" />
       <div class="min-w-0 flex-1">
-        <h3 class="font-bold text-[#202124] dark:text-white text-sm truncate group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors" title={data.name}>
+        <h3 class="font-bold text-ink text-sm truncate group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors" title={data.name}>
           {data.name}
         </h3>
-        <span class="inline-flex items-center gap-1 whitespace-nowrap text-[11px] text-[#5f6368] dark:text-[#9aa0a6] font-medium">
+        <span class="inline-flex items-center gap-1 whitespace-nowrap text-[11px] text-ink-muted font-medium">
           <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
           Fiber Broadband
         </span>
@@ -37,17 +37,17 @@ const ips = data.defaultIp.split(/\s*\/\s*/).filter(Boolean);
       ))}
     </div>
 
-    <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] line-clamp-2 leading-relaxed mb-3">
+    <p class="text-sm text-ink-muted line-clamp-2 leading-relaxed mb-3">
       {data.description}
     </p>
   </div>
 
-  <div class="pt-2.5 border-t border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3 text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6]">
+  <div class="pt-2.5 border-t border-line-subtle flex items-center justify-between gap-3 text-xs font-medium text-ink-muted">
     <span class="font-mono text-[11px] flex items-center gap-1 min-w-0">
       <span class="flex-shrink-0">User:</span>
-      <strong class="truncate text-[#202124] dark:text-white bg-[#f1f3f4] dark:bg-[#303134] px-1.5 py-0.5 rounded border border-[#dadce0] dark:border-[#5f6368]" title={data.defaultUser}>{data.defaultUser || '(blank)'}</strong>
+      <strong class="truncate text-ink bg-surface-muted px-1.5 py-0.5 rounded border border-line" title={data.defaultUser}>{data.defaultUser || '(blank)'}</strong>
     </span>
-    <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] font-bold flex items-center justify-center text-sm group-hover:bg-[#1a73e8] group-hover:text-white dark:group-hover:bg-[#8ab4f8] dark:group-hover:text-[#202124] transition-colors" aria-hidden="true">
+    <span class="flex-shrink-0 w-7 h-7 rounded-full bg-accent-soft text-accent font-bold flex items-center justify-center text-sm group-hover:bg-[#1a73e8] group-hover:text-white dark:group-hover:bg-[#8ab4f8] dark:group-hover:text-[#202124] transition-colors" aria-hidden="true">
       →
     </span>
   </div>

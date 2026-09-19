@@ -18,7 +18,7 @@ const items = [
 ---
 
 <nav
-  class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-[#202124]/95 backdrop-blur-md border-t border-[#dadce0] dark:border-[#3c4043] pb-[env(safe-area-inset-bottom)]"
+  class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-[#202124]/95 backdrop-blur-md border-t border-line pb-[env(safe-area-inset-bottom)]"
   aria-label="Primary"
 >
   <ul class="grid grid-cols-5">
@@ -28,10 +28,10 @@ const items = [
           href={item.href}
           aria-current={item.active ? 'page' : undefined}
           class={`group flex flex-col items-center gap-1 pt-2 pb-1.5 text-[11px] font-medium transition-colors ${
-            item.active ? 'text-[#1a73e8] dark:text-[#8ab4f8]' : 'text-[#5f6368] dark:text-[#9aa0a6]'
+            item.active ? 'text-accent' : 'text-ink-muted'
           }`}
         >
-          <span class={`flex items-center justify-center w-14 h-8 rounded-full transition-colors ${item.active ? 'bg-[#e8f0fe] dark:bg-[#1a3a60]' : 'group-active:bg-[#f1f3f4] dark:group-active:bg-[#3c4043]'}`}>
+          <span class={`flex items-center justify-center w-14 h-8 rounded-full transition-colors ${item.active ? 'bg-accent-soft' : 'group-active:bg-[#f1f3f4] dark:group-active:bg-[#3c4043]'}`}>
             {item.icon === 'home' && (
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10.5 9-7 9 7V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
             )}

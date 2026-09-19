@@ -29,20 +29,20 @@ const checklist = [
 ---
 
 <section class={`login-stepper g-card p-5 sm:p-7 space-y-5 ${className}`} aria-labelledby="stepper-title" data-stepper>
-  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-line-subtle pb-4">
     <div>
-      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] text-xs font-bold mb-2">
+      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-accent-soft text-accent text-xs font-bold mb-2">
         Step-by-step
       </div>
-      <h2 id="stepper-title" class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h2 id="stepper-title" class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
         Log in to {ip}
       </h2>
-      <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">
+      <p class="text-sm text-ink-muted mt-0.5">
         Four steps, with help at each one if something doesn't work.
       </p>
     </div>
     <div class="flex items-center gap-3 flex-shrink-0">
-      <div class="text-sm font-medium text-[#5f6368] dark:text-[#9aa0a6] whitespace-nowrap" data-step-count aria-live="polite">Step 1 of 4</div>
+      <div class="text-sm font-medium text-ink-muted whitespace-nowrap" data-step-count aria-live="polite">Step 1 of 4</div>
       <div class="w-24 h-1.5 rounded-full bg-[#e8eaed] dark:bg-[#3c4043] overflow-hidden" aria-hidden="true">
         <div class="h-full w-1/4 bg-[#1a73e8] dark:bg-[#8ab4f8] rounded-full transition-[width] duration-300" data-step-bar></div>
       </div>
@@ -51,7 +51,7 @@ const checklist = [
 
   <ol class="space-y-3">
     {[1, 2, 3, 4].map(n => (
-      <li class="step rounded-2xl border border-[#e8eaed] dark:border-[#3c4043] overflow-hidden transition-colors" data-step={n}>
+      <li class="step rounded-2xl border border-line-subtle overflow-hidden transition-colors" data-step={n}>
         <h3>
           <button
             type="button"
@@ -60,25 +60,25 @@ const checklist = [
             aria-controls={`step-panel-${n}`}
             data-step-toggle
           >
-            <span class="step-marker w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 transition-colors bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8]">
+            <span class="step-marker w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 transition-colors bg-accent-soft text-accent">
               <span data-step-number>{n}</span>
               <svg class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-step-check aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
             </span>
             <span class="flex-1 min-w-0">
-              <span class="block text-sm sm:text-base font-bold text-[#202124] dark:text-white">
+              <span class="block text-sm sm:text-base font-bold text-ink">
                 {n === 1 && 'Connect to your router'}
                 {n === 2 && `Open ${ip} in a browser`}
                 {n === 3 && 'Sign in with the default login'}
                 {n === 4 && 'Secure your network'}
               </span>
-              <span class="block text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5" data-step-summary>
+              <span class="block text-xs text-ink-muted mt-0.5" data-step-summary>
                 {n === 1 && 'Use the router\'s Wi-Fi or a cable'}
                 {n === 2 && 'Type the address exactly, with http://'}
                 {n === 3 && `Username ${user || '(blank)'}, password ${pass || '(blank)'}`}
                 {n === 4 && 'Four quick changes worth making'}
               </span>
             </span>
-            <svg class="w-5 h-5 text-[#5f6368] dark:text-[#9aa0a6] flex-shrink-0 transition-transform" data-step-chevron viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="w-5 h-5 text-ink-muted flex-shrink-0 transition-transform" data-step-chevron viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
         </h3>
 
@@ -88,7 +88,7 @@ const checklist = [
             {n === 1 && (
               <div class="space-y-3">
                 <p>Join the Wi-Fi network of {who}, or plug a network cable into one of its LAN ports. You don't need internet access for this, only a connection to the router itself.</p>
-                <p class="text-[#5f6368] dark:text-[#9aa0a6]">On a phone, turn off mobile data while you set things up, and switch off any VPN.</p>
+                <p class="text-ink-muted">On a phone, turn off mobile data while you set things up, and switch off any VPN.</p>
               </div>
             )}
 
@@ -100,33 +100,33 @@ const checklist = [
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy address</span>
                   </button>
                 </div>
-                <p class="text-[#5f6368] dark:text-[#9aa0a6]">Type it in the address bar, not in a search box. Search engines can't reach your router.</p>
+                <p class="text-ink-muted">Type it in the address bar, not in a search box. Search engines can't reach your router.</p>
               </div>
             )}
 
             {n === 3 && (
               <div class="space-y-3">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <div class="rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] p-3.5 flex items-center justify-between gap-3">
+                  <div class="rounded-2xl bg-surface-sunken border border-line-subtle p-3.5 flex items-center justify-between gap-3">
                     <span class="min-w-0">
-                      <span class="block text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Username</span>
-                      <span class="block font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{user || '(blank)'}</span>
+                      <span class="block text-xs font-bold uppercase tracking-wider text-ink-muted">Username</span>
+                      <span class="block font-mono font-bold text-ink mt-0.5 break-words">{user || '(blank)'}</span>
                     </span>
                     <button type="button" class="copy-btn g-copy-btn" data-copy={user} aria-label="Copy username">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                     </button>
                   </div>
-                  <div class="rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] p-3.5 flex items-center justify-between gap-3">
+                  <div class="rounded-2xl bg-surface-sunken border border-line-subtle p-3.5 flex items-center justify-between gap-3">
                     <span class="min-w-0">
-                      <span class="block text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">Password</span>
-                      <span class="block font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{pass || '(blank)'}</span>
+                      <span class="block text-xs font-bold uppercase tracking-wider text-ink-muted">Password</span>
+                      <span class="block font-mono font-bold text-ink mt-0.5 break-words">{pass || '(blank)'}</span>
                     </span>
                     <button type="button" class="copy-btn g-copy-btn" data-copy={pass} aria-label="Copy password">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
                     </button>
                   </div>
                 </div>
-                <p class="text-[#5f6368] dark:text-[#9aa0a6]">Newer routers ship with a unique password printed on a sticker underneath, so check there before trying the defaults.</p>
+                <p class="text-ink-muted">Newer routers ship with a unique password printed on a sticker underneath, so check there before trying the defaults.</p>
               </div>
             )}
 
@@ -136,11 +136,11 @@ const checklist = [
                 <ul class="space-y-2">
                   {checklist.map(item => (
                     <li>
-                      <label class="flex items-start gap-3 p-3 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043] cursor-pointer hover:border-[#1a73e8]/40 transition-colors">
+                      <label class="flex items-start gap-3 p-3 rounded-2xl bg-surface-sunken border border-line-subtle cursor-pointer hover:border-[#1a73e8]/40 transition-colors">
                         <input type="checkbox" class="mt-0.5 w-5 h-5 flex-shrink-0 accent-[#1a73e8] cursor-pointer" data-secure-check value={item.id} />
                         <span>
-                          <span class="block font-medium text-[#202124] dark:text-white">{item.label}</span>
-                          <span class="block text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">{item.hint}</span>
+                          <span class="block font-medium text-ink">{item.label}</span>
+                          <span class="block text-xs text-ink-muted mt-0.5">{item.hint}</span>
                         </span>
                       </label>
                     </li>
@@ -214,7 +214,7 @@ const checklist = [
     ))}
   </ol>
 
-  <p class="text-sm rounded-2xl bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#174ea6] dark:text-[#d2e3fc] p-4 hidden" data-stepper-done>
+  <p class="text-sm rounded-2xl bg-accent-soft text-[#174ea6] dark:text-[#d2e3fc] p-4 hidden" data-stepper-done>
     That's everything. If you get stuck later, reopen any step above.
   </p>
 </section>

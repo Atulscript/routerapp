@@ -3,32 +3,27 @@ const currentYear = new Date().getFullYear();
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<footer class="bg-white dark:bg-[#202124] text-[#5f6368] dark:text-[#9aa0a6] border-t border-[#dadce0] dark:border-[#3c4043] mt-16 transition-colors duration-200 font-sans">
+<footer class="bg-white dark:bg-[#202124] text-ink-muted border-t border-line mt-16 transition-colors duration-200 font-sans">
   
-  <!-- Google 4-Color Top Accent Line -->
-  <div class="h-1 w-full flex">
-    <div class="h-full w-1/4 bg-[#4285f4]"></div>
-    <div class="h-full w-1/4 bg-[#ea4335]"></div>
-    <div class="h-full w-1/4 bg-[#fbbc05]"></div>
-    <div class="h-full w-1/4 bg-[#34a853]"></div>
-  </div>
+  <!-- RouterSync Gradient Accent Line -->
+  <div class="h-1 w-full bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400"></div>
 
   <!-- Quick Direct Gateway Access Chips -->
-  <div class="border-b border-[#e8eaed] dark:border-[#3c4043] bg-[#f8fafd] dark:bg-[#292a2d]/60">
+  <div class="border-b border-line-subtle bg-[#f8fafd] dark:bg-[#292a2d]/60">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-2">
         <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34a853] opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#34a853]"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
         </span>
-        <span class="font-medium text-[#202124] dark:text-[#e8eaed]">Quick Gateway Direct Access:</span>
+        <span class="font-medium text-ink">Quick Gateway Direct Access:</span>
       </div>
       <div class="flex flex-wrap items-center gap-2 font-mono text-[11px] font-medium">
-        <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#dadce0] dark:border-[#5f6368] transition-all shadow-2xs">192.168.1.1 ↗</a>
-        <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#dadce0] dark:border-[#5f6368] transition-all shadow-2xs">192.168.0.1 ↗</a>
-        <a href="http://192.168.2.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#dadce0] dark:border-[#5f6368] transition-all shadow-2xs">192.168.2.1 ↗</a>
-        <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#dadce0] dark:border-[#5f6368] transition-all shadow-2xs">10.0.0.1 ↗</a>
-        <a href="http://192.168.29.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#dadce0] dark:border-[#5f6368] transition-all shadow-2xs">192.168.29.1 ↗</a>
+        <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-accent border border-line transition-all shadow-2xs">192.168.1.1 ↗</a>
+        <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-accent border border-line transition-all shadow-2xs">192.168.0.1 ↗</a>
+        <a href="http://192.168.2.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-accent border border-line transition-all shadow-2xs">192.168.2.1 ↗</a>
+        <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-accent border border-line transition-all shadow-2xs">10.0.0.1 ↗</a>
+        <a href="http://192.168.29.1" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-white dark:bg-[#303134] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] text-accent border border-line transition-all shadow-2xs">192.168.29.1 ↗</a>
       </div>
     </div>
   </div>
@@ -40,31 +35,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <!-- Col 1: Brand Info -->
       <div class="col-span-2 md:col-span-1 space-y-3.5">
         <div class="flex items-center gap-2">
-          <div class="flex items-center gap-1">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#4285f4]"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#ea4335]"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#fbbc05]"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-[#34a853]"></span>
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 p-0.5 flex-shrink-0">
+            <div class="w-full h-full bg-[#0f172a] rounded-[6px] flex items-center justify-center">
+              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="13" width="20" height="8" rx="2"></rect>
+                <path d="M6 13v-4"></path>
+                <path d="M18 13v-4"></path>
+                <circle cx="7" cy="17" r="1" fill="currentColor"></circle>
+              </svg>
+            </div>
           </div>
-          <span class="font-bold text-[#202124] dark:text-[#e8eaed] text-base tracking-tight font-sans">
-            19216811<span class="text-[#1a73e8] dark:text-[#8ab4f8]">.page</span>
+          <span class="font-bold text-ink text-base tracking-tight font-sans">
+            Router<span class="text-blue-600 dark:text-cyan-400">Sync</span><span class="text-xs font-mono text-gray-400 dark:text-gray-500 ml-0.5">.com</span>
           </span>
         </div>
-        <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
+        <p class="text-sm text-ink-muted leading-relaxed">
           The universal open knowledge base for wireless router gateways, factory default passwords, hardware specifications, and network tools.
         </p>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f3f4] dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] text-[11px] text-[#3c4043] dark:text-[#bdc1c6]">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-muted border border-line text-[11px] text-ink-muted">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           <span>RFC 1918 Private Network Standard</span>
         </div>
       </div>
 
       <!-- Col 2: Gateway IPs -->
       <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider text-[#202124] dark:text-[#e8eaed] mb-3 flex items-center gap-1.5">
-          <span class="text-[#1a73e8] dark:text-[#8ab4f8]">🌐</span> Gateways
+        <h2 class="text-xs font-bold uppercase tracking-wider text-ink mb-3 flex items-center gap-1.5">Gateways
         </h2>
-        <ul class="space-y-2 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+        <ul class="space-y-2 text-xs text-ink-muted">
           <li><a href={`${base}/`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">192.168.1.1 Login</a></li>
           <li><a href={`${base}/192-168-0-1`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">192.168.0.1 Admin</a></li>
           <li><a href={`${base}/192-168-2-1`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">192.168.2.1 Gateway</a></li>
@@ -76,10 +74,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <!-- Col 3: Router Brands -->
       <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider text-[#202124] dark:text-[#e8eaed] mb-3 flex items-center gap-1.5">
-          <span class="text-[#f9ab00]">🏷️</span> Top Brands
+        <h2 class="text-xs font-bold uppercase tracking-wider text-ink mb-3 flex items-center gap-1.5">Top Brands
         </h2>
-        <ul class="space-y-2 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+        <ul class="space-y-2 text-xs text-ink-muted">
           <li><a href={`${base}/tp-link`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">TP-Link</a></li>
           <li><a href={`${base}/netgear`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Netgear</a></li>
           <li><a href={`${base}/asus`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">ASUS RT</a></li>
@@ -92,10 +89,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <!-- Col 4: Fiber ISPs -->
       <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider text-[#202124] dark:text-[#e8eaed] mb-3 flex items-center gap-1.5">
-          <span class="text-[#34a853]">📶</span> Fiber ISPs
+        <h2 class="text-xs font-bold uppercase tracking-wider text-ink mb-3 flex items-center gap-1.5">Fiber ISPs
         </h2>
-        <ul class="space-y-2 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+        <ul class="space-y-2 text-xs text-ink-muted">
           <li><a href={`${base}/jio-fiber`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">JioFiber ONT</a></li>
           <li><a href={`${base}/airtel-xstream-fiber`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Airtel Xstream</a></li>
           <li><a href={`${base}/bsnl-ftth`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">BSNL Bharat Fiber</a></li>
@@ -107,16 +103,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       <!-- Col 5: Tools & Legal -->
       <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider text-[#202124] dark:text-[#e8eaed] mb-3 flex items-center gap-1.5">
-          <span class="text-[#ea4335]">🛠️</span> Tools & Info
+        <h2 class="text-xs font-bold uppercase tracking-wider text-ink mb-3 flex items-center gap-1.5">Tools & Info
         </h2>
-        <ul class="space-y-2 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+        <ul class="space-y-2 text-xs text-ink-muted">
+          <li><a href={`${base}/mac-lookup`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">MAC Address Lookup</a></li>
+          <li><a href={`${base}/wifi-channels`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Wi-Fi Channel Guide</a></li>
+          <li><a href={`${base}/download-calculator`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Download Calculator</a></li>
+          <li><a href={`${base}/security-checker`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Router Security Audit</a></li>
           <li><a href={`${base}/subnet-calculator`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">CIDR Subnet Calculator</a></li>
           <li><a href={`${base}/speed-test`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Internet Speed Test</a></li>
-          <li><a href={`${base}/what-is-my-ip`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">What Is My IP?</a></li>
-          <li><a href={`${base}/wifi-qr-generator`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Wi-Fi QR Generator</a></li>
-          <li><a href={`${base}/privacy-policy`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Privacy Policy</a></li>
-          <li><a href={`${base}/terms-of-service`} class="inline-block py-1 hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Terms of Service</a></li>
+          <li><a href={`${base}/tools`} class="inline-block py-1 font-bold text-blue-600 dark:text-cyan-400 hover:underline">All Tools &rarr;</a></li>
         </ul>
       </div>
 
@@ -124,10 +120,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </div>
 
   <!-- Bottom Legal & Disclaimer Bar -->
-  <div class="border-t border-[#e8eaed] dark:border-[#3c4043] bg-[#f8fafd] dark:bg-[#202124] py-6">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+  <div class="border-t border-line-subtle bg-surface-sunken py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
       <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-        <span>&copy; {currentYear} <strong>19216811.page</strong>. All rights reserved.</span>
+        <span>&copy; {currentYear} <strong>RouterSync.com</strong>. All rights reserved.</span>
         <span class="hidden sm:inline text-[#dadce0] dark:text-[#3c4043]">|</span>
         <span class="text-[11px]">Independent Technical Educational Resource.</span>
       </div>

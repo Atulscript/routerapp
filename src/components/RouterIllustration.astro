@@ -36,7 +36,7 @@ const lightBody = ['Mesh', 'FTTH ONT', 'Modem Gateway', '4G/5G Cellular'].includ
 const c = lightBody ? LIGHT : DARK;
 ---
 
-<figure class={`relative overflow-hidden rounded-2xl border border-[#e8eaed] dark:border-[#3c4043] bg-gradient-to-br from-[#f8fafd] to-[#e8f0fe] dark:from-[#303134] dark:to-[#202124] ${className}`}>
+<figure class={`relative overflow-hidden rounded-2xl border border-line-subtle bg-gradient-to-br from-[#f8fafd] to-[#e8f0fe] dark:from-[#303134] dark:to-[#202124] ${className}`}>
   <svg viewBox="0 0 320 220" class="w-full h-auto block" role="img" aria-label={`Illustration of the ${model.brand} ${model.model} (${model.category})`}>
     <defs>
       <radialGradient id={`${uid}-glow`} cx="50%" cy="50%" r="50%">
@@ -211,7 +211,7 @@ const c = lightBody ? LIGHT : DARK;
     )}
   </svg>
   {!compact && (
-    <figcaption class="absolute bottom-1.5 right-2.5 text-[11px] text-[#5f6368] dark:text-[#9aa0a6]">
+    <figcaption class="absolute bottom-1.5 right-2.5 text-[11px] text-ink-muted">
       Illustration, not a product photo
     </figcaption>
   )}

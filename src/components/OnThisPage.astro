@@ -1,0 +1,35 @@
+---
+interface Props {
+  links: { id: string; label: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+{links.length > 1 && (
+  <nav class="otp" aria-label="On this page">
+    <p class="otp-h">On this page</p>
+    <ul>
+      {links.map(l => <li><a href={`#${l.id}`}>{l.label}</a></li>)}
+    </ul>
+  </nav>
+)}
+
+<style is:global>
+  .otp-h {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    margin-bottom: 0.5rem;
+  }
+  .otp ul { display: flex; flex-direction: column; gap: 0.125rem; }
+  .otp a {
+    display: block;
+    padding: 0.3125rem 0;
+    font-size: 0.8125rem;
+    color: var(--ink-muted);
+  }
+  .otp a:hover { color: var(--accent); text-decoration: underline; }
+</style>

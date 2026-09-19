@@ -16,7 +16,7 @@ const photo = getModelPhoto(model.slug);
 ---
 
 {photo ? (
-  <figure class={`relative overflow-hidden rounded-2xl border border-[#e8eaed] dark:border-[#3c4043] bg-white ${className}`}>
+  <figure class={`relative overflow-hidden rounded-2xl border border-line-subtle bg-white ${className}`}>
     <img
       src={photo.url}
       alt={`${model.brand} ${model.model} ${model.category.toLowerCase()} router`}

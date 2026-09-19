@@ -1,0 +1,369 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
+import AdBanner from '../components/AdBanner.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const title = "Router Security Audit & Hardening Scorecard | RouterSync.com";
+const description = "Free interactive 10-point router security audit. Evaluate factory passwords, WPS vulnerability, UPnP security risks, and remote management exposure with step-by-step hardening fixes.";
+const keywords = [
+  "router security audit",
+  "router security test",
+  "wifi security checklist",
+  "how to secure my router",
+  "disable wps router vulnerability",
+  "disable upnp router",
+  "router hardening guide",
+  "wifi security score"
+];
+
+const siteUrl = "https://atulscript.github.io/routerapp";
+
+const auditQuestions = [
+  {
+    id: 'admin_pass',
+    category: 'Authentication',
+    points: 15,
+    title: '1. Factory Router Admin Password',
+    desc: 'Did you change the web administration password from the factory default ("admin", "password", or blank)?',
+    fix: 'Log in to your router gateway and go to Administration > System Settings to change the master password to a strong 12+ character phrase.',
+    severity: 'Critical'
+  },
+  {
+    id: 'wifi_enc',
+    category: 'Encryption',
+    points: 15,
+    title: '2. Wi-Fi Encryption Protocol',
+    desc: 'Is your wireless network secured with modern WPA3 or WPA2-AES encryption (never WEP, WPA-TKIP, or Open)?',
+    fix: 'Navigate to Wireless > Security Settings and select "WPA2-PSK (AES)" or "WPA3-Personal". Never select TKIP or WEP.',
+    severity: 'Critical'
+  },
+  {
+    id: 'wps_state',
+    category: 'Firewall',
+    points: 15,
+    title: '3. WPS (Wi-Fi Protected Setup) PIN',
+    desc: 'Is Wi-Fi Protected Setup (WPS) disabled in your router configuration?',
+    fix: 'Open Wireless > WPS Settings and toggle WPS to Disabled. WPS PIN authentication is vulnerable to rapid automated brute-force attacks.',
+    severity: 'High'
+  },
+  {
+    id: 'remote_mgmt',
+    category: 'Access Control',
+    points: 15,
+    title: '4. Remote WAN Web Management',
+    desc: 'Is Remote Management (accessing router login from external internet IP) disabled?',
+    fix: 'Go to Administration > Remote Management and ensure "Enable Remote Management" is unchecked so only local devices can view the login screen.',
+    severity: 'Critical'
+  },
+  {
+    id: 'upnp_state',
+    category: 'Firewall',
+    points: 10,
+    title: '5. UPnP (Universal Plug and Play)',
+    desc: 'Have you disabled UPnP to prevent malware from automatically opening incoming firewall ports?',
+    fix: 'Navigate to Advanced > UPnP Settings and turn UPnP off. If a game requires open ports, forward them manually.',
+    severity: 'Medium'
+  },
+  {
+    id: 'firmware_status',
+    category: 'Maintenance',
+    points: 10,
+    title: '6. Router Firmware Updates',
+    desc: 'Has your router received an official manufacturer firmware update in the last 6 months?',
+    fix: 'Visit System Tools > Firmware Upgrade and click "Check for Updates" to patch known security CVE vulnerabilities.',
+    severity: 'High'
+  },
+  {
+    id: 'custom_subnet',
+    category: 'Obfuscation',
+    points: 5,
+    title: '7. Customized Private Gateway IP',
+    desc: 'Did you change your router IP from standard 192.168.1.1 / 192.168.0.1 to a custom subnet (e.g. 192.168.45.1)?',
+    fix: 'In LAN / DHCP Settings, change the router IP to a non-standard third octet. This deters basic automated cross-site request forgery attacks.',
+    severity: 'Low'
+  },
+  {
+    id: 'iot_guest',
+    category: 'Segmentation',
+    points: 10,
+    title: '8. Isolated Smart Home / Guest Network',
+    desc: 'Are smart plugs, cameras, and IoT gadgets segregated onto an isolated Guest Wi-Fi SSID?',
+    fix: 'Enable the Guest Network feature in your router and ensure "Allow Guests to Access Local Network" is disabled.',
+    severity: 'Medium'
+  },
+  {
+    id: 'https_mgmt',
+    category: 'Privacy',
+    points: 5,
+    title: '9. Admin Dashboard HTTPS Protocol',
+    desc: 'Does your router encrypt management traffic using HTTPS / SSL rather than plain text HTTP?',
+    fix: 'Enable "HTTPS Login" in router Management options to prevent local network sniffers from intercepting your credentials in transit.',
+    severity: 'Low'
+  },
+  {
+    id: 'wan_ping',
+    category: 'Stealth',
+    points: 5,
+    title: '10. WAN Ping / ICMP Echo Response',
+    desc: 'Is "Respond to Ping on WAN Port" disabled to keep your IP stealthy against automated internet port scanners?',
+    fix: 'In Security > Firewall, check "Ignore Ping from WAN" or "Stealth Mode" so automated botnets receive no response.',
+    severity: 'Low'
+  }
+];
+
+const schema = [
+  {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": `${siteUrl}/tools` },
+      { "@type": "ListItem", "position": 3, "name": "Security Audit", "item": `${siteUrl}/security-checker` }
+    ]
+  },
+  {
+    "@type": "WebApplication",
+    "name": "Router Security Audit & Hardening Scorecard",
+    "url": `${siteUrl}/security-checker`,
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "All",
+    "description": description
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is WPS dangerous on home routers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WPS (Wi-Fi Protected Setup) utilizes an 8-digit numerical PIN for quick device pairing. Because the router validates the first 4 digits and last 3 digits independently, an attacker using tools like Reaver can crack the entire PIN in under 4 hours, revealing your Wi-Fi password regardless of how complex it is."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should I disable UPnP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Universal Plug and Play (UPnP) allows any program on your network to punch holes through the router firewall without user authentication. If an infected smart TV or compromised PC runs malicious software, it can silently open external ports to expose your home network to the public internet."
+        }
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  schema={schema}
+  ogType="website"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10 font-sans">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium">
+      <a href={`${base}/`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+      <span>/</span>
+      <a href={`${base}/tools`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Tools</a>
+      <span>/</span>
+      <span class="text-[#202124] dark:text-[#e8eaed] font-medium truncate">Router Security Audit</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="space-y-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold border border-indigo-200 dark:border-indigo-900/60 shadow-2xs">
+        <span>🛡️</span>
+        10-Point Router Hardening Audit
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+        Router Security Audit & Scorecard
+      </h1>
+      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed max-w-2xl">
+        Evaluate your router against real-world attack vectors. Answer 10 quick questions to calculate your wireless hardening score and view step-by-step remediation fixes.
+      </p>
+    </header>
+
+    <!-- Live Dynamic Score Board (Sticky / Prominent) -->
+    <div id="score-card" class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] text-white shadow-xl space-y-4 border border-slate-700 transition-all">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-cyan-400 font-bold">Current Hardening Rating</span>
+          <div class="flex items-baseline gap-3 mt-1">
+            <span id="score-grade" class="text-4xl sm:text-5xl font-black text-amber-400">Grade C</span>
+            <span class="text-gray-400 text-sm">Score: <strong id="score-number" class="text-white text-xl">55</strong> / 100</span>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-64 space-y-1.5">
+          <div class="flex justify-between text-xs text-gray-300 font-medium">
+            <span>Security Progress</span>
+            <span id="score-percent">55%</span>
+          </div>
+          <div class="h-3 w-full bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/10">
+            <div id="score-bar" class="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500" style="width: 55%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <p id="score-feedback" class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+        Your router has several high-risk settings enabled. Follow the steps below to achieve a Grade A+ rating.
+      </p>
+    </div>
+
+    <!-- Interactive 10-Question Checklist -->
+    <div class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
+        Interactive Security Checklist
+      </h2>
+
+      <div class="space-y-3">
+        {auditQuestions.map((q, idx) => (
+          <div class="g-card p-5 space-y-3 border-l-4 border-l-blue-600 transition-all" data-question-id={q.id}>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="space-y-1 flex-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 uppercase tracking-wider">{q.category}</span>
+                  <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${q.severity === 'Critical' ? 'bg-red-100 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200' : (q.severity === 'High' ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200' : 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-cyan-300 border border-blue-200')}`}>
+                    {q.severity} ({q.points} pts)
+                  </span>
+                </div>
+                <h3 class="text-base font-bold text-[#202124] dark:text-white">{q.title}</h3>
+                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">{q.desc}</p>
+              </div>
+
+              <!-- Yes/No Radio Toggle Buttons -->
+              <div class="flex items-center gap-2 flex-shrink-0 pt-2 sm:pt-0">
+                <label class="cursor-pointer">
+                  <input type="radio" name={q.id} value="yes" class="sr-only audit-radio" checked={idx < 5} />
+                  <span class="btn-yes px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all inline-block">
+                    ✓ Yes (Secure)
+                  </span>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name={q.id} value="no" class="sr-only audit-radio" checked={idx >= 5} />
+                  <span class="btn-no px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all inline-block">
+                    ✕ No (Risk)
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Remediation Step Accordion -->
+            <div class="remediation-box text-xs p-3 rounded-xl bg-gray-50 dark:bg-[#1e293b]/60 border border-gray-200 dark:border-gray-700 text-[#3c4043] dark:text-[#e8eaed] space-y-1">
+              <span class="font-bold text-blue-600 dark:text-cyan-400 flex items-center gap-1">
+                <span>🔧</span>
+                <span>How to Fix / Verify:</span>
+              </span>
+              <p class="leading-relaxed">{q.fix}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Ad Space -->
+    <AdBanner slot="between-sections" format="horizontal" />
+
+    <!-- Educational Guide Content -->
+    <div class="space-y-6 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] leading-relaxed g-card p-6 sm:p-8">
+      <section class="space-y-3">
+        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+          Why Securing Your Router is Your Home's Most Critical Defense
+        </h2>
+        <p>
+          Your Wi-Fi router is the single gateway connecting every phone, laptop, smart TV, security camera, and smart lock in your home to the global internet. If an attacker gains access to your router's administration panel:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li>They can alter your <strong>DNS server settings</strong> to redirect bank and email logins to malicious clone phishing sites.</li>
+          <li>They can enroll your router into automated <strong>Mirai botnets</strong> that execute global DDoS attacks.</li>
+          <li>They can monitor unencrypted internet traffic and discover every device connected to your private network.</li>
+        </ul>
+        <p>
+          Taking 5 minutes to disable WPS, update firmware, and isolate smart IoT devices on a guest network eliminates over 98% of automated home cyberattacks.
+        </p>
+      </section>
+    </div>
+
+    <!-- Related Links -->
+    <RelatedLinksGrid />
+
+  </div>
+
+  <style>
+    input[type="radio"]:checked + .btn-yes {
+      background-color: #10b981;
+      color: white;
+      border-color: #059669;
+    }
+    input[type="radio"]:not(:checked) + .btn-yes {
+      background-color: transparent;
+      color: #64748b;
+      border-color: #cbd5e1;
+    }
+    input[type="radio"]:checked + .btn-no {
+      background-color: #ef4444;
+      color: white;
+      border-color: #dc2626;
+    }
+    input[type="radio"]:not(:checked) + .btn-no {
+      background-color: transparent;
+      color: #64748b;
+      border-color: #cbd5e1;
+    }
+  </style>
+
+  <script is:inline define:vars={{ auditQuestions }}>
+    const radios = document.querySelectorAll('.audit-radio');
+    const scoreGrade = document.getElementById('score-grade');
+    const scoreNumber = document.getElementById('score-number');
+    const scorePercent = document.getElementById('score-percent');
+    const scoreBar = document.getElementById('score-bar');
+    const scoreFeedback = document.getElementById('score-feedback');
+
+    function calculateScore() {
+      let totalPoints = 0;
+      let earnedPoints = 0;
+
+      auditQuestions.forEach(q => {
+        totalPoints += q.points;
+        const selected = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (selected && selected.value === 'yes') {
+          earnedPoints += q.points;
+        }
+      });
+
+      const score = Math.round((earnedPoints / totalPoints) * 100);
+      scoreNumber.textContent = score;
+      scorePercent.textContent = `${score}%`;
+      scoreBar.style.width = `${score}%`;
+
+      if (score >= 90) {
+        scoreGrade.textContent = 'Grade A+';
+        scoreGrade.className = 'text-4xl sm:text-5xl font-black text-emerald-400';
+        scoreBar.className = 'h-full rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-500';
+        scoreFeedback.textContent = '🏆 Outstanding! Your router adheres to enterprise-grade home defense standards. Excellent work.';
+      } else if (score >= 75) {
+        scoreGrade.textContent = 'Grade B';
+        scoreGrade.className = 'text-4xl sm:text-5xl font-black text-blue-400';
+        scoreBar.className = 'h-full rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 transition-all duration-500';
+        scoreFeedback.textContent = '👍 Good security baseline! Address the remaining items below to achieve an impenetrable Grade A+ posture.';
+      } else if (score >= 50) {
+        scoreGrade.textContent = 'Grade C';
+        scoreGrade.className = 'text-4xl sm:text-5xl font-black text-amber-400';
+        scoreBar.className = 'h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500';
+        scoreFeedback.textContent = '⚠️ Moderate vulnerability! Your network has multiple exposed vectors. We strongly recommend fixing them today.';
+      } else {
+        scoreGrade.textContent = 'Grade F';
+        scoreGrade.className = 'text-4xl sm:text-5xl font-black text-red-400';
+        scoreBar.className = 'h-full rounded-full bg-gradient-to-r from-red-500 to-rose-600 transition-all duration-500';
+        scoreFeedback.textContent = '🚨 Critical security risk! Your router is vulnerable to trivial local and remote compromise. Follow the remediation steps immediately.';
+      }
+    }
+
+    radios.forEach(r => r.addEventListener('change', calculateScore));
+    calculateScore();
+  </script>
+</BaseLayout>
+

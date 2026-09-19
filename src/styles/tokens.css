@@ -1,0 +1,52 @@
+/*
+ * The one place colour is defined. Components reference the semantic utilities
+ * these back (bg-surface, text-ink, border-line), never a raw hex, so a rebrand
+ * is a change to this file rather than to 46 others.
+ *
+ * The values here are identical to the literals they replaced, so introducing
+ * them changed nothing on screen. That was deliberate: it made the migration
+ * provable by comparison rather than by inspection.
+ */
+:root {
+  --surface: #ffffff;
+  --surface-sunken: #f8fafd;
+  --surface-muted: #f1f3f4;
+  --surface-raised: #e8eaed;
+
+  --ink: #202124;
+  --ink-muted: #5f6368;
+  --ink-subtle: #80868b;
+
+  --line: #dadce0;
+  --line-subtle: #e8eaed;
+
+  --accent: #1a73e8;
+  --accent-hover: #1557b0;
+  --accent-soft: #e8f0fe;
+  --accent-ink: #174ea6;
+
+  --ok: #137333;
+  --ok-soft: #e6f4ea;
+}
+
+html.dark {
+  --surface: #292a2d;
+  --surface-sunken: #202124;
+  --surface-muted: #303134;
+  --surface-raised: #3c4043;
+
+  --ink: #e8eaed;
+  --ink-muted: #9aa0a6;
+  --ink-subtle: #80868b;
+
+  --line: #3c4043;
+  --line-subtle: #3c4043;
+
+  --accent: #8ab4f8;
+  --accent-hover: #aecbfa;
+  --accent-soft: #1a3a60;
+  --accent-ink: #d2e3fc;
+
+  --ok: #81c995;
+  --ok-soft: rgba(19, 115, 51, 0.2);
+}

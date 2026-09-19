@@ -5,6 +5,12 @@ import AdBanner from '../components/AdBanner.astro';
 import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import RouterChecker from '../components/RouterChecker.astro';
 import LoginStepper from '../components/LoginStepper.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import PageShell from '../layouts/PageShell.astro';
+import OnThisPage from '../components/OnThisPage.astro';
+import Disclosure from '../components/Disclosure.astro';
+import LoginCard from '../components/LoginCard.astro';
+import { splitGatewayValues } from '../lib/credentials';
 import BrandLogo from '../components/BrandLogo.astro';
 import ModelImage from '../components/ModelImage.astro';
 import { getAllSlugs, getBrandSlug, getIpSlug, getModelSlug, getModelsForIp, getModelsForBrand, getBrandsByPopularity, brandKey, formatModelTitle, GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
@@ -23,6 +29,94 @@ type Props =
 const { type, data } = Astro.props as Props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
+/**
+ * The page's FAQs, built once. These were previously assembled inside four
+ * separate render branches, each followed by its own hand-written <details>
+ * markup, which let the visible FAQ drift from the FAQPage schema built above.
+ */
+function buildFaqs(): { question: string; answer: string }[] {
+  if (type === 'ip') {
+    const ip = data as GatewayIp;
+    return ip.faqs && ip.faqs.length > 0 ? ip.faqs : [
+      { question: `What is the default login for ${ip.ip}?`, answer: `The default username is typically "${ip.defaultUser}" and password is "${ip.defaultPass}".` },
+      { question: `Why is ${ip.ip} not loading in my browser?`, answer: `Make sure your device is directly connected to the router via Wi-Fi or Ethernet, and verify that mobile data or VPNs are turned off.` }
+    ];
+  }
+  if (type === 'brand') {
+    const brand = data as Brand;
+    return [
+      { question: `What is the default IP address for ${brand.name} routers?`, answer: `Most ${brand.name} routers use ${brand.defaultIp} as their factory default gateway management address.` },
+      { question: `What is the factory default login password for ${brand.name}?`, answer: `The standard factory username is "${brand.defaultUser}" and default password is "${brand.defaultPass}". Check your physical router label if these don't work.` },
+      { question: `How do I factory reset my ${brand.name} router if I forgot the password?`, answer: `Press and hold the physical RESET pinhole button on the back of your ${brand.name} device with a paperclip for 10-15 seconds until all LED lights blink, restoring default credentials.` }
+    ];
+  }
+  if (type === 'model') {
+    const model = data as RouterModel;
+    return [
+      { question: `What is the default login for ${model.brand} ${model.model}?`, answer: `The default IP address is http://${model.ip}, default username is "${model.username}", and default password is "${model.password}".` },
+      { question: `What ports and speeds does ${model.brand} ${model.model} support?`, answer: `The ${model.brand} ${model.model} is equipped with ${model.ports} with an overall speed rating of ${model.speedRating || 'Gigabit Class'}.` },
+      { question: `How do I reset my ${model.brand} ${model.model} to factory settings?`, answer: `Press and hold the physical Reset button on the ${model.brand} ${model.model} for 10 to 15 seconds until the power LED blinks, resetting all settings to factory default.` }
+    ];
+  }
+  const isp = data as Isp;
+  return [
+    { question: `How do I log in to my ${isp.name} fiber router admin portal?`, answer: `Connect to your ${isp.name} Wi-Fi network, navigate to http://${isp.defaultIp} in your browser, and enter username "${isp.defaultUser}" and password "${isp.defaultPass}".` },
+    { question: `What should I do if the LOS light on my ${isp.name} router is blinking red?`, answer: `A blinking red LOS (Loss of Signal) light indicates an optical fiber cable disconnection or an ISP outage. Verify the thin yellow fiber cable is firmly seated, and contact ${isp.name} support if the issue persists.` },
+    { question: `How can I change my ${isp.name} Wi-Fi password and network name?`, answer: `Log in to http://${isp.defaultIp}, go to Network/WLAN -> 2.4G/5G Settings, update the SSID and WPA Pre-Shared Key, then click Apply.` }
+  ];
+}
+const pageFaqs = buildFaqs();
+
+/** Rail jump links, naming only sections this page type actually renders. */
+function buildJumpLinks(): { id: string; label: string }[] {
+  if (type === 'ip') {
+    const ip = data as GatewayIp;
+    return [
+      { id: 'brands', label: `Brands using ${ip.ip}` },
+      { id: 'steps', label: 'How to log in' },
+      { id: 'models', label: 'Router models' },
+      { id: 'faq', label: 'Questions' },
+    ];
+  }
+  if (type === 'brand') {
+    const brand = data as Brand;
+    return [
+      { id: 'steps', label: 'How to log in' },
+      { id: 'models', label: `${brand.name} models` },
+      { id: 'faq', label: 'Questions' },
+    ];
+  }
+  if (type === 'model') {
+    return [
+      { id: 'steps', label: 'How to log in' },
+      { id: 'specs', label: 'Specifications' },
+      { id: 'faq', label: 'Questions' },
+    ];
+  }
+  return [
+    { id: 'steps', label: 'How to log in' },
+    { id: 'faq', label: 'Questions' },
+  ];
+}
+const jumpLinks = buildJumpLinks();
+
+/**
+ * Brand suggestions for the rail: up to 5 brands sharing this gateway IP, then
+ * the brands with the most models. Hoisted out of the render branch so the rail
+ * shows exactly the set the main column used to, and no internal link is lost.
+ */
+const railBrands = (() => {
+  if (type !== 'brand') return [];
+  const brandData = data as Brand;
+  const firstIp = (ip: string) => ip.split('/')[0].trim();
+  const byModels = getBrandsByPopularity();
+  const sameIp = byModels.filter(b => firstIp(b.defaultIp) === firstIp(brandData.defaultIp)).slice(0, 5);
+  const seen = new Set([brandKey(brandData.name)]);
+  return [...sameIp, ...byModels]
+    .filter(b => !seen.has(brandKey(b.name)) && seen.add(brandKey(b.name)))
+    .slice(0, 12);
+})();
+
 // Dynamic title, description, keywords, and schemas based on page type
 let pageTitle = "";
 let pageDescription = "";
@@ -33,7 +127,7 @@ const currentCanonical = `${siteUrl}/${data.slug}`;
 
 if (type === 'ip') {
   const ipData = data as GatewayIp;
-  pageTitle = `${ipData.ip} Router Admin Login, Passwords & Setup Guide | 19216811.page`;
+  pageTitle = `${ipData.ip} Router Admin Login, Passwords & Setup Guide | RouterSync.com`;
   pageDescription = `Access router admin dashboard at ${ipData.ip}. Default login usernames, factory passwords, WiFi security configuration, and troubleshooting for ${ipData.commonBrands.slice(0, 4).join(', ')}.`;
   keywords = [
     ipData.ip,
@@ -105,7 +199,7 @@ if (type === 'ip') {
       "url": currentCanonical,
       "author": {
         "@type": "Organization",
-        "name": "19216811.page Network Research"
+        "name": "RouterSync Network Research"
       },
       "articleBody": ipData.steps.join(' ')
     },
@@ -123,7 +217,7 @@ if (type === 'ip') {
   ];
 } else if (type === 'brand') {
   const brandData = data as Brand;
-  pageTitle = `${brandData.name} Router Default Passwords & Admin Login Guide | 19216811.page`;
+  pageTitle = `${brandData.name} Router Default Passwords & Admin Login Guide | RouterSync.com`;
   pageDescription = `Default router passwords, factory usernames, and admin dashboard login IP (${brandData.defaultIp}) for ${brandData.name} wireless routers, modems, and mesh systems.`;
   keywords = [
     brandData.name,
@@ -178,7 +272,7 @@ if (type === 'ip') {
       "url": currentCanonical,
       "author": {
         "@type": "Organization",
-        "name": "19216811.page Network Research"
+        "name": "RouterSync Network Research"
       },
       "articleBody": brandData.description
     },
@@ -214,7 +308,7 @@ if (type === 'ip') {
   ];
 } else if (type === 'isp') {
   const ispData = data as Isp;
-  pageTitle = `${ispData.name} Router Admin Login, Default Password & FTTH Setup | 19216811.page`;
+  pageTitle = `${ispData.name} Router Admin Login, Default Password & FTTH Setup | RouterSync.com`;
   pageDescription = `Complete setup guide for ${ispData.name} optical fiber home gateways. Default login credentials, IP address (${ispData.defaultIp}), optical power troubleshooting, and Wi-Fi security.`;
   keywords = [
     ispData.name,
@@ -263,7 +357,7 @@ if (type === 'ip') {
       "url": currentCanonical,
       "author": {
         "@type": "Organization",
-        "name": "19216811.page Network Research"
+        "name": "RouterSync Network Research"
       },
       "articleBody": ispData.description
     },
@@ -299,7 +393,7 @@ if (type === 'ip') {
   ];
 } else if (type === 'model') {
   const modelData = data as RouterModel;
-  pageTitle = `${modelData.brand} ${modelData.model} Default Password, Admin Login & Specs | 19216811.page`;
+  pageTitle = `${modelData.brand} ${modelData.model} Default Password, Admin Login & Specs | RouterSync.com`;
   pageDescription = `Factory default login credentials, IP address (${modelData.ip}), Wi-Fi specs, port configuration, and setup guide for ${modelData.brand} ${modelData.model} (${modelData.category}).`;
   keywords = [
     modelData.model,
@@ -415,39 +509,85 @@ if (type === 'ip') {
   canonical={currentCanonical}
   schema={schemas}
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+  <PageShell>
+    <div slot="rail">
+      {/* On desktop the ad lives beside the answer instead of above it. It
+          replaces one of the in-column slots, so the count per page is
+          unchanged; types not yet migrated keep their original placement. */}
+      {type !== 'isp' && <AdBanner format="leaderboard" class="hidden lg:block" />}
+      <OnThisPage links={jumpLinks} />
+
+      {type === 'ip' && (() => {
+        const ipData = data as GatewayIp;
+        const otherIps = GATEWAY_IPS.filter(i => i.ip !== ipData.ip);
+        return (
+          <section class="g-card p-4 space-y-2.5">
+            <h2 class="text-[11px] font-bold uppercase tracking-wider text-ink-muted">
+              Other gateway addresses
+            </h2>
+            <div class="flex flex-wrap gap-1.5">
+              {otherIps.map(item => (
+                <a href={`${base}/${item.slug}`} class="g-chip font-mono text-[11px]">{item.ip}</a>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
+
+      {type === 'brand' && (
+        <section class="g-card p-4 space-y-2.5">
+          <h2 class="text-[11px] font-bold uppercase tracking-wider text-ink-muted">Other brands</h2>
+          <div class="flex flex-wrap gap-1.5">
+            {railBrands.map(b => (
+              <a href={`${base}/${b.slug}`} class="g-chip inline-flex items-center gap-1.5">
+                <BrandLogo slug={b.slug} name={b.name} size="xs" />{b.name}
+              </a>
+            ))}
+            <a href={`${base}/brands`} class="g-chip font-bold text-accent">All {BRANDS.length} brands →</a>
+          </div>
+        </section>
+      )}
+
+      </div>
+
 
     {/* ========================================================= */}
     {/* VIEW 1: GATEWAY IP PAGE */}
     {/* ========================================================= */}
     {type === 'ip' && (() => {
       const ipData = data as GatewayIp;
-      const associatedModels = getModelsForIp(ipData.ip);
+      const allAssociated = getModelsForIp(ipData.ip);
+      // 192.168.1.1 alone matches 1,632 models, which is a 5MB page. Cap the
+      // in-page table and send people to /routers, which filters by gateway IP.
+      // The capped models stay linked from /routers and their brand pages.
+      const MODEL_CAP = 150;
+      const associatedModels = allAssociated.slice(0, MODEL_CAP);
+      const hiddenModelCount = allAssociated.length - associatedModels.length;
       const otherIps = GATEWAY_IPS.filter(i => i.ip !== ipData.ip);
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumb */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/ip-addresses`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">IP Gateways</a>
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ipData.ip}</span>
+            <span class="text-ink font-medium">{ipData.ip}</span>
           </nav>
 
           {/* Hero Header Card (Google OneBox Style) */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+          <header class="g-card p-4 sm:p-5 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] mb-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] mb-2">
                   <span class="w-2 h-2 rounded-full bg-[#34a853] animate-pulse"></span>
                   Default Gateway IP
                 </div>
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
                   {ipData.ip} Router Admin Login
                 </h1>
-                <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1.5 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-base text-ink-muted mt-1.5 max-w-2xl leading-relaxed">
                   {ipData.description}
                 </p>
               </div>
@@ -466,57 +606,20 @@ if (type === 'ip') {
             </div>
 
             {/* Quick Metrics */}
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.ip}</div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={ipData.ip}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.defaultUser || '(blank)'}</div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={ipData.defaultUser}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ipData.defaultPass || '(blank)'}</div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={ipData.defaultPass}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-            </div>
+            <LoginCard
+              gateways={[ipData.ip]}
+              username={ipData.defaultUser}
+              password={ipData.defaultPass}
+              label={ipData.ip}
+            />
           </header>
 
-          <AdBanner format="horizontal" />
+          <AdBanner format="horizontal" class="lg:hidden" />
 
           {/* Which brands use this address */}
           {ipData.commonBrands.length > 0 && (
-            <section class="g-card p-4 sm:p-5 space-y-3">
-              <h2 class="text-sm font-bold text-[#202124] dark:text-white">
+            <section id="brands" class="g-card p-4 sm:p-5 space-y-3">
+              <h2 class="text-sm font-bold text-ink">
                 Brands that use {ipData.ip}
               </h2>
               <div class="flex flex-wrap gap-2">
@@ -536,51 +639,43 @@ if (type === 'ip') {
           )}
 
           {/* Guide and live check sit side by side on wide screens */}
-          <div class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
+          <div id="steps" class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
             <LoginStepper ip={ipData.ip} user={ipData.defaultUser} pass={ipData.defaultPass} brandName={ipData.commonBrands[0]} class="xl:col-span-3" />
-            <RouterChecker focusIp={ipData.ip} limit={8} class="xl:col-span-2" />
+            <div class="xl:col-span-2">
+              <Disclosure label="Check if this is your router" collapsedHeight={0}>
+                <RouterChecker focusIp={ipData.ip} limit={8} />
+              </Disclosure>
+            </div>
           </div>
 
           {/* Associated Router Models */}
           {associatedModels.length > 0 && (
-            <section class="g-card p-5 sm:p-6 space-y-4">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+            <section id="models" class="g-card p-4 sm:p-5 space-y-3">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line-subtle pb-3">
                 <div>
-                  <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
-                    <span>📡</span>
-                    Hardware Routers Using {ipData.ip} Gateway
+                  <h2 class="text-base sm:text-lg font-bold text-ink">
+                    Routers using {ipData.ip}
                   </h2>
-                  <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+                  {hiddenModelCount > 0 && (
+                    <p class="text-sm text-ink-muted">
+                      Showing {associatedModels.length} of {allAssociated.length}.
+                      <a href={`${base}/routers`} class="text-accent font-semibold hover:underline"> Browse all models →</a>
+                    </p>
+                  )}
+                  <p class="text-sm text-ink-muted">
                     Verified factory default credentials and model specifications
                   </p>
                 </div>
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8] w-fit">
-                  {associatedModels.length} Models
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] w-fit">
+                  {allAssociated.length} Models
                 </span>
               </div>
-              <PasswordTable models={associatedModels} />
+              <Disclosure label={`Show all ${associatedModels.length} models`} collapsedHeight={420}>
+                <PasswordTable models={associatedModels} />
+              </Disclosure>
             </section>
           )}
 
-          <!-- Mid Ad Slot -->
-          <AdBanner format="horizontal" />
-
-          {/* Other Gateway IP Addresses Grid */}
-          <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
-              Other Popular Router Gateway IP Addresses
-            </h2>
-            <div class="flex flex-wrap gap-2">
-              {otherIps.map(item => (
-                <a 
-                  href={`${base}/${item.slug}`}
-                  class="g-chip font-mono text-[11px]"
-                >
-                  {item.ip}
-                </a>
-              ))}
-            </div>
-          </section>
         </article>
       );
     })()}
@@ -605,19 +700,19 @@ if (type === 'ip') {
         .slice(0, 12);
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumbs */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/brands`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Brands</a>
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{brandData.name}</span>
+            <span class="text-ink font-medium">{brandData.name}</span>
           </nav>
 
           {/* Hero Header Card */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+          <header class="g-card p-4 sm:p-5 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                 <BrandLogo slug={brandData.slug} name={brandData.name} size="lg" />
                 <div>
@@ -625,97 +720,40 @@ if (type === 'ip') {
                     <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
                     Verified Manufacturer Hub
                   </div>
-                  <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
+                  <h1 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
                     {brandData.name} Router Login & Default Passwords
                   </h1>
-                  <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                  <p class="text-sm sm:text-base text-ink-muted mt-1 max-w-2xl leading-relaxed">
                     {brandData.description}
                   </p>
                 </div>
               </div>
 
-              <div class="flex-shrink-0 flex items-center gap-2">
-                <a 
-                  href={`http://${brandPrimaryIp}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="g-btn-primary"
-                >
-                  <span>Open {brandPrimaryIp}</span>
-                  <span>↗</span>
-                </a>
-              </div>
+              {/* The Open action lives on the LoginCard below; a second one
+                  here only pushed the password further down the first screen. */}
             </div>
 
-            {/* Default Login Credentials Action Grid */}
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
-                    {brandIpSlug ? (
-                      <a href={`${base}/${brandIpSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
-                        {brandData.defaultIp}
-                      </a>
-                    ) : (
-                      brandData.defaultIp
-                    )}
-                  </div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={brandData.defaultIp}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
-                    {brandData.defaultUser || '(blank)'}
-                  </div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={brandData.defaultUser}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
-                    {brandData.defaultPass || '(blank)'}
-                  </div>
-                </div>
-                <button 
-                  type="button" 
-                  class="copy-btn g-copy-btn"
-                  data-copy={brandData.defaultPass}
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span>
-                </button>
-              </div>
-            </div>
+            {/* One row per value, one copy button per value. The block this
+                replaced put three gateway addresses in a single field behind
+                one Copy button, with nothing to say which it copied. */}
+            <LoginCard
+              gateways={splitGatewayValues(brandData.defaultIp)}
+              username={brandData.defaultUser}
+              password={brandData.defaultPass}
+              label={brandData.name}
+            />
           </header>
 
-          <AdBanner format="horizontal" />
+          <AdBanner format="horizontal" class="lg:hidden" />
 
           {/* Interactive Hardware Models Directory */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
+          <section id="models" class="g-card p-4 sm:p-5 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line-subtle pb-3">
               <div>
-                <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
-                  <span>📟</span>
-                  {brandData.name} Hardware Models Catalog
+                <h2 class="text-base sm:text-lg font-bold text-ink">
+                  {brandData.name} models
                 </h2>
-                <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+                <p class="text-sm text-ink-muted">
                   Select any model below to view technical specs, port configuration, and setup guide
                 </p>
               </div>
@@ -724,23 +762,21 @@ if (type === 'ip') {
               </span>
             </div>
 
-            <PasswordTable models={finalModels} brandName={brandData.name} brandSlug={brandData.slug} />
+            <Disclosure label={`Show all ${finalModels.length} models`} collapsedHeight={420}>
+              <PasswordTable models={finalModels} brandName={brandData.name} brandSlug={brandData.slug} />
+            </Disclosure>
           </section>
 
-          <!-- Mid Ad Slot -->
-          <AdBanner format="horizontal" />
-
           {/* Step-by-Step Configuration Guide */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
-              <span class="text-lg">📋</span>
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
-                How to Log In & Configure Your {brandData.name} Router
+          <section id="steps" class="g-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
+                How to log in to your {brandData.name} router
               </h2>
             </div>
             <ol class="space-y-3">
               {(brandData.guide || (brandData as any).instructions || []).map((step: string, idx: number) => (
-                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                   <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
                   </span>
@@ -751,8 +787,8 @@ if (type === 'ip') {
           </section>
 
           {/* Factory Reset Instructions */}
-          <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#fef7e0] dark:bg-[#332a00]/40 border border-[#fbbc04]/60 dark:border-[#fbbc04]/30 space-y-3">
-            <div class="flex items-center gap-2 text-[#b06000] dark:text-[#fdd663] font-bold text-sm sm:text-base">
+          <section class="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 space-y-3">
+            <div class="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-sm sm:text-base">
               <span>🔄</span>
               <span>How to Hard Reset {brandData.name} Router to Factory Defaults</span>
             </div>
@@ -761,26 +797,6 @@ if (type === 'ip') {
             </p>
           </section>
 
-          {/* Other Popular Brands Grid */}
-          <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
-              Other Popular Router Brands
-            </h2>
-            <div class="flex flex-wrap gap-2">
-              {otherBrands.map(b => (
-                <a 
-                  href={`${base}/${b.slug}`}
-                  class="g-chip inline-flex items-center gap-1.5"
-                >
-                  <BrandLogo slug={b.slug} name={b.name} size="xs" />
-                  {b.name}
-                </a>
-              ))}
-              <a href={`${base}/brands`} class="g-chip inline-flex items-center gap-1 font-bold text-[#1a73e8] dark:text-[#8ab4f8]">
-                All {BRANDS.length} brands →
-              </a>
-            </div>
-          </section>
         </article>
       );
     })()}
@@ -795,9 +811,9 @@ if (type === 'ip') {
       const siblingModels = ROUTER_MODELS.filter(m => m.brandSlug === model.brandSlug && m.slug !== model.slug).slice(0, 6);
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] flex-wrap" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted flex-wrap" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
             <a href={`${base}/routers`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Routers</a>
@@ -808,12 +824,12 @@ if (type === 'ip') {
               <span>{model.brand}</span>
             )}
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{model.model}</span>
+            <span class="text-ink font-medium">{model.model}</span>
           </nav>
 
           {/* Model Header Card */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+          <header class="g-card p-4 sm:p-5 space-y-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-line-subtle pb-4">
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2 flex-wrap mb-2.5">
                   {brandSlug ? (
@@ -822,25 +838,25 @@ if (type === 'ip') {
                       {model.brand}
                     </a>
                   ) : null}
-                  <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e8f0fe] dark:bg-[#1a3a60] text-[#1a73e8] dark:text-[#8ab4f8] border border-[#d2e3fc] dark:border-[#1a73e8]">
+                  <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-cyan-300 border border-blue-200 dark:border-blue-900/60">
                     {model.category}
                   </span>
                   {model.wifiStandard && (
-                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#fce8e6] dark:bg-[#4c1d1a] text-[#ea4335] dark:text-[#f28b82] border border-[#fad2cf] dark:border-[#ea4335]">
+                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-900/60">
                       {model.wifiStandard}
                     </span>
                   )}
                   {model.speedRating && (
-                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853]">
+                    <span class="px-3 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                       {model.speedRating}
                     </span>
                   )}
                 </div>
 
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink tracking-tight">
                   {model.brand} {model.model}
                 </h1>
-                <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-base text-ink-muted mt-1 max-w-2xl leading-relaxed">
                   {model.useCase}
                 </p>
                 <div class="mt-4">
@@ -861,12 +877,12 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {ipSlug ? (
-                      <a href={`${base}/${ipSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                      <a href={`${base}/${ipSlug}`} class="text-accent hover:underline">
                         {model.ip}
                       </a>
                     ) : (
@@ -883,10 +899,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Username</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Factory Username</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {model.username || '(blank)'}
                   </div>
                 </div>
@@ -899,10 +915,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Factory Password</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Factory Password</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">
                     {model.password || '(blank)'}
                   </div>
                 </div>
@@ -920,25 +936,24 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           {/* Technical Specifications Matrix */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center justify-between border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white flex items-center gap-2">
-                <span>⚙️</span>
-                Technical Hardware Specifications
+          <section id="specs" class="g-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center justify-between border-b border-line-subtle pb-3">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
+                Technical specifications
               </h2>
-              <span class="text-xs font-semibold text-[#5f6368] dark:text-[#9aa0a6]">
+              <span class="text-xs font-semibold text-ink-muted">
                 {model.series || `${model.brand} Hardware`}
               </span>
             </div>
 
-            <div class="overflow-x-auto rounded-2xl border border-[#e8eaed] dark:border-[#3c4043]">
+            <div class="overflow-x-auto rounded-2xl border border-line-subtle">
               <table class="w-full text-xs text-left">
                 <tbody class="divide-y divide-[#e8eaed] dark:divide-[#3c4043]">
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] w-1/3 bg-[#f8fafd] dark:bg-[#202124]">Manufacturer</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
+                    <th class="py-3 px-4 font-bold text-ink-muted w-1/3 bg-surface-sunken">Manufacturer</th>
+                    <td class="py-3 px-4 font-semibold text-ink">
                       {brandSlug ? (
-                        <a href={`${base}/${brandSlug}`} class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                        <a href={`${base}/${brandSlug}`} class="text-accent hover:underline">
                           {model.brand}
                         </a>
                       ) : (
@@ -947,88 +962,84 @@ if (type === 'ip') {
                     </td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Product Series</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.series || `${model.brand} Series`}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Product Series</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.series || `${model.brand} Series`}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Device Class / Category</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
-                      <span class="px-2.5 py-0.5 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#e8eaed] font-medium">
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Device Class / Category</th>
+                    <td class="py-3 px-4 font-semibold text-ink">
+                      <span class="px-2.5 py-0.5 rounded-full bg-surface-muted text-[#3c4043] dark:text-[#e8eaed] font-medium">
                         {model.category}
                       </span>
                     </td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Wireless Standard</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.wifiStandard || 'N/A (Wired Gateway)'}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Wireless Standard</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.wifiStandard || 'N/A (Wired Gateway)'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Speed Rating</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.speedRating || 'Gigabit Class'}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Speed Rating</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.speedRating || 'Gigabit Class'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Ethernet & Fiber Ports</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.ports}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Ethernet & Fiber Ports</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.ports}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Routing / Firewall Throughput</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.throughput || 'Full Line-Rate Gigabit'}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Routing / Firewall Throughput</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.throughput || 'Full Line-Rate Gigabit'}</td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Default Gateway URL</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">
-                      <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-[#1a73e8] dark:text-[#8ab4f8] hover:underline">
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Default Gateway URL</th>
+                    <td class="py-3 px-4 font-semibold text-ink">
+                      <a href={`http://${model.ip}`} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
                         {`http://${model.ip}`} ↗
                       </a>
                     </td>
                   </tr>
                   <tr class="hover:bg-[#f8fafd] dark:hover:bg-[#303134]/40">
-                    <th class="py-3 px-4 font-bold text-[#5f6368] dark:text-[#9aa0a6] bg-[#f8fafd] dark:bg-[#202124]">Operating System / Firmware</th>
-                    <td class="py-3 px-4 font-semibold text-[#202124] dark:text-white">{model.os || `${model.brand} Firmware`}</td>
+                    <th class="py-3 px-4 font-bold text-ink-muted bg-surface-sunken">Operating System / Firmware</th>
+                    <td class="py-3 px-4 font-semibold text-ink">{model.os || `${model.brand} Firmware`}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </section>
 
-          <!-- Mid Ad Slot -->
-          <AdBanner format="horizontal" />
-
           {/* Setup Walkthrough */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
-              <span class="text-lg">📖</span>
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
-                How to Log In & Set Up Your {model.brand} {model.model}
+          <section id="steps" class="g-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
+                How to log in to your {model.brand} {model.model}
               </h2>
             </div>
             <ol class="space-y-3">
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#1a73e8] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   1
                 </span>
                 <span class="pt-0.5 leading-relaxed">
                   <strong>Connect Your Device:</strong> Plug your PC into any LAN port on the <strong>{model.brand} {model.model}</strong> using an Ethernet cable, or connect to the default Wi-Fi SSID printed on the router label.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#34a853] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   2
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] font-mono text-xs font-bold text-[#1a73e8] dark:text-[#8ab4f8]">{`http://${model.ip}`}</code> into the address bar.
+                  <strong>Navigate to Gateway IP:</strong> Launch your web browser and enter <code class="px-1.5 py-0.5 rounded bg-white dark:bg-[#303134] border border-line font-mono text-xs font-bold text-blue-600 dark:text-cyan-400">{`http://${model.ip}`}</code> into the address bar.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#f9ab00] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   3
                 </span>
                 <span class="pt-0.5 leading-relaxed">
-                  <strong>Enter Factory Credentials:</strong> Enter username <strong class="font-mono text-[#202124] dark:text-white">"{model.username}"</strong> and password <strong class="font-mono text-[#202124] dark:text-white">"{model.password}"</strong>, then click Login.
+                  <strong>Enter Factory Credentials:</strong> Enter username <strong class="font-mono text-ink">"{model.username}"</strong> and password <strong class="font-mono text-ink">"{model.password}"</strong>, then click Login.
                 </span>
               </li>
-              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#ea4335] text-white font-bold flex items-center justify-center text-xs shadow-xs">
+              <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-xs">
                   4
                 </span>
                 <span class="pt-0.5 leading-relaxed">
@@ -1041,26 +1052,28 @@ if (type === 'ip') {
           {/* Sibling Hardware Models Interlink */}
           {siblingModels.length > 0 && (
             <section class="g-card p-4 sm:p-5 space-y-3">
-              <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
-                Related {model.brand} Hardware Models
+              <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
+                Related {model.brand} models
               </h2>
+              <Disclosure label={`Show all ${siblingModels.length} related models`} collapsedHeight={300}>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {siblingModels.map(s => (
                   <a 
                     href={`${base}/${s.slug}`}
-                    class="p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] border border-[#e8eaed] dark:border-[#3c4043] transition-colors block space-y-1.5"
+                    class="p-3.5 rounded-2xl bg-surface-sunken hover:bg-[#e8f0fe] dark:hover:bg-[#1a3a60] border border-line-subtle transition-colors block space-y-1.5"
                   >
                     <ModelImage model={s} compact class="mb-2" />
-                    <div class="text-xs font-bold text-[#202124] dark:text-white truncate">
+                    <div class="text-xs font-bold text-ink truncate">
                       {s.model}
                     </div>
-                    <div class="text-[11px] text-[#5f6368] dark:text-[#9aa0a6] flex items-center justify-between">
+                    <div class="text-[11px] text-ink-muted flex items-center justify-between">
                       <span class="truncate max-w-[120px]">{s.category}</span>
-                      <span class="font-mono text-[#1a73e8] dark:text-[#8ab4f8] font-bold">{s.ip}</span>
+                      <span class="font-mono text-accent font-bold">{s.ip}</span>
                     </div>
                   </a>
                 ))}
               </div>
+              </Disclosure>
             </section>
           )}
         </article>
@@ -1076,17 +1089,17 @@ if (type === 'ip') {
       const ispPrimaryIp = ispData.defaultIp.split('/')[0].trim();
 
       return (
-        <article class="space-y-6">
+        <article class="space-y-4">
           {/* Breadcrumb Navigation */}
-          <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6]" aria-label="Breadcrumb">
+          <nav class="flex items-center gap-1.5 text-xs text-ink-muted" aria-label="Breadcrumb">
             <a href={`${base}/`} class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors">Home</a>
             <span>/</span>
-            <span class="text-[#202124] dark:text-[#e8eaed] font-medium">{ispData.name}</span>
+            <span class="text-ink font-medium">{ispData.name}</span>
           </nav>
 
           {/* Hero Header Card */}
-          <header class="g-card p-5 sm:p-7 space-y-5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e8eaed] dark:border-[#3c4043] pb-4">
+          <header class="g-card p-4 sm:p-5 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
               <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                 <BrandLogo slug={ispData.slug} name={ispData.name} size="lg" />
                 <div>
@@ -1094,10 +1107,10 @@ if (type === 'ip') {
                     <span class="w-1.5 h-1.5 rounded-full bg-[#34a853]"></span>
                     Fiber Broadband Provider
                   </div>
-                  <h1 class="text-2xl sm:text-3xl font-bold text-[#202124] dark:text-white tracking-tight">
+                  <h1 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
                     {ispData.name} Router Login & Setup Guide
                   </h1>
-                  <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] mt-1 max-w-2xl leading-relaxed">
+                  <p class="text-sm sm:text-base text-ink-muted mt-1 max-w-2xl leading-relaxed">
                     {ispData.description}
                   </p>
                 </div>
@@ -1118,10 +1131,10 @@ if (type === 'ip') {
 
             {/* Default Login Credentials Action Grid */}
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Gateway IP</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultIp}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Gateway IP</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ispData.defaultIp}</div>
                 </div>
                 <button 
                   type="button" 
@@ -1132,10 +1145,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default User</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultUser}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default User</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ispData.defaultUser}</div>
                 </div>
                 <button 
                   type="button" 
@@ -1146,10 +1159,10 @@ if (type === 'ip') {
                 </button>
               </div>
 
-              <div class="bg-[#f8fafd] dark:bg-[#202124] rounded-2xl p-3.5 border border-[#e8eaed] dark:border-[#3c4043] flex items-center justify-between gap-3">
+              <div class="bg-surface-sunken rounded-2xl p-3.5 border border-line-subtle flex items-center justify-between gap-3">
                 <div class="min-w-0">
-                  <div class="text-xs uppercase font-bold text-[#5f6368] dark:text-[#9aa0a6] tracking-wider">Default Pass</div>
-                  <div class="text-sm font-mono font-bold text-[#202124] dark:text-white mt-0.5 break-words">{ispData.defaultPass}</div>
+                  <div class="text-xs uppercase font-bold text-ink-muted tracking-wider">Default Pass</div>
+                  <div class="text-sm font-mono font-bold text-ink mt-0.5 break-words">{ispData.defaultPass}</div>
                 </div>
                 <button 
                   type="button" 
@@ -1165,16 +1178,15 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           {/* Step-by-Step ONT Setup Guide */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
-            <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
-              <span class="text-lg">🛠️</span>
-              <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
-                Step-by-Step {ispData.name} ONT Setup Guide
+          <section id="steps" class="g-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
+              <h2 class="text-base sm:text-lg font-bold text-ink">
+                How to set up your {ispData.name} router
               </h2>
             </div>
             <ol class="space-y-3">
               {ispData.instructions.map((step, idx) => (
-                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-[#f8fafd] dark:bg-[#202124] border border-[#e8eaed] dark:border-[#3c4043]">
+                <li class="flex items-start gap-3.5 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] p-3.5 rounded-2xl bg-surface-sunken border border-line-subtle">
                   <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#34a853] text-white font-bold flex items-center justify-center text-xs shadow-xs">
                     {idx + 1}
                   </span>
@@ -1186,7 +1198,7 @@ if (type === 'ip') {
 
           {/* Other Fiber Broadband Providers Grid */}
           <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6]">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
               Other Fiber Broadband Providers
             </h2>
             <div class="flex flex-wrap gap-2">
@@ -1207,147 +1219,11 @@ if (type === 'ip') {
     {/* 2-Column Cross Linking Grid (Placed Before FAQ) */}
     <RelatedLinksGrid currentSlug={data.slug} />
 
-    {/* ========================================================= */}
-    {/* FAQ ACCORDION SECTION (STRICTLY JUST ABOVE FOOTER) */}
-    {/* ========================================================= */}
-    <section class="g-card p-5 sm:p-7 space-y-4">
-      <div class="flex items-center gap-2 border-b border-[#e8eaed] dark:border-[#3c4043] pb-3">
-        <span class="text-lg">❓</span>
-        <div>
-          <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
-            Frequently Asked Questions & Answers
-          </h2>
-          <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
-            Common troubleshooting solutions and login assistance
-          </p>
-        </div>
-      </div>
+    <FaqAccordion
+      title="Frequently asked questions"
+      faqs={pageFaqs}
+    />
 
-      <div class="space-y-3">
-        {type === 'ip' && (() => {
-          const ip = data as GatewayIp;
-          const faqsList = ip.faqs && ip.faqs.length > 0 ? ip.faqs : [
-            { question: `What is the default login for ${ip.ip}?`, answer: `The default username is typically "${ip.defaultUser}" and password is "${ip.defaultPass}".` },
-            { question: `Why is ${ip.ip} not loading in my browser?`, answer: `Make sure your device is directly connected to the router via Wi-Fi or Ethernet, and verify that mobile data or VPNs are turned off.` }
-          ];
-
-          return faqsList.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-
-        {type === 'brand' && (() => {
-          const brand = data as Brand;
-          const brandFaqs = [
-            {
-              question: `What is the default IP address for ${brand.name} routers?`,
-              answer: `Most ${brand.name} routers use ${brand.defaultIp} as their factory default gateway management address.`
-            },
-            {
-              question: `What is the factory default login password for ${brand.name}?`,
-              answer: `The standard factory username is "${brand.defaultUser}" and default password is "${brand.defaultPass}". Check your physical router label if these don't work.`
-            },
-            {
-              question: `How do I factory reset my ${brand.name} router if I forgot the password?`,
-              answer: `Press and hold the physical RESET pinhole button on the back of your ${brand.name} device with a paperclip for 10-15 seconds until all LED lights blink, restoring default credentials.`
-            }
-          ];
-
-          return brandFaqs.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-
-        {type === 'model' && (() => {
-          const model = data as RouterModel;
-          const modelFaqs = [
-            {
-              question: `What is the default login for ${model.brand} ${model.model}?`,
-              answer: `The default IP address is http://${model.ip}, default username is "${model.username}", and default password is "${model.password}".`
-            },
-            {
-              question: `What ports and speeds does ${model.brand} ${model.model} support?`,
-              answer: `The ${model.brand} ${model.model} is equipped with ${model.ports} with an overall speed rating of ${model.speedRating || 'Gigabit Class'}.`
-            },
-            {
-              question: `How do I reset my ${model.brand} ${model.model} to factory settings?`,
-              answer: `Press and hold the physical Reset button on the ${model.brand} ${model.model} for 10 to 15 seconds until the power LED blinks, resetting all settings to factory default.`
-            }
-          ];
-
-          return modelFaqs.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-
-        {type === 'isp' && (() => {
-          const isp = data as Isp;
-          const ispFaqs = [
-            {
-              question: `How do I log in to my ${isp.name} fiber router admin portal?`,
-              answer: `Connect to your ${isp.name} Wi-Fi network, navigate to http://${isp.defaultIp} in your browser, and enter username "${isp.defaultUser}" and password "${isp.defaultPass}".`
-            },
-            {
-              question: `What should I do if the LOS light on my ${isp.name} router is blinking red?`,
-              answer: `A blinking red LOS (Loss of Signal) light indicates an optical fiber cable disconnection or an ISP outage. Verify the thin yellow fiber cable is firmly seated, and contact ${isp.name} support if the issue persists.`
-            },
-            {
-              question: `How can I change my ${isp.name} Wi-Fi password and network name?`,
-              answer: `Log in to http://${isp.defaultIp}, go to Network/WLAN -> 2.4G/5G Settings, update the SSID and WPA Pre-Shared Key, then click Apply.`
-            }
-          ];
-
-          return ispFaqs.map(faq => (
-            <details class="group border border-[#dadce0] dark:border-[#3c4043] rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
-              <summary class="font-bold text-[#202124] dark:text-white cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
-                <span class="flex items-center gap-2">
-                  <span class="text-[#1a73e8] dark:text-[#8ab4f8] font-bold">Q.</span>
-                  {faq.question}
-                </span>
-                <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
-              </summary>
-              <p class="text-sm text-[#5f6368] dark:text-[#bdc1c6] mt-2.5 leading-relaxed border-t border-[#e8eaed] dark:border-[#3c4043] pt-2.5">
-                {faq.answer}
-              </p>
-            </details>
-          ));
-        })()}
-      </div>
-    </section>
-
-  </div>
+  </PageShell>
 </BaseLayout>
 

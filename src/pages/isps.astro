@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const letterChips = [...new Set(ISPS.map(isp => getIndexLetter(isp.name)))]
   .sort((a, b) => (a === '0-9' ? -1 : b === '0-9' ? 1 : a.localeCompare(b)))
   .map(letter => ({ value: letter, label: letter }));
-const title = "Broadband ISP Router Login Directory | 19216811.page";
+const title = "Broadband ISP Router Login Directory | RouterSync.com";
 const description = `Router and ONT login guides for ${ISPS.length} broadband providers, including JioFiber, Airtel, BSNL, AT&T, Xfinity and Verizon Fios. Default gateway IPs and admin usernames.`;
 const keywords = [
   "isp router login",
@@ -57,20 +57,20 @@ const schema = [
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
 
-    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium" aria-label="Breadcrumb">
+    <nav class="flex items-center gap-1.5 text-xs text-ink-muted font-medium" aria-label="Breadcrumb">
       <a href={`${base}/`} class="hover:text-slate-900 dark:hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <span class="text-[#202124] dark:text-[#e8eaed] font-semibold truncate">Broadband ISPs</span>
+      <span class="text-ink font-semibold truncate">Broadband ISPs</span>
     </nav>
 
     <header class="text-center max-w-xl mx-auto">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f3f4] dark:bg-[#303134] text-[#3c4043] dark:text-[#bdc1c6] text-[11px] font-bold uppercase mb-2 border border-[#dadce0] dark:border-[#5f6368]">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-muted text-ink-muted text-[11px] font-bold uppercase mb-2 border border-line">
         🌐 ISP Index
       </div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#202124] dark:text-white tracking-tight mb-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-ink tracking-tight mb-2">
         Broadband ISP Router Logins
       </h1>
-      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6]">
+      <p class="text-sm sm:text-base text-ink-muted">
         Login steps, gateway IPs and default usernames for the routers and fiber ONTs supplied by {ISPS.length} internet providers.
       </p>
     </header>
@@ -95,9 +95,9 @@ const schema = [
         ))}
       </div>
 
-      <p class="cf-empty text-center text-sm text-[#5f6368] dark:text-[#9aa0a6] py-10" hidden>
+      <p class="cf-empty text-center text-sm text-ink-muted py-10" hidden>
         No providers match that search.
-        <button type="button" class="cf-resetter text-[#1a73e8] dark:text-[#8ab4f8] font-semibold hover:underline cursor-pointer">Reset the filters</button>
+        <button type="button" class="cf-resetter text-accent font-semibold hover:underline cursor-pointer">Reset the filters</button>
       </p>
     </section>
 

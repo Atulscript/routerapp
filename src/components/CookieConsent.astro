@@ -9,32 +9,36 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   aria-labelledby="cookie-consent-title"
   aria-describedby="cookie-consent-text"
   hidden
-  class="fixed z-50 inset-x-3 bottom-[5.5rem] md:bottom-3 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:max-w-sm bg-white dark:bg-[#292a2d] text-[#202124] dark:text-[#e8eaed] rounded-2xl border border-[#dadce0] dark:border-[#5f6368] shadow-2xl p-4 sm:p-5"
+  class="fixed z-50 inset-x-0 bottom-[4.25rem] md:bottom-0 bg-surface text-ink border-t border-line shadow-2xl"
 >
-  <h2 id="cookie-consent-title" class="text-sm font-bold">Cookies on this site</h2>
-  <p id="cookie-consent-text" class="mt-1.5 text-sm leading-relaxed text-[#5f6368] dark:text-[#bdc1c6]">
-    We use cookies to show ads through Google AdSense and to measure how the site is used.
-    <a href={`${base}/privacy-policy`} class="font-medium text-[#1a73e8] dark:text-[#8ab4f8] underline underline-offset-2">Privacy policy</a>
-  </p>
-  <div class="mt-4 grid grid-cols-2 gap-2">
-    <button id="decline-cookies-btn" type="button" class="h-10 rounded-full text-sm font-medium bg-[#f1f3f4] dark:bg-[#3c4043] hover:bg-[#e8eaed] dark:hover:bg-[#4a4d51] transition-colors">
-      Necessary only
-    </button>
-    <button id="accept-cookies-btn" type="button" class="h-10 rounded-full text-sm font-medium bg-[#1a73e8] hover:bg-[#1557b0] text-white transition-colors">
-      Accept all
-    </button>
+  {/* A single row rather than a card. The card covered roughly a third of a
+      phone screen on pages whose answer is near the top. */}
+  <div class="max-w-6xl mx-auto px-4 py-2.5 flex flex-wrap items-center gap-x-4 gap-y-2">
+    <h2 id="cookie-consent-title" class="sr-only">Cookies on this site</h2>
+    <p id="cookie-consent-text" class="flex-1 min-w-[15rem] text-xs leading-snug text-ink-muted">
+      We use cookies to show ads through Google AdSense and to measure how the site is used.
+      <a href={`${base}/privacy-policy`} class="font-medium text-accent underline underline-offset-2">Privacy policy</a>
+    </p>
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <button id="decline-cookies-btn" type="button" class="h-8 px-3.5 rounded-full text-xs font-medium bg-surface-muted hover:bg-surface-raised transition-colors">
+        Necessary only
+      </button>
+      <button id="accept-cookies-btn" type="button" class="h-8 px-3.5 rounded-full text-xs font-medium bg-accent hover:bg-accent-hover text-white transition-colors">
+        Accept all
+      </button>
+    </div>
   </div>
 </div>
 
 <!-- Decide visibility before first paint, so the banner never pops in late -->
 <script is:inline>
   try {
-    if (!localStorage.getItem('cookie_consent_19216811')) document.getElementById('cookie-consent-banner').hidden = false;
+    if (!localStorage.getItem('cookie_consent_routersync')) document.getElementById('cookie-consent-banner').hidden = false;
   } catch (e) {}
 </script>
 
 <script>
-  const KEY = 'cookie_consent_19216811';
+  const KEY = 'cookie_consent_routersync';
   const banner = document.getElementById('cookie-consent-banner');
 
   let stored: string | null = null;
