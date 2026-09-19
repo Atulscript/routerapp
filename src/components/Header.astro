@@ -6,15 +6,19 @@ const { currentPath = '/' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const path = currentPath.replace(base, '') || '/';
 
-const navItems = [
-  { label: 'Home', href: `${base}/`, active: path === '/' },
-  { label: 'Brands', href: `${base}/brands`, active: path.startsWith('/brands') },
+/**
+ * Every category page the header used to link to directly. They keep their
+ * links, and so their internal link equity, but stop being the only way in.
+ */
+const browseItems = [
+  { label: 'Router brands', href: `${base}/brands`, active: path.startsWith('/brands') },
+  { label: 'Router models', href: `${base}/routers`, active: path.startsWith('/routers') },
   { label: 'Gateway IPs', href: `${base}/ip-addresses`, active: path.startsWith('/ip-addresses') },
-  { label: 'Router Models', href: `${base}/routers`, active: path.startsWith('/routers') },
-  { label: 'ISPs', href: `${base}/isps`, active: path.startsWith('/isps') },
-  { label: 'Default Passwords', short: 'Passwords', href: `${base}/default-passwords`, active: path.startsWith('/default-passwords') },
-  { label: 'Tools', href: `${base}/tools`, active: path.startsWith('/tools') },
+  { label: 'Internet providers', href: `${base}/isps`, active: path.startsWith('/isps') },
+  { label: 'Default passwords', href: `${base}/default-passwords`, active: path.startsWith('/default-passwords') },
 ];
+
+const browseActive = browseItems.some(item => item.active);
 ---
 
 <a href="#main-content" class="skip-link">Skip to content</a>
@@ -44,21 +48,54 @@ const navItems = [
       </span>
     </a>
 
-    <nav class="hidden xl:flex items-center gap-0.5 ml-2" aria-label="Main">
-      {/* The logo already links home, so the wide nav skips "Home" to stay on one line */}
-      {navItems.filter(item => item.label !== 'Home').map(item => (
-        <a
-          href={item.href}
-          aria-current={item.active ? 'page' : undefined}
-          class={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-            item.active
+    {/*
+      Five of the old top-level links were different doors into one room:
+      "what are my router's login details?". Visitors had to classify their own
+      problem into our taxonomy before they could start. They now live behind
+      Browse, so every link is still present and still crawled, but search leads.
+    */}
+    <nav class="hidden lg:flex items-center gap-0.5 ml-2" aria-label="Main">
+      <details class="browse relative">
+        <summary
+          class={`list-none cursor-pointer px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors flex items-center gap-1.5 ${
+            browseActive
               ? 'bg-accent-soft text-accent'
               : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
           }`}
         >
-          {item.short ?? item.label}
-        </a>
-      ))}
+          Browse
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="browse-menu absolute left-0 top-full mt-1.5 w-56 p-1.5 rounded-2xl bg-surface border border-line shadow-card-hover z-50">
+          {browseItems.map(item => (
+            <a
+              href={item.href}
+              aria-current={item.active ? 'page' : undefined}
+              class={`block px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
+                item.active
+                  ? 'bg-accent-soft text-accent'
+                  : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </details>
+
+      <a
+        href={`${base}/tools`}
+        aria-current={path.startsWith('/tools') ? 'page' : undefined}
+        class={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+          path.startsWith('/tools')
+            ? 'bg-accent-soft text-accent'
+            : 'text-[#3c4043] dark:text-[#e8eaed] hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'
+        }`}
+      >
+        Tools
+      </a>
     </nav>
 
     <div class="ml-auto flex items-center gap-1.5">
@@ -114,10 +151,10 @@ const navItems = [
     </div>
   </div>
 
-  <!-- Below xl: swipeable nav row, with a fade on the right edge hinting there is more -->
-  <nav class="hidden md:block xl:hidden relative border-t border-line-subtle" aria-label="Main">
+  <!-- Tablet range: swipeable row, with a fade on the right edge hinting there is more -->
+  <nav class="hidden md:block lg:hidden relative border-t border-line-subtle" aria-label="Main">
     <div class="max-w-6xl mx-auto flex items-center gap-1.5 px-4 sm:px-6 py-2 overflow-x-auto no-scrollbar scroll-px-4">
-      {navItems.map(item => (
+      {[...browseItems, { label: 'Tools', href: `${base}/tools`, active: path.startsWith('/tools') }].map(item => (
         <a
           href={item.href}
           aria-current={item.active ? 'page' : undefined}
@@ -270,4 +307,27 @@ const navItems = [
       syncThemeLabel();
     });
   })();
+</script>
+
+<style is:global>
+  /* The menu is a <details>, so it opens and closes without JS. */
+  .browse > summary { list-style: none; }
+  .browse > summary::-webkit-details-marker { display: none; }
+  .browse[open] > summary svg { transform: rotate(180deg); }
+  .browse > summary svg { transition: transform 0.15s ease; }
+</style>
+
+<script>
+  // Close the Browse menu on outside click or Escape, which <details> alone does not do.
+  document.addEventListener('click', event => {
+    for (const menu of document.querySelectorAll<HTMLDetailsElement>('details.browse[open]')) {
+      if (!menu.contains(event.target as Node)) menu.open = false;
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    for (const menu of document.querySelectorAll<HTMLDetailsElement>('details.browse[open]')) {
+      menu.open = false;
+    }
+  });
 </script>
