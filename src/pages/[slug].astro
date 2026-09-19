@@ -100,6 +100,23 @@ function buildJumpLinks(): { id: string; label: string }[] {
 }
 const jumpLinks = buildJumpLinks();
 
+/**
+ * Brand suggestions for the rail: up to 5 brands sharing this gateway IP, then
+ * the brands with the most models. Hoisted out of the render branch so the rail
+ * shows exactly the set the main column used to, and no internal link is lost.
+ */
+const railBrands = (() => {
+  if (type !== 'brand') return [];
+  const brandData = data as Brand;
+  const firstIp = (ip: string) => ip.split('/')[0].trim();
+  const byModels = getBrandsByPopularity();
+  const sameIp = byModels.filter(b => firstIp(b.defaultIp) === firstIp(brandData.defaultIp)).slice(0, 5);
+  const seen = new Set([brandKey(brandData.name)]);
+  return [...sameIp, ...byModels]
+    .filter(b => !seen.has(brandKey(b.name)) && seen.add(brandKey(b.name)))
+    .slice(0, 12);
+})();
+
 // Dynamic title, description, keywords, and schemas based on page type
 let pageTitle = "";
 let pageDescription = "";
@@ -497,7 +514,7 @@ if (type === 'ip') {
       {/* On desktop the ad lives beside the answer instead of above it. It
           replaces one of the in-column slots, so the count per page is
           unchanged; types not yet migrated keep their original placement. */}
-      {type === 'ip' && <AdBanner format="leaderboard" class="hidden lg:block" />}
+      {(type === 'ip' || type === 'brand') && <AdBanner format="leaderboard" class="hidden lg:block" />}
       <OnThisPage links={jumpLinks} />
 
       {type === 'ip' && (() => {
@@ -516,6 +533,20 @@ if (type === 'ip') {
           </section>
         );
       })()}
+
+      {type === 'brand' && (
+        <section class="g-card p-4 space-y-2.5">
+          <h2 class="text-[11px] font-bold uppercase tracking-wider text-ink-muted">Other brands</h2>
+          <div class="flex flex-wrap gap-1.5">
+            {railBrands.map(b => (
+              <a href={`${base}/${b.slug}`} class="g-chip inline-flex items-center gap-1.5">
+                <BrandLogo slug={b.slug} name={b.name} size="xs" />{b.name}
+              </a>
+            ))}
+            <a href={`${base}/brands`} class="g-chip font-bold text-accent">All {BRANDS.length} brands →</a>
+          </div>
+        </section>
+      )}
 
       </div>
 
@@ -790,15 +821,14 @@ if (type === 'ip') {
             </div>
           </header>
 
-          <AdBanner format="horizontal" />
+          <AdBanner format="horizontal" class="lg:hidden" />
 
           {/* Interactive Hardware Models Directory */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
+          <section id="models" class="g-card p-5 sm:p-6 space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line-subtle pb-3">
               <div>
-                <h2 class="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
-                  <span>📟</span>
-                  {brandData.name} Hardware Models Catalog
+                <h2 class="text-base sm:text-lg font-bold text-ink">
+                  {brandData.name} models
                 </h2>
                 <p class="text-sm text-ink-muted">
                   Select any model below to view technical specs, port configuration, and setup guide
@@ -809,18 +839,16 @@ if (type === 'ip') {
               </span>
             </div>
 
-            <PasswordTable models={finalModels} brandName={brandData.name} brandSlug={brandData.slug} />
+            <Disclosure label={`Show all ${finalModels.length} models`} collapsedHeight={560}>
+              <PasswordTable models={finalModels} brandName={brandData.name} brandSlug={brandData.slug} />
+            </Disclosure>
           </section>
 
-          <!-- Mid Ad Slot -->
-          <AdBanner format="horizontal" />
-
           {/* Step-by-Step Configuration Guide */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
+          <section id="steps" class="g-card p-5 sm:p-6 space-y-4">
             <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
-              <span class="text-lg">📋</span>
               <h2 class="text-base sm:text-lg font-bold text-ink">
-                How to Log In & Configure Your {brandData.name} Router
+                How to log in to your {brandData.name} router
               </h2>
             </div>
             <ol class="space-y-3">
@@ -846,26 +874,6 @@ if (type === 'ip') {
             </p>
           </section>
 
-          {/* Other Popular Brands Grid */}
-          <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
-              Other Popular Router Brands
-            </h2>
-            <div class="flex flex-wrap gap-2">
-              {otherBrands.map(b => (
-                <a 
-                  href={`${base}/${b.slug}`}
-                  class="g-chip inline-flex items-center gap-1.5"
-                >
-                  <BrandLogo slug={b.slug} name={b.name} size="xs" />
-                  {b.name}
-                </a>
-              ))}
-              <a href={`${base}/brands`} class="g-chip inline-flex items-center gap-1 font-bold text-accent">
-                All {BRANDS.length} brands →
-              </a>
-            </div>
-          </section>
         </article>
       );
     })()}
