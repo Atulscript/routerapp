@@ -6,6 +6,11 @@ import RelatedLinksGrid from '../components/RelatedLinksGrid.astro';
 import RouterChecker from '../components/RouterChecker.astro';
 import LoginStepper from '../components/LoginStepper.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import PageShell from '../layouts/PageShell.astro';
+import OnThisPage from '../components/OnThisPage.astro';
+import Disclosure from '../components/Disclosure.astro';
+import LoginCard from '../components/LoginCard.astro';
+import { splitGatewayValues } from '../lib/credentials';
 import BrandLogo from '../components/BrandLogo.astro';
 import ModelImage from '../components/ModelImage.astro';
 import { getAllSlugs, getBrandSlug, getIpSlug, getModelSlug, getModelsForIp, getModelsForBrand, getBrandsByPopularity, brandKey, formatModelTitle, GATEWAY_IPS, BRANDS, ISPS, ROUTER_MODELS } from '../lib/data-loader';
@@ -61,6 +66,39 @@ function buildFaqs(): { question: string; answer: string }[] {
   ];
 }
 const pageFaqs = buildFaqs();
+
+/** Rail jump links, naming only sections this page type actually renders. */
+function buildJumpLinks(): { id: string; label: string }[] {
+  if (type === 'ip') {
+    const ip = data as GatewayIp;
+    return [
+      { id: 'brands', label: `Brands using ${ip.ip}` },
+      { id: 'steps', label: 'How to log in' },
+      { id: 'models', label: 'Router models' },
+      { id: 'faq', label: 'Questions' },
+    ];
+  }
+  if (type === 'brand') {
+    const brand = data as Brand;
+    return [
+      { id: 'steps', label: 'How to log in' },
+      { id: 'models', label: `${brand.name} models` },
+      { id: 'faq', label: 'Questions' },
+    ];
+  }
+  if (type === 'model') {
+    return [
+      { id: 'steps', label: 'How to log in' },
+      { id: 'specs', label: 'Specifications' },
+      { id: 'faq', label: 'Questions' },
+    ];
+  }
+  return [
+    { id: 'steps', label: 'How to log in' },
+    { id: 'faq', label: 'Questions' },
+  ];
+}
+const jumpLinks = buildJumpLinks();
 
 // Dynamic title, description, keywords, and schemas based on page type
 let pageTitle = "";
@@ -454,7 +492,33 @@ if (type === 'ip') {
   canonical={currentCanonical}
   schema={schemas}
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+  <PageShell>
+    <div slot="rail">
+      {/* On desktop the ad lives beside the answer instead of above it. It
+          replaces one of the in-column slots, so the count per page is
+          unchanged; types not yet migrated keep their original placement. */}
+      {type === 'ip' && <AdBanner format="leaderboard" class="hidden lg:block" />}
+      <OnThisPage links={jumpLinks} />
+
+      {type === 'ip' && (() => {
+        const ipData = data as GatewayIp;
+        const otherIps = GATEWAY_IPS.filter(i => i.ip !== ipData.ip);
+        return (
+          <section class="g-card p-4 space-y-2.5">
+            <h2 class="text-[11px] font-bold uppercase tracking-wider text-ink-muted">
+              Other gateway addresses
+            </h2>
+            <div class="flex flex-wrap gap-1.5">
+              {otherIps.map(item => (
+                <a href={`${base}/${item.slug}`} class="g-chip font-mono text-[11px]">{item.ip}</a>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
+
+      </div>
+
 
     {/* ========================================================= */}
     {/* VIEW 1: GATEWAY IP PAGE */}
@@ -550,11 +614,11 @@ if (type === 'ip') {
             </div>
           </header>
 
-          <AdBanner format="horizontal" />
+          <AdBanner format="horizontal" class="lg:hidden" />
 
           {/* Which brands use this address */}
           {ipData.commonBrands.length > 0 && (
-            <section class="g-card p-4 sm:p-5 space-y-3">
+            <section id="brands" class="g-card p-4 sm:p-5 space-y-3">
               <h2 class="text-sm font-bold text-ink">
                 Brands that use {ipData.ip}
               </h2>
@@ -575,19 +639,18 @@ if (type === 'ip') {
           )}
 
           {/* Guide and live check sit side by side on wide screens */}
-          <div class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
+          <div id="steps" class="grid grid-cols-1 xl:grid-cols-5 gap-6 items-start">
             <LoginStepper ip={ipData.ip} user={ipData.defaultUser} pass={ipData.defaultPass} brandName={ipData.commonBrands[0]} class="xl:col-span-3" />
             <RouterChecker focusIp={ipData.ip} limit={8} class="xl:col-span-2" />
           </div>
 
           {/* Associated Router Models */}
           {associatedModels.length > 0 && (
-            <section class="g-card p-5 sm:p-6 space-y-4">
+            <section id="models" class="g-card p-5 sm:p-6 space-y-4">
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line-subtle pb-3">
                 <div>
-                  <h2 class="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
-                    <span>📡</span>
-                    Hardware Routers Using {ipData.ip} Gateway
+                  <h2 class="text-base sm:text-lg font-bold text-ink">
+                    Routers using {ipData.ip}
                   </h2>
                   <p class="text-sm text-ink-muted">
                     Verified factory default credentials and model specifications
@@ -597,29 +660,12 @@ if (type === 'ip') {
                   {associatedModels.length} Models
                 </span>
               </div>
-              <PasswordTable models={associatedModels} />
+              <Disclosure label={`Show all ${associatedModels.length} models`} collapsedHeight={560}>
+                <PasswordTable models={associatedModels} />
+              </Disclosure>
             </section>
           )}
 
-          <!-- Mid Ad Slot -->
-          <AdBanner format="horizontal" />
-
-          {/* Other Gateway IP Addresses Grid */}
-          <section class="g-card p-4 sm:p-5 space-y-3">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
-              Other Popular Router Gateway IP Addresses
-            </h2>
-            <div class="flex flex-wrap gap-2">
-              {otherIps.map(item => (
-                <a 
-                  href={`${base}/${item.slug}`}
-                  class="g-chip font-mono text-[11px]"
-                >
-                  {item.ip}
-                </a>
-              ))}
-            </div>
-          </section>
         </article>
       );
     })()}
@@ -1251,6 +1297,6 @@ if (type === 'ip') {
       faqs={pageFaqs}
     />
 
-  </div>
+  </PageShell>
 </BaseLayout>
 
