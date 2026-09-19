@@ -556,7 +556,13 @@ if (type === 'ip') {
     {/* ========================================================= */}
     {type === 'ip' && (() => {
       const ipData = data as GatewayIp;
-      const associatedModels = getModelsForIp(ipData.ip);
+      const allAssociated = getModelsForIp(ipData.ip);
+      // 192.168.1.1 alone matches 1,632 models, which is a 5MB page. Cap the
+      // in-page table and send people to /routers, which filters by gateway IP.
+      // The capped models stay linked from /routers and their brand pages.
+      const MODEL_CAP = 150;
+      const associatedModels = allAssociated.slice(0, MODEL_CAP);
+      const hiddenModelCount = allAssociated.length - associatedModels.length;
       const otherIps = GATEWAY_IPS.filter(i => i.ip !== ipData.ip);
 
       return (
@@ -650,15 +656,21 @@ if (type === 'ip') {
                   <h2 class="text-base sm:text-lg font-bold text-ink">
                     Routers using {ipData.ip}
                   </h2>
+                  {hiddenModelCount > 0 && (
+                    <p class="text-sm text-ink-muted">
+                      Showing {associatedModels.length} of {allAssociated.length}.
+                      <a href={`${base}/routers`} class="text-accent font-semibold hover:underline"> Browse all models →</a>
+                    </p>
+                  )}
                   <p class="text-sm text-ink-muted">
                     Verified factory default credentials and model specifications
                   </p>
                 </div>
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8] w-fit">
-                  {associatedModels.length} Models
+                  {allAssociated.length} Models
                 </span>
               </div>
-              <Disclosure label={`Show all ${associatedModels.length} models`} collapsedHeight={560}>
+              <Disclosure label={`Show all ${associatedModels.length} models`} collapsedHeight={420}>
                 <PasswordTable models={associatedModels} />
               </Disclosure>
             </section>
@@ -750,7 +762,7 @@ if (type === 'ip') {
               </span>
             </div>
 
-            <Disclosure label={`Show all ${finalModels.length} models`} collapsedHeight={560}>
+            <Disclosure label={`Show all ${finalModels.length} models`} collapsedHeight={420}>
               <PasswordTable models={finalModels} brandName={brandData.name} brandSlug={brandData.slug} />
             </Disclosure>
           </section>

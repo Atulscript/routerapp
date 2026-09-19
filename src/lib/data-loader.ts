@@ -25974,7 +25974,6 @@ GATEWAY_IPS.forEach(g => {
 
 export async function getAllSlugs() {
   const ipSlugs = GATEWAY_IPS
-    .filter(item => item.slug !== '192-168-1-1')
     .map(item => ({
       params: { slug: item.slug },
       props: { type: 'ip' as const, data: item }
@@ -26014,7 +26013,7 @@ export function getIpSlug(ip?: string | null): string | null {
   const clean = ip.trim();
   const found = GATEWAY_IPS.find(g => g.ip === clean);
   if (found) {
-    return found.ip === '192.168.1.1' ? '' : found.slug;
+    return found.slug;
   }
   return null;
 }

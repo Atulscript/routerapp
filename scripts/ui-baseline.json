@@ -3633,35 +3633,42 @@
       "h1": 1,
       "links": 63,
       "tableRows": 0,
-      "height": 9250
+      "height": 7106
     },
     "brand": {
       "adSlots": 2,
       "h1": 1,
-      "links": 166,
+      "links": 167,
       "tableRows": 102,
-      "height": 6047
+      "height": 5868
     },
     "ip": {
       "adSlots": 2,
       "h1": 1,
-      "links": 425,
-      "tableRows": 280,
-      "height": 7891
+      "links": 296,
+      "tableRows": 151,
+      "height": 7030
+    },
+    "ip-main": {
+      "adSlots": 2,
+      "h1": 1,
+      "links": 297,
+      "tableRows": 151,
+      "height": 7136
     },
     "isp": {
       "adSlots": 1,
       "h1": 1,
       "links": 140,
       "tableRows": 0,
-      "height": 6585
+      "height": 6658
     },
     "model": {
       "adSlots": 2,
       "h1": 1,
       "links": 67,
       "tableRows": 9,
-      "height": 6122
+      "height": 5950
     }
   }
 }

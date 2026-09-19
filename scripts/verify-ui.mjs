@@ -34,6 +34,7 @@ const SAMPLES = {
   '(home)': '',
   brand: 'tp-link',
   ip: '192-168-0-1',
+  'ip-main': '192-168-1-1',
   isp: 'jio',
   model: 'tp-link-archer-ax73',
 };
