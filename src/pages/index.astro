@@ -98,25 +98,25 @@ const schema = [
     <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
       
       <!-- RouterSync Network Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-[#1e293b] border border-blue-200 dark:border-blue-900/60 text-xs font-medium mb-5 shadow-2xs">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface border border-line text-xs font-medium mb-5 shadow-2xs">
         <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
         </span>
-        <span class="font-bold text-[#1e293b] dark:text-white">RouterSync Hardware & Gateway Database</span>
-        <span class="text-gray-300 dark:text-gray-600">|</span>
-        <span class="text-blue-600 dark:text-cyan-400 font-semibold">{ROUTER_MODELS.length} router models</span>
+        <span class="font-bold text-ink">RouterSync Hardware & Gateway Database</span>
+        <span class="text-line">|</span>
+        <span class="text-accent font-semibold">{ROUTER_MODELS.length} router models</span>
       </div>
 
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight mb-3 font-sans leading-tight">
-        Router<span class="text-blue-600 dark:text-cyan-400">Sync</span> Admin & <span class="text-blue-600 dark:text-cyan-400">Gateway Hub</span>
+        Router<span class="text-accent">Sync</span> Admin & <span class="text-accent">Gateway Hub</span>
       </h1>
       
       <p class="text-sm sm:text-base text-ink-muted max-w-2xl mx-auto mb-7 leading-relaxed">
         Find factory default passwords for {ROUTER_MODELS.length} router models, access <strong class="text-ink font-mono">192.168.1.1</strong> & <strong class="text-ink font-mono">192.168.0.1</strong> gateways, and run network diagnostics.
       </p>
 
-      <!-- Google Material 3 Hero Search Bar with Live Instant Autocomplete -->
+      <!-- Hero Search Bar with Live Instant Autocomplete -->
       <div class="relative max-w-xl mx-auto mb-7 text-left" id="hero-search-wrapper">
         <div class="g-search-bar px-4 py-3">
           <div class="text-ink-muted mr-3 flex items-center">
@@ -128,14 +128,14 @@ const schema = [
             type="text" 
             id="hero-search-input" 
             placeholder="Search any router model, brand, IP, or tool (e.g. Archer, Netgear, 192.168.1.1)..." 
-            class="w-full h-11 bg-transparent text-base sm:text-sm text-ink placeholder-[#5f6368] dark:placeholder-[#9aa0a6] outline-none font-medium"
+            class="w-full h-11 bg-transparent text-base sm:text-sm text-ink placeholder-ink-subtle outline-none font-medium"
             autocomplete="off"
             spellcheck="false"
           />
           <button 
             id="hero-search-clear" 
             type="button" 
-            class="hidden text-[#5f6368] hover:text-[#202124] dark:hover:text-white text-sm font-bold ml-2"
+            class="hidden text-ink-muted hover:text-ink text-sm font-bold ml-2"
           >
             ✕
           </button>
@@ -144,7 +144,7 @@ const schema = [
         <!-- Live Hero Search Results Dropdown -->
         <div 
           id="hero-search-results" 
-          class="absolute left-0 right-0 top-full mt-2 bg-surface rounded-2xl sm:rounded-3xl shadow-card-hover border border-line overflow-hidden hidden z-50 max-h-96 overflow-y-auto divide-y divide-[#f1f3f4] dark:divide-[#3c4043] custom-scrollbar animate-fade-in"
+          class="absolute left-0 right-0 top-full mt-2 bg-surface rounded-2xl sm:rounded-3xl shadow-card-hover border border-line overflow-hidden hidden z-50 max-h-96 overflow-y-auto divide-y divide-line-subtle custom-scrollbar animate-fade-in"
         >
           <div id="hero-results-list"></div>
         </div>
@@ -152,7 +152,7 @@ const schema = [
 
       <!-- Quick Search Chips -->
       <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs text-ink-muted mb-8">
-        <span class="font-medium mr-1 text-[11px] uppercase tracking-wider text-[#5f6368]">Popular:</span>
+        <span class="font-medium mr-1 text-[11px] uppercase tracking-wider text-ink-muted">Popular:</span>
         <button type="button" class="hero-chip g-chip text-[11px]" data-query="192.168.1.1">192.168.1.1</button>
         <button type="button" class="hero-chip g-chip text-[11px]" data-query="192.168.0.1">192.168.0.1</button>
         <button type="button" class="hero-chip g-chip text-[11px]" data-query="TP-Link">TP-Link</button>
@@ -174,7 +174,7 @@ const schema = [
           {GATEWAY_IPS.slice(0, 6).map((item, idx) => (
             <button 
               type="button" 
-              class={`gateway-tab px-3 py-1 rounded-full text-xs font-mono font-bold transition-all flex-shrink-0 cursor-pointer ${idx === 0 ? 'bg-accent-soft text-accent border border-[#d2e3fc] dark:border-[#1a73e8]' : 'bg-white dark:bg-[#303134] text-[#5f6368] dark:text-[#e8eaed] border border-line hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043]'}`}
+              class={`gateway-tab px-3 py-1 rounded-full text-xs font-mono font-bold transition-all flex-shrink-0 cursor-pointer ${idx === 0 ? 'bg-accent-soft text-accent border border-accent/30' : 'bg-surface text-ink-muted border border-line hover:bg-surface-muted'}`}
               data-ip={item.ip}
               data-user={item.defaultUser}
               data-pass={item.defaultPass}
@@ -192,8 +192,8 @@ const schema = [
         <div class="space-y-4">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-line-subtle pb-4">
             <div>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] border border-[#ceead6] dark:border-[#34a853] mb-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#34a853] animate-pulse"></span>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-ok-soft text-ok border border-ok/20 mb-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-ok animate-pulse"></span>
                 Active Gateway Control Panel
               </div>
               <div class="text-2xl sm:text-3xl font-mono font-bold text-ink tracking-tight" id="onebox-ip-display">
@@ -389,7 +389,7 @@ const schema = [
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#e6f4ea] dark:bg-[#133e24] text-[#34a853] dark:text-[#81c995] text-xs font-bold mb-1">
+          <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-ok-soft text-ok text-xs font-bold mb-1">
             🏷️ Hardware Manufacturers
           </div>
           <h2 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
@@ -445,30 +445,27 @@ const schema = [
     <RelatedLinksGrid currentSlug="192-168-1-1" />
 
     <!-- ========================================================= -->
-    <!-- 7. GOOGLE SEARCH STYLE FAQ ACCORDION (JUST ABOVE FOOTER) -->
+    <!-- 4. FAQ ACCORDION -->
     <!-- ========================================================= -->
-    <section class="g-card p-4 sm:p-5 space-y-3">
-      <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
-        <span class="text-lg">❓</span>
-        <div>
-          <h2 class="text-base sm:text-lg font-bold text-ink">
-            Frequently Asked Questions & Answers
-          </h2>
-          <p class="text-sm text-ink-muted">
-            Troubleshooting solutions for unreachable portals and forgotten credentials
-          </p>
-        </div>
+    <section class="space-y-4 max-w-3xl mx-auto pt-4 border-t border-line-subtle">
+      <div class="text-center space-y-1">
+        <h2 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
+          Frequently Asked Router Login Questions
+        </h2>
+        <p class="text-xs sm:text-sm text-ink-muted">
+          Quick troubleshooting steps for default gateway IP addresses and router admin panels
+        </p>
       </div>
 
       <div class="space-y-3">
         {currentIp.faqs.map(faq => (
-          <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+          <details class="group border border-line rounded-2xl p-4 open:bg-surface-sunken hover:border-line transition-colors">
             <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
               <span class="flex items-center gap-2">
                 <span class="text-accent font-bold">Q.</span>
                 {faq.question}
               </span>
-              <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+              <span class="text-ink-muted group-open:rotate-180 group-open:text-accent transition-transform text-xs flex-shrink-0 ml-2">▼</span>
             </summary>
             <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
               {faq.answer}
@@ -476,16 +473,16 @@ const schema = [
           </details>
         ))}
 
-        <details class="group border border-line rounded-2xl p-4 open:bg-[#f8fafd] dark:open:bg-[#303134]/50 hover:border-[#bdc1c6] dark:hover:border-[#5f6368] transition-colors">
+        <details class="group border border-line rounded-2xl p-4 open:bg-surface-sunken hover:border-line transition-colors">
           <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-xs sm:text-sm">
             <span class="flex items-center gap-2">
               <span class="text-accent font-bold">Q.</span>
               How do I change the DNS servers on 192.168.1.1 for faster speeds?
             </span>
-            <span class="text-[#9aa0a6] group-open:rotate-180 group-open:text-[#1a73e8] dark:group-open:text-[#8ab4f8] transition-transform text-xs flex-shrink-0 ml-2">▼</span>
+            <span class="text-ink-muted group-open:rotate-180 group-open:text-accent transition-transform text-xs flex-shrink-0 ml-2">▼</span>
           </summary>
           <p class="text-sm text-ink-muted mt-2.5 leading-relaxed border-t border-line-subtle pt-2.5">
-            In your router's <strong>DHCP / LAN Settings</strong>, set Primary DNS to <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-line font-bold text-accent">1.1.1.1</code> (Cloudflare) or <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-line font-bold text-accent">8.8.8.8</code> (Google), and Secondary DNS to <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-line font-bold text-accent">1.0.0.1</code> or <code class="font-mono bg-white dark:bg-[#202124] px-1.5 py-0.5 rounded border border-line font-bold text-accent">8.8.4.4</code>.
+            In your router's <strong>DHCP / LAN Settings</strong>, set Primary DNS to <code class="font-mono bg-surface-sunken px-1.5 py-0.5 rounded border border-line font-bold text-accent">1.1.1.1</code> (Cloudflare) or <code class="font-mono bg-surface-sunken px-1.5 py-0.5 rounded border border-line font-bold text-accent">8.8.8.8</code> (Google), and Secondary DNS to <code class="font-mono bg-surface-sunken px-1.5 py-0.5 rounded border border-line font-bold text-accent">1.0.0.1</code> or <code class="font-mono bg-surface-sunken px-1.5 py-0.5 rounded border border-line font-bold text-accent">8.8.4.4</code>.
           </p>
         </details>
       </div>
@@ -521,11 +518,11 @@ const schema = [
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => {
-        t.classList.remove('bg-[#e8f0fe]', 'dark:bg-[#1a3a60]', 'text-[#1a73e8]', 'dark:text-[#8ab4f8]', 'border-[#d2e3fc]', 'dark:border-[#1a73e8]');
-        t.classList.add('bg-white', 'dark:bg-[#303134]', 'text-[#5f6368]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
+        t.classList.remove('bg-accent-soft', 'text-accent', 'border-accent/30');
+        t.classList.add('bg-surface', 'text-ink-muted', 'border-line');
       });
-      tab.classList.remove('bg-white', 'dark:bg-[#303134]', 'text-[#5f6368]', 'dark:text-[#e8eaed]', 'border-[#dadce0]', 'dark:border-[#5f6368]');
-      tab.classList.add('bg-[#e8f0fe]', 'dark:bg-[#1a3a60]', 'text-[#1a73e8]', 'dark:text-[#8ab4f8]', 'border-[#d2e3fc]', 'dark:border-[#1a73e8]');
+      tab.classList.remove('bg-surface', 'text-ink-muted', 'border-line');
+      tab.classList.add('bg-accent-soft', 'text-accent', 'border-accent/30');
 
       const ip = tab.getAttribute('data-ip') || '192.168.1.1';
       const user = tab.getAttribute('data-user') || 'admin';
@@ -580,11 +577,11 @@ const schema = [
     if (heroList) {
       heroList.innerHTML = matches.length
         ? matches.map(item => `
-          <a href="${item.url}" class="flex items-center justify-between gap-3 px-4 py-3 hover:bg-[#f8fafd] dark:hover:bg-[#303134] transition-colors text-left group">
+          <a href="${item.url}" class="flex items-center justify-between gap-3 px-4 py-3 hover:bg-surface-sunken transition-colors text-left group">
             <span class="min-w-0">
-              <span class="flex items-center gap-2 text-sm font-medium text-ink group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8]">
+              <span class="flex items-center gap-2 text-sm font-medium text-ink group-hover:text-accent">
                 <span class="truncate">${escapeHtml(item.title)}</span>
-                <span class="flex-shrink-0 text-[11px] px-2 py-0.5 rounded-full bg-[#f1f3f4] dark:bg-[#3c4043] text-[#5f6368] dark:text-[#e8eaed]">${item.category}</span>
+                <span class="flex-shrink-0 text-[11px] px-2 py-0.5 rounded-full bg-surface-muted text-ink-muted">${item.category}</span>
               </span>
               <span class="block text-xs text-ink-muted truncate">${escapeHtml(item.subtitle)}</span>
             </span>

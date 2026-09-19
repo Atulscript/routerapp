@@ -96,8 +96,8 @@ export default {
       boxShadow: {
         '2xs': '0 1px 2px 0 rgba(60, 64, 67, 0.08)',
         'xs': '0 1px 3px 0 rgba(60, 64, 67, 0.12)',
-        'card': '0 1px 3px 0 rgba(60, 64, 67, 0.15), 0 1px 2px 0 rgba(60, 64, 67, 0.08)',
-        'card-hover': '0 4px 12px 0 rgba(60, 64, 67, 0.15), 0 1px 3px 0 rgba(60, 64, 67, 0.08)',
+        'card': '0 1px 2px 0 rgba(15, 23, 42, 0.06)',
+        'card-hover': '0 2px 8px 0 rgba(15, 23, 42, 0.10)',
         'google-search': '0 2px 5px 1px rgba(64,60,67,.16)',
         'google-search-hover': '0 2px 8px 1px rgba(64,60,67,.24)',
         'm3-1': '0 1px 3px 1px rgba(0, 0, 0, 0.08)',

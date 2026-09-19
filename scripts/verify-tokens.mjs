@@ -1,5 +1,5 @@
 /**
- * Asserts every colour token resolves to the exact value it replaced, in both themes.
+ * Asserts every colour token resolves to its declared value, in both themes.
  *
  * This exists because the obvious test does not work: screenshot hashing is
  * non-deterministic on these pages (ad iframes and load timing differ between
@@ -21,18 +21,18 @@ const SOURCE = 'dist/brands/index.html';
 const PROBE_DIR = 'dist/__tokencheck';
 
 const LIGHT = {
-  '--surface': '#ffffff', '--surface-sunken': '#f8fafd', '--surface-muted': '#f1f3f4',
-  '--surface-raised': '#e8eaed', '--ink': '#202124', '--ink-muted': '#5f6368',
-  '--ink-subtle': '#80868b', '--line': '#dadce0', '--line-subtle': '#e8eaed',
-  '--accent': '#1a73e8', '--accent-hover': '#1557b0', '--accent-soft': '#e8f0fe',
-  '--accent-ink': '#174ea6', '--ok': '#137333', '--ok-soft': '#e6f4ea',
+  '--surface': '#ffffff', '--surface-sunken': '#eef2f7', '--surface-muted': '#e6ecf4',
+  '--surface-raised': '#dae2ec', '--ink': '#0f172a', '--ink-muted': '#475569',
+  '--ink-subtle': '#64748b', '--line': '#cbd5e1', '--line-subtle': '#e2e8f0',
+  '--accent': '#1d4ed8', '--accent-hover': '#1e40af', '--accent-soft': '#e0eaff',
+  '--accent-ink': '#1e3a8a', '--ok': '#047857', '--ok-soft': '#d1fae5',
 };
 const DARK = {
-  '--surface': '#292a2d', '--surface-sunken': '#202124', '--surface-muted': '#303134',
-  '--surface-raised': '#3c4043', '--ink': '#e8eaed', '--ink-muted': '#9aa0a6',
-  '--ink-subtle': '#80868b', '--line': '#3c4043', '--line-subtle': '#3c4043',
-  '--accent': '#8ab4f8', '--accent-hover': '#aecbfa', '--accent-soft': '#1a3a60',
-  '--accent-ink': '#d2e3fc', '--ok': '#81c995',
+  '--surface': '#151f30', '--surface-sunken': '#0b1220', '--surface-muted': '#1d2a3f',
+  '--surface-raised': '#27364e', '--ink': '#e8eef8', '--ink-muted': '#94a3b8',
+  '--ink-subtle': '#64748b', '--line': '#27364e', '--line-subtle': '#1d2a3f',
+  '--accent': '#38bdf8', '--accent-hover': '#7dd3fc', '--accent-soft': '#0e2f4a',
+  '--accent-ink': '#bae6fd', '--ok': '#34d399',
 };
 
 if (!fs.existsSync(SOURCE)) {

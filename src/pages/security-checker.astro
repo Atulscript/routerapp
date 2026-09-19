@@ -163,24 +163,24 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10 font-sans">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium">
-      <a href={`${base}/`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+    <nav class="flex items-center gap-1.5 text-xs text-ink-muted font-medium">
+      <a href={`${base}/`} class="hover:text-accent transition-colors">Home</a>
       <span>/</span>
-      <a href={`${base}/tools`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Tools</a>
+      <a href={`${base}/tools`} class="hover:text-accent transition-colors">Tools</a>
       <span>/</span>
-      <span class="text-[#202124] dark:text-[#e8eaed] font-medium truncate">Router Security Audit</span>
+      <span class="text-ink font-medium truncate">Router Security Audit</span>
     </nav>
 
     <!-- Header -->
-    <header class="space-y-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold border border-indigo-200 dark:border-indigo-900/60 shadow-2xs">
+    <header class="space-y-3 border-b border-line pb-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-soft text-accent-ink text-xs font-bold border border-accent/20 shadow-2xs">
         <span>🛡️</span>
         10-Point Router Hardening Audit
       </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
         Router Security Audit & Scorecard
       </h1>
-      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed max-w-2xl">
+      <p class="text-sm sm:text-base text-ink-muted leading-relaxed max-w-2xl">
         Evaluate your router against real-world attack vectors. Answer 10 quick questions to calculate your wireless hardening score and view step-by-step remediation fixes.
       </p>
     </header>
@@ -214,23 +214,23 @@ const schema = [
 
     <!-- Interactive 10-Question Checklist -->
     <div class="space-y-4">
-      <h2 class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h2 class="text-xl sm:text-2xl font-bold text-ink tracking-tight">
         Interactive Security Checklist
       </h2>
 
       <div class="space-y-3">
         {auditQuestions.map((q, idx) => (
-          <div class="g-card p-5 space-y-3 border-l-4 border-l-blue-600 transition-all" data-question-id={q.id}>
+          <div class="g-card p-5 space-y-3 border-l-4 border-l-accent transition-all" data-question-id={q.id}>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div class="space-y-1 flex-1">
                 <div class="flex items-center gap-2">
-                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 uppercase tracking-wider">{q.category}</span>
-                  <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${q.severity === 'Critical' ? 'bg-red-100 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200' : (q.severity === 'High' ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200' : 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-cyan-300 border border-blue-200')}`}>
+                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-surface-sunken text-ink-muted uppercase tracking-wider">{q.category}</span>
+                  <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${q.severity === 'Critical' ? 'bg-red-100 dark:bg-red-950/60 text-red-700 dark:text-red-300 border border-red-200' : (q.severity === 'High' ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200' : 'bg-accent-soft text-accent-ink border border-accent/20')}`}>
                     {q.severity} ({q.points} pts)
                   </span>
                 </div>
-                <h3 class="text-base font-bold text-[#202124] dark:text-white">{q.title}</h3>
-                <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">{q.desc}</p>
+                <h3 class="text-base font-bold text-ink">{q.title}</h3>
+                <p class="text-xs sm:text-sm text-ink-muted leading-relaxed">{q.desc}</p>
               </div>
 
               <!-- Yes/No Radio Toggle Buttons -->
@@ -251,8 +251,8 @@ const schema = [
             </div>
 
             <!-- Remediation Step Accordion -->
-            <div class="remediation-box text-xs p-3 rounded-xl bg-gray-50 dark:bg-[#1e293b]/60 border border-gray-200 dark:border-gray-700 text-[#3c4043] dark:text-[#e8eaed] space-y-1">
-              <span class="font-bold text-blue-600 dark:text-cyan-400 flex items-center gap-1">
+            <div class="remediation-box text-xs p-3 rounded-xl bg-surface-sunken border border-line text-ink space-y-1">
+              <span class="font-bold text-accent flex items-center gap-1">
                 <span>🔧</span>
                 <span>How to Fix / Verify:</span>
               </span>
@@ -267,9 +267,9 @@ const schema = [
     <AdBanner slot="between-sections" format="horizontal" />
 
     <!-- Educational Guide Content -->
-    <div class="space-y-6 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] leading-relaxed g-card p-6 sm:p-8">
+    <div class="space-y-6 text-xs sm:text-sm text-ink leading-relaxed g-card p-6 sm:p-8">
       <section class="space-y-3">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+        <h2 class="text-base sm:text-lg font-bold text-ink">
           Why Securing Your Router is Your Home's Most Critical Defense
         </h2>
         <p>
@@ -293,14 +293,14 @@ const schema = [
 
   <style>
     input[type="radio"]:checked + .btn-yes {
-      background-color: #10b981;
+      background-color: var(--ok);
       color: white;
-      border-color: #059669;
+      border-color: var(--ok);
     }
     input[type="radio"]:not(:checked) + .btn-yes {
       background-color: transparent;
-      color: #64748b;
-      border-color: #cbd5e1;
+      color: var(--ink-subtle);
+      border-color: var(--line);
     }
     input[type="radio"]:checked + .btn-no {
       background-color: #ef4444;
@@ -309,8 +309,8 @@ const schema = [
     }
     input[type="radio"]:not(:checked) + .btn-no {
       background-color: transparent;
-      color: #64748b;
-      border-color: #cbd5e1;
+      color: var(--ink-subtle);
+      border-color: var(--line);
     }
   </style>
 

@@ -3,50 +3,55 @@
  * these back (bg-surface, text-ink, border-line), never a raw hex, so a rebrand
  * is a change to this file rather than to 46 others.
  *
- * The values here are identical to the literals they replaced, so introducing
- * them changed nothing on screen. That was deliberate: it made the migration
- * provable by comparison rather than by inspection.
+ * The palette is slate with a blue-to-cyan accent, taken from the RouterSync
+ * mark rather than from Google's. Two deliberate choices:
+ *
+ * - The canvas sits clearly below the card surface. The previous canvas was
+ *   #f8fafd against white cards, a difference too small to see, so sections
+ *   blurred into one another. Cards now read as objects on a surface.
+ * - Dark mode is a deep navy-slate rather than a neutral grey, matching the
+ *   #0f172a in the logo, and takes the cyan accent the mark already uses.
  */
 :root {
   --surface: #ffffff;
-  --surface-sunken: #f8fafd;
-  --surface-muted: #f1f3f4;
-  --surface-raised: #e8eaed;
+  --surface-sunken: #eef2f7;
+  --surface-muted: #e6ecf4;
+  --surface-raised: #dae2ec;
 
-  --ink: #202124;
-  --ink-muted: #5f6368;
-  --ink-subtle: #80868b;
+  --ink: #0f172a;
+  --ink-muted: #475569;
+  --ink-subtle: #64748b;
 
-  --line: #dadce0;
-  --line-subtle: #e8eaed;
+  --line: #cbd5e1;
+  --line-subtle: #e2e8f0;
 
-  --accent: #1a73e8;
-  --accent-hover: #1557b0;
-  --accent-soft: #e8f0fe;
-  --accent-ink: #174ea6;
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+  --accent-soft: #e0eaff;
+  --accent-ink: #1e3a8a;
 
-  --ok: #137333;
-  --ok-soft: #e6f4ea;
+  --ok: #047857;
+  --ok-soft: #d1fae5;
 }
 
 html.dark {
-  --surface: #292a2d;
-  --surface-sunken: #202124;
-  --surface-muted: #303134;
-  --surface-raised: #3c4043;
+  --surface: #151f30;
+  --surface-sunken: #0b1220;
+  --surface-muted: #1d2a3f;
+  --surface-raised: #27364e;
 
-  --ink: #e8eaed;
-  --ink-muted: #9aa0a6;
-  --ink-subtle: #80868b;
+  --ink: #e8eef8;
+  --ink-muted: #94a3b8;
+  --ink-subtle: #64748b;
 
-  --line: #3c4043;
-  --line-subtle: #3c4043;
+  --line: #27364e;
+  --line-subtle: #1d2a3f;
 
-  --accent: #8ab4f8;
-  --accent-hover: #aecbfa;
-  --accent-soft: #1a3a60;
-  --accent-ink: #d2e3fc;
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --accent-soft: #0e2f4a;
+  --accent-ink: #bae6fd;
 
-  --ok: #81c995;
-  --ok-soft: rgba(19, 115, 51, 0.2);
+  --ok: #34d399;
+  --ok-soft: rgba(5, 150, 105, 0.18);
 }

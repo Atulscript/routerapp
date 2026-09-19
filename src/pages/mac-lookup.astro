@@ -91,24 +91,24 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10 font-sans">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium">
-      <a href={`${base}/`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+    <nav class="flex items-center gap-1.5 text-xs text-ink-muted font-medium">
+      <a href={`${base}/`} class="hover:text-accent transition-colors">Home</a>
       <span>/</span>
-      <a href={`${base}/tools`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Tools</a>
+      <a href={`${base}/tools`} class="hover:text-accent transition-colors">Tools</a>
       <span>/</span>
-      <span class="text-[#202124] dark:text-[#e8eaed] font-medium truncate">MAC Address Lookup</span>
+      <span class="text-ink font-medium truncate">MAC Address Lookup</span>
     </nav>
 
     <!-- Header -->
-    <header class="space-y-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-cyan-300 text-xs font-bold border border-blue-200 dark:border-blue-900/60 shadow-2xs">
+    <header class="space-y-3 border-b border-line pb-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-soft text-accent-ink text-xs font-bold border border-accent/20 shadow-2xs">
         <span>🔍</span>
         IEEE OUI Hardware Directory
       </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
         MAC Address Vendor Lookup
       </h1>
-      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed max-w-2xl">
+      <p class="text-sm sm:text-base text-ink-muted leading-relaxed max-w-2xl">
         Identify the manufacturer of any device connected to your Wi-Fi network. Supports colons, hyphens, Cisco-style dots, or raw hexadecimal strings.
       </p>
     </header>
@@ -118,7 +118,7 @@ const schema = [
       
       <!-- Input Group -->
       <div class="space-y-2">
-        <label for="mac-input" class="block text-xs sm:text-sm font-bold text-[#202124] dark:text-white uppercase tracking-wider">
+        <label for="mac-input" class="block text-xs sm:text-sm font-bold text-ink uppercase tracking-wider">
           Enter MAC Address or 6-digit OUI Prefix:
         </label>
         <div class="relative flex items-center">
@@ -128,7 +128,7 @@ const schema = [
             placeholder="e.g. FC:EC:DA:11:22:33, 00-1A-2B, or DCA632"
             autocomplete="off"
             spellcheck="false"
-            class="w-full h-13 px-4 font-mono text-base sm:text-lg bg-[#f8fafd] dark:bg-[#1e293b] text-[#202124] dark:text-white border-2 border-[#dadce0] dark:border-[#475569] rounded-xl focus:border-blue-600 dark:focus:border-cyan-400 outline-none transition-all shadow-inner"
+            class="w-full h-13 px-4 font-mono text-base sm:text-lg bg-surface-sunken text-ink border-2 border-line rounded-xl focus:border-accent outline-none transition-all shadow-inner"
           />
           <button
             id="clear-btn"
@@ -138,14 +138,14 @@ const schema = [
             Clear
           </button>
         </div>
-        <p class="text-[11px] sm:text-xs text-[#5f6368] dark:text-[#9aa0a6]">
+        <p class="text-[11px] sm:text-xs text-ink-muted">
           Accepted formats: <code class="font-mono bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">XX:XX:XX:XX:XX:XX</code>, <code class="font-mono bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">XX-XX-XX-XX-XX-XX</code>, <code class="font-mono bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">XXXX.XXXX.XXXX</code>, or 6 hex characters.
         </p>
       </div>
 
       <!-- Quick Test Sample Chips -->
       <div class="space-y-2">
-        <span class="text-xs font-bold text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-wider">
+        <span class="text-xs font-bold text-ink-muted uppercase tracking-wider">
           Quick Test Popular Samples:
         </span>
         <div class="flex flex-wrap gap-2">
@@ -171,13 +171,13 @@ const schema = [
       </div>
 
       <!-- Result Card Display -->
-      <div id="result-box" class="hidden rounded-2xl border p-5 sm:p-6 space-y-4 transition-all">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-inherit pb-4">
+      <div id="result-box" class="hidden rounded-2xl border border-line p-5 sm:p-6 space-y-4 transition-all">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-4">
           <div>
             <span id="result-badge" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold mb-1"></span>
-            <h2 id="result-vendor" class="text-xl sm:text-2xl font-bold text-[#202124] dark:text-white tracking-tight"></h2>
+            <h2 id="result-vendor" class="text-xl sm:text-2xl font-bold text-ink tracking-tight"></h2>
           </div>
-          <div id="result-country-badge" class="hidden items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] bg-white dark:bg-gray-800 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+          <div id="result-country-badge" class="hidden items-center gap-1.5 text-xs text-ink-muted bg-surface px-3 py-1 rounded-full border border-line">
             <span>📍</span>
             <span id="result-country"></span>
           </div>
@@ -185,41 +185,41 @@ const schema = [
 
         <!-- Technical Specification Details Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div class="p-3.5 rounded-xl bg-white dark:bg-[#1e293b]/70 border border-inherit space-y-1">
-            <span class="text-gray-500 dark:text-gray-400 font-medium">IEEE 24-bit OUI Prefix</span>
-            <div id="result-oui" class="font-mono text-sm font-bold text-[#202124] dark:text-white"></div>
+          <div class="p-3.5 rounded-xl bg-surface-sunken border border-line space-y-1">
+            <span class="text-ink-muted font-medium">IEEE 24-bit OUI Prefix</span>
+            <div id="result-oui" class="font-mono text-sm font-bold text-ink"></div>
           </div>
-          <div class="p-3.5 rounded-xl bg-white dark:bg-[#1e293b]/70 border border-inherit space-y-1">
-            <span class="text-gray-500 dark:text-gray-400 font-medium">Hardware Category</span>
-            <div id="result-category" class="text-sm font-bold text-[#202124] dark:text-white"></div>
+          <div class="p-3.5 rounded-xl bg-surface-sunken border border-line space-y-1">
+            <span class="text-ink-muted font-medium">Hardware Category</span>
+            <div id="result-category" class="text-sm font-bold text-ink"></div>
           </div>
-          <div class="p-3.5 rounded-xl bg-white dark:bg-[#1e293b]/70 border border-inherit space-y-1">
-            <span class="text-gray-500 dark:text-gray-400 font-medium">Administration Type</span>
-            <div id="result-admin" class="text-sm font-bold text-[#202124] dark:text-white"></div>
+          <div class="p-3.5 rounded-xl bg-surface-sunken border border-line space-y-1">
+            <span class="text-ink-muted font-medium">Administration Type</span>
+            <div id="result-admin" class="text-sm font-bold text-ink"></div>
           </div>
-          <div class="p-3.5 rounded-xl bg-white dark:bg-[#1e293b]/70 border border-inherit space-y-1">
-            <span class="text-gray-500 dark:text-gray-400 font-medium">Transmission Type</span>
-            <div id="result-type" class="text-sm font-bold text-[#202124] dark:text-white"></div>
+          <div class="p-3.5 rounded-xl bg-surface-sunken border border-line space-y-1">
+            <span class="text-ink-muted font-medium">Transmission Type</span>
+            <div id="result-type" class="text-sm font-bold text-ink"></div>
           </div>
         </div>
 
         <!-- Copyable Formats -->
         <div class="space-y-2 pt-2">
-          <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          <span class="text-xs font-bold text-ink-muted uppercase tracking-wider">
             Standard Formatted Variants:
           </span>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 font-mono text-xs">
-            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700">
-              <span id="format-colon" class="truncate"></span>
-              <button type="button" class="copy-btn text-[11px] font-bold text-blue-600 dark:text-cyan-400 hover:underline" data-target="format-colon">Copy</button>
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line">
+              <span id="format-colon" class="truncate text-ink"></span>
+              <button type="button" class="copy-btn text-[11px] font-bold text-accent hover:underline" data-target="format-colon">Copy</button>
             </div>
-            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700">
-              <span id="format-hyphen" class="truncate"></span>
-              <button type="button" class="copy-btn text-[11px] font-bold text-blue-600 dark:text-cyan-400 hover:underline" data-target="format-hyphen">Copy</button>
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line">
+              <span id="format-hyphen" class="truncate text-ink"></span>
+              <button type="button" class="copy-btn text-[11px] font-bold text-accent hover:underline" data-target="format-hyphen">Copy</button>
             </div>
-            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white dark:bg-[#1e293b] border border-gray-200 dark:border-gray-700">
-              <span id="format-dot" class="truncate"></span>
-              <button type="button" class="copy-btn text-[11px] font-bold text-blue-600 dark:text-cyan-400 hover:underline" data-target="format-dot">Copy</button>
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-line">
+              <span id="format-dot" class="truncate text-ink"></span>
+              <button type="button" class="copy-btn text-[11px] font-bold text-accent hover:underline" data-target="format-dot">Copy</button>
             </div>
           </div>
         </div>
@@ -243,30 +243,30 @@ const schema = [
     <AdBanner slot="between-sections" format="horizontal" />
 
     <!-- Educational Guide Content -->
-    <div class="space-y-6 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] leading-relaxed g-card p-6 sm:p-8">
+    <div class="space-y-6 text-xs sm:text-sm text-ink leading-relaxed g-card p-6 sm:p-8">
       <section class="space-y-3">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+        <h2 class="text-base sm:text-lg font-bold text-ink">
           How to Find Unknown Devices Connected to Your Router
         </h2>
         <p>
           If you suspect a neighbor is using your Wi-Fi or you see unfamiliar entries in your router's wireless client table, looking up their MAC address is the fastest way to confirm their identity:
         </p>
         <ol class="list-decimal pl-5 space-y-2">
-          <li>Open your web browser and navigate to your router's default gateway (usually <a href={`${base}/`} class="text-blue-600 dark:text-cyan-400 font-bold underline font-mono">192.168.1.1</a> or <a href={`${base}/192-168-0-1`} class="text-blue-600 dark:text-cyan-400 font-bold underline font-mono">192.168.0.1</a>).</li>
-          <li>Log in using your admin credentials (or look up your router in our <a href={`${base}/default-passwords`} class="text-blue-600 dark:text-cyan-400 font-bold underline">Default Passwords Directory</a>).</li>
+          <li>Open your web browser and navigate to your router's default gateway (usually <a href={`${base}/`} class="text-accent font-bold underline font-mono">192.168.1.1</a> or <a href={`${base}/192-168-0-1`} class="text-accent font-bold underline font-mono">192.168.0.1</a>).</li>
+          <li>Log in using your admin credentials (or look up your router in our <a href={`${base}/default-passwords`} class="text-accent font-bold underline">Default Passwords Directory</a>).</li>
           <li>Find the page labeled <strong>DHCP Client Table</strong>, <strong>Attached Devices</strong>, or <strong>Wireless Station List</strong>.</li>
           <li>Copy the 12-character MAC address of the mystery device and paste it into the lookup box above.</li>
         </ol>
       </section>
 
-      <section class="space-y-3 pt-4 border-t border-[#e8eaed] dark:border-[#3c4043]">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+      <section class="space-y-3 pt-4 border-t border-line">
+        <h2 class="text-base sm:text-lg font-bold text-ink">
           Understanding the Anatomy of a MAC Address
         </h2>
-        <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 font-mono text-center text-xs sm:text-sm border border-gray-200 dark:border-gray-700">
-          <span class="text-blue-600 dark:text-cyan-400 font-bold">FC : EC : DA</span> : <span class="text-emerald-600 dark:text-emerald-400 font-bold">11 : 22 : 33</span>
+        <div class="p-4 rounded-xl bg-surface-sunken font-mono text-center text-xs sm:text-sm border border-line">
+          <span class="text-accent font-bold">FC : EC : DA</span> : <span class="text-emerald-600 dark:text-emerald-400 font-bold">11 : 22 : 33</span>
           <div class="grid grid-cols-2 gap-4 mt-2 text-[11px] font-sans">
-            <span class="text-blue-600 dark:text-cyan-400 font-medium">&uarr; OUI (Manufacturer ID)</span>
+            <span class="text-accent font-medium">&uarr; OUI (Manufacturer ID)</span>
             <span class="text-emerald-600 dark:text-emerald-400 font-medium">&uarr; Device NIC Serial</span>
           </div>
         </div>

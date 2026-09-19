@@ -97,24 +97,24 @@ const schema = [
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10 font-sans">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-1.5 text-xs text-[#5f6368] dark:text-[#9aa0a6] font-medium">
-      <a href={`${base}/`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+    <nav class="flex items-center gap-1.5 text-xs text-ink-muted font-medium">
+      <a href={`${base}/`} class="hover:text-accent transition-colors">Home</a>
       <span>/</span>
-      <a href={`${base}/tools`} class="hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">Tools</a>
+      <a href={`${base}/tools`} class="hover:text-accent transition-colors">Tools</a>
       <span>/</span>
-      <span class="text-[#202124] dark:text-[#e8eaed] font-medium truncate">Download Time Calculator</span>
+      <span class="text-ink font-medium truncate">Download Time Calculator</span>
     </nav>
 
     <!-- Header -->
-    <header class="space-y-3 border-b border-[#e8eaed] dark:border-[#3c4043] pb-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-200 dark:border-emerald-900/60 shadow-2xs">
+    <header class="space-y-3 border-b border-line pb-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-soft text-accent-ink text-xs font-bold border border-accent/20 shadow-2xs">
         <span>⏱️</span>
         File Transfer & Bandwidth Time Estimator
       </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
         Download Time Calculator
       </h1>
-      <p class="text-sm sm:text-base text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed max-w-2xl">
+      <p class="text-sm sm:text-base text-ink-muted leading-relaxed max-w-2xl">
         Calculate the exact time required to download or upload games, 4K video, backups, and operating system installers based on your internet connection speed.
       </p>
     </header>
@@ -126,7 +126,7 @@ const schema = [
         
         <!-- File Size Column -->
         <div class="space-y-3">
-          <label for="file-size" class="block text-xs sm:text-sm font-bold text-[#202124] dark:text-white uppercase tracking-wider">
+          <label for="file-size" class="block text-xs sm:text-sm font-bold text-ink uppercase tracking-wider">
             File / Game Size:
           </label>
           <div class="flex gap-2">
@@ -136,11 +136,11 @@ const schema = [
               value="50"
               min="0.1"
               step="any"
-              class="w-full h-12 px-3 font-mono text-base font-bold bg-[#f8fafd] dark:bg-[#1e293b] text-[#202124] dark:text-white border-2 border-[#dadce0] dark:border-[#475569] rounded-xl focus:border-blue-600 outline-none"
+              class="w-full h-12 px-3 font-mono text-base font-bold bg-surface-sunken text-ink border-2 border-line rounded-xl focus:border-accent outline-none"
             />
             <select
               id="file-unit"
-              class="h-12 px-3 rounded-xl bg-[#f8fafd] dark:bg-[#1e293b] border-2 border-[#dadce0] dark:border-[#475569] font-bold text-xs text-[#202124] dark:text-white outline-none focus:border-blue-600"
+              class="h-12 px-3 rounded-xl bg-surface-sunken border-2 border-line font-bold text-xs text-ink outline-none focus:border-accent"
             >
               <option value="MB">MB</option>
               <option value="GB" selected>GB</option>
@@ -150,14 +150,14 @@ const schema = [
 
           <!-- Quick File Presets -->
           <div class="space-y-1.5 pt-1">
-            <span class="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase">Popular Presets:</span>
+            <span class="text-[11px] font-bold text-ink-muted uppercase">Popular Presets:</span>
             <div class="flex flex-wrap gap-1.5">
               {popularPresets.map(p => (
                 <button
                   type="button"
                   data-size={p.size}
                   data-unit={p.unit}
-                  class="preset-file-btn px-2 py-1 rounded-lg text-xs bg-gray-100 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 transition-all flex items-center gap-1"
+                  class="preset-file-btn px-2 py-1 rounded-lg text-xs bg-surface-sunken hover:bg-accent-soft hover:text-accent-ink text-ink-muted border border-line transition-all flex items-center gap-1"
                 >
                   <span>{p.icon}</span>
                   <span>{p.label}</span>
@@ -169,7 +169,7 @@ const schema = [
 
         <!-- Connection Speed Column -->
         <div class="space-y-3">
-          <label for="speed-val" class="block text-xs sm:text-sm font-bold text-[#202124] dark:text-white uppercase tracking-wider">
+          <label for="speed-val" class="block text-xs sm:text-sm font-bold text-ink uppercase tracking-wider">
             Internet Connection Speed:
           </label>
           <div class="flex gap-2">
@@ -179,11 +179,11 @@ const schema = [
               value="100"
               min="1"
               step="any"
-              class="w-full h-12 px-3 font-mono text-base font-bold bg-[#f8fafd] dark:bg-[#1e293b] text-[#202124] dark:text-white border-2 border-[#dadce0] dark:border-[#475569] rounded-xl focus:border-blue-600 outline-none"
+              class="w-full h-12 px-3 font-mono text-base font-bold bg-surface-sunken text-ink border-2 border-line rounded-xl focus:border-accent outline-none"
             />
             <select
               id="speed-unit"
-              class="h-12 px-3 rounded-xl bg-[#f8fafd] dark:bg-[#1e293b] border-2 border-[#dadce0] dark:border-[#475569] font-bold text-xs text-[#202124] dark:text-white outline-none focus:border-blue-600"
+              class="h-12 px-3 rounded-xl bg-surface-sunken border-2 border-line font-bold text-xs text-ink outline-none focus:border-accent"
             >
               <option value="Kbps">Kbps</option>
               <option value="Mbps" selected>Mbps</option>
@@ -193,13 +193,13 @@ const schema = [
 
           <!-- Quick Speed Presets -->
           <div class="space-y-1.5 pt-1">
-            <span class="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase">Common Broadband Speeds:</span>
+            <span class="text-[11px] font-bold text-ink-muted uppercase">Common Broadband Speeds:</span>
             <div class="flex flex-wrap gap-1.5">
               {speedPresets.map(s => (
                 <button
                   type="button"
                   data-speed={s.speed}
-                  class="preset-speed-btn px-2 py-1 rounded-lg text-xs bg-gray-100 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 transition-all font-mono"
+                  class="preset-speed-btn px-2 py-1 rounded-lg text-xs bg-surface-sunken hover:bg-accent-soft hover:text-accent-ink text-ink-muted border border-line transition-all font-mono"
                 >
                   {s.label}
                 </button>
@@ -211,10 +211,10 @@ const schema = [
       </div>
 
       <!-- Protocol Overhead Slider -->
-      <div class="p-4 rounded-xl bg-gray-50 dark:bg-[#1e293b]/60 border border-gray-200 dark:border-gray-700 space-y-2">
+      <div class="p-4 rounded-xl bg-surface-sunken border border-line space-y-2">
         <div class="flex items-center justify-between text-xs">
-          <span class="font-bold text-[#202124] dark:text-white">Real-world TCP/IP Protocol Overhead:</span>
-          <span id="overhead-label" class="font-mono font-bold text-blue-600 dark:text-cyan-400">10% (Realistic Broadband)</span>
+          <span class="font-bold text-ink">Real-world TCP/IP Protocol Overhead:</span>
+          <span id="overhead-label" class="font-mono font-bold text-accent">10% (Realistic Broadband)</span>
         </div>
         <input
           type="range"
@@ -222,9 +222,9 @@ const schema = [
           min="0"
           max="25"
           value="10"
-          class="w-full accent-blue-600 dark:accent-cyan-400 cursor-pointer"
+          class="w-full accent-accent cursor-pointer"
         />
-        <p class="text-[11px] text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
+        <p class="text-[11px] text-ink-muted leading-relaxed">
           Accounts for packet headers, TCP acknowledgments, and wireless signal variance. Set to 0% for theoretical wire speed.
         </p>
       </div>
@@ -266,19 +266,19 @@ const schema = [
 
     <!-- Comparative Matrix Table -->
     <div class="g-card p-6 sm:p-8 space-y-4">
-      <h2 class="text-lg sm:text-xl font-bold text-[#202124] dark:text-white tracking-tight">
+      <h2 class="text-lg sm:text-xl font-bold text-ink tracking-tight">
         How Fast Would This File Download on Other Plans?
       </h2>
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse font-sans">
           <thead>
-            <tr class="border-b border-[#dadce0] dark:border-[#3c4043] bg-gray-50 dark:bg-gray-800/50">
-              <th class="p-3 font-bold text-[#202124] dark:text-white">Broadband Plan</th>
-              <th class="p-3 font-bold text-[#202124] dark:text-white">Effective Speed (MB/s)</th>
-              <th class="p-3 font-bold text-[#202124] dark:text-white">Download Time</th>
+            <tr class="border-b border-line bg-surface-sunken">
+              <th class="p-3 font-bold text-ink">Broadband Plan</th>
+              <th class="p-3 font-bold text-ink">Effective Speed (MB/s)</th>
+              <th class="p-3 font-bold text-ink">Download Time</th>
             </tr>
           </thead>
-          <tbody id="matrix-tbody" class="divide-y divide-[#e8eaed] dark:divide-[#3c4043]">
+          <tbody id="matrix-tbody" class="divide-y divide-line-subtle">
           </tbody>
         </table>
       </div>
@@ -288,9 +288,9 @@ const schema = [
     <AdBanner slot="between-sections" format="horizontal" />
 
     <!-- Educational Guide Content -->
-    <div class="space-y-6 text-xs sm:text-sm text-[#3c4043] dark:text-[#e8eaed] leading-relaxed g-card p-6 sm:p-8">
+    <div class="space-y-6 text-xs sm:text-sm text-ink leading-relaxed g-card p-6 sm:p-8">
       <section class="space-y-3">
-        <h2 class="text-base sm:text-lg font-bold text-[#202124] dark:text-white">
+        <h2 class="text-base sm:text-lg font-bold text-ink">
           Why Does 100 Mbps Only Download at 12.5 MB/s? (Bits vs Bytes Explained)
         </h2>
         <p>
@@ -395,11 +395,11 @@ const schema = [
         str += `${m}m ${s}s`;
 
         const row = document.createElement('tr');
-        row.className = 'hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors';
+        row.className = 'hover:bg-surface-muted transition-colors';
         row.innerHTML = `
-          <td class="p-3 font-bold text-[#202124] dark:text-white font-mono">${spd >= 1000 ? (spd/1000) + ' Gbps' : spd + ' Mbps'}</td>
-          <td class="p-3 text-gray-500 dark:text-gray-400 font-mono">${rate.toFixed(2)} MB/s</td>
-          <td class="p-3 font-bold text-blue-600 dark:text-cyan-400">${str}</td>
+          <td class="p-3 font-bold text-ink font-mono">${spd >= 1000 ? (spd/1000) + ' Gbps' : spd + ' Mbps'}</td>
+          <td class="p-3 text-ink-muted font-mono">${rate.toFixed(2)} MB/s</td>
+          <td class="p-3 font-bold text-accent">${str}</td>
         `;
         matrixTbody.appendChild(row);
       });
