@@ -514,7 +514,7 @@ if (type === 'ip') {
       {/* On desktop the ad lives beside the answer instead of above it. It
           replaces one of the in-column slots, so the count per page is
           unchanged; types not yet migrated keep their original placement. */}
-      {(type === 'ip' || type === 'brand') && <AdBanner format="leaderboard" class="hidden lg:block" />}
+      {type !== 'isp' && <AdBanner format="leaderboard" class="hidden lg:block" />}
       <OnThisPage links={jumpLinks} />
 
       {type === 'ip' && (() => {
@@ -1013,11 +1013,10 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           {/* Technical Specifications Matrix */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
+          <section id="specs" class="g-card p-5 sm:p-6 space-y-4">
             <div class="flex items-center justify-between border-b border-line-subtle pb-3">
-              <h2 class="text-base sm:text-lg font-bold text-ink flex items-center gap-2">
-                <span>⚙️</span>
-                Technical Hardware Specifications
+              <h2 class="text-base sm:text-lg font-bold text-ink">
+                Technical specifications
               </h2>
               <span class="text-xs font-semibold text-ink-muted">
                 {model.series || `${model.brand} Hardware`}
@@ -1084,15 +1083,11 @@ if (type === 'ip') {
             </div>
           </section>
 
-          <!-- Mid Ad Slot -->
-          <AdBanner format="horizontal" />
-
           {/* Setup Walkthrough */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
+          <section id="steps" class="g-card p-5 sm:p-6 space-y-4">
             <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
-              <span class="text-lg">📖</span>
               <h2 class="text-base sm:text-lg font-bold text-ink">
-                How to Log In & Set Up Your {model.brand} {model.model}
+                How to log in to your {model.brand} {model.model}
               </h2>
             </div>
             <ol class="space-y-3">
@@ -1135,8 +1130,9 @@ if (type === 'ip') {
           {siblingModels.length > 0 && (
             <section class="g-card p-4 sm:p-5 space-y-3">
               <h2 class="text-xs font-bold uppercase tracking-wider text-ink-muted">
-                Related {model.brand} Hardware Models
+                Related {model.brand} models
               </h2>
+              <Disclosure label={`Show all ${siblingModels.length} related models`} collapsedHeight={300}>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {siblingModels.map(s => (
                   <a 
@@ -1154,6 +1150,7 @@ if (type === 'ip') {
                   </a>
                 ))}
               </div>
+              </Disclosure>
             </section>
           )}
         </article>
@@ -1258,11 +1255,10 @@ if (type === 'ip') {
           <AdBanner format="horizontal" />
 
           {/* Step-by-Step ONT Setup Guide */}
-          <section class="g-card p-5 sm:p-6 space-y-4">
+          <section id="steps" class="g-card p-5 sm:p-6 space-y-4">
             <div class="flex items-center gap-2 border-b border-line-subtle pb-3">
-              <span class="text-lg">🛠️</span>
               <h2 class="text-base sm:text-lg font-bold text-ink">
-                Step-by-Step {ispData.name} ONT Setup Guide
+                How to set up your {ispData.name} router
               </h2>
             </div>
             <ol class="space-y-3">
