@@ -18,15 +18,15 @@ const photo = getModelPhoto(slug);
   <img
     src={photo.url}
     alt=""
-    width="44"
-    height="32"
+    width="32"
+    height="24"
     loading="lazy"
     decoding="async"
-    class={`w-11 h-8 object-contain rounded-lg bg-white border border-[#e8eaed] dark:border-[#5f6368] flex-shrink-0 ${className}`}
+    class={`w-8 h-6 object-contain rounded-lg bg-white border border-[#e8eaed] dark:border-[#5f6368] flex-shrink-0 ${className}`}
   />
 ) : (
   <span
-    class={`w-11 h-8 rounded-lg bg-surface-muted border border-[#e8eaed] dark:border-[#5f6368] text-ink-muted flex items-center justify-center flex-shrink-0 ${className}`}
+    class={`w-8 h-6 rounded-md bg-surface-muted border border-[#e8eaed] dark:border-[#5f6368] text-ink-muted flex items-center justify-center flex-shrink-0 ${className}`}
     role="img"
     aria-label={`${name} (no photo available)`}
   >

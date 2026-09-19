@@ -123,7 +123,11 @@
 
   /* Copy button next to credentials; the global handler in BaseLayout swaps in "Copied" */
   .g-copy-btn {
-    @apply flex-shrink-0 inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full text-sm font-medium bg-surface border border-line text-accent hover:bg-accent-soft active:scale-95 transition cursor-pointer whitespace-nowrap;
+    @apply flex-shrink-0 inline-flex items-center justify-center gap-1.5 h-8 w-8 rounded-full text-sm font-medium bg-surface border border-line text-accent hover:bg-accent-soft active:scale-95 transition cursor-pointer whitespace-nowrap;
+  }
+  /* Buttons that keep a visible label sit outside tables and need the padding back. */
+  .g-copy-btn:not(:has(.sr-only)) {
+    @apply w-auto h-9 px-3.5;
   }
 
   /* 40px round icon button: comfortably above the 24px WCAG 2.5.8 minimum target */

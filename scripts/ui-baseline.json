@@ -3633,42 +3633,42 @@
       "h1": 1,
       "links": 63,
       "tableRows": 0,
-      "height": 7106
+      "height": 7062
     },
     "brand": {
       "adSlots": 2,
       "h1": 1,
       "links": 167,
       "tableRows": 102,
-      "height": 5868
+      "height": 5866
     },
     "ip": {
       "adSlots": 2,
       "h1": 1,
       "links": 296,
       "tableRows": 151,
-      "height": 7030
+      "height": 6968
     },
     "ip-main": {
       "adSlots": 2,
       "h1": 1,
-      "links": 297,
+      "links": 296,
       "tableRows": 151,
-      "height": 7136
+      "height": 7074
     },
     "isp": {
       "adSlots": 1,
       "h1": 1,
       "links": 140,
       "tableRows": 0,
-      "height": 6658
+      "height": 6792
     },
     "model": {
       "adSlots": 2,
       "h1": 1,
       "links": 67,
       "tableRows": 9,
-      "height": 5950
+      "height": 6085
     }
   }
 }
